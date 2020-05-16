@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{49D5FE85-7356-43C6-B542-743C69F08B52}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>ClasesBLL</RootNamespace>
+    <AssemblyName>ClasesBLL</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>ClasesBLL.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ClasesBLL.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>Librerias\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DAL">
+      <HintPath>..\SysContab\bin\DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="DBConnect 2003">
+      <HintPath>..\SysContab\bin\DBConnect 2003.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FirmaXadesNet">
+      <HintPath>Librerias\FirmaXadesNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xades">
+      <HintPath>Librerias\Microsoft.Xades.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Connectivity, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\net45\Plugin.Connectivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.2.0\lib\net45\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Amortizaciones.vb" />
+    <Compile Include="AmortizacionesDetalle.vb" />
+    <Compile Include="AmortizacionesPlantilla.vb" />
+    <Compile Include="AnticiposClientes.vb" />
+    <Compile Include="AnticiposClientesDetalle.vb" />
+    <Compile Include="Articulos_Fabricantes.vb" />
+    <Compile Include="atv\ClasesJson.vb" />
+    <Compile Include="atv\Comunicacion.vb" />
+    <Compile Include="atv\FacturaXML.vb" />
+    <Compile Include="atv\Funciones.vb" />
+    <Compile Include="atv\Globales.vb" />
+    <Compile Include="atv\WaitForm.Designer.vb">
+      <DependentUpon>WaitForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="atv\WaitForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BancosCK.vb" />
+    <Compile Include="CatalogoAmortizacion.vb" />
+    <Compile Include="cl_Comunes.vb" />
+    <Compile Include="cl_Coneccion.vb" />
+    <Compile Include="cl_Red.vb" />
+    <Compile Include="Combos.vb" />
+    <Compile Include="db_Amortizaciones.vb" />
+    <Compile Include="db_AmortizacionesDetalle.vb" />
+    <Compile Include="db_AmortizacionesPlantilla.vb" />
+    <Compile Include="db_AnticiposClientes.vb" />
+    <Compile Include="db_AnticiposClientesDetalle.vb" />
+    <Compile Include="db_Articulos_Fabricantes.vb" />
+    <Compile Include="db_BancosCK.vb" />
+    <Compile Include="db_CatalogoAmortizacion.vb" />
+    <Compile Include="db_Combos.vb" />
+    <Compile Include="db_Depositos.vb" />
+    <Compile Include="db_DeslizamientoMoneda.vb" />
+    <Compile Include="db_FacturasElectronicasAceptadas.vb" />
+    <Compile Include="db_FACTURAS_BOLSA.vb" />
+    <Compile Include="db_MaestroNotasCD.vb" />
+    <Compile Include="db_OrdenesEntrega.vb" />
+    <Compile Include="db_OrdenesEntregaDetalle.vb" />
+    <Compile Include="db_OrdenesTrabajo.vb" />
+    <Compile Include="db_OrdenesTrabajoDetalle.vb" />
+    <Compile Include="db_Prod_ProduccionDevoluciones.vb" />
+    <Compile Include="db_Remisiones.vb" />
+    <Compile Include="db_RemisionesDetalle.vb" />
+    <Compile Include="db_requisas.vb" />
+    <Compile Include="db_TasaCambio.vb" />
+    <Compile Include="db_TipoNotasCD.vb" />
+    <Compile Include="Depositos.vb" />
+    <Compile Include="atv\Factura_ElectronicaCR.vb" />
+    <Compile Include="FacturasElectronicasAceptadas.vb" />
+    <Compile Include="FACTURAS_BOLSA.vb" />
+    <Compile Include="fn.vb" />
+    <Compile Include="GlobalesBLL.vb" />
+    <Compile Include="atv\IDP_FacturaElectronica.vb" />
+    <Compile Include="atv\IDP_FacturaElectronicaToken.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="OrdenesEntrega.vb" />
+    <Compile Include="OrdenesEntregaDetalle.vb" />
+    <Compile Include="OrdenesTrabajo.vb" />
+    <Compile Include="OrdenesTrabajoDetalle.vb" />
+    <Compile Include="Prod_ProduccionDevoluciones.vb" />
+    <Compile Include="Remisiones.vb" />
+    <Compile Include="RemisionesDetalle.vb" />
+    <Compile Include="rptOrdenEntrega.Designer.vb">
+      <DependentUpon>rptOrdenEntrega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="rptOrdenEntrega.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TipoNotasCD.vb" />
+    <Compile Include="atv\ws_Json.vb" />
+    <Compile Include="ws_Zoho.vb" />
+    <Compile Include="Zoho\ZohoAPI.vb" />
+    <Compile Include="Zoho\db_ZohoToken.vb" />
+    <Compile Include="Zoho\TokenZoho.vb" />
+    <Compile Include="Zoho\ZohoToken.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="atv\WaitForm.resx">
+      <DependentUpon>WaitForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptOrdenEntrega.resx">
+      <DependentUpon>rptOrdenEntrega.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaciendaApi\HaciendaApi.csproj">
+      <Project>{71b93ebd-cce9-4849-bf73-aaf60f439085}</Project>
+      <Name>HaciendaApi</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,917 @@
+﻿Imports System.IO
+Imports System.Data
+Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+Imports DevExpress.XtraSplashScreen
+
+Module funciones
+
+    Enum Tiempos
+        TiempoInicio
+        TiempoFin
+    End Enum
+
+    Enum Eventos
+        Inicia
+        Guarda
+        Error1
+        Anula
+        Salir
+    End Enum
+
+    Public Function ProcedureSave(ByVal Parametros As ArrayList, ByVal Variables As ArrayList, ByVal Procedimiento As String) As Boolean
+        Dim DC As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+        Dim Command As New SqlCommand(Procedimiento, DC)
+        Dim DT As New DataTable
+        Command.CommandType = CommandType.StoredProcedure
+        Dim Parametro(Parametros.Count) As SqlParameter
+        For i As Integer = 0 To Parametros.Count - 1
+            Parametro(i) = New SqlParameter("@" & Variables(i).ToString, TipoDatos(Parametros(i).GetType))
+            Parametro(i).Value = Parametros(i)
+            Command.Parameters.Add(Parametro(i))
+        Next
+        Try
+            DC.Open()
+            Command.ExecuteNonQuery()
+            Return True
+        Catch ex As Exception
+            XtraMsg("Error :" & ex.Message, MessageBoxIcon.Error)
+            Return False
+        Finally
+            DC.Close()
+        End Try
+    End Function
+
+    Public Function GetChequeDb(ByVal Periodo As Integer, ByVal Comprobante As Integer, ByVal Fecha As DateTime, ByVal ValorLetra As String) As DataTable
+        Dim DT As New DataTable
+        Dim DC As New SqlCommand("SpCreaCheque")
+        Dim Con As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+        Dim PPer As New SqlParameter("@PerId", SqlDbType.Int)
+        Dim PComp As New SqlParameter("@CompNo", SqlDbType.Int)
+        Dim PEmp As New SqlParameter("@Empresa", SqlDbType.Int)
+        Dim PFecha As New SqlParameter("@Fecha", SqlDbType.SmallDateTime)
+        Dim PValor As New SqlParameter("@Letras", SqlDbType.NVarChar, 250)
+        Dim PUsuario As New SqlParameter("@Usuario", SqlDbType.NVarChar, 250)
+
+        PPer.Value = Periodo
+        PComp.Value = Comprobante
+        PFecha.Value = Fecha
+        PEmp.Value = EmpresaActual
+        PValor.Value = ValorLetra
+        PUsuario.Value = Login
+
+        DC.CommandType = CommandType.StoredProcedure
+        DC.Connection = Con
+        DC.Parameters.Add(PPer)
+        DC.Parameters.Add(PComp)
+        DC.Parameters.Add(PFecha)
+        DC.Parameters.Add(PEmp)
+        DC.Parameters.Add(PValor)
+        DC.Parameters.Add(PUsuario)
+
+        Dim DA As New SqlDataAdapter(DC)
+        DA.Fill(DT)
+        Return DT
+    End Function
+
+    Public Sub SetTiempos(ByVal Modulo As OrigenComprobantes, ByVal Tiempo As Tiempos, ByVal Hora As DateTime, _
+    ByVal Evento As Eventos, Optional ByVal Documento As String = vbNullString)
+        Dim Con As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+        Dim Comando As New SqlCommand("SPGuardaAuditTiempos", Con)
+        Comando.CommandType = CommandType.StoredProcedure
+        Dim P1 As New SqlParameter("@IdModulo", SqlDbType.Int)
+        P1.Value = Modulo
+        Dim P2 As New SqlParameter("@Empresa", SqlDbType.Int)
+        P2.Value = EmpresaActual
+        Dim P3 As New SqlParameter("@NoDocumento", SqlDbType.NVarChar, 20)
+        P3.Value = Documento
+        Dim P4 As New SqlParameter("@Hora", SqlDbType.DateTime)
+        P4.Value = Hora.ToString
+        Dim P5 As New SqlParameter("@IdAccion", SqlDbType.Int)
+        P5.Value = Evento
+        Comando.Parameters.Add(P1)
+        Comando.Parameters.Add(P2)
+        Comando.Parameters.Add(P3)
+        Comando.Parameters.Add(P4)
+        Comando.Parameters.Add(P5)
+
+        Try
+            Con.Open()
+            Comando.ExecuteNonQuery()
+        Catch ex As Exception
+            'Debug.WriteLine(ex.Message)
+        Finally
+            Con.Close()
+        End Try
+    End Sub
+
+    Public Function ObtieneDatos(ByVal StrSQL As String) As DataTable
+        Dim DC As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+        Dim DA As New SqlDataAdapter(StrSQL, DC)
+        Dim DS As New DataTable
+        DA.SelectCommand.CommandTimeout = 0
+        DA.Fill(DS)
+        Return DS
+    End Function
+
+    Public Sub LimpiarControles(ByRef Forma As Form)
+        'For Each Con As Control In Forma.Controls
+        '    If TypeOf Con Is TextBox Then Con.Text = vbNullString
+        '    If TypeOf Con Is ComboBox Then CType(Con, ComboBox).SelectedIndex = -1
+        'Next
+        For Each Con As Control In Forma.Controls
+            If Con.HasChildren Then
+                For Each Cont As Control In Con.Controls
+                    If TypeOf Cont Is TextBox Then Cont.Text = vbNullString
+                    If TypeOf Cont Is DevExpress.XtraEditors.TextEdit Then Cont.Text = vbNullString
+                    If TypeOf Cont Is DevExpress.XtraEditors.LookUpEdit Then Cont.Text = vbNullString
+                    'If TypeOf Con Is ComboBox Then CType(Con, ComboBox).SelectedIndex = 0
+                Next
+            End If
+            If TypeOf Con Is TextBox Then Con.Text = vbNullString
+            If TypeOf Con Is DevExpress.XtraEditors.TextEdit Then Con.Text = vbNullString
+            If TypeOf Con Is DevExpress.XtraEditors.LookUpEdit Then Con.Text = vbNullString
+            'If TypeOf Con Is ComboBox Then CType(Con, ComboBox).SelectedIndex = 0
+        Next
+    End Sub
+
+    Public Function GuardaDatos(ByVal StrSQL As String, Optional ByVal Transaccion As Boolean = False) As Boolean
+        Dim DC As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+        Try
+            'Debug.WriteLine(StrSQL)
+            Dim DCom As New SqlCommand(StrSQL, DC)
+            DC.Open()
+            DCom.CommandTimeout = 0
+            DCom.ExecuteNonQuery()
+            Return True
+        Catch ex As Exception
+            XtraMsg(ex.Message, MessageBoxIcon.Error)
+            Return False
+        Finally
+            DC.Close()
+        End Try
+    End Function
+
+    Public Function GuardaDatosTrans(ByVal StrSQL As String) As Boolean
+
+        Try
+            'Debug.WriteLine(StrSQL)
+            Dim DCom As New SqlCommand(StrSQL, DBConnFacturas)
+            DCom.Connection = DBConnFacturas
+            DCom.Transaction = transaccionFacturas
+            DCom.CommandTimeout = 0
+            DCom.ExecuteNonQuery()
+            Return True
+        Catch ex As Exception
+            XtraMsg(ex.Message & vbCrLf & _
+                    StrSQL, MessageBoxIcon.Error)
+            Return False
+        End Try
+    End Function
+
+    Public Function ProcedureParameters(ByVal Parametros As ArrayList, ByVal Variables As ArrayList, _
+                                        ByVal Procedimiento As String) As DataTable
+
+        Dim DC As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+        Dim Command As New SqlCommand(Procedimiento, DC)
+        Dim DT As New DataTable
+        Command.CommandType = CommandType.StoredProcedure
+        If Not Parametros Is Nothing Then
+            Dim Parametro(Parametros.Count) As SqlParameter
+            For i As Integer = 0 To Parametros.Count - 1
+                Parametro(i) = New SqlParameter("@" & Variables(i).ToString, TipoDatos(Parametros(i).GetType))
+                Parametro(i).Value = Parametros(i)
+                Command.Parameters.Add(Parametro(i))
+            Next
+        End If
+        Try
+            DC.Open()
+            Dim DA As New SqlDataAdapter(Command)
+            DA.SelectCommand.CommandTimeout = 0
+            DA.Fill(DT)
+        Catch ex As Exception
+            MsgBox("Error :" & ex.Message, MsgBoxStyle.Critical)
+            Throw New Exception
+        Finally
+            DC.Close()
+        End Try
+        Return DT
+    End Function
+
+    Function TipoDatos(ByVal Value As Type) As SqlDbType
+        Select Case Value.Name
+            Case "String" : Return SqlDbType.NVarChar
+            Case "Int32" : Return SqlDbType.Int
+            Case "Double" : Return SqlDbType.Money
+            Case "Decimal" : Return SqlDbType.Money
+            Case "DateTime" : Return SqlDbType.SmallDateTime
+        End Select
+    End Function
+
+    Public Sub EliminaDistribucion(ByVal Comprobante As Integer, ByVal Periodo As Integer, ByVal Mes As Integer, Optional Trans As Boolean = False)
+        Try
+            If Not Trans Then
+                GuardaDatos("DELETE FROM Distribucion WHERE IdEmpresa = " & EmpresaActual & " AND NoComp = " & Comprobante & " AND Mes = " & Mes & " AND Per_Id = " & Periodo)
+            Else
+                GuardaDatosTrans("DELETE FROM Distribucion WHERE IdEmpresa = " & EmpresaActual & " AND NoComp = " & Comprobante & " AND Mes = " & Mes & " AND Per_Id = " & Periodo)
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+    ''
+    Public Sub EliminaDistribucionTrans(ByVal Comprobante As Integer, ByVal Periodo As Integer, ByVal Mes As Integer)
+        Try
+            GuardaDatosTrans("DELETE FROM Distribucion WHERE IdEmpresa = " & EmpresaActual & " AND NoComp = " & Comprobante & " AND Mes = " & Mes & " AND Per_Id = " & Periodo)
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Public Sub GuardaDistribucionTrans(ByVal DT_Distribucion As DataTable, ByVal Fecha As Date, Optional ByVal Comprobante As String = vbNullString)
+        Dim i As Integer
+        Dim DT_F As DataTable
+        DT_F = DT_Distribucion.GetChanges(DataRowState.Deleted)
+        If Not DT_F Is Nothing Then
+            For i = 0 To DT_F.Rows.Count - 1
+                With DT_F
+                    If DT_F.Rows(i).RowState = DataRowState.Deleted Then
+                        Dim Fila As DataRow = DT_F.Rows(i)
+                        GuardaDatosTrans("DELETE FROM Distribucion WHERE IdDetalle = " & Fila("IdDetalle", DataRowVersion.Original))
+                    End If
+                End With
+            Next
+        End If
+        If Not DT_F Is Nothing Then DT_F.Clear()
+        DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified)
+        If Not DT_F Is Nothing Then
+            For i = 0 To DT_F.Rows.Count - 1
+                With DT_F
+                    If DT_F.Rows(i).RowState = DataRowState.Added Then
+                        GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " & _
+                        " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & "," & Fecha.Month & "," & _
+                        VB.SysContab.PeriodosDB.Activo(Fecha.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+                    ElseIf DT_F.Rows(i).RowState = DataRowState.Modified Then
+                        GuardaDatosTrans("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & ",Mes=" & Fecha.Month & "," & _
+                        "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Fecha.Date) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," & _
+                        "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
+                    End If
+                End With
+            Next
+        End If
+    End Sub
+
+    Public Function CargaDistribucionTrans(ByVal Mes As Integer, ByVal Comprobante As String, ByVal Periodo As Integer) As DataTable
+        Return ObtieneDatosTrans("SELECT * FROM Distribucion WHERE Mes = " & Mes & " AND NoComp = '" & Comprobante & "' AND IdEmpresa = " & EmpresaActual & " AND Per_Id = " & Periodo)
+    End Function
+
+    Public Sub GuardaDistribucion(ByVal DT_Distribucion As DataTable, ByVal Fecha As Date, Optional ByVal Comprobante As String = vbNullString)
+        Dim i As Integer
+        Dim DT_F As DataTable
+        DT_F = DT_Distribucion.GetChanges(DataRowState.Deleted)
+        If Not DT_F Is Nothing Then
+            For i = 0 To DT_F.Rows.Count - 1
+                With DT_F
+                    If DT_F.Rows(i).RowState = DataRowState.Deleted Then
+                        Dim Fila As DataRow = DT_F.Rows(i)
+                        GuardaDatos("DELETE FROM Distribucion WHERE IdDetalle = " & Fila("IdDetalle", DataRowVersion.Original))
+                    End If
+                End With
+            Next
+        End If
+        If Not DT_F Is Nothing Then DT_F.Clear()
+        DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified)
+        If Not DT_F Is Nothing Then
+            For i = 0 To DT_F.Rows.Count - 1
+                With DT_F
+                    If DT_F.Rows(i).RowState = DataRowState.Added Then
+                        GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " & _
+                        " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & "," & Fecha.Month & "," & _
+                        VB.SysContab.PeriodosDB.Activo(Fecha.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+                    ElseIf DT_F.Rows(i).RowState = DataRowState.Modified Then
+                        GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & ",Mes=" & Fecha.Month & "," & _
+                        "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Fecha.Date) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," & _
+                        "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
+                    End If
+                End With
+            Next
+        End If
+    End Sub
+
+    Public Function CargaDistribucion(ByVal Mes As Integer, ByVal Comprobante As String, ByVal Periodo As Integer) As DataTable
+        Return ObtieneDatos("SELECT * FROM Distribucion WHERE Mes = " & Mes & " AND NoComp = '" & Comprobante & "' AND IdEmpresa = " & EmpresaActual & " AND Per_Id = " & Periodo)
+    End Function
+
+    Public Function IsNull(ByVal Var, Optional ByVal Valor = vbNullString)
+        If IsDBNull(Var) OrElse IsNothing(Var) OrElse Var = vbNullString OrElse Var = Nothing Then
+            Return IIf(IsNothing(Valor), "", Valor)
+        Else
+            Return Var
+        End If
+    End Function
+
+    Public Sub GetClientesList(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        combo.Properties.DataSource = ObtieneDatos("SP_GetClientes " & EmpresaActual & "," & TodosClientes)
+        combo.Properties.DisplayMember = "Nombre"
+        combo.Properties.ValueMember = "Codigo"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        For i As Integer = 3 To combo.Properties.Columns.Count - 1
+            combo.Properties.Columns(i).Visible = False
+        Next
+        combo.Properties.ShowFooter = False
+    End Sub
+
+    Public Sub GetMonedasList(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        Dim Tasa As New VB.SysContab.Tasa_CambioDB
+        combo.Properties.DataSource = Tasa.GetListTasaCambioDisponibles.Tables("Tasa_Cambio")
+        combo.Properties.ValueMember = "MonedaCambio"
+        combo.Properties.DisplayMember = "Nombre"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        combo.Properties.Columns(1).Visible = False
+        combo.Properties.Columns(1).Visible = False
+        combo.EditValue = MonedaBase
+    End Sub
+
+    Public Sub GetMonedas(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        combo.Properties.DataSource = ObtieneDatos("SELECT m.mon_codigo, m.mon_descripcion, m.mon_simbolo FROM Monedas m WHERE m.empr_codigo = " & EmpresaActual)
+        combo.Properties.ValueMember = "mon_codigo"
+        combo.Properties.DisplayMember = "mon_descripcion"
+        combo.Properties.PopulateColumns()
+
+        combo.Properties.Columns(0).Visible = False
+    End Sub
+
+
+
+    Public Sub GetItemMonedasList(ByVal combo As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)
+        Dim Tasa As New VB.SysContab.Tasa_CambioDB
+        combo.DataSource = Tasa.GetListTasaCambioDisponibles.Tables("Tasa_Cambio")
+        combo.ValueMember = "MonedaCambio"
+        combo.DisplayMember = "Nombre"
+        combo.PopulateColumns()
+        combo.Columns(0).Visible = False
+        combo.Columns(1).Visible = False
+        combo.Columns(2).Visible = False
+    End Sub
+
+    Public Sub GetFormaPagoList(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        Dim FormaPago As New VB.SysContab.Forma_PagoDB
+        combo.Properties.DataSource = ObtieneDatos("SP_formaPagoList " & EmpresaActual)
+        combo.Properties.ValueMember = "Codigo"
+        combo.Properties.DisplayMember = "Nombre"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        combo.Properties.Columns(2).Visible = False
+        combo.Properties.Columns(3).Visible = False
+    End Sub
+
+    Public Sub GetFormaPagoListAll(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        Dim FormaPago As New VB.SysContab.Forma_PagoDB
+        combo.Properties.DataSource = ObtieneDatos("_FormaPagoListAll " & EmpresaActual)
+        combo.Properties.ValueMember = "Codigo"
+        combo.Properties.DisplayMember = "Nombre"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        combo.Properties.Columns(2).Visible = False
+        combo.Properties.Columns(3).Visible = False
+        combo.Properties.Columns(4).Visible = False
+        combo.ItemIndex = 0
+    End Sub
+
+    Public Sub GetCajasFacturacion(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("SELECT 0 Codigo,'--- Todas ---' Caja,'' [PC Nombre] UNION" _
+                                                   + " SELECT c.cj_Codigo Codigo,c.cj_Nombre Caja,c.pc_Nombre [PC Nombre] FROM CAJAS c WHERE c.Empresa_ID = " & EmpresaActual).DefaultView
+        cb.Properties.ValueMember = "Codigo"
+        cb.Properties.DisplayMember = "Caja"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns(0).Visible = False
+        cb.ItemIndex = 0
+    End Sub
+
+    Public Sub GetClientesContado(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        combo.Properties.DataSource = _
+        ObtieneDatos("SELECT c.CODIGO,c.CodigoLetra [CODIGO LETRA],c.NOMBRE FROM CLIENTES c INNER JOIN FORMA_PAGO fp" _
+                     + " ON c.COD_FORMA_PAGO = fp.CODIGO AND c.EMPRESA = fp.EMPRESA" _
+                     + " WHERE fp.DIAS = 0 AND c.EMPRESA = " & EmpresaActual)
+
+        combo.Properties.ValueMember = "CODIGO"
+        combo.Properties.DisplayMember = "NOMBRE"
+        combo.Properties.PopulateColumns()
+        combo.Properties.HeaderClickMode = DevExpress.XtraEditors.Controls.HeaderClickMode.AutoSearch
+        'combo.Properties.Columns(0).Visible = False
+    End Sub
+
+    Public Sub GetTipoCultivo(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        combo.Properties.DataSource = ObtieneDatos("SELECT '' Codigo,'[Seleccione Cultivo]' Nombre UNION ALL SELECT t.Codigo,t.Nombre FROM TipoCultivo t WHERE Empresa = " & EmpresaActual)
+        combo.Properties.ValueMember = "Codigo"
+        combo.Properties.DisplayMember = "Nombre"
+        combo.Properties.PopulateColumns()
+        combo.Properties.ShowHeader = True
+        combo.Properties.HeaderClickMode = DevExpress.XtraEditors.Controls.HeaderClickMode.AutoSearch
+        'combo.Properties.Columns(0).Visible = False
+        combo.ItemIndex = 0
+    End Sub
+
+    Public Sub GetTipoComprobantesList(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        Dim comp As New VB.SysContab.ComprobanteDB
+        combo.Properties.DataSource = ObtieneDatos("SP_TipoComprobantesList " & EmpresaActual)
+        combo.Properties.ValueMember = "TipComp_Id"
+        combo.Properties.DisplayMember = "TipComp_Nombre"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        combo.Properties.Columns(2).Visible = False
+        combo.Properties.Columns(3).Visible = False
+    End Sub
+
+    Public Sub GetBodegasList(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        Dim Bodega As New VB.SysContab.BodegasDB
+        combo.Properties.DataSource = Bodega.GetList().Tables(0)
+        combo.Properties.ValueMember = "CODIGO"
+        combo.Properties.DisplayMember = "UBICACION"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        combo.Properties.Columns(2).Visible = False
+    End Sub
+
+
+    Public Sub GetBodegasList_Inventario(ByVal combo As DevExpress.XtraEditors.LookUpEdit)
+        'Dim Bodega As New VB.SysContab.BodegasDB
+        combo.Properties.DataSource = ObtieneDatos("SELECT '0' CODIGO, '-- Todas --'  [UBICACION] UNION ALL SELECT Codigo_Bodega AS [CODIGO], Codigo_Bodega + ' - ' + Ubicacion AS [UBICACION] FROM BODEGAS WHERE BODEGAS.Empresa =" & EmpresaActual)
+        combo.Properties.ValueMember = "CODIGO"
+        combo.Properties.DisplayMember = "UBICACION"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        'combo.Properties.Columns(2).Visible = False
+    End Sub
+
+    Public Sub GetCentrosCostosList(ByVal cb As DevExpress.XtraEditors.CheckedComboBoxEdit)
+        cb.Properties.DataSource = ObtieneDatos("SELECT CAST(cdc.Codigo AS NVARCHAR(10)) Codigo, cdc.Nombre FROM CentroDeCosto cdc" _
+                                                  + " WHERE cdc.Activo = 1 AND cdc.Empresa = " & EmpresaActual)
+        cb.Properties.ValueMember = "Codigo"
+        cb.Properties.DisplayMember = "Nombre"
+        ''Dim Bodega As New VB.SysContab.BodegasDB
+        'combo.Properties.DataSource = ObtieneDatos("SELECT Codigo_Bodega AS [CODIGO], Codigo_Bodega + ' - ' + Ubicacion AS [UBICACION] FROM BODEGAS WHERE BODEGAS.Empresa =" & EmpresaActual)
+        'combo.Properties.ValueMember = "CODIGO"
+        'combo.Properties.DisplayMember = "UBICACION"
+        'combo.Properties.Items(0).
+        'combo.Properties.PopulateColumns()
+        'combo.Properties.Columns(0).Visible = False
+        'combo.Properties.Columns(2).Visible = False
+    End Sub
+
+    Public Sub GetTipoMovimientos(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("SELECT cast(0 as int) ID, '--- Seleccione ---' Nombre, '' Cuenta UNION SELECT t.ID,t.Nombre,t.Cuenta FROM TipoMovimientos t WHERE t.Empresa = " & EmpresaActual)
+        cb.Properties.ValueMember = "ID"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns(0).Visible = False
+    End Sub
+
+    Public Sub GetClientesCategorias(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("JAR_GetClientesCategoria " & EmpresaActual)
+        cb.Properties.ValueMember = "IdCategoria"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns(0).Visible = False
+    End Sub
+
+    Public Sub GetCentrosCostosList(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("SELECT cdc.Codigo, cdc.Nombre FROM CentroDeCosto cdc" _
+                                                   + " WHERE cdc.Activo = 1 AND cdc.Empresa = " & EmpresaActual & " ORDER BY cdc.Nombre")
+        cb.Properties.ValueMember = "Codigo"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns("Codigo").Visible = False
+        cb.ItemIndex = 0
+    End Sub
+
+    Public Sub GetConsignatarios(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("SELECT c.IdDetalle, c.Nombre, c.Descripcion FROM Consignatarios c WHERE c.Empresa = " & EmpresaActual)
+        cb.Properties.ValueMember = "IdDetalle"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns("IdDetalle").Visible = False
+    End Sub
+
+    Public Sub GetAgencias(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("SELECT c.IdDetalle, c.Nombre, c.Descripcion FROM Agencias c WHERE c.Empresa = " & EmpresaActual)
+        cb.Properties.ValueMember = "IdDetalle"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns("IdDetalle").Visible = False
+    End Sub
+
+    Public Sub GetMetodosEnvio(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("SELECT c.IdDetalle, c.Nombre, c.Descripcion FROM Metodos_Envio c WHERE c.Empresa = " & EmpresaActual)
+        cb.Properties.ValueMember = "IdDetalle"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns("IdDetalle").Visible = False
+    End Sub
+
+    Public Sub GetCondicionesVenta(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("JAR_GetCondicionesVenta")
+        cb.Properties.ValueMember = "Codigo"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateColumns()
+        cb.ItemIndex = 0
+    End Sub
+
+    Public Sub GetComprobantesList(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("_TipoComprobantesList '0'," & EmpresaActual).DefaultView
+        cb.Properties.ValueMember = "TipComp_Id"
+        cb.Properties.DisplayMember = "TipComp_Nombre"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns(0).Visible = False
+        cb.Properties.Columns(1).Visible = False
+        cb.Properties.Columns(3).Visible = False
+        cb.Properties.Columns(4).Visible = False
+        cb.Properties.Columns(5).Visible = False
+        cb.ItemIndex = 0
+    End Sub
+
+    Public Sub GeMovimientos_Clases(ByVal combo As DevExpress.XtraEditors.LookUpEdit, Optional ByVal op As Integer = 1)
+        combo.Properties.DataSource = ObtieneDatos("SP_GetMovimientosClases " & EmpresaActual & "," & op)
+        combo.Properties.ValueMember = "Codigo"
+        combo.Properties.DisplayMember = "Nombre"
+        combo.Properties.PopulateColumns()
+        combo.Properties.Columns(0).Visible = False
+        combo.ItemIndex = 0
+    End Sub
+
+    Public Sub FormatoGrid(ByRef Grid As DevExpress.XtraGrid.Views.Grid.GridView)
+        For i As Integer = 0 To Grid.Columns.Count - 1
+            Grid.Columns(i).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+            Grid.Columns(i).AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+            Grid.Columns(i).AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 8, FontStyle.Bold)
+        Next
+    End Sub
+
+    Public Function VerificarCierre(ByVal Fecha As DateTime) As Boolean
+        Try
+
+Verificar:
+            If CDate(Fecha) <= CDate(ObtieneDatos("SELECT MAX(Fecha) FROM CierreDia WHERE Empresa = " & EmpresaActual).Rows(0).Item(0)) Then
+                XtraMsg("Ya se ha cerrado el dia", MessageBoxIcon.Error)
+                Return False
+            Else
+                Return True
+            End If
+        Catch ex As Exception
+            GuardaDatos("sp_CierreAdd " & EmpresaActual)
+            GoTo Verificar
+        End Try
+    End Function
+
+    Public Function FillDatasetFromGrid(ByVal Data As DataSet, ByVal Grid As DevExpress.XtraGrid.Views.Grid.GridView) As DataSet
+        Dim rowHandle As Integer
+        Dim gridRow As DataRow
+        Dim i As Integer = 0
+        Do While i < Grid.RowCount
+            rowHandle = Grid.GetVisibleRowHandle(i)
+            If (Not Grid.IsGroupRow(rowHandle)) Then
+                gridRow = Grid.GetDataRow(rowHandle)
+                Data.Tables(0).Rows.Add(gridRow.ItemArray)
+            End If
+            i += 1
+        Loop
+        Return Data
+    End Function
+
+    Public Function ProcedureParametersDS(ByVal Parametros As ArrayList, ByVal Variables As ArrayList, ByVal Procedimiento As String) As DataSet
+        Dim DC As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+        Dim Command As New SqlCommand(Procedimiento, DC)
+        Dim DT As New DataSet
+        Command.CommandType = CommandType.StoredProcedure
+        If Not Parametros Is Nothing Then
+            Dim Parametro(Parametros.Count) As SqlParameter
+            For i As Integer = 0 To Parametros.Count - 1
+                Parametro(i) = New SqlParameter("@" & Variables(i).ToString, TipoDatos(Parametros(i).GetType))
+                Parametro(i).Value = Parametros(i)
+                Command.Parameters.Add(Parametro(i))
+            Next
+        End If
+        Try
+            DC.Open()
+            Dim DA As New SqlDataAdapter(Command)
+            DA.Fill(DT, "Datos")
+        Catch ex As Exception
+            MsgBox("Error :" & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            DC.Close()
+        End Try
+        Return DT
+    End Function
+
+    Public Function ObtieneDatosTrans(ByVal StrSQL As String) As DataTable
+        'Dim DC As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
+
+        Dim DA As New SqlDataAdapter(StrSQL, DBConnFacturas)
+        Dim DS As New DataTable
+
+        DA.SelectCommand.Connection = DBConnFacturas
+        DA.SelectCommand.Transaction = transaccionFacturas
+        DA.Fill(DS)
+        Return DS
+    End Function
+
+    Public Sub GetCatalogoCuenta(ByVal cb As DevExpress.XtraEditors.GridLookUpEdit, _
+                                 ByVal Vista As DevExpress.XtraGrid.Views.Grid.GridView)
+
+        cb.Properties.DataSource = ObtieneDatos("_GetCatalogo_Cuenta " & EmpresaActual)
+        cb.Properties.ValueMember = "Cuenta"
+        cb.Properties.DisplayMember = "Display"
+        cb.Properties.PopupFormMinSize = New Point(800, 0)
+        cb.Properties.PopulateViewColumns
+        'Vista.PopulateColumns()
+        FormatoGrid(Vista)
+
+        Vista.Columns("Display").Visible = False
+        Vista.Columns("Cuenta").BestFit()
+        Vista.Columns("Nombre").BestFit()
+        Vista.Columns("NombreCompleto").BestFit()
+
+        Vista.OptionsBehavior.Editable = False
+        Vista.OptionsView.ShowAutoFilterRow = True
+    End Sub
+
+    Public Sub GetCatalogoProveedores(ByVal cb As DevExpress.XtraEditors.GridLookUpEdit, _
+                                 ByVal Vista As DevExpress.XtraGrid.Views.Grid.GridView, _
+                                 Optional ByVal Todo As Integer = 0)
+
+        Dim sSQL1 As String = ""
+
+        If Todo <> 0 Then
+            sSQL1 = "SELECT CAST(0 AS int) CODIGO,'' [CODIGO LETRA],'--- Todos ---' NOMBRE UNION "
+        End If
+
+        cb.Properties.DataSource = ObtieneDatos(sSQL1 & "SELECT CAST(p.CODIGO AS int) CODIGO,p.CodigoLetra [CODIGO LETRA],p.NOMBRE FROM PROVEEDORES p" _
+                                                + " WHERE p.EMPRESA = " & EmpresaActual)
+        cb.Properties.ValueMember = "CODIGO"
+        cb.Properties.DisplayMember = "NOMBRE"
+        cb.Properties.PopulateViewColumns()
+        ''Vista.PopulateColumns()
+        FormatoGrid(Vista)
+
+        'Vista.Columns("CODIGO").BestFit()
+        'Vista.Columns("CODIGO LETRA").BestFit()
+        'Vista.Columns("NOMBRE").BestFit()
+
+        Vista.BestFitColumns()
+        Vista.OptionsBehavior.Editable = False
+        Vista.OptionsView.ShowAutoFilterRow = True
+    End Sub
+
+    Public Sub GetCatalogoClientes(ByVal cb As DevExpress.XtraEditors.GridLookUpEdit, _
+                                 ByVal Vista As DevExpress.XtraGrid.Views.Grid.GridView)
+
+        cb.Properties.DataSource = ObtieneDatos("SP_GetClientes " & EmpresaActual & "," & TodosClientes)
+        cb.Properties.ValueMember = "Codigo"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateViewColumns()
+        'Vista.PopulateColumns()
+        FormatoGrid(Vista)
+
+        For i As Integer = 0 To Vista.Columns.Count - 1
+            Vista.Columns(i).Visible = False
+        Next
+
+        Vista.Columns("Codigo").Visible = True
+        Vista.Columns("CodigoLetra").Visible = True
+        Vista.Columns("Nombre").Visible = True
+
+        Vista.Columns("Codigo").BestFit()
+        Vista.Columns("CodigoLetra").BestFit()
+        Vista.Columns("Nombre").BestFit()
+
+        Vista.Columns("Codigo").VisibleIndex = 0
+        Vista.Columns("CodigoLetra").VisibleIndex = 1
+        Vista.Columns("Nombre").VisibleIndex = 2
+
+        Vista.OptionsBehavior.Editable = False
+        Vista.OptionsView.ShowAutoFilterRow = True
+    End Sub
+
+    Public Sub GetCatalogoEmpleados(ByVal cb As DevExpress.XtraEditors.GridLookUpEdit, _
+                                 ByVal Vista As DevExpress.XtraGrid.Views.Grid.GridView)
+
+        cb.Properties.DataSource = ObtieneDatos("SELECT e.emp_codigo Codigo,e.emp_pnombre + ' ' + e.emp_snombre + ' ' + e.emp_papellido + ' ' + e.emp_sapellido Nombre," _
+                                                + " e.emp_codigo + ' - ' + e.emp_pnombre + ' ' + e.emp_snombre + ' ' + e.emp_papellido + ' ' + e.emp_sapellido Display FROM Empleados e WHERE e.emp_ffincontrato IS NULL AND e.empr_codigo = " & EmpresaActual)
+        cb.Properties.ValueMember = "Codigo"
+        cb.Properties.DisplayMember = "Nombre"
+        cb.Properties.PopulateViewColumns()
+        'Vista.PopulateColumns()
+        FormatoGrid(Vista)
+
+        Vista.Columns("Display").Visible = False
+        Vista.Columns("Codigo").BestFit()
+        Vista.Columns("Nombre").BestFit()
+
+        Vista.OptionsBehavior.Editable = False
+        Vista.OptionsView.ShowAutoFilterRow = True
+    End Sub
+
+    Public Sub GetCajaBanco(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        Dim Cat As New SysContab.VB.SysContab.CatalogoDB
+
+        cb.Properties.DataSource = Cat.CatalogoList("A", 1).Tables("CATALOGO")
+        cb.Properties.ValueMember = "Cuenta"
+        cb.Properties.DisplayMember = "Nombre2"
+        cb.Properties.PopulateColumns()
+
+        cb.Properties.Columns("Nombre2").Visible = False
+        cb.Properties.Columns("Orden").Visible = False
+
+        cb.Properties.ShowHeader = False
+        cb.Properties.ShowFooter = False
+        cb.ItemIndex = 0
+    End Sub
+
+    Public Sub GetServicios_Retencion(ByVal cb As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit)
+        cb.DataSource = ObtieneDatos("SELECT gi.CODIGO_GRUPO Codigo,gi.CODIGO_GRUPO + ' - ' + gi.NOMBRE Nombre" _
+                                     + " FROM GRUPOS_INVENTARIO gi WHERE gi.TIPO = 'S' AND gi.NIVEL = 3 AND gi.EMPRESA = " & EmpresaActual)
+
+        cb.ValueMember = "Codigo"
+        cb.DisplayMember = "Nombre"
+        cb.PopulateColumns()
+        cb.Columns("Codigo").Visible = False
+    End Sub
+
+    Public Function VerifyLiqOption() As Boolean
+        Dim Liq As Boolean
+        Liq = ObtieneDatos("SELECT Liquidacion FROM Configuraciones WHERE Empresa =" & EmpresaActual).Rows(0).Item(0)
+        Return Liq
+    End Function
+
+    Public Sub XtraMsg(ByVal msg As String, Optional ByVal Icono As System.Windows.Forms.MessageBoxIcon = MessageBoxIcon.Information, _
+                        Optional ByVal Tipo As System.Windows.Forms.MessageBoxButtons = MessageBoxButtons.OK, _
+                        Optional ByVal Titulo As String = "")
+
+        XtraMessageBox.Show(msg, IIf(Titulo = "", My.Application.Info.ProductName.ToString, Titulo), Tipo, Icono)
+    End Sub
+
+    Public Function XtraMsg2(ByVal msg As String, Optional ByVal Icono As System.Windows.Forms.MessageBoxIcon = MessageBoxIcon.Question, _
+                                Optional ByVal Tipo As System.Windows.Forms.MessageBoxButtons = MessageBoxButtons.YesNo, _
+                                Optional ByVal Titulo As String = "") As Boolean
+
+        If XtraMessageBox.Show(msg, IIf(Titulo = "", My.Application.Info.ProductName.ToString, Titulo), Tipo, Icono, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Public Sub GetCajasxUsuario(ByVal cb As DevExpress.XtraEditors.LookUpEdit)
+        cb.Properties.DataSource = ObtieneDatos("sp_GetCajasxUsuario " & Usuario_ID & "," & EmpresaActual).DefaultView
+        cb.Properties.ValueMember = "Codigo"
+        cb.Properties.DisplayMember = "Caja"
+        cb.Properties.PopulateColumns()
+        cb.Properties.Columns(0).Visible = False
+        cb.ItemIndex = 0
+    End Sub
+
+    Public Function ObtieneDataDS(ByVal StrSQL As String) As DataSet
+        Dim DC As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
+        Dim DA As New SqlDataAdapter(StrSQL, DC)
+        Dim DS As New DataSet
+        DA.Fill(DS, "Datos")
+        Return DS
+    End Function
+
+    Public Sub GetTiposTrasladosCheck(ByVal cb As DevExpress.XtraEditors.CheckedComboBoxEdit)
+        cb.Properties.DataSource = ObtieneDatos("JAR_GetTipoTraslados " & EmpresaActual)
+        cb.Properties.ValueMember = "ID"
+        cb.Properties.DisplayMember = "Nombre"
+    End Sub
+
+
+    Public Function GetVersion(ByVal ProductoVersion As String) As String
+        If (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed) Then
+            Dim ver As Version
+            ver = System.Deployment.Application.ApplicationDeployment.CurrentDeployment.CurrentVersion
+            Return My.Application.Info.ProductName.ToString & ". Publicación v" & String.Format("{0}.{1}.{2}.{3}", ver.Major, ver.Minor, ver.Build, ver.Revision)
+        Else
+            Return My.Application.Info.ProductName.ToString & ". Publicación v" & ProductoVersion
+        End If
+    End Function
+
+    Function Conexion() As String
+        Dim StrCnn As String = vbNullString
+        Dim s As String() = LeeData()
+
+        Server = s(0)
+        DBName = s(1)
+
+        StrCnn = String.Format("Data Source={0};Initial Catalog={1};User Id={2};Password={3};", s(0), s(1), s(2), s(3))
+
+        Return StrCnn
+    End Function
+
+    Sub EscribeData(ByVal Servidor As String, ByVal Base As String, _
+                           ByVal Usuario_SQL As String, ByVal Password_SQL As String)
+
+        Try
+            SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NServer", Trim(Servidor))
+            SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NBase", Trim(Base))
+            SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NUsuario", Trim(Usuario_SQL))
+            SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NPassword", Trim(Password_SQL))
+        Catch ex As Exception
+            XtraMsg("Error al Guardar en el registro de windows, favor consultar con el area de Soporte Tecnico." & vbCrLf & _
+                    "Detalle del Error: " & ex.Message, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Function LeeData() As String()
+
+        Dim Cadena(4) As String
+        '
+        Try
+            ''SQL
+            Cadena(0) = GetSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NServer")
+            Cadena(1) = GetSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NBase")
+            Cadena(2) = Login       'GetSetting(My.Application.Info.ProductName.ToString, "SysCadena", "NUsuario")
+            Cadena(3) = Password    'GetSetting(My.Application.Info.ProductName.ToString, "SysCadena", "NPassword")
+
+            '' No se Encuentra la Confiuración, se agrega la configuracion registrada por defecto
+            If Cadena(0).Trim.Length = 0 Then
+                If Not File.Exists(Application.StartupPath & "\Configurar.ini") Then
+                    If Not File.Exists(Application.StartupPath & "\Configurar.txt") Then
+                        Cadena(0) = ""
+                        Cadena(1) = ""
+                        Cadena(2) = ""
+                        Cadena(3) = ""
+                    End If
+                End If
+
+                Dim ConnectionFile As System.IO.StreamReader
+                Try
+                    ConnectionFile = New System.IO.StreamReader(Application.StartupPath & "\Configurar.ini")
+                Catch ex As Exception
+                    ConnectionFile = New System.IO.StreamReader(Application.StartupPath & "\Configurar.txt")
+                End Try
+
+                Server = ConnectionFile.ReadLine.ToString()
+                DBName = ConnectionFile.ReadLine.ToString()
+                ContabilizarVenta = ConnectionFile.ReadLine.ToString()
+
+                Cadena(0) = Server
+                Cadena(1) = DBName
+                Cadena(2) = Login
+                Cadena(3) = Password
+
+                EscribeData(Server, DBName, Login, Password)
+            End If
+        Catch ex As Exception
+            Cadena(0) = ""
+            Cadena(1) = ""
+            Cadena(2) = ""
+            Cadena(3) = ""
+        End Try
+
+        Return Cadena
+    End Function
+
+    Sub EscribeEstilo(ByVal Valor As String)
+        Try
+            SaveSetting(My.Application.Info.ProductName.ToString, "Skin", "NSkin", Valor)
+        Catch ex As Exception
+            XtraMsg("Error al Guardar en el registro de windows, favor consultar con el area de Soporte Tecnico." & vbCrLf & _
+                    "Detalle del Error: " & ex.Message, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Function LeeEstilo() As String
+        Try
+            Dim sk As String = GetSetting(My.Application.Info.ProductName.ToString, "Skin", "NSkin")
+
+            ''No se Encuentra la Confiuración
+            If sk.Trim.Length = 0 Then
+                EscribeEstilo("DevExpress Style")
+                Return "DevExpress Style"
+            Else
+                Return sk
+            End If
+        Catch ex As Exception
+            Return "DevExpress Style"
+        End Try
+    End Function
+
+    Sub ShowSplash(Optional ByVal sTitulo As String = "")
+        Try
+            If sTitulo <> "" Then WaitTitulo = sTitulo
+            If sTitulo = "" Then WaitTitulo = "Cargando..."
+            SplashScreenManager.ShowForm(GetType(WaitForm))
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Sub HideSplash()
+        Try
+            SplashScreenManager.CloseForm()
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+End Module

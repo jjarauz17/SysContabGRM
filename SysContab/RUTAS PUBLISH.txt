@@ -1,0 +1,3 @@
+\\192.168.0.2\simtesis\publish\SysContabv3\
+\\192.168.0.32\syscontab\publish\
+\\mogoton.ramac.com.ni\syscontab\publish\

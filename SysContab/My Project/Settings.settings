@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="SysContab_ws_tc_Tipo_Cambio_BCN" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx</Value>
+    </Setting>
+    <Setting Name="Servidor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">prueba.ramac.com.ni\GRMSQL2014</Value>
+    </Setting>
+    <Setting Name="BaseDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SysContab</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
