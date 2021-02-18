@@ -23,7 +23,14 @@ Public Class frmFacturasVentasEditar
         ConfigDetalles = VB.SysContab.ConfiguracionDB.GetConfigDetails
         '
         GetBodegasList(cbBodega)
-        SearchLookUp(cbCliente, ObtieneDatos("SP_GetClientes", EmpresaActual, 1, 1), "Nombre", "Codigo", 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+
+        SearchLookUp(
+            cbCliente,
+            ObtieneDatos("SP_GetClientes", EmpresaActual, 1, 1),
+            "Nombre",
+            "Codigo",
+            3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+
         GetMonedasList(cmbmoneda)
         GetFormaPagoList(cmbformapago)
         GetTipoCultivo(Me.cbCultivos)
@@ -97,9 +104,17 @@ Public Class frmFacturasVentasEditar
     End Sub
 
     Private Sub GetArticulos()
-        Dim DT As DataTable = ObtieneDatos("SP_ArticulosGetAll", TipoServicio.EditValue, EmpresaActual, cbBodega.EditValue)
+        Dim DT As DataTable =
+            ObtieneDatos("SP_ArticulosGetAll",
+                         TipoServicio.EditValue,
+                         EmpresaActual,
+                         cbBodega.EditValue)
 
-        RepositorySearchLook(cbProducto, DT, "Display", "Codigo", 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
+        RepositorySearchLook(
+            cbProducto,
+            DT,
+            "Display",
+            "Codigo", 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
         cbProducto.View.Columns("PrecioU").Caption = "Precio U$"
 
     End Sub
@@ -393,7 +408,7 @@ Public Class frmFacturasVentasEditar
 
             If Not DR Is Nothing Then
                 Temp = True
-                ' Try                    
+                'Try                    
                 vFact.SetRowCellValue(e.RowHandle, "Presentacion", DR.Item("Presentacion"))
                 vFact.SetRowCellValue(e.RowHandle, "Unidad", DR.Item("Unidad"))
                 vFact.SetRowCellValue(e.RowHandle, "PrecioU", DR.Item("PrecioU"))
@@ -402,21 +417,30 @@ Public Class frmFacturasVentasEditar
                 vFact.SetRowCellValue(e.RowHandle, "Tipo", DR.Item("Tipo"))
 
                 vFact.SetRowCellValue(e.RowHandle, "Existencia", IIf(DR.Item("Tipo") = "P",
-                                                                     ObtieneDatos("SET DATEFORMAT dmy; SELECT dbo.fn_CalcularExistenciaREAL('" & cbBodega.EditValue & "','" & e.Value & "'," & EmpresaActual & ") Existencia").Rows.Item(0)("Existencia"), 0))
+                                                                     ObtieneDatos("SET DATEFORMAT dmy; SELECT dbo.fn_CalcularExistenciaREAL('" & cbBodega.EditValue & "','" & e.Value & "'," & EmpresaActual & ") Existencia").
+                                                                     Rows.Item(0)("Existencia"), 0))
 
-                'vFact.SetRowCellValue(e.RowHandle, "Existencia", DR.Item("Existencias"))
                 vFact.SetRowCellValue(e.RowHandle, "Despacho", 0)
                 vFact.SetRowCellValue(e.RowHandle, "Cantidad", 0)
                 vFact.SetRowCellValue(e.RowHandle, "Promocion", 0)
                 vFact.SetRowCellValue(e.RowHandle, "Descuento", 0)
                 vFact.SetRowCellValue(e.RowHandle, "Cuenta", DR.Item("Cuenta"))
+                vFact.SetRowCellValue(e.RowHandle, "IvaP", DR.Item("IvaP"))
                 vFact.SetRowCellValue(e.RowHandle, "Exento", DR.Item("Exento"))
                 vFact.SetRowCellValue(e.RowHandle, "Factor", DR.Item("Factor"))
                 vFact.SetRowCellValue(e.RowHandle, "Margen", DR.Item("Margen"))
                 vFact.SetRowCellValue(e.RowHandle, "#", "")
                 vFact.SetRowCellValue(e.RowHandle, "Agrupar", "")
                 vFact.SetRowCellValue(e.RowHandle, "Visible", True)
-                vFact.SetRowCellValue(e.RowHandle, "IdProyecto", 0)
+                vFact.SetRowCellValue(e.RowHandle, "CABYS", DR.Item("CABYS"))
+                vFact.SetRowCellValue(e.RowHandle, "NoSerie", IIf(EmpresaActual.Equals("20"), DR.Item("SAC"), String.Empty))
+                '
+                If DR.Item("IsProyecto") Then
+                    vFact.Columns("IdProyecto").Visible = True
+                    vFact.SetRowCellValue(e.RowHandle, "IdProyecto", DR.Item("IdProyecto"))
+                Else
+                    vFact.SetRowCellValue(e.RowHandle, "IdProyecto", 0)
+                End If
 
                 Temp = False
             End If
@@ -814,35 +838,80 @@ Fin2:
        e.Column.FieldName = "PrecioU" Or
        e.Column.FieldName = "Cantidad" Or
        e.Column.FieldName = "Despacho" Or
+       e.Column.FieldName = "IvaP" Or
        e.Column.FieldName = "Descuento") And Not Temp Then
 
             'e.Column.FieldName = "Exento" Or _
             'e.Column.FieldName = "Promocion") 
 
-            vFact.SetRowCellValue(e.RowHandle, "Total", (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0)) * IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) - (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0) * IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) * IsNull(vFact.GetRowCellValue(e.RowHandle, "Descuento"), 0)))
+            vFact.SetRowCellValue(
+                e.RowHandle,
+                "Total",
+                (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0)) *
+                IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) -
+                (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0) *
+                IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) *
+                IsNull(vFact.GetRowCellValue(e.RowHandle, "Descuento"), 0)))
 
             'Dim DR As DataRowView = ItemArticulo.GetDataSourceRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
-            Dim DR As DataRowView = Me.cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
+            Dim DR As DataRowView =
+                cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
 
             'Dim Config As New VB.SysContab.ConfiguracionDB
             'Dim ConfigDetalles As New VB.SysContab.ConfiguracionDetails
             'ConfigDetalles = Config.GetConfigDetails
-            'If DR.Item("Exento") = False And cmbclientes.GetColumnValue("Exento") = False Then
+            'If DR.Item("Exento") = False And cmbclientes.GetColumnValue("Exento") = False Then      
 
             If Not DR Is Nothing Then
                 'If CheckEdit2.Checked Then
                 '    vFact.SetRowCellValue(e.RowHandle, "IVA", 0)
                 '    vFact.SetRowCellValue(e.RowHandle, "Exento", False)
                 'Else
-                vFact.SetRowCellValue(e.RowHandle, "Exento", IIf((ObtieneDatos("sp_sel_ProyectoCodigo", vFact.GetRowCellValue(e.RowHandle, "Item"), EmpresaActual).Rows.Item(0)("EsProyecto") = "SI" And IsNull(vFact.GetRowCellValue(e.RowHandle, "IdProyecto"), 0) <> 0 And vFact.GetRowCellValue(e.RowHandle, "Tipo") = "P"), False, DR.Item("Exento")))
+
+                vFact.SetRowCellValue(
+                    e.RowHandle,
+                    "Exento",
+                    IIf((ObtieneDatos("sp_sel_ProyectoCodigo", vFact.GetRowCellValue(e.RowHandle, "Item"), EmpresaActual).Rows.Item(0)("EsProyecto") = "SI" And
+                    IsNull(vFact.GetRowCellValue(e.RowHandle, "IdProyecto"), 0) <> 0 And
+                    vFact.GetRowCellValue(e.RowHandle, "Tipo") = "P"), False, DR.Item("Exento")))
+
                 'vFact.SetRowCellValue(e.RowHandle, "Exento", IIf((IsNull(vFact.GetRowCellValue(e.RowHandle, "IdProyecto"), 0) <> 0 And vFact.GetRowCellValue(e.RowHandle, "Tipo") = "P"), False, DR.Item("Exento")))
                 ' If DR.Item("Exento") = False And cbCliente.Properties.View.GetRowCellValue(cbCliente.Properties.View.FocusedRowHandle, "Exento") = False Then 'Me.cmbclientes.GetColumnValue("Exento") = False Then
-                If vFact.GetRowCellValue(e.RowHandle, "Exento") = False And cbCliente.Properties.View.GetRowCellValue(cbCliente.Properties.View.FocusedRowHandle, "Exento") = False Then 'Me.cmbclientes.GetColumnValue("Exento") = False Then
-                    vFact.SetRowCellValue(e.RowHandle, "IVA",
-                                          IsNull(vFact.GetRowCellValue(e.RowHandle, "Total") * (ConfigDetalles.IVA / 100.0), 0) +
-                                          IsNull((IsNull(vFact.GetRowCellValue(e.RowHandle, "Promocion"), 0) *
-                                          IsNull(vFact.GetRowCellValue(e.RowHandle, "Costo"), 0)) *
-                                          (ConfigDetalles.IVA / 100.0), 0))
+
+                'If (vFact.GetRowCellValue(e.RowHandle, "IvaP") > 0 And EmpresaActual.Equals("20")) Then
+                '    vFact.SetRowCellValue(e.RowHandle, "Exento", False)
+                'Else
+                '    vFact.SetRowCellValue(
+                '        e.RowHandle,
+                '        "Exento",
+                '        IIf((ObtieneDatos("sp_sel_ProyectoCodigo", vFact.GetRowCellValue(e.RowHandle, "Item"), EmpresaActual).Rows.Item(0)("EsProyecto") = "SI" And IsNull(vFact.GetRowCellValue(e.RowHandle, "IdProyecto"), 0) <> 0 And vFact.GetRowCellValue(e.RowHandle, "Tipo") = "P"), False, DR.Item("Exento")))
+                'End If
+
+                If e.Column.FieldName = "IvaP" Then
+                    If e.Value = 0.00 Then
+                        vFact.SetRowCellValue(e.RowHandle, "Exento", True)
+                    Else
+                        vFact.SetRowCellValue(e.RowHandle, "Exento", False)
+                    End If
+                End If
+
+
+                If vFact.GetRowCellValue(e.RowHandle, "Exento") = False And
+                    cbCliente.Properties.View.GetRowCellValue(cbCliente.Properties.View.FocusedRowHandle, "Exento") = False Then 'Me.cmbclientes.GetColumnValue("Exento") = False Then
+
+                    'vFact.SetRowCellValue(e.RowHandle, "IVA",
+                    '                      IsNull(vFact.GetRowCellValue(e.RowHandle, "Total") * (ConfigDetalles.IVA / 100.0), 0) +
+                    '                      IsNull((IsNull(vFact.GetRowCellValue(e.RowHandle, "Promocion"), 0) *
+                    '                      IsNull(vFact.GetRowCellValue(e.RowHandle, "Costo"), 0)) *
+                    '                      (ConfigDetalles.IVA / 100.0), 0))
+
+                    vFact.SetRowCellValue(
+                         e.RowHandle,
+                         "IVA",
+                         IsNull(vFact.GetRowCellValue(e.RowHandle, "Total"), 0.00) *
+                         (IsNull(vFact.GetRowCellValue(e.RowHandle, "IvaP"),
+                                 (ConfigDetalles.IVA / 100.0)) / 100.0))
+
                 Else
                     vFact.SetRowCellValue(e.RowHandle, "IVA", 0)
                 End If
@@ -953,5 +1022,9 @@ Fin2:
 
     Private Sub frmFacturasVentasEditar_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.F3 Then vFact.ShowCustomization()
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        frmExportarImprimir.Mostrar(GridDetalle, $"Detalle de Factura {txtfactura.Text}")
     End Sub
 End Class

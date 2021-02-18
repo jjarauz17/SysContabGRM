@@ -22,6 +22,8 @@ Partial Class frmExoneraIVA
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmExoneraIVA))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.bSalir = New DevExpress.XtraEditors.SimpleButton()
+        Me.bGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.mComentario = New DevExpress.XtraEditors.MemoEdit()
         Me.txtFactura = New DevExpress.XtraEditors.TextEdit()
         Me.txtReferencia = New DevExpress.XtraEditors.TextEdit()
@@ -31,14 +33,12 @@ Partial Class frmExoneraIVA
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
-        Me.bGuardar = New DevExpress.XtraEditors.SimpleButton()
-        Me.bSalir = New DevExpress.XtraEditors.SimpleButton()
-        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.mComentario.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,12 +50,12 @@ Partial Class frmExoneraIVA
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -74,6 +74,27 @@ Partial Class frmExoneraIVA
         Me.LayoutControl1.Size = New System.Drawing.Size(570, 310)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'bSalir
+        '
+        Me.bSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.bSalir.ImageOptions.SvgImage = CType(resources.GetObject("bSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bSalir.Location = New System.Drawing.Point(444, 260)
+        Me.bSalir.Name = "bSalir"
+        Me.bSalir.Size = New System.Drawing.Size(114, 38)
+        Me.bSalir.StyleController = Me.LayoutControl1
+        Me.bSalir.TabIndex = 10
+        Me.bSalir.Text = "&Salir"
+        '
+        'bGuardar
+        '
+        Me.bGuardar.ImageOptions.SvgImage = CType(resources.GetObject("bGuardar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bGuardar.Location = New System.Drawing.Point(326, 260)
+        Me.bGuardar.Name = "bGuardar"
+        Me.bGuardar.Size = New System.Drawing.Size(114, 38)
+        Me.bGuardar.StyleController = Me.LayoutControl1
+        Me.bGuardar.TabIndex = 9
+        Me.bGuardar.Text = "&Guardar"
         '
         'mComentario
         '
@@ -132,7 +153,6 @@ Partial Class frmExoneraIVA
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(570, 310)
         Me.LayoutControlGroup1.TextVisible = False
@@ -173,51 +193,6 @@ Partial Class frmExoneraIVA
         Me.LayoutControlItem4.Text = "Comentarios:"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(113, 13)
         '
-        'EmptySpaceItem1
-        '
-        Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 248)
-        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(314, 42)
-        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'EmptySpaceItem2
-        '
-        Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 181)
-        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(550, 67)
-        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'EmptySpaceItem3
-        '
-        Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(299, 26)
-        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(251, 26)
-        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'bGuardar
-        '
-        Me.bGuardar.Image = CType(resources.GetObject("bGuardar.Image"), System.Drawing.Image)
-        Me.bGuardar.Location = New System.Drawing.Point(326, 260)
-        Me.bGuardar.Name = "bGuardar"
-        Me.bGuardar.Size = New System.Drawing.Size(114, 38)
-        Me.bGuardar.StyleController = Me.LayoutControl1
-        Me.bGuardar.TabIndex = 9
-        Me.bGuardar.Text = "&Guardar"
-        '
-        'bSalir
-        '
-        Me.bSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.bSalir.Image = CType(resources.GetObject("bSalir.Image"), System.Drawing.Image)
-        Me.bSalir.Location = New System.Drawing.Point(444, 260)
-        Me.bSalir.Name = "bSalir"
-        Me.bSalir.Size = New System.Drawing.Size(114, 38)
-        Me.bSalir.StyleController = Me.LayoutControl1
-        Me.bSalir.TabIndex = 10
-        Me.bSalir.Text = "&Salir"
-        '
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.bGuardar
@@ -242,6 +217,30 @@ Partial Class frmExoneraIVA
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 248)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(314, 42)
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem2
+        '
+        Me.EmptySpaceItem2.AllowHotTrack = False
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 181)
+        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(550, 67)
+        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'EmptySpaceItem3
+        '
+        Me.EmptySpaceItem3.AllowHotTrack = False
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(299, 26)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(251, 26)
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
         'frmExoneraIVA
         '
         Me.AcceptButton = Me.bGuardar
@@ -250,7 +249,10 @@ Partial Class frmExoneraIVA
         Me.CancelButton = Me.bSalir
         Me.ClientSize = New System.Drawing.Size(570, 310)
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("frmExoneraIVA.IconOptions.Icon"), System.Drawing.Icon)
+        Me.IconOptions.SvgImage = CType(resources.GetObject("frmExoneraIVA.IconOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmExoneraIVA"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CONSTANCIA DE EXONERACION DE IVA"
@@ -265,12 +267,12 @@ Partial Class frmExoneraIVA
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

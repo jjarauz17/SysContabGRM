@@ -65,7 +65,7 @@ Public Class db_EnviarCorreo
                 mm.Subject = Asunto
 
                 mm.Body = "<p style=" & "FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: navy; FONT-FAMILY: Verdana, Arial" & "> " & "Estimado Cliente Sr(a) : " & NombreCliente & "<br>" _
-                                & " Le informomos de su Estado de Cuenta a la Fecha de Corte: " & Corte.Date.ToShortDateString & " <br><br> " _
+                                & " Le informamos de su Estado de Cuenta a la Fecha de Corte: " & Corte.Date.ToShortDateString & " <br><br> " _
                                 & " <br> Un Cordial saludo, <br> " _
                                 & " Departamento de Cartera y Cobro <br>" _
                                 & " " & NombreEmpresaActual & " <br><br></p>"
@@ -102,6 +102,100 @@ Public Class db_EnviarCorreo
         End Try
 
     End Sub
+
+    Public Function EnviarCodigoAprobacion(MailTo As String,
+                                            Cc As String,
+                                            Asunto As String,
+                                            Envia As String,
+                                            Clave As String,
+                                            Salida As String,
+                                            Seguridad As Boolean,
+                                            Puerto As Integer,
+                                            Codigo As String,
+                                            Validez As String,
+                                            Tipo As String,
+                                            Comite As DataTable) As String
+
+        Try
+
+            Dim Saludo As String =
+                ObtieneDatos("sp_sel_Saludo", 0).Rows.Item(0)("Saludo")
+
+            If Tipo = "Lista Negra" Then
+                Tipo = $"Facturar a Cliente en {Tipo}"
+            ElseIf Tipo = "Limite Credito" Then
+                Tipo = $"Cambio del {Tipo}"
+            ElseIf Tipo = "Facturas Vencidas" Then
+                Tipo = $"Facturas a Clientes con {Tipo}"
+            End If
+
+            Using mm As New MailMessage()
+                mm.From = New MailAddress(Envia, $"Código de Aprobación, {Tipo}", System.Text.Encoding.UTF8)
+                For i As Integer = 0 To Comite.Rows.Count - 1
+                    mm.To.Add(Comite.Rows.Item(i)("Correo"))
+                Next
+                '
+                If MailTo.Trim.Length > 0 Then mm.Bcc.Add(MailTo)
+                If Cc.Trim.Length > 0 Then mm.Bcc.Add(Cc)
+
+                mm.Subject = $"Cliente: {Asunto}"
+                Dim Body As String = "<!doctype html>
+<html>
+<meta charset=""utf-8"">
+<title>Aprobaciones Facturación</title>
+    <style>
+		@font face{
+			font-family:cumples;
+			src:url(webfontkit-20160206-224439/brockscript-webfont.ttf) format:(""Truetype"");
+		}
+       h1{font-size: 12;
+          color: #0a14cc;
+			font-family: tahoma;
+        }  
+        p{
+            font-size: 12;
+			font-family: tahoma;
+         }
+        body{
+            width: 85%;
+			 height:85%;
+            margin: 35px;
+			 background-attachment: fixed;
+			 background-position:center center;
+			 background-size: cover;    
+        }
+    </style>
+<body>" _
+                    + "<h1>" + Saludo + "</h1>" _
+                    + "<p> Estimado Comite de Credito,	</br>" _
+                    + " El usuario: <b> " + Login + " </b> esta solicitando su aprobación para el cliente </br>" _
+                    + "<b>" + Asunto + "</b> para este proceso: <b> " + Tipo + " </b></p></br></br>" _
+                    + "<b>Código de Aprobación:</b></br></br>" _
+                    + "<p><h3><b>" + Codigo + "</b><h3></p></br></br></br>" _
+                    + " <p><h1>Este Codigo tendra una validez de <b> " + Validez + " minutos</b>  para ser aplicado.</h1></p>" _
+                    + "<p><h1>Un Cordial saludo,<br>" _
+                    + "Departamento de Informatica</h1></p>"
+
+                mm.Body = Body
+                mm.IsBodyHtml = True
+
+                Dim smtp As New SmtpClient()
+                smtp.Host = Salida
+                smtp.EnableSsl = Seguridad
+                Dim NetworkCred As New NetworkCredential(Envia, Clave)
+                smtp.UseDefaultCredentials = True
+                smtp.Credentials = NetworkCred
+                smtp.Port = Puerto
+                smtp.Send(mm)
+
+            End Using
+
+            Return "Enviado"
+        Catch ex As Exception
+            Return ex.Message
+        End Try
+
+    End Function
 
     Public Function Test(Asunto As String,
                          Envia As String,

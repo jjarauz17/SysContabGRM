@@ -62,6 +62,8 @@ Namespace VB.SysContab
         Public Marca As String
         Public Url As String
         Public Foto As Byte()
+        Public Cabys As String
+        Public Impuesto As Double
 
         'Public Nombre_Linea As String
         'Public Nombre_Grupo As ADDString
@@ -1001,6 +1003,7 @@ Namespace VB.SysContab
             dsGrupo.Tables.Add(DT_ITEM)
 
             If dsGrupo.Tables("ARTICULOS").Rows.Count = 1 Then
+
                 Details.Codigo = dsGrupo.Tables("ARTICULOS").Rows(0).Item("CODIGO_ARTICULO").ToString
                 Details.Nombre = dsGrupo.Tables("ARTICULOS").Rows(0).Item("NOMBRE").ToString
                 Details.Codigo_Parte = dsGrupo.Tables("ARTICULOS").Rows(0).Item("CODIGO_PARTE").ToString
@@ -1056,15 +1059,17 @@ Namespace VB.SysContab
                 Details.FactorIngreso = dsGrupo.Tables("ARTICULOS").Rows(0).Item("Factor_UM")
                 Details.Marca = dsGrupo.Tables("ARTICULOS").Rows(0).Item("Marca")
                 Details.Url = dsGrupo.Tables("ARTICULOS").Rows(0).Item("URL")
+                Details.Cabys = dsGrupo.Tables("ARTICULOS").Rows(0).Item("CABYS")
+                Details.Impuesto = dsGrupo.Tables("ARTICULOS").Rows(0).Item("Impuesto")
                 '
                 If dsGrupo.Tables("ARTICULOS").Rows(0).Item("Foto") IsNot DBNull.Value Then
                     Details.Foto = CType(dsGrupo.Tables("ARTICULOS").Rows(0).Item("Foto"), Byte())
                 End If
 
-
             End If
 
-                Return Details
+            Return Details
+
         End Function
 
         Public Shared Function GetDetailsTrans(ByVal Codigo As String, ByVal Tipo As String, ByVal Empresa As String) As ArticulosDetails
@@ -1319,7 +1324,8 @@ Namespace VB.SysContab
                                 Optional Validar_Precio As Integer = 0, Optional Obsoleto As Integer = 0, Optional Precio2 As Double = 0.0, Optional Costo2 As Double = 0.0,
                                 Optional IdProyecto As Integer = 0, Optional Codigo_Parte As String = "", Optional Nombre_Proveedor As String = "",
                                 Optional Fabricante As Integer = 0, Optional Factor_Ingreso As Double = 1.0, Optional Marca As String = "",
-                                Optional Url As String = "", Optional Foto As Byte() = Nothing)
+                                Optional Url As String = "", Optional Foto As Byte() = Nothing,
+                                Optional Cabys As String = "", Optional Impuesto As Double = 1.0)
 
             Dim DBConn As SqlConnection
             Dim DBCommand As SqlDataAdapter
@@ -1479,6 +1485,8 @@ Namespace VB.SysContab
             cmd.Parameters.AddWithValue("@Marca", Marca)
             cmd.Parameters.AddWithValue("@Url", Url)
             cmd.Parameters.AddWithValue("@Foto", Foto)
+            cmd.Parameters.AddWithValue("@Cabys", Cabys)
+            cmd.Parameters.AddWithValue("@Impuesto", Impuesto)
 
             ' Open the connection and execute the Command
             DBConn.Open()
@@ -1501,7 +1509,8 @@ Namespace VB.SysContab
                         Optional Validar_Precio As Integer = 0, Optional Obsoleto As Integer = 0, Optional Precio2 As Double = 0.0, Optional Costo2 As Double = 0.0,
                         Optional IdProyecto As Integer = 0, Optional Codigo_Parte As String = "", Optional Nombre_Proveedor As String = "",
                         Optional Fabricante As Integer = 0, Optional Factor_Ingreso As Double = 1.0, Optional Marca As String = "",
-                        Optional Url As String = "", Optional Foto As Byte() = Nothing)
+                        Optional Url As String = "", Optional Foto As Byte() = Nothing,
+                               Optional Cabys As String = "", Optional Impuesto As Double = 1.0)
 
             Dim DBConn As SqlConnection
             Dim DBCommand As SqlDataAdapter
@@ -1655,6 +1664,8 @@ Namespace VB.SysContab
             cmd.Parameters.AddWithValue("@Marca", Marca)
             cmd.Parameters.AddWithValue("@Url", Url)
             cmd.Parameters.AddWithValue("@Foto", Foto)
+            cmd.Parameters.AddWithValue("@Cabys", Cabys)
+            cmd.Parameters.AddWithValue("@Impuesto", Impuesto)
 
             ' Open the connection and execute the Command
             DBConn.Open()
@@ -1679,6 +1690,25 @@ Namespace VB.SysContab
             End Try
 
         End Function
+
+        Public Shared Sub UpdateCabys(Codigo As String, Tipo As String, Cabys As String, Impuesto As Double)
+            Try
+                Dim Conn As New DbConnect.Connect(VB.SysContab.Rutinas.AbrirConexion())
+
+                Conn.RemoveParameters()
+                Conn.AddParameter("Codigo", SqlDbType.NVarChar, 50, ParameterDirection.Input, Codigo)
+                Conn.AddParameter("Tipo", SqlDbType.NVarChar, 5, ParameterDirection.Input, Tipo)
+                Conn.AddParameter("Cabys", SqlDbType.NVarChar, 50, ParameterDirection.Input, Cabys)
+                Conn.AddParameter("Impuesto", SqlDbType.Decimal, 18, ParameterDirection.Input, Impuesto)
+                Conn.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+
+                Conn.EjecutarComando("sp_sel_ARTICULOS_CABYS")
+
+            Catch ex As Exception
+                XtraMsg(ex.Message, MessageBoxIcon.Error)
+            End Try
+        End Sub
+
 
         Public Shared Function AntiguedadDeLoVendido(Desde As Date, Hasta As Date, Bodega As String, Moneda As String) As DataTable
 

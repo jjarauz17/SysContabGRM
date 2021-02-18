@@ -37,6 +37,8 @@
             obj.Copia = ""
             obj.Asunto = ""
             obj.ANombre = ""
+            obj.AlertaMail = txtMailToAlert.Text
+            obj.AlertaMailCc = txtMailCcAlert.Text
             '
             If Nuevo Then   'Nuevo
                 obj.IdCorreo = 0
@@ -71,11 +73,13 @@
             obj.Smtp = smtpFV.Text
             obj.SSL = IIf(chkSslFV.Checked, 1, 0)
             obj.Puerto = PuertoFV.EditValue
-            obj.IdSucursal = ""
-            obj.Perfil = ""
-            obj.Copia = ""
-            obj.Asunto = ""
-            obj.ANombre = ""
+            obj.IdSucursal = String.Empty
+            obj.Perfil = String.Empty
+            obj.Copia = String.Empty
+            obj.Asunto = String.Empty
+            obj.ANombre = String.Empty
+            obj.AlertaMail = String.Empty
+            obj.AlertaMailCc = String.Empty
 
             If Nuevo Then   'Nuevo
                 obj.IdCorreo = 0
@@ -107,15 +111,17 @@
             obj.Tipo = 3
             obj.Empresa = EmpresaActual
             obj.Correo = tCorreo.Text
-            obj.Clave = ""
-            obj.Smtp = ""
+            obj.Clave = String.Empty
+            obj.Smtp = String.Empty
             obj.SSL = 0
             obj.Puerto = 0
-            obj.IdSucursal = ""
+            obj.IdSucursal = String.Empty
             obj.Perfil = cbPerfiles.EditValue
             obj.Copia = mCC.Text
             obj.Asunto = tAsunto.Text
-            obj.ANombre = ""
+            obj.ANombre = String.Empty
+            obj.AlertaMail = String.Empty
+            obj.AlertaMailCc = String.Empty
 
             If Nuevo Then   'Nuevo
                 obj.IdCorreo = 0
@@ -136,15 +142,17 @@
             obj.Tipo = 4
             obj.Empresa = EmpresaActual
             obj.Correo = tCorreo2.Text
-            obj.Clave = ""
-            obj.Smtp = ""
+            obj.Clave = String.Empty
+            obj.Smtp = String.Empty
             obj.SSL = 0
             obj.Puerto = 0
-            obj.IdSucursal = ""
+            obj.IdSucursal = String.Empty
             obj.Perfil = cbPerfiles2.EditValue
             obj.Copia = mCC2.Text
             obj.Asunto = tAsunto2.Text
-            obj.ANombre = ""
+            obj.ANombre = String.Empty
+            obj.AlertaMail = String.Empty
+            obj.AlertaMailCc = String.Empty
 
             If Nuevo Then   'Nuevo
                 obj.IdCorreo = 0
@@ -166,15 +174,17 @@
             obj.Tipo = 5
             obj.Empresa = EmpresaActual
             obj.Correo = tCorreoEnviar.Text
-            obj.Clave = ""
-            obj.Smtp = ""
+            obj.Clave = String.Empty
+            obj.Smtp = String.Empty
             obj.SSL = 0
             obj.Puerto = 0
-            obj.IdSucursal = ""
+            obj.IdSucursal = String.Empty
             obj.Perfil = cbPerfil3.EditValue
             obj.Copia = mCC3.Text
             obj.Asunto = tAsuntoVence.Text
             obj.ANombre = tNombre.Text
+            obj.AlertaMail = String.Empty
+            obj.AlertaMailCc = String.Empty
 
             If Nuevo Then   'Nuevo
                 obj.IdCorreo = 0
@@ -236,15 +246,20 @@
             smtpEC.Text = obj.Smtp
             chkSslEC.Checked = IIf(obj.SSL = 1, True, False)
             PuertoEC.Text = obj.Puerto
+            '
+            txtMailToAlert.Text = obj.AlertaMail
+            txtMailCcAlert.Text = obj.AlertaMailCc
         Else
             obj.IdCorreo = 0
-
             '
-            EnvioEC.Text = ""
-            ClaveEC.Text = ""
-            smtpEC.Text = ""
+            EnvioEC.Text = String.Empty
+            ClaveEC.Text = String.Empty
+            smtpEC.Text = String.Empty
             chkSslEC.Checked = False
             PuertoEC.Text = 25
+
+            txtMailToAlert.Text = String.Empty
+            txtMailCcAlert.Text = String.Empty
         End If
 
         iGridEC.DataSource = db_CorreoCopia.Listar(obj.IdCorreo)

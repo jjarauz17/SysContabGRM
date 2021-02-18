@@ -77,6 +77,7 @@
     <Compile Include="MassEntityAPIHandler.cs" />
     <Compile Include="MetaDataAPIHandler.cs" />
     <Compile Include="ModuleAPIHandler.cs" />
+    <Compile Include="Novazys\Products.cs" />
     <Compile Include="OAuth\ClientApp\ZohoOAuthFilePersistence.cs" />
     <Compile Include="OrganizationAPIHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

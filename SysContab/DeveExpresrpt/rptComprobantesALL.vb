@@ -134,7 +134,6 @@ Public Class rptComprobantesALL
         Me.etNoPag = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.XrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand()
-        Me.XrShape1 = New DevExpress.XtraReports.UI.XRShape()
         Me.XrTable1 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow8 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell22 = New DevExpress.XtraReports.UI.XRTableCell()
@@ -165,6 +164,8 @@ Public Class rptComprobantesALL
         Me.XrTableCell30 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableRow11 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell33 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrShape1 = New DevExpress.XtraReports.UI.XRShape()
+        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox()
         Me.GroupFooter1 = New DevExpress.XtraReports.UI.GroupFooterBand()
         Me.XrTable7 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow12 = New DevExpress.XtraReports.UI.XRTableRow()
@@ -190,16 +191,15 @@ Public Class rptComprobantesALL
         Me.XrTableCell10 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.TopMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand()
         Me.BottomMarginBand1 = New DevExpress.XtraReports.UI.BottomMarginBand()
-        Me.XrPictureBox1 = New DevExpress.XtraReports.UI.XRPictureBox()
         Me.gfDistribucion = New DevExpress.XtraReports.UI.GroupFooterBand()
-        Me.XrSubreport1 = New DevExpress.XtraReports.UI.XRSubreport()
-        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel()
         Me.XrTable8 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow14 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell15 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell16 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell40 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell41 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrSubreport1 = New DevExpress.XtraReports.UI.XRSubreport()
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -221,9 +221,9 @@ Public Class rptComprobantesALL
         'XrTable2
         '
         Me.XrTable2.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-                    Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTable2.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTable2.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrTable2.Name = "XrTable2"
         Me.XrTable2.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.XrTable2.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow4})
@@ -241,7 +241,7 @@ Public Class rptComprobantesALL
         'XrTableCell6
         '
         Me.XrTableCell6.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrTableCell6.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.Cuenta")})
+        Me.XrTableCell6.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.Cuenta]")})
         Me.XrTableCell6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell6.Name = "XrTableCell6"
         Me.XrTableCell6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -254,7 +254,7 @@ Public Class rptComprobantesALL
         'XrTableCell7
         '
         Me.XrTableCell7.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrTableCell7.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.Nombre")})
+        Me.XrTableCell7.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.Nombre]")})
         Me.XrTableCell7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell7.Name = "XrTableCell7"
         Me.XrTableCell7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -267,7 +267,7 @@ Public Class rptComprobantesALL
         'XrTableCell4
         '
         Me.XrTableCell4.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrTableCell4.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.Concepto2")})
+        Me.XrTableCell4.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.Concepto2]")})
         Me.XrTableCell4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell4.Name = "XrTableCell4"
         Me.XrTableCell4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -280,28 +280,30 @@ Public Class rptComprobantesALL
         'XrTableCell9
         '
         Me.XrTableCell9.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrTableCell9.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.MontoD", "{0:n2}")})
+        Me.XrTableCell9.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.MontoD]")})
         Me.XrTableCell9.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell9.Name = "XrTableCell9"
         Me.XrTableCell9.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrTableCell9.Text = "XrTableCell9"
         Me.XrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell9.TextFormatString = "{0:n2}"
         Me.XrTableCell9.Weight = 0.11213720316622691R
         '
         'XrTableCell5
         '
         Me.XrTableCell5.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrTableCell5.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.MontoC", "{0:n2}")})
+        Me.XrTableCell5.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.MontoC]")})
         Me.XrTableCell5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell5.Name = "XrTableCell5"
         Me.XrTableCell5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrTableCell5.Text = "XrTableCell5"
         Me.XrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell5.TextFormatString = "{0:n2}"
         Me.XrTableCell5.Weight = 0.11741424802110818R
         '
         'PageHeader
         '
-        Me.PageHeader.HeightF = 0.0!
+        Me.PageHeader.HeightF = 0!
         Me.PageHeader.Name = "PageHeader"
         Me.PageHeader.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.PageHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
@@ -317,26 +319,26 @@ Public Class rptComprobantesALL
         'etNoPag
         '
         Me.etNoPag.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.etNoPag.Format = "Pagina {0} de {1}"
-        Me.etNoPag.LocationFloat = New DevExpress.Utils.PointFloat(584.0!, 0.0!)
+        Me.etNoPag.LocationFloat = New DevExpress.Utils.PointFloat(584.0!, 0!)
         Me.etNoPag.Name = "etNoPag"
         Me.etNoPag.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.etNoPag.SizeF = New System.Drawing.SizeF(173.9999!, 20.0!)
         Me.etNoPag.StylePriority.UseFont = False
         Me.etNoPag.StylePriority.UseTextAlignment = False
         Me.etNoPag.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.etNoPag.TextFormatString = "Pagina {0} de {1}"
         '
         'XrPageInfo1
         '
         Me.XrPageInfo1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrPageInfo1.Format = "{0:""Fecha de Impresión: "" dddd, d' de 'MMMM' de 'yyyy hh:mm tt}"
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(17.0!, 0.0!)
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(17.0!, 0!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
         Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(384.0417!, 20.0!)
         Me.XrPageInfo1.StylePriority.UseFont = False
         Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        Me.XrPageInfo1.TextFormatString = "{0:""Fecha de Impresión: "" dddd, d' de 'MMMM' de 'yyyy hh:mm tt}"
         '
         'GroupHeader1
         '
@@ -348,20 +350,10 @@ Public Class rptComprobantesALL
         Me.GroupHeader1.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.GroupHeader1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'XrShape1
-        '
-        Me.XrShape1.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 0.0!)
-        Me.XrShape1.Name = "XrShape1"
-        Me.XrShape1.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
-        ShapeRectangle1.Fillet = 20
-        Me.XrShape1.Shape = ShapeRectangle1
-        Me.XrShape1.SizeF = New System.Drawing.SizeF(739.9999!, 70.12501!)
-        Me.XrShape1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-        '
         'XrTable1
         '
         Me.XrTable1.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrTable1.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 242.0!)
+        Me.XrTable1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 242.0!)
         Me.XrTable1.Name = "XrTable1"
         Me.XrTable1.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.XrTable1.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow8})
@@ -379,8 +371,8 @@ Public Class rptComprobantesALL
         'XrTableCell22
         '
         Me.XrTableCell22.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-                    Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell22.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell22.Name = "XrTableCell22"
         Me.XrTableCell22.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -405,8 +397,8 @@ Public Class rptComprobantesALL
         'XrTableCell24
         '
         Me.XrTableCell24.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-                    Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell24.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell24.Name = "XrTableCell24"
         Me.XrTableCell24.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -419,7 +411,7 @@ Public Class rptComprobantesALL
         'XrTableCell25
         '
         Me.XrTableCell25.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell25.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell25.Name = "XrTableCell25"
         Me.XrTableCell25.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -431,7 +423,7 @@ Public Class rptComprobantesALL
         'XrTableCell26
         '
         Me.XrTableCell26.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell26.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell26.Name = "XrTableCell26"
         Me.XrTableCell26.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -470,7 +462,7 @@ Public Class rptComprobantesALL
         '
         'XrTableCell2
         '
-        Me.XrTableCell2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.Comp_No")})
+        Me.XrTableCell2.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.Comp_No]")})
         Me.XrTableCell2.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell2.Name = "XrTableCell2"
         Me.XrTableCell2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -492,13 +484,14 @@ Public Class rptComprobantesALL
         '
         'Concecutivo
         '
-        Me.Concecutivo.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Concecutivo", "{0:d}")})
+        Me.Concecutivo.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Concecutivo]")})
         Me.Concecutivo.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Concecutivo.Name = "Concecutivo"
         Me.Concecutivo.StylePriority.UseFont = False
         Me.Concecutivo.StylePriority.UseTextAlignment = False
         Me.Concecutivo.Text = "Concecutivo"
         Me.Concecutivo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        Me.Concecutivo.TextFormatString = "{0:d}"
         Me.Concecutivo.Weight = 0.13333333333333333R
         '
         'XrTableRow2
@@ -522,7 +515,7 @@ Public Class rptComprobantesALL
         '
         'XrTableCell17
         '
-        Me.XrTableCell17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.Comp_Fecha", "{0:dd/MM/yyyy}")})
+        Me.XrTableCell17.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.Comp_Fecha]")})
         Me.XrTableCell17.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell17.Name = "XrTableCell17"
         Me.XrTableCell17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -530,6 +523,7 @@ Public Class rptComprobantesALL
         Me.XrTableCell17.StylePriority.UseTextAlignment = False
         Me.XrTableCell17.Text = "XrTableCell17"
         Me.XrTableCell17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        Me.XrTableCell17.TextFormatString = "{0:dd/MM/yyyy}"
         Me.XrTableCell17.Weight = 0.81866666666666665R
         '
         'XrTableRow3
@@ -553,7 +547,7 @@ Public Class rptComprobantesALL
         '
         'XrTableCell19
         '
-        Me.XrTableCell19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.TipoComp")})
+        Me.XrTableCell19.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.TipoComp]")})
         Me.XrTableCell19.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell19.Name = "XrTableCell19"
         Me.XrTableCell19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -581,7 +575,7 @@ Public Class rptComprobantesALL
         '
         'Moneda
         '
-        Me.Moneda.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Moneda")})
+        Me.Moneda.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Moneda]")})
         Me.Moneda.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Moneda.Name = "Moneda"
         Me.Moneda.StylePriority.UseFont = False
@@ -610,7 +604,7 @@ Public Class rptComprobantesALL
         '
         'XrTableCell21
         '
-        Me.XrTableCell21.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.Concepto1")})
+        Me.XrTableCell21.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.Concepto1]")})
         Me.XrTableCell21.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell21.Name = "XrTableCell21"
         Me.XrTableCell21.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -639,7 +633,7 @@ Public Class rptComprobantesALL
         '
         'XrTableCell30
         '
-        Me.XrTableCell30.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "_ComprobantesImpreso.Empresa")})
+        Me.XrTableCell30.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[_ComprobantesImpreso.Empresa]")})
         Me.XrTableCell30.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell30.Name = "XrTableCell30"
         Me.XrTableCell30.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -658,7 +652,7 @@ Public Class rptComprobantesALL
         '
         'XrTableCell33
         '
-        Me.XrTableCell33.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.TipoComp")})
+        Me.XrTableCell33.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.TipoComp]")})
         Me.XrTableCell33.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell33.Name = "XrTableCell33"
         Me.XrTableCell33.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -666,6 +660,23 @@ Public Class rptComprobantesALL
         Me.XrTableCell33.Text = "XrTableCell33"
         Me.XrTableCell33.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         Me.XrTableCell33.Weight = 1.0R
+        '
+        'XrShape1
+        '
+        Me.XrShape1.LocationFloat = New DevExpress.Utils.PointFloat(9.999998!, 0!)
+        Me.XrShape1.Name = "XrShape1"
+        Me.XrShape1.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
+        ShapeRectangle1.Fillet = 20
+        Me.XrShape1.Shape = ShapeRectangle1
+        Me.XrShape1.SizeF = New System.Drawing.SizeF(739.9999!, 70.12501!)
+        Me.XrShape1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'XrPictureBox1
+        '
+        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(17.0!, 0!)
+        Me.XrPictureBox1.Name = "XrPictureBox1"
+        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(100.0!, 60.0!)
+        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
         '
         'GroupFooter1
         '
@@ -679,7 +690,7 @@ Public Class rptComprobantesALL
         '
         'XrTable7
         '
-        Me.XrTable7.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 8.0!)
+        Me.XrTable7.LocationFloat = New DevExpress.Utils.PointFloat(0!, 8.0!)
         Me.XrTable7.Name = "XrTable7"
         Me.XrTable7.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.XrTable7.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow12})
@@ -706,13 +717,14 @@ Public Class rptComprobantesALL
         '
         'XrTableCell34
         '
-        Me.XrTableCell34.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Comprobantes.TasaCambio", "{0:n4}")})
+        Me.XrTableCell34.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Comprobantes.TasaCambio]")})
         Me.XrTableCell34.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell34.Name = "XrTableCell34"
         Me.XrTableCell34.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrTableCell34.StylePriority.UseFont = False
         Me.XrTableCell34.StylePriority.UseTextAlignment = False
         Me.XrTableCell34.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell34.TextFormatString = "{0:n4}"
         Me.XrTableCell34.Weight = 0.56770833333333337R
         '
         'XrTable5
@@ -735,8 +747,8 @@ Public Class rptComprobantesALL
         'XrTableCell27
         '
         Me.XrTableCell27.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-                    Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell27.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell27.Name = "XrTableCell27"
         Me.XrTableCell27.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -748,35 +760,35 @@ Public Class rptComprobantesALL
         'XrTableCell28
         '
         Me.XrTableCell28.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTableCell28.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "_ComprobantesImpresoDetalle.MontoD")})
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell28.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([_ComprobantesImpresoDetalle.MontoD])")})
         Me.XrTableCell28.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell28.Name = "XrTableCell28"
         Me.XrTableCell28.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrTableCell28.StylePriority.UseFont = False
         Me.XrTableCell28.StylePriority.UseTextAlignment = False
-        XrSummary1.FormatString = "{0:n2}"
         XrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
         Me.XrTableCell28.Summary = XrSummary1
         Me.XrTableCell28.Text = "XrTableCell14"
         Me.XrTableCell28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell28.TextFormatString = "{0:n2}"
         Me.XrTableCell28.Weight = 0.300904701198388R
         '
         'XrTableCell29
         '
         Me.XrTableCell29.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTableCell29.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "_ComprobantesImpresoDetalle.MontoC")})
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTableCell29.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([_ComprobantesImpresoDetalle.MontoC])")})
         Me.XrTableCell29.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.XrTableCell29.Name = "XrTableCell29"
         Me.XrTableCell29.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrTableCell29.StylePriority.UseFont = False
         Me.XrTableCell29.StylePriority.UseTextAlignment = False
-        XrSummary2.FormatString = "{0:n2}"
         XrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
         Me.XrTableCell29.Summary = XrSummary2
         Me.XrTableCell29.Text = "XrTableCell15"
         Me.XrTableCell29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrTableCell29.TextFormatString = "{0:n2}"
         Me.XrTableCell29.Weight = 0.22850692541890555R
         '
         'XrTable3
@@ -899,13 +911,6 @@ Public Class rptComprobantesALL
         Me.BottomMarginBand1.HeightF = 25.0!
         Me.BottomMarginBand1.Name = "BottomMarginBand1"
         '
-        'XrPictureBox1
-        '
-        Me.XrPictureBox1.LocationFloat = New DevExpress.Utils.PointFloat(17.0!, 0.0!)
-        Me.XrPictureBox1.Name = "XrPictureBox1"
-        Me.XrPictureBox1.SizeF = New System.Drawing.SizeF(100.0!, 60.0!)
-        Me.XrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
-        '
         'gfDistribucion
         '
         Me.gfDistribucion.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable8, Me.XrLabel2, Me.XrSubreport1})
@@ -913,35 +918,10 @@ Public Class rptComprobantesALL
         Me.gfDistribucion.Name = "gfDistribucion"
         Me.gfDistribucion.Visible = False
         '
-        'XrSubreport1
-        '
-        Me.XrSubreport1.LocationFloat = New DevExpress.Utils.PointFloat(1.000039!, 52.99997!)
-        Me.XrSubreport1.Name = "XrSubreport1"
-        Me.XrSubreport1.SizeF = New System.Drawing.SizeF(757.9999!, 23.0!)
-        '
-        'XrLabel2
-        '
-        Me.XrLabel2.BackColor = System.Drawing.Color.Silver
-        Me.XrLabel2.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid
-        Me.XrLabel2.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-                    Or DevExpress.XtraPrinting.BorderSide.Right), DevExpress.XtraPrinting.BorderSide)
-        Me.XrLabel2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 9.999974!)
-        Me.XrLabel2.Name = "XrLabel2"
-        Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
-        Me.XrLabel2.SizeF = New System.Drawing.SizeF(758.0!, 23.0!)
-        Me.XrLabel2.StylePriority.UseBackColor = False
-        Me.XrLabel2.StylePriority.UseBorderDashStyle = False
-        Me.XrLabel2.StylePriority.UseBorders = False
-        Me.XrLabel2.StylePriority.UseFont = False
-        Me.XrLabel2.StylePriority.UseTextAlignment = False
-        Me.XrLabel2.Text = "Detalle de Distribución"
-        Me.XrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
-        '
         'XrTable8
         '
         Me.XrTable8.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.XrTable8.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 32.99997!)
+        Me.XrTable8.LocationFloat = New DevExpress.Utils.PointFloat(0!, 32.99997!)
         Me.XrTable8.Name = "XrTable8"
         Me.XrTable8.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.XrTable8.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow14})
@@ -959,8 +939,8 @@ Public Class rptComprobantesALL
         'XrTableCell15
         '
         Me.XrTableCell15.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-                    Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell15.Name = "XrTableCell15"
         Me.XrTableCell15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -973,7 +953,7 @@ Public Class rptComprobantesALL
         'XrTableCell16
         '
         Me.XrTableCell16.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell16.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell16.Name = "XrTableCell16"
         Me.XrTableCell16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -987,7 +967,7 @@ Public Class rptComprobantesALL
         'XrTableCell40
         '
         Me.XrTableCell40.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell40.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell40.Name = "XrTableCell40"
         Me.XrTableCell40.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -999,7 +979,7 @@ Public Class rptComprobantesALL
         'XrTableCell41
         '
         Me.XrTableCell41.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Right) _
-                    Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrTableCell41.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.XrTableCell41.Name = "XrTableCell41"
         Me.XrTableCell41.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -1008,11 +988,36 @@ Public Class rptComprobantesALL
         Me.XrTableCell41.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         Me.XrTableCell41.Weight = 0.11741424802110818R
         '
+        'XrLabel2
+        '
+        Me.XrLabel2.BackColor = System.Drawing.Color.Silver
+        Me.XrLabel2.BorderDashStyle = DevExpress.XtraPrinting.BorderDashStyle.Solid
+        Me.XrLabel2.Borders = CType(((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right), DevExpress.XtraPrinting.BorderSide)
+        Me.XrLabel2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(0!, 9.999974!)
+        Me.XrLabel2.Name = "XrLabel2"
+        Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel2.SizeF = New System.Drawing.SizeF(758.0!, 23.0!)
+        Me.XrLabel2.StylePriority.UseBackColor = False
+        Me.XrLabel2.StylePriority.UseBorderDashStyle = False
+        Me.XrLabel2.StylePriority.UseBorders = False
+        Me.XrLabel2.StylePriority.UseFont = False
+        Me.XrLabel2.StylePriority.UseTextAlignment = False
+        Me.XrLabel2.Text = "Detalle de Distribución"
+        Me.XrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        '
+        'XrSubreport1
+        '
+        Me.XrSubreport1.LocationFloat = New DevExpress.Utils.PointFloat(1.000039!, 52.99997!)
+        Me.XrSubreport1.Name = "XrSubreport1"
+        Me.XrSubreport1.SizeF = New System.Drawing.SizeF(757.9999!, 23.0!)
+        '
         'rptComprobantesALL
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.PageHeader, Me.PageFooter, Me.GroupHeader1, Me.GroupFooter1, Me.TopMarginBand1, Me.BottomMarginBand1, Me.gfDistribucion})
         Me.Margins = New System.Drawing.Printing.Margins(45, 45, 25, 25)
-        Me.Version = "12.1"
+        Me.Version = "19.2"
         Me.XmlDataPath = "D:\SysContab2003FULL-CT\bin\xml\rptComprobantesAll.xml"
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).EndInit()

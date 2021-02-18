@@ -16,6 +16,7 @@ Public Class db_Clientes_Exoneraciones
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Insertar(ByVal Clientes_Exoneraciones As Clientes_Exoneraciones, Optional Tran As Boolean = False)
+
         Dim ObjParameter(5) As String
         ObjParameter(0) = Clientes_Exoneraciones.Empresa
         ObjParameter(1) = Clientes_Exoneraciones.Factura
@@ -91,6 +92,13 @@ Public Class db_Clientes_Exoneraciones
     End Function
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+    Public Shared Function Validar(Factura As String) As Data.DataTable
+
+        Return ObtieneDatos("sp_Clientes_Exoneraciones_ValidarExiste", Factura, EmpresaActual)
+
+    End Function
+
+    '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Borrar(ByVal Clientes_Exoneraciones As Clientes_Exoneraciones, Optional Tran As Boolean = False)
         Dim ObjParameter(2) As String
         ObjParameter(0) = Clientes_Exoneraciones.Factura
@@ -121,7 +129,7 @@ Public Class db_Clientes_Exoneraciones
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Shared Function Detalles(ByVal Id As String) As Clientes_Exoneraciones
-        Dim dt As DataTable = ObtieneDatos("sp_sel_Clientes_Exoneraciones", Id, EmpresaActual)
+        Dim dt As DataTable = ObtieneDatos("sp_sel_Clientes_Exoneraciones", Id, Now.Date, Now.Date, EmpresaActual)
         Dim det As New Clientes_Exoneraciones
 
         If dt.Rows.Count > 0 Then

@@ -44,8 +44,8 @@ Partial Class frmSaldoInventarios
         Me.cbItemProductos = New DevExpress.XtraEditors.GridLookUpEdit()
         Me.GridLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.rgTipo = New DevExpress.XtraEditors.RadioGroup()
-        Me.dgInvent = New DevExpress.XtraGrid.GridControl()
-        Me.vInvent = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.iGrid = New DevExpress.XtraGrid.GridControl()
+        Me.iVista = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.BandedGridView1 = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridView()
         Me.GridBand1 = New DevExpress.XtraGrid.Views.BandedGrid.GridBand()
@@ -91,8 +91,8 @@ Partial Class frmSaldoInventarios
         CType(Me.cbItemProductos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rgTipo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgInvent, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.vInvent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iVista, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BandedGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BandedGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,7 +126,7 @@ Partial Class frmSaldoInventarios
         Me.btnSalir.ImageOptions.Image = CType(resources.GetObject("btnSalir.ImageOptions.Image"), System.Drawing.Image)
         Me.btnSalir.Location = New System.Drawing.Point(12, 289)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(107, 38)
+        Me.btnSalir.Size = New System.Drawing.Size(109, 36)
         Me.btnSalir.StyleController = Me.LayoutControl2
         Me.btnSalir.TabIndex = 10
         Me.btnSalir.Text = "&Salir"
@@ -144,7 +144,7 @@ Partial Class frmSaldoInventarios
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(713, 163, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 339)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 337)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -153,7 +153,7 @@ Partial Class frmSaldoInventarios
         Me.bRestauraEsquema.Appearance.Options.UseTextOptions = True
         Me.bRestauraEsquema.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bRestauraEsquema.ImageOptions.Image = CType(resources.GetObject("bRestauraEsquema.ImageOptions.Image"), System.Drawing.Image)
-        Me.bRestauraEsquema.Location = New System.Drawing.Point(12, 205)
+        Me.bRestauraEsquema.Location = New System.Drawing.Point(12, 207)
         Me.bRestauraEsquema.Name = "bRestauraEsquema"
         Me.bRestauraEsquema.Size = New System.Drawing.Size(107, 38)
         Me.bRestauraEsquema.StyleController = Me.LayoutControl2
@@ -165,7 +165,7 @@ Partial Class frmSaldoInventarios
         Me.bGuardaEsquema.Appearance.Options.UseTextOptions = True
         Me.bGuardaEsquema.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bGuardaEsquema.ImageOptions.Image = CType(resources.GetObject("bGuardaEsquema.ImageOptions.Image"), System.Drawing.Image)
-        Me.bGuardaEsquema.Location = New System.Drawing.Point(12, 163)
+        Me.bGuardaEsquema.Location = New System.Drawing.Point(12, 165)
         Me.bGuardaEsquema.Name = "bGuardaEsquema"
         Me.bGuardaEsquema.Size = New System.Drawing.Size(107, 38)
         Me.bGuardaEsquema.StyleController = Me.LayoutControl2
@@ -177,7 +177,7 @@ Partial Class frmSaldoInventarios
         Me.btnBuscar.ImageOptions.Image = Global.SysContab.My.Resources.Resources.RibbonPrintPreview_FindLarge
         Me.btnBuscar.Location = New System.Drawing.Point(12, 12)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(107, 38)
+        Me.btnBuscar.Size = New System.Drawing.Size(109, 36)
         Me.btnBuscar.StyleController = Me.LayoutControl2
         Me.btnBuscar.TabIndex = 7
         Me.btnBuscar.Text = "&Buscar"
@@ -186,9 +186,9 @@ Partial Class frmSaldoInventarios
         '
         Me.SimpleButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(12, 54)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 52)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(107, 38)
+        Me.SimpleButton1.Size = New System.Drawing.Size(109, 36)
         Me.SimpleButton1.StyleController = Me.LayoutControl2
         Me.SimpleButton1.TabIndex = 8
         Me.SimpleButton1.Text = "&Imprimir"
@@ -197,9 +197,9 @@ Partial Class frmSaldoInventarios
         '
         Me.SimpleButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(12, 247)
+        Me.SimpleButton2.Location = New System.Drawing.Point(12, 249)
         Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(107, 38)
+        Me.SimpleButton2.Size = New System.Drawing.Size(109, 36)
         Me.SimpleButton2.StyleController = Me.LayoutControl2
         Me.SimpleButton2.TabIndex = 9
         Me.SimpleButton2.Text = "&Exportar"
@@ -210,9 +210,8 @@ Partial Class frmSaldoInventarios
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.EmptySpaceItem2, Me.LayoutControlItem5, Me.LayoutControlItem15})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(131, 339)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 337)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem9
@@ -221,7 +220,7 @@ Partial Class frmSaldoInventarios
         Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
         '
@@ -229,9 +228,9 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem10.Control = Me.SimpleButton1
         Me.LayoutControlItem10.CustomizationFormText = "LayoutControlItem10"
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
         '
@@ -239,9 +238,9 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem11.Control = Me.SimpleButton2
         Me.LayoutControlItem11.CustomizationFormText = "LayoutControlItem11"
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 235)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 237)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         '
@@ -251,7 +250,7 @@ Partial Class frmSaldoInventarios
         Me.LayoutControlItem12.CustomizationFormText = "LayoutControlItem12"
         Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 277)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
         '
@@ -259,19 +258,19 @@ Partial Class frmSaldoInventarios
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 84)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 80)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(111, 67)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(113, 73)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.bGuardaEsquema
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 151)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 153)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
@@ -279,11 +278,11 @@ Partial Class frmSaldoInventarios
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.bRestauraEsquema
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 193)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 195)
         Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem15.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
@@ -296,7 +295,7 @@ Partial Class frmSaldoInventarios
         Me.LayoutControl1.Controls.Add(Me.CheckEdit1)
         Me.LayoutControl1.Controls.Add(Me.cbItemProductos)
         Me.LayoutControl1.Controls.Add(Me.rgTipo)
-        Me.LayoutControl1.Controls.Add(Me.dgInvent)
+        Me.LayoutControl1.Controls.Add(Me.iGrid)
         Me.LayoutControl1.Controls.Add(Me.cbMovimientos)
         Me.LayoutControl1.Controls.Add(Me.Desde)
         Me.LayoutControl1.Controls.Add(Me.Hasta)
@@ -314,7 +313,7 @@ Partial Class frmSaldoInventarios
         '
         Me.cbMoneda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbMoneda.Location = New System.Drawing.Point(394, 96)
+        Me.cbMoneda.Location = New System.Drawing.Point(394, 114)
         Me.cbMoneda.Name = "cbMoneda"
         Me.cbMoneda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbMoneda.Properties.NullText = ""
@@ -336,7 +335,7 @@ Partial Class frmSaldoInventarios
         '
         'cbBodegas
         '
-        Me.cbBodegas.Location = New System.Drawing.Point(96, 70)
+        Me.cbBodegas.Location = New System.Drawing.Point(96, 88)
         Me.cbBodegas.Name = "cbBodegas"
         Me.cbBodegas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cbBodegas.Properties.Appearance.Options.UseFont = True
@@ -349,7 +348,7 @@ Partial Class frmSaldoInventarios
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(12, 122)
+        Me.CheckEdit1.Location = New System.Drawing.Point(12, 140)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Caption = "Por Item"
         Me.CheckEdit1.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
@@ -361,13 +360,13 @@ Partial Class frmSaldoInventarios
         '
         Me.cbItemProductos.EditValue = "[Todos]"
         Me.cbItemProductos.Enabled = False
-        Me.cbItemProductos.Location = New System.Drawing.Point(99, 122)
+        Me.cbItemProductos.Location = New System.Drawing.Point(99, 140)
         Me.cbItemProductos.Name = "cbItemProductos"
         Me.cbItemProductos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cbItemProductos.Properties.Appearance.Options.UseFont = True
         Me.cbItemProductos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbItemProductos.Properties.NullText = "[Todos]"
-        Me.cbItemProductos.Properties.View = Me.GridLookUpEdit1View
+        Me.cbItemProductos.Properties.PopupView = Me.GridLookUpEdit1View
         Me.cbItemProductos.Size = New System.Drawing.Size(506, 22)
         Me.cbItemProductos.StyleController = Me.LayoutControl1
         Me.cbItemProductos.TabIndex = 7
@@ -382,37 +381,37 @@ Partial Class frmSaldoInventarios
         'rgTipo
         '
         Me.rgTipo.EditValue = "P"
-        Me.rgTipo.Location = New System.Drawing.Point(221, 41)
+        Me.rgTipo.Location = New System.Drawing.Point(221, 50)
         Me.rgTipo.Name = "rgTipo"
         Me.rgTipo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rgTipo.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
         Me.rgTipo.Properties.Appearance.Options.UseFont = True
         Me.rgTipo.Properties.Appearance.Options.UseForeColor = True
         Me.rgTipo.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("P", "Productos"), New DevExpress.XtraEditors.Controls.RadioGroupItem("I", "Inventario de Consumo")})
-        Me.rgTipo.Size = New System.Drawing.Size(384, 25)
+        Me.rgTipo.Size = New System.Drawing.Size(384, 34)
         Me.rgTipo.StyleController = Me.LayoutControl1
         Me.rgTipo.TabIndex = 6
         '
-        'dgInvent
+        'iGrid
         '
-        Me.dgInvent.Location = New System.Drawing.Point(12, 148)
-        Me.dgInvent.MainView = Me.vInvent
-        Me.dgInvent.Name = "dgInvent"
-        Me.dgInvent.Size = New System.Drawing.Size(593, 180)
-        Me.dgInvent.TabIndex = 1
-        Me.dgInvent.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vInvent, Me.GridView1, Me.BandedGridView1, Me.BandedGridView2, Me.BandedGridView4})
+        Me.iGrid.Location = New System.Drawing.Point(12, 166)
+        Me.iGrid.MainView = Me.iVista
+        Me.iGrid.Name = "iGrid"
+        Me.iGrid.Size = New System.Drawing.Size(593, 162)
+        Me.iGrid.TabIndex = 1
+        Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista, Me.GridView1, Me.BandedGridView1, Me.BandedGridView2, Me.BandedGridView4})
         '
-        'vInvent
+        'iVista
         '
-        Me.vInvent.GridControl = Me.dgInvent
-        Me.vInvent.Name = "vInvent"
-        Me.vInvent.OptionsBehavior.Editable = False
-        Me.vInvent.OptionsView.ShowAutoFilterRow = True
-        Me.vInvent.OptionsView.ShowFooter = True
+        Me.iVista.GridControl = Me.iGrid
+        Me.iVista.Name = "iVista"
+        Me.iVista.OptionsBehavior.Editable = False
+        Me.iVista.OptionsView.ShowAutoFilterRow = True
+        Me.iVista.OptionsView.ShowFooter = True
         '
         'GridView1
         '
-        Me.GridView1.GridControl = Me.dgInvent
+        Me.GridView1.GridControl = Me.iGrid
         Me.GridView1.GroupPanelText = "Arrastre aqui para agrupar Columna"
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsBehavior.Editable = False
@@ -422,7 +421,7 @@ Partial Class frmSaldoInventarios
         'BandedGridView1
         '
         Me.BandedGridView1.Bands.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.GridBand1})
-        Me.BandedGridView1.GridControl = Me.dgInvent
+        Me.BandedGridView1.GridControl = Me.iGrid
         Me.BandedGridView1.Name = "BandedGridView1"
         Me.BandedGridView1.OptionsBehavior.Editable = False
         Me.BandedGridView1.OptionsView.ShowAutoFilterRow = True
@@ -437,7 +436,7 @@ Partial Class frmSaldoInventarios
         'BandedGridView2
         '
         Me.BandedGridView2.Bands.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.GridBand2})
-        Me.BandedGridView2.GridControl = Me.dgInvent
+        Me.BandedGridView2.GridControl = Me.iGrid
         Me.BandedGridView2.Name = "BandedGridView2"
         Me.BandedGridView2.OptionsBehavior.Editable = False
         Me.BandedGridView2.OptionsView.ShowAutoFilterRow = True
@@ -453,7 +452,7 @@ Partial Class frmSaldoInventarios
         'BandedGridView4
         '
         Me.BandedGridView4.Bands.AddRange(New DevExpress.XtraGrid.Views.BandedGrid.GridBand() {Me.GridBand4})
-        Me.BandedGridView4.GridControl = Me.dgInvent
+        Me.BandedGridView4.GridControl = Me.iGrid
         Me.BandedGridView4.Name = "BandedGridView4"
         '
         'GridBand4
@@ -464,7 +463,7 @@ Partial Class frmSaldoInventarios
         '
         'cbMovimientos
         '
-        Me.cbMovimientos.Location = New System.Drawing.Point(96, 96)
+        Me.cbMovimientos.Location = New System.Drawing.Point(96, 114)
         Me.cbMovimientos.Name = "cbMovimientos"
         Me.cbMovimientos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMovimientos.Properties.Appearance.Options.UseFont = True
@@ -493,7 +492,7 @@ Partial Class frmSaldoInventarios
         'Hasta
         '
         Me.Hasta.EditValue = Nothing
-        Me.Hasta.Location = New System.Drawing.Point(96, 41)
+        Me.Hasta.Location = New System.Drawing.Point(96, 50)
         Me.Hasta.Name = "Hasta"
         Me.Hasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Hasta.Properties.Appearance.Options.UseFont = True
@@ -515,7 +514,7 @@ Partial Class frmSaldoInventarios
         Me.rgInventario.Properties.Appearance.Options.UseFont = True
         Me.rgInventario.Properties.Appearance.Options.UseForeColor = True
         Me.rgInventario.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Pendiente"), New DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Procesado"), New DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Todo")})
-        Me.rgInventario.Size = New System.Drawing.Size(384, 25)
+        Me.rgInventario.Size = New System.Drawing.Size(384, 34)
         Me.rgInventario.StyleController = Me.LayoutControl1
         Me.rgInventario.TabIndex = 5
         '
@@ -525,7 +524,6 @@ Partial Class frmSaldoInventarios
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem6, Me.LayoutControlItem8, Me.LayoutControlItem13, Me.LayoutControlItem7, Me.LayoutControlItem14, Me.LayoutControlItem16, Me.LayoutControlItem17})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(617, 366)
         Me.LayoutControlGroup1.TextVisible = False
@@ -538,7 +536,7 @@ Partial Class frmSaldoInventarios
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(209, 29)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(209, 29)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(209, 29)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(209, 38)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "Desde:"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(81, 13)
@@ -547,11 +545,11 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem2.Control = Me.Hasta
         Me.LayoutControlItem2.CustomizationFormText = "Hasta:"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 29)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 38)
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(209, 29)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(209, 29)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(209, 29)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(209, 38)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "Hasta:"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(81, 13)
@@ -562,7 +560,7 @@ Partial Class frmSaldoInventarios
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(209, 0)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(388, 29)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(388, 38)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
@@ -570,9 +568,9 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem4.Control = Me.rgTipo
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(209, 29)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(209, 38)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(388, 29)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(388, 38)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -580,7 +578,7 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem6.Control = Me.cbMovimientos
         Me.LayoutControlItem6.CustomizationFormText = "Tipo Movimiento:"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 102)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
         Me.LayoutControlItem6.Size = New System.Drawing.Size(298, 26)
         Me.LayoutControlItem6.Text = "Tipo Movimiento:"
@@ -588,11 +586,11 @@ Partial Class frmSaldoInventarios
         '
         'LayoutControlItem8
         '
-        Me.LayoutControlItem8.Control = Me.dgInvent
+        Me.LayoutControlItem8.Control = Me.iGrid
         Me.LayoutControlItem8.CustomizationFormText = "LayoutControlItem8"
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 136)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 154)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(597, 184)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(597, 166)
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
         '
@@ -600,7 +598,7 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem13.Control = Me.cbItemProductos
         Me.LayoutControlItem13.CustomizationFormText = "Item:"
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(87, 110)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(87, 128)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
         Me.LayoutControlItem13.Size = New System.Drawing.Size(510, 26)
         Me.LayoutControlItem13.Text = "Item:"
@@ -611,7 +609,7 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem7.Control = Me.CheckEdit1
         Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 110)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 128)
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(87, 26)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(87, 26)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
@@ -624,7 +622,7 @@ Partial Class frmSaldoInventarios
         '
         Me.LayoutControlItem14.Control = Me.cbBodegas
         Me.LayoutControlItem14.CustomizationFormText = "Bodega:"
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 58)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 76)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
         Me.LayoutControlItem14.Size = New System.Drawing.Size(597, 26)
         Me.LayoutControlItem14.Text = "Bodega:"
@@ -642,7 +640,7 @@ Partial Class frmSaldoInventarios
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.cbMoneda
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(298, 84)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(298, 102)
         Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(299, 26)
         Me.LayoutControlItem17.MinSize = New System.Drawing.Size(299, 26)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
@@ -673,9 +671,9 @@ Partial Class frmSaldoInventarios
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 339)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 337)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmSaldoInventarios
@@ -706,8 +704,8 @@ Partial Class frmSaldoInventarios
         CType(Me.cbItemProductos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rgTipo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgInvent, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.vInvent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iVista, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BandedGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BandedGridView2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -736,8 +734,8 @@ Partial Class frmSaldoInventarios
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents dgInvent As DevExpress.XtraGrid.GridControl
-    Friend WithEvents vInvent As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents iGrid As DevExpress.XtraGrid.GridControl
+    Friend WithEvents iVista As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents Desde As DevExpress.XtraEditors.DateEdit
     Friend WithEvents btnBuscar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Hasta As DevExpress.XtraEditors.DateEdit

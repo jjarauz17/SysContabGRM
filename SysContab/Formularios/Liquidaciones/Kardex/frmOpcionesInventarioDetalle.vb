@@ -19,12 +19,12 @@ Public Class frmOpcionesInventarioDetalle
 
             If frm = "SALDOS" Then
                 With frmSaldoInventarios
-                    Codigo = .vInvent.GetFocusedRowCellValue("ITEM")
-                    ProductoN = .vInvent.GetFocusedRowCellValue("DESCRIPCION")
+                    Codigo = .iVista.GetFocusedRowCellValue("ITEM")
+                    ProductoN = .iVista.GetFocusedRowCellValue("DESCRIPCION")
                     Desde = .Desde.DateTime.Date
                     Hasta = .Hasta.DateTime.Date
                     ' Bodega = .cbBodegas.EditValue
-                    Bodega = .vInvent.GetFocusedRowCellValue("CODIGO_BODEGA")
+                    Bodega = .iVista.GetFocusedRowCellValue("CODIGO_BODEGA")
                 End With
             ElseIf frm = "CONSULTA" Then
                 With frmBuscarProducto

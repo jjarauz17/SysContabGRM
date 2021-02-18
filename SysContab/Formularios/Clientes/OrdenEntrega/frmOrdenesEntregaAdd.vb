@@ -80,20 +80,25 @@ Public Class frmOrdenesEntregaAdd
 
         GetMonedasList(cbMoneda)
         '
+        GetBodegasList(cbDestino)
+
         If EmpresaActual = 1 Then
             lySucursal.Text = "Sucursal:"
             lyResponsable.Text = "Responsable: "
             Combo(cbOrigen, ObtieneDatos("sp_GetSucursalesxUsuario", EmpresaActual, Usuario_ID), "[Seleccione Sucursal]")
+            cbOrigen.ItemIndex = 0
             'LookUp(cbDestino, ObtieneDatos("sp_GetSucursalesClientes", EmpresaActual, 1), "Sucursal", "Codigo", "[Seleccione Sucursal]", 0, 1)
         End If
         If EmpresaActual <> 1 Then
             lySucursal.Text = "Departamento:"
             lyResponsable.Text = "Entregar A: "
             GetCentrosCostosList(cbOrigen)
+            cbDestino.EditValue = VB.SysContab.ConfiguracionDB.GetConfigDetails().Bodega
         End If
         '
-        GetBodegasList(cbDestino)
-        cbOrigen.ItemIndex = 0
+
+
+
     End Sub
 
     Sub CargarProductos()
@@ -102,7 +107,7 @@ Public Class frmOrdenesEntregaAdd
         Dim DT_BODEGA As DataTable = ObtieneDatos("sp_GetBodegaxSucursal", cbOrigen.EditValue, EmpresaActual)
         If DT_BODEGA.Rows.Count > 0 Then Bodega = DT_BODEGA.Rows.Item(0)("Codigo_Bodega")
 
-        RepositorySearchLook(cbItems, ObtieneDatos("SP_ArticulosGetAll", "P", EmpresaActual, Bodega), "Codigo", "Codigo", 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
+        RepositorySearchLook(cbItems, ObtieneDatos("SP_ArticulosGetAll", "P", EmpresaActual, Bodega), "Codigo", "Codigo", 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
         '
         cbItems.View.Columns("PrecioU").Caption = "Precio U$"
         FormatoGrid(cbItems.View)
@@ -184,16 +189,16 @@ Public Class frmOrdenesEntregaAdd
 
         iVista.Columns("Producto").VisibleIndex = 0
         iVista.Columns("Nombre").VisibleIndex = 1
-        iVista.Columns("Unidad").VisibleIndex = 1
-        iVista.Columns("Cantidad").VisibleIndex = 2
-        iVista.Columns("Factor").VisibleIndex = 3
-        iVista.Columns("Real").VisibleIndex = 4
-        iVista.Columns("Fisico").VisibleIndex = 5
-        iVista.Columns("Autorizado").VisibleIndex = 6
-        iVista.Columns("Entregado").VisibleIndex = 7
-        iVista.Columns("Precio U$").VisibleIndex = 8
-        iVista.Columns("Precio").VisibleIndex = 9
-        iVista.Columns("SubTotal").VisibleIndex = 10
+        iVista.Columns("Unidad").VisibleIndex = 2
+        iVista.Columns("Cantidad").VisibleIndex = 3
+        iVista.Columns("Factor").VisibleIndex = 4
+        iVista.Columns("Real").VisibleIndex = 5
+        iVista.Columns("Fisico").VisibleIndex = 6
+        iVista.Columns("Autorizado").VisibleIndex = 7
+        iVista.Columns("Entregado").VisibleIndex = 8
+        iVista.Columns("Precio U$").VisibleIndex = 9
+        iVista.Columns("Precio").VisibleIndex = 10
+        iVista.Columns("SubTotal").VisibleIndex = 11
 
         If EmpresaActual <> 1 Then
             iVista.Columns("Factor").Visible = False

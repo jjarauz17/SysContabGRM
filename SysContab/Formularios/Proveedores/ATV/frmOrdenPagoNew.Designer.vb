@@ -143,13 +143,13 @@ Partial Class frmOrdenPagoNew
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.bBuscarOC, Me.bGuardar, Me.bSalir})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.bBuscarOC, Me.bGuardar, Me.bSalir, Me.RibbonControl.SearchEditItem})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 4
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
         Me.RibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
-        Me.RibbonControl.Size = New System.Drawing.Size(1090, 143)
+        Me.RibbonControl.Size = New System.Drawing.Size(1090, 158)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         '
         'bBuscarOC
@@ -192,10 +192,10 @@ Partial Class frmOrdenPagoNew
         '
         'RibbonStatusBar
         '
-        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 668)
+        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 675)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
-        Me.RibbonStatusBar.Size = New System.Drawing.Size(1090, 31)
+        Me.RibbonStatusBar.Size = New System.Drawing.Size(1090, 24)
         '
         'LayoutControl1
         '
@@ -218,11 +218,11 @@ Partial Class frmOrdenPagoNew
         Me.LayoutControl1.Controls.Add(Me.txtFactura)
         Me.LayoutControl1.Controls.Add(Me.Fecha)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LayoutControl1.Location = New System.Drawing.Point(0, 143)
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 158)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1254, 335, 450, 400)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(1090, 525)
+        Me.LayoutControl1.Size = New System.Drawing.Size(1090, 517)
         Me.LayoutControl1.TabIndex = 2
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -245,7 +245,7 @@ Partial Class frmOrdenPagoNew
         'txtIva
         '
         Me.txtIva.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.txtIva.Location = New System.Drawing.Point(359, 461)
+        Me.txtIva.Location = New System.Drawing.Point(359, 453)
         Me.txtIva.MenuManager = Me.RibbonControl
         Me.txtIva.Name = "txtIva"
         Me.txtIva.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -267,7 +267,7 @@ Partial Class frmOrdenPagoNew
         'txtTotal
         '
         Me.txtTotal.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.txtTotal.Location = New System.Drawing.Point(862, 461)
+        Me.txtTotal.Location = New System.Drawing.Point(862, 453)
         Me.txtTotal.MenuManager = Me.RibbonControl
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -289,7 +289,7 @@ Partial Class frmOrdenPagoNew
         'txtTotalU
         '
         Me.txtTotalU.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.txtTotalU.Location = New System.Drawing.Point(862, 489)
+        Me.txtTotalU.Location = New System.Drawing.Point(862, 481)
         Me.txtTotalU.MenuManager = Me.RibbonControl
         Me.txtTotalU.Name = "txtTotalU"
         Me.txtTotalU.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -311,7 +311,7 @@ Partial Class frmOrdenPagoNew
         'txtSubTotal
         '
         Me.txtSubTotal.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.txtSubTotal.Location = New System.Drawing.Point(91, 461)
+        Me.txtSubTotal.Location = New System.Drawing.Point(91, 453)
         Me.txtSubTotal.MenuManager = Me.RibbonControl
         Me.txtSubTotal.Name = "txtSubTotal"
         Me.txtSubTotal.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -429,7 +429,7 @@ Partial Class frmOrdenPagoNew
         Me.iGrid.MainView = Me.iVista
         Me.iGrid.Name = "iGrid"
         Me.iGrid.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.cbItems, Me.cbCatalogo, Me.cbProyectos, Me.rMonto, Me.rDescuento})
-        Me.iGrid.Size = New System.Drawing.Size(1066, 267)
+        Me.iGrid.Size = New System.Drawing.Size(1066, 259)
         Me.iGrid.TabIndex = 29
         Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista})
         '
@@ -460,7 +460,7 @@ Partial Class frmOrdenPagoNew
         Me.cbItems.AutoHeight = False
         Me.cbItems.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbItems.Name = "cbItems"
-        Me.cbItems.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbItems.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -474,7 +474,7 @@ Partial Class frmOrdenPagoNew
         Me.cbCatalogo.AutoHeight = False
         Me.cbCatalogo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbCatalogo.Name = "cbCatalogo"
-        Me.cbCatalogo.View = Me.RepositoryItemSearchLookUpEdit2View
+        Me.cbCatalogo.PopupView = Me.RepositoryItemSearchLookUpEdit2View
         '
         'RepositoryItemSearchLookUpEdit2View
         '
@@ -488,7 +488,7 @@ Partial Class frmOrdenPagoNew
         Me.cbProyectos.AutoHeight = False
         Me.cbProyectos.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProyectos.Name = "cbProyectos"
-        Me.cbProyectos.View = Me.RepositoryItemSearchLookUpEdit3View
+        Me.cbProyectos.PopupView = Me.RepositoryItemSearchLookUpEdit3View
         '
         'RepositoryItemSearchLookUpEdit3View
         '
@@ -520,7 +520,7 @@ Partial Class frmOrdenPagoNew
         Me.rDescuento.Appearance.Options.UseFont = True
         Me.rDescuento.Appearance.Options.UseForeColor = True
         Me.rDescuento.AutoHeight = False
-        Me.rDescuento.Mask.EditMask = "p3"
+        Me.rDescuento.Mask.EditMask = "P3"
         Me.rDescuento.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.rDescuento.Mask.UseMaskAsDisplayFormat = True
         Me.rDescuento.Name = "rDescuento"
@@ -573,7 +573,7 @@ Partial Class frmOrdenPagoNew
         Me.cbProveedor.Location = New System.Drawing.Point(91, 12)
         Me.cbProveedor.Name = "cbProveedor"
         Me.cbProveedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbProveedor.Properties.View = Me.SearchLookUpEdit1View
+        Me.cbProveedor.Properties.PopupView = Me.SearchLookUpEdit1View
         Me.cbProveedor.Size = New System.Drawing.Size(987, 20)
         Me.cbProveedor.StyleController = Me.LayoutControl1
         Me.cbProveedor.TabIndex = 24
@@ -614,9 +614,8 @@ Partial Class frmOrdenPagoNew
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem5, Me.EmptySpaceItem1, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem10, Me.LayoutControlItem6, Me.LayoutControlItem2, Me.LayoutControlItem11, Me.LayoutControlItem13, Me.LayoutControlItem12, Me.EmptySpaceItem2, Me.LayoutControlItem14, Me.LayoutControlItem9, Me.LayoutControlItem15, Me.LayoutControlItem17, Me.LayoutControlItem16, Me.EmptySpaceItem3, Me.LayoutControlItem18, Me.EmptySpaceItem4})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(1090, 525)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(1090, 517)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -645,7 +644,7 @@ Partial Class frmOrdenPagoNew
         Me.LayoutControlItem8.Control = Me.iGrid
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 178)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(1070, 271)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(1070, 263)
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
         '
@@ -784,7 +783,7 @@ Partial Class frmOrdenPagoNew
         Me.LayoutControlItem9.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LayoutControlItem9.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem9.Control = Me.txtSubTotal
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 449)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 441)
         Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(268, 28)
         Me.LayoutControlItem9.MinSize = New System.Drawing.Size(268, 28)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
@@ -798,7 +797,7 @@ Partial Class frmOrdenPagoNew
         Me.LayoutControlItem15.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LayoutControlItem15.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem15.Control = Me.txtTotalU
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(771, 477)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(771, 469)
         Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(299, 28)
         Me.LayoutControlItem15.MinSize = New System.Drawing.Size(299, 28)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
@@ -812,7 +811,7 @@ Partial Class frmOrdenPagoNew
         Me.LayoutControlItem17.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LayoutControlItem17.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem17.Control = Me.txtIva
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(268, 449)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(268, 441)
         Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(268, 28)
         Me.LayoutControlItem17.MinSize = New System.Drawing.Size(268, 28)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
@@ -826,7 +825,7 @@ Partial Class frmOrdenPagoNew
         Me.LayoutControlItem16.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LayoutControlItem16.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem16.Control = Me.txtTotal
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(771, 449)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(771, 441)
         Me.LayoutControlItem16.MaxSize = New System.Drawing.Size(299, 28)
         Me.LayoutControlItem16.MinSize = New System.Drawing.Size(299, 28)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
@@ -838,7 +837,7 @@ Partial Class frmOrdenPagoNew
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(536, 449)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(536, 441)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(235, 56)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -858,7 +857,7 @@ Partial Class frmOrdenPagoNew
         'EmptySpaceItem4
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 477)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 469)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
         Me.EmptySpaceItem4.Size = New System.Drawing.Size(536, 28)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
@@ -871,7 +870,7 @@ Partial Class frmOrdenPagoNew
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.RibbonStatusBar)
         Me.Controls.Add(Me.RibbonControl)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("frmOrdenPagoNew.IconOptions.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "frmOrdenPagoNew"
         Me.Ribbon = Me.RibbonControl

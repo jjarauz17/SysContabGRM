@@ -180,6 +180,7 @@ Namespace DataGridTextBoxCombo
         Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
         Friend WithEvents IdDetalle As DevExpress.XtraGrid.Columns.GridColumn
         Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
+        Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
         Friend WithEvents etDestino As System.Windows.Forms.Label
         <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
@@ -229,6 +230,7 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn21 = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.txtCantidad = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+            Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn()
             Me.txtPrecioC = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
             Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -883,7 +885,7 @@ Namespace DataGridTextBoxCombo
             Me.FechaEntrega.Location = New System.Drawing.Point(561, 36)
             Me.FechaEntrega.Name = "FechaEntrega"
             Me.FechaEntrega.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-            Me.FechaEntrega.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.FechaEntrega.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.FechaEntrega.Properties.Appearance.Options.UseFont = True
             Me.FechaEntrega.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
             Me.FechaEntrega.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -1078,7 +1080,7 @@ Namespace DataGridTextBoxCombo
             Me.dtpFechaPago.Location = New System.Drawing.Point(755, 12)
             Me.dtpFechaPago.Name = "dtpFechaPago"
             Me.dtpFechaPago.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-            Me.dtpFechaPago.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.dtpFechaPago.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.dtpFechaPago.Properties.Appearance.Options.UseFont = True
             Me.dtpFechaPago.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
             Me.dtpFechaPago.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -1209,7 +1211,7 @@ Namespace DataGridTextBoxCombo
             Me.iVista.Appearance.RowSeparator.Options.UseBackColor = True
             Me.iVista.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White
             Me.iVista.Appearance.SelectedRow.Options.UseForeColor = True
-            Me.iVista.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn3, Me.Descripcion, Me.GridColumn21, Me.GridColumn11, Me.GridColumn12, Me.GridColumn20, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn1, Me.GridColumn2, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.IdDetalle, Me.GridColumn7})
+            Me.iVista.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn3, Me.Descripcion, Me.GridColumn21, Me.GridColumn11, Me.GridColumn8, Me.GridColumn12, Me.GridColumn20, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn1, Me.GridColumn2, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.IdDetalle, Me.GridColumn7})
             Me.iVista.GridControl = Me.iGrid
             Me.iVista.Name = "iVista"
             Me.iVista.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom
@@ -1224,7 +1226,7 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn3.Name = "GridColumn3"
             Me.GridColumn3.Visible = True
             Me.GridColumn3.VisibleIndex = 0
-            Me.GridColumn3.Width = 60
+            Me.GridColumn3.Width = 54
             '
             'cbProducto
             '
@@ -1248,7 +1250,7 @@ Namespace DataGridTextBoxCombo
             Me.Descripcion.Name = "Descripcion"
             Me.Descripcion.Visible = True
             Me.Descripcion.VisibleIndex = 1
-            Me.Descripcion.Width = 153
+            Me.Descripcion.Width = 139
             '
             'GridColumn21
             '
@@ -1259,7 +1261,7 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn21.OptionsColumn.AllowFocus = False
             Me.GridColumn21.Visible = True
             Me.GridColumn21.VisibleIndex = 3
-            Me.GridColumn21.Width = 39
+            Me.GridColumn21.Width = 35
             '
             'GridColumn11
             '
@@ -1271,7 +1273,7 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn11.Name = "GridColumn11"
             Me.GridColumn11.Visible = True
             Me.GridColumn11.VisibleIndex = 4
-            Me.GridColumn11.Width = 43
+            Me.GridColumn11.Width = 58
             '
             'txtCantidad
             '
@@ -1280,6 +1282,18 @@ Namespace DataGridTextBoxCombo
             Me.txtCantidad.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
             Me.txtCantidad.Mask.UseMaskAsDisplayFormat = True
             Me.txtCantidad.Name = "txtCantidad"
+            '
+            'GridColumn8
+            '
+            Me.GridColumn8.Caption = "Entregado"
+            Me.GridColumn8.ColumnEdit = Me.txtCantidad
+            Me.GridColumn8.FieldName = "Entregado"
+            Me.GridColumn8.Name = "GridColumn8"
+            Me.GridColumn8.OptionsColumn.AllowEdit = False
+            Me.GridColumn8.OptionsColumn.AllowFocus = False
+            Me.GridColumn8.Visible = True
+            Me.GridColumn8.VisibleIndex = 5
+            Me.GridColumn8.Width = 65
             '
             'GridColumn12
             '
@@ -1290,8 +1304,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn12.FieldName = "Precio"
             Me.GridColumn12.Name = "GridColumn12"
             Me.GridColumn12.Visible = True
-            Me.GridColumn12.VisibleIndex = 5
-            Me.GridColumn12.Width = 46
+            Me.GridColumn12.VisibleIndex = 6
+            Me.GridColumn12.Width = 39
             '
             'txtPrecioC
             '
@@ -1308,8 +1322,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn20.FieldName = "PrecioU"
             Me.GridColumn20.Name = "GridColumn20"
             Me.GridColumn20.Visible = True
-            Me.GridColumn20.VisibleIndex = 6
-            Me.GridColumn20.Width = 54
+            Me.GridColumn20.VisibleIndex = 7
+            Me.GridColumn20.Width = 47
             '
             'txtPrecioU
             '
@@ -1326,8 +1340,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn13.FieldName = "Descuento"
             Me.GridColumn13.Name = "GridColumn13"
             Me.GridColumn13.Visible = True
-            Me.GridColumn13.VisibleIndex = 7
-            Me.GridColumn13.Width = 53
+            Me.GridColumn13.VisibleIndex = 8
+            Me.GridColumn13.Width = 46
             '
             'txtDescuento
             '
@@ -1350,8 +1364,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn14.OptionsColumn.AllowFocus = False
             Me.GridColumn14.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SubTotal", "{0:n2}")})
             Me.GridColumn14.Visible = True
-            Me.GridColumn14.VisibleIndex = 8
-            Me.GridColumn14.Width = 51
+            Me.GridColumn14.VisibleIndex = 9
+            Me.GridColumn14.Width = 44
             '
             'GridColumn15
             '
@@ -1374,8 +1388,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn17.FieldName = "IdProyecto"
             Me.GridColumn17.Name = "GridColumn17"
             Me.GridColumn17.Visible = True
-            Me.GridColumn17.VisibleIndex = 9
-            Me.GridColumn17.Width = 92
+            Me.GridColumn17.VisibleIndex = 10
+            Me.GridColumn17.Width = 79
             '
             'cbProyecto
             '
@@ -1399,8 +1413,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn1.FieldName = "IdOrdenCompra"
             Me.GridColumn1.Name = "GridColumn1"
             Me.GridColumn1.Visible = True
-            Me.GridColumn1.VisibleIndex = 10
-            Me.GridColumn1.Width = 98
+            Me.GridColumn1.VisibleIndex = 11
+            Me.GridColumn1.Width = 85
             '
             'cbPedidos
             '
@@ -1424,7 +1438,7 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn2.Name = "GridColumn2"
             Me.GridColumn2.Visible = True
             Me.GridColumn2.VisibleIndex = 2
-            Me.GridColumn2.Width = 58
+            Me.GridColumn2.Width = 52
             '
             'cbCatalogo
             '
@@ -1446,8 +1460,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn4.FieldName = "IsFlete"
             Me.GridColumn4.Name = "GridColumn4"
             Me.GridColumn4.Visible = True
-            Me.GridColumn4.VisibleIndex = 11
-            Me.GridColumn4.Width = 36
+            Me.GridColumn4.VisibleIndex = 12
+            Me.GridColumn4.Width = 30
             '
             'GridColumn5
             '
@@ -1455,8 +1469,8 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn5.FieldName = "IsSeguro"
             Me.GridColumn5.Name = "GridColumn5"
             Me.GridColumn5.Visible = True
-            Me.GridColumn5.VisibleIndex = 12
-            Me.GridColumn5.Width = 43
+            Me.GridColumn5.VisibleIndex = 13
+            Me.GridColumn5.Width = 46
             '
             'GridColumn6
             '
@@ -1471,8 +1485,6 @@ Namespace DataGridTextBoxCombo
             Me.IdDetalle.Name = "IdDetalle"
             Me.IdDetalle.OptionsColumn.AllowEdit = False
             Me.IdDetalle.OptionsColumn.AllowFocus = False
-            Me.IdDetalle.Visible = True
-            Me.IdDetalle.VisibleIndex = 13
             '
             'GridColumn7
             '
@@ -1482,8 +1494,6 @@ Namespace DataGridTextBoxCombo
             Me.GridColumn7.Name = "GridColumn7"
             Me.GridColumn7.OptionsColumn.AllowEdit = False
             Me.GridColumn7.OptionsColumn.AllowFocus = False
-            Me.GridColumn7.Visible = True
-            Me.GridColumn7.VisibleIndex = 14
             '
             'dtpFecha
             '
@@ -1492,7 +1502,7 @@ Namespace DataGridTextBoxCombo
             Me.dtpFecha.Location = New System.Drawing.Point(545, 12)
             Me.dtpFecha.Name = "dtpFecha"
             Me.dtpFecha.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-            Me.dtpFecha.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.dtpFecha.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.dtpFecha.Properties.Appearance.Options.UseFont = True
             Me.dtpFecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
             Me.dtpFecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -1739,6 +1749,7 @@ Namespace DataGridTextBoxCombo
             Me.LayoutControlItem39.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
             Me.LayoutControlItem39.TextSize = New System.Drawing.Size(0, 0)
             Me.LayoutControlItem39.TextVisible = False
+            Me.LayoutControlItem39.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
             '
             'LayoutControlItem41
             '
@@ -2396,7 +2407,7 @@ Namespace DataGridTextBoxCombo
         'Private WithEvents myDataSet As DataSet
         Dim ds As DataSet
 
-        Dim i As Integer
+        'Dim i As Integer
         Dim Tipo As Integer
 
         Dim WithEvents Articulo As DataGridComboBoxColumn
@@ -2571,6 +2582,8 @@ Namespace DataGridTextBoxCombo
                 '
                 txtNoOrden.Text = Ordenes_ComprasDB.CodigoPersonalizadoOC()
                 If EmpresaActual = 7 Then txtNoOrden.Properties.ReadOnly = True
+                '
+                iVista.Columns("Entregado").Visible = False
             End If
 
             If CargarPedido = True Then
@@ -2594,6 +2607,8 @@ Namespace DataGridTextBoxCombo
                 txtNoOrden.Text = Ordenes_ComprasDB.CodigoPersonalizadoOC()
                 If EmpresaActual = 7 Then txtNoOrden.Properties.ReadOnly = True
                 RealizarCalculos(0)
+                '
+                iVista.Columns("Entregado").Visible = False
             End If
 
             If CargarPedido = False And Modifica = False Then
@@ -2604,6 +2619,8 @@ Namespace DataGridTextBoxCombo
 
                 txtNoOrden.Text = Ordenes_ComprasDB.CodigoPersonalizadoOC()
                 If EmpresaActual = 7 Then txtNoOrden.Properties.ReadOnly = True
+                '
+                iVista.Columns("Entregado").Visible = False
             End If
 
             'VB.SysContab.Rutinas.okTransaccion()
@@ -2623,7 +2640,7 @@ Namespace DataGridTextBoxCombo
             Indice = -1
             Tipo = 0
 
-            Me.Refresh()
+            Refresh()
         End Sub
 
         'Sub CargarProveedores()
@@ -2761,6 +2778,8 @@ Namespace DataGridTextBoxCombo
                     LimpiarControles()
                     'Rutinas.okTransaccion()
                     txtFactura.Text = OrdenesCompra.OrdenCompraNumero(1)
+                    txtNoOrden.Text = Ordenes_ComprasDB.CodigoPersonalizadoOC()
+
                     cbProveedor.EditValue = Nothing
                     cbProveedor.Focus()
                 Else
@@ -2834,19 +2853,36 @@ Namespace DataGridTextBoxCombo
             End If
             '
             'Validar que vayan los proyectos si hay cuenta de proyecto.
-            Dim DT_CTAPROY As DataTable = ObtieneDatos("sp_sel_GetCuentaProyecto",
-                                                       EmpresaActual)
+            Dim CuentaProyecto As String = Ordenes_ComprasDB.CuentaProyecto()
 
-            If DT_CTAPROY.Rows.Count > 0 Then
+            If Not CuentaProyecto Is Nothing Then
                 If ds.Tables(0) _
                     .Select(
-                    "Cuenta = '" & DT_CTAPROY.Rows.Item(0)("CUENTA") & "'" &
+                    "Cuenta = '" & CuentaProyecto & "'" &
                     " AND IdProyecto = 0").Length > 0 Then
 
-                    XtraMsg("Existen registros con la cuenta " & DT_CTAPROY.Rows.Item(0)("CUENTA") & " que no tienen asignado el Proyecto" & vbCrLf &
+                    XtraMsg("Existen registros con la cuenta " & CuentaProyecto & " que no tienen asignado el Proyecto" & vbCrLf &
                             "Favor asignarlos para continuar.", MessageBoxIcon.Error)
                     Return False
                 End If
+            End If
+            '
+            'Validar que vayan los proyectos si hay cuenta de proyecto.
+            Dim CuentaTransito As String = Ordenes_ComprasDB.CuentaTransito()
+
+            If Not CuentaTransito Is Nothing Then
+
+                If ds.Tables(0) _
+                    .Select(
+                    "Cuenta = '" & CuentaTransito & "'" &
+                    " AND IdOrdenCompra = 0").Length > 0 Then
+
+                    XtraMsg("Existen registros con la cuenta " & CuentaTransito & " que no tienen asignado el No. Pedido" & vbCrLf &
+                            "Favor asignarlos para continuar.", MessageBoxIcon.Error)
+                    Return False
+
+                End If
+
             End If
             '
             DBConnFacturas = New SqlConnection(Rutinas.AbrirConexion())
@@ -2866,6 +2902,7 @@ Namespace DataGridTextBoxCombo
                         Seguro As Double = 0,
                         Otros As Double = 0
 
+                'ds.Tables(0).AcceptChanges()
                 Flete = IsNull(ds.Tables(0).Compute("SUM(SubTotal)", "Flete  = 1"), 0.00)
                 Seguro = IsNull(ds.Tables(0).Compute("SUM(SubTotal)", "Seguro  = 1"), 0.00)
 
@@ -2927,28 +2964,32 @@ Namespace DataGridTextBoxCombo
                     'Actualizar registros que cambiaron
                     If Not _DT_UPD Is Nothing Then
                         With _DT_UPD
-                            Descuento = .Rows.Item(i)("Descuento")
+                            For i As Integer = 0 To .Rows.Count - 1
 
-                            If .Rows.Item(i)("Exento") Then
-                                IVA = 0
-                            Else
-                                IVA = .Rows.Item(i)("SubTotal") * (ConfigDetalles.IVA / 100.0)
-                            End If
+                                Descuento = .Rows.Item(i)("Descuento")
 
-                            OrdenesCompra.UpdateFacturaLineas(.Rows.Item(i)("IdDetalle"),
-                                                              txtFactura.Text,
-                                                              .Rows.Item(i)("Codigo"),
-                                                              .Rows.Item(i)("Cantidad"),
-                                                              .Rows.Item(i)("Precio"),
-                                                               Descuento,
-                                                               IVA,
-                                                              .Rows.Item(i)("Tipo"),
-                                                               IsNull(.Rows.Item(i)("Descripcion"), ""),
-                                                               IsNull(.Rows.Item(i)("IdProyecto"), 0),
-                                                               IsNull(.Rows.Item(i)("IdOrdenCompra"), 0),
-                                                               IsNull(.Rows.Item(i)("IsFlete"), 0),
-                                                               IsNull(.Rows.Item(i)("IsSeguro"), 0),
-                                                               IsNull(.Rows.Item(i)("ir"), 0.00))
+                                If .Rows.Item(i)("Exento") Then
+                                    IVA = 0
+                                Else
+                                    IVA = .Rows.Item(i)("SubTotal") * (ConfigDetalles.IVA / 100.0)
+                                End If
+
+                                OrdenesCompra.UpdateFacturaLineas(.Rows.Item(i)("IdDetalle"),
+                                                                  txtFactura.Text,
+                                                                  .Rows.Item(i)("Codigo"),
+                                                                  .Rows.Item(i)("Cantidad"),
+                                                                  .Rows.Item(i)("Precio"),
+                                                                   Descuento,
+                                                                   IVA,
+                                                                  .Rows.Item(i)("Tipo"),
+                                                                   IsNull(.Rows.Item(i)("Descripcion"), ""),
+                                                                   IsNull(.Rows.Item(i)("IdProyecto"), 0),
+                                                                   IsNull(.Rows.Item(i)("IdOrdenCompra"), 0),
+                                                                   IsNull(.Rows.Item(i)("IsFlete"), 0),
+                                                                   IsNull(.Rows.Item(i)("IsSeguro"), 0),
+                                                                   IsNull(.Rows.Item(i)("ir"), 0.00))
+                            Next
+
                         End With
                     End If
                     '
@@ -2991,8 +3032,12 @@ Namespace DataGridTextBoxCombo
                         ds.Tables(0).GetChanges(DataRowState.Deleted)
                     If Not _DT_DEL Is Nothing Then
                         With _DT_DEL
-                            OrdenesCompra.OrdenComprasDetalleDelete(
+
+                            For i As Integer = 0 To .Rows.Count - 1
+                                OrdenesCompra.OrdenComprasDetalleDelete(
                                 .Rows.Item(i)("IdDetalle", DataRowVersion.Original))
+                            Next
+
                         End With
                     End If
                 End If
@@ -3813,7 +3858,7 @@ Namespace DataGridTextBoxCombo
             CalcularIR()
         End Sub
 
-        Sub CalcularIR()
+        Sub CalcularIR(Optional Manual As Boolean = False)
 
             If iVista.DataRowCount = 0 Then
                 chkIR.Checked = False
@@ -3839,136 +3884,137 @@ Namespace DataGridTextBoxCombo
 
                     sIrP.Value = ConfigDetalles.IRProd
                     MontoIR = ConfigDetalles.MontoIR
-                    txtSubTotalIR.EditValue = CDbl(iVista.Columns("SubTotal").SummaryItem.SummaryValue)
+
+                    If Not Manual Then txtSubTotalIR.EditValue = CDbl(iVista.Columns("SubTotal").SummaryItem.SummaryValue)
 
                 ElseIf TipoServicio.EditValue = "S" Then
 
-                    If IRServicio() Then
-                        sIrP.Value = CDbl(ds.Tables(0).Compute("MAX(ir)", "ir > 0"))
-                        txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "ir > 0"))
+                        If IRServicio() Then
+                            sIrP.Value = CDbl(ds.Tables(0).Compute("MAX(ir)", "ir > 0"))
+                        If Not Manual Then txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "ir > 0"))
                         MontoIR = 0.00
-                    End If
+                        End If
 
-                ElseIf TipoServicio.EditValue = "A" Then
-                    'Aplicar LinQ para detectar si hay mas de un Tipo.
-                    Dim Tipo As IEnumerable(Of String) =
+                    ElseIf TipoServicio.EditValue = "A" Then
+                        'Aplicar LinQ para detectar si hay mas de un Tipo.
+                        Dim Tipo As IEnumerable(Of String) =
                         From row In ds.Tables(0).AsEnumerable()
                         Select row.Field(Of String)("Tipo") Distinct
 
-                    Dim IsP As Boolean = False
+                        Dim IsP As Boolean = False
 
-                    For i As Integer = 0 To Tipo.Count - 1
-                        If Tipo.ToList().Item(i).ToString().Equals("P") Or
+                        For i As Integer = 0 To Tipo.Count - 1
+                            If Tipo.ToList().Item(i).ToString().Equals("P") Or
                         Tipo.ToList().Item(i).ToString().Equals("I") Then
-                            IsP = True
-                        End If
-                    Next
-                    '
-                    If IsP Then
-                        sIrP.Value = ConfigDetalles.IRProd
-                        MontoIR = ConfigDetalles.MontoIR
-                        txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "Tipo IN ('P', 'I')"))
+                                IsP = True
+                            End If
+                        Next
+                        '
+                        If IsP Then
+                            sIrP.Value = ConfigDetalles.IRProd
+                            MontoIR = ConfigDetalles.MontoIR
+                        If Not Manual Then txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "Tipo IN ('P', 'I')"))
                     Else
-                        If IRServicio() Then
-                            sIrP.Value = CDbl(ds.Tables(0).Compute("MAX(ir)", "ir > 0"))
-                            txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "ir > 0"))
+                            If IRServicio() Then
+                                sIrP.Value = CDbl(ds.Tables(0).Compute("MAX(ir)", "ir > 0"))
+                            If Not Manual Then txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "ir > 0"))
                             MontoIR = 0.00
+                            End If
                         End If
                     End If
+
+
+
+                    'Si hay productos y servicios
+                    'If Tipo.Count > 1 Then
+                    '    Dim IsP As Boolean = False
+
+                    '    For i As Integer = 0 To Tipo.Count - 1
+                    '        If Tipo.ToList().Item(i).ToString().Equals("P") Or
+                    '        Tipo.ToList().Item(i).ToString().Equals("I") Then
+                    '            IsP = True
+                    '        End If
+                    '    Next
+                    'End If
+
+                    ''Si es producto tomar el % de retencion del Grupo de Servicios
+                    'If Tipo.ToList().Item(0).ToString().Equals("S") Then
+
+                    '    If ds.Tables(0).Select("ir > 0").Length = 0 Then
+                    '        XtraMsg("No se ha encontrado configuración de porcentaje % de retención en ninguna de las lineas",
+                    '            MessageBoxIcon.Warning)
+                    '        chkIR.Checked = False
+                    '        Exit Sub
+                    '    End If
+                    '    '
+                    '    Dim _DT As DataTable =
+                    '    ds.Tables(0).Select("ir > 0").CopyToDataTable()
+
+                    '    Dim ir As IEnumerable(Of Decimal) =
+                    '    From row In _DT.AsEnumerable()
+                    '    Select row.Field(Of Decimal)("ir") Distinct
+
+                    '    If ir.Count >= 2 Then
+                    '        XtraMsg("El porcentaje % de retención deber ser igual en todas las lineas",
+                    '            MessageBoxIcon.Warning)
+
+                    '        chkIR.Checked = False
+                    '        Exit Sub
+                    '    End If
+
+                    '    sIrP.Value = CDbl(ds.Tables(0).Compute("MAX(ir)", "ir > 0"))
+                    '    txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "ir > 0"))
+                    '    '
+                    '    Dim _dtIR As DataTable =
+                    '            ObtieneDatos("sp_GetPorcentajeRetension",
+                    '           iVista.GetRowCellValue(0, "Codigo"),
+                    '           EmpresaActual)
+                    '    '
+                    '    If _dtIR.Rows.Count > 0 Then
+                    '        MontoIR = _dtIR.Rows.Item(0)("MontoRetencion")
+                    '    Else
+                    '        MontoIR = ConfigDetalles.MontoIR
+                    '    End If
+                    'Else
+                    '    sIrP.Value = ConfigDetalles.IRProd
+                    '    MontoIR = ConfigDetalles.MontoIR
+                    'End If
+                    '
+                    If txtSubTotalIR.EditValue > MontoIR Then
+                        txtRetencion.EditValue = txtSubTotalIR.EditValue * (sIrP.Value / 100)
+                        txtAPagar.EditValue = tTotal.EditValue - txtRetencion.EditValue - txtRetencionAlma.EditValue
+                    End If
+                Else
+                    txtRetencion.EditValue = 0.00
+                    sIrP.Value = 0
                 End If
-
-
-
-                'Si hay productos y servicios
-                'If Tipo.Count > 1 Then
-                '    Dim IsP As Boolean = False
-
-                '    For i As Integer = 0 To Tipo.Count - 1
-                '        If Tipo.ToList().Item(i).ToString().Equals("P") Or
-                '        Tipo.ToList().Item(i).ToString().Equals("I") Then
-                '            IsP = True
-                '        End If
-                '    Next
-                'End If
-
-                ''Si es producto tomar el % de retencion del Grupo de Servicios
-                'If Tipo.ToList().Item(0).ToString().Equals("S") Then
-
-                '    If ds.Tables(0).Select("ir > 0").Length = 0 Then
-                '        XtraMsg("No se ha encontrado configuración de porcentaje % de retención en ninguna de las lineas",
-                '            MessageBoxIcon.Warning)
-                '        chkIR.Checked = False
-                '        Exit Sub
-                '    End If
-                '    '
-                '    Dim _DT As DataTable =
-                '    ds.Tables(0).Select("ir > 0").CopyToDataTable()
-
-                '    Dim ir As IEnumerable(Of Decimal) =
-                '    From row In _DT.AsEnumerable()
-                '    Select row.Field(Of Decimal)("ir") Distinct
-
-                '    If ir.Count >= 2 Then
-                '        XtraMsg("El porcentaje % de retención deber ser igual en todas las lineas",
-                '            MessageBoxIcon.Warning)
-
-                '        chkIR.Checked = False
-                '        Exit Sub
-                '    End If
-
-                '    sIrP.Value = CDbl(ds.Tables(0).Compute("MAX(ir)", "ir > 0"))
-                '    txtSubTotalIR.EditValue = CDbl(ds.Tables(0).Compute("SUM(SubTotal)", "ir > 0"))
-                '    '
-                '    Dim _dtIR As DataTable =
-                '            ObtieneDatos("sp_GetPorcentajeRetension",
-                '           iVista.GetRowCellValue(0, "Codigo"),
-                '           EmpresaActual)
-                '    '
-                '    If _dtIR.Rows.Count > 0 Then
-                '        MontoIR = _dtIR.Rows.Item(0)("MontoRetencion")
-                '    Else
-                '        MontoIR = ConfigDetalles.MontoIR
-                '    End If
-                'Else
-                '    sIrP.Value = ConfigDetalles.IRProd
-                '    MontoIR = ConfigDetalles.MontoIR
-                'End If
                 '
-                If txtSubTotalIR.EditValue > MontoIR Then
-                    txtRetencion.EditValue = txtSubTotalIR.EditValue * (sIrP.Value / 100)
-                    txtAPagar.EditValue = tTotal.EditValue - txtRetencion.EditValue - txtRetencionAlma.EditValue
-                End If
-            Else
-                txtRetencion.EditValue = 0.00
-                sIrP.Value = 0
-            End If
-            '
-            If chkAlma.Checked Then
-                Dim MunDet As VB.SysContab.MunicipioDetails =
+                If chkAlma.Checked Then
+                    Dim MunDet As VB.SysContab.MunicipioDetails =
                     MunicipiosDB.GetDetails(
                     ProveedoresDB.GetDetails(
                     cbProveedor.EditValue).Departamento,
                     ProveedoresDB.GetDetails(
                     cbProveedor.EditValue).Municipio)
 
-                If ProveedoresDB.GetDetails(
+                    If ProveedoresDB.GetDetails(
                     cbProveedor.EditValue).Departamento = "0" And
                     ProveedoresDB.GetDetails(
                     cbProveedor.EditValue).Municipio = "0" Then
-                    XtraMsg("Por favor Ingrese Departamento o Municipio del Proveedor", MessageBoxIcon.Error)
+                        XtraMsg("Por favor Ingrese Departamento o Municipio del Proveedor", MessageBoxIcon.Error)
+                        txtRetencionAlma.EditValue = 0.00
+                        sIR_AlmaP.Value = 0
+                    Else
+                        If txtSubTotalIR.EditValue > MunDet.Impuesto_SVenta_Min Then
+                            txtRetencionAlma.EditValue = txtSubTotalIR.EditValue * (MunDet.Impuesto_SVenta / 100)
+                            txtAPagar.EditValue = CDbl(tTotal.Text) - txtRetencion.EditValue - txtRetencionAlma.EditValue
+                            sIR_AlmaP.Value = MunDet.Impuesto_SVenta
+                        End If
+                    End If
+                Else
                     txtRetencionAlma.EditValue = 0.00
                     sIR_AlmaP.Value = 0
-                Else
-                    If txtSubTotalIR.EditValue > MunDet.Impuesto_SVenta_Min Then
-                        txtRetencionAlma.EditValue = txtSubTotalIR.EditValue * (MunDet.Impuesto_SVenta / 100)
-                        txtAPagar.EditValue = CDbl(tTotal.Text) - txtRetencion.EditValue - txtRetencionAlma.EditValue
-                        sIR_AlmaP.Value = MunDet.Impuesto_SVenta
-                    End If
                 End If
-            Else
-                txtRetencionAlma.EditValue = 0.00
-                sIR_AlmaP.Value = 0
-            End If
         End Sub
 
         Function IRServicio() As Boolean
@@ -4017,6 +4063,10 @@ Namespace DataGridTextBoxCombo
                 txtAtencion.Text =
                     ProveedoresDB.GetDetails(cbProveedor.EditValue).Nombre
             End If
+        End Sub
+
+        Private Sub txtSubTotalIR_Validating(sender As Object, e As CancelEventArgs) Handles txtSubTotalIR.Validating
+            CalcularIR(True)
         End Sub
     End Class
 End Namespace

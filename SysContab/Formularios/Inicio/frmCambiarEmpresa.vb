@@ -243,7 +243,7 @@ Public Class frmCambiarEmpresa
     End Sub
 
     Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton2.Click
-        Dim Cadena As String
+
 
         If Me.cbEmpresas.Text = "" Then
             XtraMsg("No hay ninguna empresa Seleccionada", MessageBoxIcon.Exclamation)
@@ -278,7 +278,8 @@ Public Class frmCambiarEmpresa
         'Dim principal As New frmPrincipal()
         'FormPrincipal.Text = "SysContab - " & NombreEmpresaActual
 
-        Cadena = VB.SysContab.EmpresasDB.GetLogoEmpresa("a")
+        'Dim Cadena As String = Cadena = VB.SysContab.EmpresasDB.GetLogoEmpresaPath()
+
         frmPrincipalRibbon.RibbonControl.ApplicationCaption = formtitulo & " - " & NombreEmpresaActual
         frmPrincipalRibbon.AplicarCulture()
 

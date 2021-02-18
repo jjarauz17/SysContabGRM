@@ -376,10 +376,11 @@ Namespace VB.SysContab
         End Sub
 
 
-        Public Shared Sub UsuariosUpdate(ByVal UsrID As Integer, ByVal Nombre As String, ByVal Login As String, _
-                                              ByVal Password As String, ByVal Email As String, ByVal Habilitado As Boolean, _
-                                              ByVal dbConn As SqlConnection, ByVal Transaccion As SqlTransaction, _
-                                              Optional ByVal Rol As Integer = 0, Optional ByVal Centro As String = "", _
+        Public Shared Sub UsuariosUpdate(ByVal UsrID As Integer, ByVal Nombre As String, ByVal Login As String,
+                                              ByVal Password As String, ByVal Email As String, ByVal Habilitado As Boolean,
+                                              ByVal dbConn As SqlConnection, ByVal Transaccion As SqlTransaction,
+                                              Cargo As String, Telefono As String,
+                                              Optional ByVal Rol As Integer = 0, Optional ByVal Centro As String = "",
                                               Optional Bodega As String = "")
             'Dim dsFicha As New DataSet()
             Dim cmd As SqlCommand = New SqlCommand("_UsuariosUpdate", dbConn)
@@ -422,6 +423,9 @@ Namespace VB.SysContab
             Param = New SqlParameter("@Bodega", SqlDbType.NVarChar)
             Param.Value = Bodega
             cmd.Parameters.Add(Param)
+
+            cmd.Parameters.AddWithValue("@Cargo", Cargo)
+            cmd.Parameters.AddWithValue("@Telefono", Telefono)
 
             cmd.Connection = dbConn
             cmd.Transaction = Transaccion
@@ -580,10 +584,16 @@ Namespace VB.SysContab
 
         End Function
 
-        Public Shared Function GetLogin(ByVal UserName As String, _
+        Public Shared Function GetLogin(ByVal UserName As String,
                                     ByVal UserPassword As String) As DataTable
 
             Return ObtieneDatos("JAR_GetUsuario", UserName, UserPassword)
+        End Function
+
+        Public Shared Function GetLogin(ByVal UserName As String) As DataTable
+
+            Return ObtieneDatos("sp_sel_Usuarios", UserName)
+
         End Function
 
 
@@ -638,9 +648,11 @@ Namespace VB.SysContab
         End Sub
 
 
-        Public Shared Function UsuariosAdd(ByVal Login As String, ByVal Nombre As String, ByVal Password As String, ByVal Email As String, ByVal Habilitado As Boolean, _
-                                      ByVal dbConn As SqlConnection, ByVal Transaccion As SqlTransaction, _
-                                      Optional ByVal Rol As Integer = 0) As String
+        Public Shared Function UsuariosAdd(ByVal Login As String, ByVal Nombre As String,
+                                           ByVal Password As String, ByVal Email As String,
+                                           ByVal Habilitado As Boolean, Cargo As String, Telefono As String,
+                                           ByVal dbConn As SqlConnection, ByVal Transaccion As SqlTransaction,
+                                           Optional ByVal Rol As Integer = 0) As String
 
             Dim dt As New DataTable
 
@@ -676,6 +688,9 @@ Namespace VB.SysContab
             Param = New SqlParameter("@Rol", SqlDbType.Int)
             Param.Value = Rol
             cmd.SelectCommand.Parameters.Add(Param)
+
+            cmd.SelectCommand.Parameters.AddWithValue("@Cargo", Cargo)
+            cmd.SelectCommand.Parameters.AddWithValue("@Telefono", Telefono)
 
             cmd.SelectCommand.Connection = dbConn
             cmd.SelectCommand.Transaction = Transaccion
@@ -966,9 +981,5 @@ Namespace VB.SysContab
         End Function
 
     End Class
-
-
-
-
 
 End Namespace

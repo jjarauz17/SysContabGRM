@@ -159,7 +159,9 @@ Namespace VB.SysContab
                                        ByVal Tipo As String,
                                        ByVal Cantidad As Double,
                                        ByVal Iva As Double,
-                                       ByVal Precio As Double) As Boolean
+                                       ByVal Precio As Double,
+                                       Mantenimiento As Double,
+                                       Descuento As Double) As Boolean
 
             Dim cmd As SqlCommand = New SqlCommand("_DevolucionClienteDetalleAdd",
                                                    DBConnFacturas)
@@ -193,6 +195,8 @@ Namespace VB.SysContab
             cmd.Parameters.AddWithValue("@Iva", Iva)
             cmd.Parameters.AddWithValue("@Empresa", EmpresaActual)
             cmd.Parameters.AddWithValue("@Precio", Precio)
+            cmd.Parameters.AddWithValue("@Mantenimiento", Mantenimiento)
+            cmd.Parameters.AddWithValue("@Descuento", Descuento)
 
             Try
 

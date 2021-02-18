@@ -66,10 +66,10 @@ Public Class FrmReportesGestionComercialCrossTab
         Me.Button2 = New DevExpress.XtraEditors.SimpleButton()
         Me.Button5 = New DevExpress.XtraEditors.SimpleButton()
         Me.Button3 = New DevExpress.XtraEditors.SimpleButton()
-        Me.Button1 = New DevExpress.XtraEditors.SimpleButton()
-        Me.Button4 = New DevExpress.XtraEditors.SimpleButton()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.Button4 = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox5.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
@@ -92,7 +92,7 @@ Public Class FrmReportesGestionComercialCrossTab
         Me.etSalidas.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(153, Byte), Integer))
         Me.etSalidas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.etSalidas.ForeColor = System.Drawing.Color.White
-        Me.etSalidas.Location = New System.Drawing.Point(-56, 9)
+        Me.etSalidas.Location = New System.Drawing.Point(-56, 3)
         Me.etSalidas.Name = "etSalidas"
         Me.etSalidas.Size = New System.Drawing.Size(792, 21)
         Me.etSalidas.TabIndex = 113
@@ -109,7 +109,7 @@ Public Class FrmReportesGestionComercialCrossTab
         Me.PanelControl1.Controls.Add(Me.Button2)
         Me.PanelControl1.Controls.Add(Me.Button5)
         Me.PanelControl1.Controls.Add(Me.Button3)
-        Me.PanelControl1.Location = New System.Drawing.Point(200, 185)
+        Me.PanelControl1.Location = New System.Drawing.Point(200, 180)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(618, 386)
         Me.PanelControl1.TabIndex = 163
@@ -117,8 +117,8 @@ Public Class FrmReportesGestionComercialCrossTab
         'bRebajas
         '
         Me.bRebajas.Enabled = False
-        Me.bRebajas.ImageOptions.Image = CType(resources.GetObject("bRebajas.ImageOptions.Image"), System.Drawing.Image)
-        Me.bRebajas.Location = New System.Drawing.Point(56, 256)
+        Me.bRebajas.ImageOptions.SvgImage = CType(resources.GetObject("bRebajas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bRebajas.Location = New System.Drawing.Point(56, 231)
         Me.bRebajas.Name = "bRebajas"
         Me.bRebajas.Size = New System.Drawing.Size(240, 69)
         Me.bRebajas.TabIndex = 10
@@ -127,8 +127,8 @@ Public Class FrmReportesGestionComercialCrossTab
         'bDevoluciones
         '
         Me.bDevoluciones.Enabled = False
-        Me.bDevoluciones.ImageOptions.Image = CType(resources.GetObject("bDevoluciones.ImageOptions.Image"), System.Drawing.Image)
-        Me.bDevoluciones.Location = New System.Drawing.Point(56, 181)
+        Me.bDevoluciones.ImageOptions.SvgImage = CType(resources.GetObject("bDevoluciones.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bDevoluciones.Location = New System.Drawing.Point(56, 156)
         Me.bDevoluciones.Name = "bDevoluciones"
         Me.bDevoluciones.Size = New System.Drawing.Size(240, 69)
         Me.bDevoluciones.TabIndex = 9
@@ -137,8 +137,8 @@ Public Class FrmReportesGestionComercialCrossTab
         'bCotizaciones
         '
         Me.bCotizaciones.Enabled = False
-        Me.bCotizaciones.ImageOptions.Image = CType(resources.GetObject("bCotizaciones.ImageOptions.Image"), System.Drawing.Image)
-        Me.bCotizaciones.Location = New System.Drawing.Point(328, 31)
+        Me.bCotizaciones.ImageOptions.SvgImage = CType(resources.GetObject("bCotizaciones.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bCotizaciones.Location = New System.Drawing.Point(328, 156)
         Me.bCotizaciones.Name = "bCotizaciones"
         Me.bCotizaciones.Size = New System.Drawing.Size(240, 69)
         Me.bCotizaciones.TabIndex = 8
@@ -147,8 +147,8 @@ Public Class FrmReportesGestionComercialCrossTab
         'SimpleButton1
         '
         Me.SimpleButton1.Enabled = False
-        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(328, 181)
+        Me.SimpleButton1.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.SimpleButton1.Location = New System.Drawing.Point(328, 81)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(240, 69)
         Me.SimpleButton1.TabIndex = 7
@@ -157,8 +157,8 @@ Public Class FrmReportesGestionComercialCrossTab
         'Button6
         '
         Me.Button6.Enabled = False
-        Me.Button6.ImageOptions.Image = CType(resources.GetObject("Button6.ImageOptions.Image"), System.Drawing.Image)
-        Me.Button6.Location = New System.Drawing.Point(328, 106)
+        Me.Button6.ImageOptions.SvgImage = CType(resources.GetObject("Button6.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.Button6.Location = New System.Drawing.Point(328, 6)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(240, 69)
         Me.Button6.TabIndex = 6
@@ -167,8 +167,8 @@ Public Class FrmReportesGestionComercialCrossTab
         'Button2
         '
         Me.Button2.Enabled = False
-        Me.Button2.ImageOptions.Image = CType(resources.GetObject("Button2.ImageOptions.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(56, 31)
+        Me.Button2.ImageOptions.SvgImage = CType(resources.GetObject("Button2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.Button2.Location = New System.Drawing.Point(56, 6)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(240, 69)
         Me.Button2.TabIndex = 2
@@ -176,8 +176,8 @@ Public Class FrmReportesGestionComercialCrossTab
         '
         'Button5
         '
-        Me.Button5.ImageOptions.Image = CType(resources.GetObject("Button5.ImageOptions.Image"), System.Drawing.Image)
-        Me.Button5.Location = New System.Drawing.Point(328, 256)
+        Me.Button5.ImageOptions.SvgImage = CType(resources.GetObject("Button5.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.Button5.Location = New System.Drawing.Point(328, 231)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(240, 69)
         Me.Button5.TabIndex = 5
@@ -186,12 +186,32 @@ Public Class FrmReportesGestionComercialCrossTab
         'Button3
         '
         Me.Button3.Enabled = False
-        Me.Button3.ImageOptions.Image = CType(resources.GetObject("Button3.ImageOptions.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(56, 106)
+        Me.Button3.ImageOptions.SvgImage = CType(resources.GetObject("Button3.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.Button3.Location = New System.Drawing.Point(56, 81)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(240, 69)
         Me.Button3.TabIndex = 3
         Me.Button3.Text = "INVENTARIO   "
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(650, 2)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(168, 155)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 162
+        Me.PictureBox2.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(200, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(448, 155)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 161
+        Me.PictureBox1.TabStop = False
         '
         'Button1
         '
@@ -214,26 +234,6 @@ Public Class FrmReportesGestionComercialCrossTab
         Me.Button4.TabIndex = 4
         Me.Button4.Text = "CTAS X COBRAR     "
         Me.Button4.Visible = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(650, 2)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(168, 155)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 162
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(200, 2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(448, 155)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 161
-        Me.PictureBox1.TabStop = False
         '
         'FrmReportesGestionComercialCrossTab
         '

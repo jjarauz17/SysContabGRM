@@ -1,9 +1,14 @@
-﻿Public Class frmFacturasVentasVencidas
+﻿Imports Entities
 
-    Public sProc As String = ""
+Public Class frmFacturasVentasVencidas
+
+    Public sProc As String = String.Empty
     Public Origen As Integer = 0
     Public DT As New DataTable("Vencidas")
-    Public Ok As Boolean = False
+    Public Ok As Boolean = False,
+        Saldo As Double = 0.00,
+        Facturas As String = String.Empty,
+        IdCliente As Integer = 0
 
     Private Sub frmFacturasVentasVencidas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Origen = 0 Then Cargar()
@@ -57,9 +62,44 @@
     Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
         If mRazon.Text.Trim.Length = 0 Then
             XtraMsg("Se debe describir la razon por la cual se autoriza facturar a este cliente.", MessageBoxIcon.Error)
+            mRazon.Focus()
             Exit Sub
         End If
         '
+        If mRazon.Text.Trim.Length < 15 Then
+            XtraMsg("Favor indicar un comentario válido", MessageBoxIcon.Error)
+            mRazon.Focus()
+            mRazon.SelectAll()
+            Exit Sub
+        End If
+        '
+        Dim objCliente As New CLIENTES,
+            dbClientes As New db_CLIENTES
+        objCliente = dbClientes.Detalles(IdCliente, EmpresaActual)
+
+        If objCliente.ValidarVencidas = 1 Then
+            frmListaNegraValidar.Dispose()
+            '
+            With frmListaNegraValidar
+                .Text = $"Cliente: {objCliente.NOMBRE}"
+                .IdCliente = IdCliente
+                .ClienteN = objCliente.NOMBRE
+                .Factura = String.Empty
+                .IdSucursal = objCliente.CodigoLetra.Substring(0, 2)
+                .TipoAprobacion = "Facturas Vencidas"
+                .ShowDialog()
+                If Not .Ok Then
+                    Exit Sub
+                End If
+            End With
+        End If
+        '
+        For i As Integer = 0 To iVista.DataRowCount - 1
+            Facturas = Facturas + iVista.GetRowCellValue(i, "Factura") + " ,"
+        Next
+
+        Saldo = Math.Round(CDbl(iVista.Columns("Saldo").SummaryItem.SummaryValue), 2)
+
         Ok = True
         Close()
     End Sub

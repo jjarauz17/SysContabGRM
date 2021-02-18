@@ -12,20 +12,38 @@ Public Class frmPresupuestoNew
     Private Sub frmResponsables_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DT_ROL = RolesDB.UsuarioAcciones(LayoutControl2)
         '
+        Inicio = True
         Application.DoEvents()
         Combo(cbPeriodo, VB.SysContab.PeriodosDB.GetList().Tables("Periodos"))
         cbPeriodo.ItemIndex = 0
+        Inicio = False
         '
         Application.DoEvents()
         Cargar()
+        '
+        iVista.PopulateColumns()
+        SimpleFormatGrid(iVista, False, DevExpress.Utils.HorzAlignment.Center, 1, 2, True, 0, 8)
+
+        'iVista.Columns("IdPresupuesto").Visible = False
+        'iVista.Columns("Registro").Visible = False
+        '
+
+        If Not EmpresaActual.Equals("1") Then iVista.Columns("TipoCultivo").Visible = False
+
+        'If EmpresaActual = 1 Then
+        '    iVista.Columns("CentroCosto").Visible = False
+        'Else
+        '    iVista.Columns("Sucursal").Visible = False
+        '    iVista.Columns("TipoCultivo").Visible = False
+        'End If
     End Sub
 
     Sub Cargar()
-        iGrid.DataSource = db_Presupuesto.Listar(0, cbPeriodo.EditValue)
-        SimpleFormatGrid(iVista, False, DevExpress.Utils.HorzAlignment.Center, 1, 2, True, 0, 13)
+        iGrid.DataSource = db_Presupuesto.Listar(cbPeriodo.EditValue, 1)
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles bNuevo.Click
+        Inicio = True
         ShowSplash("Cargando Datos...")
         frmPresupuestoAdd.Dispose()
         frmPresupuestoAdd.MdiParent = Me.MdiParent
@@ -34,9 +52,14 @@ Public Class frmPresupuestoNew
         frmPresupuestoAdd.Show()
         frmPresupuestoAdd.WindowState = FormWindowState.Maximized
         HideSplash()
+        Inicio = False
     End Sub
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles bEditar.Click
+        Editar()
+    End Sub
+
+    Sub Editar()
         If iVista.FocusedRowHandle < 0 Then
             XtraMsg("Seleccione un registro!")
             Exit Sub
@@ -58,7 +81,7 @@ Public Class frmPresupuestoNew
             Exit Sub
         End If
         '
-        If Not XtraMsg2("Esta Seguro de Anular este Presupuesto?") Then
+        If Not XtraMsg2($"Esta Seguro de Anular este Presupuesto {iVista.GetFocusedRowCellValue("Numero")} ?") Then
             Exit Sub
         End If
         '
@@ -186,18 +209,47 @@ Public Class frmPresupuestoNew
         CheckEdit1.Checked = False
     End Sub
 
-    Private Sub SimpleButton7_Click_1(sender As Object, e As EventArgs) Handles SimpleButton7.Click
-        ShowSplash("Cargando Datos...")
-        frmPresupuestoVer.Dispose()
-        frmPresupuestoVer.MdiParent = Me.MdiParent
-        frmPresupuestoVer.IdPresupuesto = iVista.GetFocusedRowCellValue("IdPresupuesto")
-        frmPresupuestoVer.Text = "Ver Presupuesto"
-        frmPresupuestoVer.Show()
-        frmPresupuestoVer.WindowState = FormWindowState.Maximized
+    Private Sub SimpleButton7_Click_1(sender As Object, e As EventArgs) Handles bVerPresupuesto.Click
+        If iVista.FocusedRowHandle < 0 Then
+            XtraMsg("Seleccione un registro!")
+            Exit Sub
+        End If
+
+        ShowSplash("Cargando Presupuesto...")
+        'frmPresupuestoVer.Dispose()
+        '
+        With New frmPresupuestoVer
+            .MdiParent = Me.MdiParent
+            .Text = $"Ver Presupuesto No. {iVista.GetFocusedRowCellValue("Numero")}"
+            .Mostrar(
+                    iVista.GetFocusedRowCellValue("IdPresupuesto"),
+                    iVista.GetFocusedRowCellValue("Sucursal"),
+                    iVista.GetFocusedRowCellValue("CentroCosto"),
+                    iVista.GetFocusedRowCellValue("Periodo"),
+                    iVista.GetFocusedRowCellValue("TipoCultivo"))
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
+
+        'frmPresupuestoVer.MdiParent = Me.MdiParent
+        'frmPresupuestoVer.IdPresupuesto = iVista.GetFocusedRowCellValue("IdPresupuesto")
+        'frmPresupuestoVer.Text = "Ver Presupuesto"
+        'frmPresupuestoVer.Show()
+        'frmPresupuestoVer.WindowState = FormWindowState.Maximized
         HideSplash()
     End Sub
 
     Private Sub cbPeriodo_EditValueChanged_1(sender As Object, e As EventArgs) Handles cbPeriodo.EditValueChanged
+        If Inicio Then Exit Sub
+        '
+        ShowSplash()
         Cargar()
+        HideSplash()
+    End Sub
+
+    Private Sub iVista_DoubleClick(sender As Object, e As EventArgs) Handles iVista.DoubleClick
+        If iVista.FocusedRowHandle < 0 Then Exit Sub
+        '
+        If bEditar.Enabled Then Editar()
     End Sub
 End Class

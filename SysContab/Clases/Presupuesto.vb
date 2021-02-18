@@ -11,17 +11,6 @@ Public Class Presupuesto
         End Set
     End Property
 
-    Dim vCodigo As String
-
-    Public Property Codigo() As String
-        Get
-            Return vCodigo
-        End Get
-        Set(ByVal value As String)
-            vCodigo = value
-        End Set
-    End Property
-
     Dim vEmpresa As Integer
 
     Public Property Empresa() As Integer
@@ -33,6 +22,17 @@ Public Class Presupuesto
         End Set
     End Property
 
+    Dim vCodigo As String
+
+    Public Property Codigo() As String
+        Get
+            Return vCodigo
+        End Get
+        Set(ByVal value As String)
+            vCodigo = value
+        End Set
+    End Property
+
     Dim vPeriodo As Integer
 
     Public Property Periodo() As Integer
@@ -41,6 +41,17 @@ Public Class Presupuesto
         End Get
         Set(ByVal value As Integer)
             vPeriodo = value
+        End Set
+    End Property
+
+    Dim vTipo As Integer
+
+    Public Property Tipo() As Integer
+        Get
+            Return vTipo
+        End Get
+        Set(ByVal value As Integer)
+            vTipo = value
         End Set
     End Property
 
@@ -74,6 +85,17 @@ Public Class Presupuesto
         End Get
         Set(ByVal value As Integer)
             vIdCultivo = value
+        End Set
+    End Property
+
+    Dim vIdCentroCosto As Integer
+
+    Public Property IdCentroCosto() As Integer
+        Get
+            Return vIdCentroCosto
+        End Get
+        Set(ByVal value As Integer)
+            vIdCentroCosto = value
         End Set
     End Property
 

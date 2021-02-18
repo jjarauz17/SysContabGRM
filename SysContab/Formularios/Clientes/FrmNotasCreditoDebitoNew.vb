@@ -2,6 +2,7 @@ Imports System.Data.SqlClient
 Imports ClasesBLL
 Imports DevExpress.XtraGrid.Views.Base
 Imports DevExpress.XtraGrid.Views.Grid
+Imports Entities
 
 Public Class FrmNotasCreditoDebitoNew
     Inherits DevExpress.XtraEditors.XtraForm
@@ -134,6 +135,14 @@ Public Class FrmNotasCreditoDebitoNew
     Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn19 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cmbserie As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LayoutControlItem16 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkSerie As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem19 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents GridColumn21 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn20 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents rLink As DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit
+    Friend WithEvents GridColumn22 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents chkcontabiliza As System.Windows.Forms.CheckBox
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
@@ -142,6 +151,8 @@ Public Class FrmNotasCreditoDebitoNew
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmNotasCreditoDebitoNew))
         Me.vCobro = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.chkSerie = New DevExpress.XtraEditors.CheckEdit()
+        Me.cmbserie = New DevExpress.XtraEditors.LookUpEdit()
         Me.txtTasaParalela = New DevExpress.XtraEditors.TextEdit()
         Me.etMntto = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.txtTotal = New DevExpress.XtraEditors.TextEdit()
@@ -173,6 +184,9 @@ Public Class FrmNotasCreditoDebitoNew
         Me.iVistaSaldos = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn21 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rLink = New DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit()
         Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -215,6 +229,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.LayoutControlItem16 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem19 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControl2 = New DevExpress.XtraLayout.LayoutControl()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
@@ -229,8 +245,11 @@ Public Class FrmNotasCreditoDebitoNew
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.GridColumn22 = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.chkSerie.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbserie.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTasaParalela.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTasa.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -254,6 +273,7 @@ Public Class FrmNotasCreditoDebitoNew
         CType(Me.chktipo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.iVistaSaldos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rLink, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtMnto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtnota.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbtipocomprobante.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -285,6 +305,8 @@ Public Class FrmNotasCreditoDebitoNew
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem19, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl2.SuspendLayout()
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -314,11 +336,13 @@ Public Class FrmNotasCreditoDebitoNew
         Me.vCobro.OptionsColumn.ReadOnly = True
         Me.vCobro.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Cobro", "{0:n2}")})
         Me.vCobro.Visible = True
-        Me.vCobro.VisibleIndex = 8
-        Me.vCobro.Width = 44
+        Me.vCobro.VisibleIndex = 10
+        Me.vCobro.Width = 30
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.chkSerie)
+        Me.LayoutControl1.Controls.Add(Me.cmbserie)
         Me.LayoutControl1.Controls.Add(Me.txtTasaParalela)
         Me.LayoutControl1.Controls.Add(Me.etMntto)
         Me.LayoutControl1.Controls.Add(Me.txtTotal)
@@ -347,10 +371,40 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControl1.TabIndex = 16
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'chkSerie
+        '
+        Me.chkSerie.Location = New System.Drawing.Point(12, 50)
+        Me.chkSerie.Name = "chkSerie"
+        Me.chkSerie.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSerie.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.chkSerie.Properties.Appearance.Options.UseFont = True
+        Me.chkSerie.Properties.Appearance.Options.UseForeColor = True
+        Me.chkSerie.Properties.Caption = "Serie:"
+        Me.chkSerie.Size = New System.Drawing.Size(57, 20)
+        Me.chkSerie.StyleController = Me.LayoutControl1
+        Me.chkSerie.TabIndex = 23
+        '
+        'cmbserie
+        '
+        Me.cmbserie.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbserie.Enabled = False
+        Me.cmbserie.EnterMoveNextControl = True
+        Me.cmbserie.Location = New System.Drawing.Point(73, 50)
+        Me.cmbserie.Name = "cmbserie"
+        Me.cmbserie.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbserie.Properties.Appearance.Options.UseFont = True
+        Me.cmbserie.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbserie.Properties.NullText = ""
+        Me.cmbserie.Properties.ShowFooter = False
+        Me.cmbserie.Properties.ShowHeader = False
+        Me.cmbserie.Size = New System.Drawing.Size(151, 22)
+        Me.cmbserie.StyleController = Me.LayoutControl1
+        Me.cmbserie.TabIndex = 18
+        '
         'txtTasaParalela
         '
         Me.txtTasaParalela.EditValue = "1.0000"
-        Me.txtTasaParalela.Location = New System.Drawing.Point(480, 189)
+        Me.txtTasaParalela.Location = New System.Drawing.Point(480, 198)
         Me.txtTasaParalela.Name = "txtTasaParalela"
         Me.txtTasaParalela.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
         Me.txtTasaParalela.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -390,7 +444,7 @@ Public Class FrmNotasCreditoDebitoNew
         'txtTotal
         '
         Me.txtTotal.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.txtTotal.Location = New System.Drawing.Point(174, 163)
+        Me.txtTotal.Location = New System.Drawing.Point(174, 172)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
         Me.txtTotal.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -410,14 +464,14 @@ Public Class FrmNotasCreditoDebitoNew
         Me.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtTotal.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.txtTotal.Properties.NullText = "<Null>"
-        Me.txtTotal.Size = New System.Drawing.Size(225, 22)
+        Me.txtTotal.Size = New System.Drawing.Size(178, 22)
         Me.txtTotal.StyleController = Me.LayoutControl1
         Me.txtTotal.TabIndex = 18
         '
         'txtTasa
         '
         Me.txtTasa.EditValue = "1.0000"
-        Me.txtTasa.Location = New System.Drawing.Point(471, 163)
+        Me.txtTasa.Location = New System.Drawing.Point(471, 172)
         Me.txtTasa.Name = "txtTasa"
         Me.txtTasa.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
         Me.txtTasa.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -444,7 +498,7 @@ Public Class FrmNotasCreditoDebitoNew
         '
         'cbTipoNota
         '
-        Me.cbTipoNota.Location = New System.Drawing.Point(174, 91)
+        Me.cbTipoNota.Location = New System.Drawing.Point(174, 100)
         Me.cbTipoNota.Name = "cbTipoNota"
         Me.cbTipoNota.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbTipoNota.Properties.NullText = ""
@@ -456,13 +510,13 @@ Public Class FrmNotasCreditoDebitoNew
         '
         'cbGarantias
         '
-        Me.cbGarantias.Location = New System.Drawing.Point(742, 41)
+        Me.cbGarantias.Location = New System.Drawing.Point(747, 50)
         Me.cbGarantias.Name = "cbGarantias"
         Me.cbGarantias.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbGarantias.Properties.Appearance.Options.UseFont = True
         Me.cbGarantias.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbGarantias.Properties.View = Me.GridView3
-        Me.cbGarantias.Size = New System.Drawing.Size(290, 20)
+        Me.cbGarantias.Properties.PopupView = Me.GridView3
+        Me.cbGarantias.Size = New System.Drawing.Size(285, 20)
         Me.cbGarantias.StyleController = Me.LayoutControl1
         Me.cbGarantias.TabIndex = 19
         '
@@ -475,12 +529,12 @@ Public Class FrmNotasCreditoDebitoNew
         '
         'cbCliente
         '
-        Me.cbCliente.Location = New System.Drawing.Point(174, 67)
+        Me.cbCliente.Location = New System.Drawing.Point(174, 76)
         Me.cbCliente.Name = "cbCliente"
         Me.cbCliente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbCliente.Properties.Appearance.Options.UseFont = True
         Me.cbCliente.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCliente.Properties.View = Me.SearchLookUpEdit1View
+        Me.cbCliente.Properties.PopupView = Me.SearchLookUpEdit1View
         Me.cbCliente.Size = New System.Drawing.Size(397, 20)
         Me.cbCliente.StyleController = Me.LayoutControl1
         Me.cbCliente.TabIndex = 18
@@ -495,7 +549,7 @@ Public Class FrmNotasCreditoDebitoNew
         'Vencimiento
         '
         Me.Vencimiento.EditValue = Nothing
-        Me.Vencimiento.Location = New System.Drawing.Point(469, 115)
+        Me.Vencimiento.Location = New System.Drawing.Point(469, 124)
         Me.Vencimiento.Name = "Vencimiento"
         Me.Vencimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Vencimiento.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -506,7 +560,7 @@ Public Class FrmNotasCreditoDebitoNew
         'cmbmoneda
         '
         Me.cmbmoneda.EnterMoveNextControl = True
-        Me.cmbmoneda.Location = New System.Drawing.Point(174, 139)
+        Me.cmbmoneda.Location = New System.Drawing.Point(174, 148)
         Me.cmbmoneda.Name = "cmbmoneda"
         Me.cmbmoneda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cmbmoneda.Properties.NullText = ""
@@ -523,11 +577,11 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridDetalle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GridDetalle.Location = New System.Drawing.Point(12, 299)
+        Me.GridDetalle.Location = New System.Drawing.Point(12, 308)
         Me.GridDetalle.MainView = Me.iVistaCuentas
         Me.GridDetalle.Name = "GridDetalle"
         Me.GridDetalle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.ItemCuenta, Me.ItemCuentas, Me.cbServicios, Me.rMonto, Me.cbCatalogo})
-        Me.GridDetalle.Size = New System.Drawing.Size(559, 386)
+        Me.GridDetalle.Size = New System.Drawing.Size(559, 377)
         Me.GridDetalle.TabIndex = 6
         Me.GridDetalle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVistaCuentas})
         '
@@ -568,7 +622,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.cbCatalogo.AutoHeight = False
         Me.cbCatalogo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbCatalogo.Name = "cbCatalogo"
-        Me.cbCatalogo.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbCatalogo.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -696,7 +750,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.chktipo.EditValue = "C"
         Me.chktipo.Location = New System.Drawing.Point(174, 12)
         Me.chktipo.Name = "chktipo"
-        Me.chktipo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.chktipo.Properties.Appearance.BackColor = System.Drawing.Color.DeepSkyBlue
         Me.chktipo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chktipo.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon
         Me.chktipo.Properties.Appearance.Options.UseBackColor = True
@@ -705,7 +759,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.chktipo.Properties.Columns = 2
         Me.chktipo.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
         Me.chktipo.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("C", "Credito"), New DevExpress.XtraEditors.Controls.RadioGroupItem("D", "Debito")})
-        Me.chktipo.Size = New System.Drawing.Size(613, 25)
+        Me.chktipo.Size = New System.Drawing.Size(613, 34)
         Me.chktipo.StyleController = Me.LayoutControl1
         Me.chktipo.TabIndex = 5
         '
@@ -713,11 +767,11 @@ Public Class FrmNotasCreditoDebitoNew
         '
         Me.GridFacturas.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GridFacturas.Location = New System.Drawing.Point(580, 65)
+        Me.GridFacturas.Location = New System.Drawing.Point(585, 74)
         Me.GridFacturas.MainView = Me.iVistaSaldos
         Me.GridFacturas.Name = "GridFacturas"
-        Me.GridFacturas.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtMnto})
-        Me.GridFacturas.Size = New System.Drawing.Size(452, 598)
+        Me.GridFacturas.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtMnto, Me.rLink})
+        Me.GridFacturas.Size = New System.Drawing.Size(447, 589)
         Me.GridFacturas.TabIndex = 6
         Me.GridFacturas.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVistaSaldos})
         '
@@ -728,7 +782,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.iVistaSaldos.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.iVistaSaldos.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.iVistaSaldos.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.iVistaSaldos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn9, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn2, Me.vCobro, Me.GridColumn11, Me.GridColumn8, Me.GridColumn12, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn19})
+        Me.iVistaSaldos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn9, Me.GridColumn4, Me.GridColumn21, Me.GridColumn20, Me.GridColumn5, Me.GridColumn6, Me.GridColumn2, Me.vCobro, Me.GridColumn11, Me.GridColumn8, Me.GridColumn12, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn19, Me.GridColumn22})
         StyleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         StyleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         StyleFormatCondition2.Appearance.Options.UseBackColor = True
@@ -757,7 +811,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn9.Name = "GridColumn9"
         Me.GridColumn9.Visible = True
         Me.GridColumn9.VisibleIndex = 0
-        Me.GridColumn9.Width = 27
+        Me.GridColumn9.Width = 20
         '
         'GridColumn4
         '
@@ -773,7 +827,33 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn4.OptionsColumn.ReadOnly = True
         Me.GridColumn4.Visible = True
         Me.GridColumn4.VisibleIndex = 1
-        Me.GridColumn4.Width = 44
+        Me.GridColumn4.Width = 27
+        '
+        'GridColumn21
+        '
+        Me.GridColumn21.Caption = "AP"
+        Me.GridColumn21.FieldName = "AP"
+        Me.GridColumn21.Name = "GridColumn21"
+        Me.GridColumn21.OptionsColumn.AllowEdit = False
+        Me.GridColumn21.Visible = True
+        Me.GridColumn21.VisibleIndex = 2
+        Me.GridColumn21.Width = 24
+        '
+        'GridColumn20
+        '
+        Me.GridColumn20.Caption = "#"
+        Me.GridColumn20.ColumnEdit = Me.rLink
+        Me.GridColumn20.FieldName = "#"
+        Me.GridColumn20.Name = "GridColumn20"
+        Me.GridColumn20.Visible = True
+        Me.GridColumn20.VisibleIndex = 3
+        Me.GridColumn20.Width = 24
+        '
+        'rLink
+        '
+        Me.rLink.AutoHeight = False
+        Me.rLink.Caption = "Ver"
+        Me.rLink.Name = "rLink"
         '
         'GridColumn5
         '
@@ -788,8 +868,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn5.OptionsColumn.AllowFocus = False
         Me.GridColumn5.OptionsColumn.ReadOnly = True
         Me.GridColumn5.Visible = True
-        Me.GridColumn5.VisibleIndex = 2
-        Me.GridColumn5.Width = 44
+        Me.GridColumn5.VisibleIndex = 4
+        Me.GridColumn5.Width = 30
         '
         'GridColumn6
         '
@@ -807,8 +887,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn6.OptionsColumn.ReadOnly = True
         Me.GridColumn6.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:n2}")})
         Me.GridColumn6.Visible = True
-        Me.GridColumn6.VisibleIndex = 6
-        Me.GridColumn6.Width = 44
+        Me.GridColumn6.VisibleIndex = 8
+        Me.GridColumn6.Width = 30
         '
         'GridColumn2
         '
@@ -821,8 +901,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn2.OptionsColumn.AllowFocus = False
         Me.GridColumn2.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total U$", "Total U$={0:n2}")})
         Me.GridColumn2.Visible = True
-        Me.GridColumn2.VisibleIndex = 7
-        Me.GridColumn2.Width = 36
+        Me.GridColumn2.VisibleIndex = 9
+        Me.GridColumn2.Width = 24
         '
         'GridColumn11
         '
@@ -834,8 +914,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn11.Name = "GridColumn11"
         Me.GridColumn11.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Monto_Mantenimiento", "{0:n2}")})
         Me.GridColumn11.Visible = True
-        Me.GridColumn11.VisibleIndex = 9
-        Me.GridColumn11.Width = 44
+        Me.GridColumn11.VisibleIndex = 11
+        Me.GridColumn11.Width = 30
         '
         'txtMnto
         '
@@ -861,8 +941,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn8.OptionsColumn.ReadOnly = True
         Me.GridColumn8.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Saldo", "{0:n2}")})
         Me.GridColumn8.Visible = True
-        Me.GridColumn8.VisibleIndex = 10
-        Me.GridColumn8.Width = 48
+        Me.GridColumn8.VisibleIndex = 12
+        Me.GridColumn8.Width = 33
         '
         'GridColumn12
         '
@@ -875,8 +955,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn12.OptionsColumn.AllowFocus = False
         Me.GridColumn12.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SaldoU", "{0:n2}")})
         Me.GridColumn12.Visible = True
-        Me.GridColumn12.VisibleIndex = 11
-        Me.GridColumn12.Width = 45
+        Me.GridColumn12.VisibleIndex = 13
+        Me.GridColumn12.Width = 52
         '
         'GridColumn13
         '
@@ -914,8 +994,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn16.OptionsColumn.AllowEdit = False
         Me.GridColumn16.OptionsColumn.AllowFocus = False
         Me.GridColumn16.Visible = True
-        Me.GridColumn16.VisibleIndex = 4
-        Me.GridColumn16.Width = 36
+        Me.GridColumn16.VisibleIndex = 6
+        Me.GridColumn16.Width = 24
         '
         'GridColumn17
         '
@@ -927,8 +1007,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn17.OptionsColumn.AllowEdit = False
         Me.GridColumn17.OptionsColumn.AllowFocus = False
         Me.GridColumn17.Visible = True
-        Me.GridColumn17.VisibleIndex = 5
-        Me.GridColumn17.Width = 32
+        Me.GridColumn17.VisibleIndex = 7
+        Me.GridColumn17.Width = 22
         '
         'GridColumn19
         '
@@ -937,11 +1017,12 @@ Public Class FrmNotasCreditoDebitoNew
         Me.GridColumn19.Name = "GridColumn19"
         Me.GridColumn19.OptionsColumn.AllowEdit = False
         Me.GridColumn19.Visible = True
-        Me.GridColumn19.VisibleIndex = 3
+        Me.GridColumn19.VisibleIndex = 5
+        Me.GridColumn19.Width = 52
         '
         'txtnota
         '
-        Me.txtnota.Location = New System.Drawing.Point(174, 41)
+        Me.txtnota.Location = New System.Drawing.Point(277, 50)
         Me.txtnota.Name = "txtnota"
         Me.txtnota.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
         Me.txtnota.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -950,14 +1031,14 @@ Public Class FrmNotasCreditoDebitoNew
         Me.txtnota.Properties.Appearance.Options.UseFont = True
         Me.txtnota.Properties.Appearance.Options.UseForeColor = True
         Me.txtnota.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtnota.Properties.MaxLength = 10
-        Me.txtnota.Size = New System.Drawing.Size(307, 22)
+        Me.txtnota.Properties.MaxLength = 20
+        Me.txtnota.Size = New System.Drawing.Size(226, 22)
         Me.txtnota.StyleController = Me.LayoutControl1
         Me.txtnota.TabIndex = 1
         '
         'cmbtipocomprobante
         '
-        Me.cmbtipocomprobante.Location = New System.Drawing.Point(174, 115)
+        Me.cmbtipocomprobante.Location = New System.Drawing.Point(174, 124)
         Me.cmbtipocomprobante.Name = "cmbtipocomprobante"
         Me.cmbtipocomprobante.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cmbtipocomprobante.Properties.NullText = ""
@@ -970,7 +1051,7 @@ Public Class FrmNotasCreditoDebitoNew
         'txtEquivalente
         '
         Me.txtEquivalente.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.txtEquivalente.Location = New System.Drawing.Point(174, 189)
+        Me.txtEquivalente.Location = New System.Drawing.Point(174, 198)
         Me.txtEquivalente.Name = "txtEquivalente"
         Me.txtEquivalente.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
         Me.txtEquivalente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -991,13 +1072,13 @@ Public Class FrmNotasCreditoDebitoNew
         Me.txtEquivalente.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.txtEquivalente.Properties.NullText = "<Null>"
         Me.txtEquivalente.Properties.ReadOnly = True
-        Me.txtEquivalente.Size = New System.Drawing.Size(225, 22)
+        Me.txtEquivalente.Size = New System.Drawing.Size(178, 22)
         Me.txtEquivalente.StyleController = Me.LayoutControl1
         Me.txtEquivalente.TabIndex = 1
         '
         'txtcomentario
         '
-        Me.txtcomentario.Location = New System.Drawing.Point(12, 231)
+        Me.txtcomentario.Location = New System.Drawing.Point(12, 240)
         Me.txtcomentario.Name = "txtcomentario"
         Me.txtcomentario.Size = New System.Drawing.Size(559, 64)
         Me.txtcomentario.StyleController = Me.LayoutControl1
@@ -1006,7 +1087,7 @@ Public Class FrmNotasCreditoDebitoNew
         'Fecha
         '
         Me.Fecha.EditValue = Nothing
-        Me.Fecha.Location = New System.Drawing.Point(441, 91)
+        Me.Fecha.Location = New System.Drawing.Point(441, 100)
         Me.Fecha.Name = "Fecha"
         Me.Fecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Fecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -1019,30 +1100,33 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem3, Me.LayoutControlItem10, Me.LayoutControlItem18, Me.LayoutControlItem8, Me.LayoutControlItem13, Me.LayoutControlItem2, Me.LayoutControlItem6, Me.LayoutControlItem5, Me.lyGarantiaChk, Me.LayoutControlItem17, Me.lyMonto, Me.lyMontoL, Me.lyGarantia, Me.EmptySpaceItem1, Me.LayoutControlItem7, Me.lyGrid, Me.lyMnto, Me.lyEmpty, Me.lySpliter, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem3, Me.LayoutControlItem10, Me.LayoutControlItem18, Me.LayoutControlItem8, Me.LayoutControlItem13, Me.LayoutControlItem2, Me.LayoutControlItem6, Me.LayoutControlItem5, Me.lyGarantiaChk, Me.LayoutControlItem17, Me.lyMonto, Me.lyMontoL, Me.lyGarantia, Me.EmptySpaceItem1, Me.LayoutControlItem7, Me.lyGrid, Me.lyMnto, Me.lyEmpty, Me.lySpliter, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.EmptySpaceItem3, Me.LayoutControlItem16, Me.LayoutControlItem19})
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1044, 697)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
         '
+        Me.LayoutControlItem1.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LayoutControlItem1.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem1.Control = Me.txtnota
         Me.LayoutControlItem1.CustomizationFormText = "#Nota:"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 29)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(473, 26)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(473, 26)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(216, 38)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(279, 26)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(279, 26)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(473, 26)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(279, 26)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "#Nota:"
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(159, 13)
+        Me.LayoutControlItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(44, 16)
+        Me.LayoutControlItem1.TextToControlDistance = 5
         '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.cmbtipocomprobante
         Me.LayoutControlItem3.CustomizationFormText = "Tipo de Comprobante:"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 103)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 112)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(391, 24)
         Me.LayoutControlItem3.Text = "Tipo de Comprobante:"
@@ -1054,14 +1138,14 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControlItem10.CustomizationFormText = "Tipo de Nota:"
         Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(779, 29)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(779, 38)
         Me.LayoutControlItem10.Text = "Tipo de Nota:"
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(159, 13)
         '
         'LayoutControlItem18
         '
         Me.LayoutControlItem18.Control = Me.cbCliente
-        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 55)
+        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 64)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
         Me.LayoutControlItem18.Size = New System.Drawing.Size(563, 24)
         Me.LayoutControlItem18.Text = "Cliente:"
@@ -1075,7 +1159,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(110, 29)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(110, 29)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(110, 29)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(110, 38)
         Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
@@ -1084,16 +1168,16 @@ Public Class FrmNotasCreditoDebitoNew
         '
         Me.LayoutControlItem13.Control = Me.GridDetalle
         Me.LayoutControlItem13.CustomizationFormText = "LayoutControlItem13"
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 287)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 296)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(563, 390)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(563, 381)
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem13.TextVisible = False
         '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.cbTipoNota
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 79)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 88)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
         Me.LayoutControlItem2.Size = New System.Drawing.Size(391, 24)
         Me.LayoutControlItem2.Text = "Tipo de Nota:"
@@ -1103,7 +1187,7 @@ Public Class FrmNotasCreditoDebitoNew
         '
         Me.LayoutControlItem6.Control = Me.cmbmoneda
         Me.LayoutControlItem6.CustomizationFormText = "Moneda:"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 127)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 136)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
         Me.LayoutControlItem6.Size = New System.Drawing.Size(563, 24)
         Me.LayoutControlItem6.Text = "Moneda de Pago:"
@@ -1113,7 +1197,7 @@ Public Class FrmNotasCreditoDebitoNew
         '
         Me.LayoutControlItem5.Control = Me.Fecha
         Me.LayoutControlItem5.CustomizationFormText = "Fecha:"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(391, 79)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(391, 88)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(172, 24)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(172, 24)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
@@ -1132,7 +1216,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.lyGarantiaChk.MaxSize = New System.Drawing.Size(135, 29)
         Me.lyGarantiaChk.MinSize = New System.Drawing.Size(135, 29)
         Me.lyGarantiaChk.Name = "lyGarantiaChk"
-        Me.lyGarantiaChk.Size = New System.Drawing.Size(135, 29)
+        Me.lyGarantiaChk.Size = New System.Drawing.Size(135, 38)
         Me.lyGarantiaChk.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.lyGarantiaChk.TextSize = New System.Drawing.Size(0, 0)
         Me.lyGarantiaChk.TextVisible = False
@@ -1140,7 +1224,7 @@ Public Class FrmNotasCreditoDebitoNew
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.Vencimiento
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(391, 103)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(391, 112)
         Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(172, 24)
         Me.LayoutControlItem17.MinSize = New System.Drawing.Size(172, 24)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
@@ -1154,11 +1238,11 @@ Public Class FrmNotasCreditoDebitoNew
         'lyMonto
         '
         Me.lyMonto.Control = Me.txtTotal
-        Me.lyMonto.Location = New System.Drawing.Point(0, 151)
-        Me.lyMonto.MaxSize = New System.Drawing.Size(391, 26)
-        Me.lyMonto.MinSize = New System.Drawing.Size(391, 26)
+        Me.lyMonto.Location = New System.Drawing.Point(0, 160)
+        Me.lyMonto.MaxSize = New System.Drawing.Size(344, 26)
+        Me.lyMonto.MinSize = New System.Drawing.Size(344, 26)
         Me.lyMonto.Name = "lyMonto"
-        Me.lyMonto.Size = New System.Drawing.Size(391, 26)
+        Me.lyMonto.Size = New System.Drawing.Size(344, 26)
         Me.lyMonto.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.lyMonto.Text = "Monto U$:"
         Me.lyMonto.TextSize = New System.Drawing.Size(159, 13)
@@ -1167,11 +1251,11 @@ Public Class FrmNotasCreditoDebitoNew
         '
         Me.lyMontoL.Control = Me.txtEquivalente
         Me.lyMontoL.CustomizationFormText = "Monto:"
-        Me.lyMontoL.Location = New System.Drawing.Point(0, 177)
-        Me.lyMontoL.MaxSize = New System.Drawing.Size(391, 26)
-        Me.lyMontoL.MinSize = New System.Drawing.Size(391, 26)
+        Me.lyMontoL.Location = New System.Drawing.Point(0, 186)
+        Me.lyMontoL.MaxSize = New System.Drawing.Size(344, 26)
+        Me.lyMontoL.MinSize = New System.Drawing.Size(344, 26)
         Me.lyMontoL.Name = "lyMontoL"
-        Me.lyMontoL.Size = New System.Drawing.Size(391, 26)
+        Me.lyMontoL.Size = New System.Drawing.Size(344, 26)
         Me.lyMontoL.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.lyMontoL.Text = "Equivalente a:"
         Me.lyMontoL.TextSize = New System.Drawing.Size(159, 13)
@@ -1179,9 +1263,9 @@ Public Class FrmNotasCreditoDebitoNew
         'lyGarantia
         '
         Me.lyGarantia.Control = Me.cbGarantias
-        Me.lyGarantia.Location = New System.Drawing.Point(568, 29)
+        Me.lyGarantia.Location = New System.Drawing.Point(573, 38)
         Me.lyGarantia.Name = "lyGarantia"
-        Me.lyGarantia.Size = New System.Drawing.Size(456, 24)
+        Me.lyGarantia.Size = New System.Drawing.Size(451, 24)
         Me.lyGarantia.Text = "Garantia Bancaria:"
         Me.lyGarantia.TextSize = New System.Drawing.Size(159, 13)
         Me.lyGarantia.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -1189,16 +1273,16 @@ Public Class FrmNotasCreditoDebitoNew
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(473, 29)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(495, 38)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(90, 26)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(68, 26)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.txtcomentario
         Me.LayoutControlItem7.CustomizationFormText = "Concepto:"
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 203)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 212)
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(0, 84)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(134, 84)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
@@ -1212,9 +1296,9 @@ Public Class FrmNotasCreditoDebitoNew
         '
         Me.lyGrid.Control = Me.GridFacturas
         Me.lyGrid.CustomizationFormText = "LayoutControlItem11"
-        Me.lyGrid.Location = New System.Drawing.Point(568, 53)
+        Me.lyGrid.Location = New System.Drawing.Point(573, 62)
         Me.lyGrid.Name = "lyGrid"
-        Me.lyGrid.Size = New System.Drawing.Size(456, 602)
+        Me.lyGrid.Size = New System.Drawing.Size(451, 593)
         Me.lyGrid.TextSize = New System.Drawing.Size(0, 0)
         Me.lyGrid.TextVisible = False
         '
@@ -1232,22 +1316,22 @@ Public Class FrmNotasCreditoDebitoNew
         'lyEmpty
         '
         Me.lyEmpty.AllowHotTrack = False
-        Me.lyEmpty.Location = New System.Drawing.Point(568, 655)
+        Me.lyEmpty.Location = New System.Drawing.Point(573, 655)
         Me.lyEmpty.Name = "lyEmpty"
-        Me.lyEmpty.Size = New System.Drawing.Size(235, 22)
+        Me.lyEmpty.Size = New System.Drawing.Size(230, 22)
         Me.lyEmpty.TextSize = New System.Drawing.Size(0, 0)
         '
         'lySpliter
         '
         Me.lySpliter.AllowHotTrack = True
-        Me.lySpliter.Location = New System.Drawing.Point(563, 29)
+        Me.lySpliter.Location = New System.Drawing.Point(563, 38)
         Me.lySpliter.Name = "lySpliter"
-        Me.lySpliter.Size = New System.Drawing.Size(5, 648)
+        Me.lySpliter.Size = New System.Drawing.Size(10, 639)
         '
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.txtTasa
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(401, 151)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(401, 160)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(162, 26)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(162, 26)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
@@ -1261,7 +1345,7 @@ Public Class FrmNotasCreditoDebitoNew
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.txtTasaParalela
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(401, 177)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(401, 186)
         Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(162, 26)
         Me.LayoutControlItem15.MinSize = New System.Drawing.Size(162, 26)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
@@ -1275,17 +1359,44 @@ Public Class FrmNotasCreditoDebitoNew
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(391, 151)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(344, 160)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(10, 52)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(57, 52)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem16
+        '
+        Me.LayoutControlItem16.Control = Me.cmbserie
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(61, 38)
+        Me.LayoutControlItem16.MaxSize = New System.Drawing.Size(155, 26)
+        Me.LayoutControlItem16.MinSize = New System.Drawing.Size(155, 26)
+        Me.LayoutControlItem16.Name = "LayoutControlItem16"
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(155, 26)
+        Me.LayoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem16.Text = "Serie:"
+        Me.LayoutControlItem16.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
+        Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem16.TextToControlDistance = 0
+        Me.LayoutControlItem16.TextVisible = False
+        '
+        'LayoutControlItem19
+        '
+        Me.LayoutControlItem19.Control = Me.chkSerie
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 38)
+        Me.LayoutControlItem19.MaxSize = New System.Drawing.Size(61, 26)
+        Me.LayoutControlItem19.MinSize = New System.Drawing.Size(61, 26)
+        Me.LayoutControlItem19.Name = "LayoutControlItem19"
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(61, 26)
+        Me.LayoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem19.TextVisible = False
         '
         'SimpleButton1
         '
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(12, 578)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 580)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(107, 38)
+        Me.SimpleButton1.Size = New System.Drawing.Size(109, 36)
         Me.SimpleButton1.StyleController = Me.LayoutControl2
         Me.SimpleButton1.TabIndex = 16
         Me.SimpleButton1.Text = "&Exportar"
@@ -1301,7 +1412,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1059, 175, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 670)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 668)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -1310,7 +1421,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.SimpleButton2.Appearance.Options.UseTextOptions = True
         Me.SimpleButton2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(12, 536)
+        Me.SimpleButton2.Location = New System.Drawing.Point(12, 538)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(107, 38)
         Me.SimpleButton2.StyleController = Me.LayoutControl2
@@ -1323,7 +1434,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.cmdguardar.ImageOptions.Image = Global.SysContab.My.Resources.Resources.RibbonPrintPreview_SaveLarge
         Me.cmdguardar.Location = New System.Drawing.Point(12, 12)
         Me.cmdguardar.Name = "cmdguardar"
-        Me.cmdguardar.Size = New System.Drawing.Size(107, 38)
+        Me.cmdguardar.Size = New System.Drawing.Size(109, 36)
         Me.cmdguardar.StyleController = Me.LayoutControl2
         Me.cmdguardar.TabIndex = 7
         Me.cmdguardar.Text = "&Guardar"
@@ -1334,7 +1445,7 @@ Public Class FrmNotasCreditoDebitoNew
         Me.cmdsalir.ImageOptions.Image = CType(resources.GetObject("cmdsalir.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdsalir.Location = New System.Drawing.Point(12, 620)
         Me.cmdsalir.Name = "cmdsalir"
-        Me.cmdsalir.Size = New System.Drawing.Size(107, 38)
+        Me.cmdsalir.Size = New System.Drawing.Size(109, 36)
         Me.cmdsalir.StyleController = Me.LayoutControl2
         Me.cmdsalir.TabIndex = 8
         Me.cmdsalir.Text = "&Salir"
@@ -1344,9 +1455,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem9, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.EmptySpaceItem7, Me.LayoutControlItem4})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(131, 670)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 668)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem9
@@ -1354,16 +1464,16 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControlItem9.Control = Me.cmdguardar
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
         '
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.SimpleButton1
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 566)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 568)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         '
@@ -1372,26 +1482,26 @@ Public Class FrmNotasCreditoDebitoNew
         Me.LayoutControlItem12.Control = Me.cmdsalir
         Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 608)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
         '
         'EmptySpaceItem7
         '
         Me.EmptySpaceItem7.AllowHotTrack = False
-        Me.EmptySpaceItem7.Location = New System.Drawing.Point(0, 42)
+        Me.EmptySpaceItem7.Location = New System.Drawing.Point(0, 40)
         Me.EmptySpaceItem7.Name = "EmptySpaceItem7"
-        Me.EmptySpaceItem7.Size = New System.Drawing.Size(111, 482)
+        Me.EmptySpaceItem7.Size = New System.Drawing.Size(113, 486)
         Me.EmptySpaceItem7.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.SimpleButton2
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 524)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 526)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -1417,10 +1527,22 @@ Public Class FrmNotasCreditoDebitoNew
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 670)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 668)
         Me.DockPanel1_Container.TabIndex = 0
+        '
+        'GridColumn22
+        '
+        Me.GridColumn22.Caption = "CobroU"
+        Me.GridColumn22.DisplayFormat.FormatString = "{0:n2}"
+        Me.GridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn22.FieldName = "CobroU"
+        Me.GridColumn22.Name = "GridColumn22"
+        Me.GridColumn22.OptionsColumn.AllowEdit = False
+        Me.GridColumn22.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "CobroU", "{0:n2}")})
+        Me.GridColumn22.Visible = True
+        Me.GridColumn22.VisibleIndex = 14
         '
         'FrmNotasCreditoDebitoNew
         '
@@ -1432,6 +1554,8 @@ Public Class FrmNotasCreditoDebitoNew
         Me.Name = "FrmNotasCreditoDebitoNew"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.chkSerie.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbserie.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTasaParalela.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTasa.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1455,6 +1579,7 @@ Public Class FrmNotasCreditoDebitoNew
         CType(Me.chktipo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridFacturas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.iVistaSaldos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rLink, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtMnto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtnota.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbtipocomprobante.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1486,6 +1611,8 @@ Public Class FrmNotasCreditoDebitoNew
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem19, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl2.ResumeLayout(False)
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1503,9 +1630,10 @@ Public Class FrmNotasCreditoDebitoNew
 
 #End Region
 
-    Private Comprobante As New Integer
+    Private Comprobante As Integer = 0
     Private Comprobantes As New VB.SysContab.ComprobanteDB
     Private Catalogo As New VB.SysContab.CatalogoDB
+    Private Cajas As New VB.SysContab.CajasDB()
     Private DT As DataTable
     Private IdNota As Integer = 0
     Private NoComprob As Integer = 0
@@ -1517,6 +1645,7 @@ Public Class FrmNotasCreditoDebitoNew
 
     Dim db_Notas As New db_MaestroNotasCD
     Dim tc As New db_TasaCambio
+    Dim IdCaja As Integer = 0
 
     Private Sub Distribucion()
         DT_Distribucion = CargaDistribucion(0, 0, 0)
@@ -1527,6 +1656,11 @@ Public Class FrmNotasCreditoDebitoNew
     End Sub
 
     Private Sub FrmNotasCreditoDebitoNew_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim dsCajas As DataSet = Cajas.PcNombre(Environment.MachineName.ToString)
+
+        If dsCajas.Tables("Cajas").Rows.Count > 0 Then
+            IdCaja = dsCajas.Tables("Cajas").Rows(0).Item("cj_Codigo")
+        End If
 
         Fecha.DateTime = Now.Date
         Vencimiento.DateTime = Now.Date
@@ -1555,7 +1689,7 @@ Public Class FrmNotasCreditoDebitoNew
         'ItemCuenta.Columns(1).Visible = False
         'ItemCuentas.Columns(0).Visible = False
 
-
+        CargaSeries()
         LoadClients()
         GetTipoComprobantesList(cmbtipocomprobante)
         GetMonedasList(cmbmoneda)
@@ -1563,7 +1697,8 @@ Public Class FrmNotasCreditoDebitoNew
 
         GetDetalle()
         Fecha.EditValue = Now.Date
-        GetNota()
+        'GetNota()
+        GetNumeroNotaSerie()
 
         GetServicios_Retencion(Me.cbServicios)
         Distribucion()
@@ -1573,7 +1708,8 @@ Public Class FrmNotasCreditoDebitoNew
     End Sub
 
     Private Sub LoadClients()
-        Dim DT_CLIENTE As DataTable = ObtieneDatos("_ClientesGetList", EmpresaActual, 1)
+        Dim DT_CLIENTE As DataTable =
+            ObtieneDatos("_ClientesGetList", EmpresaActual, 1)
 
         SearchLookUp(cbCliente, DT_CLIENTE, "Nombre", "Codigo", 4, 5, 6, 7, 8)
         SearchLookUp(cbGarantias, ObtieneDatos("sp_sel_Clientes_Garantias", EmpresaActual), "Nombre", "Codigo")
@@ -1623,6 +1759,13 @@ Public Class FrmNotasCreditoDebitoNew
         Dim MttoMonto As Double = 0, CobroTotal As Double = 0   ',MontoTotal As Double = 0
         Dim AplicarCuentas As Boolean = True
 
+        If txtnota.Text.Trim.Length = 0 Then
+            XtraMsg("Introduzca el numero de la Nota.",
+                    MessageBoxIcon.Error)
+            txtnota.Focus()
+            Exit Sub
+        End If
+
         If chktipo.EditValue = "C" Then
             With iVistaSaldos
                 For i As Integer = 0 To .DataRowCount
@@ -1659,7 +1802,8 @@ Public Class FrmNotasCreditoDebitoNew
         If chktipo.EditValue = "C" Then
 
             If cbTipoNota.EditValue Is Nothing Then
-                XtraMsg("Seleccione el tipo de Nota de Crédito", MessageBoxIcon.Warning)
+                XtraMsg("Seleccione el tipo de Nota de Crédito",
+                        MessageBoxIcon.Warning)
                 cbTipoNota.Focus()
                 Exit Sub
             End If
@@ -1784,18 +1928,26 @@ Public Class FrmNotasCreditoDebitoNew
 
         End If
 
-        Note = "N" + chktipo.EditValue + txtnota.Text.PadLeft(6, "0"c)  'Format(CInt(txtnota.Text), "000000")
+        If chkSerie.Checked Then
+            If Not cmbserie.EditValue Is Nothing Then
+                Note = $"{cmbserie.Text}{txtnota.Text}"
+            Else
+                Note = "N" + chktipo.EditValue + txtnota.Text.PadLeft(6, "0"c)  'Format(CInt(txtnota.Text), "000000")
+            End If
+        Else
+            Note = "N" + chktipo.EditValue + txtnota.Text.PadLeft(6, "0"c)  'Format(CInt(txtnota.Text), "000000")
+        End If
 
         '  If ObtieneDatos("SELECT count(nonota) from maestronotascd where nonota = '" & Note & "' AND Empresa = " & EmpresaActual).Rows(0).Item(0) > 0 Then
 
         If db_MaestroNotasCD.Buscar(Note) = "SI" Then
-            XtraMsg("El Número de Nota: " + Note + " ya esta registrada", MessageBoxIcon.Error)
+            XtraMsg("El Número de Nota: " + Note + " ya esta registrada",
+                    MessageBoxIcon.Error)
             txtnota.Focus()
             txtnota.SelectAll()
             Exit Sub
         End If
         '
-
         ShowSplash("Guardando...")
         '
         '*******************************  CONTABILIZAR    **********************************
@@ -1807,9 +1959,14 @@ Public Class FrmNotasCreditoDebitoNew
                 For i As Integer = 0 To Me.iVistaCuentas.DataRowCount - 1
                     Dim CTemp As String = vbNullString
                     Try
-                        CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
-                                     + " CuentaContable = '" & Me.iVistaCuentas.GetRowCellValue(i, "Cuenta") & "'" _
-                                     + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+                        'CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
+                        '             + " CuentaContable = '" & Me.iVistaCuentas.GetRowCellValue(i, "Cuenta") & "'" _
+                        '             + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+
+                        CTemp = ObtieneDatos("sp_sel_RubroGastos",
+                                         iVistaCuentas.GetRowCellValue(i, "Cuenta"),
+                                         EmpresaActual).
+                                         Rows.Item(0)("CuentaContable")
                     Catch ex As Exception
                         CTemp = "xxx"
                     End Try
@@ -1841,9 +1998,15 @@ Public Class FrmNotasCreditoDebitoNew
                             Dim CTemp As String = vbNullString
 
                             Try
-                                CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
-                                    + " CuentaContable = '" & CuentaMtto & "'" _
-                                    + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+                                'CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
+                                '    + " CuentaContable = '" & CuentaMtto & "'" _
+                                '    + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+
+                                CTemp = ObtieneDatos("sp_sel_RubroGastos",
+                                                CuentaMtto,
+                                                EmpresaActual).
+                                                Rows.Item(0)("CuentaContable")
+
 
                             Catch ex As Exception
                                 CTemp = "xxx"
@@ -1852,7 +2015,7 @@ Public Class FrmNotasCreditoDebitoNew
                             If CTemp <> "xxx" And CTemp <> vbNullString Then
                                 '
                                 If VerificaDistribucion(CTemp) = False And ObligarDistribucion = True Then
-                                    XtraMsg("La Cuenta " & CuentaMtto & " de Mantenimiento de Valor es de Distribución, Favor Distribuirla " & vbCrLf &
+                                    XtraMsg("La Cuenta " & CuentaMtto & " de Mantenimiento de Valor, es de Distribución, Favor Distribuirla " & vbCrLf &
                                    "ó Verifique el Detalle de la Distribución.", MessageBoxIcon.Warning)
                                     Exit Sub
                                 End If
@@ -1925,32 +2088,78 @@ Public Class FrmNotasCreditoDebitoNew
                 Next
                 '
                 VB.SysContab.Rutinas.okTransaccion()
-                '-----------------------------------------------
-                'Guarda la Distribucion
-                '-----------------------------------------------
-                Dim DT_F As DataTable
-                DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
-                If Not DT_F Is Nothing Then
-                    For i As Integer = 0 To DT_F.Rows.Count - 1
-                        With DT_F
-                            If .Rows(i).RowState = DataRowState.Added Then
-                                GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                                " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.Fecha.DateTime.Month & "," &
-                                VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
-                            ElseIf .Rows(i).RowState = DataRowState.Modified Then
-                                GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.Fecha.DateTime.Month & "," &
-                                "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
-                                "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
-                            ElseIf .Rows(i).RowState = DataRowState.Deleted Then
-                            End If
-                        End With
-                    Next
-                End If
 
-                Distribucion()
-                '--------------------------
-                'Fin de Guarda Distribucion
-                '--------------------------
+                'Dim DT_F As DataTable
+                'DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
+                'If Not DT_F Is Nothing Then
+                '    For i As Integer = 0 To DT_F.Rows.Count - 1
+                '        With DT_F
+                '            If .Rows(i).RowState = DataRowState.Added Then
+                '                GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+                '                " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.Fecha.DateTime.Month & "," &
+                '                VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+                '            ElseIf .Rows(i).RowState = DataRowState.Modified Then
+                '                GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.Fecha.DateTime.Month & "," &
+                '                "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
+                '                "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
+                '            ElseIf .Rows(i).RowState = DataRowState.Deleted Then
+                '            End If
+                '        End With
+                '    Next
+                'End If
+
+                Try
+                    Dim AbonoU As Double = 0,
+                        IdArreglo As Integer = 0,
+                        db As New db_FacturasCuotas
+
+                    'Abonas a las cuotas y calcular abono a Arreglo de Pago
+                    With iVistaSaldos
+                        For i As Integer = 0 To .DataRowCount - 1
+                            If .GetRowCellValue(i, "Facturar") = True Then
+                                Dim Id As Integer =
+                                db.Detalles2(
+                                .GetRowCellValue(i, "No Factura"),
+                                EmpresaActual).Id
+
+                                Dim _dtAP As DataTable =
+                                        db_ArregloPago.Listar2(
+                                            .GetRowCellValue(i, "No Factura"))
+
+                                If _dtAP.Rows.Count > 0 Then
+                                    AbonoU += .GetRowCellValue(i, "CobroU")
+                                    IdArreglo = _dtAP.Rows.Item(0)("IdArreglo")
+                                End If
+
+                                If Id > 0 Then
+                                    Guardar("sp_upd_FacturasCuotasDetalleAplicar",
+                                        Id,
+                                        Math.Round(.GetRowCellValue(i, "Cobro"), 2),
+                                        Math.Round(.GetRowCellValue(i, "CobroU"), 2),
+                                        NoComprob,
+                                        Comprobantes.Per_Id,
+                                        Fecha.DateTime.Date.Month,
+                                        EmpresaActual)
+                                End If
+
+                            End If
+                        Next
+                    End With
+                    '
+                    'Actualizar Arreglo de Pago
+                    If AbonoU > 0 Then
+                        Guardar("sp_upd_ArregloPagoDetalleAplicar",
+                                IdArreglo,
+                                Math.Round(AbonoU, 2),
+                                Comprobantes.Comp_No,
+                                Comprobantes.Per_Id,
+                                Fecha.DateTime.Date.Month,
+                                EmpresaActual)
+                    End If
+                Catch ex As Exception
+                    XtraMsg($"Error al Aplicar Cuota de Arreglo de pago{vbCrLf}{ex.Message}",
+                            MessageBoxIcon.Error)
+                End Try
             End If
 
         Catch ex As Exception
@@ -1960,6 +2169,20 @@ Public Class FrmNotasCreditoDebitoNew
             XtraMsg("Error al contabilizar: " & vbCrLf & ex.Message, MessageBoxIcon.Error)
             Exit Sub
         End Try
+
+        '--------------------------
+        'Guarda la Distribucion
+        '--------------------------
+        GuardaDistribucion(
+                    DT_Distribucion,
+                    Fecha.DateTime.Date,
+                    NoComprob,
+                    False)
+
+        Distribucion()
+        '--------------------------
+        'Fin de Guarda Distribucion
+        '--------------------------
 
         '-----------------------------------------------------------------------------------
         'FIN DE CONTABILIZAR
@@ -2004,9 +2227,12 @@ Public Class FrmNotasCreditoDebitoNew
                                     txtcomentario.Text, IIf(chktipo.EditValue = "C", 1, 2),
                                     cmbmoneda.EditValue, NoComprob, VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date),
                                     Fecha.DateTime.Date.Month, Vencimiento.DateTime.Date, 0,
-                                    IIf(cbTipoNota.EditValue Is Nothing, 0, cbTipoNota.EditValue))
+                                    IIf(cbTipoNota.EditValue Is Nothing, 0, cbTipoNota.EditValue),
+                                    "", 0, IdCaja, IIf(chkSerie.Checked, cmbserie.EditValue, 0))
 
-        If chkGarantia.Checked Then GuardarNotaGarantia(IIf(cmbmoneda.EditValue = MonedaBase, txtTotal.EditValue, txtEquivalente.EditValue))
+        If chkGarantia.Checked Then
+            GuardarNotaGarantia(IIf(cmbmoneda.EditValue = MonedaBase, txtTotal.EditValue, txtEquivalente.EditValue))
+        End If
 
         'Variables.Clear()
         'Variables.Add("IdNota")
@@ -2040,12 +2266,19 @@ Public Class FrmNotasCreditoDebitoNew
             End With
         End If
 
+        If chkSerie.Checked Then
+            Guardar("sp_upd_SeriesCajas",
+                    cmbserie.EditValue,
+                    cmbserie.GetColumnValue("Factura"),
+                    EmpresaActual)
+        End If
+
         HideSplash()
         '
         cbCliente.EditValue = Nothing
         cbGarantias.EditValue = Nothing
         cmbtipocomprobante.EditValue = Nothing
-        GetNota()
+        'GetNota()
         txtcomentario.Text = Nothing
         GetDetalle()
         GridFacturas.DataSource = Nothing
@@ -2053,6 +2286,8 @@ Public Class FrmNotasCreditoDebitoNew
         txtTotal.EditValue = 0.00
         chkGarantia.Checked = False
         etMntto.Text = "0.0000"
+        chkSerie.Checked = False
+        GetNumeroNotaSerie()
     End Sub
 
 
@@ -2112,25 +2347,6 @@ Public Class FrmNotasCreditoDebitoNew
 
     End Sub
 
-    Private Sub GetNota()
-        'txtnota.Text = "N" + chktipo.EditValue + Format(ObtieneDatos("SELECT ISNULL(MAX(CAST(RIGHT(NoNota,4) as int)),0) + 1 FROM MaestroNotasCD WHERE Tipo = " & IIf(chktipo.EditValue = "C", 1, 2)).Rows(0).Item(0), "0000")
-        'Dim serie As String = ""
-        ''
-        'Try
-        '    serie = Me.cmbnombre.GetColumnValue("CodigoLetra").ToString.Substring(1, 2)
-        'Catch ex As Exception
-        'End Try
-
-        'Try
-        '    txtnota.Text = Format(ObtieneDatos("SELECT ISNULL(MAX(CAST(RIGHT(NoNota,len(nonota)-2) as int)),0) + 1 FROM MaestroNotasCD WHERE Tipo = " & IIf(chktipo.EditValue = "C", 1, 2)).Rows(0).Item(0), "0000").ToString
-        'Catch ex As Exception
-        '    txtnota.Text = "0000"
-        'End Try
-
-        txtnota.Text =
-            db_MaestroNotasCD.GetNumero(IIf(chktipo.EditValue = "C", 1, 2))
-    End Sub
-
     Private Sub chktipo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chktipo.SelectedIndexChanged
         If sender.editvalue = "C" Then
             chkGarantia.Checked = False
@@ -2156,7 +2372,8 @@ Public Class FrmNotasCreditoDebitoNew
         End If
         '
         ConversionEquivalente()
-        GetNota()
+        GetNumeroNotaSerie()
+        'GetNota()
     End Sub
 
     Private Sub GetData()
@@ -2181,7 +2398,11 @@ Public Class FrmNotasCreditoDebitoNew
                 cbCliente.EditValue,
                 Fecha.DateTime.Date)
 
-            If EmpresaActual = 1 Then iVistaSaldos.Columns("TC_Paralelo").Visible = True Else iVistaSaldos.Columns("TC_Paralelo").Visible = False
+            If EmpresaActual.Equals("1") Then iVistaSaldos.Columns("TC_Paralelo").Visible = True Else iVistaSaldos.Columns("TC_Paralelo").Visible = False
+
+            If Not (EmpresaActual.Equals("18") Or EmpresaActual.Equals("20")) Then
+                iVistaSaldos.Columns("F/Electrónica").Visible = False
+            End If
         Catch ex As Exception
         End Try
     End Sub
@@ -2574,28 +2795,28 @@ Public Class FrmNotasCreditoDebitoNew
         End If
 
         Try
-            Dim forma As New FrmDetalleRequisas
+            Dim frm As New FrmDetalleRequisas
             With Me.iVistaCuentas
                 'forma.Cuenta = .GetRowCellValue(.FocusedRowHandle, "Cuenta")
                 'If IsDBNull(.GetRowCellValue(.FocusedRowHandle, "Debito")) OrElse IsNothing(.GetRowCellValue(.FocusedRowHandle, "Debito")) OrElse .GetRowCellValue(.FocusedRowHandle, "Debito") = Nothing OrElse .GetRowCellValue(.FocusedRowHandle, "Debito") = 0 Then
 
                 If chktipo.EditValue = "D" Then
-                    forma.Monto = .GetRowCellValue(.FocusedRowHandle, "Monto") '.Item(.CurrentRowIndex, 4)
-                    forma.Tipo = "C"
-                    forma.Periodo = VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date)
-                    forma.CompNo = NoComp
-                    forma.Cuenta = .GetRowCellValue(.FocusedRowHandle, "Cuenta") '.Item(.CurrentRowIndex, 0)
-                    forma.Mes = Fecha.DateTime.Month
+                    frm.Monto = .GetRowCellValue(.FocusedRowHandle, "Monto") '.Item(.CurrentRowIndex, 4)
+                    frm.Tipo = "C"
+                    frm.Periodo = VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date)
+                    frm.CompNo = NoComp
+                    frm.Cuenta = .GetRowCellValue(.FocusedRowHandle, "Cuenta") '.Item(.CurrentRowIndex, 0)
+                    frm.Mes = Fecha.DateTime.Month
                 Else
-                    forma.Monto = .GetRowCellValue(.FocusedRowHandle, "Monto") '.Item(.CurrentRowIndex, 3)
-                    forma.Tipo = "D"
-                    forma.Periodo = VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime)
-                    forma.CompNo = NoComp
-                    forma.Cuenta = .GetRowCellValue(.FocusedRowHandle, "Cuenta") '.Item(.CurrentRowIndex, 0)
-                    forma.Mes = Fecha.DateTime.Month
+                    frm.Monto = .GetRowCellValue(.FocusedRowHandle, "Monto") '.Item(.CurrentRowIndex, 3)
+                    frm.Tipo = "D"
+                    frm.Periodo = VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime)
+                    frm.CompNo = NoComp
+                    frm.Cuenta = .GetRowCellValue(.FocusedRowHandle, "Cuenta") '.Item(.CurrentRowIndex, 0)
+                    frm.Mes = Fecha.DateTime.Month
                 End If
-
-                forma.Mostrar(DT_Distribucion)
+                '
+                frm.Mostrar(DT_Distribucion)
                 Me.DT_Distribucion.DefaultView.RowFilter = ""
             End With
         Catch ex As Exception
@@ -2639,7 +2860,9 @@ Public Class FrmNotasCreditoDebitoNew
 
     Private Sub SearchLookUpEdit1_EditValueChanged(sender As Object, e As EventArgs) Handles cbCliente.EditValueChanged
         If Inicio Then Exit Sub
+        ShowSplash()
         GetData()
+        HideSplash()
     End Sub
 
     Private Sub GridView1_KeyDown(sender As Object, e As KeyEventArgs) Handles iVistaCuentas.KeyDown
@@ -2704,7 +2927,8 @@ Public Class FrmNotasCreditoDebitoNew
             etMntto.Text = MttoMonto.ToString("n2")
 
             If MttoMonto = 0.00 Then
-                XtraMsg("El Valor del Mantenimiento de Valor debe ser Mayor que Cero (0)", MessageBoxIcon.Warning)
+                XtraMsg("El Valor del Mantenimiento de Valor debe ser Mayor que Cero (0)",
+                        MessageBoxIcon.Warning)
                 Exit Sub
             End If
             '
@@ -2718,7 +2942,6 @@ Public Class FrmNotasCreditoDebitoNew
                 XtraMsg("No existe Plantilla de Mantenimiento de Valor!", MessageBoxIcon.Error)
                 Exit Sub
             End Try
-
         Else
             XtraMsg("Las Notas de Débito no contienen Deslizamiento de Moneda", MessageBoxIcon.Warning)
             Exit Sub
@@ -2763,10 +2986,114 @@ Public Class FrmNotasCreditoDebitoNew
                 End If
             End If
         End If
+        '
+        If e.Column.FieldName = "TC_Paralelo" Then
+            If iVistaSaldos.GetRowCellValue(e.RowHandle, "TC_Paralelo") Then e.Appearance.BackColor = Color.LightPink
+        End If
+
+        If e.Column.FieldName = "AP" Then
+            If iVistaSaldos.GetRowCellValue(e.RowHandle, "AP") Then e.Appearance.BackColor = Color.RosyBrown
+        End If
     End Sub
 
-    Private Sub iVistaCuentas_CellValueChanged(sender As Object, e As CellValueChangedEventArgs) Handles iVistaCuentas.CellValueChanged
+    Private Sub chkSerie_CheckedChanged(sender As Object, e As EventArgs) Handles chkSerie.CheckedChanged
+        GetNumeroNotaSerie()
+    End Sub
 
+    Private Sub cmbserie_EditValueChanged(sender As Object, e As EventArgs) Handles cmbserie.EditValueChanged
+        If cmbserie.EditValue Is Nothing Then Exit Sub
+        '
+        GetNumeroNotaSerie()
+    End Sub
+
+    Sub GetNumeroNotaSerie()
+
+        If chkSerie.Checked Then
+            If CargaSeries() Then
+                txtnota.Properties.ReadOnly = True
+                txtnota.Text = String.Empty
+                cmbserie.Enabled = True
+                cmbserie.ItemIndex = 0
+                '
+                txtnota.Text = Format(cmbserie.GetColumnValue("Factura"), "00000000")
+            Else
+                XtraMsg("No se han encontrados series configuradas.", MessageBoxIcon.Error)
+                chkSerie.Checked = False
+            End If
+        Else
+            cmbserie.EditValue = Nothing
+            txtnota.Properties.ReadOnly = False
+            cmbserie.Enabled = False
+            GetNota()
+            txtnota.Focus()
+            txtnota.SelectAll()
+        End If
+
+    End Sub
+
+    Private Sub GetNota()
+        'txtnota.Text = "N" + chktipo.EditValue + Format(ObtieneDatos("SELECT ISNULL(MAX(CAST(RIGHT(NoNota,4) as int)),0) + 1 FROM MaestroNotasCD WHERE Tipo = " & IIf(chktipo.EditValue = "C", 1, 2)).Rows(0).Item(0), "0000")
+        'Dim serie As String = ""
+        ''
+        'Try
+        '    serie = Me.cmbnombre.GetColumnValue("CodigoLetra").ToString.Substring(1, 2)
+        'Catch ex As Exception
+        'End Try
+        'Try
+        '    txtnota.Text = Format(ObtieneDatos("SELECT ISNULL(MAX(CAST(RIGHT(NoNota,len(nonota)-2) as int)),0) + 1 FROM MaestroNotasCD WHERE Tipo = " & IIf(chktipo.EditValue = "C", 1, 2)).Rows(0).Item(0), "0000").ToString
+        'Catch ex As Exception
+        '    txtnota.Text = "0000"
+        'End Try
+
+        txtnota.Text =
+            db_MaestroNotasCD.GetNumero(IIf(chktipo.EditValue = "C", 1, 2))
+    End Sub
+
+    Private Sub etMntto_Click(sender As Object, e As EventArgs) Handles etMntto.Click
+
+    End Sub
+
+    Function CargaSeries() As Boolean
+        Dim _dt As DataTable = ObtieneDatos("sp_sel_SeriesCajas",
+                                            IdCaja,
+                                            EmpresaActual,
+                                            IIf(chktipo.EditValue = "C", "NC", "ND"))
+        LookUp(cmbserie,
+               _dt,
+               "Serie",
+               "IdDetalle",
+               "",
+               0, 3, 4)
+
+        cmbserie.Properties.ShowHeader = True
+        If _dt.Rows.Count = 0 Then Return False
+        If _dt.Rows.Count > 0 Then Return True
+    End Function
+
+    Private Sub rLink_Click(sender As Object, e As EventArgs) Handles rLink.Click
+
+        Dim db As New db_FacturasCuotas
+
+        Dim IdCuota As Integer = db.Detalles2(
+            iVistaSaldos.GetRowCellValue(iVistaSaldos.FocusedRowHandle, "No Factura"),
+            EmpresaActual).Id
+        '
+        Dim _dt As DataTable =
+            db_ArregloPago.Listar2(
+            iVistaSaldos.GetRowCellValue(iVistaSaldos.FocusedRowHandle, "No Factura"))
+        '
+        If IdCuota = 0 And
+            _dt.Rows.Count = 0 Then
+            Exit Sub
+        End If
+        '
+        With New frmFacturasCuotasVer
+            .Text = $"FACTURACION EN CUOTAS Y ARREGLOS DE PAGOS, FACTURA NO. {iVistaSaldos.GetFocusedRowCellValue("No Factura")}"
+            .Id = IdCuota
+            .IdArreglo = IIf(_dt.Rows.Count = 0, 0, _dt.Rows.Item(0)("IdArreglo"))
+            .ShowDialog()
+            .Dispose()
+        End With
     End Sub
 End Class
 

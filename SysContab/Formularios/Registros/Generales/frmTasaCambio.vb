@@ -918,13 +918,19 @@ Public Class frmTasaCambio
                 Dim DT_IMPORT As DataTable = .DT
 
                 'Borrar las tasas de cambio
-                For i As Integer = 1 To DateTime.DaysInMonth(sAnio.EditValue, cbMeses.EditValue)
-                    VB.SysContab.Tasa_CambioDB.Delete(cbMonedaOrigen.EditValue, _
-                                                      cbMonedaDestino.EditValue, _
-                                                      i, _
-                                                      cbMeses.EditValue, _
-                                                      sAnio.EditValue)
-                Next
+                VB.SysContab.Tasa_CambioDB.DeleteMes(
+                    cbMonedaOrigen.EditValue,
+                    cbMonedaDestino.EditValue,
+                    cbMeses.EditValue,
+                    sAnio.EditValue)
+
+                'For i As Integer = 1 To DateTime.DaysInMonth(sAnio.EditValue, cbMeses.EditValue)
+                '    VB.SysContab.Tasa_CambioDB.Delete(cbMonedaOrigen.EditValue, _
+                '                                      cbMonedaDestino.EditValue, _
+                '                                      i, _
+                '                                      cbMeses.EditValue, _
+                '                                      sAnio.EditValue)
+                'Next
                 '
                 For i As Integer = 0 To DT_IMPORT.Rows.Count - 1
                     'Validar Tipo de Datos del Archivo que se importo
@@ -939,13 +945,16 @@ Public Class frmTasaCambio
                                                            DT_IMPORT.Rows.Item(i)("Tasa"),
                                                            IsNull(DT_IMPORT.Rows.Item(i)("Paralelo"), 1.0))
                     Else
-                        XtraMsg(String.Format("Formato de Datos Incorrectos: {0},{1}", "[ Fecha = " & IsNull(DT_IMPORT.Rows.Item(i)("Fecha"), "").ToString & "]", "[ Tasa = " & IsNull(DT_IMPORT.Rows.Item(i)("Valor"), "").ToString & "]"), MessageBoxIcon.Error)
+                        XtraMsg(String.Format("Formato de Datos Incorrectos: {0},{1}", "[ Fecha = " & IsNull(DT_IMPORT.Rows.Item(i)("Fecha"), "").ToString & "]", "[ Tasa = " & IsNull(DT_IMPORT.Rows.Item(i)("Tasa"), "").ToString & "]"), MessageBoxIcon.Error)
                     End If
                 Next
 
                 HideSplash()
                 XtraMsg("Archivo Importado")
+
+                ShowSplash()
                 Buscar()
+                HideSplash()
             End If
             .Dispose()
         End With
@@ -1098,7 +1107,9 @@ Public Class frmTasaCambio
             '                                  iVista.GetRowCellValue(i, "Tasa Paralela"))
         Next
 
+        ShowSplash()
         Buscar()
+        HideSplash()
 
 
 
@@ -1142,14 +1153,20 @@ Public Class frmTasaCambio
             Next
 
 
-            'Borrar las tasas de cambio
-            For i As Integer = 1 To DateTime.DaysInMonth(sAnio.EditValue, cbMeses.EditValue)
-                VB.SysContab.Tasa_CambioDB.Delete(cbMonedaOrigen.EditValue, _
-                                                  cbMonedaDestino.EditValue, _
-                                                  i, _
-                                                  cbMeses.EditValue, _
-                                                  sAnio.EditValue)
-            Next
+            'Borrar las tasas de cambio            
+            VB.SysContab.Tasa_CambioDB.DeleteMes(
+                    cbMonedaOrigen.EditValue,
+                    cbMonedaDestino.EditValue,
+                    cbMeses.EditValue,
+                    sAnio.EditValue)
+
+            'For i As Integer = 1 To DateTime.DaysInMonth(sAnio.EditValue, cbMeses.EditValue)
+            '    VB.SysContab.Tasa_CambioDB.Delete(cbMonedaOrigen.EditValue, _
+            '                                      cbMonedaDestino.EditValue, _
+            '                                      i, _
+            '                                      cbMeses.EditValue, _
+            '                                      sAnio.EditValue)
+            'Next
             '
             For i As Integer = 0 To dt.Rows.Count - 1
                 VB.SysContab.Tasa_CambioDB.AddItem(cbMonedaOrigen.EditValue,
@@ -1165,7 +1182,9 @@ Public Class frmTasaCambio
 
             XtraMsg("Tasa Cambio Actualizada con éxito!!!")
 
+            ShowSplash()
             Buscar()
+            HideSplash()
 
             'Dim Tasa_Cambio As New VB.SysContab.Tasa_CambioDB()
             'Dim Tabla As New DataTable()
@@ -1188,7 +1207,9 @@ Public Class frmTasaCambio
     End Sub
 
     Private Sub bBuscar_Click(sender As Object, e As EventArgs) Handles bBuscar.Click
+        ShowSplash()
         Buscar()
+        HideSplash()
     End Sub
 
     Sub Buscar()

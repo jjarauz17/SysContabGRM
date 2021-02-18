@@ -16,7 +16,7 @@ Public Class db_CorreoConfig
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Function Insertar(ByVal CorreoConfig As CorreoConfig, Optional Tran As Boolean = False) As Integer
-        Dim ObjParameter(13) As String
+        Dim ObjParameter(15) As String
         ObjParameter(0) = CorreoConfig.IdCorreo
         ObjParameter(1) = CorreoConfig.Tipo
         ObjParameter(2) = CorreoConfig.Empresa
@@ -30,6 +30,8 @@ Public Class db_CorreoConfig
         ObjParameter(10) = CorreoConfig.Copia
         ObjParameter(11) = CorreoConfig.Asunto
         ObjParameter(12) = CorreoConfig.ANombre
+        ObjParameter(13) = CorreoConfig.AlertaMail
+        ObjParameter(14) = CorreoConfig.AlertaMailCc
 
         Try
             Me.InicializarMensajeError()
@@ -62,7 +64,7 @@ Public Class db_CorreoConfig
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Actualizar(ByVal CorreoConfig As CorreoConfig, Optional Tran As Boolean = False)
-        Dim ObjParameter(13) As String
+        Dim ObjParameter(15) As String
         ObjParameter(0) = CorreoConfig.IdCorreo
         ObjParameter(1) = CorreoConfig.Tipo
         ObjParameter(2) = CorreoConfig.Empresa
@@ -76,6 +78,8 @@ Public Class db_CorreoConfig
         ObjParameter(10) = CorreoConfig.Copia
         ObjParameter(11) = CorreoConfig.Asunto
         ObjParameter(12) = CorreoConfig.ANombre
+        ObjParameter(13) = CorreoConfig.AlertaMail
+        ObjParameter(14) = CorreoConfig.AlertaMailCc
 
         Try
             Me.InicializarMensajeError()
@@ -104,9 +108,9 @@ Public Class db_CorreoConfig
 
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Listar(ByVal Id As String) As Data.DataTable
+    Public Shared Function Listar(ByVal Id As String, IdSucursal As String) As Data.DataTable
 
-        Return ObtieneDatos("sp_sel_CorreoConfig", Id, EmpresaActual)
+        Return ObtieneDatos("sp_sel_CorreoConfig", Id, IdSucursal, EmpresaActual)
 
     End Function
 
@@ -144,6 +148,10 @@ Public Class db_CorreoConfig
         Dim dt As DataTable = ObtieneDatos("sp_sel_CorreoConfig", Id, IdSucursal, EmpresaActual)
         Dim det As New CorreoConfig
 
+        'If dt.Rows.Count = 0 Then
+        '    Return Nothing
+        'End If
+        '
         If dt.Rows.Count > 0 Then
             With dt.Rows(0)
                 det.IdCorreo = .Item("IdCorreo")
@@ -159,6 +167,8 @@ Public Class db_CorreoConfig
                 det.Copia = .Item("Copia")
                 det.Asunto = .Item("Asunto")
                 det.ANombre = .Item("ANombre")
+                det.AlertaMail = .Item("AlertaMail")
+                det.AlertaMailCc = .Item("AlertaMailCc")
             End With
         End If
         Return det

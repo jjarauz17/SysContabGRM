@@ -1802,8 +1802,9 @@ Namespace VB.SysContab
                 DBConn.Close()
 
             Catch ex As Exception
-                MsgBox(ex.Message)
+                XtraMsg(ex.Message, MessageBoxIcon.Error)
             End Try
+
             Return dsFicha
 
         End Function
@@ -1840,44 +1841,53 @@ Namespace VB.SysContab
 
         Public Shared Function NotaProveedorImprimir(ByVal Nota As String, ByVal Proveedor As Integer, ByVal DC As String, ByVal Letras As String) As DataTable
 
-            Dim dt As New DataTable
+            Return ObtieneDatos("_NotaProveedorImprimir",
+                                Nota,
+                                Proveedor,
+                                DC,
+                                EmpresaActual,
+                                Letras)
 
-            Dim sConn As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
 
-            Dim DBCommand As New SqlDataAdapter("_NotaProveedorImprimir", sConn)
-            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+            'Dim dt As New DataTable
 
-            Dim _Nota As New SqlParameter("@Referencia", SqlDbType.NVarChar)
-            Dim _Proveedor As New SqlParameter("@Proveedor", SqlDbType.Int)
-            Dim _DC As New SqlParameter("@DC", SqlDbType.NVarChar)
-            Dim _Empresa As New SqlParameter("@Empresa", SqlDbType.Int)
-            Dim _Letras As New SqlParameter("@Letras", SqlDbType.NVarChar)
+            'Dim sConn As New SqlConnection(VB.SysContab.Rutinas.AbrirConexion)
 
-            _Nota.Value = Nota
-            _Proveedor.Value = Proveedor
-            _DC.Value = DC
-            _Empresa.Value = EmpresaActual
-            _Letras.Value = Letras
+            'Dim DBCommand As New SqlDataAdapter("_NotaProveedorImprimir", sConn)
+            'DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
 
-            DBCommand.SelectCommand.Parameters.Add(_Nota)
-            DBCommand.SelectCommand.Parameters.Add(_Proveedor)
-            DBCommand.SelectCommand.Parameters.Add(_DC)
-            DBCommand.SelectCommand.Parameters.Add(_Empresa)
-            DBCommand.SelectCommand.Parameters.Add(_Letras)
+            'Dim _Nota As New SqlParameter("@Referencia", SqlDbType.NVarChar)
+            'Dim _Proveedor As New SqlParameter("@Proveedor", SqlDbType.Int)
+            'Dim _DC As New SqlParameter("@DC", SqlDbType.NVarChar)
+            'Dim _Empresa As New SqlParameter("@Empresa", SqlDbType.Int)
+            'Dim _Letras As New SqlParameter("@Letras", SqlDbType.NVarChar)
 
-            Try
-                sConn.Open()
+            '_Nota.Value = Nota
+            '_Proveedor.Value = Proveedor
+            '_DC.Value = DC
+            '_Empresa.Value = EmpresaActual
+            '_Letras.Value = Letras
 
-                DBCommand.SelectCommand.ExecuteNonQuery()
-                DBCommand.Fill(dt)
+            'DBCommand.SelectCommand.Parameters.Add(_Nota)
+            'DBCommand.SelectCommand.Parameters.Add(_Proveedor)
+            'DBCommand.SelectCommand.Parameters.Add(_DC)
+            'DBCommand.SelectCommand.Parameters.Add(_Empresa)
+            'DBCommand.SelectCommand.Parameters.Add(_Letras)
 
-                sConn.Close()
+            'Try
+            '    sConn.Open()
 
-                Return dt
-            Catch ex As Exception
-                MsgBox("ERROR al Imprimr Nota. " & ex.Message)
-                Return Nothing
-            End Try
+            '    DBCommand.SelectCommand.CommandTimeout = 0
+            '    DBCommand.SelectCommand.ExecuteNonQuery()
+            '    DBCommand.Fill(dt)
+
+            '    sConn.Close()
+
+            '    Return dt
+            'Catch ex As Exception
+            '    XtraMsg("ERROR al Imprimr Nota.", ex.Message)
+            '    Return Nothing
+            'End Try
 
         End Function
 

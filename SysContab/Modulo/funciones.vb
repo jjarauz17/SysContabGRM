@@ -5,6 +5,7 @@ Imports System.Data.SqlClient
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraSplashScreen
 Imports DevExpress.XtraBars
+Imports Entities
 
 Module funciones
 
@@ -190,7 +191,6 @@ Module funciones
         Catch ex As Exception
             XtraMsg(ex.Message, MessageBoxIcon.Error)
         End Try
-
 
         Try
             da.Fill(dt)
@@ -394,100 +394,6 @@ Module funciones
         End Select
     End Function
 
-    Public Sub EliminaDistribucion(ByVal Comprobante As Integer, ByVal Periodo As Integer, ByVal Mes As Integer, Optional Trans As Boolean = False)
-        Try
-            If Not Trans Then
-                GuardaDatos("DELETE FROM Distribucion WHERE IdEmpresa = " & EmpresaActual & " AND NoComp = " & Comprobante & " AND Mes = " & Mes & " AND Per_Id = " & Periodo)
-            Else
-                GuardaDatosTrans("DELETE FROM Distribucion WHERE IdEmpresa = " & EmpresaActual & " AND NoComp = " & Comprobante & " AND Mes = " & Mes & " AND Per_Id = " & Periodo)
-            End If
-        Catch ex As Exception
-        End Try
-    End Sub
-    ''
-    Public Sub EliminaDistribucionTrans(ByVal Comprobante As Integer, ByVal Periodo As Integer, ByVal Mes As Integer)
-        Try
-            GuardaDatosTrans("DELETE FROM Distribucion WHERE IdEmpresa = " & EmpresaActual & " AND NoComp = " & Comprobante & " AND Mes = " & Mes & " AND Per_Id = " & Periodo)
-        Catch ex As Exception
-        End Try
-    End Sub
-
-    Public Sub GuardaDistribucionTrans(ByVal DT_Distribucion As DataTable,
-                                       ByVal Fecha As Date,
-                                       Optional ByVal Comprobante As String = vbNullString)
-        Dim i As Integer
-        Dim DT_F As DataTable
-        DT_F = DT_Distribucion.GetChanges(DataRowState.Deleted)
-        If Not DT_F Is Nothing Then
-            For i = 0 To DT_F.Rows.Count - 1
-                With DT_F
-                    If DT_F.Rows(i).RowState = DataRowState.Deleted Then
-                        Dim Fila As DataRow = DT_F.Rows(i)
-                        GuardaDatosTrans("DELETE FROM Distribucion WHERE IdDetalle = " & Fila("IdDetalle", DataRowVersion.Original))
-                    End If
-                End With
-            Next
-        End If
-        If Not DT_F Is Nothing Then DT_F.Clear()
-        DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified)
-        If Not DT_F Is Nothing Then
-            For i = 0 To DT_F.Rows.Count - 1
-                With DT_F
-                    If DT_F.Rows(i).RowState = DataRowState.Added Then
-                        GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                        " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & "," & Fecha.Month & "," &
-                        VB.SysContab.PeriodosDB.Activo(Fecha.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
-                    ElseIf DT_F.Rows(i).RowState = DataRowState.Modified Then
-                        GuardaDatosTrans("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & ",Mes=" & Fecha.Month & "," &
-                        "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Fecha.Date) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
-                        "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
-                    End If
-                End With
-            Next
-        End If
-    End Sub
-
-    Public Function CargaDistribucionTrans(ByVal Mes As Integer, ByVal Comprobante As String, ByVal Periodo As Integer) As DataTable
-        Return ObtieneDatosTrans("SELECT * FROM Distribucion WHERE Mes = " & Mes & " AND NoComp = '" & Comprobante & "' AND IdEmpresa = " & EmpresaActual & " AND Per_Id = " & Periodo)
-    End Function
-
-    Public Sub GuardaDistribucion(ByVal DT_Distribucion As DataTable, ByVal Fecha As Date, Optional ByVal Comprobante As String = vbNullString)
-        Dim i As Integer
-        Dim DT_F As DataTable
-        DT_F = DT_Distribucion.GetChanges(DataRowState.Deleted)
-        If Not DT_F Is Nothing Then
-            For i = 0 To DT_F.Rows.Count - 1
-                With DT_F
-                    If DT_F.Rows(i).RowState = DataRowState.Deleted Then
-                        Dim Fila As DataRow = DT_F.Rows(i)
-                        GuardaDatos("DELETE FROM Distribucion WHERE IdDetalle = " & Fila("IdDetalle", DataRowVersion.Original))
-                    End If
-                End With
-            Next
-        End If
-        If Not DT_F Is Nothing Then DT_F.Clear()
-        DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified)
-        If Not DT_F Is Nothing Then
-            For i = 0 To DT_F.Rows.Count - 1
-                With DT_F
-                    If DT_F.Rows(i).RowState = DataRowState.Added Then
-                        GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " & _
-                        " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & "," & Fecha.Month & "," & _
-                        VB.SysContab.PeriodosDB.Activo(Fecha.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
-                    ElseIf DT_F.Rows(i).RowState = DataRowState.Modified Then
-                        GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & IIf(Comprobante = Nothing, .Rows(i).Item("NoComp"), Comprobante) & ",Mes=" & Fecha.Month & "," & _
-                        "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Fecha.Date) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," & _
-                        "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
-                    End If
-                End With
-            Next
-        End If
-    End Sub
-
-    Public Function CargaDistribucion(ByVal Mes As Integer, ByVal Comprobante As String, ByVal Periodo As Integer) As DataTable
-        Return ObtieneDatos("SELECT * FROM Distribucion WHERE Mes = " & Mes & " AND NoComp = '" & Comprobante & "' AND IdEmpresa = " & EmpresaActual & " AND Per_Id = " & Periodo)
-    End Function
-
     Public Function IsNull(ByVal Var, Optional ByVal Valor = vbNullString)
         If IsDBNull(Var) OrElse IsNothing(Var) OrElse Var = vbNullString OrElse Var = Nothing Then
             Return IIf(IsNothing(Valor), "", Valor)
@@ -632,6 +538,7 @@ Module funciones
         combo.Properties.ShowHeader = True
         combo.Properties.ShowFooter = False
         '
+        combo.Properties.Columns(0).Visible = False
         combo.Properties.HeaderClickMode = DevExpress.XtraEditors.Controls.HeaderClickMode.AutoSearch
         combo.ItemIndex = 0
     End Sub
@@ -1023,8 +930,6 @@ Module funciones
     '    End Try
     'End Function
 
-
-
     Public Function FillDatasetFromGrid(ByVal Data As DataSet, ByVal Grid As DevExpress.XtraGrid.Views.Grid.GridView) As DataSet
         Dim rowHandle As Integer
         Dim gridRow As DataRow
@@ -1327,10 +1232,8 @@ Module funciones
         Return StrCnn
     End Function
 
-    Sub EscribeData(ByVal Servidor As String, ByVal Base As String, _
+    Sub EscribeData(ByVal Servidor As String, ByVal Base As String,
                            ByVal Usuario_SQL As String, ByVal Password_SQL As String)
-        'Region As String)
-
         Try
             SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NServer_RAMAC", Trim(Servidor))
             SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NBase_RAMAC", Trim(Base))
@@ -1338,7 +1241,7 @@ Module funciones
             SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NPassword_RAMAC", Trim(Password_SQL))
             'SaveSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NRegion_RAMAC", Trim(Region))
         Catch ex As Exception
-            XtraMsg("Error al Guardar en el registro de windows, favor consultar con el area de Soporte Tecnico." & vbCrLf & _
+            XtraMsg("Error al Guardar en el registro de windows, favor consultar con el area de Soporte Tecnico." & vbCrLf &
                     "Detalle del Error: " & ex.Message, MessageBoxIcon.Error)
         End Try
     End Sub
@@ -1348,53 +1251,72 @@ Module funciones
         Dim Cadena(4) As String
         '
         Try
+
+DatosConexion:
             ''SQL
             Cadena(0) = GetSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NServer_RAMAC")
             Cadena(1) = GetSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NBase_RAMAC")
             Cadena(2) = Login       'GetSetting(My.Application.Info.ProductName.ToString, "SysCadena", "NUsuario")
-            Cadena(3) = Password    'GetSetting(My.Application.Info.ProductName.ToString, "SysCadena", "NPassword")
+            Cadena(3) = Password    'GetSetting(My.Application.Info.ProductName.ToString, "SysCadena", "NPassword")            
+
+            'No se Encuentra la Confiuración, 
+            'se agrega la configuracion registrada por defecto
+            If Cadena(0).Trim.Length = 0 Then
+                EscribeData(
+                   My.MySettings.Default.Servidor,
+                   My.MySettings.Default.BaseDatos,
+                   String.Empty,
+                   String.Empty)
+
+                GoTo DatosConexion
+            End If
+
+            Return Cadena
+
+
             'Cadena(4) = IIf(GetSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NRegion_RAMAC").ToString.Length = 0, _
             '                My.Application.Culture.Name, GetSetting(My.Application.Info.ProductName.ToString, "CxCadena", "NRegion_RAMAC"))
 
-            '' No se Encuentra la Confiuración, se agrega la configuracion registrada por defecto
-            If Cadena(0).Trim.Length = 0 Then
-                If Not File.Exists(Application.StartupPath & "\Configurar.ini") Then
-                    If Not File.Exists(Application.StartupPath & "\Configurar.txt") Then
-                        Cadena(0) = ""
-                        Cadena(1) = ""
-                        Cadena(2) = ""
-                        Cadena(3) = ""
-                    End If
-                End If
+            ''No se Encuentra la Confiuración, se agrega la configuracion registrada por defecto
+            'If Cadena(0).Trim.Length = 0 Then
+            '    If Not File.Exists(Application.StartupPath & "\Configurar.ini") Then
+            '        If Not File.Exists(Application.StartupPath & "\Configurar.txt") Then
+            '            Cadena(0) = ""
+            '            Cadena(1) = ""
+            '            Cadena(2) = ""
+            '            Cadena(3) = ""
+            '        End If
+            '    End If
 
-                Dim ConnectionFile As System.IO.StreamReader
-                Try
-                    ConnectionFile = New System.IO.StreamReader(Application.StartupPath & "\Configurar.ini")
-                Catch ex As Exception
-                    ConnectionFile = New System.IO.StreamReader(Application.StartupPath & "\Configurar.txt")
-                End Try
+            '    Dim ConnectionFile As System.IO.StreamReader
+            '    Try
+            '        ConnectionFile = New System.IO.StreamReader(Application.StartupPath & "\Configurar.ini")
+            '    Catch ex As Exception
+            '        ConnectionFile = New System.IO.StreamReader(Application.StartupPath & "\Configurar.txt")
+            '    End Try
 
-                Server = ConnectionFile.ReadLine.ToString()
-                DBName = ConnectionFile.ReadLine.ToString()
-                ContabilizarVenta = ConnectionFile.ReadLine.ToString()
+            '    Server = ConnectionFile.ReadLine.ToString()
+            '    DBName = ConnectionFile.ReadLine.ToString()
+            '    ContabilizarVenta = ConnectionFile.ReadLine.ToString()
+            '    Cadena(0) = Server
+            '    Cadena(1) = DBName
+            '    Cadena(2) = Login
+            '    Cadena(3) = Password
+            '    Cadena(4) = My.Application.Culture.Name
 
-                Cadena(0) = Server
-                Cadena(1) = DBName
-                Cadena(2) = Login
-                Cadena(3) = Password
-                Cadena(4) = My.Application.Culture.Name
+            '    EscribeData(Server, DBName, Login, Password)
+            '    'EscribeData(Server, DBName, Login, Password, My.Application.Culture.Name)
+            'End If
 
-                EscribeData(Server, DBName, Login, Password)
-                'EscribeData(Server, DBName, Login, Password, My.Application.Culture.Name)
-            End If
+
         Catch ex As Exception
             Cadena(0) = ""
             Cadena(1) = ""
             Cadena(2) = ""
             Cadena(3) = ""
-        End Try
 
-        Return Cadena
+            Return Cadena
+        End Try
     End Function
 
     Sub EscribeEstilo(ByVal Valor As String)
@@ -1464,13 +1386,15 @@ Module funciones
 
     Sub CargarLogo()
         Try
-            Dim DT_LOGO As DataTable = VB.SysContab.EmpresasDB.GetLogoEmpresa().Tables(0)
-            Dim data As Byte() = DirectCast(DT_LOGO.Rows.Item(0)("Logo"), Byte())
-            Dim ms As New MemoryStream(data)
-            frmPrincipalRibbon.pLogo.Image = Image.FromStream(ms)
+            'Dim DT_LOGO As DataTable = VB.SysContab.EmpresasDB.GetLogoEmpresa().Tables(0)
+            Dim LogoPath As Object = VB.SysContab.EmpresasDB.GetLogoEmpresaPath()
+            'Dim data As Byte() = DirectCast(LogoPath, Byte())
+            'Dim ms As New MemoryStream(data)
+            frmPrincipalRibbon.pLogo.Image = Image.FromFile(LogoPath)
         Catch ex As Exception
         End Try
     End Sub
+
 
     Sub SavedImage(Tipo As String, _
                    Codigo As String)
@@ -1633,18 +1557,27 @@ Module funciones
     End Function
 
     Sub CerrarProceso()
-        Dim Lista_Procesos() As Process
+
         Dim p As Process
         Dim ret As String = ""
 
         Try
             ' obtiene una colección con los procesos a partir del nombre  
-            Lista_Procesos = Process.GetProcessesByName(My.Application.Info.ProductName.ToString)
+            Dim Lista_Procesos() As Process =
+                Process.GetProcessesByName(
+                My.Application.Info.ProductName.ToString)
+
+            'Dim p As Process = Lista_Procesos(0)
 
             If Lista_Procesos.Length <> 0 Then
                 For Each p In Lista_Procesos
-                    'XtraMsg(CStr(p.MainWindowTitle))
+                    'Cierra la instancia abierta del sistema.
                     p.Kill()
+
+                    'If p.MainWindowTitle.Contains(NombreEmpresaActual) Then
+                    '    p.Kill()
+                    'End If
+                    'XtraMsg(CStr(p.MainWindowTitle))
                 Next
             End If
 
@@ -1758,15 +1691,15 @@ Module funciones
 
                 For i As Integer = 0 To Grupo.ItemLinks.Count - 1
 
-                    Grupo.ItemLinks.Item(i).Item.ItemAppearance.Normal.Font = New Font("Tahoma", 9, FontStyle.Bold)
+                    Grupo.ItemLinks.Item(i).Item.ItemAppearance.Normal.Font = New Font("Tahoma", 10, FontStyle.Bold)
 
                     Grupo.ItemLinks.Item(i).Item.ItemAppearance.Hovered.BackColor = Color.Red
                     Grupo.ItemLinks.Item(i).Item.ItemAppearance.Hovered.ForeColor = Color.White
-                    Grupo.ItemLinks.Item(i).Item.ItemAppearance.Hovered.Font = New Font("Tahoma", 9, FontStyle.Bold)
+                    Grupo.ItemLinks.Item(i).Item.ItemAppearance.Hovered.Font = New Font("Tahoma", 10, FontStyle.Bold)
 
                     Grupo.ItemLinks.Item(i).Item.ItemAppearance.Pressed.BackColor = Color.Red
                     Grupo.ItemLinks.Item(i).Item.ItemAppearance.Pressed.ForeColor = Color.White
-                    Grupo.ItemLinks.Item(i).Item.ItemAppearance.Pressed.Font = New Font("Tahoma", 9, FontStyle.Bold)
+                    Grupo.ItemLinks.Item(i).Item.ItemAppearance.Pressed.Font = New Font("Tahoma", 10, FontStyle.Bold)
 
                 Next
             Next
@@ -1777,5 +1710,28 @@ Module funciones
     Public Sub ShowTCambio(TCambio As Double)
         frmPrincipalRibbon.bTCambio.Caption = "Tasa de Cambio del Dia: " & TCambio.ToString("n4")
     End Sub
+
+    'Public Sub FormatoRibbonVB(rb As Ribbon.RibbonControl)
+
+    '    For Each Pagina As Ribbon.RibbonPage In rb.Pages
+    '        For Each Grupo As Ribbon.RibbonPageGroup In Pagina.Groups
+
+    '            For i As Integer = 0 To Grupo.ItemLinks.Count - 1
+
+    '                Grupo.ItemLinks.Item(i).Item.ItemAppearance.Normal.Font = New Font("Tahoma", 11, FontStyle.Bold)
+
+    '                Grupo.ItemLinks.Item(i).Item.ItemAppearance.Hovered.BackColor = Color.Red
+    '                Grupo.ItemLinks.Item(i).Item.ItemAppearance.Hovered.ForeColor = Color.White
+    '                Grupo.ItemLinks.Item(i).Item.ItemAppearance.Hovered.Font = New Font("Tahoma", 11, FontStyle.Bold)
+
+    '                Grupo.ItemLinks.Item(i).Item.ItemAppearance.Pressed.BackColor = Color.Red
+    '                Grupo.ItemLinks.Item(i).Item.ItemAppearance.Pressed.ForeColor = Color.White
+    '                Grupo.ItemLinks.Item(i).Item.ItemAppearance.Pressed.Font = New Font("Tahoma", 11, FontStyle.Bold)
+    '                '
+    '                'XtraMsg(Grupo.ItemLinks.Item(i).Item.Caption)
+    '            Next
+    '        Next
+    '    Next
+    'End Sub
 
 End Module

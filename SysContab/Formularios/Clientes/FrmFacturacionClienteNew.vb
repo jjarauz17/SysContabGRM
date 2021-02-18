@@ -4,6 +4,9 @@ Imports System.IO
 Imports DevExpress.XtraNavBar
 Imports ClasesBLL
 Imports SysContab.VB.SysContab
+Imports Entities
+Imports DevExpress.XtraGrid.Views.Grid
+Imports DevExpress.XtraEditors.Controls
 
 Public Class FrmFacturacionClienteNew
     Inherits DevExpress.XtraEditors.XtraForm
@@ -92,8 +95,6 @@ Public Class FrmFacturacionClienteNew
     Friend WithEvents txtNombreDe As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtremision As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtorden As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents cbCultivos As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents GridColumn13 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents etTasa As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtNoEntrega As DevExpress.XtraEditors.TextEdit
@@ -136,7 +137,6 @@ Public Class FrmFacturacionClienteNew
     Friend WithEvents LayoutControlItem24 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem25 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem26 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem21 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem22 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents lblbodega As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LayoutControlItem28 As DevExpress.XtraLayout.LayoutControlItem
@@ -179,7 +179,7 @@ Public Class FrmFacturacionClienteNew
     Friend WithEvents LayoutControlItem32 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents cbBodega As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents LayoutControlItem44 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents CheckEdit2 As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents chkExoneraIva As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents LayoutControlItem45 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents cbTipoFactura As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents LayoutControlItem46 As DevExpress.XtraLayout.LayoutControlItem
@@ -221,41 +221,70 @@ Public Class FrmFacturacionClienteNew
     Friend WithEvents LayoutControlItem39 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents cbProyecto As DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit
     Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn26 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn27 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents rCabys As DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit
+    Friend WithEvents GridColumn28 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents rIvaP As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents GridColumn29 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents rCultivo As DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit
+    Friend WithEvents GridView3 As GridView
+    Friend WithEvents lyEmpty As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents chkProyecto As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem21 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents cbCultivos As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents GridView4 As GridView
+    Friend WithEvents lyCultivo As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents MainMenu1 As System.Windows.Forms.MainMenu
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SuperToolTip1 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
         Dim ToolTipItem1 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
-        Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject13 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject14 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject15 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject16 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SuperToolTip2 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
         Dim ToolTipTitleItem1 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
         Dim ToolTipItem2 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
-        Dim EditorButtonImageOptions4 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim SuperToolTip3 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
-        Dim ToolTipItem3 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmFacturacionClienteNew))
-        Dim SuperToolTip4 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
+        Dim SuperToolTip3 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
         Dim ToolTipTitleItem2 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
+        Dim ToolTipItem3 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
+        Dim SuperToolTip4 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
+        Dim ToolTipTitleItem3 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
         Dim ToolTipItem4 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
         Dim SuperToolTip5 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
-        Dim ToolTipTitleItem3 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
+        Dim ToolTipTitleItem4 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
         Dim ToolTipItem5 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
         Dim SuperToolTip6 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
-        Dim ToolTipTitleItem4 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
+        Dim ToolTipTitleItem5 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
         Dim ToolTipItem6 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
         Dim SuperToolTip7 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
-        Dim ToolTipTitleItem5 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
-        Dim ToolTipItem7 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
-        Dim SuperToolTip8 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
         Dim ToolTipTitleItem6 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
-        Dim ToolTipItem8 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
+        Dim ToolTipItem7 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
         Me.cmbmoneda = New DevExpress.XtraEditors.LookUpEdit()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.cbCultivos = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.chkProyecto = New DevExpress.XtraEditors.CheckEdit()
         Me.chkVisible = New DevExpress.XtraEditors.CheckEdit()
         Me.chkAgrupar = New DevExpress.XtraEditors.CheckEdit()
         Me.cbCentroCosto = New DevExpress.XtraEditors.LookUpEdit()
@@ -265,7 +294,7 @@ Public Class FrmFacturacionClienteNew
         Me.cbClienteConvenio = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cbTipoFactura = New DevExpress.XtraEditors.LookUpEdit()
-        Me.CheckEdit2 = New DevExpress.XtraEditors.CheckEdit()
+        Me.chkExoneraIva = New DevExpress.XtraEditors.CheckEdit()
         Me.cbBodega = New DevExpress.XtraEditors.LookUpEdit()
         Me.lbltotalU = New DevExpress.XtraEditors.TextEdit()
         Me.lbltotal = New DevExpress.XtraEditors.TextEdit()
@@ -295,7 +324,6 @@ Public Class FrmFacturacionClienteNew
         Me.txtFactor = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.txtPrecioU = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -320,8 +348,15 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rIvaP = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn28 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn29 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rCultivo = New DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit()
+        Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.rCabys = New DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit()
         Me.etTasa = New DevExpress.XtraEditors.TextEdit()
-        Me.cbCultivos = New DevExpress.XtraEditors.LookUpEdit()
         Me.cmbvendedor = New DevExpress.XtraEditors.LookUpEdit()
         Me.txtfactura = New DevExpress.XtraEditors.TextEdit()
         Me.cmbformapago = New DevExpress.XtraEditors.LookUpEdit()
@@ -367,19 +402,22 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem29 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem30 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem31 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem21 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem22 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem23 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem17 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem44 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem46 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem47 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem49 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem48 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem45 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem38 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lyEmpty = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.lyCultivo = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem23 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem21 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem39 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem38 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem47 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem48 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem45 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.txtCaja = New DevExpress.XtraEditors.TextEdit()
         Me.LayoutControl2 = New DevExpress.XtraLayout.LayoutControl()
         Me.bVistaPrevia = New DevExpress.XtraEditors.SimpleButton()
@@ -431,6 +469,9 @@ Public Class FrmFacturacionClienteNew
         CType(Me.cmbmoneda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.cbCultivos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkProyecto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkVisible.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkAgrupar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbCentroCosto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -440,7 +481,7 @@ Public Class FrmFacturacionClienteNew
         CType(Me.cbClienteConvenio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbTipoFactura.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CheckEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkExoneraIva.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbBodega.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lbltotalU.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lbltotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -470,8 +511,11 @@ Public Class FrmFacturacionClienteNew
         CType(Me.rLink, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbProyecto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rIvaP, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rCultivo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rCabys, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.etTasa.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbCultivos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbvendedor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtfactura.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cmbformapago.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -517,19 +561,22 @@ Public Class FrmFacturacionClienteNew
         CType(Me.LayoutControlItem29, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem30, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem22, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem23, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem44, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem46, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem47, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem49, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem48, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem45, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem38, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lyEmpty, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lyCultivo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem23, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem39, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem38, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem47, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem48, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem45, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCaja.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl2.SuspendLayout()
@@ -575,6 +622,8 @@ Public Class FrmFacturacionClienteNew
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.cbCultivos)
+        Me.LayoutControl1.Controls.Add(Me.chkProyecto)
         Me.LayoutControl1.Controls.Add(Me.chkVisible)
         Me.LayoutControl1.Controls.Add(Me.chkAgrupar)
         Me.LayoutControl1.Controls.Add(Me.cbCentroCosto)
@@ -582,7 +631,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControl1.Controls.Add(Me.chkAsociar)
         Me.LayoutControl1.Controls.Add(Me.cbClienteConvenio)
         Me.LayoutControl1.Controls.Add(Me.cbTipoFactura)
-        Me.LayoutControl1.Controls.Add(Me.CheckEdit2)
+        Me.LayoutControl1.Controls.Add(Me.chkExoneraIva)
         Me.LayoutControl1.Controls.Add(Me.cbBodega)
         Me.LayoutControl1.Controls.Add(Me.lbltotalU)
         Me.LayoutControl1.Controls.Add(Me.lbltotal)
@@ -600,7 +649,6 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControl1.Controls.Add(Me.FechaPago)
         Me.LayoutControl1.Controls.Add(Me.GridDetalle)
         Me.LayoutControl1.Controls.Add(Me.etTasa)
-        Me.LayoutControl1.Controls.Add(Me.cbCultivos)
         Me.LayoutControl1.Controls.Add(Me.cmbvendedor)
         Me.LayoutControl1.Controls.Add(Me.txtfactura)
         Me.LayoutControl1.Controls.Add(Me.cmbformapago)
@@ -622,13 +670,44 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1077, 290, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(833, 663)
+        Me.LayoutControl1.Size = New System.Drawing.Size(833, 684)
         Me.LayoutControl1.TabIndex = 183
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'cbCultivos
+        '
+        Me.cbCultivos.Location = New System.Drawing.Point(496, 158)
+        Me.cbCultivos.Name = "cbCultivos"
+        Me.cbCultivos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Agregar Cultivo", -1, True, True, True, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "Agregar Cultivo", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
+        Me.cbCultivos.Properties.PopupView = Me.GridView4
+        Me.cbCultivos.Size = New System.Drawing.Size(231, 20)
+        Me.cbCultivos.StyleController = Me.LayoutControl1
+        Me.cbCultivos.TabIndex = 202
+        '
+        'GridView4
+        '
+        Me.GridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView4.Name = "GridView4"
+        Me.GridView4.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView4.OptionsView.ShowGroupPanel = False
+        '
+        'chkProyecto
+        '
+        Me.chkProyecto.Location = New System.Drawing.Point(588, 230)
+        Me.chkProyecto.Name = "chkProyecto"
+        Me.chkProyecto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkProyecto.Properties.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.chkProyecto.Properties.Appearance.Options.UseFont = True
+        Me.chkProyecto.Properties.Appearance.Options.UseForeColor = True
+        Me.chkProyecto.Properties.Caption = "Proyecto"
+        Me.chkProyecto.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkProyecto.Size = New System.Drawing.Size(87, 22)
+        Me.chkProyecto.StyleController = Me.LayoutControl1
+        Me.chkProyecto.TabIndex = 201
+        '
         'chkVisible
         '
-        Me.chkVisible.Location = New System.Drawing.Point(679, 206)
+        Me.chkVisible.Location = New System.Drawing.Point(679, 230)
         Me.chkVisible.Name = "chkVisible"
         Me.chkVisible.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkVisible.Properties.Appearance.ForeColor = System.Drawing.Color.Red
@@ -642,7 +721,7 @@ Public Class FrmFacturacionClienteNew
         '
         'chkAgrupar
         '
-        Me.chkAgrupar.Location = New System.Drawing.Point(746, 206)
+        Me.chkAgrupar.Location = New System.Drawing.Point(746, 230)
         Me.chkAgrupar.Name = "chkAgrupar"
         Me.chkAgrupar.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkAgrupar.Properties.Appearance.ForeColor = System.Drawing.Color.Red
@@ -658,7 +737,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.cbCentroCosto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbCentroCosto.EnterMoveNextControl = True
-        Me.cbCentroCosto.Location = New System.Drawing.Point(386, 110)
+        Me.cbCentroCosto.Location = New System.Drawing.Point(322, 110)
         Me.cbCentroCosto.Name = "cbCentroCosto"
         Me.cbCentroCosto.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.cbCentroCosto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -671,7 +750,7 @@ Public Class FrmFacturacionClienteNew
         Me.cbCentroCosto.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete
         Me.cbCentroCosto.Properties.ShowFooter = False
         Me.cbCentroCosto.Properties.ShowHeader = False
-        Me.cbCentroCosto.Size = New System.Drawing.Size(114, 20)
+        Me.cbCentroCosto.Size = New System.Drawing.Size(178, 20)
         Me.cbCentroCosto.StyleController = Me.LayoutControl1
         Me.cbCentroCosto.TabIndex = 185
         Me.cbCentroCosto.TabStop = False
@@ -685,8 +764,8 @@ Public Class FrmFacturacionClienteNew
         Me.cbCliente.Properties.Appearance.Options.UseBackColor = True
         Me.cbCliente.Properties.Appearance.Options.UseFont = True
         Me.cbCliente.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCliente.Properties.View = Me.GridView1
-        Me.cbCliente.Size = New System.Drawing.Size(126, 22)
+        Me.cbCliente.Properties.PopupView = Me.GridView1
+        Me.cbCliente.Size = New System.Drawing.Size(181, 22)
         Me.cbCliente.StyleController = Me.LayoutControl1
         Me.cbCliente.TabIndex = 201
         '
@@ -699,24 +778,24 @@ Public Class FrmFacturacionClienteNew
         '
         'chkAsociar
         '
-        Me.chkAsociar.Location = New System.Drawing.Point(449, 232)
+        Me.chkAsociar.Location = New System.Drawing.Point(414, 206)
         Me.chkAsociar.Name = "chkAsociar"
         Me.chkAsociar.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkAsociar.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon
         Me.chkAsociar.Properties.Appearance.Options.UseFont = True
         Me.chkAsociar.Properties.Appearance.Options.UseForeColor = True
         Me.chkAsociar.Properties.Caption = "Asociar a convenio"
-        Me.chkAsociar.Size = New System.Drawing.Size(136, 19)
+        Me.chkAsociar.Size = New System.Drawing.Size(146, 20)
         Me.chkAsociar.StyleController = Me.LayoutControl1
         Me.chkAsociar.TabIndex = 200
         '
         'cbClienteConvenio
         '
-        Me.cbClienteConvenio.Location = New System.Drawing.Point(589, 232)
+        Me.cbClienteConvenio.Location = New System.Drawing.Point(564, 206)
         Me.cbClienteConvenio.Name = "cbClienteConvenio"
         Me.cbClienteConvenio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbClienteConvenio.Properties.View = Me.SearchLookUpEdit1View
-        Me.cbClienteConvenio.Size = New System.Drawing.Size(232, 20)
+        Me.cbClienteConvenio.Properties.PopupView = Me.SearchLookUpEdit1View
+        Me.cbClienteConvenio.Size = New System.Drawing.Size(257, 20)
         Me.cbClienteConvenio.StyleController = Me.LayoutControl1
         Me.cbClienteConvenio.TabIndex = 199
         '
@@ -731,37 +810,37 @@ Public Class FrmFacturacionClienteNew
         '
         Me.cbTipoFactura.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbTipoFactura.EnterMoveNextControl = True
-        Me.cbTipoFactura.Location = New System.Drawing.Point(521, 182)
+        Me.cbTipoFactura.Location = New System.Drawing.Point(334, 182)
         Me.cbTipoFactura.Name = "cbTipoFactura"
-        EditorButtonImageOptions1.EnableTransparency = False
+        EditorButtonImageOptions2.EnableTransparency = False
         ToolTipItem1.Text = "Agrear Tipo de Cultivo"
         SuperToolTip1.Items.Add(ToolTipItem1)
-        Me.cbTipoFactura.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, True, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, SuperToolTip1)})
+        Me.cbTipoFactura.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, True, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, SuperToolTip1, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cbTipoFactura.Properties.NullText = ""
         Me.cbTipoFactura.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete
         Me.cbTipoFactura.Properties.ShowFooter = False
         Me.cbTipoFactura.Properties.ShowHeader = False
-        Me.cbTipoFactura.Size = New System.Drawing.Size(206, 20)
+        Me.cbTipoFactura.Size = New System.Drawing.Size(79, 20)
         Me.cbTipoFactura.StyleController = Me.LayoutControl1
         Me.cbTipoFactura.TabIndex = 185
         '
-        'CheckEdit2
+        'chkExoneraIva
         '
-        Me.CheckEdit2.Location = New System.Drawing.Point(449, 206)
-        Me.CheckEdit2.Name = "CheckEdit2"
-        Me.CheckEdit2.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Red
-        Me.CheckEdit2.Properties.Appearance.Options.UseFont = True
-        Me.CheckEdit2.Properties.Appearance.Options.UseForeColor = True
-        Me.CheckEdit2.Properties.Caption = "Cliente Exento de IVA"
-        Me.CheckEdit2.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
-        Me.CheckEdit2.Size = New System.Drawing.Size(226, 22)
-        Me.CheckEdit2.StyleController = Me.LayoutControl1
-        Me.CheckEdit2.TabIndex = 198
+        Me.chkExoneraIva.Location = New System.Drawing.Point(414, 230)
+        Me.chkExoneraIva.Name = "chkExoneraIva"
+        Me.chkExoneraIva.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkExoneraIva.Properties.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.chkExoneraIva.Properties.Appearance.Options.UseFont = True
+        Me.chkExoneraIva.Properties.Appearance.Options.UseForeColor = True
+        Me.chkExoneraIva.Properties.Caption = "Cliente Exento de IVA"
+        Me.chkExoneraIva.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkExoneraIva.Size = New System.Drawing.Size(160, 22)
+        Me.chkExoneraIva.StyleController = Me.LayoutControl1
+        Me.chkExoneraIva.TabIndex = 198
         '
         'cbBodega
         '
-        Me.cbBodega.Location = New System.Drawing.Point(318, 627)
+        Me.cbBodega.Location = New System.Drawing.Point(251, 648)
         Me.cbBodega.Name = "cbBodega"
         Me.cbBodega.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbBodega.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -773,13 +852,13 @@ Public Class FrmFacturacionClienteNew
         Me.cbBodega.Properties.AppearanceReadOnly.Options.UseFont = True
         Me.cbBodega.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbBodega.Properties.ReadOnly = True
-        Me.cbBodega.Size = New System.Drawing.Size(247, 22)
+        Me.cbBodega.Size = New System.Drawing.Size(314, 22)
         Me.cbBodega.StyleController = Me.LayoutControl1
         Me.cbBodega.TabIndex = 197
         '
         'lbltotalU
         '
-        Me.lbltotalU.Location = New System.Drawing.Point(648, 627)
+        Me.lbltotalU.Location = New System.Drawing.Point(648, 648)
         Me.lbltotalU.Name = "lbltotalU"
         Me.lbltotalU.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lbltotalU.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -799,7 +878,7 @@ Public Class FrmFacturacionClienteNew
         '
         'lbltotal
         '
-        Me.lbltotal.Location = New System.Drawing.Point(648, 599)
+        Me.lbltotal.Location = New System.Drawing.Point(648, 620)
         Me.lbltotal.Name = "lbltotal"
         Me.lbltotal.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lbltotal.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -819,7 +898,7 @@ Public Class FrmFacturacionClienteNew
         '
         'lbliva
         '
-        Me.lbliva.Location = New System.Drawing.Point(449, 599)
+        Me.lbliva.Location = New System.Drawing.Point(449, 620)
         Me.lbliva.Name = "lbliva"
         Me.lbliva.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lbliva.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -839,7 +918,7 @@ Public Class FrmFacturacionClienteNew
         '
         'lblsubtotal
         '
-        Me.lblsubtotal.Location = New System.Drawing.Point(229, 599)
+        Me.lblsubtotal.Location = New System.Drawing.Point(229, 620)
         Me.lblsubtotal.Name = "lblsubtotal"
         Me.lblsubtotal.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lblsubtotal.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -861,12 +940,13 @@ Public Class FrmFacturacionClienteNew
         '
         Me.TipoServicio.Location = New System.Drawing.Point(12, 150)
         Me.TipoServicio.Name = "TipoServicio"
-        Me.TipoServicio.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.TipoServicio.Properties.Appearance.BackColor = System.Drawing.Color.Aqua
         Me.TipoServicio.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TipoServicio.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.TipoServicio.Properties.Appearance.Options.UseBackColor = True
         Me.TipoServicio.Properties.Appearance.Options.UseFont = True
         Me.TipoServicio.Properties.Appearance.Options.UseForeColor = True
+        Me.TipoServicio.Properties.Columns = 2
         Me.TipoServicio.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("P", "Productos"), New DevExpress.XtraEditors.Controls.RadioGroupItem("S", "Servicios"), New DevExpress.XtraEditors.Controls.RadioGroupItem("A", "Ambos")})
         Me.TipoServicio.Size = New System.Drawing.Size(239, 52)
         Me.TipoServicio.StyleController = Me.LayoutControl1
@@ -879,15 +959,15 @@ Public Class FrmFacturacionClienteNew
         Me.lblbodega.Appearance.Options.UseFont = True
         Me.lblbodega.Appearance.Options.UseForeColor = True
         Me.lblbodega.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblbodega.Location = New System.Drawing.Point(91, 627)
+        Me.lblbodega.Location = New System.Drawing.Point(91, 648)
         Me.lblbodega.Name = "lblbodega"
-        Me.lblbodega.Size = New System.Drawing.Size(144, 14)
+        Me.lblbodega.Size = New System.Drawing.Size(77, 14)
         Me.lblbodega.StyleController = Me.LayoutControl1
         Me.lblbodega.TabIndex = 190
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(255, 158)
+        Me.CheckEdit1.Location = New System.Drawing.Point(265, 158)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -910,6 +990,7 @@ Public Class FrmFacturacionClienteNew
         Me.rgDespacho.Properties.Appearance.Options.UseBackColor = True
         Me.rgDespacho.Properties.Appearance.Options.UseFont = True
         Me.rgDespacho.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
+        Me.rgDespacho.Properties.Columns = 1
         Me.rgDespacho.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("B", "Bodega"), New DevExpress.XtraEditors.Controls.RadioGroupItem("M", "Mostrador")})
         Me.rgDespacho.Size = New System.Drawing.Size(90, 52)
         Me.rgDespacho.StyleController = Me.LayoutControl1
@@ -921,7 +1002,7 @@ Public Class FrmFacturacionClienteNew
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtComentario.Location = New System.Drawing.Point(91, 206)
         Me.txtComentario.Name = "txtComentario"
-        Me.txtComentario.Size = New System.Drawing.Size(354, 43)
+        Me.txtComentario.Size = New System.Drawing.Size(319, 43)
         Me.txtComentario.StyleController = Me.LayoutControl1
         Me.txtComentario.TabIndex = 189
         '
@@ -941,10 +1022,10 @@ Public Class FrmFacturacionClienteNew
         '
         Me.ckView.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ckView.EditValue = True
-        Me.ckView.Location = New System.Drawing.Point(221, 12)
+        Me.ckView.Location = New System.Drawing.Point(276, 12)
         Me.ckView.Name = "ckView"
         Me.ckView.Properties.Caption = "Serie:"
-        Me.ckView.Size = New System.Drawing.Size(46, 19)
+        Me.ckView.Size = New System.Drawing.Size(46, 20)
         Me.ckView.StyleController = Me.LayoutControl1
         Me.ckView.TabIndex = 2
         Me.ckView.TabStop = False
@@ -953,10 +1034,10 @@ Public Class FrmFacturacionClienteNew
         '
         Me.cmbserie.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbserie.EnterMoveNextControl = True
-        Me.cmbserie.Location = New System.Drawing.Point(271, 12)
+        Me.cmbserie.Location = New System.Drawing.Point(326, 12)
         Me.cmbserie.Name = "cmbserie"
-        EditorButtonImageOptions2.EnableTransparency = False
-        Me.cmbserie.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "", -1, True, True, True, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Refrescar Datos")})
+        EditorButtonImageOptions3.EnableTransparency = False
+        Me.cmbserie.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Undo, "", -1, True, True, True, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "Refrescar Datos", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cmbserie.Properties.NullText = ""
         Me.cmbserie.Properties.ShowFooter = False
         Me.cmbserie.Properties.ShowHeader = False
@@ -967,9 +1048,9 @@ Public Class FrmFacturacionClienteNew
         'fecha
         '
         Me.fecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.fecha.EditValue = New Date(2014, 11, 14, 14, 26, 40, 0)
+        Me.fecha.EditValue = New Date(2020, 7, 21, 14, 26, 40, 0)
         Me.fecha.EnterMoveNextControl = True
-        Me.fecha.Location = New System.Drawing.Point(574, 12)
+        Me.fecha.Location = New System.Drawing.Point(588, 12)
         Me.fecha.Name = "fecha"
         Me.fecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.fecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -983,15 +1064,15 @@ Public Class FrmFacturacionClienteNew
         'FechaPago
         '
         Me.FechaPago.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FechaPago.EditValue = Nothing
+        Me.FechaPago.EditValue = New Date(2020, 7, 21, 15, 47, 13, 104)
         Me.FechaPago.EnterMoveNextControl = True
-        Me.FechaPago.Location = New System.Drawing.Point(739, 12)
+        Me.FechaPago.Location = New System.Drawing.Point(740, 12)
         Me.FechaPago.Name = "FechaPago"
         Me.FechaPago.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FechaPago.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.FechaPago.Properties.Mask.BeepOnError = True
         Me.FechaPago.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.FechaPago.Size = New System.Drawing.Size(82, 20)
+        Me.FechaPago.Size = New System.Drawing.Size(81, 20)
         Me.FechaPago.StyleController = Me.LayoutControl1
         Me.FechaPago.TabIndex = 5
         Me.FechaPago.TabStop = False
@@ -1002,11 +1083,10 @@ Public Class FrmFacturacionClienteNew
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GridDetalle.Location = New System.Drawing.Point(12, 256)
-        Me.GridDetalle.LookAndFeel.SkinName = "The Asphalt World"
         Me.GridDetalle.MainView = Me.vFact
         Me.GridDetalle.Name = "GridDetalle"
-        Me.GridDetalle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtPresentacion, Me.txtUnidad, Me.txtPrecioC, Me.txtPrecioU, Me.txtFactor, Me.rLink, Me.cbProducto, Me.rExento, Me.cbProyecto})
-        Me.GridDetalle.Size = New System.Drawing.Size(809, 339)
+        Me.GridDetalle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtPresentacion, Me.txtUnidad, Me.txtPrecioC, Me.txtPrecioU, Me.txtFactor, Me.rLink, Me.cbProducto, Me.rExento, Me.cbProyecto, Me.rCabys, Me.rIvaP, Me.rCultivo})
+        Me.GridDetalle.Size = New System.Drawing.Size(809, 360)
         Me.GridDetalle.TabIndex = 16
         Me.GridDetalle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vFact})
         '
@@ -1014,7 +1094,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.vFact.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.vFact.Appearance.EvenRow.Options.UseBackColor = True
-        Me.vFact.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn2, Me.Existencia, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn3, Me.GridColumn11, Me.GridColumn13, Me.GridColumn4, Me.GridColumn6, Me.GridColumn5, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn12, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn22, Me.GridColumn24, Me.GridColumn1, Me.GridColumn23, Me.GridColumn25})
+        Me.vFact.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn2, Me.Existencia, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn3, Me.GridColumn13, Me.GridColumn4, Me.GridColumn6, Me.GridColumn5, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn12, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn22, Me.GridColumn24, Me.GridColumn1, Me.GridColumn23, Me.GridColumn25, Me.GridColumn26, Me.GridColumn27, Me.GridColumn28, Me.GridColumn29})
         Me.vFact.GridControl = Me.GridDetalle
         Me.vFact.Name = "vFact"
         Me.vFact.OptionsCustomization.AllowColumnMoving = False
@@ -1042,7 +1122,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn2.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Item", "{0:n0}")})
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 0
-        Me.GridColumn2.Width = 134
+        Me.GridColumn2.Width = 110
         '
         'cbProducto
         '
@@ -1052,10 +1132,10 @@ Public Class FrmFacturacionClienteNew
         ToolTipItem2.Text = "Agregar Comentario Adicional"
         SuperToolTip2.Items.Add(ToolTipTitleItem1)
         SuperToolTip2.Items.Add(ToolTipItem2)
-        Me.cbProducto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "Agregar Comentario Adicional", Nothing, SuperToolTip2)})
+        Me.cbProducto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject13, SerializableAppearanceObject14, SerializableAppearanceObject15, SerializableAppearanceObject16, "Agregar Comentario Adicional", Nothing, SuperToolTip2, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.NullText = "[Agregar]"
-        Me.cbProducto.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbProducto.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -1082,7 +1162,7 @@ Public Class FrmFacturacionClienteNew
         Me.Existencia.OptionsColumn.ReadOnly = True
         Me.Existencia.Visible = True
         Me.Existencia.VisibleIndex = 1
-        Me.Existencia.Width = 59
+        Me.Existencia.Width = 43
         '
         'GridColumn14
         '
@@ -1096,7 +1176,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn14.Name = "GridColumn14"
         Me.GridColumn14.Visible = True
         Me.GridColumn14.VisibleIndex = 2
-        Me.GridColumn14.Width = 45
+        Me.GridColumn14.Width = 36
         '
         'txtPresentacion
         '
@@ -1119,7 +1199,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn15.OptionsColumn.ReadOnly = True
         Me.GridColumn15.Visible = True
         Me.GridColumn15.VisibleIndex = 3
-        Me.GridColumn15.Width = 45
+        Me.GridColumn15.Width = 36
         '
         'txtUnidad
         '
@@ -1142,7 +1222,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn16.OptionsColumn.ReadOnly = True
         Me.GridColumn16.Visible = True
         Me.GridColumn16.VisibleIndex = 4
-        Me.GridColumn16.Width = 45
+        Me.GridColumn16.Width = 36
         '
         'txtFactor
         '
@@ -1165,7 +1245,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn17.Name = "GridColumn17"
         Me.GridColumn17.Visible = True
         Me.GridColumn17.VisibleIndex = 5
-        Me.GridColumn17.Width = 46
+        Me.GridColumn17.Width = 34
         '
         'GridColumn3
         '
@@ -1185,23 +1265,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn3.OptionsColumn.ReadOnly = True
         Me.GridColumn3.Visible = True
         Me.GridColumn3.VisibleIndex = 6
-        Me.GridColumn3.Width = 50
-        '
-        'GridColumn11
-        '
-        Me.GridColumn11.AppearanceCell.Options.UseTextOptions = True
-        Me.GridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn11.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.GridColumn11.AppearanceHeader.Options.UseFont = True
-        Me.GridColumn11.AppearanceHeader.Options.UseTextOptions = True
-        Me.GridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn11.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.GridColumn11.Caption = "Promocion"
-        Me.GridColumn11.DisplayFormat.FormatString = "{0:n2}"
-        Me.GridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.GridColumn11.FieldName = "Promocion"
-        Me.GridColumn11.Name = "GridColumn11"
-        Me.GridColumn11.Width = 85
+        Me.GridColumn3.Width = 37
         '
         'GridColumn13
         '
@@ -1217,7 +1281,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn13.Name = "GridColumn13"
         Me.GridColumn13.Visible = True
         Me.GridColumn13.VisibleIndex = 7
-        Me.GridColumn13.Width = 57
+        Me.GridColumn13.Width = 45
         '
         'txtPrecioU
         '
@@ -1239,7 +1303,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn4.Name = "GridColumn4"
         Me.GridColumn4.Visible = True
         Me.GridColumn4.VisibleIndex = 8
-        Me.GridColumn4.Width = 76
+        Me.GridColumn4.Width = 61
         '
         'txtPrecioC
         '
@@ -1262,7 +1326,7 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.Visible = True
         Me.GridColumn6.VisibleIndex = 9
-        Me.GridColumn6.Width = 68
+        Me.GridColumn6.Width = 51
         '
         'GridColumn5
         '
@@ -1282,8 +1346,8 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn5.OptionsColumn.ReadOnly = True
         Me.GridColumn5.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:n2}")})
         Me.GridColumn5.Visible = True
-        Me.GridColumn5.VisibleIndex = 10
-        Me.GridColumn5.Width = 73
+        Me.GridColumn5.VisibleIndex = 11
+        Me.GridColumn5.Width = 55
         '
         'GridColumn7
         '
@@ -1321,8 +1385,8 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn10.OptionsColumn.AllowEdit = False
         Me.GridColumn10.OptionsColumn.AllowFocus = False
         Me.GridColumn10.Visible = True
-        Me.GridColumn10.VisibleIndex = 11
-        Me.GridColumn10.Width = 45
+        Me.GridColumn10.VisibleIndex = 13
+        Me.GridColumn10.Width = 46
         '
         'rExento
         '
@@ -1345,7 +1409,7 @@ Public Class FrmFacturacionClienteNew
         '
         'GridColumn19
         '
-        Me.GridColumn19.Caption = "NoSerie"
+        Me.GridColumn19.Caption = "SAC"
         Me.GridColumn19.FieldName = "NoSerie"
         Me.GridColumn19.Name = "GridColumn19"
         Me.GridColumn19.OptionsColumn.AllowEdit = False
@@ -1376,8 +1440,8 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn22.FieldName = "#"
         Me.GridColumn22.Name = "GridColumn22"
         Me.GridColumn22.Visible = True
-        Me.GridColumn22.VisibleIndex = 12
-        Me.GridColumn22.Width = 53
+        Me.GridColumn22.VisibleIndex = 14
+        Me.GridColumn22.Width = 49
         '
         'rLink
         '
@@ -1404,7 +1468,7 @@ Public Class FrmFacturacionClienteNew
         Me.cbProyecto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProyecto.Name = "cbProyecto"
         Me.cbProyecto.NullText = "[Proyecto]"
-        Me.cbProyecto.View = Me.GridView2
+        Me.cbProyecto.PopupView = Me.GridView2
         '
         'GridView2
         '
@@ -1442,6 +1506,96 @@ Public Class FrmFacturacionClienteNew
         Me.GridColumn25.OptionsColumn.AllowEdit = False
         Me.GridColumn25.OptionsColumn.AllowFocus = False
         '
+        'GridColumn26
+        '
+        Me.GridColumn26.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.GridColumn26.AppearanceHeader.Options.UseFont = True
+        Me.GridColumn26.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn26.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn26.Caption = "Impuesto%"
+        Me.GridColumn26.ColumnEdit = Me.rIvaP
+        Me.GridColumn26.FieldName = "IvaP"
+        Me.GridColumn26.Name = "GridColumn26"
+        Me.GridColumn26.OptionsColumn.AllowEdit = False
+        Me.GridColumn26.OptionsColumn.AllowFocus = False
+        Me.GridColumn26.Visible = True
+        Me.GridColumn26.VisibleIndex = 10
+        Me.GridColumn26.Width = 53
+        '
+        'rIvaP
+        '
+        Me.rIvaP.AutoHeight = False
+        Me.rIvaP.Mask.EditMask = "P"
+        Me.rIvaP.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.rIvaP.Mask.UseMaskAsDisplayFormat = True
+        Me.rIvaP.Name = "rIvaP"
+        '
+        'GridColumn27
+        '
+        Me.GridColumn27.AppearanceCell.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridColumn27.AppearanceCell.ForeColor = DevExpress.LookAndFeel.DXSkinColors.ForeColors.Question
+        Me.GridColumn27.AppearanceCell.Options.UseFont = True
+        Me.GridColumn27.AppearanceCell.Options.UseForeColor = True
+        Me.GridColumn27.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn27.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn27.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.GridColumn27.AppearanceHeader.Options.UseFont = True
+        Me.GridColumn27.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn27.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn27.Caption = "Cabys"
+        Me.GridColumn27.FieldName = "rCabys"
+        Me.GridColumn27.Name = "GridColumn27"
+        Me.GridColumn27.OptionsColumn.AllowEdit = False
+        Me.GridColumn27.Visible = True
+        Me.GridColumn27.VisibleIndex = 12
+        Me.GridColumn27.Width = 48
+        '
+        'GridColumn28
+        '
+        Me.GridColumn28.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.GridColumn28.AppearanceHeader.Options.UseFont = True
+        Me.GridColumn28.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn28.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn28.Caption = "CABYS"
+        Me.GridColumn28.FieldName = "CABYS"
+        Me.GridColumn28.Name = "GridColumn28"
+        Me.GridColumn28.OptionsColumn.AllowEdit = False
+        Me.GridColumn28.OptionsColumn.AllowFocus = False
+        Me.GridColumn28.Width = 68
+        '
+        'GridColumn29
+        '
+        Me.GridColumn29.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridColumn29.AppearanceHeader.Options.UseFont = True
+        Me.GridColumn29.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn29.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn29.Caption = "Cultivo"
+        Me.GridColumn29.ColumnEdit = Me.rCultivo
+        Me.GridColumn29.FieldName = "Promocion"
+        Me.GridColumn29.Name = "GridColumn29"
+        Me.GridColumn29.Visible = True
+        Me.GridColumn29.VisibleIndex = 15
+        '
+        'rCultivo
+        '
+        Me.rCultivo.AutoHeight = False
+        Me.rCultivo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.rCultivo.Name = "rCultivo"
+        Me.rCultivo.PopupView = Me.GridView3
+        '
+        'GridView3
+        '
+        Me.GridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView3.Name = "GridView3"
+        Me.GridView3.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView3.OptionsView.ShowGroupPanel = False
+        '
+        'rCabys
+        '
+        Me.rCabys.AutoHeight = False
+        Me.rCabys.Caption = "Cabys"
+        Me.rCabys.Name = "rCabys"
+        '
         'etTasa
         '
         Me.etTasa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1469,24 +1623,6 @@ Public Class FrmFacturacionClienteNew
         Me.etTasa.StyleController = Me.LayoutControl1
         Me.etTasa.TabIndex = 7
         '
-        'cbCultivos
-        '
-        Me.cbCultivos.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbCultivos.EnterMoveNextControl = True
-        Me.cbCultivos.Location = New System.Drawing.Point(486, 158)
-        Me.cbCultivos.Name = "cbCultivos"
-        EditorButtonImageOptions4.EnableTransparency = False
-        ToolTipItem3.Text = "Agrear Tipo de Cultivo"
-        SuperToolTip3.Items.Add(ToolTipItem3)
-        Me.cbCultivos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, True, EditorButtonImageOptions4, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, SuperToolTip3)})
-        Me.cbCultivos.Properties.HeaderClickMode = DevExpress.XtraEditors.Controls.HeaderClickMode.AutoSearch
-        Me.cbCultivos.Properties.NullText = ""
-        Me.cbCultivos.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete
-        Me.cbCultivos.Properties.ShowFooter = False
-        Me.cbCultivos.Size = New System.Drawing.Size(241, 20)
-        Me.cbCultivos.StyleController = Me.LayoutControl1
-        Me.cbCultivos.TabIndex = 9
-        '
         'cmbvendedor
         '
         Me.cmbvendedor.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1504,7 +1640,7 @@ Public Class FrmFacturacionClienteNew
         Me.cmbvendedor.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete
         Me.cmbvendedor.Properties.ShowFooter = False
         Me.cmbvendedor.Properties.ShowHeader = False
-        Me.cmbvendedor.Size = New System.Drawing.Size(212, 20)
+        Me.cmbvendedor.Size = New System.Drawing.Size(148, 20)
         Me.cmbvendedor.StyleController = Me.LayoutControl1
         Me.cmbvendedor.TabIndex = 8
         Me.cmbvendedor.TabStop = False
@@ -1514,7 +1650,7 @@ Public Class FrmFacturacionClienteNew
         Me.txtfactura.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtfactura.EditValue = ""
         Me.txtfactura.EnterMoveNextControl = True
-        Me.txtfactura.Location = New System.Drawing.Point(404, 12)
+        Me.txtfactura.Location = New System.Drawing.Point(459, 12)
         Me.txtfactura.Name = "txtfactura"
         Me.txtfactura.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.Info
         Me.txtfactura.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1532,14 +1668,14 @@ Public Class FrmFacturacionClienteNew
         '
         Me.cmbformapago.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbformapago.EnterMoveNextControl = True
-        Me.cmbformapago.Location = New System.Drawing.Point(334, 182)
+        Me.cmbformapago.Location = New System.Drawing.Point(496, 182)
         Me.cmbformapago.Name = "cmbformapago"
         Me.cmbformapago.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cmbformapago.Properties.NullText = ""
         Me.cmbformapago.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete
         Me.cmbformapago.Properties.ShowFooter = False
         Me.cmbformapago.Properties.ShowHeader = False
-        Me.cmbformapago.Size = New System.Drawing.Size(104, 20)
+        Me.cmbformapago.Size = New System.Drawing.Size(231, 20)
         Me.cmbformapago.StyleController = Me.LayoutControl1
         Me.cmbformapago.TabIndex = 10
         '
@@ -1567,7 +1703,7 @@ Public Class FrmFacturacionClienteNew
         Me.txtNombreDe.Properties.Appearance.Options.UseFont = True
         Me.txtNombreDe.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombreDe.Properties.MaxLength = 130
-        Me.txtNombreDe.Size = New System.Drawing.Size(276, 20)
+        Me.txtNombreDe.Size = New System.Drawing.Size(198, 20)
         Me.txtNombreDe.StyleController = Me.LayoutControl1
         Me.txtNombreDe.TabIndex = 1
         Me.txtNombreDe.TabStop = False
@@ -1589,15 +1725,15 @@ Public Class FrmFacturacionClienteNew
         Me.cbEmpl.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbEmpl.EditValue = "[Seleccione Empleado]"
-        Me.cbEmpl.Location = New System.Drawing.Point(450, 38)
+        Me.cbEmpl.Location = New System.Drawing.Point(372, 38)
         Me.cbEmpl.Name = "cbEmpl"
         Me.cbEmpl.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbEmpl.Properties.Appearance.Options.UseFont = True
         Me.cbEmpl.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbEmpl.Properties.NullText = "[Seleccione Empleado]"
         Me.cbEmpl.Properties.PopupFormMinSize = New System.Drawing.Size(800, 0)
-        Me.cbEmpl.Properties.View = Me.vEmpl
-        Me.cbEmpl.Size = New System.Drawing.Size(50, 20)
+        Me.cbEmpl.Properties.PopupView = Me.vEmpl
+        Me.cbEmpl.Size = New System.Drawing.Size(128, 20)
         Me.cbEmpl.StyleController = Me.LayoutControl1
         Me.cbEmpl.TabIndex = 1
         '
@@ -1617,21 +1753,21 @@ Public Class FrmFacturacionClienteNew
         Me.txtruc.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtruc.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.txtruc.Properties.ReadOnly = True
-        Me.txtruc.Size = New System.Drawing.Size(74, 20)
+        Me.txtruc.Size = New System.Drawing.Size(50, 20)
         Me.txtruc.StyleController = Me.LayoutControl1
         Me.txtruc.TabIndex = 0
         Me.txtruc.TabStop = False
         '
         'txtpais
         '
-        Me.txtpais.Location = New System.Drawing.Point(248, 62)
+        Me.txtpais.Location = New System.Drawing.Point(224, 62)
         Me.txtpais.Name = "txtpais"
         Me.txtpais.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.Info
         Me.txtpais.Properties.AppearanceReadOnly.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtpais.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtpais.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.txtpais.Properties.ReadOnly = True
-        Me.txtpais.Size = New System.Drawing.Size(74, 20)
+        Me.txtpais.Size = New System.Drawing.Size(50, 20)
         Me.txtpais.StyleController = Me.LayoutControl1
         Me.txtpais.TabIndex = 1
         Me.txtpais.TabStop = False
@@ -1650,14 +1786,14 @@ Public Class FrmFacturacionClienteNew
         '
         'txtdepto
         '
-        Me.txtdepto.Location = New System.Drawing.Point(248, 86)
+        Me.txtdepto.Location = New System.Drawing.Point(224, 86)
         Me.txtdepto.Name = "txtdepto"
         Me.txtdepto.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.Info
         Me.txtdepto.Properties.AppearanceReadOnly.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtdepto.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtdepto.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.txtdepto.Properties.ReadOnly = True
-        Me.txtdepto.Size = New System.Drawing.Size(74, 20)
+        Me.txtdepto.Size = New System.Drawing.Size(50, 20)
         Me.txtdepto.StyleController = Me.LayoutControl1
         Me.txtdepto.TabIndex = 2
         Me.txtdepto.TabStop = False
@@ -1687,7 +1823,7 @@ Public Class FrmFacturacionClienteNew
         Me.txtmunicipio.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtmunicipio.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.txtmunicipio.Properties.ReadOnly = True
-        Me.txtmunicipio.Size = New System.Drawing.Size(74, 20)
+        Me.txtmunicipio.Size = New System.Drawing.Size(50, 20)
         Me.txtmunicipio.StyleController = Me.LayoutControl1
         Me.txtmunicipio.TabIndex = 6
         Me.txtmunicipio.TabStop = False
@@ -1696,14 +1832,14 @@ Public Class FrmFacturacionClienteNew
         '
         Me.txtdireccion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtdireccion.Location = New System.Drawing.Point(405, 62)
+        Me.txtdireccion.Location = New System.Drawing.Point(357, 62)
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.Info
         Me.txtdireccion.Properties.AppearanceReadOnly.ForeColor = System.Drawing.SystemColors.WindowText
         Me.txtdireccion.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtdireccion.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.txtdireccion.Properties.ReadOnly = True
-        Me.txtdireccion.Size = New System.Drawing.Size(95, 44)
+        Me.txtdireccion.Size = New System.Drawing.Size(143, 44)
         Me.txtdireccion.StyleController = Me.LayoutControl1
         Me.txtdireccion.TabIndex = 3
         Me.txtdireccion.TabStop = False
@@ -1723,17 +1859,16 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.lyNombre, Me.LayoutControlItem7, Me.lyEmpleado, Me.LayoutControlItem24, Me.LayoutControlItem25, Me.LayoutControlItem27, Me.LayoutControlItem33, Me.LayoutControlItem28, Me.EmptySpaceItem3, Me.LayoutControlItem10, Me.LayoutControlItem9, Me.LayoutControlItem8, Me.LayoutControlItem11, Me.LayoutControlItem15, Me.LayoutControlItem14, Me.LayoutControlItem12, Me.LayoutControlItem19, Me.LayoutControlItem18, Me.LayoutControlItem26, Me.LayoutControlItem43, Me.LayoutControlItem29, Me.LayoutControlItem30, Me.LayoutControlItem31, Me.LayoutControlItem21, Me.LayoutControlItem22, Me.LayoutControlItem23, Me.LayoutControlItem17, Me.LayoutControlItem44, Me.LayoutControlItem46, Me.LayoutControlItem47, Me.LayoutControlItem49, Me.LayoutControlItem48, Me.LayoutControlItem1, Me.LayoutControlItem45, Me.LayoutControlItem38, Me.LayoutControlItem39})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.lyNombre, Me.LayoutControlItem7, Me.lyEmpleado, Me.LayoutControlItem24, Me.LayoutControlItem25, Me.LayoutControlItem27, Me.LayoutControlItem33, Me.LayoutControlItem28, Me.EmptySpaceItem3, Me.LayoutControlItem10, Me.LayoutControlItem9, Me.LayoutControlItem8, Me.LayoutControlItem11, Me.LayoutControlItem15, Me.LayoutControlItem14, Me.LayoutControlItem12, Me.LayoutControlItem19, Me.LayoutControlItem18, Me.LayoutControlItem26, Me.LayoutControlItem43, Me.LayoutControlItem29, Me.LayoutControlItem30, Me.LayoutControlItem31, Me.LayoutControlItem22, Me.LayoutControlItem17, Me.LayoutControlItem44, Me.LayoutControlItem46, Me.LayoutControlItem49, Me.LayoutControlItem1, Me.lyEmpty, Me.lyCultivo, Me.LayoutControlItem23, Me.LayoutControlItem21, Me.LayoutControlItem39, Me.LayoutControlItem38, Me.LayoutControlItem47, Me.LayoutControlItem48, Me.LayoutControlItem45, Me.EmptySpaceItem1})
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(833, 663)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(833, 684)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.ckView
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(209, 0)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(264, 0)
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(50, 26)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(50, 26)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
@@ -1746,7 +1881,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem3.Control = Me.cmbserie
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(259, 0)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(314, 0)
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(54, 26)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(54, 26)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
@@ -1759,7 +1894,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem4.Control = Me.txtfactura
         Me.LayoutControlItem4.CustomizationFormText = "No Factura:"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(313, 0)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(368, 0)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(170, 26)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(170, 26)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
@@ -1772,27 +1907,31 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem5.Control = Me.fecha
         Me.LayoutControlItem5.CustomizationFormText = "Fecha:"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(483, 0)
-        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(165, 26)
-        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(165, 26)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(538, 0)
+        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(124, 26)
+        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(124, 26)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(165, 26)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(124, 26)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.Text = "Fecha:"
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(76, 13)
+        Me.LayoutControlItem5.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(33, 13)
+        Me.LayoutControlItem5.TextToControlDistance = 5
         '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.FechaPago
         Me.LayoutControlItem6.CustomizationFormText = "Vencimiento:"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(648, 0)
-        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(165, 26)
-        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(165, 26)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(662, 0)
+        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(151, 26)
+        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(151, 26)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(165, 26)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(151, 26)
         Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem6.Text = "Vencimiento:"
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(76, 13)
+        Me.LayoutControlItem6.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(61, 13)
+        Me.LayoutControlItem6.TextToControlDistance = 5
         '
         'lyNombre
         '
@@ -1800,7 +1939,7 @@ Public Class FrmFacturacionClienteNew
         Me.lyNombre.CustomizationFormText = "A Nombre de:"
         Me.lyNombre.Location = New System.Drawing.Point(0, 26)
         Me.lyNombre.Name = "lyNombre"
-        Me.lyNombre.Size = New System.Drawing.Size(359, 24)
+        Me.lyNombre.Size = New System.Drawing.Size(281, 24)
         Me.lyNombre.Text = "A Nombre de:"
         Me.lyNombre.TextSize = New System.Drawing.Size(76, 13)
         '
@@ -1821,9 +1960,9 @@ Public Class FrmFacturacionClienteNew
         '
         Me.lyEmpleado.Control = Me.cbEmpl
         Me.lyEmpleado.CustomizationFormText = "Empleado:"
-        Me.lyEmpleado.Location = New System.Drawing.Point(359, 26)
+        Me.lyEmpleado.Location = New System.Drawing.Point(281, 26)
         Me.lyEmpleado.Name = "lyEmpleado"
-        Me.lyEmpleado.Size = New System.Drawing.Size(133, 24)
+        Me.lyEmpleado.Size = New System.Drawing.Size(211, 24)
         Me.lyEmpleado.Text = "Empleado:"
         Me.lyEmpleado.TextSize = New System.Drawing.Size(76, 13)
         Me.lyEmpleado.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -1836,7 +1975,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem24.MaxSize = New System.Drawing.Size(0, 47)
         Me.LayoutControlItem24.MinSize = New System.Drawing.Size(93, 47)
         Me.LayoutControlItem24.Name = "LayoutControlItem24"
-        Me.LayoutControlItem24.Size = New System.Drawing.Size(437, 50)
+        Me.LayoutControlItem24.Size = New System.Drawing.Size(402, 50)
         Me.LayoutControlItem24.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem24.Text = "Comentario:"
         Me.LayoutControlItem24.TextSize = New System.Drawing.Size(76, 13)
@@ -1847,7 +1986,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem25.CustomizationFormText = "LayoutControlItem25"
         Me.LayoutControlItem25.Location = New System.Drawing.Point(0, 244)
         Me.LayoutControlItem25.Name = "LayoutControlItem25"
-        Me.LayoutControlItem25.Size = New System.Drawing.Size(813, 343)
+        Me.LayoutControlItem25.Size = New System.Drawing.Size(813, 364)
         Me.LayoutControlItem25.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem25.TextVisible = False
         '
@@ -1887,9 +2026,9 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem28.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem28.Control = Me.lblbodega
         Me.LayoutControlItem28.CustomizationFormText = "Bodega:"
-        Me.LayoutControlItem28.Location = New System.Drawing.Point(0, 615)
+        Me.LayoutControlItem28.Location = New System.Drawing.Point(0, 636)
         Me.LayoutControlItem28.Name = "LayoutControlItem28"
-        Me.LayoutControlItem28.Size = New System.Drawing.Size(227, 28)
+        Me.LayoutControlItem28.Size = New System.Drawing.Size(160, 28)
         Me.LayoutControlItem28.Text = "Bodega:"
         Me.LayoutControlItem28.TextSize = New System.Drawing.Size(76, 14)
         Me.LayoutControlItem28.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -1898,7 +2037,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 587)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 608)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(138, 28)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -1935,7 +2074,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem8.CustomizationFormText = "#RUC:"
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 50)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(157, 24)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(133, 24)
         Me.LayoutControlItem8.Text = "#RUC:"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(76, 13)
         '
@@ -1943,9 +2082,9 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem11.Control = Me.txtpais
         Me.LayoutControlItem11.CustomizationFormText = "Pais:"
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(157, 50)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(133, 50)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(157, 24)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(133, 24)
         Me.LayoutControlItem11.Text = "Pais:"
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(76, 13)
         '
@@ -1953,9 +2092,9 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem15.Control = Me.txtdireccion
         Me.LayoutControlItem15.CustomizationFormText = "Dirección:"
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(314, 50)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(266, 50)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(178, 48)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(226, 48)
         Me.LayoutControlItem15.Text = "Dirección:"
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(76, 13)
         '
@@ -1965,7 +2104,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem14.CustomizationFormText = "Municipio:"
         Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 74)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(157, 24)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(133, 24)
         Me.LayoutControlItem14.Text = "Municipio:"
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(76, 13)
         '
@@ -1973,9 +2112,9 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem12.Control = Me.txtdepto
         Me.LayoutControlItem12.CustomizationFormText = "Departamento:"
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(157, 74)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(133, 74)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(157, 24)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(133, 24)
         Me.LayoutControlItem12.Text = "Departamento:"
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(76, 13)
         '
@@ -2009,7 +2148,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem26.Control = Me.CheckEdit1
         Me.LayoutControlItem26.CustomizationFormText = "LayoutControlItem26"
-        Me.LayoutControlItem26.Location = New System.Drawing.Point(243, 146)
+        Me.LayoutControlItem26.Location = New System.Drawing.Point(253, 146)
         Me.LayoutControlItem26.MaxSize = New System.Drawing.Size(152, 24)
         Me.LayoutControlItem26.MinSize = New System.Drawing.Size(152, 24)
         Me.LayoutControlItem26.Name = "LayoutControlItem26"
@@ -2022,7 +2161,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem43.Control = Me.lblsubtotal
         Me.LayoutControlItem43.CustomizationFormText = "Sub Total:"
-        Me.LayoutControlItem43.Location = New System.Drawing.Point(138, 587)
+        Me.LayoutControlItem43.Location = New System.Drawing.Point(138, 608)
         Me.LayoutControlItem43.MaxSize = New System.Drawing.Size(220, 28)
         Me.LayoutControlItem43.MinSize = New System.Drawing.Size(220, 28)
         Me.LayoutControlItem43.Name = "LayoutControlItem43"
@@ -2035,7 +2174,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem29.Control = Me.lbliva
         Me.LayoutControlItem29.CustomizationFormText = "IVA:"
-        Me.LayoutControlItem29.Location = New System.Drawing.Point(358, 587)
+        Me.LayoutControlItem29.Location = New System.Drawing.Point(358, 608)
         Me.LayoutControlItem29.MaxSize = New System.Drawing.Size(199, 28)
         Me.LayoutControlItem29.MinSize = New System.Drawing.Size(199, 28)
         Me.LayoutControlItem29.Name = "LayoutControlItem29"
@@ -2048,7 +2187,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem30.Control = Me.lbltotal
         Me.LayoutControlItem30.CustomizationFormText = "Total:"
-        Me.LayoutControlItem30.Location = New System.Drawing.Point(557, 587)
+        Me.LayoutControlItem30.Location = New System.Drawing.Point(557, 608)
         Me.LayoutControlItem30.MaxSize = New System.Drawing.Size(256, 28)
         Me.LayoutControlItem30.MinSize = New System.Drawing.Size(256, 28)
         Me.LayoutControlItem30.Name = "LayoutControlItem30"
@@ -2061,7 +2200,7 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem31.Control = Me.lbltotalU
         Me.LayoutControlItem31.CustomizationFormText = "Total U$:"
-        Me.LayoutControlItem31.Location = New System.Drawing.Point(557, 615)
+        Me.LayoutControlItem31.Location = New System.Drawing.Point(557, 636)
         Me.LayoutControlItem31.MaxSize = New System.Drawing.Size(256, 28)
         Me.LayoutControlItem31.MinSize = New System.Drawing.Size(256, 28)
         Me.LayoutControlItem31.Name = "LayoutControlItem31"
@@ -2070,35 +2209,15 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem31.Text = "Total U$:"
         Me.LayoutControlItem31.TextSize = New System.Drawing.Size(76, 13)
         '
-        'LayoutControlItem21
-        '
-        Me.LayoutControlItem21.Control = Me.cbCultivos
-        Me.LayoutControlItem21.CustomizationFormText = "Tipo Cultivo:"
-        Me.LayoutControlItem21.Location = New System.Drawing.Point(395, 146)
-        Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(324, 24)
-        Me.LayoutControlItem21.Text = "Tipo Cultivo:"
-        Me.LayoutControlItem21.TextSize = New System.Drawing.Size(76, 13)
-        '
         'LayoutControlItem22
         '
         Me.LayoutControlItem22.Control = Me.cmbvendedor
         Me.LayoutControlItem22.CustomizationFormText = "Vendedor:"
         Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 98)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
-        Me.LayoutControlItem22.Size = New System.Drawing.Size(295, 24)
+        Me.LayoutControlItem22.Size = New System.Drawing.Size(231, 24)
         Me.LayoutControlItem22.Text = "Vendedor:"
         Me.LayoutControlItem22.TextSize = New System.Drawing.Size(76, 13)
-        '
-        'LayoutControlItem23
-        '
-        Me.LayoutControlItem23.Control = Me.cmbformapago
-        Me.LayoutControlItem23.CustomizationFormText = "Forma de Pago:"
-        Me.LayoutControlItem23.Location = New System.Drawing.Point(243, 170)
-        Me.LayoutControlItem23.Name = "LayoutControlItem23"
-        Me.LayoutControlItem23.Size = New System.Drawing.Size(187, 24)
-        Me.LayoutControlItem23.Text = "Forma de Pago:"
-        Me.LayoutControlItem23.TextSize = New System.Drawing.Size(76, 13)
         '
         'LayoutControlItem17
         '
@@ -2117,83 +2236,82 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem44.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem44.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem44.Control = Me.cbBodega
-        Me.LayoutControlItem44.Location = New System.Drawing.Point(227, 615)
+        Me.LayoutControlItem44.Location = New System.Drawing.Point(160, 636)
         Me.LayoutControlItem44.Name = "LayoutControlItem44"
-        Me.LayoutControlItem44.Size = New System.Drawing.Size(330, 28)
+        Me.LayoutControlItem44.Size = New System.Drawing.Size(397, 28)
         Me.LayoutControlItem44.Text = "Bodega:"
         Me.LayoutControlItem44.TextSize = New System.Drawing.Size(76, 14)
         '
         'LayoutControlItem46
         '
         Me.LayoutControlItem46.Control = Me.cbTipoFactura
-        Me.LayoutControlItem46.Location = New System.Drawing.Point(430, 170)
+        Me.LayoutControlItem46.Location = New System.Drawing.Point(243, 170)
         Me.LayoutControlItem46.Name = "LayoutControlItem46"
-        Me.LayoutControlItem46.Size = New System.Drawing.Size(289, 24)
+        Me.LayoutControlItem46.Size = New System.Drawing.Size(162, 24)
         Me.LayoutControlItem46.Text = "Tipo:"
         Me.LayoutControlItem46.TextSize = New System.Drawing.Size(76, 13)
-        '
-        'LayoutControlItem47
-        '
-        Me.LayoutControlItem47.Control = Me.cbClienteConvenio
-        Me.LayoutControlItem47.Location = New System.Drawing.Point(577, 220)
-        Me.LayoutControlItem47.Name = "LayoutControlItem47"
-        Me.LayoutControlItem47.Size = New System.Drawing.Size(236, 24)
-        Me.LayoutControlItem47.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem47.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem47.TextVisible = False
         '
         'LayoutControlItem49
         '
         Me.LayoutControlItem49.Control = Me.cbCliente
         Me.LayoutControlItem49.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem49.Name = "LayoutControlItem49"
-        Me.LayoutControlItem49.Size = New System.Drawing.Size(209, 26)
+        Me.LayoutControlItem49.Size = New System.Drawing.Size(264, 26)
         Me.LayoutControlItem49.Text = "Cliente:"
         Me.LayoutControlItem49.TextSize = New System.Drawing.Size(76, 13)
-        '
-        'LayoutControlItem48
-        '
-        Me.LayoutControlItem48.Control = Me.chkAsociar
-        Me.LayoutControlItem48.Location = New System.Drawing.Point(437, 220)
-        Me.LayoutControlItem48.Name = "LayoutControlItem48"
-        Me.LayoutControlItem48.Size = New System.Drawing.Size(140, 24)
-        Me.LayoutControlItem48.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem48.TextVisible = False
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.cbCentroCosto
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(295, 98)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(231, 98)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(197, 24)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(261, 24)
         Me.LayoutControlItem1.Text = "Centro Costo:"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(76, 13)
         '
-        'LayoutControlItem45
+        'lyEmpty
         '
-        Me.LayoutControlItem45.Control = Me.CheckEdit2
-        Me.LayoutControlItem45.Location = New System.Drawing.Point(437, 194)
-        Me.LayoutControlItem45.Name = "LayoutControlItem45"
-        Me.LayoutControlItem45.Size = New System.Drawing.Size(230, 26)
-        Me.LayoutControlItem45.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem45.TextVisible = False
+        Me.lyEmpty.AllowHotTrack = False
+        Me.lyEmpty.Location = New System.Drawing.Point(243, 146)
+        Me.lyEmpty.Name = "lyEmpty"
+        Me.lyEmpty.Size = New System.Drawing.Size(10, 24)
+        Me.lyEmpty.TextSize = New System.Drawing.Size(0, 0)
         '
-        'LayoutControlItem38
+        'lyCultivo
         '
-        Me.LayoutControlItem38.Control = Me.chkAgrupar
-        Me.LayoutControlItem38.Location = New System.Drawing.Point(734, 194)
-        Me.LayoutControlItem38.MaxSize = New System.Drawing.Size(79, 26)
-        Me.LayoutControlItem38.MinSize = New System.Drawing.Size(79, 26)
-        Me.LayoutControlItem38.Name = "LayoutControlItem38"
-        Me.LayoutControlItem38.Size = New System.Drawing.Size(79, 26)
-        Me.LayoutControlItem38.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem38.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem38.TextVisible = False
+        Me.lyCultivo.Control = Me.cbCultivos
+        Me.lyCultivo.Location = New System.Drawing.Point(405, 146)
+        Me.lyCultivo.Name = "lyCultivo"
+        Me.lyCultivo.Size = New System.Drawing.Size(314, 24)
+        Me.lyCultivo.Text = "Cultivo:"
+        Me.lyCultivo.TextSize = New System.Drawing.Size(76, 13)
+        '
+        'LayoutControlItem23
+        '
+        Me.LayoutControlItem23.Control = Me.cmbformapago
+        Me.LayoutControlItem23.CustomizationFormText = "Forma de Pago:"
+        Me.LayoutControlItem23.Location = New System.Drawing.Point(405, 170)
+        Me.LayoutControlItem23.Name = "LayoutControlItem23"
+        Me.LayoutControlItem23.Size = New System.Drawing.Size(314, 24)
+        Me.LayoutControlItem23.Text = "Forma de Pago:"
+        Me.LayoutControlItem23.TextSize = New System.Drawing.Size(76, 13)
+        '
+        'LayoutControlItem21
+        '
+        Me.LayoutControlItem21.Control = Me.chkProyecto
+        Me.LayoutControlItem21.Location = New System.Drawing.Point(576, 218)
+        Me.LayoutControlItem21.MaxSize = New System.Drawing.Size(91, 26)
+        Me.LayoutControlItem21.MinSize = New System.Drawing.Size(91, 26)
+        Me.LayoutControlItem21.Name = "LayoutControlItem21"
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(91, 26)
+        Me.LayoutControlItem21.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem21.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem21.TextVisible = False
         '
         'LayoutControlItem39
         '
         Me.LayoutControlItem39.Control = Me.chkVisible
-        Me.LayoutControlItem39.Location = New System.Drawing.Point(667, 194)
+        Me.LayoutControlItem39.Location = New System.Drawing.Point(667, 218)
         Me.LayoutControlItem39.MaxSize = New System.Drawing.Size(67, 26)
         Me.LayoutControlItem39.MinSize = New System.Drawing.Size(67, 26)
         Me.LayoutControlItem39.Name = "LayoutControlItem39"
@@ -2202,9 +2320,60 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem39.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem39.TextVisible = False
         '
+        'LayoutControlItem38
+        '
+        Me.LayoutControlItem38.Control = Me.chkAgrupar
+        Me.LayoutControlItem38.Location = New System.Drawing.Point(734, 218)
+        Me.LayoutControlItem38.MaxSize = New System.Drawing.Size(79, 26)
+        Me.LayoutControlItem38.MinSize = New System.Drawing.Size(79, 26)
+        Me.LayoutControlItem38.Name = "LayoutControlItem38"
+        Me.LayoutControlItem38.Size = New System.Drawing.Size(79, 26)
+        Me.LayoutControlItem38.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem38.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem38.TextVisible = False
+        '
+        'LayoutControlItem47
+        '
+        Me.LayoutControlItem47.Control = Me.cbClienteConvenio
+        Me.LayoutControlItem47.Location = New System.Drawing.Point(552, 194)
+        Me.LayoutControlItem47.Name = "LayoutControlItem47"
+        Me.LayoutControlItem47.Size = New System.Drawing.Size(261, 24)
+        Me.LayoutControlItem47.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItem47.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem47.TextVisible = False
+        '
+        'LayoutControlItem48
+        '
+        Me.LayoutControlItem48.Control = Me.chkAsociar
+        Me.LayoutControlItem48.Location = New System.Drawing.Point(402, 194)
+        Me.LayoutControlItem48.MaxSize = New System.Drawing.Size(150, 24)
+        Me.LayoutControlItem48.MinSize = New System.Drawing.Size(150, 24)
+        Me.LayoutControlItem48.Name = "LayoutControlItem48"
+        Me.LayoutControlItem48.Size = New System.Drawing.Size(150, 24)
+        Me.LayoutControlItem48.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem48.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem48.TextVisible = False
+        '
+        'LayoutControlItem45
+        '
+        Me.LayoutControlItem45.Control = Me.chkExoneraIva
+        Me.LayoutControlItem45.Location = New System.Drawing.Point(402, 218)
+        Me.LayoutControlItem45.Name = "LayoutControlItem45"
+        Me.LayoutControlItem45.Size = New System.Drawing.Size(164, 26)
+        Me.LayoutControlItem45.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem45.TextVisible = False
+        '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(566, 218)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(10, 26)
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
         'txtCaja
         '
-        Me.txtCaja.Location = New System.Drawing.Point(12, 419)
+        Me.txtCaja.Location = New System.Drawing.Point(12, 439)
         Me.txtCaja.Name = "txtCaja"
         Me.txtCaja.Properties.ReadOnly = True
         Me.txtCaja.Size = New System.Drawing.Size(154, 20)
@@ -2233,7 +2402,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1248, 175, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(166, 636)
+        Me.LayoutControl2.Size = New System.Drawing.Size(168, 655)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -2245,9 +2414,9 @@ Public Class FrmFacturacionClienteNew
         Me.bVistaPrevia.Appearance.Options.UseFont = True
         Me.bVistaPrevia.Appearance.Options.UseForeColor = True
         Me.bVistaPrevia.ImageOptions.Image = CType(resources.GetObject("bVistaPrevia.ImageOptions.Image"), System.Drawing.Image)
-        Me.bVistaPrevia.Location = New System.Drawing.Point(24, 126)
+        Me.bVistaPrevia.Location = New System.Drawing.Point(24, 125)
         Me.bVistaPrevia.Name = "bVistaPrevia"
-        Me.bVistaPrevia.Size = New System.Drawing.Size(130, 38)
+        Me.bVistaPrevia.Size = New System.Drawing.Size(130, 36)
         Me.bVistaPrevia.StyleController = Me.LayoutControl2
         Me.bVistaPrevia.TabIndex = 186
         Me.bVistaPrevia.Text = "&Vista Previa"
@@ -2257,79 +2426,86 @@ Public Class FrmFacturacionClienteNew
         Me.NavBarControl2.ActiveGroup = Me.NavBarGroup2
         Me.NavBarControl2.Groups.AddRange(New DevExpress.XtraNavBar.NavBarGroup() {Me.NavBarGroup2})
         Me.NavBarControl2.Items.AddRange(New DevExpress.XtraNavBar.NavBarItem() {Me.nCotizacion, Me.nOrdenTrabajo, Me.nProyectos, Me.nOrdenEntrega, Me.nRemisiones})
-        Me.NavBarControl2.Location = New System.Drawing.Point(12, 222)
+        Me.NavBarControl2.Location = New System.Drawing.Point(12, 217)
         Me.NavBarControl2.Name = "NavBarControl2"
         Me.NavBarControl2.OptionsNavPane.ExpandedWidth = 154
-        Me.NavBarControl2.Size = New System.Drawing.Size(154, 193)
+        Me.NavBarControl2.Size = New System.Drawing.Size(154, 218)
         Me.NavBarControl2.TabIndex = 187
         Me.NavBarControl2.Text = "NavBarControl2"
         '
         'NavBarGroup2
         '
-        Me.NavBarGroup2.Caption = "Buscar Documentos"
+        Me.NavBarGroup2.Caption = "Buscar..."
         Me.NavBarGroup2.Expanded = True
+        Me.NavBarGroup2.ImageOptions.LargeImage = CType(resources.GetObject("NavBarGroup2.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.NavBarGroup2.ImageOptions.SmallImage = CType(resources.GetObject("NavBarGroup2.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.NavBarGroup2.ItemLinks.AddRange(New DevExpress.XtraNavBar.NavBarItemLink() {New DevExpress.XtraNavBar.NavBarItemLink(Me.nProyectos), New DevExpress.XtraNavBar.NavBarItemLink(Me.nRemisiones), New DevExpress.XtraNavBar.NavBarItemLink(Me.nOrdenTrabajo), New DevExpress.XtraNavBar.NavBarItemLink(Me.nCotizacion), New DevExpress.XtraNavBar.NavBarItemLink(Me.nOrdenEntrega)})
         Me.NavBarGroup2.Name = "NavBarGroup2"
         '
         'nProyectos
         '
         Me.nProyectos.Caption = "Proyectos"
+        Me.nProyectos.ImageOptions.LargeImage = CType(resources.GetObject("nProyectos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.nProyectos.ImageOptions.SmallImage = CType(resources.GetObject("nProyectos.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nProyectos.Name = "nProyectos"
-        Me.nProyectos.SmallImage = CType(resources.GetObject("nProyectos.SmallImage"), System.Drawing.Image)
         ToolTipTitleItem2.Text = "Proyectos"
-        ToolTipItem4.LeftIndent = 6
-        ToolTipItem4.Text = "Buscar Proyectos en Proceso"
-        SuperToolTip4.Items.Add(ToolTipTitleItem2)
-        SuperToolTip4.Items.Add(ToolTipItem4)
-        Me.nProyectos.SuperTip = SuperToolTip4
+        ToolTipItem3.LeftIndent = 6
+        ToolTipItem3.Text = "Buscar Proyectos en Proceso"
+        SuperToolTip3.Items.Add(ToolTipTitleItem2)
+        SuperToolTip3.Items.Add(ToolTipItem3)
+        Me.nProyectos.SuperTip = SuperToolTip3
         '
         'nRemisiones
         '
         Me.nRemisiones.Caption = "Remisiones"
+        Me.nRemisiones.ImageOptions.LargeImage = CType(resources.GetObject("nRemisiones.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.nRemisiones.ImageOptions.SmallImage = CType(resources.GetObject("nRemisiones.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nRemisiones.Name = "nRemisiones"
-        Me.nRemisiones.SmallImage = CType(resources.GetObject("nRemisiones.SmallImage"), System.Drawing.Image)
         ToolTipTitleItem3.Text = "Remisiones"
-        ToolTipItem5.LeftIndent = 6
-        ToolTipItem5.Text = "Buscar Remisiones de Clientes"
-        SuperToolTip5.Items.Add(ToolTipTitleItem3)
-        SuperToolTip5.Items.Add(ToolTipItem5)
-        Me.nRemisiones.SuperTip = SuperToolTip5
+        ToolTipItem4.LeftIndent = 6
+        ToolTipItem4.Text = "Buscar Remisiones de Clientes"
+        SuperToolTip4.Items.Add(ToolTipTitleItem3)
+        SuperToolTip4.Items.Add(ToolTipItem4)
+        Me.nRemisiones.SuperTip = SuperToolTip4
         '
         'nOrdenTrabajo
         '
         Me.nOrdenTrabajo.Caption = "Ordenes de Trabajo"
+        Me.nOrdenTrabajo.ImageOptions.LargeImage = CType(resources.GetObject("nOrdenTrabajo.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.nOrdenTrabajo.ImageOptions.SmallImage = CType(resources.GetObject("nOrdenTrabajo.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nOrdenTrabajo.Name = "nOrdenTrabajo"
-        Me.nOrdenTrabajo.SmallImage = CType(resources.GetObject("nOrdenTrabajo.SmallImage"), System.Drawing.Image)
         ToolTipTitleItem4.Text = "Ordenes de Trabajo"
-        ToolTipItem6.LeftIndent = 6
-        ToolTipItem6.Text = "Buscar Ordenes de Trabajo en Proceso"
-        SuperToolTip6.Items.Add(ToolTipTitleItem4)
-        SuperToolTip6.Items.Add(ToolTipItem6)
-        Me.nOrdenTrabajo.SuperTip = SuperToolTip6
+        ToolTipItem5.LeftIndent = 6
+        ToolTipItem5.Text = "Buscar Ordenes de Trabajo en Proceso"
+        SuperToolTip5.Items.Add(ToolTipTitleItem4)
+        SuperToolTip5.Items.Add(ToolTipItem5)
+        Me.nOrdenTrabajo.SuperTip = SuperToolTip5
         '
         'nCotizacion
         '
         Me.nCotizacion.Caption = "Cotizaciones"
+        Me.nCotizacion.ImageOptions.LargeImage = CType(resources.GetObject("nCotizacion.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.nCotizacion.ImageOptions.SmallImage = CType(resources.GetObject("nCotizacion.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nCotizacion.Name = "nCotizacion"
-        Me.nCotizacion.SmallImage = CType(resources.GetObject("nCotizacion.SmallImage"), System.Drawing.Image)
         ToolTipTitleItem5.Text = "Cotiaciones"
-        ToolTipItem7.LeftIndent = 6
-        ToolTipItem7.Text = "Buscar Cotizaciones/Proformas de Clientes"
-        SuperToolTip7.Items.Add(ToolTipTitleItem5)
-        SuperToolTip7.Items.Add(ToolTipItem7)
-        Me.nCotizacion.SuperTip = SuperToolTip7
+        ToolTipItem6.LeftIndent = 6
+        ToolTipItem6.Text = "Buscar Cotizaciones/Proformas de Clientes"
+        SuperToolTip6.Items.Add(ToolTipTitleItem5)
+        SuperToolTip6.Items.Add(ToolTipItem6)
+        Me.nCotizacion.SuperTip = SuperToolTip6
         '
         'nOrdenEntrega
         '
         Me.nOrdenEntrega.Caption = "Ordenes de Entrega"
+        Me.nOrdenEntrega.ImageOptions.LargeImage = CType(resources.GetObject("nOrdenEntrega.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.nOrdenEntrega.ImageOptions.SmallImage = CType(resources.GetObject("nOrdenEntrega.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nOrdenEntrega.Name = "nOrdenEntrega"
-        Me.nOrdenEntrega.SmallImage = CType(resources.GetObject("nOrdenEntrega.SmallImage"), System.Drawing.Image)
         ToolTipTitleItem6.Text = "Ordenes de Entrega"
-        ToolTipItem8.LeftIndent = 6
-        ToolTipItem8.Text = "Buscar Ordenes de Entrega de Clientes"
-        SuperToolTip8.Items.Add(ToolTipTitleItem6)
-        SuperToolTip8.Items.Add(ToolTipItem8)
-        Me.nOrdenEntrega.SuperTip = SuperToolTip8
+        ToolTipItem7.LeftIndent = 6
+        ToolTipItem7.Text = "Buscar Ordenes de Entrega de Clientes"
+        SuperToolTip7.Items.Add(ToolTipTitleItem6)
+        SuperToolTip7.Items.Add(ToolTipItem7)
+        Me.nOrdenEntrega.SuperTip = SuperToolTip7
         '
         'SimpleButton3
         '
@@ -2341,7 +2517,7 @@ Public Class FrmFacturacionClienteNew
         Me.SimpleButton3.Appearance.Options.UseTextOptions = True
         Me.SimpleButton3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton3.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton3.Location = New System.Drawing.Point(24, 515)
+        Me.SimpleButton3.Location = New System.Drawing.Point(24, 536)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(130, 38)
         Me.SimpleButton3.StyleController = Me.LayoutControl2
@@ -2356,9 +2532,9 @@ Public Class FrmFacturacionClienteNew
         Me.SimpleButton2.Appearance.Options.UseFont = True
         Me.SimpleButton2.Appearance.Options.UseForeColor = True
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(24, 168)
+        Me.SimpleButton2.Location = New System.Drawing.Point(24, 165)
         Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(130, 38)
+        Me.SimpleButton2.Size = New System.Drawing.Size(130, 36)
         Me.SimpleButton2.StyleController = Me.LayoutControl2
         Me.SimpleButton2.TabIndex = 185
         Me.SimpleButton2.Text = "&Calculadora"
@@ -2371,9 +2547,9 @@ Public Class FrmFacturacionClienteNew
         Me.cmdCancelar.Appearance.Options.UseFont = True
         Me.cmdCancelar.Appearance.Options.UseForeColor = True
         Me.cmdCancelar.ImageOptions.Image = CType(resources.GetObject("cmdCancelar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdCancelar.Location = New System.Drawing.Point(24, 557)
+        Me.cmdCancelar.Location = New System.Drawing.Point(24, 578)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(130, 38)
+        Me.cmdCancelar.Size = New System.Drawing.Size(130, 36)
         Me.cmdCancelar.StyleController = Me.LayoutControl2
         Me.cmdCancelar.TabIndex = 6
         Me.cmdCancelar.Text = "&Salir"
@@ -2386,9 +2562,9 @@ Public Class FrmFacturacionClienteNew
         Me.cmdCancelar1.Appearance.Options.UseFont = True
         Me.cmdCancelar1.Appearance.Options.UseForeColor = True
         Me.cmdCancelar1.ImageOptions.Image = CType(resources.GetObject("cmdCancelar1.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdCancelar1.Location = New System.Drawing.Point(24, 473)
+        Me.cmdCancelar1.Location = New System.Drawing.Point(24, 496)
         Me.cmdCancelar1.Name = "cmdCancelar1"
-        Me.cmdCancelar1.Size = New System.Drawing.Size(130, 38)
+        Me.cmdCancelar1.Size = New System.Drawing.Size(130, 36)
         Me.cmdCancelar1.StyleController = Me.LayoutControl2
         Me.cmdCancelar1.TabIndex = 5
         Me.cmdCancelar1.Text = "&Limpiar"
@@ -2497,9 +2673,9 @@ Public Class FrmFacturacionClienteNew
         Me.cmdAceptar.Appearance.Options.UseForeColor = True
         Me.cmdAceptar.Enabled = False
         Me.cmdAceptar.ImageOptions.Image = CType(resources.GetObject("cmdAceptar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAceptar.Location = New System.Drawing.Point(24, 84)
+        Me.cmdAceptar.Location = New System.Drawing.Point(24, 85)
         Me.cmdAceptar.Name = "cmdAceptar"
-        Me.cmdAceptar.Size = New System.Drawing.Size(130, 38)
+        Me.cmdAceptar.Size = New System.Drawing.Size(130, 36)
         Me.cmdAceptar.StyleController = Me.LayoutControl2
         Me.cmdAceptar.TabIndex = 14
         Me.cmdAceptar.Text = "F3 - &Facturar"
@@ -2513,9 +2689,9 @@ Public Class FrmFacturacionClienteNew
         Me.cmdPagos.Appearance.Options.UseForeColor = True
         Me.cmdPagos.Enabled = False
         Me.cmdPagos.ImageOptions.Image = CType(resources.GetObject("cmdPagos.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdPagos.Location = New System.Drawing.Point(24, 42)
+        Me.cmdPagos.Location = New System.Drawing.Point(24, 45)
         Me.cmdPagos.Name = "cmdPagos"
-        Me.cmdPagos.Size = New System.Drawing.Size(130, 38)
+        Me.cmdPagos.Size = New System.Drawing.Size(130, 36)
         Me.cmdPagos.StyleController = Me.LayoutControl2
         Me.cmdPagos.TabIndex = 15
         Me.cmdPagos.Text = "F2 - &Pagos"
@@ -2556,9 +2732,8 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup5, Me.LayoutControlItem16, Me.LayoutControlItem52})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(178, 619)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(178, 638)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlGroup3
@@ -2567,7 +2742,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem34, Me.LayoutControlItem20, Me.LayoutControlItem32, Me.LayoutControlItem37})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(158, 210)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(158, 205)
         Me.LayoutControlGroup3.Text = "Facturación"
         '
         'LayoutControlItem34
@@ -2576,7 +2751,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem34.CustomizationFormText = "LayoutControlItem34"
         Me.LayoutControlItem34.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem34.Name = "LayoutControlItem34"
-        Me.LayoutControlItem34.Size = New System.Drawing.Size(134, 42)
+        Me.LayoutControlItem34.Size = New System.Drawing.Size(134, 40)
         Me.LayoutControlItem34.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem34.TextVisible = False
         '
@@ -2584,27 +2759,27 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem20.Control = Me.cmdAceptar
         Me.LayoutControlItem20.CustomizationFormText = "LayoutControlItem20"
-        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
-        Me.LayoutControlItem20.Size = New System.Drawing.Size(134, 42)
+        Me.LayoutControlItem20.Size = New System.Drawing.Size(134, 40)
         Me.LayoutControlItem20.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem20.TextVisible = False
         '
         'LayoutControlItem32
         '
         Me.LayoutControlItem32.Control = Me.SimpleButton2
-        Me.LayoutControlItem32.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem32.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem32.Name = "LayoutControlItem32"
-        Me.LayoutControlItem32.Size = New System.Drawing.Size(134, 42)
+        Me.LayoutControlItem32.Size = New System.Drawing.Size(134, 40)
         Me.LayoutControlItem32.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem32.TextVisible = False
         '
         'LayoutControlItem37
         '
         Me.LayoutControlItem37.Control = Me.bVistaPrevia
-        Me.LayoutControlItem37.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem37.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem37.Name = "LayoutControlItem37"
-        Me.LayoutControlItem37.Size = New System.Drawing.Size(134, 42)
+        Me.LayoutControlItem37.Size = New System.Drawing.Size(134, 40)
         Me.LayoutControlItem37.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem37.TextVisible = False
         '
@@ -2612,9 +2787,9 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlGroup5.CustomizationFormText = "Salir"
         Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem41, Me.LayoutControlItem42, Me.LayoutControlItem51})
-        Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 431)
+        Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 451)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
-        Me.LayoutControlGroup5.Size = New System.Drawing.Size(158, 168)
+        Me.LayoutControlGroup5.Size = New System.Drawing.Size(158, 167)
         Me.LayoutControlGroup5.Text = "Salir"
         '
         'LayoutControlItem41
@@ -2623,7 +2798,7 @@ Public Class FrmFacturacionClienteNew
         Me.LayoutControlItem41.CustomizationFormText = "LayoutControlItem41"
         Me.LayoutControlItem41.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem41.Name = "LayoutControlItem41"
-        Me.LayoutControlItem41.Size = New System.Drawing.Size(134, 42)
+        Me.LayoutControlItem41.Size = New System.Drawing.Size(134, 40)
         Me.LayoutControlItem41.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem41.TextVisible = False
         '
@@ -2631,16 +2806,16 @@ Public Class FrmFacturacionClienteNew
         '
         Me.LayoutControlItem42.Control = Me.cmdCancelar
         Me.LayoutControlItem42.CustomizationFormText = "LayoutControlItem42"
-        Me.LayoutControlItem42.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem42.Location = New System.Drawing.Point(0, 82)
         Me.LayoutControlItem42.Name = "LayoutControlItem42"
-        Me.LayoutControlItem42.Size = New System.Drawing.Size(134, 42)
+        Me.LayoutControlItem42.Size = New System.Drawing.Size(134, 40)
         Me.LayoutControlItem42.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem42.TextVisible = False
         '
         'LayoutControlItem51
         '
         Me.LayoutControlItem51.Control = Me.SimpleButton3
-        Me.LayoutControlItem51.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem51.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem51.MaxSize = New System.Drawing.Size(134, 42)
         Me.LayoutControlItem51.MinSize = New System.Drawing.Size(134, 42)
         Me.LayoutControlItem51.Name = "LayoutControlItem51"
@@ -2652,7 +2827,7 @@ Public Class FrmFacturacionClienteNew
         'LayoutControlItem16
         '
         Me.LayoutControlItem16.Control = Me.txtCaja
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 407)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 427)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
         Me.LayoutControlItem16.Size = New System.Drawing.Size(158, 24)
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
@@ -2662,9 +2837,9 @@ Public Class FrmFacturacionClienteNew
         'LayoutControlItem52
         '
         Me.LayoutControlItem52.Control = Me.NavBarControl2
-        Me.LayoutControlItem52.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem52.Location = New System.Drawing.Point(0, 205)
         Me.LayoutControlItem52.Name = "LayoutControlItem52"
-        Me.LayoutControlItem52.Size = New System.Drawing.Size(158, 197)
+        Me.LayoutControlItem52.Size = New System.Drawing.Size(158, 222)
         Me.LayoutControlItem52.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem52.TextVisible = False
         '
@@ -2737,21 +2912,21 @@ Public Class FrmFacturacionClienteNew
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.ShowCloseButton = False
         Me.DockPanel1.OriginalSize = New System.Drawing.Size(175, 200)
-        Me.DockPanel1.Size = New System.Drawing.Size(175, 663)
+        Me.DockPanel1.Size = New System.Drawing.Size(175, 684)
         Me.DockPanel1.Text = "Opciones"
         '
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(166, 636)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(168, 655)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FrmFacturacionClienteNew
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(1008, 663)
+        Me.ClientSize = New System.Drawing.Size(1008, 684)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
         Me.KeyPreview = True
@@ -2761,6 +2936,9 @@ Public Class FrmFacturacionClienteNew
         CType(Me.cmbmoneda.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.cbCultivos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkProyecto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkVisible.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkAgrupar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbCentroCosto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2770,7 +2948,7 @@ Public Class FrmFacturacionClienteNew
         CType(Me.cbClienteConvenio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbTipoFactura.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CheckEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkExoneraIva.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbBodega.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lbltotalU.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lbltotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2800,8 +2978,11 @@ Public Class FrmFacturacionClienteNew
         CType(Me.rLink, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbProyecto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rIvaP, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rCultivo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rCabys, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.etTasa.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbCultivos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbvendedor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtfactura.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cmbformapago.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2847,19 +3028,22 @@ Public Class FrmFacturacionClienteNew
         CType(Me.LayoutControlItem29, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem30, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem22, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem23, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem44, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem46, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem47, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem49, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem48, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem45, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem38, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lyEmpty, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lyCultivo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem23, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem39, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem38, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem47, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem48, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem45, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCaja.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl2.ResumeLayout(False)
@@ -2896,7 +3080,9 @@ Public Class FrmFacturacionClienteNew
 #Region "Variables"
 
     Private _Factura As String = ""
-    Private DT_Facturas As DataTable = New DataTable("Facturas")
+    Private DT_Facturas As DataTable = New DataTable("Facturas"),
+        _DT_CABYS As DataTable = New DataTable("CABYS")
+
     Private Temp As Boolean = False
     Private dd As String
     Private Config As New VB.SysContab.ConfiguracionDB
@@ -2951,7 +3137,8 @@ Public Class FrmFacturacionClienteNew
 
     Dim DT_ROL As DataTable = Nothing
     Private LoadProyecto As Boolean = False
-    Private LoadRemision As Boolean = False, IdRemision As String = "", BitacoraVencidas As String = ""
+    Private LoadRemision As Boolean = False,
+        IdRemision As String = ""
 
     Private Sub FrmFacturacionClienteNew_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         '/*** Globales   **************/
@@ -2982,31 +3169,38 @@ Public Class FrmFacturacionClienteNew
     Private Sub FrmFacturacionClienteNew_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         DT_ROL = RolesDB.UsuarioAcciones()
 
-        If DT_ROL.Rows.Count > 0 Then
-            'Verificar si el Usuario tiene permiso de Cambiar los IR a Facturas
-            Dim dr() As DataRow = DT_ROL.Select("Control = 'CambiarBodega'")
-
-            If dr.Length > 0 Then cbBodega.Properties.ReadOnly = False
-        End If
-
         'Dim Clientes As New VB.SysContab.ClientesDB
         'Cargar Caja y Configuracion
         GetBodegasList(cbBodega)
         CargarCaja()
 
-        DetallesBodega = VB.SysContab.BodegasDB.GetDetails(cbBodega.EditValue)
+        DetallesBodega = BodegasDB.GetDetails(cbBodega.EditValue)
 
-        If DetallesBodega.Exigir_Facturacion Then rgDespacho.EditValue = ""
-        If Not DetallesBodega.Exigir_Facturacion Then rgDespacho.EditValue = "B"
+        'If DetallesBodega.Exigir_Facturacion Then rgDespacho.EditValue = ""
+        'If Not DetallesBodega.Exigir_Facturacion Then rgDespacho.EditValue = "B"
 
-        ConfigDetalles = VB.SysContab.ConfiguracionDB.GetConfigDetails
+        rgDespacho.EditValue = "B"
+
+        ConfigDetalles = ConfiguracionDB.GetConfigDetails
         Dim Digitos As Integer = ConfigDetalles.FacturaDigitos
 
         LoadClients()
         GetMonedasList(cmbmoneda)
-        GetFormaPagoList(cmbformapago)
-        GetTipoCultivo(Me.cbCultivos)
-        cbCultivos.ItemIndex = 0
+        'GetFormaPagoList(cmbformapago)
+        LookUp(cmbformapago,
+               ObtieneDatos("sp_sel_FORMA_PAGOFacturacion", 0, EmpresaActual),
+               "Nombre",
+               "Codigo",
+               "[Forma de Pago]",
+               0, 2, 3, 4)
+
+        'GetTipoCultivo(Me.cbCultivos)
+        'cbCultivos.ItemIndex = 0
+
+        SearchLookUp(cbCultivos, ObtieneDatos("sp_sel_Cultivos", EmpresaActual, 1), "Nombre", "Codigo", 0)
+        RepositorySearchLook(rCultivo, ObtieneDatos("sp_sel_Cultivos", EmpresaActual, 1), "Nombre", "Codigo", 0)
+        cbCultivos.EditValue = "0"
+
         TipoServicio.EditValue = "A"
 
         Combo(cbTipoFactura, db_TipoFacturas.Listar(0))
@@ -3052,18 +3246,26 @@ Public Class FrmFacturacionClienteNew
         'For i As Integer = 2 To cmbvendedor.Properties.Columns.Count - 1
         '    cmbvendedor.Properties.Columns(i).Visible = False
         'Next
-
         'Buscar si hay tabla de configuracion de descuentos        
 
-        Caja = txtCaja.Text
-        'cmbclientes.Focus()
-        cbCliente.Focus()
+        'Cargar Catalogo CABYS para CR
+        _DT_CABYS = ObtieneDatos("sp_sel_CR_CABYS", EmpresaActual)
 
-        Try
-            'cmbclientes.EditValue = 1
-        Catch ex As Exception
-        End Try
-        ' IniciaContador(1000)
+        If DT_ROL.Rows.Count > 0 Then
+            'Verificar si el Usuario tiene permiso de Cambiar los IR a Facturas
+            Dim dr() As DataRow = DT_ROL.Select("Control = 'CambiarBodega'")
+            If dr.Length > 0 Then cbBodega.Properties.ReadOnly = False
+            '
+            'Verificar si tiene permiso a Cambiar el % de IVA
+            Dim dr2() As DataRow = DT_ROL.Select("Control = 'CambiarIva'")
+            If dr2.Length > 0 Then
+                vFact.Columns("IvaP").OptionsColumn.AllowEdit = True
+                vFact.Columns("IvaP").OptionsColumn.AllowFocus = True
+            End If
+        End If
+
+        Caja = txtCaja.Text
+        cbCliente.Focus()
     End Sub
 
     Private Sub IniciaContador(Intervalo As Integer)
@@ -3073,13 +3275,18 @@ Public Class FrmFacturacionClienteNew
     End Sub
 
     Private Sub CargaSeries()
-        LookUp(cmbserie, ObtieneDatos("sp_sel_SeriesCajas", PvCodigo, EmpresaActual), "Serie", "IdDetalle", "[Serie]", 0, 3, 4)
+        LookUp(
+            cmbserie,
+            ObtieneDatos("sp_sel_SeriesCajas", PvCodigo, EmpresaActual, "F"),
+            "Serie",
+            "IdDetalle",
+            "",
+            0, 3, 4)
 
         cmbserie.Properties.ShowHeader = True
         cmbserie.ItemIndex = 0
         '
         cbCliente.EditValue = cmbserie.GetColumnValue("Tipo")
-
 
         'cmbserie.Properties.DataSource = ObtieneDatos("Select IdDetalle,Serie,Factura,Tipo from SeriesCajas WHERE empresa = " & EmpresaActual & " AND Codigo = " & PvCodigo)
         'cmbserie.Properties.ValueMember = "IdDetalle"
@@ -3120,25 +3327,71 @@ Public Class FrmFacturacionClienteNew
         Variables.Add("Factura")
         Datos.Add(EmpresaActual)
         Datos.Add(Factura)
-
+        '
         DT_Facturas = ProcedureParameters(Datos, Variables, "SP_GetDetalleFactura")
         GridDetalle.DataSource = DT_Facturas
 
+        With vFact
+            For i As Integer = 0 To .Columns.Count - 1
+                .Columns(i).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                .Columns(i).AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+                .Columns(i).AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9, FontStyle.Bold)
+            Next
+        End With
+        '
         Me.txtPrecioC.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtPrecioC.Mask.EditMask = "n" + ConfigDetalles.Decimales.ToString
 
         Me.txtPrecioU.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtPrecioU.Mask.EditMask = "n" + ConfigDetalles.Decimales.ToString
 
-        vFact.Columns("Precio").Caption = "Precio " & VB.SysContab.MonedaDB.GetDetails(MonedaBase).Simbolo     'cmbmoneda.GetColumnValue("Simbolo").ToString
+        vFact.Columns("Precio").Caption = "Precio " & MonedaDB.GetDetails(MonedaBase).Simbolo     'cmbmoneda.GetColumnValue("Simbolo").ToString
 
-        'Campos que solo ocupa RAMAC
-        If EmpresaActual <> 1 Then
+        OcultarColumnasGrid()
+
+
+        ''Campos que solo ocupa RAMAC
+        'If Not EmpresaActual.Equals("1") Then
+        '    vFact.Columns("Promocion").Visible = False
+        '    vFact.Columns("Presentacion").Visible = False
+        '    vFact.Columns("Cantidad").Visible = False
+        '    vFact.Columns("Factor").Visible = False
+        '    vFact.Columns("rCabys").Visible = False
+        'Else
+        '    vFact.Columns("#").Visible = False
+        'End If
+        ''
+        'If Not EmpresaActual.Equals("20") Then
+        '    vFact.Columns("rCabys").Visible = False
+        'End If
+
+    End Sub
+
+    Sub OcultarColumnasGrid()
+
+        If Not EmpresaActual.Equals("20") Then
+
+            vFact.Columns("rCabys").Visible = False
+
+            If EmpresaActual.Equals("1") Then
+                vFact.Columns("#").Visible = False
+                lyEmpty.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Else
+                lyCultivo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+
+                vFact.Columns("#").Visible = False
+                vFact.Columns("Promocion").Visible = False
+                vFact.Columns("Presentacion").Visible = False
+                vFact.Columns("Cantidad").Visible = False
+                vFact.Columns("Factor").Visible = False
+            End If
+        Else    'CUANDO ES EQUIPSA TICA = 20
+            lyCultivo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+
+            vFact.Columns("Promocion").Visible = False
             vFact.Columns("Presentacion").Visible = False
             vFact.Columns("Cantidad").Visible = False
             vFact.Columns("Factor").Visible = False
-        Else
-            vFact.Columns("#").Visible = False
         End If
     End Sub
 
@@ -3176,7 +3429,7 @@ Public Class FrmFacturacionClienteNew
             cbProducto,
             DT,
             "Display",
-            "Codigo", 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
+            "Codigo", 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
 
         cbProducto.View.Columns("PrecioU").Caption = "Precio U$"
 
@@ -3239,7 +3492,8 @@ Public Class FrmFacturacionClienteNew
 
         If e.Column.FieldName = "Item" Then
             'Dim DR As DataRowView = ItemArticulo.GetDataSourceRowByKeyValue(e.Value)
-            Dim DR As DataRowView = Me.cbProducto.GetRowByKeyValue(e.Value)
+            Dim DR As DataRowView =
+                cbProducto.GetRowByKeyValue(e.Value)
 
             If Not DR Is Nothing Then
                 Temp = True
@@ -3252,21 +3506,41 @@ Public Class FrmFacturacionClienteNew
                 vFact.SetRowCellValue(e.RowHandle, "Tipo", DR.Item("Tipo"))
 
                 vFact.SetRowCellValue(e.RowHandle, "Existencia", IIf(DR.Item("Tipo") = "P",
-                                                                     ObtieneDatos("SET DATEFORMAT dmy; SELECT dbo.fn_CalcularExistenciaREAL('" & cbBodega.EditValue & "','" & e.Value & "'," & EmpresaActual & ") Existencia").Rows.Item(0)("Existencia"), 0))
+                                                                     ObtieneDatos("SET DATEFORMAT dmy; SELECT dbo.fn_CalcularExistenciaREAL('" & cbBodega.EditValue & "','" & e.Value & "'," & EmpresaActual & ") Existencia").
+                                                                     Rows.Item(0)("Existencia"), 0))
 
-                'vFact.SetRowCellValue(e.RowHandle, "Existencia", DR.Item("Existencias"))
                 vFact.SetRowCellValue(e.RowHandle, "Despacho", 0)
                 vFact.SetRowCellValue(e.RowHandle, "Cantidad", 0)
-                vFact.SetRowCellValue(e.RowHandle, "Promocion", 0)
+
+
+                If EmpresaActual.Equals("1") Then
+                    vFact.SetRowCellValue(e.RowHandle, "Promocion", IIf(DR.Item("Tipo") = "P", cbCultivos.EditValue, "0"))
+                Else
+                    vFact.SetRowCellValue(e.RowHandle, "Promocion", "0")
+                End If
+
                 vFact.SetRowCellValue(e.RowHandle, "Descuento", 0)
                 vFact.SetRowCellValue(e.RowHandle, "Cuenta", DR.Item("Cuenta"))
                 vFact.SetRowCellValue(e.RowHandle, "Exento", DR.Item("Exento"))
+                vFact.SetRowCellValue(e.RowHandle, "IvaP", DR.Item("IvaP"))
                 vFact.SetRowCellValue(e.RowHandle, "Factor", DR.Item("Factor"))
                 vFact.SetRowCellValue(e.RowHandle, "Margen", DR.Item("Margen"))
                 vFact.SetRowCellValue(e.RowHandle, "#", "")
+                vFact.SetRowCellValue(e.RowHandle, "rCabys", IIf(DR.Item("CABYS").ToString().Length = 0, "Cabys", DR.Item("CABYS")))
+                vFact.SetRowCellValue(e.RowHandle, "CABYS", DR.Item("CABYS"))
+                vFact.SetRowCellValue(e.RowHandle, "NoSerie", IIf(EmpresaActual.Equals("20"), DR.Item("SAC"), String.Empty))
                 vFact.SetRowCellValue(e.RowHandle, "Agrupar", "")
                 vFact.SetRowCellValue(e.RowHandle, "Visible", True)
-                vFact.SetRowCellValue(e.RowHandle, "IdProyecto", 0)
+
+                If DR.Item("IsProyecto") Then
+                    vFact.Columns("IdProyecto").Visible = True
+                    vFact.SetRowCellValue(
+                        e.RowHandle,
+                        "IdProyecto",
+                        DR.Item("IdProyecto"))
+                Else
+                    vFact.SetRowCellValue(e.RowHandle, "IdProyecto", 0)
+                End If
 
                 'Catch ex As Exception
                 '    XtraMsg(ex.Message, MessageBoxIcon.Error)
@@ -3284,16 +3558,16 @@ Public Class FrmFacturacionClienteNew
         End If
 
         '*** Actualizar el Valor de la Presentacion en la tabla de ARTICULOS
-        If e.Column.FieldName = "Presentacion" And Not Temp Then
-            Temp = True
-            Try
-                GuardaDatos("UPDATE ARTICULOS SET PRESENTACION = '" & e.Value & "'" _
-                            + " WHERE CODIGO_ARTICULO = '" & Me.vFact.GetRowCellValue(e.RowHandle, "Item") & "'" _
-                            + " AND TIPO = '" & Me.vFact.GetRowCellValue(e.RowHandle, "Tipo") & "'")
-            Catch ex As Exception
-            End Try
-            Temp = False
-        End If
+        'If e.Column.FieldName = "Presentacion" And Not Temp Then
+        '    Temp = True
+        '    Try
+        '        'GuardaDatos("UPDATE ARTICULOS SET PRESENTACION = '" & e.Value & "'" _
+        '        '            + " WHERE CODIGO_ARTICULO = '" & Me.vFact.GetRowCellValue(e.RowHandle, "Item") & "'" _
+        '        '            + " AND TIPO = '" & Me.vFact.GetRowCellValue(e.RowHandle, "Tipo") & "'")
+        '    Catch ex As Exception
+        '    End Try
+        '    Temp = False
+        'End If
 
         '*** Actualizar el Valor de la UNIDAD en la tabla de ARTICULOS
         'If e.Column.FieldName = "Unidad" And Not Temp Then
@@ -3392,7 +3666,8 @@ Public Class FrmFacturacionClienteNew
                                     .ShowDialog()
 
                                     If .Ok = "SI" Then
-                                        If .txtCodigo.Text = DT_DESCUENTO.Rows.Item(0)("Codigo_Finanza") Then
+                                        If .txtCodigo.Text = DT_DESCUENTO.Rows.Item(0)("Codigo_Gerente") Or
+                                            .txtCodigo.Text = DT_DESCUENTO.Rows.Item(0)("Codigo_Finanza") Then
                                             .Dispose()
                                             GoTo Continuar
                                         Else
@@ -3408,7 +3683,6 @@ Public Class FrmFacturacionClienteNew
                                     End If
                                     .Dispose()
                                 End With
-
                             Else
                                 With frmAprobarPedido
                                     .lyTitulo.Text = "Introduzca Código de Aprobación de Gerencia Comercial"
@@ -3481,7 +3755,8 @@ Continuar:
                         Else
 
                             'Dim DR_PROD As DataRowView = ItemArticulo.GetDataSourceRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
-                            Dim DR_PROD As DataRowView = Me.cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
+                            Dim DR_PROD As DataRowView =
+                                cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
 
                             Dim Descuento_VD As Double = 0,
                                 Descuento_VH As Double = 0,
@@ -3647,7 +3922,8 @@ fin1:
                         vFact.SetRowCellValue(e.RowHandle, "Precio", CDbl(e.Value * TCambio))
                     Else
                         'Dim DR_PROD As DataRowView = ItemArticulo.GetDataSourceRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
-                        Dim DR_PROD As DataRowView = Me.cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
+                        Dim DR_PROD As DataRowView =
+                            cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
 
                         Dim Descuento_VD As Double = 0,
                                Descuento_VH As Double = 0,
@@ -3809,18 +4085,38 @@ Fin2:
         '    End If
         'End If
 
+        'If e.Column.FieldName = "IvaP" And Not Temp Then
+        '    Temp = True
+
+        '    If e.Value > 0 Then
+        '        vFact.SetRowCellValue(e.RowHandle, "Exento", False)
+        '    End If
+
+        '    Temp = False
+        'End If
+
+
         If (e.Column.FieldName = "Precio" Or
             e.Column.FieldName = "PrecioU" Or
             e.Column.FieldName = "Cantidad" Or
             e.Column.FieldName = "Despacho" Or
+            e.Column.FieldName = "IvaP" Or
             e.Column.FieldName = "Descuento") And Not Temp Then
-            'e.Column.FieldName = "Exento" Or _
-            'e.Column.FieldName = "Promocion") 
 
-            vFact.SetRowCellValue(e.RowHandle, "Total", (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0)) * IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) - (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0) * IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) * IsNull(vFact.GetRowCellValue(e.RowHandle, "Descuento"), 0)))
+            Temp = True
+
+            vFact.SetRowCellValue(
+                e.RowHandle,
+                "Total",
+                (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0)) *
+                IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) -
+                (IsNull(vFact.GetRowCellValue(e.RowHandle, "Cantidad"), 0) *
+                IsNull(vFact.GetRowCellValue(e.RowHandle, "Precio"), 0) *
+                IsNull(vFact.GetRowCellValue(e.RowHandle, "Descuento"), 0)))
 
             'Dim DR As DataRowView = ItemArticulo.GetDataSourceRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
-            Dim DR As DataRowView = Me.cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
+            Dim DR As DataRowView =
+                cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(e.RowHandle, "Item"))
 
             'Dim Config As New VB.SysContab.ConfiguracionDB
             'Dim ConfigDetalles As New VB.SysContab.ConfiguracionDetails
@@ -3828,26 +4124,60 @@ Fin2:
             'If DR.Item("Exento") = False And cmbclientes.GetColumnValue("Exento") = False Then
 
             If Not DR Is Nothing Then
-                If CheckEdit2.Checked Then
-                    vFact.SetRowCellValue(e.RowHandle, "IVA", 0)
-                    vFact.SetRowCellValue(e.RowHandle, "Exento", False)
+                If chkExoneraIva.Checked Then
+                    vFact.SetRowCellValue(e.RowHandle, "IVA", 0.00)
+                    vFact.SetRowCellValue(e.RowHandle, "Exento", True)
+                    vFact.SetRowCellValue(e.RowHandle, "IvaP", 0)
                 Else
-                    vFact.SetRowCellValue(e.RowHandle, "Exento", IIf((ObtieneDatos("sp_sel_ProyectoCodigo", vFact.GetRowCellValue(e.RowHandle, "Item"), EmpresaActual).Rows.Item(0)("EsProyecto") = "SI" And IsNull(vFact.GetRowCellValue(e.RowHandle, "IdProyecto"), 0) <> 0 And vFact.GetRowCellValue(e.RowHandle, "Tipo") = "P"), False, DR.Item("Exento")))
+                    If (vFact.GetRowCellValue(e.RowHandle, "IvaP") > 0 And EmpresaActual.Equals("20")) Then
+                        vFact.SetRowCellValue(e.RowHandle, "Exento", False)
+                    Else
+                        vFact.SetRowCellValue(
+                        e.RowHandle,
+                        "Exento",
+                        IIf((ObtieneDatos("sp_sel_ProyectoCodigo", vFact.GetRowCellValue(e.RowHandle, "Item"), EmpresaActual).Rows.Item(0)("EsProyecto") = "SI" And IsNull(vFact.GetRowCellValue(e.RowHandle, "IdProyecto"), 0) <> 0 And vFact.GetRowCellValue(e.RowHandle, "Tipo") = "P"), False, DR.Item("Exento")))
+                    End If
+                    '
+                    If e.Column.FieldName = "IvaP" Then
+                        If e.Value = 0.00 Then
+                            vFact.SetRowCellValue(e.RowHandle, "Exento", True)
+                        Else
+                            vFact.SetRowCellValue(e.RowHandle, "Exento", False)
+                        End If
+                    End If
+
                     'vFact.SetRowCellValue(e.RowHandle, "Exento", IIf((IsNull(vFact.GetRowCellValue(e.RowHandle, "IdProyecto"), 0) <> 0 And vFact.GetRowCellValue(e.RowHandle, "Tipo") = "P"), False, DR.Item("Exento")))
                     ' If DR.Item("Exento") = False And cbCliente.Properties.View.GetRowCellValue(cbCliente.Properties.View.FocusedRowHandle, "Exento") = False Then 'Me.cmbclientes.GetColumnValue("Exento") = False Then
-                    If vFact.GetRowCellValue(e.RowHandle, "Exento") = False And cbCliente.Properties.View.GetRowCellValue(cbCliente.Properties.View.FocusedRowHandle, "Exento") = False Then 'Me.cmbclientes.GetColumnValue("Exento") = False Then
-                        vFact.SetRowCellValue(e.RowHandle, "IVA",
-                                              IsNull(vFact.GetRowCellValue(e.RowHandle, "Total") * (ConfigDetalles.IVA / 100.0), 0) +
-                                              IsNull((IsNull(vFact.GetRowCellValue(e.RowHandle, "Promocion"), 0) *
-                                              IsNull(vFact.GetRowCellValue(e.RowHandle, "Costo"), 0)) *
-                                              (ConfigDetalles.IVA / 100.0), 0))
+
+                    If vFact.GetRowCellValue(e.RowHandle, "Exento") = False And
+                        cbCliente.Properties.View.GetRowCellValue(cbCliente.Properties.View.FocusedRowHandle, "Exento") = False Then 'Me.cmbclientes.GetColumnValue("Exento") = False Then
+
+                        vFact.SetRowCellValue(
+                            e.RowHandle,
+                            "IVA",
+                            IsNull(vFact.GetRowCellValue(e.RowHandle, "Total"), 0.00) *
+                            (IsNull(vFact.GetRowCellValue(e.RowHandle, "IvaP"),
+                                    ConfigDetalles.IVA) / 100.0))
+
+                        'vFact.SetRowCellValue(e.RowHandle, "IvaP", (IsNull(vFact.GetRowCellValue(e.RowHandle, "IvaP"),
+                        '            ConfigDetalles.IVA) / 100.0))
+
+                        'vFact.SetRowCellValue(
+                        '    e.RowHandle, "IVA",
+                        '    IsNull(vFact.GetRowCellValue(e.RowHandle, "Total") * (ConfigDetalles.IVA / 100.0), 0) +
+                        '    IsNull((IsNull(vFact.GetRowCellValue(e.RowHandle, "Promocion"), 0) *
+                        '    IsNull(vFact.GetRowCellValue(e.RowHandle, "Costo"), 0)) *
+                        '    IsNull(vFact.GetRowCellValue(e.RowHandle, "IvaP"), (ConfigDetalles.IVA / 100.0)), 0.00))
+
                     Else
                         vFact.SetRowCellValue(e.RowHandle, "IVA", 0)
                     End If
                 End If
             End If
-        End If
 
+            Temp = False
+        End If
+        '
         'If (e.Column.FieldName = "Precio" Or e.Column.FieldName = "PrecioU" And Not TempThen Then
         'If Not Temp Then
         '    Select Case e.Column.FieldName
@@ -3868,28 +4198,40 @@ Fin2:
             cmdAceptar.Enabled = False
             cmdPagos.Enabled = True
 
-            Me.cmdAceptar.LookAndFeel.UseDefaultLookAndFeel = True
-            Me.cmdPagos.LookAndFeel.UseDefaultLookAndFeel = True
+            'Me.cmdAceptar.LookAndFeel.UseDefaultLookAndFeel = True
+            'Me.cmdPagos.LookAndFeel.UseDefaultLookAndFeel = True
 
             'cmbmoneda.EditValue = MonedaBase
+
+            cmdPagos.Appearance.BackColor = Color.Green
+            cmdAceptar.Appearance.BackColor = Color.Transparent
         Else
             cmdAceptar.Enabled = True
             cmdPagos.Enabled = False
-            Me.cmdAceptar.LookAndFeel.UseDefaultLookAndFeel = True
-            Me.cmdPagos.LookAndFeel.UseDefaultLookAndFeel = True
+
+            cmdPagos.Appearance.BackColor = Color.Transparent
+            cmdAceptar.Appearance.BackColor = Color.Green
+
+            'Me.cmdAceptar.LookAndFeel.UseDefaultLookAndFeel = True
+            'Me.cmdPagos.LookAndFeel.UseDefaultLookAndFeel = True
 
             'DetallesCliente = VB.SysContab.ClientesDB.GetDetails(cmbclientes.EditValue)
-            DetallesCliente = VB.SysContab.ClientesDB.GetDetails(cbCliente.EditValue)
+            DetallesCliente =
+                ClientesDB.GetDetails(cbCliente.EditValue)
 
             If DetallesCliente.Cod_Forma_Pago = "51" Then
                 cmbformapago.EditValue = CInt(IsNull(DetallesCliente.Cod_Forma_Pago, 0))
             End If
 
-            If EmpresaActual = 1 Then cmbmoneda.ItemIndex = 1
+            If EmpresaActual.Equals("1") Then cmbmoneda.ItemIndex = 1
         End If
-
+        '
         FechaPago.EditValue = fecha.DateTime.AddDays(cmbformapago.GetColumnValue("Dias"))
-        TipoFactura = Me.cmbformapago.EditValue
+        TipoFactura = cmbformapago.EditValue
+
+        If cmbformapago.GetColumnValue("Cuota") Then
+            XtraMsg("Al seleccionar Facturación en cuotas, al finalizar de grabar esta factura debe Guardar el calendario de pagos tambien.")
+        End If
     End Sub
 
     Private Sub vFact_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles vFact.KeyDown
@@ -3914,6 +4256,18 @@ Fin2:
     End Sub
 
     Private Sub GridView1_RowUpdated(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.RowObjectEventArgs) Handles vFact.RowUpdated
+        If ObtieneDatos("sp_sel_ValidacionCultivo", EmpresaActual).Rows.Item(0)("Validar") Then
+            If e.RowHandle < 0 Then
+                If cbCultivos.EditValue Is Nothing Or
+                    cbCultivos.EditValue = "0" Then
+                    XtraMsg("Por favor seleccione el Cultivo para esta factura", MessageBoxIcon.Warning)
+                    cbCultivos.Focus()
+                    vFact.DeleteSelectedRows()
+                    Exit Sub
+                End If
+            End If
+        End If
+        '
         CalcularTotales()
         ValidarNumero_Item()
     End Sub
@@ -3951,7 +4305,8 @@ Fin2:
             End If
 
             'Dim DR As DataRowView = ItemArticulo.GetDataSourceRowByKeyValue(vFact.GetRowCellValue(vFact.FocusedRowHandle, "Item"))
-            Dim DR As DataRowView = Me.cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(vFact.FocusedRowHandle, "Item"))
+            Dim DR As DataRowView =
+                cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(vFact.FocusedRowHandle, "Item"))
 
             With frmDetalleVentas_Lineas
                 .Text = "Detalle de ITEM: " & DR.Item("Nombre")
@@ -4352,7 +4707,7 @@ Fin2:
         '    End If
         'End If
 
-        If cmbformapago.EditValue = Nothing Then
+        If cmbformapago.EditValue Is Nothing Then
             XtraMsg("Seleccione el Tipo de Pago")
             cmbformapago.Focus()
             Return False
@@ -4369,6 +4724,36 @@ Fin2:
         '    Me.cbCultivos.Focus()
         '    Return False
         'End If
+
+        '********** SOLO PARA RAMAC, VALIDAR CULTIVO    ***********************
+        If ObtieneDatos("sp_sel_ValidacionCultivo", EmpresaActual).Rows.Item(0)("Validar") Then
+            Dim _dtProd As DataTable = DT_Facturas.Select("Tipo = 'P'").CopyToDataTable()   'Obtener los Productos del detalle
+
+            If _dtProd.Rows.Count > 0 Then
+                If _dtProd.Select("Promocion = '0' OR Promocion = ''").Length > 0 Then
+                    XtraMsg($"Existen {DT_Facturas.Select("Promocion = '0' OR Promocion = ''").Length.ToString} Productos en el detalle sin asignar el cultivo", MessageBoxIcon.Error)
+                    vFact.Focus()
+                    vFact.MoveFirst()
+                    Exit Function
+                End If
+                'Validar si hay valores NULOS
+                Dim Contador As Integer = 0
+
+                With _dtProd
+                    For i As Integer = 0 To .Rows.Count - 1
+                        If .Rows.Item(i)("Promocion") Is DBNull.Value Then
+                            Contador += 1
+                        End If
+                    Next
+                    If Contador > 0 Then
+                        XtraMsg($"Existen {Contador.ToString} Productos en el detalle sin asignar el cultivo", MessageBoxIcon.Error)
+                        vFact.Focus()
+                        vFact.MoveFirst()
+                        Exit Function
+                    End If
+                End With
+            End If
+        End If
 
         If DT_Facturas.Rows.Count - 1 < 0 Then
             XtraMsg("Seleccione al menos un Producto o Servicio", MessageBoxIcon.Error)
@@ -4390,6 +4775,14 @@ Fin2:
             Tipo = 2
         End If
 
+        'Validar si los productos tienen asignado el CABYS
+        If ObtieneDatos("sp_sel_ValidacionCABYS", EmpresaActual).Rows.Item(0)("Validar") Then
+            If DT_Facturas.Select("rCabys = 'Cabys'").Length > 0 Then
+                XtraMsg($"Existen {DT_Facturas.Select("rCabys = 'Cabys'").Length.ToString()} Productos que no tienen asignado el Código CABYS de Hacienda!", MessageBoxIcon.Error)
+                Return False
+            End If
+        End If
+        '
         'Validar si es factura de Remision
         If LoadRemision Then
             Dim obj As New Remisiones
@@ -4409,7 +4802,7 @@ Fin2:
 
         ' Return False
 
-        Return VB.SysContab.ClientesDB.GuardarFactura(cmbserie.Text & txtfactura.Text,
+        Return ClientesDB.GuardarFactura(cmbserie.Text & txtfactura.Text,
                 fecha.DateTime.Date,
                 cbCliente.EditValue,
                 txtruc.Text,
@@ -4623,14 +5016,26 @@ Fin2:
             End If
         End If
         ''
-        If EmpresaActual = 1 Then
-            If cbCultivos.EditValue = "99" Or cbCultivos.ItemIndex = 0 Then
+        'If EmpresaActual = 1 Then
+        '    If cbCultivos.EditValue = "99" Or cbCultivos.EditValue = "" Then
+        '        XtraMsg("Seleccione Tipo de Cultivo", MessageBoxIcon.Warning)
+        '        cbCultivos.Focus()
+        '        Exit Sub
+        '    End If
+        'End If
+        '
+        If ObtieneDatos("sp_sel_ValidacionCultivo", EmpresaActual).Rows.Item(0)("Validar") Then
+            If cbCultivos.EditValue Is Nothing Then cbCultivos.EditValue = "0"
+            '
+            If cbCultivos.EditValue = "99" Or
+                 cbCultivos.EditValue = "" Or
+                    cbCultivos.EditValue = "0" Then
                 XtraMsg("Seleccione Tipo de Cultivo", MessageBoxIcon.Warning)
                 cbCultivos.Focus()
                 Exit Sub
             End If
         End If
-        '
+
         If rgDespacho.EditValue = "" Or rgDespacho.EditValue = Nothing Then
             XtraMsg("Seleccione la Bodega de Despacho", MessageBoxIcon.Warning)
             rgDespacho.Focus()
@@ -4671,7 +5076,6 @@ Fin2:
             TotalGlobal = 0
             'If CDbl(CDbl(TotalGlobal).ToString(Round)) = CDbl(CDbl(lbltotal.Text).ToString(Round)) Then
             '    XtraMsg("La Factura es de Crédito, el monto a pagar no puede ser igual al total de la Factura.", MessageBoxIcon.Warning)
-
             '    Exit Sub
             'End If
             ''
@@ -4727,7 +5131,29 @@ Fin2:
             End If
         End If
         '
-        If fecha.DateTime.Date > VB.SysContab.Rutinas.Fecha().Date Then
+        '/*****************     VALIDAR SI CLIENTE ES DE LISTA NEGRA    ****************/
+        Dim dbListaNegra As New db_ClientesListNegra
+        Dim objListaNegra As ClientesListNegra =
+            dbListaNegra.DetallesBuscar(cbCliente.EditValue, EmpresaActual)
+
+        If Not objListaNegra Is Nothing Then
+            frmListaNegraValidar.Dispose()
+            '
+            With frmListaNegraValidar
+                .Text = $"Cliente: {cbCliente.Text}"
+                .IdCliente = cbCliente.EditValue
+                .ClienteN = cbCliente.Text
+                .Factura = $"{cmbserie.Text}{txtfactura.Text}"
+                .IdSucursal = cbBodega.GetColumnValue("SUCURSAL")
+                .TipoAprobacion = "Lista Negra"
+                .ShowDialog()
+                If Not .Ok Then
+                    Exit Sub
+                End If
+            End With
+        End If
+
+        If fecha.DateTime.Date > Rutinas.Fecha().Date Then
             If Not XtraMsg2("La Fecha de Facturación: " & fecha.DateTime.ToShortDateString & " es Mayor a la Fecha Actual: " & VB.SysContab.Rutinas.Fecha().Date.ToShortDateString & vbCrLf & "Confirmar Facturar de todos modos?") Then
                 Exit Sub
             End If
@@ -4744,16 +5170,27 @@ Fin2:
         If Not XtraMsg2("¿ ESTA SEGURO QUE LA INFORMACIÓN ES CORRECTA ?") Then
             Exit Sub
         End If
-
         ''
         '/************** inicializar los datatables, solo se usan en el caso de que sea pago de contado y que se pague a travez de CK o Tarjeta ************************************
         If DT_Cheques Is Nothing Then DT_Cheques = ObtieneDatos("SELECT Banco,NoCheque Cheque,Cuenta,Monto_Cheque Monto,Moneda FROM Cobros WHERE 0 = 1")
         If DT_Tarjetas Is Nothing Then DT_Tarjetas = ObtieneDatos("SELECT Tipo_Tarjeta Tipo,Emisor,No_Tarjeta Tarjeta,Autorizacion,Monto_Tarjeta Monto FROM Cobros WHERE 0 = 1")
         '****************************************************************************************************************************************************************************/
-
-
         Try
             If Not Guardar(False) Then Exit Sub
+
+            If cmbformapago.EditValue = 0 Then
+                With New frmFacturasCuotasAdd
+                    .Id = 0
+                    .IdCliente = cbCliente.EditValue
+                    .Factura = cmbserie.Text & txtfactura.Text
+                    .Moneda = cmbmoneda.EditValue
+                    .Monto = IIf(MonedaBase = cmbmoneda.EditValue, lbltotal.EditValue, lbltotalU.EditValue)
+                    .Text = $"Factura {cmbserie.Text & txtfactura.Text} en Cuota"
+                    .FromFactur = True
+                    .ShowDialog()
+                    .Dispose()
+                End With
+            End If
 
             If XtraMsg2("¿ IMPRIMIR FACTURA ?") Then
                 'If cbTipoFactura.EditValue Is Nothing Then ImprimirFactura()
@@ -4767,7 +5204,7 @@ Fin2:
                                                                                                   cbTipoFactura.EditValue, False)
 
             End If
-
+            '
             Nuevo()
         Catch ex As Exception
             XtraMsg(ex.Message, MessageBoxIcon.Error)
@@ -4838,17 +5275,35 @@ Fin2:
 
 
             If _dt.Rows.Count > 0 Then
-                frmFacturasVentasVencidas.Dispose()
+                'frmFacturasVentasVencidas.Dispose()
                 '
                 With frmFacturasVentasVencidas
                     .Text = "Facturas Vencidas del Cliente: " & cbCliente.Text
                     .Origen = 1
+                    .IdCliente = cbCliente.EditValue
                     .DT = _dt
                     .ShowDialog()
                     result = .Ok
 
-                    If result Then BitacoraVencidas = .mRazon.Text
-                    If Not result Then BitacoraVencidas = ""
+                    If result Then
+                        '/****************  GUARDAR BITACORA DE FACTURAS VENCIDAS   ******************/
+                        'BitacoraVencidas = .mRazon.Text
+                        Dim obj As New BitacoraFacturasVencidas
+                        Dim db As New db_BitacoraFacturasVencidas
+
+                        obj.IdCliente = cbCliente.EditValue
+                        obj.Empresa = EmpresaActual
+                        obj.Descripcion = .mRazon.Text
+                        obj.Facturas = .Facturas
+                        obj.Moneda = cmbmoneda.EditValue
+                        obj.Saldo = .Saldo
+
+                        db.Insertar(obj)
+                        '/**************************************************************************/
+                    End If
+
+                    'If Not result Then BitacoraVencidas = ""
+                    .Dispose()
                 End With
             End If
 
@@ -5128,22 +5583,30 @@ Fin2:
         cbTipoFactura.ItemIndex = 0
 
         LoadClients()
+
+
+        chkProyecto.Checked = False : chkVisible.Checked = False : chkAgrupar.Checked = False
+        cbCultivos.EditValue = "0"
+
+        OcultarColumnasGrid()
+
         cbCliente.Focus()
+        cbCliente.SelectAll()
 
-        vFact.Columns("Visible").Visible = False
-        vFact.Columns("Agrupar").Visible = False
-        vFact.Columns("IdProyecto").Visible = False
-        vFact.Columns("Presentacion").Caption = "Presentación"
+        'vFact.Columns("Visible").Visible = False
+        'vFact.Columns("Agrupar").Visible = False
+        'vFact.Columns("IdProyecto").Visible = False
+        'vFact.Columns("Presentacion").Caption = "Presentación"
 
 
-        If EmpresaActual <> 1 Then
-            vFact.Columns("Presentacion").Visible = False
-            vFact.Columns("Cantidad").Visible = False
-            vFact.Columns("Factor").Visible = False
-            vFact.Columns("#").Visible = True
-        Else
-            vFact.Columns("#").Visible = False
-        End If
+        'If EmpresaActual <> 1 Then
+        '    vFact.Columns("Presentacion").Visible = False
+        '    vFact.Columns("Cantidad").Visible = False
+        '    vFact.Columns("Factor").Visible = False
+        '    vFact.Columns("#").Visible = True
+        'Else
+        '    vFact.Columns("#").Visible = False
+        'End If
 
         'Try
         '    If Me.cmbformapago.GetColumnValue("Dias") > 0 Then
@@ -5236,7 +5699,6 @@ Fin2:
 
         'Para las Equipsas
 
-
         Try
             Clientes.DeleteReciboCheques(cmbserie.Text & txtfactura.Text, IsNull(Caja, 0))
             Clientes.DeleteReciboTarjetas(cmbserie.Text & txtfactura.Text, IsNull(Caja, 0))
@@ -5280,8 +5742,13 @@ Fin2:
             Exit Sub
         End If
         ''
-        If strOrdenPago = "Orden de Pago" And EmpresaActual = 1 Then
-            If cbCultivos.EditValue = "99" Or cbCultivos.ItemIndex = 0 Then
+        'If strOrdenPago = "Orden de Pago" And EmpresaActual = 1 Then
+        If ObtieneDatos("sp_sel_ValidacionCultivo", EmpresaActual).Rows.Item(0)("Validar") Then
+            If cbCultivos.EditValue Is Nothing Then cbCultivos.EditValue = "0"
+            '
+            If cbCultivos.EditValue = "99" Or
+                 cbCultivos.EditValue = "" Or
+                    cbCultivos.EditValue = "0" Then
                 XtraMsg("Seleccione Tipo de Cultivo", MessageBoxIcon.Warning)
                 cbCultivos.Focus()
                 Exit Sub
@@ -5458,7 +5925,9 @@ Fin2:
         ObtieneDatos("UPDATE Articulos SET Exento = " & IIf(MnExento.Text = "Exento", 1, 0) & "WHERE Empresa = " & EmpresaActual & " AND Codigo_Articulo = '" & vFact.GetRowCellValue(vFact.FocusedRowHandle, "Item") & "' AND Tipo = '" & TipoServicio.EditValue & "'")
         GetArticulos()
         'Dim DR As DataRowView = ItemArticulo.GetDataSourceRowByKeyValue(vFact.GetRowCellValue(vFact.FocusedRowHandle, "Item"))
-        Dim DR As DataRowView = Me.cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(vFact.FocusedRowHandle, "Item"))
+        Dim DR As DataRowView =
+            cbProducto.GetRowByKeyValue(vFact.GetRowCellValue(vFact.FocusedRowHandle, "Item"))
+
         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", DR.Item("Exento"))
     End Sub
 
@@ -5490,21 +5959,17 @@ Fin2:
             3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
     End Sub
 
-    Private Sub cbCultivos_ButtonClick(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles cbCultivos.ButtonClick
-        If e.Button.Index = 1 Then
-            With My.Forms.frmTipoCultivo
-                .ShowDialog()
-                If .ok = "SI" Then
-                    GetTipoCultivo(Me.cbCultivos)
-                End If
-                .Dispose()
-            End With
-        End If
-    End Sub
-
-    Private Sub cbCultivos_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbCultivos.EditValueChanged
-
-    End Sub
+    'Private Sub cbCultivos_ButtonClick(ByVal sender As Object, ByVal e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs)
+    '    'If e.Button.Index = 1 Then
+    '    '    With My.Forms.frmTipoCultivo
+    '    '        .ShowDialog()
+    '    '        If .ok = "SI" Then
+    '    '            GetTipoCultivo(Me.cbCultivos)
+    '    '        End If
+    '    '        .Dispose()
+    '    '    End With
+    '    'End If
+    'End Sub
 
     Private Sub fecha_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles fecha.EditValueChanged
         Try
@@ -5625,8 +6090,8 @@ Fin2:
     Sub MostrarDatosCliente()
 
         Try
-            BitacoraVencidas = ""
-            DetallesCliente = VB.SysContab.ClientesDB.GetDetails(cbCliente.EditValue)
+            'BitacoraVencidas = ""
+            DetallesCliente = ClientesDB.GetDetails(cbCliente.EditValue)
 
             cmbformapago.EditValue = CInt(DetallesCliente.Cod_Forma_Pago)         'Me.cmbclientes.GetColumnValue("FormaPago")
             cmbvendedor.EditValue = CInt(DetallesCliente.Vendedor)               'Me.cmbclientes.GetColumnValue("Vendedor")
@@ -5785,12 +6250,12 @@ Fin2:
         End If
     End Sub
 
-    Private Sub CheckEdit2_Click(sender As Object, e As EventArgs) Handles CheckEdit2.Click
+    Private Sub CheckEdit2_Click(sender As Object, e As EventArgs) Handles chkExoneraIva.Click
 
     End Sub
 
-    Private Sub CheckEdit2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit2.CheckedChanged
-        If CheckEdit2.Checked Then
+    Private Sub CheckEdit2_CheckedChanged(sender As Object, e As EventArgs) Handles chkExoneraIva.CheckedChanged
+        If chkExoneraIva.Checked Then
             With frmExoneraIVA
                 .IdCliente = cbCliente.EditValue
                 .IdExonera = 0
@@ -5798,7 +6263,7 @@ Fin2:
                 .txtFactura.Text = cmbserie.Text & txtfactura.Text
                 .ShowDialog()
 
-                If .Ok = "NO" Then CheckEdit2.Checked = False
+                If .Ok = "NO" Then chkExoneraIva.Checked = False
                 .Dispose()
             End With
         Else
@@ -5895,9 +6360,18 @@ Fin2:
         ShowSplash("Actualizando Catalogos...")
 
         LoadClients()
-        GetFormaPagoList(cmbformapago)
+        'GetFormaPagoList(cmbformapago)
+        LookUp(cmbformapago,
+               ObtieneDatos("sp_sel_FORMA_PAGOFacturacion", 0, EmpresaActual),
+               "Nombre",
+               "Codigo",
+               "[Forma de Pago]",
+               0, 2, 3, 4)
 
-        GetTipoCultivo(cbCultivos)
+        'GetTipoCultivo(cbCultivos)
+        SearchLookUp(cbCultivos, ObtieneDatos("sp_sel_Cultivos", EmpresaActual, 1), "Nombre", "Codigo", 0)
+        RepositorySearchLook(rCultivo, ObtieneDatos("sp_sel_Cultivos", EmpresaActual, 1), "Nombre", "Codigo", 0)
+        cbCultivos.EditValue = "0"
 
         'LookUp(cbProyecto, db_Proyectos.Fill(), "Nombre", "IdProyecto", "[Seleccione]", 0, 1, 4, 5, 6, 7, 8)
 
@@ -6009,6 +6483,7 @@ Fin2:
     End Sub
 
     Sub VerOrdenesTrabajo()
+
         If cbCliente.EditValue Is Nothing Then
             XtraMsg("Seleccione el Cliente")
             Exit Sub
@@ -6057,6 +6532,12 @@ Fin2:
                 With DT_OT
                     Temp = True
                     For i As Integer = 0 To .Rows.Count - 1
+
+                        Dim DetalleProducto As ArticulosDetails =
+                                    ArticulosDB.GetDetails(
+                                    .Rows(i).Item("Producto"),
+                                    .Rows(i).Item("Tipo"))
+
                         vFact.AddNewRow()
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Item", .Rows(i).Item("Producto"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Comentario", .Rows(i).Item("Descripcion"))
@@ -6065,8 +6546,12 @@ Fin2:
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Cantidad", .Rows(i).Item("Cantidad"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Precio", .Rows(i).Item("Precio"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Descuento", 0.0)
-                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", .Rows(i).Item("Exento"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Costo", .Rows(i).Item("Costo"))
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", DetalleProducto.Exento)
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", DetalleProducto.Impuesto)
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "rCabys", IIf(DetalleProducto.Cabys.Length = 0, "Cabys", DetalleProducto.Cabys))
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", DetalleProducto.Cabys)
+
                     Next
                     vFact.MoveFirst()
                     vFact.UpdateTotalSummary()
@@ -6183,6 +6668,7 @@ Fin2:
                 '
                 If Not .DT_REQ Is Nothing Then
                     Try
+                        .DT_REQ.AcceptChanges()
                         DT_REQ = .DT_REQ.Select("Facturar = 1").CopyToDataTable
                     Catch ex As Exception
                         DT_REQ = Nothing
@@ -6196,13 +6682,19 @@ Fin2:
                 '
                 If Not DT_COSTO Is Nothing Then
                     With DT_COSTO
+
                         vFact.Columns("Visible").Visible = True
                         vFact.Columns("Agrupar").Visible = True
                         vFact.Columns("IdProyecto").Visible = True
                         vFact.Columns("#").Visible = False
                         '
                         Temp = True
+
                         For i As Integer = 0 To .Rows.Count - 1
+
+                            Dim DetalleProducto As ArticulosDetails =
+                                    ArticulosDB.GetDetails(.Rows(i).Item("Codigo"), "P")
+                            '
                             vFact.AddNewRow()
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Item", .Rows(i).Item("Codigo"))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Despacho", 1.0)
@@ -6215,10 +6707,17 @@ Fin2:
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Costo", IIf(Math.Round(CDbl(.Rows(i).Item("CostoO")), 2) <> Math.Round(CDbl(.Rows(i).Item("Costo")), 2), .Rows(i).Item("Costo"), 0.00))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdProyecto", .Rows(i).Item("IdProyecto"))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdDetalle", 0)
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", IIf(DetalleProducto.Impuesto = 0.00, ConfigDetalles.IVA, DetalleProducto.Impuesto))
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "rCabys", IIf(DetalleProducto.Cabys.Length = 0, "Cabys", DetalleProducto.Cabys))
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", DetalleProducto.Cabys)
                         Next
                         'Varificar si hay Mano de Obra
                         For i As Integer = 0 To .Rows.Count - 1
                             If .Rows(i).Item("Mono de Obra") <> "" Then
+
+                                Dim DetalleServicio As ArticulosDetails =
+                                    ArticulosDB.GetDetails(.Rows(i).Item("Mono de Obra"), "S")
+
                                 vFact.AddNewRow()
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Item", .Rows(i).Item("Mono de Obra"))
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Despacho", 1.0)
@@ -6226,13 +6725,21 @@ Fin2:
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Descuento", 0.0)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Agrupar", "")
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Visible", True)
-                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", VB.SysContab.ArticulosDB.GetDetails(.Rows(i).Item("Mono de Obra"), "S").Exento)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Costo", 0.0)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdProyecto", .Rows(i).Item("IdProyecto"))
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdDetalle", 0)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", DetalleServicio.Exento)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", DetalleServicio.Impuesto)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "rCabys", IIf(DetalleServicio.Cabys.Length = 0, "Cabys", DetalleServicio.Cabys))
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", DetalleServicio.Cabys)
+
                             End If
                             '
                             If .Rows(i).Item("Flete") <> "" Then
+
+                                Dim DetalleServicio As ArticulosDetails =
+                                    ArticulosDB.GetDetails(.Rows(i).Item("Flete"), "S")
+
                                 vFact.AddNewRow()
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Item", .Rows(i).Item("Flete"))
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Despacho", 1.0)
@@ -6240,13 +6747,21 @@ Fin2:
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Descuento", 0.0)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Agrupar", "")
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Visible", True)
-                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", VB.SysContab.ArticulosDB.GetDetails(.Rows(i).Item("Flete"), "S").Exento)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Costo", 0.0)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdProyecto", .Rows(i).Item("IdProyecto"))
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdDetalle", 0)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", DetalleServicio.Exento)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", DetalleServicio.Impuesto)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "rCabys", IIf(DetalleServicio.Cabys.Length = 0, "Cabys", DetalleServicio.Cabys))
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", DetalleServicio.Cabys)
+
                             End If
                             '
                             If .Rows(i).Item("Varios") <> "" Then
+
+                                Dim DetalleServicio As ArticulosDetails =
+                                    ArticulosDB.GetDetails(.Rows(i).Item("Varios"), "S")
+
                                 vFact.AddNewRow()
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Item", .Rows(i).Item("Varios"))
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Despacho", 1.0)
@@ -6254,14 +6769,19 @@ Fin2:
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Descuento", 0.0)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Agrupar", "")
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Visible", True)
-                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", VB.SysContab.ArticulosDB.GetDetails(.Rows(i).Item("Varios"), "S").Exento)
+
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "Costo", 0.0)
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdProyecto", .Rows(i).Item("IdProyecto"))
                                 vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdDetalle", 0)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", DetalleServicio.Exento)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", DetalleServicio.Impuesto)
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "rCabys", IIf(DetalleServicio.Cabys.Length = 0, "Cabys", DetalleServicio.Cabys))
+                                vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", DetalleServicio.Cabys)
+
                             End If
                         Next
-
-                        vFact.MoveFirst()
+                        '                        
+                        vFact.MoveNext()
                         vFact.UpdateTotalSummary()
                         Temp = False
                     End With
@@ -6275,9 +6795,12 @@ Fin2:
                         vFact.Columns("#").Visible = False
                         '
                         Temp = True
+
                         For i As Integer = 0 To .Rows.Count - 1
 
-                            '
+                            Dim DetalleProducto As ArticulosDetails =
+                                    ArticulosDB.GetDetails(.Rows(i).Item("Codigo"), "P")
+
                             vFact.AddNewRow()
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Item", .Rows(i).Item("Codigo"))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Despacho", .Rows(i).Item("Cantidad"))
@@ -6285,12 +6808,17 @@ Fin2:
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Descuento", 0.0)
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Agrupar", .Rows(i).Item("Agrupar"))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Visible", .Rows(i).Item("Visible"))
-                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", .Rows(i).Item("Exento"))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "Costo", .Rows(i).Item("Unitario"))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdProyecto", .Rows(i).Item("IdProyecto"))
                             vFact.SetRowCellValue(vFact.FocusedRowHandle, "IdDetalle", .Rows(i).Item("IdDetalle"))
+                            If EmpresaActual.Equals("1") Then vFact.SetRowCellValue(vFact.FocusedRowHandle, "Presentacion", DetalleProducto.Presentacion)
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", DetalleProducto.Exento)
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", DetalleProducto.Impuesto)
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "rCabys", IIf(DetalleProducto.Cabys.Length = 0, "Cabys", DetalleProducto.Cabys))
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", DetalleProducto.Cabys)
                         Next
-                        vFact.MoveFirst()
+
+                        vFact.MoveNext()
                         vFact.UpdateTotalSummary()
                         Temp = False
                     End With
@@ -6298,6 +6826,8 @@ Fin2:
                 HideSplash()
             End If
             .Dispose()
+            '
+            'GridDetalle.DataSource = DT_Facturas
         End With
     End Sub
 
@@ -6319,6 +6849,7 @@ Fin2:
         End If
         '
         With frmRemisionesClientesFacturar
+
             .IdCliente = cbCliente.EditValue
             .DT_ROL = DT_ROL
             .ShowDialog()
@@ -6339,7 +6870,8 @@ Fin2:
                 'txtremision.Text = db_Remisiones.Detalles(IdRemision).NoRemision
                 'txtNoEntrega.Text = db_Remisiones.Detalles(IdRemision).Referencia
 
-                Dim DT_REM As DataTable = db_RemisionesDetalle.Facturar(IdRemision)
+                Dim DT_REM As DataTable =
+                    db_RemisionesDetalle.Facturar(IdRemision)
 
                 With DT_REM
                     Temp = True
@@ -6352,17 +6884,29 @@ Fin2:
                     End If
 
                     For i As Integer = 0 To .Rows.Count - 1
+
+                        Dim DetalleProducto As ArticulosDetails =
+                                    ArticulosDB.GetDetails(.Rows(i).Item("Producto"), "P")
+
                         vFact.AddNewRow()
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Item", .Rows(i).Item("Producto"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Despacho", .Rows(i).Item("Despacho"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Cantidad", .Rows(i).Item("Cantidad"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Precio", .Rows(i).Item("Precio"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Descuento", 0.0)
-                        If EmpresaActual <> 1 Then vFact.SetRowCellValue(vFact.FocusedRowHandle, "Presentacion", .Rows(i).Item("NoRemision"))
-                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", .Rows(i).Item("Exento"))
+                        If Not EmpresaActual.Equals("1") Then
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "Presentacion", .Rows(i).Item("NoRemision"))
+                        Else
+                            vFact.SetRowCellValue(vFact.FocusedRowHandle, "Presentacion", DetalleProducto.Presentacion)
+                        End If
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Costo", .Rows(i).Item("Costo"))
                         vFact.SetRowCellValue(vFact.FocusedRowHandle, "Agrupar", .Rows(i).Item("Agrupar"))
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "Exento", DetalleProducto.Impuesto)
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", DetalleProducto.Impuesto)
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "rCabys", IIf(DetalleProducto.Cabys.Length = 0, "Cabys", DetalleProducto.Cabys))
+                        vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", DetalleProducto.Cabys)
                     Next
+
                     vFact.MoveFirst()
                     vFact.UpdateTotalSummary()
                     Temp = False
@@ -6392,7 +6936,7 @@ Fin2:
             Exit Sub
         End If
 
-        If cmbformapago.EditValue = Nothing Then
+        If cmbformapago.EditValue Is Nothing Then
             XtraMsg("Seleccione el Tipo de Pago")
             cmbformapago.Focus()
             Exit Sub
@@ -6503,14 +7047,80 @@ Fin2:
     '    RecVuelto = 0
     'End Sub
 
-    Private Sub CheckEdit3_CheckedChanged(sender As Object, e As EventArgs) Handles chkAgrupar.CheckedChanged
+    Private Sub CheckEdit3_CheckedChanged(sender As Object, e As EventArgs) Handles chkAgrupar.CheckedChanged, chkVisible.CheckedChanged, chkProyecto.CheckedChanged
         vFact.Columns("Agrupar").Visible = chkAgrupar.Checked
         vFact.Columns("#").Visible = Not chkAgrupar.Checked
+        vFact.Columns("IdProyecto").Visible = chkProyecto.Checked
     End Sub
 
-    Private Sub chkVisible_CheckedChanged(sender As Object, e As EventArgs) Handles chkVisible.CheckedChanged
-        vFact.Columns("Visible").Visible = chkVisible.Checked
-        vFact.Columns("#").Visible = Not chkVisible.Checked
+    'Private Sub chkVisible_CheckedChanged(sender As Object, e As EventArgs) Handles chkVisible.CheckedChanged
+    '    vFact.Columns("Visible").Visible = chkVisible.Checked
+    '    vFact.Columns("#").Visible = Not chkVisible.Checked
+    '    vFact.Columns("IdProyecto").Visible = chkProyecto.Checked
+    'End Sub
+
+    'Private Sub chkProyecto_CheckedChanged(sender As Object, e As EventArgs) Handles chkProyecto.CheckedChanged
+    '    vFact.Columns("Visible").Visible = chkVisible.Checked
+    '    vFact.Columns("#").Visible = Not chkVisible.Checked
+    '    vFact.Columns("IdProyecto").Visible = chkProyecto.Checked
+    'End Sub
+
+    'Private Sub rCabys_Click(sender As Object, e As EventArgs) Handles rCabys.Click
+    '    If vFact.FocusedRowHandle < 0 Then Exit Sub
+
+    '    With New frmCatalogoCABYS
+    '        .Main()
+
+    '        If .ok Then
+    '            rCabys.Caption = .Codigo
+
+    '            vFact.SetRowCellValue(vFact.FocusedRowHandle, "CABYS", .Codigo)
+    '            vFact.SetRowCellValue(vFact.FocusedRowHandle, "IvaP", .Impuesto)
+
+    '        End If
+    '    End With
+    'End Sub
+
+    Private Sub vFact_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles vFact.RowCellClick
+        If e.Column.FieldName = "rCabys" Then
+
+            If Not vFact.GetRowCellValue(e.RowHandle, "rCabys") Is Nothing Then
+
+                With frmCatalogoCABYS
+                    .Main(_DT_CABYS)
+
+                    If .ok Then
+                        'rCabys.Caption = .Codigo
+                        vFact.SetRowCellValue(e.RowHandle, "rCabys", .Codigo)
+                        vFact.SetRowCellValue(e.RowHandle, "CABYS", .Codigo)
+                        vFact.SetRowCellValue(e.RowHandle, "IvaP", .Impuesto)
+                        vFact.SetRowCellValue(e.RowHandle, "Exento", IIf(.Impuesto = 0, True, False))
+                    End If
+                End With
+
+            End If
+
+        End If
+
+    End Sub
+
+    Private Sub cbCultivos_EditValueChanged_1(sender As Object, e As EventArgs) Handles cbCultivos.EditValueChanged
+
+    End Sub
+
+    Private Sub cbCultivos_ButtonClick(sender As Object, e As ButtonPressedEventArgs) Handles cbCultivos.ButtonClick
+        If e.Button.Index = 1 Then
+            With New frmTipoCultivo
+                .Text = "Agregar Cultivo"
+                .ShowDialog()
+                If .ok = "SI" Then
+                    'GetTipoCultivo(Me.cbCultivos)
+                    SearchLookUp(cbCultivos, ObtieneDatos("sp_sel_Cultivos", EmpresaActual, 1), "Nombre", "Codigo", 0)
+                    RepositorySearchLook(rCultivo, ObtieneDatos("sp_sel_Cultivos", EmpresaActual, 1), "Nombre", "Codigo", 0)
+                End If
+                .Dispose()
+            End With
+        End If
     End Sub
 
 

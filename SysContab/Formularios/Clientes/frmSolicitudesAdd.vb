@@ -117,6 +117,7 @@
             'Borrar Contenido de la Carpeta que contiene los archivos a Adjuntar
             Try
                 Dim files As String() = System.IO.Directory.GetFiles(Ruta)
+
                 For Each file As String In files
                     Kill(file)
                 Next

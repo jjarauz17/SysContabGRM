@@ -486,7 +486,6 @@ Namespace VB.SysContab
             cmd.Transaction = transaccionFacturas
             cmd.ExecuteNonQuery()
 
-
         End Function
 
         Public Shared Function BorrarDetalleComprobante(Comp_No As Integer, Per_Id As Integer, Mes As Integer)
@@ -1781,7 +1780,7 @@ Namespace VB.SysContab
 
         End Function
 
-        Public Shared Function ComprobanteDetalleDelete(ByVal Numero As String, ByVal PerID As String, ByVal Fecha As String)
+        Public Shared Sub ComprobanteDetalleDelete(ByVal Numero As Integer, ByVal PerID As Integer, ByVal Fecha As Date)
 
             ' Create Instance of Connection and Command Object
             Dim conexion As New VB.SysContab.Rutinas
@@ -1815,8 +1814,9 @@ Namespace VB.SysContab
             cmd.Connection = DBConnFacturas
             cmd.Transaction = transaccionFacturas
             cmd.ExecuteNonQuery()
+
             'Return NoComp
-        End Function
+        End Sub
 
         Public Shared Function ComprobanteUpdate(ByVal Numero As String, ByVal TipoComp As Integer, _
                              ByVal TasaCambio As Double, ByVal concepto As String, _
@@ -1868,9 +1868,11 @@ Namespace VB.SysContab
             _Deposito.Value = Deposito
             cmd.Parameters.Add(_Deposito)
 
-            Dim _CompConcepto As New SqlParameter("@CompConcepto", SqlDbType.NVarChar, 1500)
-            _CompConcepto.Value = concepto
-            cmd.Parameters.Add(_CompConcepto)
+            'Dim _CompConcepto As New SqlParameter("@CompConcepto", SqlDbType.NVarChar, 1500)
+            '_CompConcepto.Value = concepto
+            'cmd.Parameters.Add(_CompConcepto)
+
+            cmd.Parameters.AddWithValue("@CompConcepto", concepto)
 
             Dim _Transferencia As New SqlParameter("@Transferencia", SqlDbType.Bit)
             _Transferencia.Value = Transferencia
@@ -1884,9 +1886,11 @@ Namespace VB.SysContab
             _Ruc.Value = Ruc
             cmd.Parameters.Add(_Ruc)
 
-            Dim _ChequeNombre As New SqlParameter("@ChequeNombre", SqlDbType.NVarChar, 100)
-            _ChequeNombre.Value = ChequeNombre
-            cmd.Parameters.Add(_ChequeNombre)
+            'Dim _ChequeNombre As New SqlParameter("@ChequeNombre", SqlDbType.NVarChar, 100)
+            '_ChequeNombre.Value = ChequeNombre
+            'cmd.Parameters.Add(_ChequeNombre)
+
+            cmd.Parameters.AddWithValue("@ChequeNombre", ChequeNombre)
 
             Dim _Pagara As New SqlParameter("@Pagara", SqlDbType.NVarChar)
             _Pagara.Value = Pagara
@@ -2072,7 +2076,10 @@ Namespace VB.SysContab
         '    'ContabilizarFactura(FacturaNo)
         'End Function
 
-        Public Shared Function GeneraComprobanteRecibo(ByVal CuentaCaja As String, ByVal MontoCaja As String, ByVal ConceptoCaja As String,
+        Public Property Comp_No As String = 0
+        Public Property Per_Id As String = 0
+
+        Public Function GeneraComprobanteRecibo(ByVal CuentaCaja As String, ByVal MontoCaja As String, ByVal ConceptoCaja As String,
                         ByVal CuentaIR As String, ByVal MontoIR As String, ByVal ConceptoIR As String,
                         ByVal CuentaCliente As String, ByVal MontoCliente As String, ByVal ConceptoCliente As String,
                         ByVal TipoComp As Integer, ByVal TasaCambio As Double, ByVal tMoneda As String, ByVal Concepto As String,
@@ -2083,13 +2090,13 @@ Namespace VB.SysContab
 
 
             Dim CompNo As Integer = 0
-            Dim Per_Id As Integer = PeriodosDB.Activo(Fecha)
+            Dim PerID As Integer = PeriodosDB.Activo(Fecha)
 
             'Dim Catalogo As New CatalogoDB
             'Dim conexion As New VB.SysContab.Rutinas
 
             Try
-                CompNo = AddComprobante(TipoComp, TasaCambio, Concepto, tMoneda, Per_Id, Fecha, 0, "",
+                CompNo = AddComprobante(TipoComp, TasaCambio, Concepto, tMoneda, PerID, Fecha, 0, "",
                                         False, 0, "", 0, "", VB.SysContab.Rutinas.Fecha, 0, OrigenComprobantes.RECIBO)
                 '
                 AddComprobanteDetalles(CompNo, CuentaCaja, ConceptoCaja, MontoCaja + MontoMtto, 0, TipoComProbante, "D", Factura, Recibo, Fecha, 1)
@@ -2112,14 +2119,16 @@ Namespace VB.SysContab
                 Guardar_Con_Transaccion("sp_upd_COBROS_Contabilizar",
                                         Recibo,
                                         CompNo,
-                                        Per_Id,
+                                        PerID,
                                         CDate(Fecha).Month,
                                         EmpresaActual,
                                         Serie)
 
+                Comp_No = CompNo
+                Per_Id = PerID
+
                 Return True
             Catch Mensaje As Exception
-
                 XtraMsg(Mensaje.Message, MessageBoxIcon.Error)
                 Return False
             End Try
@@ -4928,6 +4937,23 @@ Namespace VB.SysContab
             cmd.ExecuteNonQuery()
         End Sub
 
+
+        Public Shared Sub ComprobanteDiferenciaDevolucion(CompNo As Integer, PerID As Integer, Mes As Integer, Cuenta As String)
+
+            Dim cmd As New SqlCommand("sp_udp_ComprobanteDetalleDiferencia", DBConnFacturas)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            cmd.Parameters.AddWithValue("@Comp_No", CompNo)
+            cmd.Parameters.AddWithValue("@Per_Id", PerID)
+            cmd.Parameters.AddWithValue("@Mes", Mes)
+            cmd.Parameters.AddWithValue("@Cuenta", Cuenta)
+            cmd.Parameters.AddWithValue("@Empresa", EmpresaActual)
+
+            cmd.Connection = DBConnFacturas
+            cmd.Transaction = transaccionFacturas
+            cmd.ExecuteNonQuery()
+        End Sub
+
         Public Shared Function GetComprobantes_DescuadradosList(ByVal Periodo As Integer, ByVal Mes As String) As DataTable
 
             Dim DBConn As SqlConnection
@@ -4981,27 +5007,9 @@ Namespace VB.SysContab
 
         End Function
 
-        Public Shared Sub ImprimirComprobante(Comp_No As Double, Per_Id As Integer, Fecha As Date)
-
-            'Dim Cadena As String
-            'Dim Temp As Boolean = False
-            'Dim Data() As Byte
-
-            'Try
-            '    Data = CType(ObtieneDatos("SELECT ChequeD FROM Formatos WHERE Tipo = 17 AND Empresa = " & EmpresaActual).Rows(0).Item(0), Byte())
-
-            '    Temp = True
-            '    Dim Tamano As Integer
-            '    Tamano = Data.GetUpperBound(0)
-            '    Cadena = Application.StartupPath & "\rptComprobante.repx"
-
-            '    If File.Exists(Cadena) Then Kill(Cadena)
-            '    Dim Archivo As New FileStream(Cadena, FileMode.OpenOrCreate, FileAccess.Write)
-            '    Archivo.Write(Data, 0, Tamano)
-            '    Archivo.Close()
-            'Catch ex As Exception
-            '    Temp = False
-            'End Try
+        Public Shared Sub ImprimirComprobante(Comp_No As Double,
+                                              Per_Id As Integer,
+                                              Fecha As Date)
 
             ShowSplash("Imprimiendo...")
 
@@ -5024,9 +5032,13 @@ Namespace VB.SysContab
 
             DA.Fill(DSComp, "Comprobantes")
 
-            Dim DTDistrubucion As DataTable = ObtieneDatos("JAR_GetComprobanteDistribucion " & Comp_No & "," & _
-                                                          "" & Per_Id & "," & _
-                                                          "" & Fecha.Date.Month & "," & EmpresaActual)
+            Dim DTDistrubucion As DataTable =
+                ObtieneDatos("JAR_GetComprobanteDistribucion",
+                             Comp_No,
+                             Per_Id,
+                             Fecha.Date.Month,
+                             EmpresaActual)
+
             Dim rptDistribucin As New rptComprobanteDistribucion
             rptDistribucin.DataSource = DTDistrubucion
 
@@ -5038,18 +5050,15 @@ Namespace VB.SysContab
                 rpt = New rptComprobantesALL
             End If
 
+            Dim LogoPath As String = EmpresasDB.GetLogoEmpresaPath()
+
+            rpt.XrPictureBox1.Image = Image.FromFile(LogoPath)
             rpt.ver = True
             rpt.gfDistribucion.Visible = IIf(DTDistrubucion.Rows.Count = 0, False, True)
             rpt.XrSubreport1.ReportSource = rptDistribucin
 
-            VistaPreviaDX(rpt, DSComp.Tables(0), "Comprobante No. " & Comp_No.ToString())
-
             HideSplash()
-            'rpt.DataSource = DSComp.Tables(0)
-
-            'rpt.ShowPrintMarginsWarning = False
-            'rpt.BringToFront()
-            'rpt.ShowRibbonPreview()
+            VistaPreviaDX(rpt, DSComp.Tables(0), "Comprobante No. " & Comp_No.ToString())
         End Sub
 
 

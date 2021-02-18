@@ -2,6 +2,9 @@ Imports Microsoft.VisualBasic
 Imports System
 Imports System.Data
 Imports System.Configuration
+Imports DevExpress.XtraPivotGrid
+Imports DevExpress.DataAccess.DataFederation
+Imports System.ComponentModel
 
 Public Class FrmVentasCrossTab
     Inherits DevExpress.XtraEditors.XtraForm
@@ -1332,7 +1335,19 @@ Public Class FrmVentasCrossTab
         Return ChildInstance
     End Function
 
-    Dim r As New VB.SysContab.Rutinas
+    Dim r As New VB.SysContab.Rutinas,
+        fieldExtendedPrice As PivotGridField
+
+    'Public Sub New()
+    '    'InitializeComponent()
+    '    'AddCustomSummaryField()
+    '    'AddHandler iPivotGrid.CustomSummary, AddressOf iPivotGrid_CustomSummary
+    '    'iPivotGrid.BestFit()
+    'End Sub
+
+    Private Sub AddCustomSummaryField()
+        'iPivotGrid.Fields.Add(New PivotGridField() With {.Area = PivotArea.DataArea, .AreaIndex = 1, .Caption = "Count Distinct ", .FieldName = "Quantity", .Name = "fieldQuantityDistinctCount", .SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Custom})
+    End Sub
 
     Sub GetData()
         iPivotGrid.DataSource = ObtieneDatos("JAR_FacturasVentasCrossTab", sel1.DateTime.Date,
@@ -1384,6 +1399,7 @@ Public Class FrmVentasCrossTab
     'End Function
 
     Private Sub cmdImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdImprimir.Click
+
         If CheckEdit1.Checked Then
             If cbCliente.EditValue Is Nothing Then
                 XtraMsg("Seleccione el Cliente")
@@ -1563,9 +1579,107 @@ Public Class FrmVentasCrossTab
         iPivotGrid.Fields("NUMERO").Caption = "Transacción"
         '
         iPivotGrid.Fields("Precio").SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average
+        'iPivotGrid.Fields("Precio").SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Custom
+
         iPivotGrid.Fields("MargenP").SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average
         iPivotGrid.Fields("MargenProd").SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average
         iPivotGrid.Fields("Costo Unitario").SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average
+
+        'AddHandler iPivotGrid.CustomUnboundFieldData, AddressOf iPivotGrid_CustomUnboundFieldData
+
+        'fieldExtendedPrice = New PivotGridField() With {.Caption = "Precio Promedio", .Area = PivotArea.FilterArea}
+        'fieldExtendedPrice.UnboundFieldName = "PrecioPromedio"
+        'fieldExtendedPrice.UnboundType = DevExpress.Data.UnboundColumnType.Decimal
+        'fieldExtendedPrice.CellFormat.FormatString = "{0:n2}"
+
+        'iPivotGrid.Fields.Add(fieldExtendedPrice)
+
+        'AddHandler iPivotGrid.CustomSummary, AddressOf iPivotGrid_CustomSummary
+        'iPivotGrid.BestFit()
+
+        'iPivotGrid.Fields.Add(New PivotGridField() With {
+        '                      .Area = PivotArea.DataArea,
+        '                      .AreaIndex = 1,
+        '                      .Caption = "Count Distinct ",
+        '                      .FieldName = "Precio",
+        '                      .Name = "Precio Promedio",
+        '                      .SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Custom})
+    End Sub
+
+    Private Sub iPivotGrid_CustomSummary(sender As Object, e As PivotGridCustomSummaryEventArgs) Handles iPivotGrid.CustomSummary
+        'Dim name_Renamed As String = e.DataField.FieldName
+
+        'Try
+        '    If e.DataField.FieldName = "Precio" Then
+
+        '        Dim _data As DataTable = New DataTable()
+        '        Dim dataProperties As ITypedList = TryCast(e.CreateDrillDownDataSource(), ITypedList)
+
+        '        If dataProperties Is Nothing Then Exit Sub
+
+        '        For Each prop As PropertyDescriptor In dataProperties.GetItemProperties(Nothing)
+        '            _data.Columns.Add(prop.Name, prop.PropertyType)
+        '        Next
+
+        '        For row As Integer = 0 To e.CreateDrillDownDataSource().RowCount - 1
+        '            Dim values As List(Of Object) = New List(Of Object)()
+
+        '            For Each col As DataColumn In _data.Columns
+        '                values.Add(e.CreateDrillDownDataSource().GetValue(row, col.ColumnName))
+        '            Next
+
+        '            _data.Rows.Add(values.ToArray())
+        '        Next
+        '        '
+        '        Dim SubTotal As Double = 0.00,
+        '            Cantidad As Double = 1.0
+
+        '        Try
+        '            SubTotal = CDbl(_data.Compute("SUM(SubTotalConDesc)", "SubTotalConDesc > 0"))
+        '        Catch ex As Exception
+        '            SubTotal = 0.00
+        '        End Try
+        '        '
+        '        Try
+        '            Cantidad = CDbl(_data.Compute("SUM(Cantidad)", "Cantidad > 0"))
+        '        Catch ex As Exception
+        '            Cantidad = 1
+        '        End Try
+
+        '        e.CustomValue = Math.Round(SubTotal / Cantidad, 2)
+        '    End If
+
+        'Catch ex As Exception
+        '    e.CustomValue = 0.00
+        '    'XtraMsg(ex.Message, MessageBoxIcon.Error)
+        'End Try
+
+
+        'ITypedList dataProperties = Source as ITypedList;  
+        'Dim list As IList = e.CreateDrillDownDataSource()
+        'Dim ht As New Hashtable()
+        'For i As Integer = 0 To list.Count - 1
+        '    Dim row As PivotDrillDownDataRow = TryCast(list(i), PivotDrillDownDataRow)
+        '    Dim v As Object = row(name_Renamed)
+        '    If v IsNot Nothing AndAlso v IsNot DBNull.Value Then
+        '        ht(v) = Nothing
+        '    End If
+        'Next i
+        'e.CustomValue = ht.Count
+    End Sub
+
+    Private Sub iPivotGrid_CustomUnboundFieldData(sender As Object, e As CustomFieldDataEventArgs) Handles iPivotGrid.CustomUnboundFieldData
+        'If e.Field.UnboundFieldName = "PrecioPromedio" Then
+
+        '    Dim Cantidad As Double = Convert.ToDouble(e.GetListSourceColumnValue("Catidad"))
+        '    Dim SubTotal As Double = Convert.ToDouble(e.GetListSourceColumnValue("Sub Total"))
+
+        '    'Dim unitPrice As Decimal = Convert.ToDecimal(e.GetListSourceColumnValue(iPivotGrid.Fields.Item(e.ListSourceRowIndex). ))
+        '    'Dim qty As Integer = Convert.ToInt32(e.GetListSourceColumnValue(fieldQuantity.ExpressionFieldName))
+        '    'Dim discount As Decimal = Convert.ToDecimal(e.GetListSourceColumnValue(fieldDiscount.ExpressionFieldName))
+
+        '    e.Value = SubTotal / Cantidad
+        'End If
     End Sub
 
     'Private Sub LoadClients()
@@ -1731,6 +1845,20 @@ Public Class FrmVentasCrossTab
     Private Sub iPivotGrid_HideCustomizationForm(sender As Object, e As EventArgs) Handles iPivotGrid.HideCustomizationForm
         CheckEdit2.Checked = False
     End Sub
+
+
+
+    'Private Sub iPivotGrid_FieldValueDisplayText(sender As Object, e As PivotFieldDisplayTextEventArgs) Handles iPivotGrid.FieldValueDisplayText
+    '    If e.ValueType = DevExpress.XtraPivotGrid.PivotGridValueType.GrandTotal Then
+    '        If e.IsColumn Then
+    '            e.Field.
+    '            e.DisplayText = "*Custom Column Grand Total*"
+    '        Else
+    '            e.DisplayText = "*Custom Row Grand Total*"
+    '        End If
+    '    End If
+    'End Sub
+
 
 End Class
 

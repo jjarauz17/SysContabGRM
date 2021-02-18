@@ -54,10 +54,14 @@ Public Class frmLibroBancoNew
         '
         ShowSplash()
 
-        DT_LB = VB.SysContab.LibrosDB.LibroBancoAuxiliar(dtpDesde.DateTime.Date,
-                                                                    dtpHasta.DateTime.Date,
-                                                                    cbBancos.EditValue,
-                                                                    cbMoneda.EditValue)
+        DT_LB = VB.SysContab.
+            LibrosDB.
+            LibroBancoAuxiliar(
+            dtpDesde.DateTime.Date,
+            dtpHasta.DateTime.Date,
+            cbBancos.EditValue,
+            cbMoneda.EditValue)
+
         iGrid.DataSource = DT_LB
 
         If DT_LB.Rows.Count = 0 Then

@@ -9,7 +9,8 @@
     Dim DT As New DataTable("Pro_Detalle")
 
     Public IdPropiedad As Integer = 0
-    Public IdCliente As Integer = 0
+    Public IdCliente As Integer = 0,
+        IdPeriodo As Integer = 0
     Public Ok As String = "NO"
 
     Private Sub frmPropiedadesAdd_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -39,6 +40,7 @@
         End If
         '
         CargarDetalle()
+        If IdPeriodo > 0 Then cbPeriodo.EditValue = IdPeriodo
     End Sub
 
     Sub CargarDetalle()

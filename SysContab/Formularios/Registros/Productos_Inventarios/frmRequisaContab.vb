@@ -1,6 +1,8 @@
 Imports System.Data
+Imports System.Linq
 Imports System.Data.SqlClient
 Imports ClasesBLL
+Imports Entities
 
 Public Class frmRequisaContab
 
@@ -16,9 +18,11 @@ Public Class frmRequisaContab
     Public Bodega As String
     Public Referencia As String
     Public Comp_Tipo As Integer
+    Public Concepto As String = String.Empty
 
     Dim ds1 As DataSet
     Private DT_Distribucion As DataTable = New DataTable("Distribucion")
+    Dim DTRequisa As New DataTable("Requisa")
 
     'Private Sub CargaDistribucion()
     '    Me.DT_Distribucion = ObtieneDatos("SELECT * FROM Distribucion")
@@ -57,20 +61,23 @@ Public Class frmRequisaContab
         'Me.cbTipoComp.Properties.Columns(2).Visible = True
         'Me.cbTipoComp.ItemIndex = 0
 
+
+
         cbCatalogo.DataSource = ObtieneDatos("_GetCatalogo_CuentaActivo", EmpresaActual).DefaultView
         FormatoGrid(cbCatalogo.View, 2)
         cbCatalogo.PopupFormSize = New Point(1000, 0)
 
-        gridDatos.DataSource = ObtieneDatos("sp_RequisaDetalleContabilizar",
+        DTRequisa = ObtieneDatos("sp_RequisaDetalleContabilizar",
                                             Requisa,
                                             TRequisa,
                                             Bodega,
-                                            EmpresaActual).DefaultView
+                                            EmpresaActual)
+
+        gridDatos.DataSource = DTRequisa
 
         FormatoGrid(vComprobante, 2, 0, False, True, False)
 
         Calcular()
-
     End Sub
 
     Private Sub btnSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalir.Click
@@ -229,49 +236,86 @@ Public Class frmRequisaContab
                     Exit Sub
                 End Try
             End With
+            '
+            'Dim obj As New Distribucion,
+            '    db As New db_Distribucion
 
-            '------------------------
-            'Guarda la Distribucion
-            '------------------------
-            Dim DT_F As DataTable
-            DT_F =
-                DT_Distribucion.GetChanges(
-                DataRowState.Added Or DataRowState.Unchanged Or DataRowState.Modified)
+            'obj.IdEmpresa = EmpresaActual
+            'obj.NoComp = NoComprob
+            'obj.Per_Id = VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date)
+            'obj.Mes = Fecha.DateTime.Month
 
-            If Not DT_F Is Nothing Then
-                For i As Integer = 0 To DT_F.Rows.Count - 1
-                    With DT_F
-                        ' If (.Rows(i).RowState = DataRowState.Added Or .Rows(i).RowState = DataRowState.Unchanged) Then
-                        GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                            " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.Fecha.DateTime.Month & "," &
-                            VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & Math.Round(CDbl(.Rows(i).Item("Valor")), 2) & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
-                        'ElseIf .Rows(i).RowState = DataRowState.Modified Then
-                        '    GuardaDatosTrans("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.Fecha.DateTime.Month & "," &
-                        '    "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
-                        '    "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
-                        'ElseIf .Rows(i).RowState = DataRowState.Deleted Then
-                        'End If
-                    End With
-                Next
-            End If
+            'Dim DT_F As DataTable =
+            '    DT_Distribucion.GetChanges(
+            '    DataRowState.Added Or DataRowState.Unchanged Or DataRowState.Modified)
+
+            'If Not DT_F Is Nothing Then
+            '    For i As Integer = 0 To DT_F.Rows.Count - 1
+            '        With DT_F
+
+
+            '            obj.IdRubroGasto = .Rows(i).Item("IdRubroGasto")
+            '            obj.IdCentroCosto = .Rows(i).Item("IdCentroCosto")
+            '            obj.Valor = .Rows(i).Item("Valor")
+            '            obj.Tipo = .Rows(i).Item("Tipo")
+            '            obj.Cuenta = .Rows(i).Item("Cuenta")
+
+            '            db.Insertar(obj)
+
+
+            '            '' If (.Rows(i).RowState = DataRowState.Added Or .Rows(i).RowState = DataRowState.Unchanged) Then
+            '            'GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+            '            '    " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.Fecha.DateTime.Month & "," &
+            '            '    VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & Math.Round(CDbl(.Rows(i).Item("Valor")), 2) & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+            '            ''ElseIf .Rows(i).RowState = DataRowState.Modified Then
+            '            ''    GuardaDatosTrans("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.Fecha.DateTime.Month & "," &
+            '            ''    "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
+            '            ''    "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
+            '            ''ElseIf .Rows(i).RowState = DataRowState.Deleted Then
+            '            ''End If
+            '        End With
+            '    Next
+            'End If
 
             'CargaDistribucion(0, 0, 0)
             '--------------------------
             'Fin de Guarda Distribucion
             '--------------------------
+            'SetTiempos(OrigenComprobantes.NATURAL, funciones.Tiempos.TiempoFin, Now, funciones.Eventos.Guarda, NoComprob)
+            'Cargar()
 
             VB.SysContab.Rutinas.okTransaccion()
-            'SetTiempos(OrigenComprobantes.NATURAL, funciones.Tiempos.TiempoFin, Now, funciones.Eventos.Guarda, NoComprob)
-
-            '            Cargar()
-            Me.Close()
-            Dim f As frmRequisas_List = frmRequisas_List.Instance()
-            f.GetData()
         Catch Mensaje As Exception
             VB.SysContab.Rutinas.ErrorTransaccion()
             ' SetTiempos(OrigenComprobantes.NATURAL, funciones.Tiempos.TiempoFin, Now, funciones.Eventos.Error1, NoComprob)
             XtraMsg(Mensaje.Message, MessageBoxIcon.Error)
+            Exit Sub
         End Try
+        '
+        '------------------------
+        'Guarda la Distribucion
+        '------------------------
+        DTRequisa.AcceptChanges()
+        Dim sCuentas = From row In DTRequisa.AsEnumerable()
+                       Select row.Field(Of String)("Cuenta") Distinct
+
+        For Each s As Object In sCuentas
+            If Not s Is Nothing Then
+                If DT_Distribucion.Select("Cuenta = '" & s & "'").Length > 0 Then
+                    GuardaDistribucion(
+                            DT_Distribucion.Select("Cuenta = '" & s & "'").CopyToDataTable,
+                            NoComprob,
+                            VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date),
+                            Fecha.DateTime.Month)
+                End If
+            End If
+        Next
+        '--------------------------
+        'Fin de Guarda Distribucion
+        '--------------------------
+        Me.Close()
+        Dim f As frmRequisas_List = frmRequisas_List.Instance()
+        f.GetData()
     End Sub
 
     Private Function VerificaDistribucion(ByVal Cuenta As String) As Boolean

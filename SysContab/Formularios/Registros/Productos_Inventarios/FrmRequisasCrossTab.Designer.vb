@@ -25,7 +25,6 @@ Partial Class FrmRequisasCrossTab
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRequisasCrossTab))
-        Me.sel3 = New System.Windows.Forms.DateTimePicker()
         Me.PivotGridField12 = New DevExpress.XtraPivotGrid.PivotGridField()
         Me.PivotGridField11 = New DevExpress.XtraPivotGrid.PivotGridField()
         Me.PivotGridField9 = New DevExpress.XtraPivotGrid.PivotGridField()
@@ -38,9 +37,11 @@ Partial Class FrmRequisasCrossTab
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.CheckEdit3 = New DevExpress.XtraEditors.CheckEdit()
+        Me.Hasta = New DevExpress.XtraEditors.DateEdit()
+        Me.Desde = New DevExpress.XtraEditors.DateEdit()
         Me.cbMoneda = New DevExpress.XtraEditors.LookUpEdit()
         Me.CheckEdit2 = New DevExpress.XtraEditors.CheckEdit()
-        Me.sel1 = New System.Windows.Forms.DateTimePicker()
         Me.PivotGrid = New DevExpress.XtraPivotGrid.PivotGridControl()
         Me.PivotGridField1 = New DevExpress.XtraPivotGrid.PivotGridField()
         Me.PivotGridField10 = New DevExpress.XtraPivotGrid.PivotGridField()
@@ -76,11 +77,10 @@ Partial Class FrmRequisasCrossTab
         Me.PivotGridField36 = New DevExpress.XtraPivotGrid.PivotGridField()
         Me.PivotGridField37 = New DevExpress.XtraPivotGrid.PivotGridField()
         Me.PivotGridField23 = New DevExpress.XtraPivotGrid.PivotGridField()
+        Me.PivotGridField38 = New DevExpress.XtraPivotGrid.PivotGridField()
         Me.cmdImprimir = New DevExpress.XtraEditors.SimpleButton()
         Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -88,10 +88,12 @@ Partial Class FrmRequisasCrossTab
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem12 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
-        Me.PivotGridField38 = New DevExpress.XtraPivotGrid.PivotGridField()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl2.SuspendLayout()
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,13 +102,16 @@ Partial Class FrmRequisasCrossTab
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.CheckEdit3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Hasta.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Hasta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Desde.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Desde.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbMoneda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CheckEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PivotGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,20 +119,13 @@ Partial Class FrmRequisasCrossTab
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'sel3
-        '
-        Me.sel3.CalendarFont = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sel3.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sel3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.sel3.Location = New System.Drawing.Point(57, 36)
-        Me.sel3.Name = "sel3"
-        Me.sel3.Size = New System.Drawing.Size(128, 22)
-        Me.sel3.TabIndex = 175
         '
         'PivotGridField12
         '
@@ -154,9 +152,9 @@ Partial Class FrmRequisasCrossTab
         'cmdGrafico
         '
         Me.cmdGrafico.ImageOptions.Image = CType(resources.GetObject("cmdGrafico.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdGrafico.Location = New System.Drawing.Point(12, 54)
+        Me.cmdGrafico.Location = New System.Drawing.Point(12, 52)
         Me.cmdGrafico.Name = "cmdGrafico"
-        Me.cmdGrafico.Size = New System.Drawing.Size(107, 38)
+        Me.cmdGrafico.Size = New System.Drawing.Size(109, 36)
         Me.cmdGrafico.StyleController = Me.LayoutControl2
         Me.cmdGrafico.TabIndex = 181
         Me.cmdGrafico.Text = "&Gráfico"
@@ -171,26 +169,26 @@ Partial Class FrmRequisasCrossTab
         Me.LayoutControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 515)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 607)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'cmdSalir
         '
-        Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 96)
+        Me.cmdSalir.ImageOptions.SvgImage = CType(resources.GetObject("cmdSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 92)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(107, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(109, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
         Me.cmdSalir.TabIndex = 179
         Me.cmdSalir.Text = "Salir"
         '
         'cmdexportar
         '
-        Me.cmdexportar.ImageOptions.Image = CType(resources.GetObject("cmdexportar.ImageOptions.Image"), System.Drawing.Image)
+        Me.cmdexportar.ImageOptions.SvgImage = CType(resources.GetObject("cmdexportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.cmdexportar.Location = New System.Drawing.Point(12, 12)
         Me.cmdexportar.Name = "cmdexportar"
-        Me.cmdexportar.Size = New System.Drawing.Size(107, 38)
+        Me.cmdexportar.Size = New System.Drawing.Size(109, 36)
         Me.cmdexportar.StyleController = Me.LayoutControl2
         Me.cmdexportar.TabIndex = 180
         Me.cmdexportar.Text = "E&xportar"
@@ -201,9 +199,8 @@ Partial Class FrmRequisasCrossTab
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(131, 515)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 607)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem7
@@ -212,7 +209,7 @@ Partial Class FrmRequisasCrossTab
         Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
         '
@@ -220,9 +217,9 @@ Partial Class FrmRequisasCrossTab
         '
         Me.LayoutControlItem8.Control = Me.cmdGrafico
         Me.LayoutControlItem8.CustomizationFormText = "LayoutControlItem8"
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
         '
@@ -230,63 +227,98 @@ Partial Class FrmRequisasCrossTab
         '
         Me.LayoutControlItem9.Control = Me.cmdSalir
         Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(111, 411)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(113, 507)
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.CheckEdit3)
+        Me.LayoutControl1.Controls.Add(Me.Hasta)
+        Me.LayoutControl1.Controls.Add(Me.Desde)
         Me.LayoutControl1.Controls.Add(Me.cbMoneda)
         Me.LayoutControl1.Controls.Add(Me.CheckEdit2)
-        Me.LayoutControl1.Controls.Add(Me.sel1)
         Me.LayoutControl1.Controls.Add(Me.PivotGrid)
         Me.LayoutControl1.Controls.Add(Me.cmdImprimir)
         Me.LayoutControl1.Controls.Add(Me.CheckEdit1)
-        Me.LayoutControl1.Controls.Add(Me.sel3)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(696, 224, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(752, 542)
+        Me.LayoutControl1.Size = New System.Drawing.Size(987, 636)
         Me.LayoutControl1.TabIndex = 183
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'CheckEdit3
+        '
+        Me.CheckEdit3.Location = New System.Drawing.Point(824, 64)
+        Me.CheckEdit3.Name = "CheckEdit3"
+        Me.CheckEdit3.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
+        Me.CheckEdit3.Properties.Appearance.Options.UseFont = True
+        Me.CheckEdit3.Properties.Appearance.Options.UseForeColor = True
+        Me.CheckEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
+        Me.CheckEdit3.Properties.Caption = "Mostrar mas datos"
+        Me.CheckEdit3.Size = New System.Drawing.Size(151, 22)
+        Me.CheckEdit3.StyleController = Me.LayoutControl1
+        Me.CheckEdit3.TabIndex = 186
+        '
+        'Hasta
+        '
+        Me.Hasta.EditValue = New Date(2021, 2, 5, 10, 40, 54, 0)
+        Me.Hasta.Location = New System.Drawing.Point(57, 36)
+        Me.Hasta.Name = "Hasta"
+        Me.Hasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Hasta.Properties.Appearance.Options.UseFont = True
+        Me.Hasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.Hasta.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.Hasta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.Hasta.Size = New System.Drawing.Size(123, 20)
+        Me.Hasta.StyleController = Me.LayoutControl1
+        Me.Hasta.TabIndex = 185
+        '
+        'Desde
+        '
+        Me.Desde.EditValue = New Date(2021, 2, 5, 10, 40, 54, 0)
+        Me.Desde.Location = New System.Drawing.Point(57, 12)
+        Me.Desde.Name = "Desde"
+        Me.Desde.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Desde.Properties.Appearance.Options.UseFont = True
+        Me.Desde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.Desde.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.Desde.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.Desde.Size = New System.Drawing.Size(123, 20)
+        Me.Desde.StyleController = Me.LayoutControl1
+        Me.Desde.TabIndex = 184
+        '
         'cbMoneda
         '
-        Me.cbMoneda.Location = New System.Drawing.Point(57, 62)
+        Me.cbMoneda.Location = New System.Drawing.Point(57, 64)
         Me.cbMoneda.Name = "cbMoneda"
         Me.cbMoneda.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMoneda.Properties.Appearance.Options.UseFont = True
         Me.cbMoneda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbMoneda.Size = New System.Drawing.Size(683, 20)
+        Me.cbMoneda.Size = New System.Drawing.Size(763, 20)
         Me.cbMoneda.StyleController = Me.LayoutControl1
         Me.cbMoneda.TabIndex = 183
         '
         'CheckEdit2
         '
         Me.CheckEdit2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckEdit2.Location = New System.Drawing.Point(587, 12)
+        Me.CheckEdit2.Location = New System.Drawing.Point(768, 12)
         Me.CheckEdit2.Name = "CheckEdit2"
-        Me.CheckEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
+        Me.CheckEdit2.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.OrangeRed
+        Me.CheckEdit2.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit2.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
         Me.CheckEdit2.Properties.Caption = "Quitar Gran Total de Filas"
-        Me.CheckEdit2.Size = New System.Drawing.Size(153, 21)
+        Me.CheckEdit2.Size = New System.Drawing.Size(207, 22)
         Me.CheckEdit2.StyleController = Me.LayoutControl1
         Me.CheckEdit2.TabIndex = 182
-        '
-        'sel1
-        '
-        Me.sel1.CalendarFont = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sel1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sel1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.sel1.Location = New System.Drawing.Point(57, 12)
-        Me.sel1.Name = "sel1"
-        Me.sel1.Size = New System.Drawing.Size(128, 22)
-        Me.sel1.TabIndex = 173
         '
         'PivotGrid
         '
@@ -306,11 +338,11 @@ Partial Class FrmRequisasCrossTab
         Me.PivotGrid.Appearance.HeaderFilterButtonActive.Options.UseBackColor = True
         Me.PivotGrid.Cursor = System.Windows.Forms.Cursors.Default
         Me.PivotGrid.Fields.AddRange(New DevExpress.XtraPivotGrid.PivotGridField() {Me.PivotGridField1, Me.PivotGridField10, Me.PivotGridField2, Me.PivotGridField3, Me.PivotGridField4, Me.PivotGridField5, Me.PivotGridField6, Me.PivotGridField7, Me.PivotGridField8, Me.PivotGridField9, Me.PivotGridField11, Me.PivotGridField12, Me.PivotGridField13, Me.PivotGridField14, Me.PivotGridField15, Me.PivotGridField16, Me.PivotGridField17, Me.PivotGridField18, Me.PivotGridField19, Me.PivotGridField20, Me.PivotGridField21, Me.PivotGridField24, Me.PivotGridField25, Me.PivotGridField26, Me.PivotGridField27, Me.PivotGridField22, Me.PivotGridField28, Me.PivotGridField29, Me.PivotGridField30, Me.PivotGridField31, Me.PivotGridField32, Me.PivotGridField33, Me.PivotGridField34, Me.PivotGridField35, Me.PivotGridField36, Me.PivotGridField37, Me.PivotGridField23, Me.PivotGridField38})
-        Me.PivotGrid.Location = New System.Drawing.Point(12, 86)
+        Me.PivotGrid.Location = New System.Drawing.Point(12, 90)
         Me.PivotGrid.Name = "PivotGrid"
         Me.PivotGrid.OptionsView.ShowCustomTotalsForSingleValues = True
         Me.PivotGrid.OptionsView.ShowRowGrandTotals = False
-        Me.PivotGrid.Size = New System.Drawing.Size(728, 444)
+        Me.PivotGrid.Size = New System.Drawing.Size(963, 534)
         Me.PivotGrid.TabIndex = 177
         '
         'PivotGridField1
@@ -570,12 +602,19 @@ Partial Class FrmRequisasCrossTab
         Me.PivotGridField23.FieldName = "Centro Costo"
         Me.PivotGridField23.Name = "PivotGridField23"
         '
+        'PivotGridField38
+        '
+        Me.PivotGridField38.AreaIndex = 29
+        Me.PivotGridField38.Caption = "Cliente"
+        Me.PivotGridField38.FieldName = "Cliente"
+        Me.PivotGridField38.Name = "PivotGridField38"
+        '
         'cmdImprimir
         '
         Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdImprimir.Location = New System.Drawing.Point(189, 36)
+        Me.cmdImprimir.Location = New System.Drawing.Point(184, 38)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(90, 22)
+        Me.cmdImprimir.Size = New System.Drawing.Size(104, 22)
         Me.cmdImprimir.StyleController = Me.LayoutControl1
         Me.cmdImprimir.TabIndex = 178
         Me.cmdImprimir.Text = "&Buscar"
@@ -583,13 +622,15 @@ Partial Class FrmRequisasCrossTab
         'CheckEdit1
         '
         Me.CheckEdit1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CheckEdit1.Location = New System.Drawing.Point(587, 37)
+        Me.CheckEdit1.Location = New System.Drawing.Point(768, 38)
         Me.CheckEdit1.Name = "CheckEdit1"
-        Me.CheckEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
+        Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.OrangeRed
+        Me.CheckEdit1.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit1.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
         Me.CheckEdit1.Properties.Caption = "Quitar SubTotal de Filas"
-        Me.CheckEdit1.Size = New System.Drawing.Size(153, 21)
+        Me.CheckEdit1.Size = New System.Drawing.Size(207, 22)
         Me.CheckEdit1.StyleController = Me.LayoutControl1
         Me.CheckEdit1.TabIndex = 182
         '
@@ -598,45 +639,21 @@ Partial Class FrmRequisasCrossTab
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem10})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem1})
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(752, 542)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(987, 636)
         Me.LayoutControlGroup1.TextVisible = False
-        '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.sel1
-        Me.LayoutControlItem1.CustomizationFormText = "Desde:"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(177, 24)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(177, 24)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(177, 24)
-        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem1.Text = "Desde:"
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(42, 13)
-        '
-        'LayoutControlItem2
-        '
-        Me.LayoutControlItem2.Control = Me.sel3
-        Me.LayoutControlItem2.CustomizationFormText = "Hasta:"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 24)
-        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(177, 26)
-        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(177, 26)
-        Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(177, 26)
-        Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem2.Text = "Hasta:"
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(42, 13)
         '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.CheckEdit1
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(575, 25)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(756, 26)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(211, 26)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(211, 26)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(157, 25)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(211, 26)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
@@ -644,9 +661,12 @@ Partial Class FrmRequisasCrossTab
         '
         Me.LayoutControlItem4.Control = Me.CheckEdit2
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(575, 0)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(756, 0)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(211, 26)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(211, 26)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(157, 25)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(211, 26)
+        Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -654,9 +674,9 @@ Partial Class FrmRequisasCrossTab
         '
         Me.LayoutControlItem5.Control = Me.PivotGrid
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 74)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 78)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(732, 448)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(967, 538)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
@@ -664,11 +684,11 @@ Partial Class FrmRequisasCrossTab
         '
         Me.LayoutControlItem6.Control = Me.cmdImprimir
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(177, 24)
-        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(94, 26)
-        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(94, 26)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(172, 26)
+        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(108, 26)
+        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(108, 26)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(94, 26)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(108, 26)
         Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
@@ -677,28 +697,64 @@ Partial Class FrmRequisasCrossTab
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(177, 0)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(172, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(94, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(108, 26)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(271, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(280, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(304, 50)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(476, 52)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem10
         '
         Me.LayoutControlItem10.Control = Me.cbMoneda
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 50)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 52)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(732, 24)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(812, 26)
         Me.LayoutControlItem10.Text = "Moneda:"
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(42, 13)
+        '
+        'LayoutControlItem11
+        '
+        Me.LayoutControlItem11.Control = Me.Desde
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem11.MaxSize = New System.Drawing.Size(172, 24)
+        Me.LayoutControlItem11.MinSize = New System.Drawing.Size(172, 24)
+        Me.LayoutControlItem11.Name = "LayoutControlItem11"
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(172, 24)
+        Me.LayoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem11.Text = "Desde:"
+        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(42, 13)
+        '
+        'LayoutControlItem12
+        '
+        Me.LayoutControlItem12.Control = Me.Hasta
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 24)
+        Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(172, 28)
+        Me.LayoutControlItem12.MinSize = New System.Drawing.Size(172, 28)
+        Me.LayoutControlItem12.Name = "LayoutControlItem12"
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(172, 28)
+        Me.LayoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem12.Text = "Hasta"
+        Me.LayoutControlItem12.TextSize = New System.Drawing.Size(42, 13)
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.CheckEdit3
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(812, 52)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(155, 26)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(155, 26)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(155, 26)
+        Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem1.TextVisible = False
         '
         'DockManager1
         '
@@ -711,35 +767,28 @@ Partial Class FrmRequisasCrossTab
         Me.DockPanel1.Controls.Add(Me.DockPanel1_Container)
         Me.DockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right
         Me.DockPanel1.ID = New System.Guid("e1ccf5db-bbd0-44c3-bada-a7e9b4c8917b")
-        Me.DockPanel1.Location = New System.Drawing.Point(752, 0)
+        Me.DockPanel1.Location = New System.Drawing.Point(987, 0)
         Me.DockPanel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.ShowCloseButton = False
         Me.DockPanel1.OriginalSize = New System.Drawing.Size(140, 200)
-        Me.DockPanel1.Size = New System.Drawing.Size(140, 542)
+        Me.DockPanel1.Size = New System.Drawing.Size(140, 636)
         Me.DockPanel1.Text = "Opciones"
         '
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 515)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 607)
         Me.DockPanel1_Container.TabIndex = 0
-        '
-        'PivotGridField38
-        '
-        Me.PivotGridField38.AreaIndex = 29
-        Me.PivotGridField38.Caption = "Cliente"
-        Me.PivotGridField38.FieldName = "Cliente"
-        Me.PivotGridField38.Name = "PivotGridField38"
         '
         'FrmRequisasCrossTab
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(892, 542)
+        Me.ClientSize = New System.Drawing.Size(1127, 636)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
         Me.Name = "FrmRequisasCrossTab"
@@ -751,13 +800,16 @@ Partial Class FrmRequisasCrossTab
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.CheckEdit3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Hasta.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Hasta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Desde.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Desde.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbMoneda.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CheckEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PivotGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
@@ -765,13 +817,15 @@ Partial Class FrmRequisasCrossTab
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents sel3 As System.Windows.Forms.DateTimePicker
     Friend WithEvents PivotGridField12 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents PivotGridField11 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents PivotGridField9 As DevExpress.XtraPivotGrid.PivotGridField
@@ -788,7 +842,6 @@ Partial Class FrmRequisasCrossTab
     Friend WithEvents PivotGridField3 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents PivotGridField4 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents PivotGridField5 As DevExpress.XtraPivotGrid.PivotGridField
-    Friend WithEvents sel1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents cmdSalir As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PivotGridField13 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents PivotGridField14 As DevExpress.XtraPivotGrid.PivotGridField
@@ -807,8 +860,6 @@ Partial Class FrmRequisasCrossTab
     Friend WithEvents PivotGridField27 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
-    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
@@ -838,4 +889,10 @@ Partial Class FrmRequisasCrossTab
     Friend WithEvents PivotGridField37 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents PivotGridField23 As DevExpress.XtraPivotGrid.PivotGridField
     Friend WithEvents PivotGridField38 As DevExpress.XtraPivotGrid.PivotGridField
+    Friend WithEvents Hasta As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents Desde As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents LayoutControlItem11 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem12 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents CheckEdit3 As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
 End Class

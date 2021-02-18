@@ -763,12 +763,12 @@ Public Class frmOtrosIngresosList
         Me.cbPagar.ValueMember = "Codigo"
         Me.cbPagar.DisplayMember = "Nombre"
 
-        Cargar()
+        Buscar()
         Grid()
         'r.ComboAutoComplete(Me.cbPagar)
     End Sub
 
-    Public Sub Cargar()
+    Public Sub Buscar()
         Me.dgDatos.DataSource =
             Comp.OtrosIngresosList(
             cbBancos.SelectedValue,
@@ -892,21 +892,21 @@ Public Class frmOtrosIngresosList
         Buscar()
     End Sub
 
-    Private Sub Buscar()
-        Me.dgDatos.DataSource = Comp.OtrosIngresosList(Me.cbBancos.SelectedValue, Fecha1, Fecha2, Me.cbPagar.SelectedValue, Me.txtFactura.Text, Me.txtCheque.Text).Tables("Comprobantes").DefaultView
-        Me.vData.PopulateColumns()
-        FormatoGrid(Me.vData, 2, 0, False)
+    'Private Sub Buscar()
+    '    Me.dgDatos.DataSource = Comp.OtrosIngresosList(Me.cbBancos.SelectedValue, Fecha1, Fecha2, Me.cbPagar.SelectedValue, Me.txtFactura.Text, Me.txtCheque.Text).Tables("Comprobantes").DefaultView
+    '    Me.vData.PopulateColumns()
+    '    FormatoGrid(Me.vData, 2, 0, False)
 
-        Me.vData.Columns("Recibo").VisibleIndex = 0
-        Me.vData.Columns("Comp_No").Visible = False
-        Me.vData.Columns("Per_ID").Visible = False
-        Me.vData.Columns("Nombre").BestFit()
+    '    Me.vData.Columns("Recibo").VisibleIndex = 0
+    '    Me.vData.Columns("Comp_No").Visible = False
+    '    Me.vData.Columns("Per_ID").Visible = False
+    '    Me.vData.Columns("Nombre").BestFit()
 
-        Me.vData.Columns("Monto").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-        Me.vData.Columns("Monto").DisplayFormat.FormatString = "{0:n2}"
-        Me.vData.Columns("Monto").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
-        Me.vData.Columns("Monto").SummaryItem.DisplayFormat = "{0:n2}"
-    End Sub
+    '    Me.vData.Columns("Monto").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+    '    Me.vData.Columns("Monto").DisplayFormat.FormatString = "{0:n2}"
+    '    Me.vData.Columns("Monto").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+    '    Me.vData.Columns("Monto").SummaryItem.DisplayFormat = "{0:n2}"
+    'End Sub
 
     Private Sub chkFecha_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkFecha.CheckedChanged
         If etInicio.Text = "1" Then
@@ -972,7 +972,7 @@ Public Class frmOtrosIngresosList
             Exit Sub
         End If
 
-        Dim f As frmOtrosIngresos = frmOtrosIngresos.Instance()
+        Dim f As l = l.Instance()
         f.MdiParent = Me.MdiParent
         f.etInicio.Text = "1"
         f.txtCaja.Text = dsCajas.Tables("Cajas").Rows(0).Item("cj_Codigo").ToString

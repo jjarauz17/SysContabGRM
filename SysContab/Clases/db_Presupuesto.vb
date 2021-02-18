@@ -16,16 +16,17 @@ Public Class db_Presupuesto
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Function Insertar(ByVal Presupuesto As Presupuesto, Optional Tran As Boolean = False) As Integer
-        Dim ObjParameter(8) As String
+        Dim ObjParameter(10) As String
         ObjParameter(0) = Presupuesto.IdPresupuesto
-        ObjParameter(1) = Presupuesto.Codigo
-        ObjParameter(2) = EmpresaActual
+        ObjParameter(1) = EmpresaActual
+        ObjParameter(2) = Presupuesto.Codigo
         ObjParameter(3) = Presupuesto.Periodo
-        ObjParameter(4) = Presupuesto.Fecha
-        ObjParameter(5) = Presupuesto.IdSucursal
-        ObjParameter(6) = Presupuesto.IdCultivo
-        ObjParameter(7) = Presupuesto.Descripcion
-
+        ObjParameter(4) = Presupuesto.Tipo
+        ObjParameter(5) = Presupuesto.Fecha
+        ObjParameter(6) = Presupuesto.IdSucursal
+        ObjParameter(7) = Presupuesto.IdCultivo
+        ObjParameter(8) = Presupuesto.IdCentroCosto
+        ObjParameter(9) = Presupuesto.Descripcion
 
         Try
             Me.InicializarMensajeError()
@@ -56,15 +57,17 @@ Public Class db_Presupuesto
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Actualizar(ByVal Presupuesto As Presupuesto, Optional Tran As Boolean = False)
-         Dim ObjParameter(8) As String
+        Dim ObjParameter(10) As String
         ObjParameter(0) = Presupuesto.IdPresupuesto
-        ObjParameter(1) = Presupuesto.Codigo
-        ObjParameter(2) = EmpresaActual
+        ObjParameter(1) = EmpresaActual
+        ObjParameter(2) = Presupuesto.Codigo
         ObjParameter(3) = Presupuesto.Periodo
-        ObjParameter(4) = Presupuesto.Fecha
-        ObjParameter(5) = Presupuesto.IdSucursal
-        ObjParameter(6) = Presupuesto.IdCultivo
-        ObjParameter(7) = Presupuesto.Descripcion
+        ObjParameter(4) = Presupuesto.Tipo
+        ObjParameter(5) = Presupuesto.Fecha
+        ObjParameter(6) = Presupuesto.IdSucursal
+        ObjParameter(7) = Presupuesto.IdCultivo
+        ObjParameter(8) = Presupuesto.IdCentroCosto
+        ObjParameter(9) = Presupuesto.Descripcion
 
         Try
             Me.InicializarMensajeError()
@@ -92,22 +95,26 @@ Public Class db_Presupuesto
 
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Listar(ByVal Id As String, Periodo As Integer) As Data.DataTable
+    Public Shared Function Listar(Periodo As Integer, Tipo As Integer) As Data.DataTable
 
-        Return ObtieneDatos("sp_sel_Presupuesto", Id, EmpresaActual, Periodo)
-
-    End Function
-
-    Public Shared Function GetNumero(Sucursal As String) As String
-
-        Return ObtieneDatos("sp_GetNumeroPresupuesto", Sucursal, EmpresaActual).Rows.Item(0)("Numero")
+        Return ObtieneDatos("sp_sel_Presupuesto", 0, EmpresaActual, Periodo, Tipo)
 
     End Function
 
-    Public Shared Function ValidarPresupuesto(Periodo As Integer, Cultivo As Integer, Sucursal As String) As Boolean
+    Public Shared Function GetNumero(Sucursal As String, Tipo As Integer, Periodo As Integer) As String
+
+        Return ObtieneDatos("sp_GetNumeroPresupuesto", Sucursal, Tipo, EmpresaActual, Periodo).Rows.Item(0)("Numero")
+
+    End Function
+
+    Public Shared Function ValidarPresupuesto(Periodo As Integer,
+                                              Cultivo As Integer,
+                                              Sucursal As String,
+                                              Tipo As Integer,
+                                              CentroCosto As Integer) As Boolean
 
         'Verificar si ya existe
-        If ObtieneDatos("sp_validar_presupuesto", Periodo, Cultivo, Sucursal, EmpresaActual).Rows.Count > 0 Then
+        If ObtieneDatos("sp_validar_presupuesto", Periodo, Cultivo, Sucursal, Tipo, EmpresaActual, CentroCosto).Rows.Count > 0 Then
             Return True
         Else
             Return False
@@ -121,9 +128,21 @@ Public Class db_Presupuesto
 
     End Function
 
-    Public Shared Function ReporteDinamicoConsolidado() As Data.DataTable
+    Public Shared Function ReporteDinamicoGastos(ByVal IdPresupuesto As Integer) As Data.DataTable
 
-        Return ObtieneDatos("sp_dinamico_Presupuesto_Consolidado", EmpresaActual)
+        Return ObtieneDatos("sp_sel_PresupuestoDinamicoGastos", IdPresupuesto, EmpresaActual)
+
+    End Function
+
+    Public Shared Function ReporteDinamicoGastosConsolidado(ByVal Periodo As Integer) As Data.DataTable
+
+        Return ObtieneDatos("sp_sel_PresupuestoDinamicoGastos_Consolidado", Periodo, EmpresaActual)
+
+    End Function
+
+    Public Shared Function ReporteDinamicoConsolidado(Periodo As Integer) As Data.DataTable
+
+        Return ObtieneDatos("sp_dinamico_Presupuesto_Consolidado", Periodo, EmpresaActual)
 
     End Function
 
@@ -131,6 +150,7 @@ Public Class db_Presupuesto
     Public Sub Borrar(ByVal Presupuesto As Presupuesto, Optional Tran As Boolean = False)
         Dim ObjParameter(1) As String
         ObjParameter(0) = Presupuesto.IdPresupuesto
+
         Try
             Me.InicializarMensajeError()
             Me.OpenSqlBD()
@@ -156,22 +176,29 @@ Public Class db_Presupuesto
     End Sub
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Detalles(ByVal Id As String) As Presupuesto
-        Dim dt As DataTable = ObtieneDatos("sp_sel_Presupuesto", Id, EmpresaActual)
+    Public Shared Function Detalles(ByVal Id As Integer) As Presupuesto
+        Dim dt As DataTable = ObtieneDatos("sp_sel_Presupuesto", Id, EmpresaActual, 0, 0)
         Dim det As New Presupuesto
 
         If dt.Rows.Count > 0 Then
             With dt.Rows(0)
                 det.IdPresupuesto = .Item("IdPresupuesto")
-                det.Codigo = .Item("Codigo")
                 det.Empresa = .Item("Empresa")
+                det.Codigo = .Item("Codigo")
                 det.Periodo = .Item("Periodo")
+                det.Tipo = .Item("Tipo")
                 det.Fecha = .Item("Fecha")
                 det.IdSucursal = .Item("IdSucursal")
                 det.IdCultivo = .Item("IdCultivo")
+                det.IdCentroCosto = .Item("IdCentroCosto")
                 det.Descripcion = .Item("Descripcion")
+                det.Registro = .Item("Registro")
+                det.Usuario = .Item("Usuario")
+                det.Activo = .Item("Activo")
             End With
         End If
+
         Return det
+
     End Function
 End Class

@@ -16,7 +16,7 @@ Public Class db_PresupuestoDetalle
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Insertar(ByVal PresupuestoDetalle As PresupuestoDetalle, Optional Tran As Boolean = False)
-        Dim ObjParameter(18) As String
+        Dim ObjParameter(19) As String
         ObjParameter(0) = PresupuestoDetalle.IdPresupuesto
         ObjParameter(1) = EmpresaActual
         ObjParameter(2) = PresupuestoDetalle.Producto
@@ -35,6 +35,7 @@ Public Class db_PresupuestoDetalle
         ObjParameter(15) = PresupuestoDetalle.Cantidad10
         ObjParameter(16) = PresupuestoDetalle.Cantidad11
         ObjParameter(17) = PresupuestoDetalle.Cantidad12
+        ObjParameter(18) = PresupuestoDetalle.Tipo
 
         Try
             Me.InicializarMensajeError()
@@ -63,7 +64,7 @@ Public Class db_PresupuestoDetalle
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Actualizar(ByVal PresupuestoDetalle As PresupuestoDetalle, Optional Tran As Boolean = False)
-        Dim ObjParameter(19) As String
+        Dim ObjParameter(20) As String
         ObjParameter(0) = PresupuestoDetalle.IdDetalle
         ObjParameter(1) = PresupuestoDetalle.IdPresupuesto
         ObjParameter(2) = EmpresaActual
@@ -83,6 +84,7 @@ Public Class db_PresupuestoDetalle
         ObjParameter(16) = PresupuestoDetalle.Cantidad10
         ObjParameter(17) = PresupuestoDetalle.Cantidad11
         ObjParameter(18) = PresupuestoDetalle.Cantidad12
+        ObjParameter(19) = PresupuestoDetalle.Tipo
 
         Try
             Me.InicializarMensajeError()
@@ -110,9 +112,9 @@ Public Class db_PresupuestoDetalle
 
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Listar(IdPresupuesto As Integer, Sucursal As String) As Data.DataTable
+    Public Shared Function Listar(IdPresupuesto As Integer, Sucursal As String, Anio As Integer) As Data.DataTable
 
-        Return ObtieneDatos("sp_sel_PresupuestoDetalle", IdPresupuesto, EmpresaActual, Sucursal)
+        Return ObtieneDatos("sp_sel_PresupuestoDetalle", IdPresupuesto, EmpresaActual, Sucursal, Anio)
 
     End Function
 

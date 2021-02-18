@@ -391,7 +391,7 @@ Partial Class frmResumenCaja
         Me.btnExport.ImageOptions.Image = CType(resources.GetObject("btnExport.ImageOptions.Image"), System.Drawing.Image)
         Me.btnExport.Location = New System.Drawing.Point(12, 12)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(108, 38)
+        Me.btnExport.Size = New System.Drawing.Size(109, 36)
         Me.btnExport.StyleController = Me.LayoutControl2
         Me.btnExport.TabIndex = 5
         Me.btnExport.Text = "&Exportar"
@@ -407,7 +407,7 @@ Partial Class frmResumenCaja
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 476)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 474)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -416,7 +416,7 @@ Partial Class frmResumenCaja
         Me.bRestaurarEsquema.Appearance.Options.UseTextOptions = True
         Me.bRestaurarEsquema.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bRestaurarEsquema.ImageOptions.Image = CType(resources.GetObject("bRestaurarEsquema.ImageOptions.Image"), System.Drawing.Image)
-        Me.bRestaurarEsquema.Location = New System.Drawing.Point(12, 138)
+        Me.bRestaurarEsquema.Location = New System.Drawing.Point(12, 134)
         Me.bRestaurarEsquema.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bRestaurarEsquema.Name = "bRestaurarEsquema"
         Me.bRestaurarEsquema.Size = New System.Drawing.Size(108, 38)
@@ -429,7 +429,7 @@ Partial Class frmResumenCaja
         Me.bGuardarEsquema.Appearance.Options.UseTextOptions = True
         Me.bGuardarEsquema.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bGuardarEsquema.ImageOptions.Image = CType(resources.GetObject("bGuardarEsquema.ImageOptions.Image"), System.Drawing.Image)
-        Me.bGuardarEsquema.Location = New System.Drawing.Point(12, 96)
+        Me.bGuardarEsquema.Location = New System.Drawing.Point(12, 92)
         Me.bGuardarEsquema.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bGuardarEsquema.Name = "bGuardarEsquema"
         Me.bGuardarEsquema.Size = New System.Drawing.Size(108, 38)
@@ -441,9 +441,9 @@ Partial Class frmResumenCaja
         'cmdGrafico
         '
         Me.cmdGrafico.ImageOptions.Image = CType(resources.GetObject("cmdGrafico.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdGrafico.Location = New System.Drawing.Point(12, 54)
+        Me.cmdGrafico.Location = New System.Drawing.Point(12, 52)
         Me.cmdGrafico.Name = "cmdGrafico"
-        Me.cmdGrafico.Size = New System.Drawing.Size(108, 38)
+        Me.cmdGrafico.Size = New System.Drawing.Size(109, 36)
         Me.cmdGrafico.StyleController = Me.LayoutControl2
         Me.cmdGrafico.TabIndex = 182
         Me.cmdGrafico.Text = "&Gráfico"
@@ -452,9 +452,9 @@ Partial Class frmResumenCaja
         '
         Me.btnquit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnquit.ImageOptions.Image = CType(resources.GetObject("btnquit.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnquit.Location = New System.Drawing.Point(12, 180)
+        Me.btnquit.Location = New System.Drawing.Point(12, 176)
         Me.btnquit.Name = "btnquit"
-        Me.btnquit.Size = New System.Drawing.Size(108, 38)
+        Me.btnquit.Size = New System.Drawing.Size(109, 36)
         Me.btnquit.StyleController = Me.LayoutControl2
         Me.btnquit.TabIndex = 6
         Me.btnquit.Text = "&Salir"
@@ -465,9 +465,8 @@ Partial Class frmResumenCaja
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem12, Me.LayoutControlItem14, Me.LayoutControlItem15})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(132, 459)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 474)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem9
@@ -476,7 +475,7 @@ Partial Class frmResumenCaja
         Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
         '
@@ -484,9 +483,9 @@ Partial Class frmResumenCaja
         '
         Me.LayoutControlItem10.Control = Me.btnquit
         Me.LayoutControlItem10.CustomizationFormText = "LayoutControlItem10"
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 164)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(112, 271)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(113, 290)
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
         '
@@ -494,9 +493,9 @@ Partial Class frmResumenCaja
         '
         Me.LayoutControlItem12.Control = Me.cmdGrafico
         Me.LayoutControlItem12.CustomizationFormText = "LayoutControlItem12"
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
         '
@@ -504,11 +503,11 @@ Partial Class frmResumenCaja
         '
         Me.LayoutControlItem14.Control = Me.bGuardarEsquema
         Me.LayoutControlItem14.CustomizationFormText = "LayoutControlItem14"
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
@@ -517,11 +516,11 @@ Partial Class frmResumenCaja
         '
         Me.LayoutControlItem15.Control = Me.bRestaurarEsquema
         Me.LayoutControlItem15.CustomizationFormText = "LayoutControlItem15"
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 122)
         Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem15.MinSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
@@ -557,7 +556,7 @@ Partial Class frmResumenCaja
         Me.CheckEdit3.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit3.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit3.Properties.Caption = "Plantilla Recuperación de Cartera"
-        Me.CheckEdit3.Size = New System.Drawing.Size(234, 19)
+        Me.CheckEdit3.Size = New System.Drawing.Size(234, 20)
         Me.CheckEdit3.StyleController = Me.LayoutControl1
         Me.CheckEdit3.TabIndex = 185
         '
@@ -570,7 +569,7 @@ Partial Class frmResumenCaja
         Me.CheckEdit1.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
         Me.CheckEdit1.Properties.Caption = "Quitar SubTotal de Filas"
-        Me.CheckEdit1.Size = New System.Drawing.Size(156, 21)
+        Me.CheckEdit1.Size = New System.Drawing.Size(156, 22)
         Me.CheckEdit1.StyleController = Me.LayoutControl1
         Me.CheckEdit1.TabIndex = 184
         '
@@ -583,7 +582,7 @@ Partial Class frmResumenCaja
         Me.CheckEdit2.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
         Me.CheckEdit2.Properties.Caption = "Quitar Gran Total de Filas"
-        Me.CheckEdit2.Size = New System.Drawing.Size(156, 21)
+        Me.CheckEdit2.Size = New System.Drawing.Size(156, 22)
         Me.CheckEdit2.StyleController = Me.LayoutControl1
         Me.CheckEdit2.TabIndex = 183
         '
@@ -689,7 +688,6 @@ Partial Class frmResumenCaja
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem8, Me.LayoutControlItem11, Me.LayoutControlItem13, Me.EmptySpaceItem4})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(776, 503)
         Me.LayoutControlGroup1.TextVisible = False
@@ -877,9 +875,9 @@ Partial Class frmResumenCaja
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 476)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 474)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'Guardar

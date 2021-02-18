@@ -1470,10 +1470,10 @@ Public Class frmChequesList
         transaccionFacturas = DBConnFacturas.BeginTransaction
 
         Try
-            Comp.ComprobanteAnular(compNo, perID, GridView1.GetFocusedRowCellValue("Fecha"))
+            VB.SysContab.ComprobanteDB.ComprobanteAnular(compNo, perID, GridView1.GetFocusedRowCellValue("Fecha"))
 
             For i As Integer = 0 To dt.Rows.Count - 1
-                Comp.CancelarFactura(dt.Rows.Item(i)("Factura"), dt.Rows.Item(i)("Proveedor"), 0)
+                VB.SysContab.ComprobanteDB.CancelarFactura(dt.Rows.Item(i)("Factura"), dt.Rows.Item(i)("Proveedor"), 0)
             Next
 
             'If cont = 1 Then    ' El cheque Paga Solo Facturas del Mismo Proveedor
@@ -1484,13 +1484,13 @@ Public Class frmChequesList
             '    Next
             'End If
 
-            Comp.PagosFacturasBorrar(compNo, Month(GridView1.GetFocusedRowCellValue("Fecha")), perID)
-            EliminaDistribucionTrans(compNo, perID, Mes)
+            VB.SysContab.ComprobanteDB.PagosFacturasBorrar(compNo, Month(GridView1.GetFocusedRowCellValue("Fecha")), perID)
+            'EliminaDistribucionTrans(compNo, perID, Mes)
 
             VB.SysContab.Rutinas.okTransaccion()
         Catch ex As Exception
             VB.SysContab.Rutinas.ErrorTransaccion()
-            MsgBox(ex.Message, MsgBoxStyle.Information)
+            XtraMsg(ex.Message, MessageBoxIcon.Error)
             Exit Sub
         End Try
 
@@ -1498,6 +1498,7 @@ Public Class frmChequesList
     End Sub
 
     Private Sub Saldo()
+
         'If Me.cmbbancos.SelectedValue = "0" Then
         '    Me.Label8.Visible = False
         '    Me.etBalance.Text = 0
@@ -1513,7 +1514,7 @@ Public Class frmChequesList
             etBalance.Text = "0.00"
         End Try
 
-        'Me.Label8.Visible = True
+        'Me.Label8.Visible = Truebm
         'Me.etBalance.Visible = True
         ''BancosDetalles = Bancos.GetDetails(Me.cbBancos.SelectedValue)
         ''

@@ -101,6 +101,7 @@ Public Class frmOrdenPagoNew
         iVista.Columns("IdProyecto").Caption = "Proyecto"
         iVista.Columns("Comentarios").Visible = True
         iVista.Columns("SubTotal").Visible = True
+        iVista.Columns("SubTotal").OptionsColumn.AllowEdit = False
         iVista.Columns("descuento").Visible = True
         iVista.Columns("descuento").Caption = "Descuento"
         iVista.Columns("PrecioU").Visible = True
@@ -358,7 +359,7 @@ Public Class frmOrdenPagoNew
                         .GetRowCellValue(i, "Codigo"),
                         .GetRowCellValue(i, "Cantidad"),
                         .GetRowCellValue(i, "Precio"),
-                        .GetRowCellValue(i, "descuento") * 100,
+                        .GetRowCellValue(i, "descuento"),
                         IVA,
                         .GetRowCellValue(i, "Tipo"),
                         IIf(Estado = "F", .GetRowCellValue(i, "Cantidad"), 0),
@@ -679,7 +680,7 @@ Public Class frmOrdenPagoNew
                     e.RowHandle,
                     "SubTotal",
                     Math.Round(CDbl((IsNull(iVista.GetFocusedRowCellValue("Cantidad"), 0.00) * IsNull(iVista.GetFocusedRowCellValue("Precio"), 0.00)) -
-                    (IsNull(iVista.GetFocusedRowCellValue("Cantidad"), 0.00) * IsNull(iVista.GetFocusedRowCellValue("Precio"), 0.00)) * IsNull(iVista.GetFocusedRowCellValue("descuento"), 0.00)), 2))
+                    (IsNull(iVista.GetFocusedRowCellValue("Cantidad"), 0.00) * IsNull(iVista.GetFocusedRowCellValue("Precio"), 0.00)) * (IsNull(iVista.GetFocusedRowCellValue("descuento"), 0.00) / 100.0)), 2))
                 Temp = False
             End If
         End If
@@ -757,11 +758,11 @@ Public Class frmOrdenPagoNew
             For i As Integer = 0 To .DataRowCount - 1
 
                 SubTotal += (.GetRowCellValue(i, "Cantidad") * .GetRowCellValue(i, "Precio")) -
-                        (.GetRowCellValue(i, "Cantidad") * .GetRowCellValue(i, "Precio")) * .GetRowCellValue(i, "descuento")
+                        (.GetRowCellValue(i, "Cantidad") * .GetRowCellValue(i, "Precio")) * (.GetRowCellValue(i, "descuento") / 100.0)
 
                 If Not CBool(.GetRowCellValue(i, "Exento")) Then
                     IVA += ((.GetRowCellValue(i, "Cantidad") * .GetRowCellValue(i, "Precio")) -
-                        (.GetRowCellValue(i, "Cantidad") * .GetRowCellValue(i, "Precio")) * .GetRowCellValue(i, "descuento")) * (ConfigDetalle.IVA / 100)
+                        (.GetRowCellValue(i, "Cantidad") * .GetRowCellValue(i, "Precio")) * (.GetRowCellValue(i, "descuento") / 100.0)) * (ConfigDetalle.IVA / 100)
                 Else
                     IVA = 0.00
                 End If

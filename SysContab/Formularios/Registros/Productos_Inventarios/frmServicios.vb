@@ -472,22 +472,28 @@ Public Class frmServicios
     End Sub
 
     Private Sub cmdNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdNuevo.Click
-        Dim f As New FrmAgregarServicios '= FrmAgregarServicios.Instance
 
-        Nuevo = "SI"
+        FrmAgregarServicios.Dispose()
 
-        f.PC = PC()
+        With New FrmAgregarServicios '= FrmAgregarServicios.Instance
+            Nuevo = "SI"
 
-        f.MdiParent = Me.MdiParent
-        f.Show()
-        f.Text = "Nuevo Servicio"
-        f.WindowState = FormWindowState.Maximized
+            .PC = PC()
+
+            .MdiParent = Me.MdiParent
+            .Show()
+            .Text = "Nuevo Servicio"
+            .WindowState = FormWindowState.Maximized
 
 
-        f.cbProveedor.EditValue = Nothing
-        f.cbLinea.SelectedValue = -1
-        f.cbGrupo.SelectedValue = -1
-        f.cbSubGrupo.SelectedValue = -1
+            .cbProveedor.EditValue = Nothing
+            .cbLinea.SelectedValue = -1
+            .cbGrupo.SelectedValue = -1
+            .cbSubGrupo.SelectedValue = -1
+
+        End With
+
+
     End Sub
 
     Private Sub cmdModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdModificar.Click
@@ -499,6 +505,9 @@ Public Class frmServicios
             Registro = Me.GridView1.GetFocusedRowCellValue("Código")
         End If
         '
+        Dim frm As FrmAgregarServicios = FrmAgregarServicios.Instance()
+        frm.Dispose()
+
         Dim f As FrmAgregarServicios = FrmAgregarServicios.Instance()
         Nuevo = "NO"
         f.PC = GridView1.GetFocusedRowCellValue("PC")

@@ -84,7 +84,8 @@ Public Class rptEstadoResultadoTrandicional
         rpt.Nivel = Libros.Niveles().Tables("Niveles").Rows.Count - 1
         rpt.pLogo.Image = pLogo.Image
 
-        Dim DT As DataTable = VB.SysContab.LibrosDB.Libro_Auxiliar_DX2(CDate((CType(e.Brick.Value, DataRowView)).Row("Desde").ToString()),
+        Dim DT As DataTable =
+            LibrosDB.Libro_Auxiliar_DX2(CDate((CType(e.Brick.Value, DataRowView)).Row("Desde").ToString()),
                                                                        CDate((CType(e.Brick.Value, DataRowView)).Row("Hasta").ToString()),
                                                                        (CType(e.Brick.Value, DataRowView)).Row("Mon_Codigo").ToString(),
                                                                        (CType(e.Brick.Value, DataRowView)).Row("Cuenta").ToString())

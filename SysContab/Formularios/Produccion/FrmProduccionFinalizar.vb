@@ -36,7 +36,11 @@ Public Class FrmProduccionFinalizar
     End Sub
 
     Sub Cargar()
-        iGrid.DataSource = db_Prod_Produccion.ListarFinalizar(0, Desde.DateTime.Date, Hasta.DateTime.Date)
+        iGrid.DataSource =
+            db_Prod_Produccion.ListarFinalizar(
+            0,
+            Desde.DateTime.Date,
+            Hasta.DateTime.Date)
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click

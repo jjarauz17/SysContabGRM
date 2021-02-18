@@ -1,9 +1,30 @@
-﻿Public Class frmPresupuestoVer
+﻿Imports DevExpress.XtraPivotGrid
 
-    Public IdPresupuesto As Integer = 0
+Public Class frmPresupuestoVer
+
+    Dim IdPresupuesto As Integer = 0
 
     Private Sub frmPresupuestoVer_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.F5 Then Cargar()
+    End Sub
+
+    Sub Mostrar(ID As Integer, Sucursal As String, CentroCosto As String, Periodo As String, Cultivo As String)
+
+        IdPresupuesto = ID
+
+        txtPeriodo.Text = Periodo
+        txtCultivo.Text = Cultivo
+        txtNumero.Text = db_Presupuesto.Detalles(IdPresupuesto).Codigo
+
+        If Not EmpresaActual.Equals("1") Then
+            lySucursal.Text = "Centro de Costo:"
+            txtSucursal.Text = CentroCosto
+            lyCultivo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+        Else
+            lySucursal.Text = "Sucursal:"
+            txtSucursal.Text = Sucursal
+        End If
+
     End Sub
     Private Sub frmPresupuestoVer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenarGrid()
@@ -31,9 +52,14 @@
 
         iPivotGrid.Fields("Codigo").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
         iPivotGrid.Fields("Descripción").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
-        iPivotGrid.Fields("Presentacion").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
-        iPivotGrid.Fields("Clase").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
 
+        If EmpresaActual.Equals("1") Then
+            iPivotGrid.Fields("Clase").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+            'iPivotGrid.Fields("Presentacion").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        Else
+            iPivotGrid.Fields("Linea").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        End If
+        '
         iPivotGrid.Fields("Año").Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea
         iPivotGrid.Fields("Mes").Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea
 
@@ -97,5 +123,26 @@
 
     Private Sub bSalir_Click(sender As Object, e As EventArgs) Handles bSalir.Click
         Close()
+    End Sub
+
+    Private Sub iPivotGrid_CustomAppearance(sender As Object, e As PivotCustomAppearanceEventArgs) Handles iPivotGrid.CustomAppearance
+        If e.DataField.ToString() = "Variación" Then
+            e.Appearance.Font = New Font("Thaoma", 8, FontStyle.Bold)
+            If (e.GetFieldValue(e.DataField) < 0.00) Then
+                e.Appearance.ForeColor = Color.DarkRed
+            ElseIf ((e.GetFieldValue(e.DataField) > 0.00) And e.GetFieldValue(iPivotGrid.Fields.Item("Cantidad"))) > 0 Then
+                e.Appearance.ForeColor = Color.DarkGreen
+            Else
+                e.Appearance.ForeColor = Color.Navy
+            End If
+        End If
+    End Sub
+
+    Private Sub CheckEdit1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit1.CheckedChanged
+        iPivotGrid.OptionsView.ShowRowTotals = Not CheckEdit1.Checked
+    End Sub
+
+    Private Sub CheckEdit2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit2.CheckedChanged
+        iPivotGrid.OptionsView.ShowRowGrandTotals = Not CheckEdit2.Checked
     End Sub
 End Class

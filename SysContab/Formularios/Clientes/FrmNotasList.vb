@@ -6,6 +6,8 @@ Imports System.Configuration
 Imports DevExpress.XtraReports.UI
 Imports ClasesBLL
 Imports SysContab.VB.SysContab
+Imports Newtonsoft.Json
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class FrmNotasList
     Inherits DevExpress.XtraEditors.XtraForm
@@ -221,7 +223,7 @@ Public Class FrmNotasList
         Me.bDevolucionE.Size = New System.Drawing.Size(108, 38)
         Me.bDevolucionE.StyleController = Me.FrmNotasListConvertedLayout
         Me.bDevolucionE.TabIndex = 6
-        Me.bDevolucionE.Text = "&Devolución Electrónica"
+        Me.bDevolucionE.Text = "&Notas ND/CD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Electrónica"
         '
         'bTipoNC
         '
@@ -365,7 +367,6 @@ Public Class FrmNotasList
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.EmptySpaceItem1, Me.LayoutControlItem1, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem12, Me.LayoutControlItem7, Me.LayoutControlItem13, Me.LayoutControlItem14})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1084, 483)
         Me.LayoutControlGroup1.TextVisible = False
@@ -619,10 +620,10 @@ Public Class FrmNotasList
     Private Sub cmdnuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdnuevo.Click
         Inicio = True
         ShowSplash()
-        Dim f As FrmNotasCreditoDebitoNew = FrmNotasCreditoDebitoNew.Instance
+        Dim f As FrmNotasCreditoDebitoNew = FrmNotasCreditoDebitoNew.Instance()
         f.Dispose()
         '
-        Dim Forma As FrmNotasCreditoDebitoNew = FrmNotasCreditoDebitoNew.Instance
+        Dim Forma As FrmNotasCreditoDebitoNew = FrmNotasCreditoDebitoNew.Instance()
         Forma.MdiParent = Me.MdiParent
         Forma.Show()
         Forma.Text = "Nueva Nota D/C"
@@ -634,50 +635,82 @@ Public Class FrmNotasList
     Private Sub cmdlista_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
         If Me.vNotas.FocusedRowHandle < 0 Then Exit Sub
 
-        ShowSplash("Imprimiendo...")
+        'Imprimir Nota de Credito Electronica
+        If EmpresaActual.Equals("18") Then
+            If vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "ATV") = "aceptado" Then
+                Dim _dt As DataTable = Facturas_VentasDB.MensajeRechazo(
+                    "aceptado",
+                    vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "NoNota"),
+                    "03")
 
-        'Dim Temp As Boolean = False
+                If _dt.Rows.Count > 0 Then
+                    Dim api As HaciendaGT.ResponseApi =
+                    JsonConvert.DeserializeObject(Of HaciendaGT.ResponseApi)(_dt.Rows.Item(0)("MensajeHacienda"))
 
-        'Try
-        '    Dim Data() As Byte = CType(ObtieneDatos("SELECT ChequeD FROM Formatos WHERE Tipo = 6 And Empresa = " & EmpresaActual).Rows(0).Item(0), Byte())
-        '    Temp = True
-        '    Dim Tamano As Integer = Data.GetUpperBound(0)
-        '    Dim Cadena As String = Application.StartupPath & "\rptNotaDC.repx"
-        '    If File.Exists(Cadena) Then Kill(Cadena)
-        '    Dim Archivo As New FileStream(Cadena, FileMode.OpenOrCreate, FileAccess.Write)
-        '    Archivo.Write(Data, 0, Tamano)
-        '    Archivo.Close()
-        '    Temp = True
-        'Catch ex As Exception
-        '    Temp = False
-        'End Try
-        '
+                    Dim sLink As String = $"{_dt.Rows.Item(0)("Link")}{api.uuid}"
 
-        Dim Temp As Boolean = db_Formatos.FormatoImpreso(
-            6,
-            "rptNotaDC")
-
-        Dim rpt As rptNotasProveedores
-
-        If Temp = True Then
-            rpt = XtraReport.FromFile(Application.StartupPath & "\rptNotaDC.repx", True)
-        Else
-            rpt = New rptNotasProveedores
+                    Process.Start(sLink)
+                End If
+            End If
         End If
-        '
-        Dim DT_NDC As DataTable = ObtieneDatos("JAR_NotaClienteImprimir",
-                                               vNotas.GetFocusedRowCellValue("IdNota"),
-                                                vNotas.GetFocusedRowCellValue("Tipo").ToString.Substring(0, 1),
-                                                VB.SysContab.Rutinas.Letras(vNotas.GetFocusedRowCellValue("Monto")),
-                                                EmpresaActual)
+            '
+            Facturas_VentasDB.DevolucionImprimir(
+             vNotas.GetFocusedRowCellValue("IdNota"),
+             vNotas.GetFocusedRowCellValue("NoNota"),
+             vNotas.GetFocusedRowCellValue("Tipo").ToString.Substring(0, 1),
+             vNotas.GetFocusedRowCellValue("Monto"))
 
-        VistaPreviaDX(
-            rpt,
-            DT_NDC,
-            "NOTA DE " & vNotas.GetFocusedRowCellValue("Tipo").ToString() &
-            " NO. " &
-            vNotas.GetFocusedRowCellValue("NoNota"))
-        HideSplash()
+
+
+
+        'ShowSplash("Imprimiendo...")
+
+        ''Dim Temp As Boolean = False
+
+        ''Try
+        ''    Dim Data() As Byte = CType(ObtieneDatos("SELECT ChequeD FROM Formatos WHERE Tipo = 6 And Empresa = " & EmpresaActual).Rows(0).Item(0), Byte())
+        ''    Temp = True
+        ''    Dim Tamano As Integer = Data.GetUpperBound(0)
+        ''    Dim Cadena As String = Application.StartupPath & "\rptNotaDC.repx"
+        ''    If File.Exists(Cadena) Then Kill(Cadena)
+        ''    Dim Archivo As New FileStream(Cadena, FileMode.OpenOrCreate, FileAccess.Write)
+        ''    Archivo.Write(Data, 0, Tamano)
+        ''    Archivo.Close()
+        ''    Temp = True
+        ''Catch ex As Exception
+        ''    Temp = False
+        ''End Try
+        ''
+
+        'Dim Temp As Boolean = db_Formatos.FormatoImpreso(
+        '    6,
+        '    "rptNotaDC")
+
+        'Dim rpt As rptNotasProveedores
+
+        'If Temp = True Then
+        '    rpt = XtraReport.FromFile(Application.StartupPath & "\rptNotaDC.repx", True)
+        'Else
+        '    rpt = New rptNotasProveedores
+        'End If
+        ''
+        'Dim DT_NDC As DataTable = ObtieneDatos("JAR_NotaClienteImprimir",
+        '                                       vNotas.GetFocusedRowCellValue("IdNota"),
+        '                                        vNotas.GetFocusedRowCellValue("Tipo").ToString.Substring(0, 1),
+        '                                        VB.SysContab.Rutinas.Letras(vNotas.GetFocusedRowCellValue("Monto")),
+        '                                        EmpresaActual)
+
+        'VistaPreviaDX(
+        '    rpt,
+        '    DT_NDC,
+        '    "NOTA DE " & vNotas.GetFocusedRowCellValue("Tipo").ToString() &
+        '    " NO. " &
+        '    vNotas.GetFocusedRowCellValue("NoNota"))
+        'HideSplash()
+
+
+
+
         'rpt.ShowPrintMarginsWarning = False
         'rpt.BringToFront()
         'HideSplash()
@@ -736,6 +769,11 @@ Public Class FrmNotasList
             Exit Sub
         End If
         '
+        If vNotas.GetFocusedRowCellValue("Estado").ToString().Equals("ANULADA") Then
+            XtraMsg($"La NOTA DE {vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo")} ya se encuentra ANULADA", MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        '
         If ObtieneDatos("JAR_GetRecibosxFactura",
                         vNotas.GetFocusedRowCellValue("NoNota"),
                         EmpresaActual).Rows.Count > 0 Then
@@ -780,7 +818,7 @@ Public Class FrmNotasList
         End If
         '
         If vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "No.Electronico") _
-            .ToString().Length < 20 Then
+            .ToString().Length < 10 Then
             XtraMsg("La Devolución es una Nota de Crédito Electrónica, no puede ser Borrada",
                     MessageBoxIcon.Error)
             Exit Sub
@@ -804,10 +842,7 @@ Public Class FrmNotasList
                 Exit Sub
             End If
             '*******************************************************************************************
-
         End If
-
-
 
         If XtraMsg2("Desea Anular la Nota#: " &
                     vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "NoNota")) Then
@@ -841,7 +876,7 @@ Public Class FrmNotasList
             Exit Sub
         End If
         '
-        If vNotas.GetFocusedRowCellValue("Estado") = "PROCESADA" Then
+        If vNotas.GetFocusedRowCellValue("Estado").ToString().Equals("PROCESADA") Then
             XtraMsg("Debe Anular primero la Nota para Borrarla.", MessageBoxIcon.Warning)
             Exit Sub
         End If
@@ -930,130 +965,211 @@ Public Class FrmNotasList
             Exit Sub
         End If
         '
-        If vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo") _
-            .ToString() _
-            .Equals("DEBITO") Then
-            XtraMsg("Seleccione una Nota de Crédito",
-                    MessageBoxIcon.Warning)
-            Exit Sub
-        End If
-        '
-        Dim Estado As String = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "ATV")
-        '
-        If Estado.Equals("n/a") Then
-            XtraMsg("Este acción no aplica para este tipo de Nota de Crédito.", MessageBoxIcon.Error)
-            Exit Sub
-        End If
-        '
-        Dim CantFact As Integer = Facturas_VentasDB.BuscarFacturasNC(
-            vNotas.GetFocusedRowCellValue("Facturas"))
-
-        If CantFact = 0 Then
-            XtraMsg("La Nota de Crédito no contiene ninguna Factura Asociada", MessageBoxIcon.Error)
-            Exit Sub
-        End If
-        '
-        If CantFact > 1 Then
-            XtraMsg("La Nota de Crédito contiene más de 1 Factura Asociada", MessageBoxIcon.Error)
-            Exit Sub
-        End If
-        '
-        If Facturas_VentasDB.BuscarDevolucionNC(
-            vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "IdNota")) _
-            .Rows _
-            .Count = 0 Then
-
-            XtraMsg("No se ha podido encontrar la Devolución asociada a esta N/C.",
+        If vNotas.GetFocusedRowCellValue("Estado").ToString().Equals("ANULADA") Then
+            XtraMsg($"La NOTA DE {vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo")} se encuentra ANULADA",
                     MessageBoxIcon.Error)
             Exit Sub
         End If
         '
-        Dim fv As New Factura_ElectronicaCR
-        Dim enviaFactura As New Comunicacion
+        Dim Estado As String =
+            vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "ATV")
+        '        
+        'Factura Electronica de Guatemala
+        If EmpresaActual.Equals("18") Then
 
-        'enviaFactura = fv.ConsultarComprobante(
-        '        vNotas.GetFocusedRowCellValue("Facturas"),
-        '        "03")
+            Dim Tipo As String = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo")
 
-        If Estado.Equals("aceptado") Then
-
-            'XtraMsg("La Nota de Crédito ya ha sido recibida y aceptada por Hacienda...", MessageBoxIcon.Error)
-            'Exit Sub
-            EnviarMailComprobante(True,
-                                  Estado)
-            Exit Sub
-        End If
-        '
-        If Estado.Equals("procesando") Or
-             Estado.Equals("recibido") Then
-
-            If Not XtraMsg2("Desea consultar el estado actual de la Nota de Crédito Electrónica?") Then
+            If vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo") _
+            .ToString() _
+            .Equals("DEBITO") Then
+                XtraMsg("Seleccione una Nota de Crédito",
+                    MessageBoxIcon.Warning)
                 Exit Sub
             End If
-            '                
-            enviaFactura = fv.ConsultarComprobante(
-                vNotas.GetFocusedRowCellValue("Facturas"),
-                "03")
-            '            
-            XtraMsg(enviaFactura.mensajeRespuesta)
 
-            If Not IsNothing(enviaFactura) Then
-                EnviarMailComprobante(
-                    False,
-                    enviaFactura.estadoFactura)
+            Dim _dtNC As DataTable =
+                Facturas_VentasDB.FacturasVentasBuscarNC(vNotas.GetFocusedRowCellValue("IdNota"))
+
+            If _dtNC.Rows.Count = 0 Then
+                XtraMsg("La Nota de Crédito no contiene ninguna Factura de Cliente Asociada", MessageBoxIcon.Error)
+                Exit Sub
+            End If
+            '
+            If _dtNC.Rows.Count > 1 Then
+                XtraMsg("La Nota de Crédito contiene más de 1 Factura Asociada", MessageBoxIcon.Error)
+                Exit Sub
+            End If
+            '
+            Dim _dt As DataTable = Facturas_VentasDB.MensajeRechazo(
+                    "aceptado",
+                    _dtNC.Rows.Item(0)("Factura"),
+                    "01")
+
+            If _dt.Rows.Count = 0 Then
+                XtraMsg($"La Factura: {_dtNC.Rows.Item(0)("Factura")} aún no se ha certificado en Hacienda!",
+                        MessageBoxIcon.Error)
+                Exit Sub
             End If
 
-        ElseIf Estado.Equals("sin respuesta") Then
+            'Dim api As HaciendaGT.ResponseApi =
+            '    JsonConvert.DeserializeObject(Of HaciendaGT.ResponseApi)(_dt.Rows.Item(0)("MensajeHacienda"))
 
-            enviaFactura = fv.ConsultarComprobante(
-             vNotas.GetFocusedRowCellValue("Facturas"),
-             "03")
+            With New frmNotaCreditoGT
 
-            'Si codigo de respuesta es 400 signigica que haciend,
-            'no lo ha recibido aun.
-            If IsNothing(enviaFactura) Then
-                ClientesDB.MaestroNotasCDUpdateATV(
-                    vNotas.GetFocusedRowCellValue("IdNota"),
-                    String.Empty)
-            Else
+                .RespuestaHacienda = _dt.Rows.Item(0)("MensajeHacienda")
+                .IdNota = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "IdNota")
+                .NoNota = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "NoNota")
+                .Factura.Text = _dtNC.Rows.Item(0)("Factura")
+                .Cliente.Text = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Cliente")
+
+                .ShowDialog()
+
+                If .Ok Then
+                    GetData()
+                End If
+
+                .Dispose()
+                Exit Sub
+
+            End With
+        End If
+
+        If EmpresaActual.Equals("20") Then
+
+            If vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo") _
+            .ToString() _
+            .Equals("DEBITO") Then
+                XtraMsg("Seleccione una Nota de Crédito",
+                    MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+
+            If Estado.Equals("n/a") Then
+                XtraMsg($"Este acción no aplica para este tipo de NOTA DE {vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo")}",
+                    MessageBoxIcon.Error)
+                Exit Sub
+            End If
+            '
+            Dim CantFact As Integer = Facturas_VentasDB.BuscarFacturasNC(
+            vNotas.GetFocusedRowCellValue("Facturas"))
+
+            If CantFact = 0 Then
+                XtraMsg("La Nota de Crédito no contiene ninguna Factura Asociada", MessageBoxIcon.Error)
+                Exit Sub
+            End If
+            '
+            If CantFact > 1 Then
+                XtraMsg("La Nota de Crédito contiene más de 1 Factura Asociada", MessageBoxIcon.Error)
+                Exit Sub
+            End If
+
+            If Facturas_VentasDB.BuscarDevolucionNC(
+            vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "IdNota")) _
+            .Rows _
+            .Count = 0 Then
+
+                XtraMsg("No se ha podido encontrar la Devolución asociada a esta N/C.",
+                        MessageBoxIcon.Error)
+                Exit Sub
+            End If
+            '
+            Dim fv As New Factura_ElectronicaCR
+            Dim enviaFactura As New Comunicacion
+
+            'enviaFactura = fv.ConsultarComprobante(
+            '        vNotas.GetFocusedRowCellValue("Facturas"),
+            '        "03")
+
+            If Estado.Equals("aceptado") Then
+
+                If EmpresaActual.Equals("18") Then
+                    XtraMsg($"La NOTA DE {vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo")} ya se encuentra aceptada en Hacienda.")
+                ElseIf EmpresaActual.Equals("20") Then
+                    If XtraMsg2($"La NOTA DE {vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "Tipo")} ya se encuetra aceptada en Hacienda." & vbCrLf &
+                            "Desea Reenviar el comprobante al Cliente?") Then
+
+                        EnviarMailComprobante(
+                            True,
+                            Estado)
+                    End If
+                End If
+                '
+                Exit Sub
+            End If
+            '
+            If Estado.Equals("procesando") Or
+                 Estado.Equals("recibido") Then
+
+                If Not XtraMsg2("Desea consultar el estado actual de la Nota de Crédito Electrónica?") Then
+                    Exit Sub
+                End If
+                '                
+                enviaFactura = fv.ConsultarComprobante(
+                    vNotas.GetFocusedRowCellValue("Facturas"),
+                    "03")
+                '            
                 XtraMsg(enviaFactura.mensajeRespuesta)
-            End If
-        ElseIf Estado.Equals(String.Empty) Or
-                Estado.Equals("n/a") Or
-                    Estado.Equals("rechazado") Then
-            'ShowSplash("Enviando N/C...")
-            '
-            enviaFactura =
-                fv.EnviarComprobante(
-                vNotas.GetFocusedRowCellValue("Facturas"),
-                "03",
-                "NotaCreditoElectronica",
-                vNotas.GetFocusedRowCellValue("Fecha"),
-                "N/C Electrónica por Devolución de factura No." & vNotas.GetFocusedRowCellValue("Facturas"),
-                vNotas.GetFocusedRowCellValue("IdNota"))
-            '
-            'HideSplash()
 
-            If enviaFactura.estadoFactura.Equals("acepatado") Then
-
-                Dim DT_Header As DataTable = ObtieneDatos("sp_sel_FACTURAS_VENTAS",
-                                                          vNotas.GetFocusedRowCellValue("Facturas"),
-                                                          EmpresaActual)
-
-                Dim ClienteDetalle As New VB.SysContab.ClientesDetails
-                ClienteDetalle = VB.SysContab.ClientesDB.GetDetails(DT_Header.Rows.Item(0)("CLIENTE"))
-
-                If IsNull(ClienteDetalle.Correo, "").ToString.Trim.Length = 0 Then
-                    XtraMsg("El Cliente :" & ClienteDetalle.Nombre.Trim & " No tiene correo de Envío en su perfil" &
-                            "de cliente, intente Re-Enviar correo en unos minutos...", MessageBoxIcon.Warning)
-                Else
+                If Not IsNothing(enviaFactura) Then
                     EnviarMailComprobante(
                         False,
-                        Estado)
+                        enviaFactura.estadoFactura)
+                End If
+
+            ElseIf Estado.Equals("sin respuesta") Then
+
+                enviaFactura = fv.ConsultarComprobante(
+                 vNotas.GetFocusedRowCellValue("Facturas"),
+                 "03")
+
+                'Si codigo de respuesta es 400 signigica que haciend,
+                'no lo ha recibido aun.
+                If IsNothing(enviaFactura) Then
+                    ClientesDB.MaestroNotasCDUpdateATV(
+                        vNotas.GetFocusedRowCellValue("IdNota"),
+                        String.Empty)
+                Else
+                    XtraMsg(enviaFactura.mensajeRespuesta)
+                End If
+
+            ElseIf Estado.Equals(String.Empty) Or
+                    Estado.Equals("n/a") Or
+                        Estado.Equals("rechazado") Then
+                'ShowSplash("Enviando N/C...")
+                '
+                enviaFactura =
+                    fv.EnviarComprobante(
+                    vNotas.GetFocusedRowCellValue("Facturas"),
+                    "03",
+                    "NotaCreditoElectronica",
+                    vNotas.GetFocusedRowCellValue("Fecha"),
+                    "N/C Electrónica por Devolución de factura No." & vNotas.GetFocusedRowCellValue("Facturas"),
+                    vNotas.GetFocusedRowCellValue("IdNota"))
+                '
+                'HideSplash()
+
+                If enviaFactura.estadoFactura.Equals("acepatado") Then
+
+                    Dim DT_Header As DataTable = ObtieneDatos("sp_sel_FACTURAS_VENTAS",
+                                                              vNotas.GetFocusedRowCellValue("Facturas"),
+                                                              EmpresaActual)
+
+                    Dim ClienteDetalle As New VB.SysContab.ClientesDetails
+                    ClienteDetalle = VB.SysContab.ClientesDB.GetDetails(DT_Header.Rows.Item(0)("CLIENTE"))
+
+                    If IsNull(ClienteDetalle.Correo, "").ToString.Trim.Length = 0 Then
+                        XtraMsg("El Cliente :" & ClienteDetalle.Nombre.Trim & " No tiene correo de Envío en su perfil" &
+                                "de cliente, intente Re-Enviar correo en unos minutos...", MessageBoxIcon.Warning)
+                    Else
+                        EnviarMailComprobante(
+                            False,
+                            Estado)
+                    End If
                 End If
             End If
+
         End If
-        '
+        '   
         ShowSplash("Cargando N D/C...")
         GetData()
         HideSplash()
@@ -1111,16 +1227,45 @@ Public Class FrmNotasList
             Exit Sub
         End If
         '
-        Dim Estado As String = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "ATV")
+        Dim Estado As String =
+            vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "ATV")
 
-        If Estado.Equals("rechazado") Then
-            With frmMotivoRechazo
-                .Tipo = 3
-                .ID = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "IdNota")
-                .ShowDialog()
-                .Dispose()
-            End With
-            Exit Sub
+        'Nota Electronica Guatemala
+        If EmpresaActual.Equals("18") Then
+            If Estado.Equals("rechazado") Or
+                    Estado.Equals("aceptado") Then
+
+                With New frmMotivoRechazo
+
+                    .Tipo = 1
+                    .Consecutivo = Estado
+                    .Factura = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "NoNota")
+                    .TipoDocumento = "03"
+                    .ShowDialog()
+                    .Dispose()
+
+                End With
+            End If
         End If
+        '
+        ''Nota Electronica Costa Rica
+        If EmpresaActual.Equals("20") Then
+            If Estado.Equals("rechazado") Then
+
+                With New frmMotivoRechazo
+
+                    .Tipo = 3
+                    .ID = vNotas.GetRowCellValue(vNotas.FocusedRowHandle, "IdNota")
+                    .ShowDialog()
+                    .Dispose()
+
+                End With
+            End If
+        End If
+
+    End Sub
+
+    Private Sub vNotas_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles vNotas.RowCellClick
+
     End Sub
 End Class

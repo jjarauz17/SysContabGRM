@@ -120,7 +120,7 @@ Public Class FrmUsuariosListar
         'btnNuevo
         '
         Me.btnNuevo.Enabled = False
-        Me.btnNuevo.ImageOptions.Image = CType(resources.GetObject("btnNuevo.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageOptions.SvgImage = CType(resources.GetObject("btnNuevo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnNuevo.Location = New System.Drawing.Point(12, 225)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(96, 38)
@@ -151,7 +151,7 @@ Public Class FrmUsuariosListar
         '
         Me.bExportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.bExportar.Enabled = False
-        Me.bExportar.ImageOptions.Image = CType(resources.GetObject("bExportar.ImageOptions.Image"), System.Drawing.Image)
+        Me.bExportar.ImageOptions.SvgImage = CType(resources.GetObject("bExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bExportar.Location = New System.Drawing.Point(431, 225)
         Me.bExportar.Name = "bExportar"
         Me.bExportar.Size = New System.Drawing.Size(102, 38)
@@ -162,7 +162,7 @@ Public Class FrmUsuariosListar
         'btnSalir
         '
         Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSalir.ImageOptions.Image = CType(resources.GetObject("btnSalir.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageOptions.SvgImage = CType(resources.GetObject("btnSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnSalir.Location = New System.Drawing.Point(537, 225)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(96, 38)
@@ -184,7 +184,7 @@ Public Class FrmUsuariosListar
         'btnBorrar
         '
         Me.btnBorrar.Enabled = False
-        Me.btnBorrar.ImageOptions.Image = CType(resources.GetObject("btnBorrar.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnBorrar.ImageOptions.SvgImage = CType(resources.GetObject("btnBorrar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnBorrar.Location = New System.Drawing.Point(212, 225)
         Me.btnBorrar.Name = "btnBorrar"
         Me.btnBorrar.Size = New System.Drawing.Size(109, 38)
@@ -195,7 +195,7 @@ Public Class FrmUsuariosListar
         'btnEditar
         '
         Me.btnEditar.Enabled = False
-        Me.btnEditar.ImageOptions.Image = CType(resources.GetObject("btnEditar.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnEditar.ImageOptions.SvgImage = CType(resources.GetObject("btnEditar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnEditar.Location = New System.Drawing.Point(112, 225)
         Me.btnEditar.Name = "btnEditar"
         Me.btnEditar.Size = New System.Drawing.Size(96, 38)
@@ -219,7 +219,6 @@ Public Class FrmUsuariosListar
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.LayoutControlItem7})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(645, 275)
         Me.LayoutControlGroup1.TextVisible = False
@@ -313,6 +312,7 @@ Public Class FrmUsuariosListar
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.ClientSize = New System.Drawing.Size(645, 275)
         Me.Controls.Add(Me.LayoutControl1)
+        Me.KeyPreview = True
         Me.Name = "FrmUsuariosListar"
         Me.Text = "Listado de Usuarios"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -341,39 +341,40 @@ Public Class FrmUsuariosListar
     Private Sub FrmUsuariosListar_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Rutinas.FormularioColor(Me)
         'Rutinas.CambiarEstilo(Me)
-
         'dgRoles.DataSource = Ds.Tables("Tabla")
         'Rutinas.FormatGenerico(dgRoles, Ds.Tables("Tabla"))
         'Me.dgRoles.ReadOnly = True
 
         RolesDB.UsuarioAcciones(LayoutControl1)
         Cargar()
+        '
+        Me.vUsuarios.PopulateColumns()
+        FormatoGridNew(vUsuarios, 2, 0)
+
+        'vUsuarios.Columns("Usuario").Width = 40
+
+        'vUsuarios.Columns("Nombre").Width = 250
+        'vUsuarios.Columns("Correo").Width = 150
+        'vUsuarios.Columns("Rol Asignado").Width = 250
+        'vUsuarios.Columns("Empresa").Width = 300
+
 
         '*********************************
         ''''Me.cmdNuevo.Enabled = False
         ''''Me.cmdModificar.Enabled = False
         '''''Me.cmdImprimir.Enabled = False
         ''''Me.cmdBorrar.Enabled = False
-
         'VB.SysContab.Rutinas.UsuariosAcciones(Me, Me.Name)
         '*********************************
     End Sub
 
     Public Sub Cargar()
         'Dim Ds As DataSet = VB.SysContab.SeguridadDB.GetUsuariosList()
-
         'Me.dgUsuarios.DataSource = Ds.Tables("Tabla")
 
-        Me.dgUsuarios.DataSource = ObtieneDatos("sp_GetUsuariosList")
-        Me.vUsuarios.PopulateColumns()
-        FormatoGrid(Me.vUsuarios)
+        dgUsuarios.DataSource =
+            ObtieneDatos("sp_GetUsuariosList", 0, EmpresaActual)
 
-        vUsuarios.Columns("Nombre").Width = 250
-        vUsuarios.Columns("Correo").Width = 150
-        vUsuarios.Columns("Rol Asignado").Width = 250
-        vUsuarios.Columns("Empresa").Width = 300
-
-        ' Me.vUsuarios.BestFitColumns()
     End Sub
 
     'Private Sub cmdAcumulado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -420,13 +421,17 @@ Public Class FrmUsuariosListar
     Private Sub btnBorrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBorrar.Click
         If Me.vUsuarios.FocusedRowHandle < 0 Then Exit Sub
 
-        If XtraMessageBox.Show("¿ Esta Seguro que desea Deshabilitar el Usuario: " & Me.vUsuarios.GetFocusedRowCellValue("Login") & " ?", Me.Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = DialogResult.No Then
+        If Not XtraMsg2($"¿ Esta Seguro que desea Deshabilitar el Usuario: {vUsuarios.GetFocusedRowCellValue("Login")} ?") Then
             Exit Sub
         End If
 
         'GuardaDatos("UPDATE Usuarios SET Usr_Habilitado = 0 WHERE Usr_Id =" & Me.vUsuarios.GetFocusedRowCellValue("Usuario"))
 
-        If VB.SysContab.SeguridadDB.DeshabilitarUsuario(vUsuarios.GetFocusedRowCellValue("Usuario")) Then Cargar()
+        If VB.SysContab.
+            SeguridadDB.
+            DeshabilitarUsuario(
+            vUsuarios.GetFocusedRowCellValue("Usuario")) Then Cargar()
+
 
         'If MsgBox("Esta Seguro que desea Borrar este Usuario", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
         '    Try
@@ -454,14 +459,21 @@ Public Class FrmUsuariosListar
     End Sub
 
     Private Sub btnNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnNuevo.Click
+        Dim frm As FrmUsuarios = FrmUsuarios.Instance()
+        frm.Dispose()
+
         Dim f As FrmUsuarios = FrmUsuarios.Instance()
         f.MdiParent = Me.MdiParent
         f.Show()
-        f.Text = "Registrar Nuevo Usuario"
+        f.Text = "Nuevo Usuario"
         f.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles bExportar.Click
-        frmExportarImprimir.Mostrar(dgUsuarios)
+        frmExportarImprimir.Mostrar(dgUsuarios, Me.Text)
+    End Sub
+
+    Private Sub FrmUsuariosListar_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.F5 Then Cargar()
     End Sub
 End Class

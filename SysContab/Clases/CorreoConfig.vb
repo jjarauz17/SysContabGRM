@@ -144,4 +144,26 @@ Public Class CorreoConfig
         End Set
     End Property
 
+    Dim vAlertaMail As String
+
+    Public Property AlertaMail() As String
+        Get
+            Return vAlertaMail
+        End Get
+        Set(ByVal value As String)
+            vAlertaMail = value
+        End Set
+    End Property
+
+    Dim vAlertaMailCc As String
+
+    Public Property AlertaMailCc() As String
+        Get
+            Return vAlertaMailCc
+        End Get
+        Set(ByVal value As String)
+            vAlertaMailCc = value
+        End Set
+    End Property
+
 End Class

@@ -83,7 +83,7 @@ Public Class frmCajas
         'cmdSalir
         '
         Me.cmdSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdSalir.Location = New System.Drawing.Point(522, 9)
+        Me.cmdSalir.Location = New System.Drawing.Point(515, 9)
         Me.cmdSalir.Name = "cmdSalir"
         Me.cmdSalir.Size = New System.Drawing.Size(72, 35)
         Me.cmdSalir.TabIndex = 6
@@ -174,7 +174,6 @@ Public Class frmCajas
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.dgDatos)
         Me.Name = "frmCajas"
-        Me.Text = "C . A . J . A . S"
         CType(Me.dgDatos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vDatos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()

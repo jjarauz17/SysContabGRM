@@ -3,6 +3,7 @@ Imports System.Linq
 Imports System.Data.SqlClient
 Imports DevExpress.XtraGrid.Views.Grid
 Imports SysContab.VB.SysContab
+Imports DevExpress.XtraReports.UI
 
 Public Class frmDevolucionesFacturas
     Inherits DevExpress.XtraEditors.XtraForm
@@ -112,6 +113,7 @@ Public Class frmDevolucionesFacturas
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem13 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -120,7 +122,6 @@ Public Class frmDevolucionesFacturas
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
-        Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem12 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem16 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -143,6 +144,7 @@ Public Class frmDevolucionesFacturas
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -151,7 +153,6 @@ Public Class frmDevolucionesFacturas
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -193,14 +194,14 @@ Public Class frmDevolucionesFacturas
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(900, 216, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(834, 661)
+        Me.LayoutControl1.Size = New System.Drawing.Size(998, 668)
         Me.LayoutControl1.TabIndex = 166
         Me.LayoutControl1.Text = "LayoutControl1"
         '
         'rgTipo
         '
         Me.rgTipo.EditValue = 1
-        Me.rgTipo.Location = New System.Drawing.Point(121, 615)
+        Me.rgTipo.Location = New System.Drawing.Point(121, 621)
         Me.rgTipo.Name = "rgTipo"
         Me.rgTipo.Properties.Appearance.BackColor = System.Drawing.Color.DeepSkyBlue
         Me.rgTipo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -209,14 +210,14 @@ Public Class frmDevolucionesFacturas
         Me.rgTipo.Properties.Appearance.Options.UseFont = True
         Me.rgTipo.Properties.Appearance.Options.UseForeColor = True
         Me.rgTipo.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Devolución Total"), New DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Devolución Parcial")})
-        Me.rgTipo.Size = New System.Drawing.Size(598, 34)
+        Me.rgTipo.Size = New System.Drawing.Size(762, 35)
         Me.rgTipo.StyleController = Me.LayoutControl1
         Me.rgTipo.TabIndex = 165
         '
         'cmdSalir
         '
         Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(723, 611)
+        Me.cmdSalir.Location = New System.Drawing.Point(887, 618)
         Me.cmdSalir.Name = "cmdSalir"
         Me.cmdSalir.Size = New System.Drawing.Size(99, 38)
         Me.cmdSalir.StyleController = Me.LayoutControl1
@@ -237,7 +238,7 @@ Public Class frmDevolucionesFacturas
         'cmdDevoluciones
         '
         Me.cmdDevoluciones.ImageOptions.Image = CType(resources.GetObject("cmdDevoluciones.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdDevoluciones.Location = New System.Drawing.Point(12, 611)
+        Me.cmdDevoluciones.Location = New System.Drawing.Point(12, 618)
         Me.cmdDevoluciones.Name = "cmdDevoluciones"
         Me.cmdDevoluciones.Size = New System.Drawing.Size(105, 38)
         Me.cmdDevoluciones.StyleController = Me.LayoutControl1
@@ -264,7 +265,7 @@ Public Class frmDevolucionesFacturas
         Me.dgDatos.Location = New System.Drawing.Point(12, 90)
         Me.dgDatos.MainView = Me.vDatos
         Me.dgDatos.Name = "dgDatos"
-        Me.dgDatos.Size = New System.Drawing.Size(810, 505)
+        Me.dgDatos.Size = New System.Drawing.Size(974, 511)
         Me.dgDatos.TabIndex = 163
         Me.dgDatos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vDatos})
         '
@@ -348,7 +349,7 @@ Public Class frmDevolucionesFacturas
         Me.cbCajas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbCajas.Properties.PopupFormMinSize = New System.Drawing.Size(400, 0)
         Me.cbCajas.Properties.ShowFooter = False
-        Me.cbCajas.Size = New System.Drawing.Size(715, 22)
+        Me.cbCajas.Size = New System.Drawing.Size(879, 22)
         Me.cbCajas.StyleController = Me.LayoutControl1
         Me.cbCajas.TabIndex = 164
         '
@@ -443,13 +444,23 @@ Public Class frmDevolucionesFacturas
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
         '
+        'LayoutControlItem11
+        '
+        Me.LayoutControlItem11.Control = Me.etInicio
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(776, 0)
+        Me.LayoutControlItem11.Name = "LayoutControlItem11"
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(38, 52)
+        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem11.TextVisible = False
+        Me.LayoutControlItem11.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem1, Me.LayoutControlItem5, Me.EmptySpaceItem2, Me.LayoutControlItem12, Me.LayoutControlItem15, Me.LayoutControlItem16, Me.EmptySpaceItem3, Me.EmptySpaceItem4})
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(834, 661)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(998, 668)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -481,7 +492,7 @@ Public Class frmDevolucionesFacturas
         Me.LayoutControlItem3.Control = Me.cbCajas
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 52)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(814, 26)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(978, 26)
         Me.LayoutControlItem3.Text = "Caja:"
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(92, 13)
         '
@@ -490,7 +501,7 @@ Public Class frmDevolucionesFacturas
         Me.LayoutControlItem4.Control = Me.dgDatos
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 78)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(814, 509)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(978, 515)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -499,7 +510,7 @@ Public Class frmDevolucionesFacturas
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(332, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(482, 52)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(646, 52)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem5
@@ -522,20 +533,10 @@ Public Class frmDevolucionesFacturas
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(102, 10)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
-        'LayoutControlItem11
-        '
-        Me.LayoutControlItem11.Control = Me.etInicio
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(776, 0)
-        Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(38, 52)
-        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem11.TextVisible = False
-        Me.LayoutControlItem11.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
-        '
         'LayoutControlItem12
         '
         Me.LayoutControlItem12.Control = Me.cmdDevoluciones
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 599)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 606)
         Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(109, 42)
         Me.LayoutControlItem12.MinSize = New System.Drawing.Size(109, 42)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
@@ -547,7 +548,7 @@ Public Class frmDevolucionesFacturas
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.cmdSalir
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(711, 599)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(875, 606)
         Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(103, 42)
         Me.LayoutControlItem15.MinSize = New System.Drawing.Size(103, 42)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
@@ -561,9 +562,9 @@ Public Class frmDevolucionesFacturas
         Me.LayoutControlItem16.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LayoutControlItem16.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem16.Control = Me.rgTipo
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(109, 587)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(109, 593)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(602, 54)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(766, 55)
         Me.LayoutControlItem16.Text = "Tipo Devolución:"
         Me.LayoutControlItem16.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(92, 13)
@@ -571,23 +572,23 @@ Public Class frmDevolucionesFacturas
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(711, 587)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(875, 593)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(103, 12)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(103, 13)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem4
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 587)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 593)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(109, 12)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(109, 13)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'frmDevolucionesFacturas
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(834, 661)
+        Me.ClientSize = New System.Drawing.Size(998, 668)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Name = "frmDevolucionesFacturas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -609,6 +610,7 @@ Public Class frmDevolucionesFacturas
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -617,7 +619,6 @@ Public Class frmDevolucionesFacturas
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1038,44 +1039,90 @@ Public Class frmDevolucionesFacturas
             End If
         End If
         '
+        Dim fv As New Facturas_VentasDB()
         'Devolucion Total
         If rgTipo.EditValue = 1 Then
 
             With frmDatosDevolucionCR
-                .NoFactura = vDatos.GetFocusedRowCellValue("FACTURA")
+                .NoFactura = vDatos.GetRowCellValue(vDatos.FocusedRowHandle, "FACTURA")
                 .Text = "Devolución Electrónica Factura No. " & vDatos.GetFocusedRowCellValue("FACTURA")
                 .ShowDialog()
-
+                '
                 If .Ok = "SI" Then
 
-                    Dim Plantilla As New VB.SysContab.PlantillaDB
-                    Dim plan As String = Plantilla.GetTipoPlantilla(4, 4).ToString
-                    '
-                    If plan = "" Or plan Is DBNull.Value Then
-                        XtraMsg("No hay Plantilla Contable de Devolución para Realizar esta Transacción", MessageBoxIcon.Error)
-                        .Dispose()
+                    Dim DT_Header As DataTable =
+                        ObtieneDatos("sp_sel_FACTURAS_VENTAS",
+                                     vDatos.GetRowCellValue(vDatos.FocusedRowHandle, "FACTURA"),
+                                     EmpresaActual)
+
+                    Dim DT_DETALLE As DataTable =
+                        Facturas_VentasDB.ListaDetalle(
+                        vDatos.GetRowCellValue(vDatos.FocusedRowHandle, "FACTURA"))
+
+                    If DT_DETALLE.Rows.Count = 0 Then
+                        XtraMsg($"La Factura {vDatos.GetRowCellValue(vDatos.FocusedRowHandle, "FACTURA")} ya se encuentra devuelta en su totalidad",
+                                MessageBoxIcon.Warning)
                         Exit Sub
                     End If
                     '
-                    Dim DT_Header As DataTable = ObtieneDatos("sp_sel_FACTURAS_VENTAS",
-                                                              vDatos.GetFocusedRowCellValue("FACTURA"),
-                                                              EmpresaActual)
+                    If fv.Devolucion(
+                            DT_Header,
+                            DT_DETALLE,
+                            .Fecha.DateTime.Date,
+                            .cbMovimientos.EditValue,
+                            .cbTipoNota.EditValue,
+                            .txtReferencia.Text,
+                            .txtnota.Text,
+                            .Razon.Text,
+                            1) Then
 
-                    Dim ClienteDetalle As New VB.SysContab.ClientesDetails
-                    ClienteDetalle = VB.SysContab.ClientesDB.GetDetails(
-                        DT_Header.Rows.Item(0)("CLIENTE"))
-                    '
-                    If GuardarDevolucion(Plantilla.GetPlantillasDetails(plan).TipoCompr,
-                                             DT_Header,
-                                             ClienteDetalle,
-                                             .Fecha.DateTime.Date,
-                                             .cbTipoNota.EditValue,
-                                             .cbMovimientos.EditValue,
-                                             .txtReferencia.Text,
-                                              .Razon.Text) Then
+                        If .chkSerie.Checked Then
+                            Guardar("sp_upd_SeriesCajas",
+                                    .cmbserie.EditValue,
+                                    .cmbserie.GetColumnValue("Factura"),
+                                    EmpresaActual)
+                        End If
+                        '
+                        ''Imprimir el Comprobante Contable de la Devolución
+                        'ComprobanteDB.ImprimirComprobante(
+                        '    fv.Comp_No,
+                        '    fv.Per_Id,
+                        '    fv.Fecha)
+
+                        'Facturas_VentasDB.DevolucionImprimir(
+                        '    fv.IdNota,
+                        '    .txtnota.Text,
+                        '    "C",
+                        '    fv.MontoNC)
+
+                        ComprobanteDB.ImprimirComprobante(
+                            fv.Comp_No,
+                            fv.Per_Id,
+                            fv.Fecha)
+                        '
+                        'Actualizar Lista de Devoluciones
+                        Dim f As frmDevolucionesClienteList = frmDevolucionesClienteList.Instance()
+                        If f.Created Then f.Cargar()
+
                         .Dispose()
                         Close()
                     End If
+
+                    'GuardarDevolucion()
+                    '                    
+                    'If GuardarDevolucion(Plantilla.GetPlantillasDetails(plan).TipoCompr,
+                    '                         DT_Header,
+                    '                         ClienteDetalle,
+                    '                         .Fecha.DateTime.Date,
+                    '                         .cbTipoNota.EditValue,
+                    '                         .cbMovimientos.EditValue,
+                    '                         .txtReferencia.Text,
+                    '                          .txtnota.Text,
+                    '                          .Razon.Text) Then
+                    '    .Dispose()
+                    '    Close()
+                    'End If
+
                 End If
 
                 .Dispose()
@@ -1100,441 +1147,453 @@ Public Class frmDevolucionesFacturas
 
     End Sub
 
-    Function GuardarDevolucion(TipoComp As Integer,
-                               DT_Header As DataTable,
-                               ClienteDetalle As VB.SysContab.ClientesDetails,
-                               FechaDevolucion As Date,
-                               TipoNC As Integer,
-                               MovimientoID As Integer,
-                               Referencia As String,
-                               Concepto As String) As Boolean
+    'Function GuardarDevolucion(TipoComp As Integer,
+    '                           DT_Header As DataTable,
+    '                           ClienteDetalle As VB.SysContab.ClientesDetails,
+    '                           FechaDevolucion As Date,
+    '                           TipoNC As Integer,
+    '                           MovimientoID As Integer,
+    '                           Referencia As String,
+    '                           NoNota As String,
+    '                           Concepto As String) As Boolean
 
-        Dim CuentaCliente As String = String.Empty,
-            CompNo As Integer = 0,
-            NoFactura As String = DT_Header.Rows.Item(0)("FACTURA"),
-            EsProducto As Boolean = True,
-            Repetido As Boolean = False,
-            CuentaIVA As String = String.Empty,
-            fp As Integer = 0,
-            CuentaMtto As String = String.Empty,
-            TCambio As Double = GetTasaCambioDia(FechaDevolucion)
+    '    Dim CuentaCliente As String = String.Empty,
+    '        CompNo As Integer = 0,
+    '        NoFactura As String = DT_Header.Rows.Item(0)("FACTURA"),
+    '        EsProducto As Boolean = True,
+    '        Repetido As Boolean = False,
+    '        CuentaIVA As String = String.Empty,
+    '        fp As Integer = 0,
+    '        CuentaMtto As String = String.Empty,
+    '        TCambio As Double = GetTasaCambioDia(FechaDevolucion)
 
-        Dim CuentasIventario As New ArrayList,     'CUENTAS CONTABLES D PRODUCTOS
-            MontosIventario As New ArrayList,  'MONTO DE PRODUCTOS INVENTARIO        
-            CuentasCostos As New ArrayList,     'CUENTAS CONTABLES D PRODUCTOS
-            MontosCostos As New ArrayList,  'MONTO DE PRODUCTOS COSTO        
-            CuentasIngresos As New ArrayList,   'CUENTAS CONTABLES D PRODUCTOS
-            MontosIngresos As New ArrayList,  'MONTO DE PRODUCTOS INVENTARIO VS. COSTO
-            ArrayCentros As New ArrayList,   'DISTRIBUION A LOS CENTROS DE COSTOS.
-            TotalCaja As Double = 0,
-            MontoIVA As Double = 0,
-            DT_DETALLE As New DataTable
+    '    Dim CuentasIventario As New ArrayList,     'CUENTAS CONTABLES D PRODUCTOS
+    '        MontosIventario As New ArrayList,  'MONTO DE PRODUCTOS INVENTARIO        
+    '        CuentasCostos As New ArrayList,     'CUENTAS CONTABLES D PRODUCTOS
+    '        MontosCostos As New ArrayList,  'MONTO DE PRODUCTOS COSTO        
+    '        CuentasIngresos As New ArrayList,   'CUENTAS CONTABLES D PRODUCTOS
+    '        MontosIngresos As New ArrayList,  'MONTO DE PRODUCTOS INVENTARIO VS. COSTO
+    '        ArrayCentros As New ArrayList,   'DISTRIBUION A LOS CENTROS DE COSTOS.
+    '        TotalCaja As Double = 0,
+    '        MontoIVA As Double = 0,
+    '        DT_DETALLE As New DataTable
 
-        Dim PlanillaDetalle As New VB.SysContab.PlantillaDetails()
-        Dim Per_Id As Integer = PeriodosDB.Activo(FechaDevolucion)
-        Dim Numero As String = DevolucionesClienteDB.Numero()
-        Dim Dev As New DevolucionesClienteDB()
-        Dim DTDistribucion As DataTable = CargaDistribucion(0, 0, 0)
+    '    Dim PlanillaDetalle As New VB.SysContab.PlantillaDetails()
+    '    Dim Per_Id As Integer = PeriodosDB.Activo(FechaDevolucion)
+    '    Dim Numero As String = DevolucionesClienteDB.Numero()
+    '    Dim Dev As New DevolucionesClienteDB()
+    '    Dim DTDistribucion As DataTable = CargaDistribucion(0, 0, 0)
 
-        If Clientes.FacturaDetalleDevolucion(NoFactura) _
-            .Tables("Facturas_Ventas") _
-            .Rows.Count = 0 Then EsProducto = False
+    '    If Clientes.FacturaDetalleDevolucion(NoFactura) _
+    '        .Tables("Facturas_Ventas") _
+    '        .Rows.Count = 0 Then EsProducto = False
 
-        'Buscar Plantilla de Mantenimiento de Valor.
-        Dim DsPlantillas As DataSet =
-            PlantillaDB.GetPlantillasDetails(7, 1).Detalles
+    '    'Buscar Plantilla de Mantenimiento de Valor.
+    '    Dim DsPlantillas As DataSet =
+    '        PlantillaDB.GetPlantillasDetails(7, 1).Detalles
 
-        If DsPlantillas.Tables("PlantillasDetalles").Rows.Count <= 1 Then
-            XtraMsg("Hace Falta la Plantilla de Mantenimiento de Valor.", MessageBoxIcon.Error)
-            Return False
-        End If
+    '    If DsPlantillas.Tables("PlantillasDetalles").Rows.Count <= 1 Then
+    '        XtraMsg("Hace Falta la Plantilla de Mantenimiento de Valor.", MessageBoxIcon.Error)
+    '        Return False
+    '    End If
 
-        'Factura de Contado
-        If FormaPago.FormaPagoDias(DT_Header.Rows.Item(0)("TIPO_FACTURA")) = 0 Then   'Contado
-            fp = 0
-            PlanillaDetalle =
-                PlantillaDB.GetPlantillasDetails(4, 1)
+    '    'Factura de Contado
+    '    If FormaPago.FormaPagoDias(DT_Header.Rows.Item(0)("TIPO_FACTURA")) = 0 Then   'Contado
+    '        fp = 0
+    '        PlanillaDetalle =
+    '            PlantillaDB.GetPlantillasDetails(4, 1)
 
-            If PlanillaDetalle.PlaID Is DBNull.Value Or
-                PlanillaDetalle.PlaID Is Nothing Or
-                PlanillaDetalle.PlaID = "" Then
+    '        If PlanillaDetalle.PlaID Is DBNull.Value Or
+    '            PlanillaDetalle.PlaID Is Nothing Or
+    '            PlanillaDetalle.PlaID = "" Then
 
-                XtraMsg("No existen plantilla del tipo Factura de Contado", MessageBoxIcon.Warning)
-                Return False
-            Else
-                CuentaCliente = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(0).Item("Cuenta")
-                CuentaIVA = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(3).Item("Cuenta")
-                'CuentaIR = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(1).Item("Cuenta")
-                'CuentaIR_Alcaldia = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(6).Item("Cuenta")
-            End If
-        Else    'Factura de Credito
-            fp = 1
-            PlanillaDetalle = VB.SysContab.PlantillaDB.GetPlantillasDetails(4, 2)
+    '            XtraMsg("No existen plantilla del tipo Factura de Contado", MessageBoxIcon.Warning)
+    '            Return False
+    '        Else
+    '            CuentaCliente = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(0).Item("Cuenta")
+    '            CuentaIVA = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(3).Item("Cuenta")
+    '            'CuentaIR = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(1).Item("Cuenta")
+    '            'CuentaIR_Alcaldia = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(6).Item("Cuenta")
+    '        End If
+    '    Else    'Factura de Credito
+    '        fp = 1
+    '        PlanillaDetalle = VB.SysContab.PlantillaDB.GetPlantillasDetails(4, 2)
 
-            If ClienteDetalle.Cuenta.Trim = "" Then
-                XtraMsg("No se puede contabilizar la Devolución, porque no hay cuenta contable para el cliente: " & ClienteDetalle.Nombre, MessageBoxIcon.Error)
-                Return False
-            End If
-            '
-            If PlanillaDetalle.PlaID Is DBNull.Value Or
-               PlanillaDetalle.PlaID Is Nothing Or
-               PlanillaDetalle.PlaID = "" Then
+    '        If ClienteDetalle.Cuenta.Trim = "" Then
+    '            XtraMsg("No se puede contabilizar la Devolución, porque no hay cuenta contable para el cliente: " & ClienteDetalle.Nombre, MessageBoxIcon.Error)
+    '            Return False
+    '        End If
+    '        '
+    '        If PlanillaDetalle.PlaID Is DBNull.Value Or
+    '           PlanillaDetalle.PlaID Is Nothing Or
+    '           PlanillaDetalle.PlaID = "" Then
 
-                XtraMsg("No existen plantilla del tipo Factura de Crédito", MessageBoxIcon.Warning)
-                Return False
-            Else
-                CuentaCliente = ClienteDetalle.Cuenta
-                CuentaIVA = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(1).Item("Cuenta")
-            End If
-        End If
-        '
-        'Iniciar Transacción...
-        '/****************************************************************************
-        DBConnFacturas = New SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
-        DBConnFacturas.Open()
-        transaccionFacturas = DBConnFacturas.BeginTransaction
-        '****************************************************************************/
+    '            XtraMsg("No existen plantilla del tipo Factura de Crédito", MessageBoxIcon.Warning)
+    '            Return False
+    '        Else
+    '            CuentaCliente = ClienteDetalle.Cuenta
+    '            CuentaIVA = PlanillaDetalle.Detalles.Tables("PlantillasDetalles").Rows(1).Item("Cuenta")
+    '        End If
+    '    End If
+    '    '
+    '    'Iniciar Transacción...
+    '    '/****************************************************************************
+    '    DBConnFacturas = New SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
+    '    DBConnFacturas.Open()
+    '    transaccionFacturas = DBConnFacturas.BeginTransaction
+    '    '****************************************************************************/
 
-        Try
-            '***************  CONTABILIZANDO DEVOLUCION FACTURA
-            CompNo = ComprobanteDB.AddComprobante(TipoComp, 1,
-           "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: " & Referencia,
-           MonedaBase, Per_Id,
-           FechaDevolucion, 0, "", False,
-           DT_Header.Rows.Item(0)("CLIENTE"), "", 0, "NC" & IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura),
-           Rutinas.Fecha, 0,
-           IIf(CInt(EmpresaActual) = 20, OrigenComprobantes.NC_ELECTRONICA, OrigenComprobantes.NC_DEVOLUCION))
+    '    Try
+    '        '***************  CONTABILIZANDO DEVOLUCION FACTURA
+    '        CompNo = ComprobanteDB.AddComprobante(
+    '            TipoComp,
+    '            1,
+    '            "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: " & Referencia,
+    '            MonedaBase,
+    '            Per_Id,
+    '            FechaDevolucion,
+    '            0, "",
+    '            False,
+    '            DT_Header.Rows.Item(0)("CLIENTE"),
+    '            "", 0, "NC" & IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura),
+    '            Rutinas.Fecha, 0,
+    '            IIf(CInt(EmpresaActual) = 20, OrigenComprobantes.NC_ELECTRONICA, OrigenComprobantes.NC_DEVOLUCION))
 
-            Dev.AddItem(Numero,
-                        NoFactura,
-                        Referencia,
-                        CompNo,
-                        Per_Id,
-                        FechaDevolucion.Month,
-                        0,
-                        "",
-                        Concepto)
+    '        Dev.AddItem(Numero,
+    '                    NoFactura,
+    '                    Referencia,
+    '                    CompNo,
+    '                    Per_Id,
+    '                    FechaDevolucion.Month,
+    '                    0,
+    '                    "",
+    '                    Concepto)
 
-            DT_DETALLE = Facturas_VentasDB.ListaDetalle(NoFactura)
+    '        DT_DETALLE = Facturas_VentasDB.ListaDetalle(NoFactura)
 
-            For i As Integer = 0 To DT_DETALLE.Rows.Count - 1
+    '        For i As Integer = 0 To DT_DETALLE.Rows.Count - 1
 
-                Dim IVAUnidad As Double = IIf(CDbl(DT_DETALLE.Rows.Item(i)("IVA")) > 0,
-                                              CDbl(DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO")) *
-                                              CDbl(DT_DETALLE.Rows.Item(i)("Iva_Porcentaje") / 100.0), 0.00)
+    '            Dim IVAUnidad As Double = IIf(CDbl(DT_DETALLE.Rows.Item(i)("IVA")) > 0,
+    '                                          CDbl(DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO")) *
+    '                                          CDbl(DT_DETALLE.Rows.Item(i)("Iva_Porcentaje") / 100.0), 0.00)
 
-                Dim Descuento As Double = DT_DETALLE.Rows.Item(i)("DESCUENTO")
+    '            Dim Descuento As Double = DT_DETALLE.Rows.Item(i)("DESCUENTO")
 
-                Dev.AddItemDetalle(
-                    Numero,
-                    DT_DETALLE.Rows.Item(i)("ITEM"),
-                    DT_DETALLE.Rows.Item(i)("TIPO"),
-                    DT_DETALLE.Rows.Item(i)("CANTIDAD"),
-                    IVAUnidad,
-                    DT_DETALLE.Rows.Item(i)("PRECIO"))
+    '            Dev.AddItemDetalle(
+    '                Numero,
+    '                DT_DETALLE.Rows.Item(i)("ITEM"),
+    '                DT_DETALLE.Rows.Item(i)("TIPO"),
+    '                DT_DETALLE.Rows.Item(i)("CANTIDAD"),
+    '                IVAUnidad,
+    '                DT_DETALLE.Rows.Item(i)("PRECIO"))
 
-                Guardar_Con_Transaccion("sp_DevolucionClienteDetalle_Proyecto",
-                                                DT_DETALLE.Rows.Item(i)("NUMERO"),
-                                                DT_DETALLE.Rows.Item(i)("CANTIDAD"),
-                                                EmpresaActual)
+    '            Guardar_Con_Transaccion("sp_DevolucionClienteDetalle_Proyecto",
+    '                                            DT_DETALLE.Rows.Item(i)("NUMERO"),
+    '                                            DT_DETALLE.Rows.Item(i)("CANTIDAD"),
+    '                                            EmpresaActual)
 
-                Guardar_Con_Transaccion("sp_DevolucionClienteDetalle_Devuelto",
-                                        DT_DETALLE.Rows.Item(i)("NUMERO"),
-                                        EmpresaActual)
-
-
-                ''***********   CUENTAS DE INGRESOS  **********************
-                Repetido = False
-
-                For c As Integer = 0 To CuentasIngresos.Count - 1
-                    If DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION") = CuentasIngresos(c) Then
-                        MontosIngresos(c) = MontosIngresos(c) + ((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio)) -
-                                                                 (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio) * (Descuento / 100.0)))
-                        Repetido = True
-                    End If
-                Next
-                '
-                If Repetido = False Then
-                    CuentasIngresos.Add(DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION"))
-
-                    MontosIngresos.Add((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio)) -
-                                                   (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio) * (Descuento / 100.0)))
-                End If
-                '' ***********   FIN CUENTAS DE INGRESOS  *********************
-                '' ***********  DISTRIBUCION CUENTAS DE INGRESOS  *************
-                Dim ExisteCentro As Boolean = False
-                Dim Existe As Boolean = False
-                '
-                For c As Integer = 0 To ArrayCentros.Count - 1
-                    'Verifica si existe centro
-                    If DT_DETALLE.Rows.Item(i)("CentroID") = ArrayCentros(c) Then
-                        ExisteCentro = True
-                        'Distribucion Ingresos
-                        For d As Integer = 0 To DTDistribucion.Rows.Count - 1
-                            If DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION") = DTDistribucion.Rows(d).Item("Cuenta") And
-                                         DTDistribucion.Rows(d).Item("IdCentroCosto") = ArrayCentros(c) Then
-
-                                Existe = True
-                                DTDistribucion.Rows(d).Item("Valor") = Math.Round(((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio)) -
-                                                                                 (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIO") * TCambio) * (Descuento / 100))) +
-                                                                                  DTDistribucion.Rows(d).Item("Valor"), 2)
-                            End If
-                        Next
-                    End If
-                Next
-                '
-                If ExisteCentro = False Then
-                    'Verifica si no existe y lo agrega
-                    ArrayCentros.Add(DT_DETALLE.Rows.Item(i)("CentroID"))
-                End If
-                '' ***********  FIN DISTRIBUCION CUENTAS DE INGRESOS  *************
-                ''******************** AGREGAR DISTRIBUCION A LA TABLA ***********
-                If Existe = False Then
-                    Dim row As DataRow = DTDistribucion.NewRow()
-                    Dim DT_RG As DataTable = ObtieneDatosTrans("sp_sel_RubroGastos",
-                                                                DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION"),
-                                                                EmpresaActual)
-
-                    If DT_RG.Rows.Count > 0 Then
-                        row("IdRubroGasto") = DT_RG.Rows(0).Item("Codigo")
-                        row("IdEmpresa") = EmpresaActual
-                        row("NoComp") = CompNo
-                        row("Mes") = FechaDevolucion.Month
-                        row("Per_Id") = Per_Id
-                        row("IdCentroCosto") = DT_DETALLE.Rows.Item(i)("CentroID")   'cbCentroCosto.EditValue  
-                        row("Valor") = Math.Round(((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIO") * TCambio)) -
-                                                            (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIO") * TCambio) * (Descuento / 100))), 2)
-                        row("Tipo") = "D"
-                        row("Cuenta") = DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION")
-
-                        DTDistribucion.Rows.Add(row)
-                    End If
-                End If
-                '**************************************************
-                'FIN DE DISTRIBUCION -  CENTRO DE COSTOS
-                '**************************************************
-                TotalCaja = TotalCaja + ((DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO")) -
-                                                            (DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO") * (Descuento / 100)))
-                '
-                'MontoIVA = MontoIVA + (DT_DETALLE.Rows.Item(i)("IVA"))
-                MontoIVA = MontoIVA + +(IIf(CDbl(DT_DETALLE.Rows.Item(i)("IVA")) > 0,
-                                              CDbl(DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO")) *
-                                              CDbl(DT_DETALLE.Rows.Item(i)("Iva_Porcentaje") / 100.0), 0.00))
-            Next
-            '
-            '*****************  CONTABILIZANDO DEBITOS ***********************
-            '*****************************************************************
-            'Ingresos 
-            For c As Integer = 0 To CuentasIngresos.Count - 1
-                ComprobanteDB.AddComprobanteDetalles(CompNo, CuentasIngresos(c), "Ingreso por Devolucion No. " & Numero,
-                                          Math.Round(MontosIngresos(c), 2), "0", TipoComp, "D", "0", "0", FechaDevolucion.Date, 1)
-            Next
-            '
-            'IVA    
-            If MontoIVA > 0 Then
-                ComprobanteDB.AddComprobanteDetalles(CompNo, CuentaIVA, "IVA Por Devolucion No. " & Numero,
-                                          Math.Round(MontoIVA, 2), "0", TipoComp, "D", "0", "0", FechaDevolucion.Date, 1)
-            End If
-            '
-            '*****************  CONTABILIZANDO CREDITO ***********************
-            '*****************************************************************
-            'Cajas
-            ComprobanteDB.AddComprobanteDetalles(CompNo, CuentaCliente, IIf(fp = 0, "Fondos por Depositar/Cajas", "Cuentas x Cobrar Clientes"),
-                                        Math.Round(TotalCaja + MontoIVA, 2), "0", TipoComp, "C", "0", "0", FechaDevolucion.Date, 1)
-            '
-            '----------------------
-            'Guarda la Distribucion
-            '----------------------
-            GuardaDistribucionTrans(
-                DTDistribucion,
-                FechaDevolucion.Date,
-                CompNo)
-
-            Rutinas.okTransaccion()
-
-            'GuardarNotaCredito("NC" + NoFactura.PadLeft(6, "0"c),
-            '                   ClienteDetalle,
-            '                   FechaDevolucion,
-            '                   TipoNC,
-            '                   MovimientoID,
-            '                   TipoComp,
-            '                   TotalCaja,
-            '                   MontoIVA,
-            '                   "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: NC" & NoFactura.PadLeft(6, "0"c))
-
-            'Return True
-        Catch ex As Exception
-            XtraMsg(ex.Message & " Contabilizar.",
-                    MessageBoxIcon.Error)
-            Rutinas.ErrorTransaccion()
-            Return False
-        End Try
-        '
-        Try
-            '***************** GUARDAR NOTA DE CREDITO ***********************
-            Dim db_Notas As New db_MaestroNotasCD
-            Dim NoNota As String = "NC" + IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura)
-
-            Dim IdNota As Integer = db_Notas.Guardar(
-                NoNota,
-                ClienteDetalle.Codigo,
-                FechaDevolucion.Date,
-                TipoComp,
-                TotalCaja + MontoIVA,
-                "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: " & Referencia,
-                1,
-                MonedaBase,
-                CompNo,
-                Per_Id,
-                FechaDevolucion.Month,
-                FechaDevolucion.Date,
-                0,
-                TipoNC,
-                "",
-                Numero)
-
-            If IdNota > 0 Then
-                'Detalle de la N/C
-                db_Notas.GuardarDetalle(
-                    IdNota,
-                    NoFactura,
-                    TotalCaja + MontoIVA,
-                    FechaDevolucion.Date,
-                    0.00)
-            End If
-            ''*************** FIN REGISTRO NOTA DE CREDITO ****************
-            '----------------------------------------
-            'Guarda Movimiento de Inventario
-            '----------------------------------------
-            If EsProducto Then
-                'Validar si hay registros para procesar
-                'Dim dr() As DataRow = DT_DETALLE.Select("EsProyecto = 0")
-                Dim dr() As DataRow = DT_DETALLE.Select("TIPO = 'P'")
-                If dr.Length > 0 Then
-
-                    Dim _DETALLE As DataTable = DT_DETALLE.Select("TIPO = 'P'").CopyToDataTable
-
-                    'Productos sin relacion con los proyectos
-                    If _DETALLE.Select("IdProyecto = 0").Length > 0 Then
-
-                        Dim _SIN_PROY As DataTable =
-                            _DETALLE.Select("IdProyecto = 0") _
-                            .CopyToDataTable
-
-                        If _SIN_PROY.Rows.Count > 0 Then
-
-                            Dim Requisa As Integer = db_requisas.Add(
-                                EmpresaActual,
-                                "E",
-                                FechaDevolucion.Date,
-                                _SIN_PROY.Rows.Item(0)("Bodega"),
-                                Login, Numero,
-                                MovimientoID,
-                                Referencia,
-                                "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: NC" & Referencia,
-                                "", "", "", "", "", "", ClienteDetalle.Codigo, "", 0, 0, 0, Numero)
-
-                            For i As Integer = 0 To _SIN_PROY.Rows.Count - 1
-                                'If _SIN_PROY.Rows.Item(i)("TIPO") = "P" Then
-
-                                db_requisas.AddDetalle(
-                                        EmpresaActual,
-                                        Requisa,
-                                        _SIN_PROY.Rows.Item(i)("ITEM"),
-                                        "P",
-                                        _SIN_PROY.Rows.Item(i)("CANTIDAD"),
-                                        _SIN_PROY.Rows.Item(i)("COSTO"),
-                                        "NC", "", "", "")
-
-                                'End If
-                            Next
-                        End If
-
-                    End If
-                    '
-                    'Productos con Relacion a los Proyectos.
-                    If _DETALLE.Select("IdProyecto > 0") _
-                        .Length > 0 Then
-
-                        Dim _CON_PROY As DataTable = _DETALLE _
-                            .Select("IdProyecto > 0") _
-                            .CopyToDataTable
-
-                        If _CON_PROY.Rows.Count > 0 Then
-
-                            Dim req = From row In _CON_PROY.AsEnumerable()
-                                      Select row.Field(Of Object)("IdProyecto") Distinct
-
-                            For Each s As Object In req
-                                If Not s Is Nothing Then
-
-                                    Dim _DT As DataTable =
-                                        _CON_PROY _
-                                        .Select("IdProyecto = " & s) _
-                                        .CopyToDataTable
-
-                                    Dim Requisa As Integer = db_requisas.Add(
-                                        EmpresaActual,
-                                        "E",
-                                        FechaDevolucion.Date,
-                                        _DT.Rows.Item(0)("Bodega"),
-                                        Login,
-                                        Numero,
-                                        MovimientoID,
-                                        Referencia,
-                                        "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: NC" & Referencia,
-                                        "", "", "", "", "", "", ClienteDetalle.Codigo, "", s, 0, 0, Numero)
-
-                                    For i As Integer = 0 To _DT.Rows.Count - 1
-                                        'If _DT.Rows.Item(i)("TIPO") = "P" Then
-
-                                        db_requisas.AddDetalle(
-                                                EmpresaActual,
-                                                Requisa,
-                                                _DT.Rows.Item(i)("ITEM"),
-                                                "P",
-                                                _DT.Rows.Item(i)("CANTIDAD"),
-                                                _DT.Rows.Item(i)("COSTO"),
-                                                "NC", "", "", "")
-                                        ' End If
-                                    Next
-                                End If
-                            Next
-                        End If
-                    End If
-                End If
-            End If
-            'Verificar si el Comprobante tiene diferencias, por Deslizamiento de la moneda.
+    '            Guardar_Con_Transaccion("sp_DevolucionClienteDetalle_Devuelto",
+    '                                    DT_DETALLE.Rows.Item(i)("NUMERO"),
+    '                                    EmpresaActual)
 
 
+    '            ''***********   CUENTAS DE INGRESOS  **********************
+    '            Repetido = False
 
-            'XtraMsg("Devolución Electrónica realizada Éxitosamente !!!", MessageBoxIcon.Information)
-            'Return True
+    '            For c As Integer = 0 To CuentasIngresos.Count - 1
+    '                If DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION") = CuentasIngresos(c) Then
+    '                    MontosIngresos(c) = MontosIngresos(c) + ((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio)) -
+    '                                                             (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio) * (Descuento / 100.0)))
+    '                    Repetido = True
+    '                End If
+    '            Next
+    '            '
+    '            If Repetido = False Then
+    '                CuentasIngresos.Add(DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION"))
 
-            XtraMsg("Devolución realizada Exitosamente !!!",
-                    MessageBoxIcon.Information)
+    '                MontosIngresos.Add((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio)) -
+    '                                               (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio) * (Descuento / 100.0)))
+    '            End If
+    '            '' ***********   FIN CUENTAS DE INGRESOS  *********************
+    '            '' ***********  DISTRIBUCION CUENTAS DE INGRESOS  *************
+    '            Dim ExisteCentro As Boolean = False
+    '            Dim Existe As Boolean = False
+    '            '
+    '            For c As Integer = 0 To ArrayCentros.Count - 1
+    '                'Verifica si existe centro
+    '                If DT_DETALLE.Rows.Item(i)("CentroID") = ArrayCentros(c) Then
+    '                    ExisteCentro = True
+    '                    'Distribucion Ingresos
+    '                    For d As Integer = 0 To DTDistribucion.Rows.Count - 1
+    '                        If DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION") = DTDistribucion.Rows(d).Item("Cuenta") And
+    '                                     DTDistribucion.Rows(d).Item("IdCentroCosto") = ArrayCentros(c) Then
 
-            'XtraMsg("Devolución Electrónica realizada Éxitosamente !!!",
-            '        MessageBoxIcon.Information)
+    '                            Existe = True
+    '                            DTDistribucion.Rows(d).Item("Valor") = Math.Round(((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIOUSD") * TCambio)) -
+    '                                                                             (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIO") * TCambio) * (Descuento / 100))) +
+    '                                                                              DTDistribucion.Rows(d).Item("Valor"), 2)
+    '                        End If
+    '                    Next
+    '                End If
+    '            Next
+    '            '
+    '            If ExisteCentro = False Then
+    '                'Verifica si no existe y lo agrega
+    '                ArrayCentros.Add(DT_DETALLE.Rows.Item(i)("CentroID"))
+    '            End If
+    '            '' ***********  FIN DISTRIBUCION CUENTAS DE INGRESOS  *************
+    '            ''******************** AGREGAR DISTRIBUCION A LA TABLA ***********
+    '            If Existe = False Then
+    '                Dim row As DataRow = DTDistribucion.NewRow()
+    '                Dim DT_RG As DataTable = ObtieneDatosTrans("sp_sel_RubroGastos",
+    '                                                            DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION"),
+    '                                                            EmpresaActual)
 
-            ''Imprimir el Comprobante Contable de la Devolución
-            ComprobanteDB.ImprimirComprobante(
-                CompNo,
-                PeriodosDB.Activo(FechaDevolucion.Date),
-                FechaDevolucion.Date)
+    '                If DT_RG.Rows.Count > 0 Then
+    '                    row("IdRubroGasto") = DT_RG.Rows(0).Item("Codigo")
+    '                    row("IdEmpresa") = EmpresaActual
+    '                    row("NoComp") = CompNo
+    '                    row("Mes") = FechaDevolucion.Month
+    '                    row("Per_Id") = Per_Id
+    '                    row("IdCentroCosto") = DT_DETALLE.Rows.Item(i)("CentroID")   'cbCentroCosto.EditValue  
+    '                    row("Valor") = Math.Round(((DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIO") * TCambio)) -
+    '                                                        (DT_DETALLE.Rows.Item(i)("CANTIDAD") * (DT_DETALLE.Rows.Item(i)("PRECIO") * TCambio) * (Descuento / 100))), 2)
+    '                    row("Tipo") = "D"
+    '                    row("Cuenta") = DT_DETALLE.Rows.Item(i)("CUENTA_DEVOLUCION")
 
-            'Actualizar Lista de Devoluciones
-            Dim f As frmDevolucionesClienteList = frmDevolucionesClienteList.Instance()
-            If f.Created Then f.Cargar()
+    '                    DTDistribucion.Rows.Add(row)
+    '                End If
+    '            End If
+    '            '**************************************************
+    '            'FIN DE DISTRIBUCION -  CENTRO DE COSTOS
+    '            '**************************************************
+    '            TotalCaja = TotalCaja + ((DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO")) -
+    '                                                        (DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO") * (Descuento / 100)))
+    '            '
+    '            'MontoIVA = MontoIVA + (DT_DETALLE.Rows.Item(i)("IVA"))
+    '            MontoIVA = MontoIVA + +(IIf(CDbl(DT_DETALLE.Rows.Item(i)("IVA")) > 0,
+    '                                          CDbl(DT_DETALLE.Rows.Item(i)("CANTIDAD") * DT_DETALLE.Rows.Item(i)("PRECIO")) *
+    '                                          CDbl(DT_DETALLE.Rows.Item(i)("Iva_Porcentaje") / 100.0), 0.00))
+    '        Next
+    '        '
+    '        '*****************  CONTABILIZANDO DEBITOS ***********************
+    '        '*****************************************************************
+    '        'Ingresos 
+    '        For c As Integer = 0 To CuentasIngresos.Count - 1
+    '            ComprobanteDB.AddComprobanteDetalles(CompNo, CuentasIngresos(c), "Ingreso por Devolucion No. " & Numero,
+    '                                      Math.Round(MontosIngresos(c), 2), "0", TipoComp, "D", "0", "0", FechaDevolucion.Date, 1)
+    '        Next
+    '        '
+    '        'IVA    
+    '        If MontoIVA > 0 Then
+    '            ComprobanteDB.AddComprobanteDetalles(CompNo, CuentaIVA, "IVA Por Devolucion No. " & Numero,
+    '                                      Math.Round(MontoIVA, 2), "0", TipoComp, "D", "0", "0", FechaDevolucion.Date, 1)
+    '        End If
+    '        '
+    '        '*****************  CONTABILIZANDO CREDITO ***********************
+    '        '*****************************************************************
+    '        'Cajas
+    '        ComprobanteDB.AddComprobanteDetalles(CompNo, CuentaCliente, IIf(fp = 0, "Fondos por Depositar/Cajas", "Cuentas x Cobrar Clientes"),
+    '                                    Math.Round(TotalCaja + MontoIVA, 2), "0", TipoComp, "C", "0", "0", FechaDevolucion.Date, 1)
+    '        '
 
-            Return True
-        Catch ex As Exception
-            XtraMsg(ex.Message & ". Guardar N/C",
-                    MessageBoxIcon.Error)
-            Return False
-        End Try
 
-    End Function
+    '        Rutinas.okTransaccion()
+
+    '        'GuardarNotaCredito("NC" + NoFactura.PadLeft(6, "0"c),
+    '        '                   ClienteDetalle,
+    '        '                   FechaDevolucion,
+    '        '                   TipoNC,
+    '        '                   MovimientoID,
+    '        '                   TipoComp,
+    '        '                   TotalCaja,
+    '        '                   MontoIVA,
+    '        '                   "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: NC" & NoFactura.PadLeft(6, "0"c))
+
+    '        'Return True
+    '    Catch ex As Exception
+    '        XtraMsg(ex.Message & " Contabilizar.",
+    '                MessageBoxIcon.Error)
+    '        Rutinas.ErrorTransaccion()
+    '        Return False
+    '    End Try
+    '    '
+    '    '----------------------
+    '    'Guarda la Distribucion
+    '    '----------------------
+    '    GuardaDistribucion(
+    '            DTDistribucion,
+    '            CompNo,
+    '            Per_Id,
+    '            FechaDevolucion.Date.Month)
+    '    '----------------------
+    '    'Fin Guarda la Distribucion
+    '    '----------------------
+    '    Try
+    '        '***************** GUARDAR NOTA DE CREDITO ***********************
+    '        Dim db_Notas As New db_MaestroNotasCD
+    '        'Dim NoNota As String = "NC" + IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura)
+
+    '        Dim IdNota As Integer = db_Notas.Guardar(
+    '            NoNota,
+    '            ClienteDetalle.Codigo,
+    '            FechaDevolucion.Date,
+    '            TipoComp,
+    '            TotalCaja + MontoIVA,
+    '            "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: " & Referencia,
+    '            1,
+    '            MonedaBase,
+    '            CompNo,
+    '            Per_Id,
+    '            FechaDevolucion.Month,
+    '            FechaDevolucion.Date,
+    '            0,
+    '            TipoNC,
+    '            "",
+    '            Numero)
+
+    '        If IdNota > 0 Then
+    '            'Detalle de la N/C
+    '            db_Notas.GuardarDetalle(
+    '                IdNota,
+    '                NoFactura,
+    '                TotalCaja + MontoIVA,
+    '                FechaDevolucion.Date,
+    '                0.00)
+    '        End If
+    '        ''*************** FIN REGISTRO NOTA DE CREDITO ****************
+    '        '----------------------------------------
+    '        'Guarda Movimiento de Inventario
+    '        '----------------------------------------
+    '        If EsProducto Then
+    '            'Validar si hay registros para procesar
+    '            'Dim dr() As DataRow = DT_DETALLE.Select("EsProyecto = 0")
+    '            Dim dr() As DataRow = DT_DETALLE.Select("TIPO = 'P'")
+    '            If dr.Length > 0 Then
+
+    '                Dim _DETALLE As DataTable = DT_DETALLE.Select("TIPO = 'P'").CopyToDataTable
+
+    '                'Productos sin relacion con los proyectos
+    '                If _DETALLE.Select("IdProyecto = 0").Length > 0 Then
+
+    '                    Dim _SIN_PROY As DataTable =
+    '                        _DETALLE.Select("IdProyecto = 0") _
+    '                        .CopyToDataTable
+
+    '                    If _SIN_PROY.Rows.Count > 0 Then
+
+    '                        Dim Requisa As Integer = db_requisas.Add(
+    '                            EmpresaActual,
+    '                            "E",
+    '                            FechaDevolucion.Date,
+    '                            _SIN_PROY.Rows.Item(0)("Bodega"),
+    '                            Login, Numero,
+    '                            MovimientoID,
+    '                            Referencia,
+    '                            "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: NC" & Referencia,
+    '                            "", "", "", "", "", "", ClienteDetalle.Codigo, "", 0, 0, 0, Numero)
+
+    '                        For i As Integer = 0 To _SIN_PROY.Rows.Count - 1
+    '                            'If _SIN_PROY.Rows.Item(i)("TIPO") = "P" Then
+
+    '                            db_requisas.AddDetalle(
+    '                                    EmpresaActual,
+    '                                    Requisa,
+    '                                    _SIN_PROY.Rows.Item(i)("ITEM"),
+    '                                    "P",
+    '                                    _SIN_PROY.Rows.Item(i)("CANTIDAD"),
+    '                                    _SIN_PROY.Rows.Item(i)("COSTO"),
+    '                                    "NC", "", "", "")
+
+    '                            'End If
+    '                        Next
+    '                    End If
+
+    '                End If
+    '                '
+    '                'Productos con Relacion a los Proyectos.
+    '                If _DETALLE.Select("IdProyecto > 0") _
+    '                    .Length > 0 Then
+
+    '                    Dim _CON_PROY As DataTable = _DETALLE _
+    '                        .Select("IdProyecto > 0") _
+    '                        .CopyToDataTable
+
+    '                    If _CON_PROY.Rows.Count > 0 Then
+
+    '                        Dim req = From row In _CON_PROY.AsEnumerable()
+    '                                  Select row.Field(Of Object)("IdProyecto") Distinct
+
+    '                        For Each s As Object In req
+    '                            If Not s Is Nothing Then
+
+    '                                Dim _DT As DataTable =
+    '                                    _CON_PROY _
+    '                                    .Select("IdProyecto = " & s) _
+    '                                    .CopyToDataTable
+
+    '                                Dim Requisa As Integer = db_requisas.Add(
+    '                                    EmpresaActual,
+    '                                    "E",
+    '                                    FechaDevolucion.Date,
+    '                                    _DT.Rows.Item(0)("Bodega"),
+    '                                    Login,
+    '                                    Numero,
+    '                                    MovimientoID,
+    '                                    Referencia,
+    '                                    "Nota de Crédito por Devolución #: " & Numero & ", Referencia #: NC" & Referencia,
+    '                                    "", "", "", "", "", "", ClienteDetalle.Codigo, "", s, 0, 0, Numero)
+
+    '                                For i As Integer = 0 To _DT.Rows.Count - 1
+    '                                    'If _DT.Rows.Item(i)("TIPO") = "P" Then
+
+    '                                    db_requisas.AddDetalle(
+    '                                            EmpresaActual,
+    '                                            Requisa,
+    '                                            _DT.Rows.Item(i)("ITEM"),
+    '                                            "P",
+    '                                            _DT.Rows.Item(i)("CANTIDAD"),
+    '                                            _DT.Rows.Item(i)("COSTO"),
+    '                                            "NC", "", "", "")
+    '                                    ' End If
+    '                                Next
+    '                            End If
+    '                        Next
+    '                    End If
+    '                End If
+    '            End If
+    '        End If
+    '        'Verificar si el Comprobante tiene diferencias, por Deslizamiento de la moneda.
+
+
+
+    '        'XtraMsg("Devolución Electrónica realizada Éxitosamente !!!", MessageBoxIcon.Information)
+    '        'Return True
+
+    '        XtraMsg("Devolución realizada Exitosamente !!!",
+    '                MessageBoxIcon.Information)
+
+    '        'XtraMsg("Devolución Electrónica realizada Éxitosamente !!!",
+    '        '        MessageBoxIcon.Information)
+
+    '        ''Imprimir el Comprobante Contable de la Devolución
+    '        ComprobanteDB.ImprimirComprobante(
+    '            CompNo,
+    '            PeriodosDB.Activo(FechaDevolucion.Date),
+    '            FechaDevolucion.Date)
+
+    '        'Actualizar Lista de Devoluciones
+    '        Dim f As frmDevolucionesClienteList = frmDevolucionesClienteList.Instance()
+    '        If f.Created Then f.Cargar()
+
+    '        Return True
+    '    Catch ex As Exception
+    '        XtraMsg(ex.Message & ". Guardar N/C",
+    '                MessageBoxIcon.Error)
+    '        Return False
+    '    End Try
+
+    'End Function
 
     'Sub GuardarNotaCredito(NoNota As String,
     '                       ClienteDetalle As VB.SysContab.ClientesDetails,

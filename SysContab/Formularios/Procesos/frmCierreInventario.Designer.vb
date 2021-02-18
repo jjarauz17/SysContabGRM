@@ -97,7 +97,6 @@ Partial Class frmCierreInventario
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(569, 391)
         Me.LayoutControlGroup1.TextVisible = False
@@ -133,9 +132,9 @@ Partial Class frmCierreInventario
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(151, 364)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(153, 362)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
@@ -150,14 +149,14 @@ Partial Class frmCierreInventario
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(779, 188, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(151, 364)
+        Me.LayoutControl2.Size = New System.Drawing.Size(153, 362)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'bSalir
         '
-        Me.bSalir.ImageOptions.Image = CType(resources.GetObject("bSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.bSalir.Location = New System.Drawing.Point(12, 297)
+        Me.bSalir.ImageOptions.SvgImage = CType(resources.GetObject("bSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bSalir.Location = New System.Drawing.Point(12, 312)
         Me.bSalir.Name = "bSalir"
         Me.bSalir.Size = New System.Drawing.Size(128, 38)
         Me.bSalir.StyleController = Me.LayoutControl2
@@ -167,8 +166,8 @@ Partial Class frmCierreInventario
         'bExportar
         '
         Me.bExportar.Enabled = False
-        Me.bExportar.ImageOptions.Image = CType(resources.GetObject("bExportar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bExportar.Location = New System.Drawing.Point(12, 255)
+        Me.bExportar.ImageOptions.SvgImage = CType(resources.GetObject("bExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bExportar.Location = New System.Drawing.Point(12, 270)
         Me.bExportar.Name = "bExportar"
         Me.bExportar.Size = New System.Drawing.Size(128, 38)
         Me.bExportar.StyleController = Me.LayoutControl2
@@ -180,7 +179,7 @@ Partial Class frmCierreInventario
         Me.bBorrar.Appearance.Options.UseTextOptions = True
         Me.bBorrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bBorrar.Enabled = False
-        Me.bBorrar.ImageOptions.Image = CType(resources.GetObject("bBorrar.ImageOptions.Image"), System.Drawing.Image)
+        Me.bBorrar.ImageOptions.SvgImage = CType(resources.GetObject("bBorrar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bBorrar.Location = New System.Drawing.Point(12, 96)
         Me.bBorrar.Name = "bBorrar"
         Me.bBorrar.Size = New System.Drawing.Size(128, 38)
@@ -191,7 +190,7 @@ Partial Class frmCierreInventario
         'bEditar
         '
         Me.bEditar.Enabled = False
-        Me.bEditar.ImageOptions.Image = CType(resources.GetObject("bEditar.ImageOptions.Image"), System.Drawing.Image)
+        Me.bEditar.ImageOptions.SvgImage = CType(resources.GetObject("bEditar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bEditar.Location = New System.Drawing.Point(12, 54)
         Me.bEditar.Name = "bEditar"
         Me.bEditar.Size = New System.Drawing.Size(128, 38)
@@ -202,7 +201,7 @@ Partial Class frmCierreInventario
         'bNuevo
         '
         Me.bNuevo.Enabled = False
-        Me.bNuevo.ImageOptions.Image = CType(resources.GetObject("bNuevo.ImageOptions.Image"), System.Drawing.Image)
+        Me.bNuevo.ImageOptions.SvgImage = CType(resources.GetObject("bNuevo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bNuevo.Location = New System.Drawing.Point(12, 12)
         Me.bNuevo.Name = "bNuevo"
         Me.bNuevo.Size = New System.Drawing.Size(128, 38)
@@ -216,9 +215,8 @@ Partial Class frmCierreInventario
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(152, 347)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(153, 362)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -229,7 +227,7 @@ Partial Class frmCierreInventario
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(133, 42)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
@@ -242,7 +240,7 @@ Partial Class frmCierreInventario
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(133, 42)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
@@ -255,7 +253,7 @@ Partial Class frmCierreInventario
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(133, 42)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -264,11 +262,11 @@ Partial Class frmCierreInventario
         '
         Me.LayoutControlItem5.Control = Me.bExportar
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 243)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 258)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(133, 42)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
@@ -277,11 +275,11 @@ Partial Class frmCierreInventario
         '
         Me.LayoutControlItem6.Control = Me.bSalir
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 285)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 300)
         Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem6.MinSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(133, 42)
         Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
@@ -292,7 +290,7 @@ Partial Class frmCierreInventario
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 126)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(132, 117)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(133, 132)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'frmCierreInventario

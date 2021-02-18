@@ -19,13 +19,22 @@ Partial Class frmOrdenCompraToOP
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOrdenCompraToOP))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.chkLiquidar = New DevExpress.XtraEditors.CheckEdit()
+        Me.cbBodega = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cbMoneda = New DevExpress.XtraEditors.LookUpEdit()
+        Me.txtComentario = New DevExpress.XtraEditors.MemoEdit()
+        Me.FechaPago = New DevExpress.XtraEditors.DateEdit()
+        Me.txtOrden = New DevExpress.XtraEditors.TextEdit()
+        Me.cbFormaPago = New DevExpress.XtraEditors.LookUpEdit()
+        Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.etTasa = New DevExpress.XtraEditors.TextEdit()
         Me.TipoServicio = New DevExpress.XtraEditors.RadioGroup()
         Me.txtFactura = New DevExpress.XtraEditors.TextEdit()
         Me.txtNoOrden = New DevExpress.XtraEditors.TextEdit()
-        Me.dFecha = New DevExpress.XtraEditors.DateEdit()
+        Me.Fecha = New DevExpress.XtraEditors.DateEdit()
         Me.cbProveedor = New DevExpress.XtraEditors.SearchLookUpEdit()
         Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
@@ -59,6 +68,8 @@ Partial Class frmOrdenCompraToOP
         Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.cbProducto = New DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit()
         Me.RepositoryItemSearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cbCatalogo = New DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit()
@@ -73,17 +84,34 @@ Partial Class frmOrdenCompraToOP
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem12 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem13 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem16 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.LayoutControlItem17 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.chkLiquidar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbBodega.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbMoneda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtComentario.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FechaPago.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FechaPago.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtOrden.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbFormaPago.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.etTasa.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TipoServicio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtFactura.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtNoOrden.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dFecha.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dFecha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Fecha.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Fecha.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbProveedor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.iGrid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,16 +138,34 @@ Partial Class frmOrdenCompraToOP
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.chkLiquidar)
+        Me.LayoutControl1.Controls.Add(Me.cbBodega)
+        Me.LayoutControl1.Controls.Add(Me.cbMoneda)
+        Me.LayoutControl1.Controls.Add(Me.txtComentario)
+        Me.LayoutControl1.Controls.Add(Me.FechaPago)
+        Me.LayoutControl1.Controls.Add(Me.txtOrden)
+        Me.LayoutControl1.Controls.Add(Me.cbFormaPago)
+        Me.LayoutControl1.Controls.Add(Me.TextEdit1)
         Me.LayoutControl1.Controls.Add(Me.etTasa)
         Me.LayoutControl1.Controls.Add(Me.TipoServicio)
         Me.LayoutControl1.Controls.Add(Me.txtFactura)
         Me.LayoutControl1.Controls.Add(Me.txtNoOrden)
-        Me.LayoutControl1.Controls.Add(Me.dFecha)
+        Me.LayoutControl1.Controls.Add(Me.Fecha)
         Me.LayoutControl1.Controls.Add(Me.cbProveedor)
         Me.LayoutControl1.Controls.Add(Me.SimpleButton2)
         Me.LayoutControl1.Controls.Add(Me.SimpleButton1)
@@ -133,12 +179,118 @@ Partial Class frmOrdenCompraToOP
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'chkLiquidar
+        '
+        Me.chkLiquidar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.chkLiquidar.Location = New System.Drawing.Point(970, 160)
+        Me.chkLiquidar.Name = "chkLiquidar"
+        Me.chkLiquidar.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkLiquidar.Properties.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.chkLiquidar.Properties.Appearance.Options.UseFont = True
+        Me.chkLiquidar.Properties.Appearance.Options.UseForeColor = True
+        Me.chkLiquidar.Properties.Caption = "A Liquidar"
+        Me.chkLiquidar.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkLiquidar.Properties.ReadOnly = True
+        Me.chkLiquidar.Size = New System.Drawing.Size(102, 22)
+        Me.chkLiquidar.StyleController = Me.LayoutControl1
+        Me.chkLiquidar.TabIndex = 178
+        '
+        'cbBodega
+        '
+        Me.cbBodega.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbBodega.EnterMoveNextControl = True
+        Me.cbBodega.Location = New System.Drawing.Point(827, 110)
+        Me.cbBodega.Name = "cbBodega"
+        Me.cbBodega.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbBodega.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
+        Me.cbBodega.Properties.Appearance.Options.UseFont = True
+        Me.cbBodega.Properties.Appearance.Options.UseForeColor = True
+        Me.cbBodega.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbBodega.Properties.NullText = ""
+        Me.cbBodega.Properties.ShowFooter = False
+        Me.cbBodega.Properties.ShowHeader = False
+        Me.cbBodega.Size = New System.Drawing.Size(245, 20)
+        Me.cbBodega.StyleController = Me.LayoutControl1
+        Me.cbBodega.TabIndex = 178
+        Me.cbBodega.Tag = ""
+        '
+        'cbMoneda
+        '
+        Me.cbMoneda.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbMoneda.EnterMoveNextControl = True
+        Me.cbMoneda.Location = New System.Drawing.Point(827, 86)
+        Me.cbMoneda.Name = "cbMoneda"
+        Me.cbMoneda.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbMoneda.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
+        Me.cbMoneda.Properties.Appearance.Options.UseFont = True
+        Me.cbMoneda.Properties.Appearance.Options.UseForeColor = True
+        Me.cbMoneda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbMoneda.Properties.NullText = ""
+        Me.cbMoneda.Properties.ShowFooter = False
+        Me.cbMoneda.Properties.ShowHeader = False
+        Me.cbMoneda.Size = New System.Drawing.Size(245, 20)
+        Me.cbMoneda.StyleController = Me.LayoutControl1
+        Me.cbMoneda.TabIndex = 177
+        Me.cbMoneda.Tag = ""
+        '
+        'txtComentario
+        '
+        Me.txtComentario.Location = New System.Drawing.Point(98, 86)
+        Me.txtComentario.Name = "txtComentario"
+        Me.txtComentario.Size = New System.Drawing.Size(639, 70)
+        Me.txtComentario.StyleController = Me.LayoutControl1
+        Me.txtComentario.TabIndex = 179
+        Me.txtComentario.Tag = ""
+        '
+        'FechaPago
+        '
+        Me.FechaPago.EditValue = New Date(2020, 7, 24, 8, 45, 10, 0)
+        Me.FechaPago.Location = New System.Drawing.Point(941, 36)
+        Me.FechaPago.Name = "FechaPago"
+        Me.FechaPago.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FechaPago.Properties.Appearance.Options.UseFont = True
+        Me.FechaPago.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FechaPago.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.FechaPago.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.FechaPago.Size = New System.Drawing.Size(131, 20)
+        Me.FechaPago.StyleController = Me.LayoutControl1
+        Me.FechaPago.TabIndex = 29
+        '
+        'txtOrden
+        '
+        Me.txtOrden.Location = New System.Drawing.Point(492, 62)
+        Me.txtOrden.Name = "txtOrden"
+        Me.txtOrden.Size = New System.Drawing.Size(245, 20)
+        Me.txtOrden.StyleController = Me.LayoutControl1
+        Me.txtOrden.TabIndex = 29
+        Me.txtOrden.Tag = ""
+        '
+        'cbFormaPago
+        '
+        Me.cbFormaPago.Location = New System.Drawing.Point(827, 62)
+        Me.cbFormaPago.Name = "cbFormaPago"
+        Me.cbFormaPago.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbFormaPago.Properties.ShowHeader = False
+        Me.cbFormaPago.Size = New System.Drawing.Size(245, 20)
+        Me.cbFormaPago.StyleController = Me.LayoutControl1
+        Me.cbFormaPago.TabIndex = 176
+        Me.cbFormaPago.Tag = ""
+        '
+        'TextEdit1
+        '
+        Me.TextEdit1.Location = New System.Drawing.Point(98, 62)
+        Me.TextEdit1.Name = "TextEdit1"
+        Me.TextEdit1.Size = New System.Drawing.Size(304, 20)
+        Me.TextEdit1.StyleController = Me.LayoutControl1
+        Me.TextEdit1.TabIndex = 28
+        Me.TextEdit1.Tag = "True"
+        '
         'etTasa
         '
         Me.etTasa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.etTasa.EditValue = 1
         Me.etTasa.EnterMoveNextControl = True
-        Me.etTasa.Location = New System.Drawing.Point(965, 36)
+        Me.etTasa.Location = New System.Drawing.Point(936, 134)
         Me.etTasa.Name = "etTasa"
         Me.etTasa.Properties.Appearance.BackColor = System.Drawing.SystemColors.Window
         Me.etTasa.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -146,21 +298,25 @@ Partial Class frmOrdenCompraToOP
         Me.etTasa.Properties.Appearance.Options.UseBackColor = True
         Me.etTasa.Properties.Appearance.Options.UseFont = True
         Me.etTasa.Properties.Appearance.Options.UseForeColor = True
+        Me.etTasa.Properties.AppearanceReadOnly.BackColor = System.Drawing.SystemColors.Info
+        Me.etTasa.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.etTasa.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.etTasa.Properties.AppearanceReadOnly.Options.UseFont = True
         Me.etTasa.Properties.Mask.EditMask = "n4"
         Me.etTasa.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.etTasa.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.etTasa.Properties.ReadOnly = True
         Me.etTasa.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.etTasa.Size = New System.Drawing.Size(107, 22)
+        Me.etTasa.Size = New System.Drawing.Size(136, 22)
         Me.etTasa.StyleController = Me.LayoutControl1
         Me.etTasa.TabIndex = 4
         '
         'TipoServicio
         '
         Me.TipoServicio.EditValue = "P"
-        Me.TipoServicio.Location = New System.Drawing.Point(98, 62)
+        Me.TipoServicio.Location = New System.Drawing.Point(98, 160)
         Me.TipoServicio.Name = "TipoServicio"
-        Me.TipoServicio.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.TipoServicio.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TipoServicio.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TipoServicio.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.TipoServicio.Properties.Appearance.Options.UseBackColor = True
@@ -169,7 +325,7 @@ Partial Class frmOrdenCompraToOP
         Me.TipoServicio.Properties.Columns = 4
         Me.TipoServicio.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("P", "Productos"), New DevExpress.XtraEditors.Controls.RadioGroupItem("S", "Servicios"), New DevExpress.XtraEditors.Controls.RadioGroupItem("I", "Insumos"), New DevExpress.XtraEditors.Controls.RadioGroupItem("A", "Ambos")})
         Me.TipoServicio.Properties.ReadOnly = True
-        Me.TipoServicio.Size = New System.Drawing.Size(974, 25)
+        Me.TipoServicio.Size = New System.Drawing.Size(868, 34)
         Me.TipoServicio.StyleController = Me.LayoutControl1
         Me.TipoServicio.TabIndex = 194
         '
@@ -177,7 +333,7 @@ Partial Class frmOrdenCompraToOP
         '
         Me.txtFactura.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFactura.EnterMoveNextControl = True
-        Me.txtFactura.Location = New System.Drawing.Point(631, 36)
+        Me.txtFactura.Location = New System.Drawing.Point(416, 36)
         Me.txtFactura.Name = "txtFactura"
         Me.txtFactura.Properties.Appearance.BackColor = System.Drawing.SystemColors.Window
         Me.txtFactura.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -194,7 +350,7 @@ Partial Class frmOrdenCompraToOP
         Me.txtFactura.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.txtFactura.Properties.ReadOnly = True
         Me.txtFactura.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.txtFactura.Size = New System.Drawing.Size(244, 22)
+        Me.txtFactura.Size = New System.Drawing.Size(435, 22)
         Me.txtFactura.StyleController = Me.LayoutControl1
         Me.txtFactura.TabIndex = 192
         '
@@ -211,26 +367,26 @@ Partial Class frmOrdenCompraToOP
         Me.txtNoOrden.Properties.AppearanceReadOnly.Options.UseForeColor = True
         Me.txtNoOrden.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNoOrden.Properties.ReadOnly = True
-        Me.txtNoOrden.Size = New System.Drawing.Size(443, 22)
+        Me.txtNoOrden.Size = New System.Drawing.Size(228, 22)
         Me.txtNoOrden.StyleController = Me.LayoutControl1
         Me.txtNoOrden.TabIndex = 3
         '
-        'dFecha
+        'Fecha
         '
-        Me.dFecha.EditValue = New Date(2009, 7, 15, 14, 28, 10, 843)
-        Me.dFecha.EnterMoveNextControl = True
-        Me.dFecha.Location = New System.Drawing.Point(965, 12)
-        Me.dFecha.Name = "dFecha"
-        Me.dFecha.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
-        Me.dFecha.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dFecha.Properties.Appearance.Options.UseFont = True
-        Me.dFecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.dFecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.dFecha.Properties.Mask.EditMask = "ddMMyy"
-        Me.dFecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.dFecha.Size = New System.Drawing.Size(107, 20)
-        Me.dFecha.StyleController = Me.LayoutControl1
-        Me.dFecha.TabIndex = 2
+        Me.Fecha.EditValue = New Date(2009, 7, 15, 14, 28, 10, 843)
+        Me.Fecha.EnterMoveNextControl = True
+        Me.Fecha.Location = New System.Drawing.Point(941, 12)
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.[False]
+        Me.Fecha.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Fecha.Properties.Appearance.Options.UseFont = True
+        Me.Fecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.Fecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.Fecha.Properties.Mask.EditMask = "ddMMyy"
+        Me.Fecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.Fecha.Size = New System.Drawing.Size(131, 20)
+        Me.Fecha.StyleController = Me.LayoutControl1
+        Me.Fecha.TabIndex = 2
         '
         'cbProveedor
         '
@@ -239,9 +395,9 @@ Partial Class frmOrdenCompraToOP
         Me.cbProveedor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbProveedor.Properties.Appearance.Options.UseFont = True
         Me.cbProveedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbProveedor.Properties.PopupView = Me.SearchLookUpEdit1View
         Me.cbProveedor.Properties.ReadOnly = True
-        Me.cbProveedor.Properties.View = Me.SearchLookUpEdit1View
-        Me.cbProveedor.Size = New System.Drawing.Size(777, 20)
+        Me.cbProveedor.Size = New System.Drawing.Size(753, 20)
         Me.cbProveedor.StyleController = Me.LayoutControl1
         Me.cbProveedor.TabIndex = 200
         '
@@ -266,7 +422,7 @@ Partial Class frmOrdenCompraToOP
         '
         Me.SimpleButton1.Appearance.Options.UseTextOptions = True
         Me.SimpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton1.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.SimpleButton1.Location = New System.Drawing.Point(844, 611)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(112, 38)
@@ -279,11 +435,11 @@ Partial Class frmOrdenCompraToOP
         Me.iGrid.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.iGrid.Location = New System.Drawing.Point(12, 91)
+        Me.iGrid.Location = New System.Drawing.Point(12, 198)
         Me.iGrid.MainView = Me.iVista
         Me.iGrid.Name = "iGrid"
         Me.iGrid.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtPrecioC, Me.txtPrecioU, Me.txtDescuento, Me.txtCantidad, Me.cbProducto, Me.cbProyecto, Me.cbCatalogo, Me.cbPedidos})
-        Me.iGrid.Size = New System.Drawing.Size(1060, 516)
+        Me.iGrid.Size = New System.Drawing.Size(1060, 409)
         Me.iGrid.TabIndex = 2
         Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista})
         '
@@ -553,7 +709,7 @@ Partial Class frmOrdenCompraToOP
         Me.cbProyecto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProyecto.Name = "cbProyecto"
         Me.cbProyecto.NullText = "[Proyecto]"
-        Me.cbProyecto.View = Me.GridView1
+        Me.cbProyecto.PopupView = Me.GridView1
         '
         'GridView1
         '
@@ -575,7 +731,7 @@ Partial Class frmOrdenCompraToOP
         Me.cbPedidos.AutoHeight = False
         Me.cbPedidos.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbPedidos.Name = "cbPedidos"
-        Me.cbPedidos.View = Me.RepositoryItemSearchLookUpEdit2View
+        Me.cbPedidos.PopupView = Me.RepositoryItemSearchLookUpEdit2View
         '
         'RepositoryItemSearchLookUpEdit2View
         '
@@ -651,13 +807,25 @@ Partial Class frmOrdenCompraToOP
         Me.GridColumn9.VisibleIndex = 7
         Me.GridColumn9.Width = 98
         '
+        'GridColumn10
+        '
+        Me.GridColumn10.Caption = "IdDetalle"
+        Me.GridColumn10.FieldName = "IdDetalle"
+        Me.GridColumn10.Name = "GridColumn10"
+        '
+        'GridColumn18
+        '
+        Me.GridColumn18.Caption = "Pedido"
+        Me.GridColumn18.FieldName = "NoOrden"
+        Me.GridColumn18.Name = "GridColumn18"
+        '
         'cbProducto
         '
         Me.cbProducto.AutoHeight = False
         Me.cbProducto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.NullText = "[Seleccione Producto]"
-        Me.cbProducto.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbProducto.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -671,7 +839,7 @@ Partial Class frmOrdenCompraToOP
         Me.cbCatalogo.AutoHeight = False
         Me.cbCatalogo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbCatalogo.Name = "cbCatalogo"
-        Me.cbCatalogo.View = Me.GridView2
+        Me.cbCatalogo.PopupView = Me.GridView2
         '
         'GridView2
         '
@@ -684,8 +852,7 @@ Partial Class frmOrdenCompraToOP
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItem16, Me.LayoutControlItem9, Me.LayoutControlItem17, Me.EmptySpaceItem2})
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1084, 661)
         Me.LayoutControlGroup1.TextVisible = False
@@ -693,9 +860,9 @@ Partial Class frmOrdenCompraToOP
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.iGrid
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 79)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 186)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(1064, 520)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(1064, 413)
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
         '
@@ -736,18 +903,18 @@ Partial Class frmOrdenCompraToOP
         Me.LayoutControlItem4.Control = Me.cbProveedor
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(867, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(843, 24)
         Me.LayoutControlItem4.Text = "Proveedor:"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(83, 13)
         '
         'LayoutControlItem5
         '
-        Me.LayoutControlItem5.Control = Me.dFecha
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(867, 0)
-        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(197, 24)
-        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(197, 24)
+        Me.LayoutControlItem5.Control = Me.Fecha
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(843, 0)
+        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(221, 24)
+        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(221, 24)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(197, 24)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(221, 24)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.Text = "Fecha:"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(83, 13)
@@ -757,54 +924,137 @@ Partial Class frmOrdenCompraToOP
         Me.LayoutControlItem6.Control = Me.txtNoOrden
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(533, 26)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(318, 26)
         Me.LayoutControlItem6.Text = "No. Orden:"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(83, 13)
         '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.txtFactura
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(533, 24)
-        Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(334, 26)
-        Me.LayoutControlItem7.MinSize = New System.Drawing.Size(334, 26)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(318, 24)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(334, 26)
-        Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(525, 26)
         Me.LayoutControlItem7.Text = "No. Consecutivo:"
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(83, 13)
         '
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.TipoServicio
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 50)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 148)
+        Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(0, 38)
+        Me.LayoutControlItem8.MinSize = New System.Drawing.Size(140, 38)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(1064, 29)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(958, 38)
+        Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.Text = "Tipo:"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(83, 13)
+        '
+        'LayoutControlItem10
+        '
+        Me.LayoutControlItem10.Control = Me.TextEdit1
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 50)
+        Me.LayoutControlItem10.Name = "LayoutControlItem10"
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(394, 24)
+        Me.LayoutControlItem10.Text = "Orden de Pago"
+        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(83, 13)
+        '
+        'LayoutControlItem11
+        '
+        Me.LayoutControlItem11.Control = Me.txtOrden
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(394, 50)
+        Me.LayoutControlItem11.Name = "LayoutControlItem11"
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem11.Text = "No. Factura:"
+        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(83, 13)
+        '
+        'LayoutControlItem12
+        '
+        Me.LayoutControlItem12.Control = Me.FechaPago
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(843, 24)
+        Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(221, 26)
+        Me.LayoutControlItem12.MinSize = New System.Drawing.Size(221, 26)
+        Me.LayoutControlItem12.Name = "LayoutControlItem12"
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(221, 26)
+        Me.LayoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem12.Text = "Vencimiento:"
+        Me.LayoutControlItem12.TextSize = New System.Drawing.Size(83, 13)
+        '
+        'LayoutControlItem13
+        '
+        Me.LayoutControlItem13.Control = Me.txtComentario
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 74)
+        Me.LayoutControlItem13.Name = "LayoutControlItem13"
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(729, 74)
+        Me.LayoutControlItem13.Text = "Concepto:"
+        Me.LayoutControlItem13.TextSize = New System.Drawing.Size(83, 13)
+        '
+        'LayoutControlItem14
+        '
+        Me.LayoutControlItem14.Control = Me.cbFormaPago
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(729, 50)
+        Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem14.MinSize = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem14.Name = "LayoutControlItem14"
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem14.Text = "Forma de Pago:"
+        Me.LayoutControlItem14.TextSize = New System.Drawing.Size(83, 13)
+        '
+        'LayoutControlItem15
+        '
+        Me.LayoutControlItem15.Control = Me.cbMoneda
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(729, 74)
+        Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem15.MinSize = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem15.Name = "LayoutControlItem15"
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem15.Text = "Moneda:"
+        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(83, 13)
+        '
+        'LayoutControlItem16
+        '
+        Me.LayoutControlItem16.Control = Me.cbBodega
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(729, 98)
+        Me.LayoutControlItem16.MaxSize = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem16.MinSize = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem16.Name = "LayoutControlItem16"
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(335, 24)
+        Me.LayoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem16.Text = "Bodega:"
+        Me.LayoutControlItem16.TextSize = New System.Drawing.Size(83, 13)
         '
         'LayoutControlItem9
         '
         Me.LayoutControlItem9.Control = Me.etTasa
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(867, 24)
-        Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(197, 26)
-        Me.LayoutControlItem9.MinSize = New System.Drawing.Size(197, 26)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(838, 122)
+        Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(226, 26)
+        Me.LayoutControlItem9.MinSize = New System.Drawing.Size(226, 26)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(197, 26)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(226, 26)
         Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem9.Text = "T/Cambio:"
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(83, 13)
         '
-        'GridColumn10
+        'LayoutControlItem17
         '
-        Me.GridColumn10.Caption = "IdDetalle"
-        Me.GridColumn10.FieldName = "IdDetalle"
-        Me.GridColumn10.Name = "GridColumn10"
+        Me.LayoutControlItem17.Control = Me.chkLiquidar
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(958, 148)
+        Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(106, 38)
+        Me.LayoutControlItem17.MinSize = New System.Drawing.Size(106, 38)
+        Me.LayoutControlItem17.Name = "LayoutControlItem17"
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(106, 38)
+        Me.LayoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem17.TextVisible = False
         '
-        'GridColumn18
+        'EmptySpaceItem2
         '
-        Me.GridColumn18.Caption = "Pedido"
-        Me.GridColumn18.FieldName = "NoOrden"
-        Me.GridColumn18.Name = "GridColumn18"
+        Me.EmptySpaceItem2.AllowHotTrack = False
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(729, 122)
+        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(109, 26)
+        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'frmOrdenCompraToOP
         '
@@ -817,12 +1067,21 @@ Partial Class frmOrdenCompraToOP
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.chkLiquidar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbBodega.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbMoneda.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtComentario.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FechaPago.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FechaPago.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtOrden.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbFormaPago.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.etTasa.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TipoServicio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtFactura.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtNoOrden.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dFecha.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dFecha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Fecha.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Fecha.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbProveedor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.iGrid, System.ComponentModel.ISupportInitialize).EndInit()
@@ -849,7 +1108,17 @@ Partial Class frmOrdenCompraToOP
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -898,7 +1167,7 @@ Partial Class frmOrdenCompraToOP
     Friend WithEvents cbProveedor As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents SearchLookUpEdit1View As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents dFecha As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents Fecha As DevExpress.XtraEditors.DateEdit
     Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents txtNoOrden As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
@@ -910,4 +1179,22 @@ Partial Class frmOrdenCompraToOP
     Friend WithEvents LayoutControlItem9 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents txtOrden As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEdit1 As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LayoutControlItem10 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem11 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents FechaPago As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents LayoutControlItem12 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents DxValidationProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
+    Friend WithEvents cbMoneda As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cbBodega As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cbFormaPago As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents txtComentario As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents LayoutControlItem13 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem14 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem15 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem16 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkLiquidar As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem17 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
 End Class

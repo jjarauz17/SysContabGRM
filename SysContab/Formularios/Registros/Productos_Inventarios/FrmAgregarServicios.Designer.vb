@@ -26,14 +26,17 @@ Partial Class FrmAgregarServicios
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.ChkExento = New DevExpress.XtraEditors.CheckEdit()
+        Me.txtImpuesto = New DevExpress.XtraEditors.TextEdit()
         Me.cbCentroCosto = New DevExpress.XtraEditors.LookUpEdit()
+        Me.txtCabys = New DevExpress.XtraEditors.TextEdit()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.chkDescuento = New DevExpress.XtraEditors.CheckEdit()
         Me.chkKilometraje = New DevExpress.XtraEditors.CheckEdit()
         Me.cbCatalogo = New DevExpress.XtraEditors.GridLookUpEdit()
         Me.vCat1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cbProveedor = New DevExpress.XtraEditors.GridLookUpEdit()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.ChkExento = New System.Windows.Forms.CheckBox()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label22 = New System.Windows.Forms.Label()
@@ -56,6 +59,8 @@ Partial Class FrmAgregarServicios
         Me.txtPresentacion = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtUnidad = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtModelo = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -109,7 +114,10 @@ Partial Class FrmAgregarServicios
         Me.GroupBox11.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ChkExento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtImpuesto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbCentroCosto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCabys.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkDescuento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkKilometraje.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbCatalogo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,9 +140,10 @@ Partial Class FrmAgregarServicios
         Me.GroupBox11.Controls.Add(Me.cmdAcumulados)
         Me.GroupBox11.Controls.Add(Me.cmdAceptar)
         Me.GroupBox11.Controls.Add(Me.cmdCancelar)
-        Me.GroupBox11.Location = New System.Drawing.Point(803, -5)
+        Me.GroupBox11.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GroupBox11.Location = New System.Drawing.Point(918, 0)
         Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(104, 530)
+        Me.GroupBox11.Size = New System.Drawing.Size(104, 531)
         Me.GroupBox11.TabIndex = 1
         Me.GroupBox11.TabStop = False
         '
@@ -196,12 +205,15 @@ Partial Class FrmAgregarServicios
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.ChkExento)
+        Me.GroupBox1.Controls.Add(Me.txtImpuesto)
         Me.GroupBox1.Controls.Add(Me.cbCentroCosto)
+        Me.GroupBox1.Controls.Add(Me.txtCabys)
+        Me.GroupBox1.Controls.Add(Me.SimpleButton1)
         Me.GroupBox1.Controls.Add(Me.chkDescuento)
         Me.GroupBox1.Controls.Add(Me.chkKilometraje)
         Me.GroupBox1.Controls.Add(Me.cbCatalogo)
         Me.GroupBox1.Controls.Add(Me.cbProveedor)
-        Me.GroupBox1.Controls.Add(Me.ChkExento)
         Me.GroupBox1.Controls.Add(Me.Label32)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.GroupBox8)
@@ -220,6 +232,8 @@ Partial Class FrmAgregarServicios
         Me.GroupBox1.Controls.Add(Me.txtPresentacion)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.txtUnidad)
+        Me.GroupBox1.Controls.Add(Me.Label35)
+        Me.GroupBox1.Controls.Add(Me.Label34)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtModelo)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -229,15 +243,51 @@ Partial Class FrmAgregarServicios
         Me.GroupBox1.Controls.Add(Me.GroupBox4)
         Me.GroupBox1.Location = New System.Drawing.Point(16, 19)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(784, 506)
+        Me.GroupBox1.Size = New System.Drawing.Size(885, 506)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
+        '
+        'ChkExento
+        '
+        Me.ChkExento.Location = New System.Drawing.Point(321, 17)
+        Me.ChkExento.Name = "ChkExento"
+        Me.ChkExento.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChkExento.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
+        Me.ChkExento.Properties.Appearance.Options.UseFont = True
+        Me.ChkExento.Properties.Appearance.Options.UseForeColor = True
+        Me.ChkExento.Properties.Caption = "Exento"
+        Me.ChkExento.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgRadio2
+        Me.ChkExento.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.ChkExento.Size = New System.Drawing.Size(85, 22)
+        Me.ChkExento.TabIndex = 223
+        '
+        'txtImpuesto
+        '
+        Me.txtImpuesto.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
+        Me.txtImpuesto.Location = New System.Drawing.Point(656, 68)
+        Me.txtImpuesto.Name = "txtImpuesto"
+        Me.txtImpuesto.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtImpuesto.Properties.Appearance.Options.UseBackColor = True
+        Me.txtImpuesto.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtImpuesto.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtImpuesto.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Red
+        Me.txtImpuesto.Properties.AppearanceReadOnly.Options.UseBackColor = True
+        Me.txtImpuesto.Properties.AppearanceReadOnly.Options.UseFont = True
+        Me.txtImpuesto.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.txtImpuesto.Properties.AppearanceReadOnly.Options.UseTextOptions = True
+        Me.txtImpuesto.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtImpuesto.Properties.Mask.EditMask = "n2"
+        Me.txtImpuesto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtImpuesto.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtImpuesto.Properties.ReadOnly = True
+        Me.txtImpuesto.Size = New System.Drawing.Size(159, 22)
+        Me.txtImpuesto.TabIndex = 222
         '
         'cbCentroCosto
         '
         Me.cbCentroCosto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbCentroCosto.EnterMoveNextControl = True
-        Me.cbCentroCosto.Location = New System.Drawing.Point(136, 150)
+        Me.cbCentroCosto.Location = New System.Drawing.Point(136, 152)
         Me.cbCentroCosto.Name = "cbCentroCosto"
         Me.cbCentroCosto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbCentroCosto.Properties.Appearance.Options.UseFont = True
@@ -249,28 +299,58 @@ Partial Class FrmAgregarServicios
         Me.cbCentroCosto.Size = New System.Drawing.Size(344, 20)
         Me.cbCentroCosto.TabIndex = 189
         '
+        'txtCabys
+        '
+        Me.txtCabys.Location = New System.Drawing.Point(656, 42)
+        Me.txtCabys.Name = "txtCabys"
+        Me.txtCabys.Properties.Appearance.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCabys.Properties.Appearance.Options.UseFont = True
+        Me.txtCabys.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCabys.Properties.AppearanceReadOnly.ForeColor = System.Drawing.Color.Navy
+        Me.txtCabys.Properties.AppearanceReadOnly.Options.UseFont = True
+        Me.txtCabys.Properties.AppearanceReadOnly.Options.UseForeColor = True
+        Me.txtCabys.Properties.AppearanceReadOnly.Options.UseTextOptions = True
+        Me.txtCabys.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtCabys.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtCabys.Properties.MaxLength = 50
+        Me.txtCabys.Properties.ReadOnly = True
+        Me.txtCabys.Size = New System.Drawing.Size(159, 20)
+        Me.txtCabys.TabIndex = 220
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SimpleButton1.Appearance.Options.UseFont = True
+        Me.SimpleButton1.Location = New System.Drawing.Point(821, 41)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(43, 22)
+        Me.SimpleButton1.TabIndex = 221
+        Me.SimpleButton1.Text = "   ...   "
+        '
         'chkDescuento
         '
-        Me.chkDescuento.Location = New System.Drawing.Point(624, 175)
+        Me.chkDescuento.Location = New System.Drawing.Point(577, 180)
         Me.chkDescuento.Name = "chkDescuento"
         Me.chkDescuento.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkDescuento.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.chkDescuento.Properties.Appearance.Options.UseFont = True
         Me.chkDescuento.Properties.Appearance.Options.UseForeColor = True
         Me.chkDescuento.Properties.Caption = "Item Descuento"
+        Me.chkDescuento.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgCheckBox1
         Me.chkDescuento.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
         Me.chkDescuento.Size = New System.Drawing.Size(136, 22)
         Me.chkDescuento.TabIndex = 169
         '
         'chkKilometraje
         '
-        Me.chkKilometraje.Location = New System.Drawing.Point(624, 152)
+        Me.chkKilometraje.Location = New System.Drawing.Point(728, 177)
         Me.chkKilometraje.Name = "chkKilometraje"
         Me.chkKilometraje.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkKilometraje.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.chkKilometraje.Properties.Appearance.Options.UseFont = True
         Me.chkKilometraje.Properties.Appearance.Options.UseForeColor = True
         Me.chkKilometraje.Properties.Caption = "Kilometraje"
+        Me.chkKilometraje.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgCheckBox1
         Me.chkKilometraje.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
         Me.chkKilometraje.Size = New System.Drawing.Size(136, 22)
         Me.chkKilometraje.TabIndex = 168
@@ -284,7 +364,7 @@ Partial Class FrmAgregarServicios
         Me.cbCatalogo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbCatalogo.Properties.NullText = "--- Seleccione Cuenta ---"
         Me.cbCatalogo.Properties.PopupFormMinSize = New System.Drawing.Size(800, 0)
-        Me.cbCatalogo.Properties.View = Me.vCat1
+        Me.cbCatalogo.Properties.PopupView = Me.vCat1
         Me.cbCatalogo.Size = New System.Drawing.Size(344, 22)
         Me.cbCatalogo.TabIndex = 7
         '
@@ -298,15 +378,15 @@ Partial Class FrmAgregarServicios
         '
         'cbProveedor
         '
-        Me.cbProveedor.Location = New System.Drawing.Point(416, 14)
+        Me.cbProveedor.Location = New System.Drawing.Point(514, 14)
         Me.cbProveedor.Name = "cbProveedor"
         Me.cbProveedor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbProveedor.Properties.Appearance.Options.UseFont = True
         Me.cbProveedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProveedor.Properties.NullText = "--- Seleccione Proveedor ---"
         Me.cbProveedor.Properties.PopupFormMinSize = New System.Drawing.Size(800, 0)
-        Me.cbProveedor.Properties.View = Me.GridView1
-        Me.cbProveedor.Size = New System.Drawing.Size(344, 22)
+        Me.cbProveedor.Properties.PopupView = Me.GridView1
+        Me.cbProveedor.Size = New System.Drawing.Size(365, 22)
         Me.cbProveedor.TabIndex = 1
         '
         'GridView1
@@ -316,16 +396,6 @@ Partial Class FrmAgregarServicios
         Me.GridView1.OptionsBehavior.Editable = False
         Me.GridView1.OptionsSelection.EnableAppearanceFocusedCell = False
         Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'ChkExento
-        '
-        Me.ChkExento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChkExento.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ChkExento.Location = New System.Drawing.Point(624, 125)
-        Me.ChkExento.Name = "ChkExento"
-        Me.ChkExento.Size = New System.Drawing.Size(104, 26)
-        Me.ChkExento.TabIndex = 11
-        Me.ChkExento.Text = "Exento"
         '
         'Label32
         '
@@ -345,7 +415,7 @@ Partial Class FrmAgregarServicios
         Me.GroupBox2.Controls.Add(Me.Label22)
         Me.GroupBox2.Location = New System.Drawing.Point(16, 201)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(752, 34)
+        Me.GroupBox2.Size = New System.Drawing.Size(848, 34)
         Me.GroupBox2.TabIndex = 127
         Me.GroupBox2.TabStop = False
         '
@@ -356,16 +426,16 @@ Partial Class FrmAgregarServicios
         Me.Label22.ForeColor = System.Drawing.Color.White
         Me.Label22.Location = New System.Drawing.Point(0, 9)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(760, 21)
+        Me.Label22.Size = New System.Drawing.Size(848, 21)
         Me.Label22.TabIndex = 113
         Me.Label22.Text = "COSTOS"
-        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.Label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'GroupBox8
         '
         Me.GroupBox8.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox8.Controls.Add(Me.Label28)
-        Me.GroupBox8.Location = New System.Drawing.Point(488, 278)
+        Me.GroupBox8.Location = New System.Drawing.Point(526, 278)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(280, 34)
         Me.GroupBox8.TabIndex = 137
@@ -387,7 +457,7 @@ Partial Class FrmAgregarServicios
         '
         Me.GroupBox6.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox6.Controls.Add(Me.Label27)
-        Me.GroupBox6.Location = New System.Drawing.Point(264, 278)
+        Me.GroupBox6.Location = New System.Drawing.Point(302, 278)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(216, 34)
         Me.GroupBox6.TabIndex = 135
@@ -409,7 +479,7 @@ Partial Class FrmAgregarServicios
         '
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox5.Controls.Add(Me.Label25)
-        Me.GroupBox5.Location = New System.Drawing.Point(16, 278)
+        Me.GroupBox5.Location = New System.Drawing.Point(54, 278)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(240, 34)
         Me.GroupBox5.TabIndex = 133
@@ -446,7 +516,7 @@ Partial Class FrmAgregarServicios
         Me.txtCodigo.Location = New System.Drawing.Point(136, 17)
         Me.txtCodigo.MaxLength = 50
         Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(136, 20)
+        Me.txtCodigo.Size = New System.Drawing.Size(178, 20)
         Me.txtCodigo.TabIndex = 0
         '
         'cbSubGrupo
@@ -515,7 +585,7 @@ Partial Class FrmAgregarServicios
         Me.lblProv.BackColor = System.Drawing.Color.Transparent
         Me.lblProv.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProv.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.lblProv.Location = New System.Drawing.Point(320, 17)
+        Me.lblProv.Location = New System.Drawing.Point(423, 18)
         Me.lblProv.Name = "lblProv"
         Me.lblProv.Size = New System.Drawing.Size(85, 16)
         Me.lblProv.TabIndex = 50
@@ -527,7 +597,7 @@ Partial Class FrmAgregarServicios
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(513, 106)
+        Me.Label5.Location = New System.Drawing.Point(542, 153)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(103, 16)
         Me.Label5.TabIndex = 40
@@ -538,10 +608,10 @@ Partial Class FrmAgregarServicios
         '
         Me.txtPresentacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtPresentacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPresentacion.Location = New System.Drawing.Point(624, 102)
+        Me.txtPresentacion.Location = New System.Drawing.Point(656, 149)
         Me.txtPresentacion.MaxLength = 10
         Me.txtPresentacion.Name = "txtPresentacion"
-        Me.txtPresentacion.Size = New System.Drawing.Size(136, 20)
+        Me.txtPresentacion.Size = New System.Drawing.Size(159, 20)
         Me.txtPresentacion.TabIndex = 10
         Me.txtPresentacion.Visible = False
         '
@@ -551,7 +621,7 @@ Partial Class FrmAgregarServicios
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(554, 77)
+        Me.Label4.Location = New System.Drawing.Point(587, 124)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 16)
         Me.Label4.TabIndex = 38
@@ -562,12 +632,38 @@ Partial Class FrmAgregarServicios
         '
         Me.txtUnidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtUnidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUnidad.Location = New System.Drawing.Point(624, 73)
+        Me.txtUnidad.Location = New System.Drawing.Point(656, 123)
         Me.txtUnidad.MaxLength = 12
         Me.txtUnidad.Name = "txtUnidad"
-        Me.txtUnidad.Size = New System.Drawing.Size(136, 20)
+        Me.txtUnidad.Size = New System.Drawing.Size(159, 20)
         Me.txtUnidad.TabIndex = 9
         Me.txtUnidad.Visible = False
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.BackColor = System.Drawing.Color.Transparent
+        Me.Label35.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label35.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label35.Location = New System.Drawing.Point(574, 73)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(75, 16)
+        Me.Label35.TabIndex = 36
+        Me.Label35.Text = "Impuesto:"
+        Me.Label35.Visible = False
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.BackColor = System.Drawing.Color.Transparent
+        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label34.Location = New System.Drawing.Point(574, 46)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(62, 16)
+        Me.Label34.TabIndex = 36
+        Me.Label34.Text = "CABYS:"
+        Me.Label34.Visible = False
         '
         'Label3
         '
@@ -575,7 +671,7 @@ Partial Class FrmAgregarServicios
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(552, 49)
+        Me.Label3.Location = New System.Drawing.Point(585, 98)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(64, 16)
         Me.Label3.TabIndex = 36
@@ -586,10 +682,10 @@ Partial Class FrmAgregarServicios
         '
         Me.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtModelo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtModelo.Location = New System.Drawing.Point(624, 45)
+        Me.txtModelo.Location = New System.Drawing.Point(656, 97)
         Me.txtModelo.MaxLength = 7
         Me.txtModelo.Name = "txtModelo"
-        Me.txtModelo.Size = New System.Drawing.Size(136, 20)
+        Me.txtModelo.Size = New System.Drawing.Size(159, 20)
         Me.txtModelo.TabIndex = 8
         Me.txtModelo.Visible = False
         '
@@ -640,17 +736,17 @@ Partial Class FrmAgregarServicios
         Me.GroupBox10.Controls.Add(Me.Label9)
         Me.GroupBox10.Location = New System.Drawing.Point(16, 227)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(752, 52)
+        Me.GroupBox10.Size = New System.Drawing.Size(848, 52)
         Me.GroupBox10.TabIndex = 12
         Me.GroupBox10.TabStop = False
         '
         'txtMargen
         '
         Me.txtMargen.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMargen.Location = New System.Drawing.Point(248, 17)
+        Me.txtMargen.Location = New System.Drawing.Point(289, 16)
         Me.txtMargen.MaxLength = 13
         Me.txtMargen.Name = "txtMargen"
-        Me.txtMargen.Size = New System.Drawing.Size(80, 20)
+        Me.txtMargen.Size = New System.Drawing.Size(101, 20)
         Me.txtMargen.TabIndex = 1
         '
         'txtCosto
@@ -660,70 +756,74 @@ Partial Class FrmAgregarServicios
         Me.txtCosto.MaxLength = 13
         Me.txtCosto.Name = "txtCosto"
         Me.txtCosto.ReadOnly = True
-        Me.txtCosto.Size = New System.Drawing.Size(72, 20)
+        Me.txtCosto.Size = New System.Drawing.Size(109, 20)
         Me.txtCosto.TabIndex = 0
         '
         'Label24
         '
+        Me.Label24.AutoSize = True
         Me.Label24.BackColor = System.Drawing.Color.Transparent
         Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label24.Location = New System.Drawing.Point(536, 17)
+        Me.Label24.Location = New System.Drawing.Point(642, 18)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(104, 26)
+        Me.Label24.Size = New System.Drawing.Size(100, 16)
         Me.Label24.TabIndex = 131
         Me.Label24.Text = "Costo Ultimo:"
         '
         'txtCostoUltimo
         '
         Me.txtCostoUltimo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCostoUltimo.Location = New System.Drawing.Point(640, 17)
+        Me.txtCostoUltimo.Location = New System.Drawing.Point(747, 16)
         Me.txtCostoUltimo.MaxLength = 13
         Me.txtCostoUltimo.Name = "txtCostoUltimo"
         Me.txtCostoUltimo.ReadOnly = True
-        Me.txtCostoUltimo.Size = New System.Drawing.Size(72, 20)
+        Me.txtCostoUltimo.Size = New System.Drawing.Size(86, 20)
         Me.txtCostoUltimo.TabIndex = 3
         '
         'Label8
         '
+        Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.Label8.Location = New System.Drawing.Point(8, 17)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(64, 26)
+        Me.Label8.Size = New System.Drawing.Size(52, 16)
         Me.Label8.TabIndex = 46
         Me.Label8.Text = "Costo:"
         '
         'Label23
         '
+        Me.Label23.AutoSize = True
         Me.Label23.BackColor = System.Drawing.Color.Transparent
         Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label23.Location = New System.Drawing.Point(336, 17)
+        Me.Label23.Location = New System.Drawing.Point(398, 21)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(120, 26)
+        Me.Label23.Size = New System.Drawing.Size(123, 16)
         Me.Label23.TabIndex = 129
         Me.Label23.Text = "Costo Promedio:"
         '
         'txtCostoPromedio
         '
         Me.txtCostoPromedio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCostoPromedio.Location = New System.Drawing.Point(456, 17)
+        Me.txtCostoPromedio.Location = New System.Drawing.Point(527, 17)
         Me.txtCostoPromedio.MaxLength = 13
         Me.txtCostoPromedio.Name = "txtCostoPromedio"
         Me.txtCostoPromedio.ReadOnly = True
-        Me.txtCostoPromedio.Size = New System.Drawing.Size(72, 20)
+        Me.txtCostoPromedio.Size = New System.Drawing.Size(109, 20)
         Me.txtCostoPromedio.TabIndex = 2
         '
         'Label9
         '
+        Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.Transparent
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(160, 17)
+        Me.Label9.Location = New System.Drawing.Point(195, 17)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(88, 26)
+        Me.Label9.Size = New System.Drawing.Size(81, 16)
         Me.Label9.TabIndex = 48
         Me.Label9.Text = "Margen %:"
         '
@@ -747,7 +847,7 @@ Partial Class FrmAgregarServicios
         Me.GroupBox4.Controls.Add(Me.GroupBox7)
         Me.GroupBox4.Controls.Add(Me.GroupBox9)
         Me.GroupBox4.Controls.Add(Me.txtValorIncremento)
-        Me.GroupBox4.Location = New System.Drawing.Point(16, 304)
+        Me.GroupBox4.Location = New System.Drawing.Point(54, 304)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(752, 184)
         Me.GroupBox4.TabIndex = 132
@@ -1136,7 +1236,7 @@ Partial Class FrmAgregarServicios
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(915, 531)
+        Me.ClientSize = New System.Drawing.Size(1022, 531)
         Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
@@ -1147,7 +1247,10 @@ Partial Class FrmAgregarServicios
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ChkExento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtImpuesto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbCentroCosto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCabys.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkDescuento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkKilometraje.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbCatalogo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1178,7 +1281,6 @@ Partial Class FrmAgregarServicios
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents cbS_subgrupo As System.Windows.Forms.ComboBox
     Friend WithEvents Label33 As System.Windows.Forms.Label
-    Friend WithEvents ChkExento As System.Windows.Forms.CheckBox
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
@@ -1256,4 +1358,10 @@ Partial Class FrmAgregarServicios
     Friend WithEvents chkDescuento As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents cbCentroCosto As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents txtImpuesto As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtCabys As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Label35 As Label
+    Friend WithEvents Label34 As Label
+    Friend WithEvents ChkExento As DevExpress.XtraEditors.CheckEdit
 End Class

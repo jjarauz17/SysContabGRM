@@ -57,8 +57,9 @@ Public Class frmSeleccionEmpresa
 
     Private Sub cmdCancelar_Click(sender As Object, e As EventArgs) Handles cmdCancelar.Click
         Close()
-        CerrarProceso()
+        'CerrarProceso()
         'End
+        Process.GetCurrentProcess().Kill()
     End Sub
 
     Private Sub Seleccionar()

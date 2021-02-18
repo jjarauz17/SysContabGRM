@@ -190,7 +190,6 @@ Public Class frmProyectosLiquidar
 
     Sub GuardarRequisa()
 
-
         Dim _DT_REQ As DataTable = DT_REQ.Select("Descargar = 1").CopyToDataTable
 
         Dim req = From row In _DT_REQ.AsEnumerable()
@@ -199,9 +198,11 @@ Public Class frmProyectosLiquidar
         Try
             For Each s As Object In req
                 If Not s Is Nothing Then
-                    Dim DT_DETALLE As DataTable = _DT_REQ.Select("Bodega =" & s).CopyToDataTable
+                    Dim DT_DETALLE As DataTable =
+                        _DT_REQ.Select("Bodega =" & s).CopyToDataTable
 
-                    Dim Requisa As Integer = db_requisas.Add(EmpresaActual, "S", Fecha.DateTime.Date, s.ToString,
+                    Dim Requisa As Integer =
+                        db_requisas.Add(EmpresaActual, "S", Fecha.DateTime.Date, s.ToString,
                                                     Login, "", cbMovimientoS.EditValue, "LIQUIDAR PROYECTO " & obj.Codigo, txtConcepto.Text, "",
                                                              "", "", "", "", "", obj.IdCliente, "", IdProyecto)
 

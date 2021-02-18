@@ -52,8 +52,6 @@ Public Module fn
         Return Cadena
     End Function
 
-
-
     Function ObtieneDatos(ByVal Procedimiento As String, ByVal ParamArray Parametros() As Object) As DataTable
 
         Dim cn As New SqlConnection(Conexion())
@@ -67,6 +65,7 @@ Public Module fn
         cn.Open()
         cmd.Connection = cn
         da.SelectCommand = cmd
+
         SqlCommandBuilder.DeriveParameters(cmd)
 
         Try

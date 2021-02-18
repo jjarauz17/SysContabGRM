@@ -1,3 +1,5 @@
+Imports DevExpress.XtraGrid.Views.Grid
+
 Public Class frmProcesarMovimientos
 
     Public IdRequisa As Integer
@@ -27,6 +29,7 @@ Public Class frmProcesarMovimientos
         Me.vDatos.Columns("Costo").OptionsColumn.AllowEdit = Permitir
         Me.vDatos.Columns("Costo").OptionsColumn.AllowFocus = Permitir
         Me.vDatos.Columns("Costo").ColumnEdit = txtCosto
+        Me.vDatos.Columns("%Variacion").ColumnEdit = rVariacion
         '
         Me.vDatos.Columns("Cantidad").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.vDatos.Columns("Cantidad").DisplayFormat.FormatString = "{0:n4}"
@@ -37,6 +40,9 @@ Public Class frmProcesarMovimientos
         Me.vDatos.Columns("Costo").DisplayFormat.FormatString = "{0:n6}"
         'Me.vDatos.Columns("Costo").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
         'Me.vDatos.Columns("Costo").SummaryItem.DisplayFormat = "{0:n4}"
+
+        Me.vDatos.Columns("Promedio").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.vDatos.Columns("Promedio").DisplayFormat.FormatString = "{0:n6}"
         '
         Me.vDatos.Columns("Costo Total").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.vDatos.Columns("Costo Total").DisplayFormat.FormatString = "{0:n6}"
@@ -55,13 +61,14 @@ Public Class frmProcesarMovimientos
         Dim cont As Integer = 0
 
         For i As Integer = 0 To Me.vDatos.DataRowCount - 1
-            If CDbl(Me.vDatos.GetRowCellValue(i, "Costo")) = 0 Then
+            If CDbl(Me.vDatos.GetRowCellValue(i, "Costo")) = 0.00 Then
                 valida = True
                 cont += 1
             End If
         Next
         '
         If valida Then
+
             If Not XtraMsg2("Existen " + cont.ToString + " Items sin Costo" & vbCrLf & " Desea procesar los productos de todas formas?.") Then
                 Exit Sub
             End If
@@ -89,6 +96,7 @@ Public Class frmProcesarMovimientos
                     Conn.AddParameter("Fecha", SqlDbType.SmallDateTime, 20, ParameterDirection.Input, CDate(Me.vDatos.GetRowCellValue(i, "Fecha")).Date)
                     Conn.AddParameter("Bodega", SqlDbType.NVarChar, 15, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "CODIGO_BODEGA"))
                     Conn.AddParameter("Proveedor", SqlDbType.Int, 5, ParameterDirection.Input, 0)
+
                     Conn.EjecutarComando("SP_Transaccion_Bodega_Add")
                 Catch ex As Exception
                     'Si da error es porque ya se registro en la bodega.
@@ -102,6 +110,7 @@ Public Class frmProcesarMovimientos
                 Conn.AddParameter("Existencia", SqlDbType.Money, 20, ParameterDirection.Input, IIf(Me.vDatos.GetRowCellValue(i, "Movimiento") = "Entrada", Me.vDatos.GetRowCellValue(i, "Cantidad"), Me.vDatos.GetRowCellValue(i, "Cantidad") * -1))
                 Conn.AddParameter("Costo", SqlDbType.Decimal, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "Costo"))
                 Conn.AddParameter("Articulo_Tipo", SqlDbType.NVarChar, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "tipo_articulo"))
+
                 Conn.EjecutarComando("SP_Bodega_Articulos_Add")
 
                 'Agregar el detalle de transaccion de bodega
@@ -116,6 +125,7 @@ Public Class frmProcesarMovimientos
                 Conn.AddParameter("Existencia", SqlDbType.Decimal, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "Cantidad"))
                 Conn.AddParameter("Costo", SqlDbType.Decimal, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "Costo"))
                 Conn.AddParameter("Articulo_Tipo", SqlDbType.NVarChar, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "tipo_articulo"))
+
                 Conn.EjecutarComando("SP_Transaccion_Bodega_Detalle_Add")
                 '
                 Conn.RemoveParameters()
@@ -125,11 +135,13 @@ Public Class frmProcesarMovimientos
                 Conn.AddParameter("TArticulo", SqlDbType.NVarChar, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "tipo_articulo"))
                 Conn.AddParameter("Cantidad", SqlDbType.Decimal, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "Cantidad"))
                 Conn.AddParameter("Precio", SqlDbType.Decimal, 20, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "Costo"))
+
                 Conn.EjecutarComando("SP_Requisas_Detalle_Add")
                 '
                 Conn.RemoveParameters()
                 Conn.AddParameter("Numero", SqlDbType.Int, 5, ParameterDirection.Input, Me.vDatos.GetRowCellValue(i, "Numero"))
                 Conn.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+
                 Conn.EjecutarComando("sp_GuardarEstadoMovimiento")
                 '
                 Me.ProgressBarControl1.Increment(1)
@@ -156,7 +168,15 @@ Public Class frmProcesarMovimientos
 
     Private Sub vDatos_CellValueChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles vDatos.CellValueChanged
         If e.Column.FieldName = "Costo" Then
-            vDatos.SetRowCellValue(e.RowHandle, "Costo Total", (vDatos.GetRowCellValue(e.RowHandle, "Cantidad") * vDatos.GetRowCellValue(e.RowHandle, "Costo")))
+            vDatos.SetRowCellValue(e.RowHandle, "Costo Total",
+                                   (IsNull(vDatos.GetRowCellValue(e.RowHandle, "Cantidad"), 0.00) * IsNull(vDatos.GetRowCellValue(e.RowHandle, "Costo"), 0.00)))
+
+            '
+            If IsNull(vDatos.GetRowCellValue(e.RowHandle, "Costo"), 0.00) > 0.00 Then
+                vDatos.SetRowCellValue(e.RowHandle, "%Variacion",
+                                       ((vDatos.GetRowCellValue(e.RowHandle, "Costo") - vDatos.GetRowCellValue(e.RowHandle, "Promedio")) / vDatos.GetRowCellValue(e.RowHandle, "Costo")) * 100.0)
+            End If
+            '
             vDatos.RefreshData()
         End If
     End Sub
@@ -173,5 +193,17 @@ Public Class frmProcesarMovimientos
     Private Sub frmProcesarMovimientos_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim f As frmRequisas_List = frmRequisas_List.Instance()
         f.vDatos.Columns("Fecha").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Max
+    End Sub
+
+    Private Sub vDatos_RowCellStyle(sender As Object, e As RowCellStyleEventArgs) Handles vDatos.RowCellStyle
+        If e.Column.FieldName = "%Variacion" Then
+            e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+
+            If Math.Abs(CDbl(IsNull(vDatos.GetRowCellValue(e.RowHandle, "%Variacion"), 0.00))) >= 3.0 Then
+                e.Appearance.BackColor = Color.GreenYellow
+                e.Appearance.ForeColor = Color.OrangeRed
+            End If
+
+        End If
     End Sub
 End Class

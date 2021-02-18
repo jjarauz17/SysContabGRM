@@ -51,6 +51,7 @@ Public Class frmBolsa
             Exit Sub
         End If
         '
+
     End Sub
 
     Private Sub bAnular_Click(sender As Object, e As EventArgs) Handles bAnular.Click

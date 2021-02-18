@@ -277,4 +277,26 @@ Public Class Proyectos
         End Set
     End Property
 
+    Dim vCABYS As String
+
+    Public Property CABYS() As String
+        Get
+            Return vCABYS
+        End Get
+        Set(ByVal value As String)
+            vCABYS = value
+        End Set
+    End Property
+
+    Dim vImpuesto As Double
+
+    Public Property Impuesto() As Double
+        Get
+            Return vImpuesto
+        End Get
+        Set(ByVal value As Double)
+            vImpuesto = value
+        End Set
+    End Property
+
 End Class

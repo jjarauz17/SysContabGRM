@@ -72,10 +72,10 @@ Partial Class frmRoles
         '
         Me.btnBorrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnBorrar.Enabled = False
-        Me.btnBorrar.Image = CType(resources.GetObject("btnBorrar.Image"), System.Drawing.Image)
-        Me.btnBorrar.Location = New System.Drawing.Point(12, 138)
+        Me.btnBorrar.ImageOptions.SvgImage = CType(resources.GetObject("btnBorrar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.btnBorrar.Location = New System.Drawing.Point(12, 132)
         Me.btnBorrar.Name = "btnBorrar"
-        Me.btnBorrar.Size = New System.Drawing.Size(120, 38)
+        Me.btnBorrar.Size = New System.Drawing.Size(121, 36)
         Me.btnBorrar.StyleController = Me.LayoutControl2
         Me.btnBorrar.TabIndex = 2
         Me.btnBorrar.Text = "&Borrar"
@@ -94,7 +94,7 @@ Partial Class frmRoles
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(682, 121, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(144, 328)
+        Me.LayoutControl2.Size = New System.Drawing.Size(145, 326)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -102,10 +102,10 @@ Partial Class frmRoles
         '
         Me.bClonar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.bClonar.Enabled = False
-        Me.bClonar.Image = CType(resources.GetObject("bClonar.Image"), System.Drawing.Image)
-        Me.bClonar.Location = New System.Drawing.Point(12, 96)
+        Me.bClonar.ImageOptions.SvgImage = CType(resources.GetObject("bClonar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bClonar.Location = New System.Drawing.Point(12, 92)
         Me.bClonar.Name = "bClonar"
-        Me.bClonar.Size = New System.Drawing.Size(120, 38)
+        Me.bClonar.Size = New System.Drawing.Size(121, 36)
         Me.bClonar.StyleController = Me.LayoutControl2
         Me.bClonar.TabIndex = 14
         Me.bClonar.Text = "C&lonar Rol"
@@ -114,10 +114,10 @@ Partial Class frmRoles
         '
         Me.bExportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.bExportar.Enabled = False
-        Me.bExportar.Image = CType(resources.GetObject("bExportar.Image"), System.Drawing.Image)
-        Me.bExportar.Location = New System.Drawing.Point(12, 236)
+        Me.bExportar.ImageOptions.SvgImage = CType(resources.GetObject("bExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bExportar.Location = New System.Drawing.Point(12, 238)
         Me.bExportar.Name = "bExportar"
-        Me.bExportar.Size = New System.Drawing.Size(120, 38)
+        Me.bExportar.Size = New System.Drawing.Size(121, 36)
         Me.bExportar.StyleController = Me.LayoutControl2
         Me.bExportar.TabIndex = 14
         Me.bExportar.Text = "E&xportar"
@@ -125,10 +125,10 @@ Partial Class frmRoles
         'btnExit
         '
         Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
+        Me.btnExit.ImageOptions.SvgImage = CType(resources.GetObject("btnExit.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnExit.Location = New System.Drawing.Point(12, 278)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(120, 38)
+        Me.btnExit.Size = New System.Drawing.Size(121, 36)
         Me.btnExit.StyleController = Me.LayoutControl2
         Me.btnExit.TabIndex = 1
         Me.btnExit.Text = "&Salir"
@@ -137,10 +137,10 @@ Partial Class frmRoles
         '
         Me.btnNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnNew.Enabled = False
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageOptions.SvgImage = CType(resources.GetObject("btnNew.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnNew.Location = New System.Drawing.Point(12, 12)
         Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(120, 38)
+        Me.btnNew.Size = New System.Drawing.Size(121, 36)
         Me.btnNew.StyleController = Me.LayoutControl2
         Me.btnNew.TabIndex = 0
         Me.btnNew.Text = "&Nuevo"
@@ -149,10 +149,10 @@ Partial Class frmRoles
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Enabled = False
-        Me.btnEdit.Image = CType(resources.GetObject("btnEdit.Image"), System.Drawing.Image)
-        Me.btnEdit.Location = New System.Drawing.Point(12, 54)
+        Me.btnEdit.ImageOptions.SvgImage = CType(resources.GetObject("btnEdit.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.btnEdit.Location = New System.Drawing.Point(12, 52)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(120, 38)
+        Me.btnEdit.Size = New System.Drawing.Size(121, 36)
         Me.btnEdit.StyleController = Me.LayoutControl2
         Me.btnEdit.TabIndex = 0
         Me.btnEdit.Text = "&Editar"
@@ -163,9 +163,8 @@ Partial Class frmRoles
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.EmptySpaceItem1, Me.LayoutControlItem6, Me.LayoutControlItem7})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(144, 328)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(145, 326)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -174,7 +173,7 @@ Partial Class frmRoles
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(124, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
@@ -182,9 +181,9 @@ Partial Class frmRoles
         '
         Me.LayoutControlItem3.Control = Me.btnEdit
         Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(124, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
@@ -192,9 +191,9 @@ Partial Class frmRoles
         '
         Me.LayoutControlItem4.Control = Me.btnBorrar
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(124, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -204,7 +203,7 @@ Partial Class frmRoles
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 266)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(124, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
@@ -212,27 +211,27 @@ Partial Class frmRoles
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 168)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 160)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(124, 56)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(125, 66)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.bExportar
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 224)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 226)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(124, 42)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.bClonar
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(124, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
         '
@@ -312,7 +311,6 @@ Partial Class frmRoles
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(401, 355)
         Me.LayoutControlGroup1.TextVisible = False
@@ -349,10 +347,10 @@ Partial Class frmRoles
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(144, 328)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(145, 326)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmRoles
@@ -363,6 +361,7 @@ Partial Class frmRoles
         Me.ControlBox = False
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
+        Me.KeyPreview = True
         Me.Name = "frmRoles"
         Me.Text = "Roles de Usuarios"
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()

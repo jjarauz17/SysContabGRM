@@ -250,7 +250,7 @@ Public Class frmOrdenesCompraLista
         Me.iGrid.MainView = Me.iVista
         Me.iGrid.Name = "iGrid"
         Me.iGrid.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.rLink})
-        Me.iGrid.Size = New System.Drawing.Size(875, 564)
+        Me.iGrid.Size = New System.Drawing.Size(538, 517)
         Me.iGrid.TabIndex = 167
         Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista})
         '
@@ -543,7 +543,7 @@ Public Class frmOrdenesCompraLista
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(133, 611)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 564)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -624,7 +624,7 @@ Public Class frmOrdenesCompraLista
         'cmdSalir
         '
         Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 563)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 516)
         Me.cmdSalir.Name = "cmdSalir"
         Me.cmdSalir.Size = New System.Drawing.Size(109, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
@@ -657,7 +657,7 @@ Public Class frmOrdenesCompraLista
         '
         Me.cmdAyuda.Enabled = False
         Me.cmdAyuda.ImageOptions.Image = CType(resources.GetObject("cmdAyuda.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAyuda.Location = New System.Drawing.Point(12, 523)
+        Me.cmdAyuda.Location = New System.Drawing.Point(12, 476)
         Me.cmdAyuda.Name = "cmdAyuda"
         Me.cmdAyuda.Size = New System.Drawing.Size(109, 36)
         Me.cmdAyuda.StyleController = Me.LayoutControl2
@@ -668,7 +668,7 @@ Public Class frmOrdenesCompraLista
         '
         Me.btnDiseno.Enabled = False
         Me.btnDiseno.ImageOptions.Image = CType(resources.GetObject("btnDiseno.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnDiseno.Location = New System.Drawing.Point(12, 483)
+        Me.btnDiseno.Location = New System.Drawing.Point(12, 436)
         Me.btnDiseno.Name = "btnDiseno"
         Me.btnDiseno.Size = New System.Drawing.Size(109, 36)
         Me.btnDiseno.StyleController = Me.LayoutControl2
@@ -694,7 +694,7 @@ Public Class frmOrdenesCompraLista
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.EmptySpaceItem4, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem2, Me.LayoutControlItem11, Me.LayoutControlItem3, Me.LayoutControlItem12, Me.LayoutControlItem10, Me.LayoutControlItem14, Me.LayoutControlItem13, Me.LayoutControlItem15, Me.LayoutControlItem20, Me.LayoutControlItem21})
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 611)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 564)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem4
@@ -711,7 +711,7 @@ Public Class frmOrdenesCompraLista
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 410)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(113, 61)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(113, 14)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem8
@@ -789,7 +789,7 @@ Public Class frmOrdenesCompraLista
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.btnDiseno
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 471)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 424)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
         Me.LayoutControlItem14.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
@@ -798,7 +798,7 @@ Public Class frmOrdenesCompraLista
         'LayoutControlItem13
         '
         Me.LayoutControlItem13.Control = Me.cmdAyuda
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 511)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 464)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
         Me.LayoutControlItem13.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(0, 0)
@@ -807,7 +807,7 @@ Public Class frmOrdenesCompraLista
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.cmdSalir
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 551)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 504)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
         Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
@@ -854,13 +854,13 @@ Public Class frmOrdenesCompraLista
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1005, 145, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(899, 640)
+        Me.LayoutControl1.Size = New System.Drawing.Size(562, 593)
         Me.LayoutControl1.TabIndex = 170
         Me.LayoutControl1.Text = "LayoutControl1"
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(787, 41)
+        Me.CheckEdit1.Location = New System.Drawing.Point(450, 41)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Red
         Me.CheckEdit1.Properties.Appearance.Options.UseForeColor = True
@@ -973,7 +973,7 @@ Public Class frmOrdenesCompraLista
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.LayoutControlItem18, Me.LayoutControlItem19, Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.EmptySpaceItem3, Me.LayoutControlItem22, Me.EmptySpaceItem2})
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(899, 640)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(562, 593)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem7
@@ -982,7 +982,7 @@ Public Class frmOrdenesCompraLista
         Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 52)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(879, 568)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(542, 521)
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
         '
@@ -1027,7 +1027,7 @@ Public Class frmOrdenesCompraLista
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(273, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(606, 29)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(269, 29)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem3
@@ -1041,7 +1041,7 @@ Public Class frmOrdenesCompraLista
         'LayoutControlItem22
         '
         Me.LayoutControlItem22.Control = Me.CheckEdit1
-        Me.LayoutControlItem22.Location = New System.Drawing.Point(775, 29)
+        Me.LayoutControlItem22.Location = New System.Drawing.Point(438, 29)
         Me.LayoutControlItem22.MaxSize = New System.Drawing.Size(104, 23)
         Me.LayoutControlItem22.MinSize = New System.Drawing.Size(104, 23)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
@@ -1049,13 +1049,14 @@ Public Class frmOrdenesCompraLista
         Me.LayoutControlItem22.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem22.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem22.TextVisible = False
+        Me.LayoutControlItem22.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         '
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(273, 29)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(502, 23)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(165, 23)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'DockManager1
@@ -1069,11 +1070,11 @@ Public Class frmOrdenesCompraLista
         Me.DockPanel1.Controls.Add(Me.DockPanel1_Container)
         Me.DockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right
         Me.DockPanel1.ID = New System.Guid("d1bcdd6e-3c1b-421d-8d3e-09d90accd1df")
-        Me.DockPanel1.Location = New System.Drawing.Point(899, 0)
+        Me.DockPanel1.Location = New System.Drawing.Point(562, 0)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.ShowCloseButton = False
         Me.DockPanel1.OriginalSize = New System.Drawing.Size(140, 200)
-        Me.DockPanel1.Size = New System.Drawing.Size(140, 640)
+        Me.DockPanel1.Size = New System.Drawing.Size(140, 593)
         Me.DockPanel1.Text = "Opciones"
         '
         'DockPanel1_Container
@@ -1081,13 +1082,13 @@ Public Class frmOrdenesCompraLista
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
         Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 611)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 564)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmOrdenesCompraLista
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(1039, 640)
+        Me.ClientSize = New System.Drawing.Size(702, 593)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
         Me.Name = "frmOrdenesCompraLista"
@@ -1139,7 +1140,6 @@ Public Class frmOrdenesCompraLista
     End Sub
 
 #End Region
-
 
     Dim Proveedores As New VB.SysContab.ProveedoresDB
     Dim FormaPago As New VB.SysContab.Forma_PagoDB
@@ -1230,8 +1230,8 @@ Public Class frmOrdenesCompraLista
         iVista.Columns("Seleccionar").Width = 50
         iVista.Columns("Seleccionar").Visible = False
 
-        Dim columnCustomer As GridColumn = iVista.Columns("Estado")
-        columnCustomer.FilterInfo = New ColumnFilterInfo("[Estado] = 'Pendiente'")
+        Dim columnCustomer As GridColumn = iVista.Columns("Entrega")
+        columnCustomer.FilterInfo = New ColumnFilterInfo("[Entrega] = 'Pendiente' OR [Entrega] = 'Parcial'")
     End Sub
 
     'Private Sub cbProveedor_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs)
@@ -1266,12 +1266,14 @@ Public Class frmOrdenesCompraLista
     Private Sub cmdFacturar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdFacturar.Click
 
         Dim sIdOrden As String = String.Empty,
-            sNoOrden As String = String.Empty
+            sNoOrden As String = String.Empty,
+            MultiSelect As Boolean = False
 
         If CheckEdit1.Checked Then
+            _DT.AcceptChanges()
             'Validar que se seleccione al menos una OC.
             If _DT.Select("Seleccionar = 1").Length = 0 Then
-                XtraMsg("Debe Seleccionar al menos una O/C cuando la opcion de Multi-Selección este activa.", MessageBoxIcon.Warning)
+                XtraMsg("Debe Seleccionar al menos una O/C cuando la opción de Multi-Selección este activa.", MessageBoxIcon.Warning)
                 CheckEdit1.Focus()
                 Exit Sub
             End If
@@ -1281,7 +1283,7 @@ Public Class frmOrdenesCompraLista
 
 
             If _DT.Select("Seleccionar = 1").Length = 0 Then
-                XtraMsg("Debe Seleccionar al menos una O/C cuando la opcion de Multi-Selección este activa.", MessageBoxIcon.Warning)
+                XtraMsg("Debe Seleccionar al menos una O/C cuando la opción de Multi-Selección este activa.", MessageBoxIcon.Warning)
                 CheckEdit1.Focus()
                 Exit Sub
             End If
@@ -1292,7 +1294,8 @@ Public Class frmOrdenesCompraLista
                         Select row.Field(Of String)("Proveedor") Distinct
 
             If sProvedor.Count > 1 Then
-                XtraMsg("Las O/C seleccionadas deben ser del mismo proveedor", MessageBoxIcon.Error)
+                XtraMsg("Las O/C seleccionadas deben ser del mismo proveedor",
+                        MessageBoxIcon.Error)
                 Exit Sub
             End If
 
@@ -1303,6 +1306,13 @@ Public Class frmOrdenesCompraLista
 
             sIdOrden = sIdOrden.Substring(0, sIdOrden.Length - 1)
             sNoOrden = sNoOrden.Substring(0, sNoOrden.Length - 1)
+
+            If _DT.Select("Seleccionar = 1").Length > 1 Then
+                MultiSelect = True
+            Else
+                MultiSelect = False
+            End If
+
         Else
             If iVista.FocusedRowHandle < 0 Then
                 XtraMsg("Seleccione una Orden de Compra")
@@ -1312,7 +1322,8 @@ Public Class frmOrdenesCompraLista
             Dim Estado As String =
             iVista.GetRowCellValue(iVista.FocusedRowHandle, "Estado")
 
-            If Estado.Equals("Facturada") Then
+            If Estado.Equals("Facturada") And
+                    iVista.GetRowCellValue(iVista.FocusedRowHandle, "Entrega").ToString().Equals("Entregado") Then
                 XtraMsg("La Orden de Compra ya fue Facturada")
                 Exit Sub
             End If
@@ -1329,49 +1340,80 @@ Public Class frmOrdenesCompraLista
 
             sIdOrden = iVista.GetRowCellValue(iVista.FocusedRowHandle, "Orden")
             sNoOrden = iVista.GetRowCellValue(iVista.FocusedRowHandle, "No. Orden")
+
+            MultiSelect = False
+
+            ShowSplash()
+            Inicio = True
+            '
+            Dim frm As frmFacturasCompra = frmFacturasCompra.Instance()
+            frm.Dispose()
+            '
+            Dim f As frmFacturasCompra = frmFacturasCompra.Instance()
+            f.OrdenCompra = iVista.GetRowCellValue(iVista.FocusedRowHandle, "Orden")
+            f.txtOrden.Text = iVista.GetRowCellValue(iVista.FocusedRowHandle, "No. Orden")
+            f.etOrigen.Text = iVista.GetRowCellValue(iVista.FocusedRowHandle, "Factura_Origen")
+            f.IsLoadOC = True
+            f.Destino = 1
+            f.gbTipo.Enabled = False
+            f.MdiParent = Me.MdiParent
+            f.etTipo.Text = "A"
+            f.Show()
+            f.Text = "Nueva Orden de Pago"
+            f.WindowState = FormWindowState.Maximized
+            f.txtfactura.Focus()
+            f.Nuevo = False
+            '
+            Inicio = False
+            HideSplash()
+
+            Exit Sub
         End If
 
 
-        With frmOrdenCompraToOP
-            .Text = "Trasladar Orden de Compra => Orden de Pago"
-            .NoOrden = sIdOrden
-            .txtNoOrden.Text = sNoOrden
-            .txtFactura.Text = sIdOrden
-            .ShowDialog()
+        If MultiSelect Then
+            With frmOrdenCompraToOP
 
-            If .Ok Then
-                ShowSplash()
-                Cargar()
-                HideSplash()
-            End If
-            .Dispose()
-        End With
+                .Text = "Trasladar Orden de Compra => Orden de Pago"
+                .NoOrden = sIdOrden
+                .txtNoOrden.Text = sNoOrden
+                .txtFactura.Text = sIdOrden
+                .MultiSelect = MultiSelect
+                .ShowDialog()
 
+                'If .Ok Then
+                '    ShowSplash()
+                '    Cargar()
+                '    HideSplash()
+                'End If
 
-        'ShowSplash()
-        'Inicio = True
-        ''
-        'Dim frm As frmFacturasCompra = frmFacturasCompra.Instance()
-        'frm.Dispose()
-        ''
-        'Dim f As frmFacturasCompra = frmFacturasCompra.Instance()
-        'f.OrdenCompra = Me.iVista.GetRowCellValue(Me.iVista.FocusedRowHandle, "Orden")
-        'f.txtOrden.Text = Me.iVista.GetRowCellValue(Me.iVista.FocusedRowHandle, "No. Orden")
-        'f.etOrigen.Text = Me.iVista.GetRowCellValue(Me.iVista.FocusedRowHandle, "Factura_Origen")
-        'f.Destino = 1
-        'f.gbTipo.Enabled = False
-        'f.MdiParent = Me.MdiParent
-        'f.etTipo.Text = "A"
-        'f.Show()
-        'f.Text = "Nueva Orden de Pago"
-        'f.WindowState = FormWindowState.Maximized
-        'f.txtfactura.Focus()
-        'f.Nuevo = False
-        ''
-        'Inicio = False
-        'HideSplash()
-
-
+                .Dispose()
+            End With
+        Else
+            ShowSplash()
+            Inicio = True
+            '
+            Dim frm As frmFacturasCompra = frmFacturasCompra.Instance()
+            frm.Dispose()
+            '
+            Dim f As frmFacturasCompra = frmFacturasCompra.Instance()
+            f.OrdenCompra = _DT.Select("Seleccionar = 1").CopyToDataTable().Rows.Item(0)("Orden")
+            f.txtOrden.Text = _DT.Select("Seleccionar = 1").CopyToDataTable().Rows.Item(0)("No. Orden")
+            f.etOrigen.Text = _DT.Select("Seleccionar = 1").CopyToDataTable().Rows.Item(0)("Factura_Origen")
+            f.IsLoadOC = True
+            f.Destino = 1
+            f.gbTipo.Enabled = False
+            f.MdiParent = Me.MdiParent
+            f.etTipo.Text = "A"
+            f.Show()
+            f.Text = "Nueva Orden de Pago"
+            f.WindowState = FormWindowState.Maximized
+            f.txtfactura.Focus()
+            f.Nuevo = False
+            '
+            Inicio = False
+            HideSplash()
+        End If
 
 
 
@@ -1441,6 +1483,11 @@ Public Class frmOrdenesCompraLista
     Private Sub cmdNuevo_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmdNuevo.Click
         ShowSplash("Cargando O/C...")
         Inicio = True
+
+
+        Dim frm As DataGridTextBoxCombo.frmOrdenesCompra =
+            DataGridTextBoxCombo.frmOrdenesCompra.Instance()
+        frm.Dispose()
 
         Dim f As DataGridTextBoxCombo.frmOrdenesCompra =
             DataGridTextBoxCombo.frmOrdenesCompra.Instance()
@@ -1567,6 +1614,12 @@ Public Class frmOrdenesCompraLista
 
         ShowSplash("Cargando O/C...")
         Inicio = True
+
+        Dim frm As DataGridTextBoxCombo.frmOrdenesCompra =
+            DataGridTextBoxCombo.frmOrdenesCompra.Instance()
+        frm.Dispose()
+
+
         Dim f As DataGridTextBoxCombo.frmOrdenesCompra =
             DataGridTextBoxCombo.frmOrdenesCompra.Instance()
 
@@ -1769,6 +1822,22 @@ Public Class frmOrdenesCompraLista
                 e.Appearance.ForeColor = Color.Red
             End If
         End If
+        '
+        If e.Column.FieldName = "Entrega" Then
+            e.Appearance.BackColor = Color.LightGray
+            e.Appearance.Font = New Font("Tahoma", 8.75, FontStyle.Bold)
+            e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+
+            If iVista.GetRowCellValue(e.RowHandle, "Entrega") = "Pendiente" Then
+                e.Appearance.ForeColor = Color.OrangeRed
+            ElseIf iVista.GetRowCellValue(e.RowHandle, "Entrega") = "Entregado" Then
+                e.Appearance.ForeColor = Color.DarkGreen
+            ElseIf iVista.GetRowCellValue(e.RowHandle, "Entrega") = "Parcial" Then
+                e.Appearance.ForeColor = Color.Navy
+            Else
+                e.Appearance.ForeColor = Color.White
+            End If
+        End If
 
         If e.Column.FieldName = "Aprobar" Then
             If iVista.GetRowCellValue(e.RowHandle, "Aprobar") Then
@@ -1863,7 +1932,13 @@ Public Class frmOrdenesCompraLista
     End Sub
 
     Private Sub bMercaderia_Click(sender As Object, e As EventArgs) Handles bMercaderia.Click
-
+        ShowSplash()
+        frmReporteAuxiliarMercaderiaTransito.Dispose()
+        frmReporteAuxiliarMercaderiaTransito.MdiParent = Me.MdiParent
+        frmReporteAuxiliarMercaderiaTransito.Text = "Reporte Mercaderia en Transito"
+        frmReporteAuxiliarMercaderiaTransito.Show()
+        frmReporteAuxiliarMercaderiaTransito.WindowState = FormWindowState.Maximized
+        HideSplash()
     End Sub
 
     Private Sub CheckEdit1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit1.CheckedChanged

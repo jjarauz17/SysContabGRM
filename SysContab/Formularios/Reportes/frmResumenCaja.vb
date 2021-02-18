@@ -273,4 +273,7 @@ Public Class frmResumenCaja
         End With
     End Sub
 
+    Private Sub CheckEdit3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit3.CheckedChanged
+
+    End Sub
 End Class

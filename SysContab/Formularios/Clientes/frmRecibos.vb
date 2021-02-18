@@ -427,7 +427,6 @@ Public Class frmRecibos
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem15, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem17, Me.LayoutControlItem16, Me.EmptySpaceItem3, Me.LayoutControlItem7, Me.LayoutControlItem18, Me.LayoutControlItem19})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(903, 321)
         Me.LayoutControlGroup1.TextVisible = False
@@ -1105,7 +1104,7 @@ Public Class frmRecibos
             MsgBox("La Computadora " & Environment.MachineName.ToString & " no está configurada como Caja", MsgBoxStyle.Information)
             Exit Sub
         End If
-
+        '
         f.txtCaja.Text = dsCajas.Tables("Cajas").Rows(0).Item("cj_Codigo").ToString
         f.MdiParent = Me.MdiParent
         f.Show()

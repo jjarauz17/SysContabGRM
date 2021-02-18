@@ -4,7 +4,7 @@ Imports CrystalDecisions.CrystalReports.Engine
 Imports System.Data.SqlClient
 Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraGrid.Localization
-
+Imports Entities
 
 Public Class FrmPlanillaxContabilizar
     Inherits DevExpress.XtraEditors.XtraForm
@@ -460,9 +460,10 @@ Public Class FrmPlanillaxContabilizar
             End If
         Next
 
-        Dim TipoCompr, CompNo As Integer
-        Dim Importe As Double
-        Dim DC As String
+        Dim TipoCompr As Integer,
+            CompNo As Integer,
+            Importe As Double,
+            DC As String
 
 
         ' VALIDAR SI HAY UN TIPO DE COMPROBANTE
@@ -493,8 +494,8 @@ Public Class FrmPlanillaxContabilizar
 
             ShowSplash("Contabilizando Planilla...")
 
-            CompNo = Compr.AddComprobante(TipoCompr, 1, txtConcepto.Text, VB.SysContab.EmpresasDB.GetDetails(EmpresaActual).MonedaBase, _
-                                VB.SysContab.PeriodosDB.Activo(Me.dtpFecha.Value), dtpFecha.Value, 0, "", False, 0, "", Parametro, Codigo, _
+            CompNo = Compr.AddComprobante(TipoCompr, 1, txtConcepto.Text, VB.SysContab.EmpresasDB.GetDetails(EmpresaActual).MonedaBase,
+                                VB.SysContab.PeriodosDB.Activo(Me.dtpFecha.Value), dtpFecha.Value, 0, "", False, 0, "", Parametro, Codigo,
                                 VB.SysContab.Rutinas.Fecha, 0, OrigenComprobantes.PLANILLA)
 
             For i = 0 To vPlanillas.DataRowCount - 1
@@ -512,31 +513,48 @@ Public Class FrmPlanillaxContabilizar
                     GoTo saltar
                 End If
 
-                Compr.AddComprobanteDetalles(CompNo, _
-                   vPlanillas.GetRowCellValue(i, "cuenta"), _
-                   vPlanillas.GetRowCellValue(i, "comentario"), _
-                    Importe, 0, TipoCompr, DC, 0, 0, _
+                Compr.AddComprobanteDetalles(CompNo,
+                   vPlanillas.GetRowCellValue(i, "cuenta"),
+                   vPlanillas.GetRowCellValue(i, "comentario"),
+                    Importe, 0, TipoCompr, DC, 0, 0,
                     Me.dtpFecha.Value, 0)
 
 saltar:
             Next
 
-            'La distribucion
-            For j As Integer = 0 To Ds.Tables("Distribucion").Rows.Count - 1
-                GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,idsubcentro, IdCentroCosto,Valor,Tipo,Cuenta) " & _
-                            " VALUES(" & EmpresaActual & "," & CompNo & "," & Me.dtpFecha.Value.Month & "," & _
-                           VB.SysContab.PeriodosDB.Activo(Me.dtpFecha.Value.Date) & "," & _
-                            Ds.Tables("Distribucion").Rows(j).Item("idrubrogasto") & "," & _
-                            Ds.Tables("Distribucion").Rows(j).Item("idsubcentro") & "," & _
-                            Ds.Tables("Distribucion").Rows(j).Item("idsubcentro") & "," & _
-                            Ds.Tables("Distribucion").Rows(j).Item("valor") & ",'" & _
-                            Ds.Tables("Distribucion").Rows(j).Item("tipo") & "','" & _
-                            Ds.Tables("Distribucion").Rows(j).Item("cuenta") & "')")
-
-            Next
-
             PeriodoNomina.Contabilizar(Codigo, Parametro)
             VB.SysContab.Rutinas.okTransaccion()
+
+            'La distribucion
+            Dim obj As New Distribucion,
+                    db As New db_Distribucion
+
+            obj.IdEmpresa = EmpresaActual
+            obj.NoComp = CompNo
+            obj.Per_Id = VB.SysContab.PeriodosDB.Activo(Me.dtpFecha.Value.Date)
+            obj.Mes = dtpFecha.Value.Month
+
+            For j As Integer = 0 To Ds.Tables("Distribucion").Rows.Count - 1
+
+                obj.IdRubroGasto = Ds.Tables("Distribucion").Rows(j).Item("idrubrogasto")
+                obj.IdCentroCosto = Ds.Tables("Distribucion").Rows(j).Item("idsubcentro")
+                obj.Valor = Ds.Tables("Distribucion").Rows(j).Item("valor")
+                obj.Tipo = Ds.Tables("Distribucion").Rows(j).Item("tipo")
+                obj.Cuenta = Ds.Tables("Distribucion").Rows(j).Item("cuenta")
+
+                db.Insertar(obj)
+
+                'GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,idsubcentro, IdCentroCosto,Valor,Tipo,Cuenta) " &
+                '            " VALUES(" & EmpresaActual & "," & CompNo & "," & Me.dtpFecha.Value.Month & "," &
+                '           VB.SysContab.PeriodosDB.Activo(Me.dtpFecha.Value.Date) & "," &
+                '            Ds.Tables("Distribucion").Rows(j).Item("idrubrogasto") & "," &
+                '            Ds.Tables("Distribucion").Rows(j).Item("idsubcentro") & "," &
+                '            Ds.Tables("Distribucion").Rows(j).Item("idsubcentro") & "," &
+                '            Ds.Tables("Distribucion").Rows(j).Item("valor") & ",'" &
+                '            Ds.Tables("Distribucion").Rows(j).Item("tipo") & "','" &
+                '            Ds.Tables("Distribucion").Rows(j).Item("cuenta") & "')")
+
+            Next
 
             HideSplash()
 
@@ -619,7 +637,7 @@ saltar:
 
         Ds = VB.SysContab.PeriodoNominaDB.GetListContabilizado(False, True, True, True)
 
-        F.dgPlanillas.DataSource = Ds.Tables(0)
+        F.dgplanillas.DataSource = Ds.Tables(0)
 
 
     End Sub

@@ -1,5 +1,6 @@
 Imports System.Data
 Imports System.Data.SqlClient
+Imports Entities
 Imports SysContab.VB.SysContab
 
 Public Class frmComprobantesContadoLista
@@ -957,7 +958,7 @@ Public Class frmComprobantesContadoLista
         Dim TotalCredito As Double = 0, TotalDebito As Double = 0
 
         'Verificando Plantillas Contables
-        Dim Plantilla As New VB.SysContab.PlantillaDB()        
+        Dim Plantilla As New VB.SysContab.PlantillaDB()
         Dim TipoCompr As Integer = 0
 
         If TipoFact = 1 Then    'Facturas de Contado
@@ -1450,7 +1451,7 @@ SALTAR:
             'Exit Sub
 
             If TotalDebito <> TotalCredito Then
-                XtraMsg("Diferencias Encontradas, TotalDebito = " & CDbl(TotalDebito).ToString("n2") & ". TotalCredito = " & CDbl(TotalCredito).ToString("n2") & _
+                XtraMsg("Diferencias Encontradas, TotalDebito = " & CDbl(TotalDebito).ToString("n2") & ". TotalCredito = " & CDbl(TotalCredito).ToString("n2") &
                         vbCrLf & "Diferencia = " & CDbl(TotalDebito - TotalCredito).ToString("n2"), MessageBoxIcon.Exclamation)
 
                 If XtraMsg2("Desea Ajustar Diferencia ?") Then
@@ -1711,7 +1712,7 @@ SALTAR:
 
     End Sub
 
-    Sub Finalizar()      
+    Sub Finalizar()
         '' ******  Limpiando Controles  ******************
         Me.ProgressBarControl1.EditValue = 0
         txtComentario.Text = ""
@@ -1731,16 +1732,34 @@ SALTAR:
     End Function
 
 
-    Public Shared Sub GuardarDistribucion(ByVal DT_Distribucion As DataTable, ByVal Fecha As Date, Optional ByVal Comprobante As String = vbNullString)
-        Dim i As Integer
-        Dim DT_F As DataTable
-        DT_F = DT_Distribucion
+    Public Shared Sub GuardarDistribucion(ByVal DT_Distribucion As DataTable,
+                                          ByVal Fecha As Date,
+                                          Optional ByVal Comprobante As String = vbNullString)
+
+        Dim dbDistribucion As New db_Distribucion,
+            objDistribucion As New Distribucion
+
+        objDistribucion.IdEmpresa = EmpresaActual
+        objDistribucion.NoComp = Comprobante
+        objDistribucion.Mes = Fecha.Month
+        objDistribucion.Per_Id = PeriodosDB.Activo(Fecha.Date)
+
+        Dim DT_F As DataTable = DT_Distribucion
         If Not DT_F Is Nothing Then
-            For i = 0 To DT_F.Rows.Count - 1
+            For i As Integer = 0 To DT_F.Rows.Count - 1
                 With DT_F
-                    GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " & _
-                     " VALUES(" & EmpresaActual & "," & Comprobante & "," & Fecha.Month & "," & _
-                    VB.SysContab.PeriodosDB.Activo(Fecha.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & Math.Round(.Rows(i).Item("Valor"), 2) & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+
+                    objDistribucion.IdRubroGasto = .Rows(i).Item("IdRubroGasto")
+                    objDistribucion.IdCentroCosto = .Rows(i).Item("IdCentroCosto")
+                    objDistribucion.Valor = .Rows(i).Item("Valor")
+                    objDistribucion.Tipo = .Rows(i).Item("Tipo")
+                    objDistribucion.Cuenta = .Rows(i).Item("Cuenta")
+
+                    dbDistribucion.Insertar(objDistribucion)
+
+                    'GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+                    ' " VALUES(" & EmpresaActual & "," & Comprobante & "," & Fecha.Month & "," &
+                    'VB.SysContab.PeriodosDB.Activo(Fecha.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & Math.Round(.Rows(i).Item("Valor"), 2) & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
                 End With
             Next
         End If

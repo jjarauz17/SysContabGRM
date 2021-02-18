@@ -1,6 +1,7 @@
 Imports ClasesBLL
 Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid.Views.Grid
+Imports Entities
 
 Public Class FrmCobrosNew
     Inherits DevExpress.XtraEditors.XtraForm
@@ -61,8 +62,8 @@ Public Class FrmCobrosNew
     Friend WithEvents cmbmoneda As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents txtCaja As DevExpress.XtraEditors.TextEdit
     Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GridDetalle As DevExpress.XtraGrid.GridControl
-    Friend WithEvents vDatos As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents iGrid As DevExpress.XtraGrid.GridControl
+    Friend WithEvents iVista As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn13 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
@@ -162,6 +163,20 @@ Public Class FrmCobrosNew
     Friend WithEvents SimpleButton1 As SimpleButton
     Friend WithEvents LayoutControlItem18 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents GridColumn24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn25 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cbCatalogo As SearchLookUpEdit
+    Friend WithEvents GridView1 As GridView
+    Friend WithEvents LayoutControlItem37 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkInteres As CheckEdit
+    Friend WithEvents LayoutControlItem40 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents DxValidationProvider1 As DXErrorProvider.DXValidationProvider
+    Friend WithEvents lblInteres As HyperlinkLabelControl
+    Friend WithEvents LayoutControlItem41 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents GridColumn26 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn27 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn28 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents rLink As Repository.RepositoryItemHyperLinkEdit
+    Friend WithEvents GridColumn29 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents etInicio As DevExpress.XtraEditors.LabelControl
 
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
@@ -169,19 +184,27 @@ Public Class FrmCobrosNew
         Dim StyleFormatCondition1 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCobrosNew))
         Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.txtMntoValor = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.txtcomprobante = New DevExpress.XtraEditors.TextEdit()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.lblInteres = New DevExpress.XtraEditors.HyperlinkLabelControl()
+        Me.chkInteres = New DevExpress.XtraEditors.CheckEdit()
+        Me.cbCatalogo = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.txtEquivalente = New DevExpress.XtraEditors.TextEdit()
         Me.txtTasaParalela = New DevExpress.XtraEditors.TextEdit()
         Me.lblMontoLetras = New DevExpress.XtraEditors.LabelControl()
         Me.etMntto = New DevExpress.XtraEditors.HyperlinkLabelControl()
         Me.chkselector = New System.Windows.Forms.CheckBox()
         Me.txtPorCuenta = New DevExpress.XtraEditors.TextEdit()
-        Me.GridDetalle = New DevExpress.XtraGrid.GridControl()
-        Me.vDatos = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.iGrid = New DevExpress.XtraGrid.GridControl()
+        Me.iVista = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn28 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rLink = New DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit()
+        Me.GridColumn29 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -189,9 +212,9 @@ Public Class FrmCobrosNew
         Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.txtMntoValor = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -203,6 +226,8 @@ Public Class FrmCobrosNew
         Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn22 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.txtTasa = New DevExpress.XtraEditors.TextEdit()
         Me.chkAplicar = New DevExpress.XtraEditors.CheckEdit()
         Me.FechaComprobante = New DevExpress.XtraEditors.DateEdit()
@@ -236,6 +261,9 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem25 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem26 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem27 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem20 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -245,9 +273,6 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem20 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlGroup3 = New DevExpress.XtraLayout.LayoutControlGroup()
@@ -268,9 +293,12 @@ Public Class FrmCobrosNew
         Me.EmptySpaceItem5 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem6 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem13 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem37 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem40 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem28 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem35 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem36 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem41 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.cmdAyuda = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControl2 = New DevExpress.XtraLayout.LayoutControl()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
@@ -291,15 +319,20 @@ Public Class FrmCobrosNew
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
+        CType(Me.txtMntoValor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcomprobante.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.chkInteres.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbCatalogo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtEquivalente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTasaParalela.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPorCuenta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.vDatos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtMntoValor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.iVista, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rLink, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTasa.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkAplicar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FechaComprobante.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -331,6 +364,9 @@ Public Class FrmCobrosNew
         CType(Me.LayoutControlItem25, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem20, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -340,9 +376,6 @@ Public Class FrmCobrosNew
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem20, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -363,9 +396,12 @@ Public Class FrmCobrosNew
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem37, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem40, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem28, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem35, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem36, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem41, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl2.SuspendLayout()
         CType(Me.LayoutControlGroup4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -380,28 +416,47 @@ Public Class FrmCobrosNew
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GridColumn8
         '
-        Me.GridColumn8.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.GridColumn8.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.GridColumn8.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GridColumn8.AppearanceCell.ForeColor = System.Drawing.Color.OrangeRed
+        Me.GridColumn8.AppearanceCell.Options.UseBackColor = True
+        Me.GridColumn8.AppearanceCell.Options.UseForeColor = True
         Me.GridColumn8.AppearanceCell.Options.UseTextOptions = True
         Me.GridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn8.AppearanceHeader.Options.UseTextOptions = True
         Me.GridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.GridColumn8.Caption = "Cobro"
+        Me.GridColumn8.ColumnEdit = Me.txtMntoValor
         Me.GridColumn8.DisplayFormat.FormatString = "n2"
         Me.GridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn8.FieldName = "Cobro"
         Me.GridColumn8.Name = "GridColumn8"
         Me.GridColumn8.OptionsColumn.AllowEdit = False
-        Me.GridColumn8.OptionsColumn.ReadOnly = True
         Me.GridColumn8.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Cobro", "{0:n2}")})
         Me.GridColumn8.Visible = True
-        Me.GridColumn8.VisibleIndex = 11
-        Me.GridColumn8.Width = 76
+        Me.GridColumn8.VisibleIndex = 13
+        Me.GridColumn8.Width = 56
+        '
+        'txtMntoValor
+        '
+        Me.txtMntoValor.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtMntoValor.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMntoValor.Appearance.ForeColor = System.Drawing.Color.OrangeRed
+        Me.txtMntoValor.Appearance.Options.UseBackColor = True
+        Me.txtMntoValor.Appearance.Options.UseFont = True
+        Me.txtMntoValor.Appearance.Options.UseForeColor = True
+        Me.txtMntoValor.Appearance.Options.UseTextOptions = True
+        Me.txtMntoValor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtMntoValor.AutoHeight = False
+        Me.txtMntoValor.Mask.EditMask = "n2"
+        Me.txtMntoValor.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtMntoValor.Mask.UseMaskAsDisplayFormat = True
+        Me.txtMntoValor.Name = "txtMntoValor"
         '
         'txtcomprobante
         '
@@ -424,13 +479,16 @@ Public Class FrmCobrosNew
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.lblInteres)
+        Me.LayoutControl1.Controls.Add(Me.chkInteres)
+        Me.LayoutControl1.Controls.Add(Me.cbCatalogo)
         Me.LayoutControl1.Controls.Add(Me.txtEquivalente)
         Me.LayoutControl1.Controls.Add(Me.txtTasaParalela)
         Me.LayoutControl1.Controls.Add(Me.lblMontoLetras)
         Me.LayoutControl1.Controls.Add(Me.etMntto)
         Me.LayoutControl1.Controls.Add(Me.chkselector)
         Me.LayoutControl1.Controls.Add(Me.txtPorCuenta)
-        Me.LayoutControl1.Controls.Add(Me.GridDetalle)
+        Me.LayoutControl1.Controls.Add(Me.iGrid)
         Me.LayoutControl1.Controls.Add(Me.txtcomprobante)
         Me.LayoutControl1.Controls.Add(Me.txtTasa)
         Me.LayoutControl1.Controls.Add(Me.chkAplicar)
@@ -458,7 +516,7 @@ Public Class FrmCobrosNew
         Me.LayoutControl1.Controls.Add(Me.txttarjetas)
         Me.LayoutControl1.Controls.Add(Me.txtcheques)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem12, Me.LayoutControlItem11, Me.LayoutControlItem10, Me.LayoutControlItem19, Me.LayoutControlItem25, Me.LayoutControlItem26, Me.LayoutControlItem27})
+        Me.LayoutControl1.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem12, Me.LayoutControlItem11, Me.LayoutControlItem10, Me.LayoutControlItem19, Me.LayoutControlItem25, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlItem7, Me.LayoutControlItem20, Me.LayoutControlItem9})
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(977, 245, 450, 400)
@@ -467,10 +525,56 @@ Public Class FrmCobrosNew
         Me.LayoutControl1.TabIndex = 9
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'lblInteres
+        '
+        Me.lblInteres.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInteres.Appearance.Options.UseFont = True
+        Me.lblInteres.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblInteres.Location = New System.Drawing.Point(665, 556)
+        Me.lblInteres.Name = "lblInteres"
+        Me.lblInteres.Size = New System.Drawing.Size(55, 18)
+        Me.lblInteres.StyleController = Me.LayoutControl1
+        Me.lblInteres.TabIndex = 23
+        Me.lblInteres.Text = "0.0000"
+        '
+        'chkInteres
+        '
+        Me.chkInteres.Enabled = False
+        Me.chkInteres.Location = New System.Drawing.Point(795, 308)
+        Me.chkInteres.Name = "chkInteres"
+        Me.chkInteres.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkInteres.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
+        Me.chkInteres.Properties.Appearance.Options.UseFont = True
+        Me.chkInteres.Properties.Appearance.Options.UseForeColor = True
+        Me.chkInteres.Properties.Caption = "Aplicar Interés"
+        Me.chkInteres.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.SvgRadio2
+        Me.chkInteres.Size = New System.Drawing.Size(126, 22)
+        Me.chkInteres.StyleController = Me.LayoutControl1
+        Me.chkInteres.TabIndex = 25
+        '
+        'cbCatalogo
+        '
+        Me.cbCatalogo.Location = New System.Drawing.Point(529, 220)
+        Me.cbCatalogo.Name = "cbCatalogo"
+        Me.cbCatalogo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCatalogo.Properties.Appearance.Options.UseFont = True
+        Me.cbCatalogo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbCatalogo.Properties.PopupView = Me.GridView1
+        Me.cbCatalogo.Size = New System.Drawing.Size(392, 22)
+        Me.cbCatalogo.StyleController = Me.LayoutControl1
+        Me.cbCatalogo.TabIndex = 24
+        '
+        'GridView1
+        '
+        Me.GridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
         'txtEquivalente
         '
         Me.txtEquivalente.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtEquivalente.Location = New System.Drawing.Point(178, 216)
+        Me.txtEquivalente.Location = New System.Drawing.Point(178, 218)
         Me.txtEquivalente.Name = "txtEquivalente"
         Me.txtEquivalente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEquivalente.Properties.Appearance.Options.UseFont = True
@@ -494,7 +598,7 @@ Public Class FrmCobrosNew
         '
         Me.txtTasaParalela.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTasaParalela.EditValue = New Decimal(New Integer() {10000, 0, 0, 262144})
-        Me.txtTasaParalela.Location = New System.Drawing.Point(827, 244)
+        Me.txtTasaParalela.Location = New System.Drawing.Point(827, 272)
         Me.txtTasaParalela.Name = "txtTasaParalela"
         Me.txtTasaParalela.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTasaParalela.Properties.Appearance.Options.UseFont = True
@@ -526,9 +630,9 @@ Public Class FrmCobrosNew
         Me.lblMontoLetras.Appearance.Options.UseTextOptions = True
         Me.lblMontoLetras.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.lblMontoLetras.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblMontoLetras.Location = New System.Drawing.Point(375, 300)
+        Me.lblMontoLetras.Location = New System.Drawing.Point(375, 308)
         Me.lblMontoLetras.Name = "lblMontoLetras"
-        Me.lblMontoLetras.Size = New System.Drawing.Size(546, 18)
+        Me.lblMontoLetras.Size = New System.Drawing.Size(416, 18)
         Me.lblMontoLetras.StyleController = Me.LayoutControl1
         Me.lblMontoLetras.TabIndex = 23
         Me.lblMontoLetras.Text = "0/100"
@@ -550,7 +654,7 @@ Public Class FrmCobrosNew
         Me.chkselector.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.chkselector.Location = New System.Drawing.Point(12, 556)
         Me.chkselector.Name = "chkselector"
-        Me.chkselector.Size = New System.Drawing.Size(708, 20)
+        Me.chkselector.Size = New System.Drawing.Size(495, 20)
         Me.chkselector.TabIndex = 11
         Me.chkselector.Text = "Mostrar / Ocultar Datos"
         '
@@ -558,7 +662,7 @@ Public Class FrmCobrosNew
         '
         Me.txtPorCuenta.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPorCuenta.Location = New System.Drawing.Point(529, 192)
+        Me.txtPorCuenta.Location = New System.Drawing.Point(529, 194)
         Me.txtPorCuenta.Name = "txtPorCuenta"
         Me.txtPorCuenta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPorCuenta.Properties.Appearance.Options.UseFont = True
@@ -566,28 +670,28 @@ Public Class FrmCobrosNew
         Me.txtPorCuenta.StyleController = Me.LayoutControl1
         Me.txtPorCuenta.TabIndex = 9
         '
-        'GridDetalle
+        'iGrid
         '
-        Me.GridDetalle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.iGrid.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GridDetalle.Location = New System.Drawing.Point(12, 334)
-        Me.GridDetalle.MainView = Me.vDatos
-        Me.GridDetalle.Name = "GridDetalle"
-        Me.GridDetalle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtMntoValor})
-        Me.GridDetalle.Size = New System.Drawing.Size(921, 218)
-        Me.GridDetalle.TabIndex = 6
-        Me.GridDetalle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vDatos})
+        Me.iGrid.Location = New System.Drawing.Point(12, 346)
+        Me.iGrid.MainView = Me.iVista
+        Me.iGrid.Name = "iGrid"
+        Me.iGrid.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtMntoValor, Me.rLink})
+        Me.iGrid.Size = New System.Drawing.Size(921, 206)
+        Me.iGrid.TabIndex = 6
+        Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista})
         '
-        'vDatos
+        'iVista
         '
-        Me.vDatos.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.vDatos.Appearance.HeaderPanel.Options.UseFont = True
-        Me.vDatos.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.vDatos.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.vDatos.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.vDatos.ColumnPanelRowHeight = 30
-        Me.vDatos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn15, Me.GridColumn14, Me.GridColumn13, Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn12, Me.GridColumn16, Me.GridColumn17, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn23, Me.GridColumn22, Me.GridColumn24})
+        Me.iVista.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.iVista.Appearance.HeaderPanel.Options.UseFont = True
+        Me.iVista.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.iVista.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.iVista.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.iVista.ColumnPanelRowHeight = 30
+        Me.iVista.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn15, Me.GridColumn14, Me.GridColumn13, Me.GridColumn28, Me.GridColumn29, Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7, Me.GridColumn8, Me.GridColumn26, Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn12, Me.GridColumn16, Me.GridColumn17, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn23, Me.GridColumn22, Me.GridColumn24, Me.GridColumn25, Me.GridColumn27})
         StyleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         StyleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer))
         StyleFormatCondition1.Appearance.Options.UseBackColor = True
@@ -595,18 +699,18 @@ Public Class FrmCobrosNew
         StyleFormatCondition1.Column = Me.GridColumn8
         StyleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Greater
         StyleFormatCondition1.Value1 = 0
-        Me.vDatos.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition1})
-        Me.vDatos.GridControl = Me.GridDetalle
-        Me.vDatos.Name = "vDatos"
-        Me.vDatos.OptionsFilter.AllowColumnMRUFilterList = False
-        Me.vDatos.OptionsFilter.AllowFilterEditor = False
-        Me.vDatos.OptionsFilter.AllowMRUFilterList = False
-        Me.vDatos.OptionsMenu.EnableColumnMenu = False
-        Me.vDatos.OptionsMenu.EnableFooterMenu = False
-        Me.vDatos.OptionsMenu.EnableGroupPanelMenu = False
-        Me.vDatos.OptionsView.ShowAutoFilterRow = True
-        Me.vDatos.OptionsView.ShowFooter = True
-        Me.vDatos.OptionsView.ShowGroupPanel = False
+        Me.iVista.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition1})
+        Me.iVista.GridControl = Me.iGrid
+        Me.iVista.Name = "iVista"
+        Me.iVista.OptionsFilter.AllowColumnMRUFilterList = False
+        Me.iVista.OptionsFilter.AllowFilterEditor = False
+        Me.iVista.OptionsFilter.AllowMRUFilterList = False
+        Me.iVista.OptionsMenu.EnableColumnMenu = False
+        Me.iVista.OptionsMenu.EnableFooterMenu = False
+        Me.iVista.OptionsMenu.EnableGroupPanelMenu = False
+        Me.iVista.OptionsView.ShowAutoFilterRow = True
+        Me.iVista.OptionsView.ShowFooter = True
+        Me.iVista.OptionsView.ShowGroupPanel = False
         '
         'GridColumn15
         '
@@ -643,7 +747,33 @@ Public Class FrmCobrosNew
         Me.GridColumn13.Name = "GridColumn13"
         Me.GridColumn13.Visible = True
         Me.GridColumn13.VisibleIndex = 0
-        Me.GridColumn13.Width = 60
+        Me.GridColumn13.Width = 39
+        '
+        'GridColumn28
+        '
+        Me.GridColumn28.Caption = "#"
+        Me.GridColumn28.ColumnEdit = Me.rLink
+        Me.GridColumn28.FieldName = "#"
+        Me.GridColumn28.Name = "GridColumn28"
+        Me.GridColumn28.Visible = True
+        Me.GridColumn28.VisibleIndex = 2
+        Me.GridColumn28.Width = 20
+        '
+        'rLink
+        '
+        Me.rLink.AutoHeight = False
+        Me.rLink.Caption = "Ver"
+        Me.rLink.Name = "rLink"
+        '
+        'GridColumn29
+        '
+        Me.GridColumn29.Caption = "AP"
+        Me.GridColumn29.FieldName = "AP"
+        Me.GridColumn29.Name = "GridColumn29"
+        Me.GridColumn29.OptionsColumn.AllowEdit = False
+        Me.GridColumn29.Visible = True
+        Me.GridColumn29.VisibleIndex = 3
+        Me.GridColumn29.Width = 20
         '
         'GridColumn1
         '
@@ -659,7 +789,7 @@ Public Class FrmCobrosNew
         Me.GridColumn1.OptionsColumn.ReadOnly = True
         Me.GridColumn1.Visible = True
         Me.GridColumn1.VisibleIndex = 1
-        Me.GridColumn1.Width = 58
+        Me.GridColumn1.Width = 37
         '
         'GridColumn2
         '
@@ -674,8 +804,8 @@ Public Class FrmCobrosNew
         Me.GridColumn2.OptionsColumn.AllowEdit = False
         Me.GridColumn2.OptionsColumn.ReadOnly = True
         Me.GridColumn2.Visible = True
-        Me.GridColumn2.VisibleIndex = 3
-        Me.GridColumn2.Width = 50
+        Me.GridColumn2.VisibleIndex = 5
+        Me.GridColumn2.Width = 36
         '
         'GridColumn3
         '
@@ -741,8 +871,8 @@ Public Class FrmCobrosNew
         Me.GridColumn6.OptionsColumn.ReadOnly = True
         Me.GridColumn6.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:n2}")})
         Me.GridColumn6.Visible = True
-        Me.GridColumn6.VisibleIndex = 5
-        Me.GridColumn6.Width = 69
+        Me.GridColumn6.VisibleIndex = 8
+        Me.GridColumn6.Width = 50
         '
         'GridColumn7
         '
@@ -760,8 +890,31 @@ Public Class FrmCobrosNew
         Me.GridColumn7.OptionsColumn.ReadOnly = True
         Me.GridColumn7.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Abono", "{0:n2}")})
         Me.GridColumn7.Visible = True
-        Me.GridColumn7.VisibleIndex = 8
-        Me.GridColumn7.Width = 49
+        Me.GridColumn7.VisibleIndex = 10
+        Me.GridColumn7.Width = 36
+        '
+        'GridColumn26
+        '
+        Me.GridColumn26.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GridColumn26.AppearanceCell.ForeColor = System.Drawing.Color.OrangeRed
+        Me.GridColumn26.AppearanceCell.Options.UseBackColor = True
+        Me.GridColumn26.AppearanceCell.Options.UseForeColor = True
+        Me.GridColumn26.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn26.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn26.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn26.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn26.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.GridColumn26.Caption = "Cobro U$"
+        Me.GridColumn26.ColumnEdit = Me.txtMntoValor
+        Me.GridColumn26.DisplayFormat.FormatString = "n2"
+        Me.GridColumn26.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn26.FieldName = "CobroU"
+        Me.GridColumn26.Name = "GridColumn26"
+        Me.GridColumn26.OptionsColumn.AllowEdit = False
+        Me.GridColumn26.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "CobroU", "{0:n2}")})
+        Me.GridColumn26.Visible = True
+        Me.GridColumn26.VisibleIndex = 14
+        Me.GridColumn26.Width = 65
         '
         'GridColumn9
         '
@@ -781,8 +934,8 @@ Public Class FrmCobrosNew
         Me.GridColumn9.OptionsColumn.ReadOnly = True
         Me.GridColumn9.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Saldo", "{0:n2}")})
         Me.GridColumn9.Visible = True
-        Me.GridColumn9.VisibleIndex = 9
-        Me.GridColumn9.Width = 62
+        Me.GridColumn9.VisibleIndex = 11
+        Me.GridColumn9.Width = 45
         '
         'GridColumn10
         '
@@ -797,16 +950,8 @@ Public Class FrmCobrosNew
         Me.GridColumn10.Name = "GridColumn10"
         Me.GridColumn10.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Monto_Mantenimiento", "{0:n2}")})
         Me.GridColumn10.Visible = True
-        Me.GridColumn10.VisibleIndex = 12
-        Me.GridColumn10.Width = 88
-        '
-        'txtMntoValor
-        '
-        Me.txtMntoValor.AutoHeight = False
-        Me.txtMntoValor.Mask.EditMask = "n2"
-        Me.txtMntoValor.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtMntoValor.Mask.UseMaskAsDisplayFormat = True
-        Me.txtMntoValor.Name = "txtMntoValor"
+        Me.GridColumn10.VisibleIndex = 15
+        Me.GridColumn10.Width = 66
         '
         'GridColumn11
         '
@@ -816,6 +961,7 @@ Public Class FrmCobrosNew
         Me.GridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn11.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.GridColumn11.Caption = "IVA Parcial"
+        Me.GridColumn11.ColumnEdit = Me.txtMntoValor
         Me.GridColumn11.DisplayFormat.FormatString = "n2"
         Me.GridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn11.FieldName = "IVAParcial"
@@ -833,13 +979,15 @@ Public Class FrmCobrosNew
         Me.GridColumn12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn12.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.GridColumn12.Caption = "IR Parcial"
+        Me.GridColumn12.ColumnEdit = Me.txtMntoValor
         Me.GridColumn12.DisplayFormat.FormatString = "n2"
         Me.GridColumn12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn12.FieldName = "IrParcial"
         Me.GridColumn12.Name = "GridColumn12"
         Me.GridColumn12.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "IrParcial", "{0:n2}")})
         Me.GridColumn12.Visible = True
-        Me.GridColumn12.VisibleIndex = 13
+        Me.GridColumn12.VisibleIndex = 17
+        Me.GridColumn12.Width = 55
         '
         'GridColumn16
         '
@@ -849,14 +997,15 @@ Public Class FrmCobrosNew
         Me.GridColumn16.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.GridColumn16.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.GridColumn16.Caption = "IR Alcaldia"
+        Me.GridColumn16.ColumnEdit = Me.txtMntoValor
         Me.GridColumn16.DisplayFormat.FormatString = "n2"
         Me.GridColumn16.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn16.FieldName = "IrAlcaldia"
         Me.GridColumn16.Name = "GridColumn16"
         Me.GridColumn16.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "IrAlcaldia", "{0:n2}")})
         Me.GridColumn16.Visible = True
-        Me.GridColumn16.VisibleIndex = 14
-        Me.GridColumn16.Width = 68
+        Me.GridColumn16.VisibleIndex = 18
+        Me.GridColumn16.Width = 94
         '
         'GridColumn17
         '
@@ -869,8 +1018,8 @@ Public Class FrmCobrosNew
         Me.GridColumn17.OptionsColumn.AllowEdit = False
         Me.GridColumn17.OptionsColumn.AllowFocus = False
         Me.GridColumn17.Visible = True
-        Me.GridColumn17.VisibleIndex = 4
-        Me.GridColumn17.Width = 48
+        Me.GridColumn17.VisibleIndex = 6
+        Me.GridColumn17.Width = 35
         '
         'GridColumn18
         '
@@ -891,8 +1040,8 @@ Public Class FrmCobrosNew
         Me.GridColumn19.OptionsColumn.AllowFocus = False
         Me.GridColumn19.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total U$", "{0:n2}")})
         Me.GridColumn19.Visible = True
-        Me.GridColumn19.VisibleIndex = 6
-        Me.GridColumn19.Width = 76
+        Me.GridColumn19.VisibleIndex = 9
+        Me.GridColumn19.Width = 56
         '
         'GridColumn20
         '
@@ -903,7 +1052,7 @@ Public Class FrmCobrosNew
         Me.GridColumn20.OptionsColumn.AllowFocus = False
         Me.GridColumn20.Visible = True
         Me.GridColumn20.VisibleIndex = 7
-        Me.GridColumn20.Width = 48
+        Me.GridColumn20.Width = 35
         '
         'GridColumn21
         '
@@ -916,8 +1065,8 @@ Public Class FrmCobrosNew
         Me.GridColumn21.OptionsColumn.AllowFocus = False
         Me.GridColumn21.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SaldoU", "{0:n2}")})
         Me.GridColumn21.Visible = True
-        Me.GridColumn21.VisibleIndex = 10
-        Me.GridColumn21.Width = 74
+        Me.GridColumn21.VisibleIndex = 12
+        Me.GridColumn21.Width = 55
         '
         'GridColumn23
         '
@@ -948,13 +1097,36 @@ Public Class FrmCobrosNew
         Me.GridColumn24.Name = "GridColumn24"
         Me.GridColumn24.OptionsColumn.AllowEdit = False
         Me.GridColumn24.Visible = True
-        Me.GridColumn24.VisibleIndex = 2
+        Me.GridColumn24.VisibleIndex = 4
+        Me.GridColumn24.Width = 41
+        '
+        'GridColumn25
+        '
+        Me.GridColumn25.Caption = "Interés"
+        Me.GridColumn25.ColumnEdit = Me.txtMntoValor
+        Me.GridColumn25.FieldName = "Interes"
+        Me.GridColumn25.Name = "GridColumn25"
+        Me.GridColumn25.OptionsColumn.AllowEdit = False
+        Me.GridColumn25.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Interes", "{0:n2}")})
+        Me.GridColumn25.Visible = True
+        Me.GridColumn25.VisibleIndex = 16
+        Me.GridColumn25.Width = 55
+        '
+        'GridColumn27
+        '
+        Me.GridColumn27.Caption = "TCambio"
+        Me.GridColumn27.FieldName = "TCambio"
+        Me.GridColumn27.GroupFormat.FormatString = "{0:n4}"
+        Me.GridColumn27.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn27.Name = "GridColumn27"
+        Me.GridColumn27.OptionsColumn.AllowEdit = False
+        Me.GridColumn27.OptionsColumn.ReadOnly = True
         '
         'txtTasa
         '
         Me.txtTasa.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtTasa.EditValue = New Decimal(New Integer() {10000, 0, 0, 262144})
-        Me.txtTasa.Location = New System.Drawing.Point(827, 218)
+        Me.txtTasa.Location = New System.Drawing.Point(827, 246)
         Me.txtTasa.Name = "txtTasa"
         Me.txtTasa.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTasa.Properties.Appearance.Options.UseFont = True
@@ -976,7 +1148,7 @@ Public Class FrmCobrosNew
         '
         'chkAplicar
         '
-        Me.chkAplicar.Location = New System.Drawing.Point(574, 43)
+        Me.chkAplicar.Location = New System.Drawing.Point(574, 45)
         Me.chkAplicar.Name = "chkAplicar"
         Me.chkAplicar.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkAplicar.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1029,7 +1201,7 @@ Public Class FrmCobrosNew
         'cmbmoneda
         '
         Me.cmbmoneda.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmbmoneda.Location = New System.Drawing.Point(178, 166)
+        Me.cmbmoneda.Location = New System.Drawing.Point(178, 168)
         Me.cmbmoneda.Name = "cmbmoneda"
         Me.cmbmoneda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cmbmoneda.Properties.NullText = ""
@@ -1044,7 +1216,7 @@ Public Class FrmCobrosNew
         '
         Me.txtRecibimos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtRecibimos.Location = New System.Drawing.Point(529, 166)
+        Me.txtRecibimos.Location = New System.Drawing.Point(529, 168)
         Me.txtRecibimos.Name = "txtRecibimos"
         Me.txtRecibimos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRecibimos.Properties.Appearance.Options.UseFont = True
@@ -1059,7 +1231,7 @@ Public Class FrmCobrosNew
         Me.cmdcheques.Appearance.Options.UseFont = True
         Me.cmdcheques.Appearance.Options.UseForeColor = True
         Me.cmdcheques.ImageOptions.Image = CType(resources.GetObject("cmdcheques.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdcheques.Location = New System.Drawing.Point(24, 242)
+        Me.cmdcheques.Location = New System.Drawing.Point(24, 244)
         Me.cmdcheques.Name = "cmdcheques"
         Me.cmdcheques.Size = New System.Drawing.Size(146, 22)
         Me.cmdcheques.StyleController = Me.LayoutControl1
@@ -1079,7 +1251,7 @@ Public Class FrmCobrosNew
         'CheckEdit1
         '
         Me.CheckEdit1.EditValue = True
-        Me.CheckEdit1.Location = New System.Drawing.Point(603, 95)
+        Me.CheckEdit1.Location = New System.Drawing.Point(751, 95)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1137,7 +1309,7 @@ Public Class FrmCobrosNew
         '
         'chksaldo
         '
-        Me.chksaldo.Location = New System.Drawing.Point(777, 95)
+        Me.chksaldo.Location = New System.Drawing.Point(777, 69)
         Me.chksaldo.Name = "chksaldo"
         Me.chksaldo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chksaldo.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1153,7 +1325,7 @@ Public Class FrmCobrosNew
         'txtefectivo
         '
         Me.txtefectivo.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtefectivo.Location = New System.Drawing.Point(178, 190)
+        Me.txtefectivo.Location = New System.Drawing.Point(178, 192)
         Me.txtefectivo.Name = "txtefectivo"
         Me.txtefectivo.Properties.Appearance.BackColor = System.Drawing.Color.Lavender
         Me.txtefectivo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1172,13 +1344,13 @@ Public Class FrmCobrosNew
         '
         'cbClientes
         '
-        Me.cbClientes.Location = New System.Drawing.Point(178, 43)
+        Me.cbClientes.Location = New System.Drawing.Point(178, 45)
         Me.cbClientes.Name = "cbClientes"
         Me.cbClientes.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbClientes.Properties.Appearance.Options.UseFont = True
         Me.cbClientes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbClientes.Properties.View = Me.SearchLookUpEdit1View
-        Me.cbClientes.Size = New System.Drawing.Size(392, 20)
+        Me.cbClientes.Properties.PopupView = Me.SearchLookUpEdit1View
+        Me.cbClientes.Size = New System.Drawing.Size(743, 20)
         Me.cbClientes.StyleController = Me.LayoutControl1
         Me.cbClientes.TabIndex = 19
         '
@@ -1192,7 +1364,7 @@ Public Class FrmCobrosNew
         'chknoiralcaldia
         '
         Me.chknoiralcaldia.EditValue = True
-        Me.chknoiralcaldia.Location = New System.Drawing.Point(603, 69)
+        Me.chknoiralcaldia.Location = New System.Drawing.Point(751, 69)
         Me.chknoiralcaldia.Name = "chknoiralcaldia"
         Me.chknoiralcaldia.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
         Me.chknoiralcaldia.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
@@ -1206,7 +1378,7 @@ Public Class FrmCobrosNew
         '
         'chknoiva
         '
-        Me.chknoiva.Location = New System.Drawing.Point(777, 69)
+        Me.chknoiva.Location = New System.Drawing.Point(777, 71)
         Me.chknoiva.Name = "chknoiva"
         Me.chknoiva.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
         Me.chknoiva.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
@@ -1221,7 +1393,7 @@ Public Class FrmCobrosNew
         'txttotal
         '
         Me.txttotal.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txttotal.Location = New System.Drawing.Point(178, 296)
+        Me.txttotal.Location = New System.Drawing.Point(178, 297)
         Me.txttotal.Name = "txttotal"
         Me.txttotal.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttotal.Properties.Appearance.Options.UseFont = True
@@ -1248,7 +1420,7 @@ Public Class FrmCobrosNew
         Me.cmdtarjetas.Appearance.Options.UseFont = True
         Me.cmdtarjetas.Appearance.Options.UseForeColor = True
         Me.cmdtarjetas.ImageOptions.Image = CType(resources.GetObject("cmdtarjetas.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdtarjetas.Location = New System.Drawing.Point(24, 268)
+        Me.cmdtarjetas.Location = New System.Drawing.Point(24, 270)
         Me.cmdtarjetas.Name = "cmdtarjetas"
         Me.cmdtarjetas.Size = New System.Drawing.Size(146, 22)
         Me.cmdtarjetas.StyleController = Me.LayoutControl1
@@ -1273,7 +1445,7 @@ Public Class FrmCobrosNew
         'chknoir
         '
         Me.chknoir.EditValue = True
-        Me.chknoir.Location = New System.Drawing.Point(462, 69)
+        Me.chknoir.Location = New System.Drawing.Point(610, 69)
         Me.chknoir.Name = "chknoir"
         Me.chknoir.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chknoir.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
@@ -1303,6 +1475,7 @@ Public Class FrmCobrosNew
         Me.txtrecibo.Size = New System.Drawing.Size(126, 22)
         Me.txtrecibo.StyleController = Me.LayoutControl1
         Me.txtrecibo.TabIndex = 2
+        Me.txtrecibo.Tag = "True"
         '
         'FechaCobro
         '
@@ -1321,7 +1494,7 @@ Public Class FrmCobrosNew
         'txttarjetas
         '
         Me.txttarjetas.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txttarjetas.Location = New System.Drawing.Point(174, 268)
+        Me.txttarjetas.Location = New System.Drawing.Point(174, 270)
         Me.txttarjetas.Name = "txttarjetas"
         Me.txttarjetas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttarjetas.Properties.Appearance.Options.UseFont = True
@@ -1344,7 +1517,7 @@ Public Class FrmCobrosNew
         'txtcheques
         '
         Me.txtcheques.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtcheques.Location = New System.Drawing.Point(174, 242)
+        Me.txtcheques.Location = New System.Drawing.Point(174, 244)
         Me.txtcheques.Name = "txtcheques"
         Me.txtcheques.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcheques.Properties.Appearance.Options.UseFont = True
@@ -1430,124 +1603,6 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem27.TextSize = New System.Drawing.Size(85, 13)
         Me.LayoutControlItem27.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         '
-        'LayoutControlGroup1
-        '
-        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlGroup3, Me.LayoutControlItem28, Me.LayoutControlItem35, Me.LayoutControlItem36})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(945, 588)
-        Me.LayoutControlGroup1.TextVisible = False
-        '
-        'LayoutControlGroup2
-        '
-        Me.LayoutControlGroup2.AppearanceGroup.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LayoutControlGroup2.AppearanceGroup.ForeColor = System.Drawing.Color.DarkRed
-        Me.LayoutControlGroup2.AppearanceGroup.Options.UseFont = True
-        Me.LayoutControlGroup2.AppearanceGroup.Options.UseForeColor = True
-        Me.LayoutControlGroup2.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted
-        Me.LayoutControlGroup2.ExpandButtonVisible = True
-        Me.LayoutControlGroup2.ExpandOnDoubleClick = True
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem7, Me.LayoutControlItem20, Me.EmptySpaceItem3, Me.EmptySpaceItem4})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(925, 123)
-        Me.LayoutControlGroup2.Text = "DATOS DEL CLIENTE"
-        '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.cbClientes
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(550, 26)
-        Me.LayoutControlItem1.Text = "Cliente:"
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(151, 13)
-        '
-        'LayoutControlItem2
-        '
-        Me.LayoutControlItem2.Control = Me.FechaCobro
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 26)
-        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(283, 26)
-        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(283, 26)
-        Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(283, 26)
-        Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem2.Text = "Fecha:"
-        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(151, 13)
-        '
-        'LayoutControlItem3
-        '
-        Me.LayoutControlItem3.Control = Me.cmbserie
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 52)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(283, 28)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(283, 28)
-        Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(283, 28)
-        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem3.Text = "Serie:"
-        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(151, 13)
-        '
-        'LayoutControlItem4
-        '
-        Me.LayoutControlItem4.Control = Me.txtrecibo
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(283, 52)
-        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(284, 28)
-        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(284, 28)
-        Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(284, 28)
-        Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem4.Text = "No. Recibo:"
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(151, 13)
-        '
-        'LayoutControlItem5
-        '
-        Me.LayoutControlItem5.Control = Me.chknoir
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(438, 26)
-        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(141, 26)
-        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(141, 26)
-        Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(141, 26)
-        Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem5.TextVisible = False
-        '
-        'LayoutControlItem6
-        '
-        Me.LayoutControlItem6.Control = Me.chknoiralcaldia
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(579, 26)
-        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(174, 26)
-        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(174, 26)
-        Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(174, 26)
-        Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem6.TextVisible = False
-        '
-        'LayoutControlItem8
-        '
-        Me.LayoutControlItem8.Control = Me.CheckEdit1
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(579, 52)
-        Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(174, 28)
-        Me.LayoutControlItem8.MinSize = New System.Drawing.Size(174, 28)
-        Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(174, 28)
-        Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem8.TextVisible = False
-        '
-        'LayoutControlItem9
-        '
-        Me.LayoutControlItem9.Control = Me.chksaldo
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(753, 52)
-        Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(148, 28)
-        Me.LayoutControlItem9.MinSize = New System.Drawing.Size(148, 28)
-        Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(148, 28)
-        Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem9.TextVisible = False
-        '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.chknoiva
@@ -1570,20 +1625,137 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem20.TextVisible = False
         Me.LayoutControlItem20.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         '
+        'LayoutControlItem9
+        '
+        Me.LayoutControlItem9.Control = Me.chksaldo
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(753, 24)
+        Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(148, 28)
+        Me.LayoutControlItem9.MinSize = New System.Drawing.Size(148, 28)
+        Me.LayoutControlItem9.Name = "LayoutControlItem9"
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(148, 54)
+        Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem9.TextVisible = False
+        '
+        'LayoutControlGroup1
+        '
+        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LayoutControlGroup1.GroupBordersVisible = False
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlGroup3, Me.LayoutControlItem28, Me.LayoutControlItem35, Me.LayoutControlItem36, Me.LayoutControlItem41})
+        Me.LayoutControlGroup1.Name = "Root"
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(945, 588)
+        Me.LayoutControlGroup1.TextVisible = False
+        '
+        'LayoutControlGroup2
+        '
+        Me.LayoutControlGroup2.AppearanceGroup.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LayoutControlGroup2.AppearanceGroup.ForeColor = System.Drawing.Color.DarkRed
+        Me.LayoutControlGroup2.AppearanceGroup.Options.UseFont = True
+        Me.LayoutControlGroup2.AppearanceGroup.Options.UseForeColor = True
+        Me.LayoutControlGroup2.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted
+        Me.LayoutControlGroup2.ExpandButtonVisible = True
+        Me.LayoutControlGroup2.ExpandOnDoubleClick = True
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem8, Me.EmptySpaceItem3, Me.EmptySpaceItem4})
+        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(925, 123)
+        Me.LayoutControlGroup2.Text = "DATOS DEL CLIENTE"
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.cbClientes
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(901, 24)
+        Me.LayoutControlItem1.Text = "Cliente:"
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(151, 13)
+        '
+        'LayoutControlItem2
+        '
+        Me.LayoutControlItem2.Control = Me.FechaCobro
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 24)
+        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(283, 26)
+        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(283, 26)
+        Me.LayoutControlItem2.Name = "LayoutControlItem2"
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(283, 26)
+        Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem2.Text = "Fecha:"
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(151, 13)
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.cmbserie
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 50)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(283, 28)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(283, 28)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(283, 28)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem3.Text = "Serie:"
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(151, 13)
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.txtrecibo
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(283, 50)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(284, 28)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(284, 28)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(284, 28)
+        Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem4.Text = "No. Recibo:"
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(151, 13)
+        '
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.chknoir
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(586, 24)
+        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(141, 26)
+        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(141, 26)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(141, 26)
+        Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem5.TextVisible = False
+        '
+        'LayoutControlItem6
+        '
+        Me.LayoutControlItem6.Control = Me.chknoiralcaldia
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(727, 24)
+        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(174, 26)
+        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(174, 26)
+        Me.LayoutControlItem6.Name = "LayoutControlItem6"
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(174, 26)
+        Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem6.TextVisible = False
+        '
+        'LayoutControlItem8
+        '
+        Me.LayoutControlItem8.Control = Me.CheckEdit1
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(727, 50)
+        Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(174, 28)
+        Me.LayoutControlItem8.MinSize = New System.Drawing.Size(174, 28)
+        Me.LayoutControlItem8.Name = "LayoutControlItem8"
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(174, 28)
+        Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem8.TextVisible = False
+        '
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(283, 26)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(283, 24)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(155, 26)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(303, 26)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem4
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(567, 52)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(567, 50)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(12, 28)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(160, 28)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlGroup3
@@ -1594,10 +1766,10 @@ Public Class FrmCobrosNew
         Me.LayoutControlGroup3.AppearanceGroup.Options.UseForeColor = True
         Me.LayoutControlGroup3.ExpandButtonMode = DevExpress.Utils.Controls.ExpandButtonMode.Inverted
         Me.LayoutControlGroup3.ExpandButtonVisible = True
-        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem16, Me.LayoutControlItem14, Me.LayoutControlItem17, Me.LayoutControlItem15, Me.SimpleSeparator1, Me.lyTotal, Me.LayoutControlItem38, Me.LayoutControlItem23, Me.EmptySpaceItem2, Me.LayoutControlItem21, Me.LayoutControlItem22, Me.lyMonto, Me.LayoutControlItem24, Me.LayoutControlItem39, Me.EmptySpaceItem5, Me.EmptySpaceItem6, Me.LayoutControlItem13})
+        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem16, Me.LayoutControlItem14, Me.LayoutControlItem17, Me.LayoutControlItem15, Me.SimpleSeparator1, Me.lyTotal, Me.LayoutControlItem38, Me.LayoutControlItem23, Me.EmptySpaceItem2, Me.LayoutControlItem21, Me.LayoutControlItem22, Me.lyMonto, Me.LayoutControlItem24, Me.LayoutControlItem39, Me.EmptySpaceItem5, Me.EmptySpaceItem6, Me.LayoutControlItem13, Me.LayoutControlItem37, Me.LayoutControlItem40})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 123)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(925, 199)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(925, 211)
         Me.LayoutControlGroup3.Text = "FORMA DE PAGO"
         '
         'LayoutControlItem16
@@ -1653,7 +1825,7 @@ Public Class FrmCobrosNew
         Me.SimpleSeparator1.AllowHotTrack = False
         Me.SimpleSeparator1.Location = New System.Drawing.Point(0, 128)
         Me.SimpleSeparator1.Name = "SimpleSeparator1"
-        Me.SimpleSeparator1.Size = New System.Drawing.Size(341, 2)
+        Me.SimpleSeparator1.Size = New System.Drawing.Size(341, 1)
         '
         'lyTotal
         '
@@ -1662,11 +1834,11 @@ Public Class FrmCobrosNew
         Me.lyTotal.AppearanceItemCaption.Options.UseFont = True
         Me.lyTotal.AppearanceItemCaption.Options.UseForeColor = True
         Me.lyTotal.Control = Me.txttotal
-        Me.lyTotal.Location = New System.Drawing.Point(0, 130)
+        Me.lyTotal.Location = New System.Drawing.Point(0, 129)
         Me.lyTotal.MaxSize = New System.Drawing.Size(341, 26)
         Me.lyTotal.MinSize = New System.Drawing.Size(341, 26)
         Me.lyTotal.Name = "lyTotal"
-        Me.lyTotal.Size = New System.Drawing.Size(341, 26)
+        Me.lyTotal.Size = New System.Drawing.Size(341, 37)
         Me.lyTotal.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.lyTotal.Text = "TOTAL:"
         Me.lyTotal.TextSize = New System.Drawing.Size(151, 16)
@@ -1674,9 +1846,9 @@ Public Class FrmCobrosNew
         'LayoutControlItem38
         '
         Me.LayoutControlItem38.Control = Me.lblMontoLetras
-        Me.LayoutControlItem38.Location = New System.Drawing.Point(351, 134)
+        Me.LayoutControlItem38.Location = New System.Drawing.Point(351, 140)
         Me.LayoutControlItem38.Name = "LayoutControlItem38"
-        Me.LayoutControlItem38.Size = New System.Drawing.Size(550, 22)
+        Me.LayoutControlItem38.Size = New System.Drawing.Size(420, 26)
         Me.LayoutControlItem38.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem38.TextVisible = False
         '
@@ -1699,7 +1871,7 @@ Public Class FrmCobrosNew
         Me.EmptySpaceItem2.MaxSize = New System.Drawing.Size(10, 156)
         Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(10, 156)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(10, 156)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(10, 166)
         Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -1736,7 +1908,7 @@ Public Class FrmCobrosNew
         'LayoutControlItem24
         '
         Me.LayoutControlItem24.Control = Me.txtTasa
-        Me.LayoutControlItem24.Location = New System.Drawing.Point(649, 52)
+        Me.LayoutControlItem24.Location = New System.Drawing.Point(649, 78)
         Me.LayoutControlItem24.MaxSize = New System.Drawing.Size(252, 26)
         Me.LayoutControlItem24.MinSize = New System.Drawing.Size(252, 26)
         Me.LayoutControlItem24.Name = "LayoutControlItem24"
@@ -1748,7 +1920,7 @@ Public Class FrmCobrosNew
         'LayoutControlItem39
         '
         Me.LayoutControlItem39.Control = Me.txtTasaParalela
-        Me.LayoutControlItem39.Location = New System.Drawing.Point(649, 78)
+        Me.LayoutControlItem39.Location = New System.Drawing.Point(649, 104)
         Me.LayoutControlItem39.MaxSize = New System.Drawing.Size(252, 26)
         Me.LayoutControlItem39.MinSize = New System.Drawing.Size(252, 26)
         Me.LayoutControlItem39.Name = "LayoutControlItem39"
@@ -1760,7 +1932,7 @@ Public Class FrmCobrosNew
         'EmptySpaceItem5
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(351, 52)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(351, 78)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
         Me.EmptySpaceItem5.Size = New System.Drawing.Size(298, 52)
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
@@ -1768,9 +1940,9 @@ Public Class FrmCobrosNew
         'EmptySpaceItem6
         '
         Me.EmptySpaceItem6.AllowHotTrack = False
-        Me.EmptySpaceItem6.Location = New System.Drawing.Point(351, 104)
+        Me.EmptySpaceItem6.Location = New System.Drawing.Point(351, 130)
         Me.EmptySpaceItem6.Name = "EmptySpaceItem6"
-        Me.EmptySpaceItem6.Size = New System.Drawing.Size(550, 30)
+        Me.EmptySpaceItem6.Size = New System.Drawing.Size(550, 10)
         Me.EmptySpaceItem6.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem13
@@ -1782,12 +1954,38 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem13.Text = "Equivale a:"
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(151, 13)
         '
+        'LayoutControlItem37
+        '
+        Me.LayoutControlItem37.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LayoutControlItem37.AppearanceItemCaption.ForeColor = System.Drawing.Color.Navy
+        Me.LayoutControlItem37.AppearanceItemCaption.Options.UseFont = True
+        Me.LayoutControlItem37.AppearanceItemCaption.Options.UseForeColor = True
+        Me.LayoutControlItem37.Control = Me.cbCatalogo
+        Me.LayoutControlItem37.Location = New System.Drawing.Point(351, 52)
+        Me.LayoutControlItem37.Name = "LayoutControlItem37"
+        Me.LayoutControlItem37.Size = New System.Drawing.Size(550, 26)
+        Me.LayoutControlItem37.Text = "Cuenta Interés:"
+        Me.LayoutControlItem37.TextSize = New System.Drawing.Size(151, 14)
+        Me.LayoutControlItem37.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+        '
+        'LayoutControlItem40
+        '
+        Me.LayoutControlItem40.Control = Me.chkInteres
+        Me.LayoutControlItem40.Location = New System.Drawing.Point(771, 140)
+        Me.LayoutControlItem40.MaxSize = New System.Drawing.Size(130, 26)
+        Me.LayoutControlItem40.MinSize = New System.Drawing.Size(130, 26)
+        Me.LayoutControlItem40.Name = "LayoutControlItem40"
+        Me.LayoutControlItem40.Size = New System.Drawing.Size(130, 26)
+        Me.LayoutControlItem40.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem40.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem40.TextVisible = False
+        '
         'LayoutControlItem28
         '
-        Me.LayoutControlItem28.Control = Me.GridDetalle
-        Me.LayoutControlItem28.Location = New System.Drawing.Point(0, 322)
+        Me.LayoutControlItem28.Control = Me.iGrid
+        Me.LayoutControlItem28.Location = New System.Drawing.Point(0, 334)
         Me.LayoutControlItem28.Name = "LayoutControlItem28"
-        Me.LayoutControlItem28.Size = New System.Drawing.Size(925, 222)
+        Me.LayoutControlItem28.Size = New System.Drawing.Size(925, 210)
         Me.LayoutControlItem28.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem28.TextVisible = False
         '
@@ -1796,7 +1994,7 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem35.Control = Me.chkselector
         Me.LayoutControlItem35.Location = New System.Drawing.Point(0, 544)
         Me.LayoutControlItem35.Name = "LayoutControlItem35"
-        Me.LayoutControlItem35.Size = New System.Drawing.Size(712, 24)
+        Me.LayoutControlItem35.Size = New System.Drawing.Size(499, 24)
         Me.LayoutControlItem35.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem35.TextVisible = False
         '
@@ -1811,15 +2009,26 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem36.Text = "Mantenimiento de Valor:"
         Me.LayoutControlItem36.TextSize = New System.Drawing.Size(151, 14)
         '
+        'LayoutControlItem41
+        '
+        Me.LayoutControlItem41.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LayoutControlItem41.AppearanceItemCaption.Options.UseFont = True
+        Me.LayoutControlItem41.Control = Me.lblInteres
+        Me.LayoutControlItem41.Location = New System.Drawing.Point(499, 544)
+        Me.LayoutControlItem41.Name = "LayoutControlItem41"
+        Me.LayoutControlItem41.Size = New System.Drawing.Size(213, 24)
+        Me.LayoutControlItem41.Text = "Intereses:"
+        Me.LayoutControlItem41.TextSize = New System.Drawing.Size(151, 14)
+        '
         'cmdAyuda
         '
         Me.cmdAyuda.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdAyuda.Appearance.Options.UseFont = True
         Me.cmdAyuda.Enabled = False
         Me.cmdAyuda.ImageOptions.Image = CType(resources.GetObject("cmdAyuda.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAyuda.Location = New System.Drawing.Point(12, 469)
+        Me.cmdAyuda.Location = New System.Drawing.Point(12, 471)
         Me.cmdAyuda.Name = "cmdAyuda"
-        Me.cmdAyuda.Size = New System.Drawing.Size(107, 38)
+        Me.cmdAyuda.Size = New System.Drawing.Size(109, 36)
         Me.cmdAyuda.StyleController = Me.LayoutControl2
         Me.cmdAyuda.TabIndex = 4
         Me.cmdAyuda.Text = "E&xportar"
@@ -1837,7 +2046,7 @@ Public Class FrmCobrosNew
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup4
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 561)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 559)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -1846,9 +2055,9 @@ Public Class FrmCobrosNew
         Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SimpleButton1.Appearance.Options.UseFont = True
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(12, 427)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 431)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(107, 38)
+        Me.SimpleButton1.Size = New System.Drawing.Size(109, 36)
         Me.SimpleButton1.StyleController = Me.LayoutControl2
         Me.SimpleButton1.TabIndex = 11
         Me.SimpleButton1.Text = "&Limpiar"
@@ -1860,7 +2069,7 @@ Public Class FrmCobrosNew
         Me.cmdCancelar.ImageOptions.Image = CType(resources.GetObject("cmdCancelar.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdCancelar.Location = New System.Drawing.Point(12, 511)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(107, 38)
+        Me.cmdCancelar.Size = New System.Drawing.Size(109, 36)
         Me.cmdCancelar.StyleController = Me.LayoutControl2
         Me.cmdCancelar.TabIndex = 5
         Me.cmdCancelar.Text = "&Salir"
@@ -1871,9 +2080,9 @@ Public Class FrmCobrosNew
         Me.cmdRecibos.Appearance.Options.UseFont = True
         Me.cmdRecibos.Enabled = False
         Me.cmdRecibos.ImageOptions.Image = CType(resources.GetObject("cmdRecibos.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdRecibos.Location = New System.Drawing.Point(12, 96)
+        Me.cmdRecibos.Location = New System.Drawing.Point(12, 92)
         Me.cmdRecibos.Name = "cmdRecibos"
-        Me.cmdRecibos.Size = New System.Drawing.Size(107, 38)
+        Me.cmdRecibos.Size = New System.Drawing.Size(109, 36)
         Me.cmdRecibos.StyleController = Me.LayoutControl2
         Me.cmdRecibos.TabIndex = 3
         Me.cmdRecibos.Text = "&Recibos"
@@ -1883,9 +2092,9 @@ Public Class FrmCobrosNew
         Me.cmdImprimir.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdImprimir.Appearance.Options.UseFont = True
         Me.cmdImprimir.Enabled = False
-        Me.cmdImprimir.Location = New System.Drawing.Point(12, 138)
+        Me.cmdImprimir.Location = New System.Drawing.Point(12, 132)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(107, 22)
+        Me.cmdImprimir.Size = New System.Drawing.Size(109, 22)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 1
         Me.cmdImprimir.Text = "&Imprimir"
@@ -1899,7 +2108,7 @@ Public Class FrmCobrosNew
         Me.cmdAceptar.ImageOptions.Image = CType(resources.GetObject("cmdAceptar.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdAceptar.Location = New System.Drawing.Point(12, 12)
         Me.cmdAceptar.Name = "cmdAceptar"
-        Me.cmdAceptar.Size = New System.Drawing.Size(107, 38)
+        Me.cmdAceptar.Size = New System.Drawing.Size(109, 36)
         Me.cmdAceptar.StyleController = Me.LayoutControl2
         Me.cmdAceptar.TabIndex = 0
         Me.cmdAceptar.Text = "&Guardar"
@@ -1910,9 +2119,9 @@ Public Class FrmCobrosNew
         Me.cmdVerPagos.Appearance.Options.UseFont = True
         Me.cmdVerPagos.Enabled = False
         Me.cmdVerPagos.ImageOptions.Image = CType(resources.GetObject("cmdVerPagos.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdVerPagos.Location = New System.Drawing.Point(12, 54)
+        Me.cmdVerPagos.Location = New System.Drawing.Point(12, 52)
         Me.cmdVerPagos.Name = "cmdVerPagos"
-        Me.cmdVerPagos.Size = New System.Drawing.Size(107, 38)
+        Me.cmdVerPagos.Size = New System.Drawing.Size(109, 36)
         Me.cmdVerPagos.StyleController = Me.LayoutControl2
         Me.cmdVerPagos.TabIndex = 2
         Me.cmdVerPagos.Text = "Ver &Pagos"
@@ -1922,9 +2131,8 @@ Public Class FrmCobrosNew
         Me.LayoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup4.GroupBordersVisible = False
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem29, Me.LayoutControlItem30, Me.LayoutControlItem31, Me.LayoutControlItem32, Me.LayoutControlItem33, Me.LayoutControlItem34, Me.EmptySpaceItem1, Me.LayoutControlItem18})
-        Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup4.Name = "LayoutControlGroup4"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(131, 561)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(133, 559)
         Me.LayoutControlGroup4.TextVisible = False
         '
         'LayoutControlItem29
@@ -1932,34 +2140,34 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem29.Control = Me.cmdAceptar
         Me.LayoutControlItem29.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem29.Name = "LayoutControlItem29"
-        Me.LayoutControlItem29.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem29.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem29.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem29.TextVisible = False
         '
         'LayoutControlItem30
         '
         Me.LayoutControlItem30.Control = Me.cmdVerPagos
-        Me.LayoutControlItem30.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem30.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem30.Name = "LayoutControlItem30"
-        Me.LayoutControlItem30.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem30.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem30.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem30.TextVisible = False
         '
         'LayoutControlItem31
         '
         Me.LayoutControlItem31.Control = Me.cmdRecibos
-        Me.LayoutControlItem31.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem31.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem31.Name = "LayoutControlItem31"
-        Me.LayoutControlItem31.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem31.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem31.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem31.TextVisible = False
         '
         'LayoutControlItem32
         '
         Me.LayoutControlItem32.Control = Me.cmdImprimir
-        Me.LayoutControlItem32.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem32.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem32.Name = "LayoutControlItem32"
-        Me.LayoutControlItem32.Size = New System.Drawing.Size(111, 26)
+        Me.LayoutControlItem32.Size = New System.Drawing.Size(113, 26)
         Me.LayoutControlItem32.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem32.TextVisible = False
         Me.LayoutControlItem32.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -1967,9 +2175,9 @@ Public Class FrmCobrosNew
         'LayoutControlItem33
         '
         Me.LayoutControlItem33.Control = Me.cmdAyuda
-        Me.LayoutControlItem33.Location = New System.Drawing.Point(0, 457)
+        Me.LayoutControlItem33.Location = New System.Drawing.Point(0, 459)
         Me.LayoutControlItem33.Name = "LayoutControlItem33"
-        Me.LayoutControlItem33.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem33.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem33.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem33.TextVisible = False
         '
@@ -1978,24 +2186,24 @@ Public Class FrmCobrosNew
         Me.LayoutControlItem34.Control = Me.cmdCancelar
         Me.LayoutControlItem34.Location = New System.Drawing.Point(0, 499)
         Me.LayoutControlItem34.Name = "LayoutControlItem34"
-        Me.LayoutControlItem34.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem34.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem34.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem34.TextVisible = False
         '
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 152)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 146)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(111, 263)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(113, 273)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem18
         '
         Me.LayoutControlItem18.Control = Me.SimpleButton1
-        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 415)
+        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 419)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
-        Me.LayoutControlItem18.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem18.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem18.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem18.TextVisible = False
         '
@@ -2020,9 +2228,9 @@ Public Class FrmCobrosNew
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 561)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 559)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FrmCobrosNew
@@ -2033,15 +2241,19 @@ Public Class FrmCobrosNew
         Me.Controls.Add(Me.DockPanel1)
         Me.Name = "FrmCobrosNew"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.txtMntoValor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtcomprobante.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.chkInteres.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbCatalogo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtEquivalente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTasaParalela.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPorCuenta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridDetalle, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.vDatos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtMntoValor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.iVista, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rLink, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTasa.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkAplicar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FechaComprobante.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2073,6 +2285,9 @@ Public Class FrmCobrosNew
         CType(Me.LayoutControlItem25, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem27, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem20, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2082,9 +2297,6 @@ Public Class FrmCobrosNew
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem20, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2105,9 +2317,12 @@ Public Class FrmCobrosNew
         CType(Me.EmptySpaceItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem37, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem40, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem28, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem35, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem36, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem41, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl2.ResumeLayout(False)
         CType(Me.LayoutControlGroup4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2122,6 +2337,7 @@ Public Class FrmCobrosNew
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2129,36 +2345,54 @@ Public Class FrmCobrosNew
 #End Region
 
 #Region "Variables"
-    Private Config As New VB.SysContab.ConfiguracionDB
-    Private ConfigDetalles As New VB.SysContab.ConfiguracionDetails
-    Private Temp As Boolean = False, temp2 As Boolean = False
-    Private Periodo As Integer
+    Private Config As New VB.SysContab.ConfiguracionDB,
+            Empresa As New VB.SysContab.EmpresasDB,
+            ConfigDetalles As New VB.SysContab.ConfiguracionDetails,
+            EmpresaDetalle As New VB.SysContab.EmpresasDetails,
+            TC As New db_TasaCambio
 
-    Dim TCambio As Double = 1, TC_Paralelo As Double = 1
-    Dim dd As String
-    Dim Transaccion As String = 1
+    Private Temp As Boolean = False,
+            temp2 As Boolean = False
 
-    Private DT_Distribucion As DataTable = New DataTable("Distribucion")
-    Private TC As New db_TasaCambio
-    Private Sub Distribucion()
-        DT_Distribucion = CargaDistribucion(0, 0, 0)
-    End Sub
+    Private Periodo As Integer = 0,
+            Transaccion As String = 1
+
+    Dim TCambio As Double = 1,
+        TC_Paralelo As Double = 1
+
+    Private DT_Distribucion As DataTable = New DataTable("Distribucion"),
+            _DT_Facturas As DataTable = New DataTable("FacturasPendientes"),
+            _DT_Last As DataTable = New DataTable("FacturasSeleccionadas"),
+            db As New db_FacturasCuotas
+
+    'Private Sub Distribucion()
+    '    DT_Distribucion = CargaDistribucion(0, 0, 0)
+    'End Sub
 #End Region
 
     Private Sub FrmCobrosNew_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        AddValidation(Me, DxValidationProvider1)
         RolesDB.UsuarioAcciones(LayoutControl2)
         ''
         Dim Clientes As New VB.SysContab.ClientesDB
-        ConfigDetalles = Config.GetConfigDetails
-        '
-        For d As Integer = 0 To ConfigDetalles.ReciboDigitos - 1
-            dd = dd & "0"
-        Next
-        '
-        Distribucion()
+        ConfigDetalles = VB.SysContab.ConfiguracionDB.GetConfigDetails()
+        '                
+        SearchLookUp(
+            cbCatalogo,
+            ObtieneDatos("_GetCatalogo_CuentaActivo", EmpresaActual),
+            "Display",
+            "Cuenta", 2)
+
+        DT_Distribucion = CargaDistribucion()
         Cargar()
         lyMonto.Text = "Total Abono en " & cmbmoneda.GetColumnValue("Simbolo").ToString & " :"
         lyTotal.Text = "TOTAL EN " & cmbmoneda.GetColumnValue("Simbolo").ToString & " :"
+
+        'Validar si la empresa esta configurada para editar el Cobro.
+        EmpresaDetalle = VB.SysContab.EmpresasDB.GetDetails(EmpresaActual)
+
+        iVista.Columns("Cobro").OptionsColumn.AllowEdit = EmpresaDetalle.CobrosEditable
+        iVista.Columns("CobroU").OptionsColumn.AllowEdit = EmpresaDetalle.CobrosEditable
     End Sub
 
     Sub Cargar()
@@ -2169,7 +2403,7 @@ Public Class FrmCobrosNew
         FechaCobro.DateTime = Now.Date
         '
         CargaSeries()
-        txtrecibo.Text = Format(cmbserie.EditValue, dd)
+        txtrecibo.Text = cmbserie.EditValue 'Format(cmbserie.EditValue, dd)
         '
         '**** Cargar Tasa de Cambio        
         'TCambio = GetTasaCambioDia(FechaCobro.DateTime.Date)
@@ -2184,9 +2418,15 @@ Public Class FrmCobrosNew
 
     Private Sub LoadClients()
 
-        Dim DT_CLIENTE As DataTable = ObtieneDatos("_ClientesGetList", EmpresaActual, 1)
+        Dim DT_CLIENTE As DataTable =
+            ObtieneDatos("_ClientesGetList", EmpresaActual, 1)
 
-        SearchLookUp(cbClientes, DT_CLIENTE, "Nombre", "Codigo", 4, 5, 6, 7, 8)
+        SearchLookUp(
+            cbClientes,
+            DT_CLIENTE,
+            "Nombre",
+            "Codigo",
+            4, 5, 6, 7, 8)
 
         'GetClientesList(cmbclientes)
         'GetCatalogoClientes(cbClientes, vista)
@@ -2196,27 +2436,36 @@ Public Class FrmCobrosNew
     End Sub
 
     Private Sub CargaSeries()
-        cmbserie.Properties.DataSource = ObtieneDatos("SELECT sr.IdDetalle, sr.Serie, sr.Recibo FROM SeriesRecibos sr WHERE sr.Codigo = '" & Me.txtCaja.Text & "' AND sr.Empresa = " & EmpresaActual)
-        cmbserie.Properties.ValueMember = "Recibo"
-        cmbserie.Properties.DisplayMember = "Serie"
-        cmbserie.Properties.PopulateColumns()
-        cmbserie.Properties.Columns("IdDetalle").Visible = False
-        cmbserie.Properties.Columns("Recibo").Visible = False
+        LookUp(
+            cmbserie,
+            ObtieneDatos("sp_sel_SeriesRecibos", txtCaja.Text, EmpresaActual),
+            "Serie",
+            "Recibo",
+            "",
+            0, 2)
         cmbserie.ItemIndex = 0
+
+        'cmbserie.Properties.DataSource = ObtieneDatos("SELECT sr.IdDetalle, sr.Serie, sr.Recibo FROM SeriesRecibos sr WHERE sr.Codigo = '" & Me.txtCaja.Text & "' AND sr.Empresa = " & EmpresaActual)
+        'cmbserie.Properties.ValueMember = "Recibo"
+        'cmbserie.Properties.DisplayMember = "Serie"
+        'cmbserie.Properties.PopulateColumns()
+        'cmbserie.Properties.Columns("IdDetalle").Visible = False
+        'cmbserie.Properties.Columns("Recibo").Visible = False
+        'cmbserie.ItemIndex = 0
     End Sub
 
     Private Sub GetRecibo()
         Dim Clientes As New VB.SysContab.ClientesDB
-        ConfigDetalles = Config.GetConfigDetails
+        ConfigDetalles = VB.SysContab.ConfiguracionDB.GetConfigDetails()
 
-        For d As Integer = 0 To ConfigDetalles.ReciboDigitos - 1
-            dd = dd & "0"
-        Next
+        'For d As Integer = 0 To ConfigDetalles.ReciboDigitos - 1
+        '    dd = dd & "0"
+        'Next
 
         If Clientes.GenerarRecibo.Tables("Cobros").Rows.Count = 0 Then
-            txtrecibo.Text = Format(ConfigDetalles.ReciboNumero, dd)
+            txtrecibo.Text = ConfigDetalles.ReciboNumero   'Format(ConfigDetalles.ReciboNumero, dd)
         Else
-            txtrecibo.Text = Format(Clientes.GenerarRecibo.Tables("Cobros").Rows(0).Item("Recibo") + 1, dd)
+            txtrecibo.Text = Clientes.GenerarRecibo.Tables("Cobros").Rows(0).Item("Recibo") + 1 'Format(Clientes.GenerarRecibo.Tables("Cobros").Rows(0).Item("Recibo") + 1, dd)
         End If
     End Sub
 
@@ -2228,7 +2477,11 @@ Public Class FrmCobrosNew
 
     Private Sub cmdAyuda_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAyuda.Click
         'Help.ShowHelp(Me, "ayuda/ClientesCobroVentas.chm")
-        frmExportarImprimir.Mostrar(GridDetalle, Me.Text, "Cliente: " + cbClientes.Text)
+        frmExportarImprimir.
+            Mostrar(
+            iGrid,
+            Me.Text,
+            $"Cliente: {cbClientes.Text}")
     End Sub
 
     Private Sub cmdRecibos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdRecibos.Click
@@ -2246,12 +2499,12 @@ Public Class FrmCobrosNew
 
     Private Sub cmdVerPagos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdVerPagos.Click
 
-        If vDatos.DataRowCount = 0 Then
+        If iVista.DataRowCount = 0 Then
             MsgBox("No hay facturas pendientes para este cliente", MsgBoxStyle.Information)
             Exit Sub
         End If
 
-        Registro = vDatos.GetFocusedRowCellValue("No Factura")
+        Registro = iVista.GetFocusedRowCellValue("No Factura")
         Dim Clientes As New VB.SysContab.ClientesDB
         If Clientes.CobrosHistorial(Registro).Tables("Cobros").Rows.Count = 0 Then
             MsgBox("La Factura seleccionada no tiene ningún pago", MsgBoxStyle.Information)
@@ -2287,43 +2540,537 @@ Public Class FrmCobrosNew
         Me.cmdbuscar.Enabled = Me.chkcontabilizado.Checked
     End Sub
 
-    Private Sub GridView1_CellValueChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles vDatos.CellValueChanged
+    Private Sub vDatos_CellValueChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles iVista.CellValueChanged
+        Dim dm As New db_DeslizamientoMoneda
+
         If e.Column.FieldName = "Facturar" And Not Temp Then
-            vDatos.SetRowCellValue(e.RowHandle, "Cobro", 0)
+
+            iVista.SetRowCellValue(e.RowHandle, "Cobro", 0)
+
             ''GridView1.Columns("Facturar").SortOrder = DevExpress.Data.ColumnSortOrder.Descending
             'Distribuir()
-            If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
-        End If
-        ''
-        If e.Column.FieldName = "Monto_Mantenimiento" And Not Temp Then
-            ''GridView1.SetRowCellValue(e.RowHandle, "Cobro", 0)
-            'Distribuir()
-            temp2 = True
-            If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
-            temp2 = False
+            'If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
 
-            'If vDatos.GetRowCellValue(e.RowHandle, "Facturar") Then
+            Dim Total As Double = 0.00,
+                Equivalente As Double = 0.00,
+                TotalCobro As Double = 0.00,
+                TotalMtto As Double = 0.00,
+                TotalInteres As Double = 0.00,
+                Marcadas As Integer = 0
 
-            '    If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
-            '    'If CDbl(vDatos.GetRowCellValue(e.RowHandle, "Saldo") - vDatos.GetRowCellValue(e.RowHandle, "Cobro")) > Math.Abs(CDbl(e.Value)) Then
-            '    '    vDatos.SetRowCellValue(e.RowHandle, "Cobro", Math.Round(CDbl(vDatos.GetRowCellValue(e.RowHandle, "Cobro") - e.Value), 2))
-            '    'End If
-            'Else
-            '    Temp = True
-            '    vDatos.SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
-            '    Temp = False
+            With iVista
+                '     If cmbmoneda.EditValue = MonedaBase Then DistribuirIndividualC(e) Else DistribuirIndividualUSD(e)                
+                'DistribuirIndividual(e)                
 
-            'End If
+                If CBool(.GetRowCellValue(e.RowHandle, "Facturar")) Then
+                    Temp = True
+
+                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
+                    .SetRowCellValue(e.RowHandle, "Interes", 0.00)
+                    '
+                    _DT_Facturas.AcceptChanges()
+                    Marcadas = _DT_Facturas.Select("Facturar = 1").Length
+
+                    If Marcadas > 0 Then
+                        Dim _DT_Total As DataTable =
+                            _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+
+                        TotalCobro = CDbl(_DT_Total.Compute("SUM(Cobro)", "Facturar = 1"))
+                        TotalMtto = CDbl(_DT_Total.Compute("SUM(Monto_Mantenimiento)", "Facturar = 1"))
+                        TotalInteres = CDbl(_DT_Total.Compute("SUM(Interes)", "Facturar = 1"))
+
+                        With _DT_Total
+
+                            For i As Integer = 0 To .Rows.Count - 1
+                                If Not cmbmoneda.EditValue.Equals(MonedaBase) Then
+                                    Equivalente += CDbl(.Rows.Item(i)("Cobro") + .Rows.Item(i)("Monto_Mantenimiento") + .Rows.Item(i)("Interes")) /
+                                        IIf(CBool(.Rows.Item(i)("TC_Paralelo")), txtTasaParalela.EditValue, txtTasa.EditValue)
+                                Else
+                                    Equivalente += CDbl(.Rows.Item(i)("Cobro") +
+                                        .Rows.Item(i)("Monto_Mantenimiento") +
+                                        .Rows.Item(i)("Interes"))
+                                End If
+                            Next
+
+                        End With
+                    End If
+                    '                    
+                    Dim TC As Double = IIf(cmbmoneda.EditValue = MonedaBase,
+                                       1.0,
+                                       IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue))
+
+                    Total = Math.Round(((txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue) - Equivalente) * TC, 2)
+
+                    '
+                    If (Total = 0.01 Or Total = -0.01) Then Total = 0.00
+
+                    If Math.Round(Total, 2) = 0.00 Then
+                        .SetRowCellValue(e.RowHandle, "Facturar", False)
+                        Temp = False
+                        Exit Sub
+                    End If
+                    '
+                    If Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")), 2) >= Math.Round(Total, 2) Then
+                        'En este caso, es un abono a la factura.
+                        'Calcular el Deslizamiento por el Abono
+                        dm.CalcularDeslizamiento(CDbl(Total / IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue)),
+                                             .GetRowCellValue(e.RowHandle, "TC"),
+                                             IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue), 1)
+
+                        'Calcular el interes sobre el saldo vencido.
+                        If chkInteres.Checked Then
+                            dm.CalcularInteres(
+                                Total,
+                                .GetRowCellValue(e.RowHandle, "No Factura"),
+                                FechaCobro.DateTime.Date)
+
+                            If dm.Interes > 0 Then
+                                .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+                                Total = Total - dm.Interes
+                            End If
+                        End If
+                        '
+                        If dm.Mantenimiento_Valor <> 0 Then
+                            .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+                            Total = Total - dm.Mantenimiento_Valor
+                        End If
+
+                        'If Total <= dm.Mantenimiento_Valor Then
+                        '    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", Math.Round(Total, 2))
+                        '    ' Mnto = Mnto + Total
+                        '    Total = 0.00
+                        'Else
+                        '    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+                        '    'Mnto = Mnto + dm.Mantenimiento_Valor
+                        '    Total = Total - dm.Mantenimiento_Valor
+                        '    '
+                        '    If chkInteres.Checked Then
+                        '        If Total <= dm.Interes Then
+                        '            .SetRowCellValue(e.RowHandle, "Interes", Math.Round(Total, 2))
+                        '            Total = 0.00
+                        '        Else
+                        '            .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+                        '            Total = Total - dm.Interes
+                        '        End If
+                        '    End If
+                        'End If
+                        '
+                        If Total > 0 Then
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "Cobro",
+                                Math.Round(Total, 2))
+                            '
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "CobroU",
+                                Math.Round(Total / .GetRowCellValue(e.RowHandle, "TCambio"), 2))
+                            '
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "Saldo",
+                                Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) - Total, 2))
+                        End If
+                        '
+                        Temp = False
+                    Else
+                        'Verificar si el Monto pagado alcanza para el saldo y los intereses.
+                        'Calcular el Deslizamiento por el Abono
+                        dm.CalcularDeslizamiento(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo") / .GetRowCellValue(e.RowHandle, "TC")),
+                                                 .GetRowCellValue(e.RowHandle, "TC"),
+                                                 IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue), 1)
+                        'Calcular el interes sobre el saldo vencido.
+                        If chkInteres.Checked Then
+                            dm.CalcularInteres(
+                                CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")),
+                                .GetRowCellValue(e.RowHandle, "No Factura"),
+                                FechaCobro.DateTime.Date)
+                        End If
+                        '
+                        'Validar si el total alcanza para abonar al saldo, Mantenimiento e Intereses
+                        If Math.Round(Total, 2) >= Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) +
+                                    dm.Mantenimiento_Valor + dm.Interes, 2) Then
+
+                            If dm.Mantenimiento_Valor <> 0 Then
+                                .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+                            End If
+
+                            If dm.Interes > 0 Then
+                                .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+                            End If
+
+                            'Temp = False
+
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "Cobro",
+                                CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")))
+
+                            'Temp = True
+
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "CobroU",
+                                CDbl(.GetRowCellValue(e.RowHandle, "SaldoU")))
+
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "Saldo",
+                                0.00)
+                            '
+                            Temp = False
+                            Total = Total - dm.Mantenimiento_Valor - dm.Interes
+                        Else
+                            If dm.Mantenimiento_Valor <> 0 Then
+                                .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+                                Total = Total - dm.Mantenimiento_Valor
+                            End If
+                            '
+                            If dm.Interes > 0 Then
+                                .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+                                Total = Total - dm.Interes
+                            End If
+
+                            'If Total <= dm.Interes Then
+                            '    .SetRowCellValue(e.RowHandle, "Interes", Total)
+                            '    Total = 0
+                            'Else
+                            '    .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+                            '    Total = Total - dm.Interes
+                            'End If
+                            '
+
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "Cobro",
+                                Math.Round(Total, 2))
+                            '
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "CobroU",
+                                Math.Round(Total / .GetRowCellValue(e.RowHandle, "TCambio"), 2))
+                            '
+                            .SetRowCellValue(
+                                e.RowHandle,
+                                "Saldo",
+                                Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) - Total, 2))
+
+                            Temp = False
+                        End If
+                    End If
+                    '
+                    _DT_Facturas.AcceptChanges()
+                    Dim _CobroUSD As DataTable = _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+                    Dim TotalCobroUSD As Double = CDbl(_CobroUSD.Compute("SUM(CobroU)", "Facturar = 1"))
+                    '
+                    If Not cmbmoneda.EditValue = MonedaBase Then
+
+                        If TotalCobroUSD > (txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue) Then
+                            Temp = True
+                            .SetRowCellValue(e.RowHandle, "Cobro",
+                                             Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "Cobro") - ((TotalCobroUSD - (txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue)) * txtTasa.EditValue)), 2))
+                            .SetRowCellValue(e.RowHandle, "CobroU",
+                                             Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "CobroU") - (TotalCobroUSD - (txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue))), 2))
+                            .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento",
+                                             Math.Round((TotalCobroUSD - (txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue)) * txtTasa.EditValue, 2))
+                            .SetRowCellValue(e.RowHandle, "Saldo",
+                                             Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo") - .GetRowCellValue(e.RowHandle, "Cobro")), 2))
+                            Temp = False
+                        End If
+
+                    End If
+                    '
+                    EquivlentePago()
+                Else
+                    Temp = True
+                    '
+                    .SetRowCellValue(e.RowHandle, "Cobro", 0.00)
+                    .SetRowCellValue(e.RowHandle, "CobroU", 0.00)
+                    .SetRowCellValue(e.RowHandle, "Saldo", CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")))
+                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
+                    .SetRowCellValue(e.RowHandle, "Interes", 0.00)
+                    '
+                    EquivlentePago()
+                    Temp = False
+                End If
+
+
+                'IR Alcaldia
+                If chknoiralcaldia.Checked Then
+                    .SetRowCellValue(e.RowHandle, "IrAlcaldia", 0.00)
+                Else
+                    If CDbl(.GetRowCellValue(e.RowHandle, "Cobro")) >=
+                        VB.SysContab.MunicipiosDB.GetDetails(
+                        VB.SysContab.ClientesDB.GetDetails(
+                        cbClientes.EditValue).
+                        Departamento,
+                        VB.SysContab.ClientesDB.GetDetails(
+                        cbClientes.EditValue).Municipio).
+                        Impuesto_SVenta_Min Then
+
+                        .SetRowCellValue(e.RowHandle, "IrAlcaldia", Math.Round((CDbl(.GetRowCellValue(e.RowHandle, "Cobro")) /
+                                         IIf(CDbl(.GetRowCellValue(e.RowHandle, "IVA")) > 0.00, IIf(chknoiva.Checked, 1, ((ConfigDetalles.IVA / 100) + 1)), 1)) *
+                                         (VB.SysContab.MunicipiosDB.GetDetails(
+                                         VB.SysContab.ClientesDB.GetDetails(
+                                         cbClientes.EditValue).Departamento,
+                                         VB.SysContab.ClientesDB.GetDetails(
+                                         cbClientes.EditValue).Municipio).
+                                         Impuesto_SVenta / 100.0), 2))
+                    End If
+                End If
+
+                'IR a la Fuente
+                If chknoir.Checked Then
+                    .SetRowCellValue(e.RowHandle, "IrParcial", 0.00)
+                Else
+                    If CDbl(.GetRowCellValue(e.RowHandle, "Cobro")) >= ConfigDetalles.MontoIR Then
+                        .SetRowCellValue(e.RowHandle, "IrParcial", Math.Round((CDbl(.GetRowCellValue(e.RowHandle, "Cobro")) /
+                                         IIf(.GetRowCellValue(e.RowHandle, "IVA") > 0.00,
+                                             IIf(chknoiva.Checked, 1, ((ConfigDetalles.IVA / 100) + 1)), 1)) *
+                                             (ConfigDetalles.IRProd / 100), 2))
+                    Else
+                        .SetRowCellValue(e.RowHandle, "IrParcial", 0.00)
+                    End If
+                End If
+                '
+                _DT_Facturas.AcceptChanges()
+
+                If _DT_Facturas.Select("Facturar = 1").Length > 0 Then
+                    _DT_Last = _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+                    '
+                    etMntto.Text = CDbl(_DT_Facturas.Compute("SUM(Monto_Mantenimiento)", "Facturar = 1")).ToString("n2")
+                    lblInteres.Text = CDbl(_DT_Facturas.Compute("SUM(Interes)", "Facturar = 1")).ToString("n2")
+                Else
+                    etMntto.Text = "0.00"
+                    lblInteres.Text = "0.00"
+                End If
+
+            End With
             '
-            'etMntto.Text = SumarDeslizamiento.ToString("n2")
+            If cmbmoneda.EditValue = MonedaBase Then
+                txttotal.EditValue = txtefectivo.EditValue + txtcheques.EditValue + txttarjetas.EditValue
+            Else
+                txttotal.EditValue = txtEquivalente.EditValue
+            End If
+        End If
+        '
+        If e.Column.FieldName = "Monto_Mantenimiento" And Not Temp Then
+
+            With iVista
+
+                If CBool(.GetRowCellValue(e.RowHandle, "Facturar")) Then
+                    'Aca obtenemos el valor de Mantenimiento antes de ser cambiado manualmente
+                    Dim _DT As DataTable =
+                        _DT_Last.Select("[No Factura] = '" & .GetRowCellValue(e.RowHandle, "No Factura") & "'").CopyToDataTable()
+
+                    'Obtener la diferencia entre Mantenimiento Anterior y el nuevo valor digitado
+                    Dim DifMtto As Double = CDbl(_DT.Rows.Item(0)("Monto_Mantenimiento")) - CDbl(e.Value)
+
+                    'Obtener el valor del cobro
+                    Dim Valor As Double = Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "Cobro")) + DifMtto, 2)
+
+                    If Math.Round(CDbl(_DT.Rows.Item(0)("Saldo")), 2) <> 0 Then
+
+                        'Calcular el saldo que nos va quedar y validar.
+                        Dim Saldo As Double = Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) - Valor, 2)
+
+                        'Si el saldo es negativo, significa que el mantenimiento se debe aplicar a otra factura.
+                        If Saldo < 0.00 Then
+                            Temp = True
+
+                            .SetRowCellValue(e.RowHandle, "Cobro", CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")))
+                            .SetRowCellValue(e.RowHandle, "CobroU", CDbl(.GetRowCellValue(e.RowHandle, "SaldoU")))
+                            .SetRowCellValue(e.RowHandle, "Saldo", 0.00)
+
+                            Temp = False
+                        Else
+                            Temp = True
+
+                            .SetRowCellValue(e.RowHandle, "Cobro", Valor)
+                            .SetRowCellValue(e.RowHandle, "CobroU", Math.Round(Valor / CDbl(.GetRowCellValue(e.RowHandle, "TCambio")), 2))
+                            .SetRowCellValue(e.RowHandle, "Saldo", Saldo)
+
+                            Temp = False
+                        End If
+                    End If
+                Else
+                    Temp = True
+                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
+                    .SetRowCellValue(e.RowHandle, "Cobro", 0.00)
+                    .SetRowCellValue(e.RowHandle, "CobroU", 0.00)
+                    .SetRowCellValue(e.RowHandle, "Saldo", CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")))
+                    Temp = False
+                End If
+                '
+                _DT_Facturas.AcceptChanges()
+
+                If _DT_Facturas.Select("Facturar = 1").Length > 0 Then
+                    _DT_Last = _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+                    etMntto.Text = CDbl(_DT_Facturas.Compute("SUM(Monto_Mantenimiento)", "Facturar = 1")).ToString("n2")
+                Else
+                    etMntto.Text = "0.00"
+                End If
+                '
+                EquivlentePago()
+                '
+                If cmbmoneda.EditValue = MonedaBase Then
+                    txttotal.EditValue = txtefectivo.EditValue + txtcheques.EditValue + txttarjetas.EditValue
+                Else
+                    txttotal.EditValue = txtEquivalente.EditValue
+                End If
+            End With
+        End If
+        '
+        If (e.Column.FieldName = "Cobro" Or e.Column.FieldName = "CobroU") And Not Temp Then
+
+            With iVista
+
+                If CBool(.GetRowCellValue(e.RowHandle, "Facturar")) Then
+                    Temp = True
+                    '
+                    'Obtener el Registro antes de cambiarlo.
+                    Dim CobroAnterior As Double = 0.00,
+                        CobroAnteriorU As Double = 0.00,
+                        Valor As Double = 0.00,
+                        OtroSaldo As Double = 0.00,
+                        Msg As String = String.Empty
+
+                    If _DT_Last.Rows.Count > 0 Then
+                        If _DT_Last.Select("[No Factura] = '" & .GetRowCellValue(e.RowHandle, "No Factura") & "'").Length > 0 Then
+                            Dim _dt As DataTable =
+                                _DT_Last.Select("[No Factura] = '" & .GetRowCellValue(e.RowHandle, "No Factura") & "'").CopyToDataTable()
+
+                            CobroAnterior = CDbl(_dt.Rows.Item(0)("Cobro"))
+                            CobroAnteriorU = CDbl(_dt.Rows.Item(0)("CobroU"))
+                        End If
+                    End If
+                    '
+                    If e.Column.FieldName = "Cobro" Then
+                        Valor = CDbl(e.Value)
+                        OtroSaldo = CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo"))
+                        '
+                        Msg = $"El cobro actual {Valor.ToString("n2")} debe ser menor o igual al saldo {OtroSaldo.ToString("n2")} de esta factura: { .GetRowCellValue(e.RowHandle, "No Factura")}"
+                    ElseIf e.Column.FieldName = "CobroU" Then
+                        'Valor = CDbl(e.Value) * IIf(CDbl(.GetRowCellValue(e.RowHandle, "Monto_Mantenimiento") = 0.00),
+                        '                            IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue),
+                        '                            CDbl(.GetRowCellValue(e.RowHandle, "TCambio")))
+
+                        Valor = CDbl(e.Value) * CDbl(.GetRowCellValue(e.RowHandle, "TCambio"))
+                        OtroSaldo = CDbl(.GetRowCellValue(e.RowHandle, "SaldoU"))
+                        '
+                        Msg = $"El cobro actual {CDbl(e.Value).ToString("n2")} debe ser menor o igual al saldo {OtroSaldo.ToString("n2")} de esta factura: { .GetRowCellValue(e.RowHandle, "No Factura")}"
+                    End If
+
+                    Dim Saldo As Double =
+                        Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) - Valor, 2)
+
+                    'Math.Round((CDbl(.GetRowCellValue(e.RowHandle, "Total")) -
+                    '                    CDbl(.GetRowCellValue(e.RowHandle, "Abono"))) - CDbl(e.Value), 2)
+
+                    If (Saldo = -0.01 Or Saldo = 0.01) Then Saldo = 0.00
+                    'Math.Round((CDbl(.GetRowCellValue(e.RowHandle, "Total")) -
+                    '                    CDbl(.GetRowCellValue(e.RowHandle, "Abono"))), 2)
+                    'Dim SaldoActual As Double = CDbl(.GetRowCellValue(e.RowHandle, "Saldo"))
+
+                    If Saldo < 0.00 Then
+
+                        XtraMsg(Msg, MessageBoxIcon.Error)
+
+                        'If e.Column.FieldName = "Cobro" Then
+                        '    XtraMsg($"El cobro actual {Valor.ToString("n2")} debe ser menor o igual al saldo {OtroSaldo.ToString("n2")} de esta factura: { .GetRowCellValue(e.RowHandle, "No Factura")}", MessageBoxIcon.Error)
+                        'ElseIf e.Column.FieldName = "CobroU" Then
+                        '    XtraMsg($"El cobro actual {Valor.ToString("n2")} debe ser menor o igual al saldo {OtroSaldo.ToString("n2")} de esta factura: { .GetRowCellValue(e.RowHandle, "No Factura")}", MessageBoxIcon.Error)
+                        'End If
+
+
+                        .SetRowCellValue(e.RowHandle, "Cobro", CobroAnterior)
+                        .SetRowCellValue(e.RowHandle, "CobroU", CobroAnteriorU)
+                        '
+                        .SetRowCellValue(e.RowHandle, "Saldo", Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) -
+                                          CobroAnterior, 2))
+                    Else
+                        If e.Column.FieldName = "Cobro" Then
+                            'Dim tc As Double = CDbl(.GetRowCellValue(e.RowHandle, "TCambio"))
+
+                            '.SetRowCellValue(e.RowHandle, "CobroU", Math.Round(Valor /
+                            '                        IIf(CDbl(.GetRowCellValue(e.RowHandle, "Monto_Mantenimiento") = 0.00),
+                            '                        IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue),
+                            '                        CDbl(.GetRowCellValue(e.RowHandle, "TCambio"))), 2))
+
+                            .SetRowCellValue(e.RowHandle, "CobroU", Math.Round(Valor /
+                                                   CDbl(.GetRowCellValue(e.RowHandle, "TCambio")), 2))
+
+                        ElseIf e.Column.FieldName = "CobroU" Then
+                            .SetRowCellValue(e.RowHandle, "Cobro", Math.Round(Valor, 2))
+                        End If
+
+                        .SetRowCellValue(
+                            e.RowHandle,
+                            "Saldo",
+                            Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) - Valor, 2))
+                    End If
+                    '
+                    'If e.Value = 0.00 Then .SetRowCellValue(e.RowHandle, "CobroU", 0.00)
+                    Temp = False
+                Else
+                    Temp = True
+                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
+                    .SetRowCellValue(e.RowHandle, "Cobro", 0.00)
+                    .SetRowCellValue(e.RowHandle, "CobroU", 0.00)
+                    '
+                    .SetRowCellValue(
+                            e.RowHandle,
+                            "Saldo",
+                            CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")))
+                    Temp = False
+                End If
+                '
+                EquivlentePago()
+                '
+                If cmbmoneda.EditValue = MonedaBase Then
+                    txttotal.EditValue = txtefectivo.EditValue + txtcheques.EditValue + txttarjetas.EditValue
+                Else
+                    txttotal.EditValue = txtEquivalente.EditValue
+                End If
+            End With
+            Temp = False
         End If
 
-        If e.Column.FieldName = "Cobro" And Not Temp Then
-            vDatos.SetRowCellValue(e.RowHandle, "Saldo", Math.Round(CDbl(vDatos.GetRowCellValue(e.RowHandle, "Total") -
-                                      vDatos.GetRowCellValue(e.RowHandle, "Abono") -
-                                      vDatos.GetRowCellValue(e.RowHandle, "Cobro")), 2))
-        End If
+        'If e.Column.FieldName = "CobroU" And Not Temp Then
+        '    With vDatos
+        '        If CBool(.GetRowCellValue(e.RowHandle, "Facturar")) Then
+        '            Temp = True
 
+        '            Temp = False
+        '        Else
+        '            Temp = True
+        '            .SetRowCellValue(e.RowHandle, "CobroU", 0.00)
+        '            Temp = False
+        '        End If
+        '    End With
+        'End If
+
+        'If e.Column.FieldName = "Monto_Mantenimiento" And Not Temp Then
+        '    ''GridView1.SetRowCellValue(e.RowHandle, "Cobro", 0)
+        '    'Distribuir()
+        '    temp2 = True
+        '    If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
+        '    temp2 = False
+
+        '    'If vDatos.GetRowCellValue(e.RowHandle, "Facturar") Then
+
+        '    '    If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
+        '    '    'If CDbl(vDatos.GetRowCellValue(e.RowHandle, "Saldo") - vDatos.GetRowCellValue(e.RowHandle, "Cobro")) > Math.Abs(CDbl(e.Value)) Then
+        '    '    '    vDatos.SetRowCellValue(e.RowHandle, "Cobro", Math.Round(CDbl(vDatos.GetRowCellValue(e.RowHandle, "Cobro") - e.Value), 2))
+        '    '    'End If
+        '    'Else
+        '    '    Temp = True
+        '    '    vDatos.SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
+        '    '    Temp = False
+        '    'End If
+        '    '
+        '    'etMntto.Text = SumarDeslizamiento.ToString("n2")
+        'End If
 
         'If e.Column.FieldName = "Facturar" Then
         '    vDatos.SetRowCellValue(e.RowHandle, "Cobro", 0)
@@ -2347,6 +3094,188 @@ Public Class FrmCobrosNew
         'End If
     End Sub
 
+
+    'Sub DistribuirIndividual(ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs)
+
+    '    Dim Total As Double = 0.00,
+    '        TotalCobro As Double = 0.00,
+    '        TotalMtto As Double = 0.00,
+    '        TotalInteres As Double = 0.00,
+    '        Marcadas As Integer = 0
+
+    '    Dim dm As New db_DeslizamientoMoneda
+
+    '    With iVista
+
+    '        If CBool(.GetRowCellValue(e.RowHandle, "Facturar")) Then
+    '            Temp = True
+    '            .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
+    '            .SetRowCellValue(e.RowHandle, "Interes", 0.00)
+    '            '
+    '            _DT_Facturas.AcceptChanges()
+    '            Marcadas = _DT_Facturas.Select("Facturar = 1").Length
+
+    '            If Marcadas > 0 Then
+    '                Dim _DT_Total As DataTable =
+    '                        _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+
+    '                TotalCobro = CDbl(_DT_Total.Compute("SUM(Cobro)", "Facturar = 1"))
+    '                TotalMtto = CDbl(_DT_Total.Compute("SUM(Monto_Mantenimiento)", "Facturar = 1"))
+    '                TotalInteres = CDbl(_DT_Total.Compute("SUM(Interes)", "Facturar = 1"))
+    '            End If
+    '            '
+    '            Dim TC As Double = IIf(cmbmoneda.EditValue = MonedaBase,
+    '                                   1.0,
+    '                                   IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue))
+
+    '            Total = Math.Round(((txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue) * TC) -
+    '                (TotalCobro + TotalMtto + TotalInteres), 2)
+    '            '
+    '            If (Total = 0.01 Or Total = -0.01) Then Total = 0.00
+
+    '            If Math.Round(Total, 2) = 0.00 Then
+    '                .SetRowCellValue(e.RowHandle, "Facturar", False)
+    '                Temp = False
+    '                Exit Sub
+    '            End If
+    '            '
+    '            If Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")), 2) >= Math.Round(Total, 2) Then
+    '                'En este caso, es un abono a la factura.
+    '                'Calcular el Deslizamiento por el Abono
+    '                dm.CalcularDeslizamiento(CDbl(Total / IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue)),
+    '                                         .GetRowCellValue(e.RowHandle, "TC"),
+    '                                         IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue),
+    '                                         1)
+    '                'Calcular el interes sobre el saldo vencido.
+    '                If chkInteres.Checked Then
+    '                    dm.CalcularInteres(
+    '                        Total,
+    '                        .GetRowCellValue(e.RowHandle, "No Factura"),
+    '                        FechaCobro.DateTime.Date)
+    '                End If
+    '                '
+    '                If Total <= dm.Mantenimiento_Valor Then
+    '                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", Math.Round(Total, 2))
+    '                    ' Mnto = Mnto + Total
+    '                    Total = 0.00
+    '                Else
+    '                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+    '                    'Mnto = Mnto + dm.Mantenimiento_Valor
+    '                    Total = Total - dm.Mantenimiento_Valor
+    '                    '
+    '                    If chkInteres.Checked Then
+    '                        If Total <= dm.Interes Then
+    '                            .SetRowCellValue(e.RowHandle, "Interes", Math.Round(Total, 2))
+    '                            Total = 0.00
+    '                        Else
+    '                            .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+    '                            Total = Total - dm.Interes
+    '                        End If
+    '                    End If
+    '                End If
+    '                '
+    '                Temp = False
+    '                If Total > 0 Then
+    '                    .SetRowCellValue(e.RowHandle, "Cobro", Math.Round(Total, 2))
+    '                    .SetRowCellValue(e.RowHandle, "CobroU", Math.Round(Total / .GetRowCellValue(e.RowHandle, "TCambio"), 2))
+    '                End If
+    '            Else
+    '                'Verificar si el Monto pagado alcanza para el saldo y los intereses.
+    '                'Calcular el Deslizamiento por el Abono
+    '                dm.CalcularDeslizamiento(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo") / .GetRowCellValue(e.RowHandle, "TC")),
+    '                                             .GetRowCellValue(e.RowHandle, "TC"),
+    '                                             IIf(.GetRowCellValue(e.RowHandle, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue),
+    '                                             1)
+    '                'Calcular el interes sobre el saldo vencido.
+    '                If chkInteres.Checked Then
+    '                    dm.CalcularInteres(
+    '                        CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")),
+    '                        .GetRowCellValue(e.RowHandle, "No Factura"),
+    '                        FechaCobro.DateTime.Date)
+    '                End If
+    '                '
+    '                'Validar si el total alcanza para abonar al saldo, Mantenimiento e Intereses
+    '                If Math.Round(Total, 2) >=
+    '                    Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")) +
+    '                    dm.Mantenimiento_Valor + dm.Interes, 2) Then
+
+    '                    If dm.Mantenimiento_Valor <> 0 Then .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+    '                    If dm.Interes > 0 Then .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+
+    '                    Temp = False
+    '                    .SetRowCellValue(
+    '                        e.RowHandle,
+    '                        "Cobro",
+    '                        CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")))
+
+    '                    Temp = True
+    '                    .SetRowCellValue(
+    '                        e.RowHandle,
+    '                        "CobroU",
+    '                        CDbl(.GetRowCellValue(e.RowHandle, "SaldoU")))
+    '                    Temp = False
+
+    '                    Total = Total - dm.Mantenimiento_Valor - dm.Interes
+    '                Else
+
+    '                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+    '                    Total = Total - dm.Mantenimiento_Valor
+    '                    '
+    '                    If Total <= dm.Interes Then
+    '                        .SetRowCellValue(e.RowHandle, "Interes", Total)
+    '                        Total = 0
+    '                    Else
+    '                        .SetRowCellValue(e.RowHandle, "Interes", dm.Interes)
+    '                        Total = Total - dm.Interes
+    '                    End If
+    '                    '
+    '                    Temp = False
+    '                    .SetRowCellValue(e.RowHandle, "Cobro", Math.Round(Total, 2))
+    '                    .SetRowCellValue(e.RowHandle, "CobroU", Math.Round(Total / .GetRowCellValue(e.RowHandle, "TCambio"), 2))
+
+    '                End If
+
+    '            End If
+    '            '
+    '            _DT_Facturas.AcceptChanges()
+    '            Dim _CobroUSD As DataTable = _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+    '            Dim TotalCobroUSD As Double = CDbl(_CobroUSD.Compute("SUM(CobroU)", "Facturar = 1"))
+    '            '
+    '            If Not cmbmoneda.EditValue = MonedaBase Then
+    '                If TotalCobroUSD > txtefectivo.EditValue Then
+    '                    Temp = True
+    '                    .SetRowCellValue(e.RowHandle, "Cobro", Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "Cobro") - ((TotalCobroUSD - txtefectivo.EditValue) * txtTasa.EditValue)), 2))
+    '                    .SetRowCellValue(e.RowHandle, "CobroU", Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "CobroU") - (TotalCobroUSD - txtefectivo.EditValue)), 2))
+    '                    .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", Math.Round((TotalCobroUSD - txtefectivo.EditValue) * txtTasa.EditValue, 2))
+    '                    .SetRowCellValue(e.RowHandle, "Saldo", Math.Round(CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo") - .GetRowCellValue(e.RowHandle, "Cobro")), 2))
+    '                    Temp = False
+    '                End If
+    '            End If
+    '            '
+    '            EquivlentePago()
+    '        Else
+    '            Temp = True
+    '            '
+    '            .SetRowCellValue(e.RowHandle, "Cobro", 0.00)
+    '            .SetRowCellValue(e.RowHandle, "CobroU", 0.00)
+    '            .SetRowCellValue(
+    '                        e.RowHandle,
+    '                        "Saldo",
+    '                        CDbl(.GetRowCellValue(e.RowHandle, "OtroSaldo")))
+    '            .SetRowCellValue(e.RowHandle, "Monto_Mantenimiento", 0.00)
+    '            .SetRowCellValue(e.RowHandle, "Interes", 0.00)
+    '            '
+    '            EquivlentePago()
+    '            Temp = False
+    '        End If
+
+    '    End With
+
+    'End Sub
+
+
+
+
     'Function SumarDeslizamiento() As Double
     '    Dim MttoMonto As Double = 0.00
 
@@ -2365,14 +3294,18 @@ Public Class FrmCobrosNew
 
         Dim Total As Double = txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue
 
-        Dim Valor As Double = 0.00, Mntto As Double = 0.00, Equivalente As Double = 0.00
+        Dim Valor As Double = 0.00,
+            Mntto As Double = 0.00,
+            Equivalente As Double = 0.00
+
         Dim dm As New db_DeslizamientoMoneda
 
-        With vDatos
+        With iVista
 
             For i As Integer = 0 To .DataRowCount - 1
 
                 If .GetRowCellValue(i, "Facturar") = True Then
+
                     If Math.Round(CDbl(.GetRowCellValue(i, "OtroSaldo")), 2) >= Math.Round(Total, 2) Then
                         'If Math.Round(CDbl(.GetRowCellValue(i, "OtroSaldo") + .GetRowCellValue(i, "Monto_Mantenimiento")), 2) > Math.Round(Total, 2) Then
                         Temp = True
@@ -2381,9 +3314,15 @@ Public Class FrmCobrosNew
                             'Calcular el Deslizamiento por el Abono
                             dm.CalcularDeslizamiento(CDbl(Total / IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue)), .GetRowCellValue(i, "TC"), IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue), 1)
                             .SetRowCellValue(i, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+                            '
+                            'Calcular el interes sobre el saldo vencido.
+                            dm.CalcularInteres(Total, .GetRowCellValue(i, "No Factura"), FechaCobro.DateTime.Date)
+                            .SetRowCellValue(i, "Interes", dm.Interes)
                         End If
                         '
                         Valor = Total - IIf(temp2, .GetRowCellValue(i, "Monto_Mantenimiento"), dm.Mantenimiento_Valor)
+                        Valor = Total - IIf(temp2, .GetRowCellValue(i, "Interes"), dm.Interes)
+
                         Equivalente += (Total / IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue))
                         '
                         'No entra cuando el Mantenimiento es Manual
@@ -2411,26 +3350,48 @@ Public Class FrmCobrosNew
                             'Calcular el Deslizamiento por el Abono
                             dm.CalcularDeslizamiento(CDbl(.GetRowCellValue(i, "OtroSaldo") / .GetRowCellValue(i, "TC")), .GetRowCellValue(i, "TC"), IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue), 1)
                             .SetRowCellValue(i, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
+                            '
+                            'Calcular el interes sobre el saldo vencido.
+                            dm.CalcularInteres(CDbl(.GetRowCellValue(i, "OtroSaldo")), .GetRowCellValue(i, "No Factura"), FechaCobro.DateTime.Date)
+                            .SetRowCellValue(i, "Interes", dm.Interes)
                         End If
 
-                        If Math.Round(CDbl(.GetRowCellValue(i, "OtroSaldo") + .GetRowCellValue(i, "Monto_Mantenimiento")), 2) > Math.Round(Total, 2) Then
+                        If Math.Round(CDbl(.GetRowCellValue(i, "OtroSaldo") +
+                                      .GetRowCellValue(i, "Monto_Mantenimiento") +
+                                      .GetRowCellValue(i, "Interes")), 2) >
+                                      Math.Round(Total, 2) Then
                             'Calcular el Deslizamiento por Monto a Abonar.
                             dm.CalcularDeslizamiento(CDbl(Total / IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue)), .GetRowCellValue(i, "TC"), IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue), 1)
                             .SetRowCellValue(i, "Monto_Mantenimiento", dm.Mantenimiento_Valor)
-                            Dim DifMnto As Double = CDbl(.GetRowCellValue(i, "OtroSaldo") + .GetRowCellValue(i, "Monto_Mantenimiento")) - Total
+                            'Calcular el interes sobre el saldo vencido.
+                            dm.CalcularInteres(Total, .GetRowCellValue(i, "No Factura"), FechaCobro.DateTime.Date)
+                            .SetRowCellValue(i, "Interes", dm.Interes)
+
+                            Dim DifMnto As Double = CDbl(.GetRowCellValue(i, "OtroSaldo") +
+                                .GetRowCellValue(i, "Monto_Mantenimiento") +
+                                .GetRowCellValue(i, "Interes")) - Total
 
                             Valor = .GetRowCellValue(i, "OtroSaldo") - DifMnto
                             Equivalente += (Total / IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue))
                             Total = 0
                         Else
                             Valor = .GetRowCellValue(i, "OtroSaldo")
-                            Equivalente += ((.GetRowCellValue(i, "OtroSaldo") + .GetRowCellValue(i, "Monto_Mantenimiento")) / IIf(.GetRowCellValue(i, "TC_Paralelo"), txtTasaParalela.EditValue, txtTasa.EditValue))
-                            Total -= (.GetRowCellValue(i, "OtroSaldo") + .GetRowCellValue(i, "Monto_Mantenimiento"))
+                            Equivalente +=
+                                ((.GetRowCellValue(i, "OtroSaldo") +
+                                .GetRowCellValue(i, "Monto_Mantenimiento") +
+                                .GetRowCellValue(i, "Interes")) /
+                                IIf(.GetRowCellValue(i, "TC_Paralelo"),
+                                    txtTasaParalela.EditValue,
+                                    txtTasa.EditValue))
+
+                            Total -=
+                                (.GetRowCellValue(i, "OtroSaldo") +
+                                .GetRowCellValue(i, "Monto_Mantenimiento") +
+                                .GetRowCellValue(i, "Interes"))
                         End If
 
 
-                        '- IIf(temp2, .GetRowCellValue(i, "Monto_Mantenimiento"), dm.Mantenimiento_Valor)
-
+                        'IIf(temp2, .GetRowCellValue(i, "Monto_Mantenimiento"), dm.Mantenimiento_Valor)
                         'If Not temp2 Then
                         '    'Varificando si el cliente queda con saldo despues de la aplicacion.                        
                         '    'Dim dif As Double = .GetRowCellValue(i, "OtroSaldo") - Valor
@@ -2442,20 +3403,29 @@ Public Class FrmCobrosNew
                         '    End If
                         'End If
                         '
-
-
-
                         Temp = False
-
                     End If
 
                     '
                     If Valor > 0 Then
-                        .SetRowCellValue(i, "Cobro", Valor)
+                        Dim v = .GetRowCellValue(i, "Saldo")
+                        Dim v2 = .GetRowCellValue(i, "OtroSaldo")
+
+                        Dim dif As Double =
+                            Math.Round(CDbl(.GetRowCellValue(i, "Saldo")) - Valor, 2)
+
+                        If (dif = 0.01 Or dif = -0.01) Then
+                            .SetRowCellValue(i, "Cobro", Valor + dif)
+                        Else
+                            .SetRowCellValue(i, "Cobro", Valor)
+                        End If
+                        '.SetRowCellValue(i, "Cobro", Valor)
                     Else
+
                         Temp = True
                         .SetRowCellValue(i, "Cobro", 0.00)
                         .SetRowCellValue(i, "Monto_Mantenimiento", 0.00)
+                        .SetRowCellValue(i, "Interes", 0.00)
                         .SetRowCellValue(i, "Facturar", False)
                         Temp = False
                     End If
@@ -2463,6 +3433,7 @@ Public Class FrmCobrosNew
                 Else
                     Temp = True
                     .SetRowCellValue(i, "Monto_Mantenimiento", 0.00)
+                    .SetRowCellValue(i, "Interes", 0.00)
                     Temp = False
                 End If
                 '
@@ -2488,7 +3459,7 @@ Public Class FrmCobrosNew
             txtEquivalente.EditValue = Math.Round(Equivalente, 2)
             txttotal.EditValue = txtefectivo.EditValue + txttarjetas.EditValue + txtcheques.EditValue
             '
-            vDatos.UpdateTotalSummary()
+            iVista.UpdateTotalSummary()
         End With
     End Sub
 
@@ -2502,7 +3473,7 @@ Public Class FrmCobrosNew
         Dim Valor As Double = 0.00, Mntto As Double = 0.00, Equivalente As Double = 0.00
         Dim dm As New db_DeslizamientoMoneda
         '
-        With vDatos
+        With iVista
             For i As Integer = 0 To .DataRowCount - 1
                 If .GetRowCellValue(i, "Facturar") = True Then
                     If Math.Round(CDbl(.GetRowCellValue(i, "SaldoU")), 2) >= Math.Round(Total, 2) Then
@@ -2610,6 +3581,37 @@ Public Class FrmCobrosNew
             etMntto.Text = Mntto.ToString("n2")
             .UpdateTotalSummary()
         End With
+    End Sub
+
+    Sub EquivlentePago()
+
+        Dim Equivalente As Double = 0.00
+        _DT_Facturas.AcceptChanges()
+
+        If _DT_Facturas.Select("Facturar = 1").Length > 0 Then
+            Dim _DT As DataTable =
+                    _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+
+            With _DT
+
+                For i As Integer = 0 To .Rows.Count - 1
+                    If cmbmoneda.EditValue = MonedaBase Then
+                        Equivalente += CDbl(.Rows.Item(i)("Cobro") + .Rows.Item(i)("Monto_Mantenimiento") + .Rows.Item(i)("Interes")) /
+                                IIf(CBool(.Rows.Item(i)("TC_Paralelo")), txtTasaParalela.EditValue, txtTasa.EditValue)
+                    Else
+                        Equivalente += CDbl(.Rows.Item(i)("Cobro") +
+                            .Rows.Item(i)("Monto_Mantenimiento") +
+                            .Rows.Item(i)("Interes"))
+                    End If
+                Next
+
+            End With
+            '
+            txtEquivalente.EditValue = Math.Round(Equivalente, 2)
+        Else
+            txtEquivalente.EditValue = 0.00
+        End If
+
     End Sub
 
     'Private Sub Distribuir()
@@ -2807,8 +3809,6 @@ Public Class FrmCobrosNew
     '    'Next
     'End Sub
 
-
-
     Private Sub cmdcheques_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdcheques.Click
 
         'If SumaFactura() = False Then
@@ -2903,19 +3903,20 @@ Public Class FrmCobrosNew
         Clientes.DeleteReciboTarjetas(txtrecibo.Text, txtCaja.Text)
         Clientes = Nothing
 
-
     End Sub
 
     Private Sub chknoir_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chknoir.CheckedChanged, chknoiva.CheckedChanged, chknoiralcaldia.CheckedChanged
 
         If etInicio.Text = "1" Then Exit Sub
 
+        DesmarcarFacturas()
+
         'Distribuir()
         'DistribuirPago()
 
-        temp2 = True
-        If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
-        temp2 = False
+        'temp2 = True
+        'If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
+        'temp2 = False
 
     End Sub
 
@@ -2923,7 +3924,16 @@ Public Class FrmCobrosNew
 
         If etInicio.Text = "1" Then Exit Sub
 
-        GridDetalle.DataSource = VB.SysContab.Facturas_VentasDB.GetCobrosPendientesAnticipos(cbClientes.EditValue, FechaCobro.DateTime.Date)
+        _DT_Facturas =
+            VB.SysContab.Facturas_VentasDB.
+            GetCobrosPendientesAnticipos(
+            cbClientes.EditValue,
+            FechaCobro.DateTime.Date)
+
+        iGrid.DataSource = _DT_Facturas
+        If Not (EmpresaActual.Equals("20") Or EmpresaActual.Equals("18")) Then
+            iVista.Columns("F/Electrónica").Visible = False
+        End If
     End Sub
 
     'Private Sub chksaldo_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chksaldo.CheckedChanged
@@ -2976,11 +3986,13 @@ Public Class FrmCobrosNew
                 cmbserie.Text)
 
             If valor = 1 Then
-                XtraMsg("Ese Número de recibo ya existe", MessageBoxIcon.Error)
+                XtraMsg("Ese Número de recibo ya existe",
+                        MessageBoxIcon.Error)
                 txtrecibo.Text = String.Empty
                 txtrecibo.Focus()
             ElseIf valor = 2 Then
-                XtraMsg("Ese Número de recibo fue Anulado", MessageBoxIcon.Error)
+                XtraMsg("Ese Número de recibo fue Anulado",
+                        MessageBoxIcon.Error)
                 txtrecibo.Text = String.Empty
                 txtrecibo.Focus()
             End If
@@ -2989,6 +4001,8 @@ Public Class FrmCobrosNew
     End Sub
 
     Private Sub cmdAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAceptar.Click
+        If Not DxValidationProvider1.Validate Then Exit Sub
+        '
         'Verificar Cierre del Día
         '---------------------------------------------------------------------
         If Not VerificarCierre(FechaCobro.DateTime.Date) Then
@@ -2997,7 +4011,6 @@ Public Class FrmCobrosNew
         '--------------------------------------------------------------------
 
         Dim ExisteFactura As Boolean = False
-        Dim Total As Double = 0
         Dim Clientes As New VB.SysContab.ClientesDB
         Dim Cobrado As Double = 0
 
@@ -3011,6 +4024,7 @@ Public Class FrmCobrosNew
 
 
         If txtrecibo.Text.Trim.Length = 0 Then
+            txtrecibo.Focus()
             XtraMsg("Especifique el no de recibo", MessageBoxIcon.Error)
             Exit Sub
         End If
@@ -3019,7 +4033,6 @@ Public Class FrmCobrosNew
         '    XtraMsg("El No. de Recibo Ya Exite.", MessageBoxIcon.Error)
         '    Exit Sub
         'End If
-
 
         Dim valor As Integer = 0
 
@@ -3041,20 +4054,95 @@ Public Class FrmCobrosNew
             Exit Sub
         End If
         '
-        For i As Integer = 0 To vDatos.DataRowCount
-            If vDatos.GetRowCellValue(i, "Facturar") = True Then
-                Total += CDbl(vDatos.GetRowCellValue(i, "Cobro")) + CDbl(vDatos.GetRowCellValue(i, "Monto_Mantenimiento"))
-                ExisteFactura = True
-            End If
-        Next
 
-        Dim dif As Double = Math.Round(Total, 2) - Math.Round(CDbl(txttotal.EditValue), 2)
+        Dim TotalCobro As Double = 0.00,
+            TotalMtto As Double = 0.00,
+            TotalInteres As Double = 0.00,
+            TotalIR As Double = 0.00,
+            TotalAlma As Double = 0.00,
+            TotalPagado As Double = 0.00,
+            TotalCobrado As Double = 0.00
 
-        If Math.Round(dif, 2) <> 0.0 Then
-            XtraMsg("Hay Una Diferencia de (" & CDbl(Math.Round(dif, 2)).ToString("n2") & ") en Cuanto al Total Recibido y el Total Cobrado",
-                    MessageBoxIcon.Warning)
+        Dim _DT As New DataTable("Seleccionadas")
+
+        _DT_Facturas.AcceptChanges()
+        Dim sel As Integer =
+            _DT_Facturas.Select("Facturar = 1").Length
+
+        If sel = 0 Then
+            XtraMsg("Debe marcar las facturas que desea aplicarle el cobro.",
+                    MessageBoxIcon.Error)
             Exit Sub
         End If
+        '
+        If sel > 0 Then
+            _DT = _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+
+            TotalCobro = CDbl(_DT.Compute("SUM(Cobro)", "Facturar = 1"))
+            TotalMtto = CDbl(_DT.Compute("SUM(Monto_Mantenimiento)", "Facturar = 1"))
+            TotalInteres = CDbl(_DT.Compute("SUM(Interes)", "Facturar = 1"))
+            TotalIR = CDbl(_DT.Compute("SUM(IrParcial)", "Facturar = 1"))
+            TotalAlma = CDbl(_DT.Compute("SUM(IrAlcaldia)", "Facturar = 1"))
+            'Total aplicado a facturas
+            TotalCobrado = TotalCobro + TotalMtto + TotalInteres
+        End If
+        'Total recibido en Efectivo, Cheque o Tarjeta.
+        TotalPagado = txtefectivo.EditValue + txtcheques.EditValue + txttarjetas.EditValue
+
+        'For i As Integer = 0 To vDatos.DataRowCount
+        '    If vDatos.GetRowCellValue(i, "Facturar") = True Then
+        '        Total += CDbl(vDatos.GetRowCellValue(i, "Cobro")) + CDbl(vDatos.GetRowCellValue(i, "Monto_Mantenimiento"))
+        '        ExisteFactura = True
+        '    End If
+        'Next
+
+        If Not cmbmoneda.EditValue.ToString.Equals(MonedaBase) Then
+            With _DT
+                TotalCobrado = 0
+                For i As Integer = 0 To .Rows.Count - 1
+
+                    TotalCobrado += CDbl(.Rows.Item(i)("Cobro") + .Rows.Item(i)("Monto_Mantenimiento") + .Rows.Item(i)("Interes")) /
+                                IIf(CBool(.Rows.Item(i)("TC_Paralelo")), txtTasaParalela.EditValue, txtTasa.EditValue)
+                Next
+            End With
+
+            '            EquivlentePago()
+
+        End If
+
+
+        Dim Dif As Double = Math.Round(TotalCobrado, 2) - Math.Round(TotalPagado, 2)
+        Dim Equivalente As Double = 0.00
+        '
+        If (Dif = 0.01 Or Dif = -0.01) Then Dif = 0.00
+
+        If cmbmoneda.EditValue = MonedaBase Then
+            Equivalente = Math.Round(Dif / txtTasa.EditValue, 2)
+        Else
+            Equivalente = Math.Round(Dif * txtTasa.EditValue, 2)
+        End If
+
+        If Math.Round(Dif, 2) <> 0.0 Then
+
+            XtraMsg($"Hay diferencia entre Total Pagado {cmbmoneda.GetColumnValue("Simbolo")}: {Math.Round(TotalPagado, 2).ToString("n2")} y total Cobrado {cmbmoneda.GetColumnValue("Simbolo")}: {Math.Round(TotalCobrado, 2).ToString("n2")}{vbCrLf} Diferencia {cmbmoneda.GetColumnValue("Simbolo")}: {Dif.ToString("n2")}, Equivalente = {Equivalente.ToString("n2")}",
+                        MessageBoxIcon.Error)
+
+            'XtraMsg("Hay Una Diferencia de (" & CDbl(Math.Round(Dif, 2)).ToString("n2") & ") en Cuanto al Total Recibido y el Total Cobrado",
+            '        MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+
+
+
+        'Dim dif As Double =
+        '    Math.Round(Total, 2) - Math.Round(CDbl(txttotal.EditValue), 2)
+
+        'If Math.Round(dif, 2) <> 0.0 Then
+        '    XtraMsg("Hay Una Diferencia de (" & CDbl(Math.Round(dif, 2)).ToString("n2") & ") en Cuanto al Total Recibido y el Total Cobrado",
+        '            MessageBoxIcon.Warning)
+        '    Exit Sub
+        'End If
 
         'If FormatNumber(Total, 2) <> FormatNumber(txttotal.EditValue, 2) Then
         '    MsgBox("El Monto a Pagar debe ser Igual al Monto Cobrado + Mantenimiento de Valor", MsgBoxStyle.Exclamation)
@@ -3069,11 +4157,11 @@ Public Class FrmCobrosNew
         '    End If
         'Next
 
-        If Not ExisteFactura Then
-            XtraMsg("Seleccione las registros a facturar",
-                    MessageBoxIcon.Error)
-            Exit Sub
-        End If
+        'If Not ExisteFactura Then
+        '    XtraMsg("Seleccione las registros a facturar",
+        '            MessageBoxIcon.Error)
+        '    Exit Sub
+        'End If
 
 
         If Not CheckEdit1.Checked Then  'Preguntar si va a  sin Conbilizar
@@ -3108,25 +4196,27 @@ Public Class FrmCobrosNew
 
         'Dim Tasa As New VB.SysContab.Tasa_CambioDB
 
-
         '/*******************  VERIFICAR DISTRIBUCION EN LA CUENTA DE MANTENIMIENTO DE VALOR    *********/
         If CheckEdit1.Checked Then
 
-            Dim CuentaMtto As String = "", MttoMonto As Double = CDbl(etMntto.Text)
+            Dim CuentaMtto As String = "",
+                MttoMonto As Double = CDbl(etMntto.Text),
+                CTemp As String = vbNullString
 
             If MttoMonto <> 0 Then
                 Try
                     'Buscar las Cuentas de Matto Valor
-                    Dim DsPlantillas As DataSet = VB.SysContab.PlantillaDB.GetPlantillasDetails(7, 1).Detalles
+                    Dim DsPlantillas As DataSet =
+                        VB.SysContab.PlantillaDB.GetPlantillasDetails(7, 1).Detalles
 
                     If MttoMonto > 0 Then CuentaMtto = DsPlantillas.Tables("PlantillasDetalles").Rows(0).Item("Cuenta")
                     If MttoMonto < 0 Then CuentaMtto = DsPlantillas.Tables("PlantillasDetalles").Rows(1).Item("Cuenta")
 
-                    Dim CTemp As String = vbNullString
                     Try
-                        CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
-                            + " CuentaContable = '" & CuentaMtto & "'" _
-                            + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+                        CTemp = ObtieneDatos("sp_sel_RubroGastos",
+                                         CuentaMtto,
+                                         EmpresaActual).
+                                         Rows.Item(0)("CuentaContable")
 
                     Catch ex As Exception
                         CTemp = "xxx"
@@ -3148,19 +4238,18 @@ Public Class FrmCobrosNew
             End If
         End If
 
-
         DBConnFacturas = New System.Data.SqlClient.SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
         DBConnFacturas.Open()
         transaccionFacturas = DBConnFacturas.BeginTransaction
 
         Try
-            For i As Integer = 0 To vDatos.DataRowCount - 1
-                If vDatos.GetRowCellValue(i, "Facturar") = True Then
+            For i As Integer = 0 To iVista.DataRowCount - 1
+                If iVista.GetRowCellValue(i, "Facturar") = True Then
 
-                    Dim Cobro As Double = vDatos.GetRowCellValue(i, "Cobro")
-                    Dim Saldo As Double = Math.Round(CDbl(vDatos.GetRowCellValue(i, "Total") - vDatos.GetRowCellValue(i, "Abono")), 2)
+                    Dim Cobro As Double = iVista.GetRowCellValue(i, "Cobro")
+                    Dim Saldo As Double = Math.Round(CDbl(iVista.GetRowCellValue(i, "Total") - iVista.GetRowCellValue(i, "Abono")), 2)
 
-                    If Math.Round(CDbl(vDatos.GetRowCellValue(i, "Saldo")), 2) = 0.00 Then
+                    If Math.Round(CDbl(iVista.GetRowCellValue(i, "Saldo")), 2) = 0.00 Then
                         Tipo = 0 + 1
                     Else
                         Tipo = 2 + 1
@@ -3213,7 +4302,7 @@ Public Class FrmCobrosNew
 
                     Numero = Cliente.CobrosNumero()
 
-                    With vDatos
+                    With iVista
 
                         'Clientes.AddCobro(Numero, txtrecibo.Text, .GetRowCellValue(i, "No Factura"), FechaCobro.DateTime.Date, 1, txttotal.Text, _
                         '"", 0, "", "0", "", "", "", "", "0", .GetRowCellValue(i, "Cobro"), _
@@ -3235,12 +4324,30 @@ Public Class FrmCobrosNew
                                 If Cobro > Efectivo Then Cobrado = Efectivo Else Cobrado = Cobro
                                 Saldo -= Cobrado
 
-                                Clientes.AddCobro(Numero, txtrecibo.Text, .GetRowCellValue(i, "No Factura"), FechaCobro.DateTime.Date, 1, txttotal.Text,
-                                 "", 0, "", "0", "", "", "", "", "0", Cobrado,
-                                cmbmoneda.EditValue, txtTasa.EditValue, Saldo, "0", "", Tipo, Transaccion, 2, .GetRowCellValue(i, "IrParcial"), .GetRowCellValue(i, "IrAlcaldia"),
-                                 AplicaMnto,
-                                 Mnto,
-                                Me.txtCaja.Text, Me.cmbserie.Text, txtRecibimos.Text, txtPorCuenta.Text)
+                                Clientes.AddCobro(
+                                    Numero,
+                                    txtrecibo.Text,
+                                    .GetRowCellValue(i, "No Factura"),
+                                    FechaCobro.DateTime.Date,
+                                    1,
+                                    txttotal.Text,
+                                    "", 0, "", "0", "", "", "", "", "0",
+                                    Cobrado,
+                                    cmbmoneda.EditValue,
+                                    txtTasa.EditValue,
+                                    Saldo,
+                                    "0", "",
+                                    Tipo,
+                                    Transaccion,
+                                    2,
+                                    .GetRowCellValue(i, "IrParcial"),
+                                    .GetRowCellValue(i, "IrAlcaldia"),
+                                    AplicaMnto,
+                                    Math.Round(Mnto, 2),
+                                    txtCaja.Text,
+                                    cmbserie.Text,
+                                    txtRecibimos.Text,
+                                    txtPorCuenta.Text)
 
                                 Efectivo -= Cobrado
                                 If Efectivo = 0 Then Cobro = 0.00
@@ -3264,13 +4371,31 @@ Public Class FrmCobrosNew
                                 'If Cobro > DT_Cheques.Rows(j).Item("monto") Then Cobrado = DT_Cheques.Rows(j).Item("monto") Else Cobrado = Cobro
                                 'DT_Cheques.Rows(j).Item("monto") -= Cobrado
                                 '
-                                Clientes.AddCobro(Numero, txtrecibo.Text, .GetRowCellValue(i, "No Factura"), FechaCobro.DateTime.Date, 2, txttotal.EditValue,
-                                DT_Cheques.Rows(0).Item("cheque"),
-                                 DT_Cheques.Rows(0).Item("banco"),
-                                IsNull(DT_Cheques.Rows(0).Item("cuenta"), ""),
-                                Cobrado,
-                                "", "", "", "", "0", "0", cmbmoneda.EditValue, txtTasa.EditValue, Saldo, "0", "", Tipo,
-                                Transaccion, 2, 0, 0, AplicaMnto, Math.Round(Mnto, 2), Me.txtCaja.Text, Me.cmbserie.Text, txtRecibimos.Text, txtPorCuenta.Text)
+                                Clientes.AddCobro(
+                                    Numero,
+                                    txtrecibo.Text,
+                                    .GetRowCellValue(i, "No Factura"),
+                                    FechaCobro.DateTime.Date,
+                                    2,
+                                    txttotal.EditValue,
+                                    DT_Cheques.Rows(0).Item("cheque"),
+                                    DT_Cheques.Rows(0).Item("banco"),
+                                    IsNull(DT_Cheques.Rows(0).Item("cuenta"), ""),
+                                    Cobrado,
+                                    "", "", "", "", "0", "0",
+                                    cmbmoneda.EditValue,
+                                    txtTasa.EditValue,
+                                    Saldo,
+                                    "0", "",
+                                    Tipo,
+                                    Transaccion,
+                                    2, 0, 0,
+                                    AplicaMnto,
+                                    Math.Round(Mnto, 2),
+                                    txtCaja.Text,
+                                    cmbserie.Text,
+                                    txtRecibimos.Text,
+                                    txtPorCuenta.Text)
 
                                 Cheque -= Cobrado
                                 'Cobro -= Cobrado
@@ -3296,14 +4421,31 @@ Public Class FrmCobrosNew
                                 If Cobro > Tarjeta Then Cobrado = Tarjeta Else Cobrado = Cobro
                                 Saldo -= Cobrado
 
-                                Clientes.AddCobro(Numero, txtrecibo.Text, .GetRowCellValue(i, "No Factura"), FechaCobro.DateTime.Date, 3, txttotal.EditValue,
-                                "", 0, "", "0",
-                                DT_Tarjetas.Rows(0).Item("tipo"),
-                                DT_Tarjetas.Rows(0).Item("emisor"),
-                                DT_Tarjetas.Rows(0).Item("tarjeta"),
-                                DT_Tarjetas.Rows(0).Item("autorizacion"),
-                                Cobrado, "0", cmbmoneda.EditValue, txtTasa.EditValue, Saldo, "0", "", Tipo, Transaccion, 2, 0, 0, 0, 0, Me.txtCaja.Text, Me.cmbserie.Text,
-                                                  txtRecibimos.Text, txtPorCuenta.Text)
+                                Clientes.AddCobro(
+                                    Numero,
+                                    txtrecibo.Text,
+                                    .GetRowCellValue(i, "No Factura"),
+                                    FechaCobro.DateTime.Date,
+                                    3,
+                                    txttotal.EditValue,
+                                    "", 0, "", "0",
+                                    DT_Tarjetas.Rows(0).Item("tipo"),
+                                    DT_Tarjetas.Rows(0).Item("emisor"),
+                                    DT_Tarjetas.Rows(0).Item("tarjeta"),
+                                    DT_Tarjetas.Rows(0).Item("autorizacion"),
+                                    Cobrado, "0",
+                                    cmbmoneda.EditValue,
+                                    txtTasa.EditValue,
+                                    Saldo,
+                                    "0", "",
+                                    Tipo,
+                                    Transaccion,
+                                    2, 0, 0, 0, 0,
+                                    txtCaja.Text,
+                                    cmbserie.Text,
+                                    txtRecibimos.Text,
+                                    txtPorCuenta.Text)
+
                                 Tarjeta -= Cobrado
                                 'Cobro -= Cobrado
                                 If Tarjeta = 0 Then Cobro = 0.00
@@ -3312,13 +4454,19 @@ Public Class FrmCobrosNew
                             End If
                         End While
 
-                        Clientes.UpdateFacturaSaldo(.GetRowCellValue(i, "No Factura"), .GetRowCellValue(i, "CodigoCliente"), Math.Round(CDbl(.GetRowCellValue(i, "Saldo")), 2))
+                        Clientes.UpdateFacturaSaldo(
+                            .GetRowCellValue(i, "No Factura"),
+                            .GetRowCellValue(i, "CodigoCliente"),
+                            Math.Round(CDbl(.GetRowCellValue(i, "Saldo")), 2))
                         'Math.Round((tCust.Rows(i)("Saldo") / ds.Tables("Facturas_Ventas").Rows(i)("TC_Actual")) * ds.Tables("Facturas_Ventas").Rows(i)("TC"), 2))  'tCust.Rows(i)("Saldo"))
                     End With
+                    '
+                    iVista.GetRowCellValue(i, "Cobro")
                 End If
             Next
 
             VB.SysContab.Rutinas.okTransaccion()
+
 
             '' Si se va a Contabilizar el Recibo
             If CheckEdit1.Checked Then Contabilizar()
@@ -3397,7 +4545,7 @@ Public Class FrmCobrosNew
         Dim EfectivoMonto As Double
         Dim TarjetaMonto As Double
         Dim MttoMonto As Double
-        Dim Total As Double
+        Dim Total As Double = 0.00
         ' Dim TCambio As Double = txtTasa.EditValue
         Dim Moneda As String = cmbmoneda.EditValue
 
@@ -3436,7 +4584,7 @@ Public Class FrmCobrosNew
         Dim Plantilla As New VB.SysContab.PlantillaDB
         Dim TasaCambio As New VB.SysContab.Tasa_CambioDB
 
-        Dim i As Integer
+        'Dim i As Integer
 
         Dim TipoCOmpr As String = Plantilla.GetPlantillasDetails(4, 3).TipoCompr
 
@@ -3483,7 +4631,8 @@ Public Class FrmCobrosNew
             XtraMsg("No existen plantilla del tipo Abono de Cliente.", MessageBoxIcon.Error)
         Else
             Dim DsPlantillas As DataSet = Plantilla.GetPlantillasDetails(4, 3).Detalles
-            If DsPlantillas.Tables(0).Rows.Count <> 3 Then
+
+            If DsPlantillas.Tables(0).Rows.Count < 3 Then
                 XtraMsg("La plantilla de Abono de Clientes no tiene los registros suficientes para completar la operación.", MessageBoxIcon.Error)
                 Exit Sub
             End If
@@ -3500,12 +4649,14 @@ Public Class FrmCobrosNew
             CuentaIR_Alcaldia = DsPlantillas.Tables("PlantillasDetalles").Rows(2).Item("Cuenta")
             ''dsDetalle = Clientes.FacturaDetalleCalc(Me.VRecibos.GetFocusedRowCellValue("Factura"))
 
-            Dim CuentaMtto, TipoDC As String
+            Dim CuentaMtto As String = String.Empty,
+                TipoDC As String = String.Empty
 
             If MttoMonto <> 0 Then
                 Try
                     'Buscar las Cuentas de Matto Valor
-                    DsPlantillas = Plantilla.GetPlantillasDetails(7, 1).Detalles
+                    DsPlantillas =
+                        Plantilla.GetPlantillasDetails(7, 1).Detalles
 
                     CuentaIMtto = DsPlantillas.Tables("PlantillasDetalles").Rows(0).Item("Cuenta")
                     CuentaEMtto = DsPlantillas.Tables("PlantillasDetalles").Rows(1).Item("Cuenta")
@@ -3515,10 +4666,10 @@ Public Class FrmCobrosNew
                 End Try
 
                 CuentaMtto = IIf(MttoMonto > 0, CuentaIMtto, CuentaEMtto)
-                TipoDC = IIf(MttoMonto > 0, "C", "D")   'DsPlantillas.Tables("PlantillasDetalles").Rows(0).Item("DC")
+                TipoDC = IIf(MttoMonto > 0, "C", "D")   'DsPlantillas.Tables("PlantillasDetalles").Rows(0).Item("DC")                
             Else
-                CuentaMtto = ""
-                TipoDC = ""
+                CuentaMtto = String.Empty
+                TipoDC = String.Empty
             End If
 
 
@@ -3526,7 +4677,6 @@ Public Class FrmCobrosNew
             ''dsIR = Comprobantes.IRBuscar(Me.VRecibos.GetFocusedRowCellValue("Factura"), CuentaIR)
             '
             ClienteMonto = Total
-            '
             Total = Total - IRMonto - IR_Alcaldia
             '            
             DBConnFacturas = New System.Data.SqlClient.SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
@@ -3541,12 +4691,66 @@ Public Class FrmCobrosNew
                                                     "Por Recibo No." & Recibo, cmbserie.Text) = True Then
 
                 VB.SysContab.Rutinas.okTransaccion()
+                '
+                'Guardar Distribucion.
+                GuardaDistribucion(
+                    DT_Distribucion,
+                    FechaCobro.DateTime.Date,
+                    Comprobantes.Comp_No)
+                '
+                DT_Distribucion = CargaDistribucion()
 
-                ''XtraMessageBox.Show("Se ha Contabilizado Correctamente el Recibo.", formtitulo, MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'Me.chkIR.Checked = False
-                'Cargar()
+                Try
+                    Dim AbonoU As Double = 0,
+                   IdArreglo As Integer = 0
+                    'Abonas a las cuotas y calcular abono a Arreglo de Pago
+                    For i As Integer = 0 To iVista.DataRowCount - 1
+                        If iVista.GetRowCellValue(i, "Facturar") = True Then
+                            Dim Id As Integer =
+                            db.Detalles2(
+                            iVista.GetRowCellValue(i, "No Factura"),
+                            EmpresaActual).Id
+
+                            Dim _dt As DataTable =
+                                    db_ArregloPago.Listar2(
+                                        iVista.GetRowCellValue(i, "No Factura"))
+
+                            If _dt.Rows.Count > 0 Then
+                                AbonoU += iVista.GetRowCellValue(i, "CobroU")
+                                IdArreglo = _dt.Rows.Item(0)("IdArreglo")
+                            End If
+
+                            If Id > 0 Then
+                                Guardar("sp_upd_FacturasCuotasDetalleAplicar",
+                                    Id,
+                                    Math.Round(iVista.GetRowCellValue(i, "Cobro"), 2),
+                                    Math.Round(iVista.GetRowCellValue(i, "CobroU"), 2),
+                                    Comprobantes.Comp_No,
+                                    Comprobantes.Per_Id,
+                                    FechaCobro.DateTime.Date.Month,
+                                    EmpresaActual)
+                            End If
+
+                        End If
+                    Next
+                    '
+                    'Actualizar Arreglo de Pago
+                    If AbonoU > 0 Then
+                        Guardar("sp_upd_ArregloPagoDetalleAplicar",
+                                IdArreglo,
+                                Math.Round(AbonoU, 2),
+                                Comprobantes.Comp_No,
+                                Comprobantes.Per_Id,
+                                FechaCobro.DateTime.Date.Month,
+                                EmpresaActual)
+                    End If
+                Catch ex As Exception
+                    XtraMsg($"Error al Aplicar Cuota de Arreglo de pago{vbCrLf}{ex.Message}",
+                            MessageBoxIcon.Error)
+                End Try
             Else
-                XtraMsg("No se ha podido contabilizar el Recibo.", MessageBoxIcon.Error)
+                XtraMsg("No se ha podido contabilizar el Recibo.",
+                        MessageBoxIcon.Error)
                 VB.SysContab.Rutinas.ErrorTransaccion()
             End If
         End If
@@ -3571,7 +4775,7 @@ Public Class FrmCobrosNew
 
     Private Sub Nuevo()
         LimpiarControles(Me)
-        GridDetalle.DataSource = Nothing
+        iGrid.DataSource = Nothing
         GetRecibo()
     End Sub
 
@@ -3637,9 +4841,9 @@ Public Class FrmCobrosNew
             End If
 
             If cbClientes.EditValue = 0 Then
-                vDatos.Columns("Cliente").Visible = True
+                iVista.Columns("Cliente").Visible = True
             Else
-                vDatos.Columns("Cliente").Visible = False
+                iVista.Columns("Cliente").Visible = False
             End If
 
         Catch ex As Exception
@@ -3648,7 +4852,7 @@ Public Class FrmCobrosNew
 
     Private Sub cmbserie_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmbserie.EditValueChanged
         If IsNumeric(cmbserie.EditValue) Then
-            txtrecibo.Text = Format(cmbserie.EditValue, dd)
+            txtrecibo.Text = cmbserie.EditValue 'Format(cmbserie.EditValue, dd)
         End If
     End Sub
 
@@ -3668,10 +4872,10 @@ Public Class FrmCobrosNew
     End Sub
 
     Private Sub chkselector_CheckedChanged(sender As Object, e As EventArgs) Handles chkselector.CheckedChanged
-        If sender.checked = True Then vDatos.ColumnsCustomization() Else vDatos.DestroyCustomization()
+        If sender.checked = True Then iVista.ColumnsCustomization() Else iVista.DestroyCustomization()
     End Sub
 
-    Private Sub vDatos_HideCustomizationForm(sender As Object, e As EventArgs) Handles vDatos.HideCustomizationForm
+    Private Sub vDatos_HideCustomizationForm(sender As Object, e As EventArgs) Handles iVista.HideCustomizationForm
         chkselector.Checked = False
     End Sub
 
@@ -3723,25 +4927,41 @@ Public Class FrmCobrosNew
         txtefectivo.EditValue = 0.00
         txtEquivalente.EditValue = 0.00
         txttotal.EditValue = 0.00
+        '
+        DesmarcarFacturas()
+        '
+        txtefectivo.Focus()
+        txtefectivo.SelectAll()
     End Sub
 
     Private Sub etMntto_MouseClick(sender As Object, e As MouseEventArgs) Handles etMntto.MouseClick
-        Dim MttoMonto As Double = 0.00, CuentaMtto As String = ""
+        Dim MttoMonto As Double = 0.00,
+            CuentaMtto As String = String.Empty
+        '
+        _DT_Facturas.AcceptChanges()
 
-        With vDatos
-            For i As Integer = 0 To .DataRowCount - 1
-                If .GetRowCellValue(i, "Facturar") = True Then 'And IsNull(.GetRowCellValue(i, "Cobro"), 0) > 0 Then
-                    MttoMonto += .GetRowCellValue(i, "Monto_Mantenimiento")
-                End If
-            Next
-        End With
+        If _DT_Facturas.Select("Facturar = 1").Length > 0 Then
+            Dim _DT_Total As DataTable = _DT_Facturas.Select("Facturar = 1").CopyToDataTable()
+            MttoMonto = CDbl(_DT_Total.Compute("SUM(Monto_Mantenimiento)", "Facturar = 1"))
+        End If
+
+        'With iVista
+        '    For i As Integer = 0 To .DataRowCount - 1
+        '        If .GetRowCellValue(i, "Facturar") = True Then 'And IsNull(.GetRowCellValue(i, "Cobro"), 0) > 0 Then
+        '            MttoMonto += .GetRowCellValue(i, "Monto_Mantenimiento")
+        '        End If
+        '    Next
+        'End With
         '
         If MttoMonto = 0.00 Then
-            XtraMsg("El Valor del Mantenimiento de Valor debe ser Mayor que Cero (0)", MessageBoxIcon.Warning)
+            XtraMsg("El Valor del Mantenimiento de Valor debe ser Mayor que Cero (0)",
+                    MessageBoxIcon.Warning)
             Exit Sub
         End If
         '
-
+        'CTemp = ObtieneDatos("sp_sel_RubroGastos",
+        '                                 vFacturas.GetRowCellValue(i, "Cuenta"),
+        '                                 EmpresaActual).Rows(0).Item("CuentaContable")
         etMntto.Text = MttoMonto.ToString("n2")
 
         Try
@@ -3752,24 +4972,31 @@ Public Class FrmCobrosNew
             If MttoMonto < 0 Then CuentaMtto = DsPlantillas.Tables("PlantillasDetalles").Rows(1).Item("Cuenta")
 
         Catch ex As Exception
-            XtraMsg("No existe Plantilla de Mantenimiento de Valor!", MessageBoxIcon.Error)
+            XtraMsg("No existe Plantilla de Mantenimiento de Valor!",
+                    MessageBoxIcon.Error)
             Exit Sub
         End Try
-
         '
+        'Validar si es cuenta de Distribucion.
+        If ObtieneDatos("sp_sel_RubroGastos",
+                        CuentaMtto,
+                        EmpresaActual).Rows.Count = 0 Then
+            Exit Sub
+        End If
+
         Try
             Dim frm As New FrmDetalleRequisas
-
-            frm.Monto = Math.Round(Math.Abs(MttoMonto), 2)
-            frm.Tipo = IIf(MttoMonto > 0, "C", "D")
-            frm.Periodo = VB.SysContab.PeriodosDB.Activo(FechaCobro.DateTime.Date)
-            frm.CompNo = 0
-            frm.Cuenta = CuentaMtto
-            frm.Mes = FechaCobro.DateTime.Month
-            '
-            frm.Mostrar(DT_Distribucion)
-            DT_Distribucion.DefaultView.RowFilter = ""
-
+            With frm
+                .Monto = Math.Round(Math.Abs(MttoMonto), 2)
+                .Tipo = IIf(MttoMonto > 0, "C", "D")
+                .Periodo = VB.SysContab.PeriodosDB.Activo(FechaCobro.DateTime.Date)
+                .CompNo = 0
+                .Cuenta = CuentaMtto
+                .Mes = FechaCobro.DateTime.Month
+                '
+                frm.Mostrar(DT_Distribucion)
+                DT_Distribucion.DefaultView.RowFilter = ""
+            End With
         Catch ex As Exception
             XtraMsg(ex.Message, MessageBoxIcon.Error)
         End Try
@@ -3785,6 +5012,36 @@ Public Class FrmCobrosNew
 
     End Sub
 
+    Private Sub chkInteres_CheckedChanged(sender As Object, e As EventArgs) Handles chkInteres.CheckedChanged
+        If etInicio.Text = "1" Then Exit Sub
+        '
+        DesmarcarFacturas()
+
+
+        'If Not chkInteres.Checked Then
+        '    For i As Integer = 0 To vDatos.DataRowCount - 1
+        '        vDatos.SetRowCellValue(i, "Facturar", False)
+        '    Next
+        '    vDatos.RefreshData()
+        '    _DT_Facturas.AcceptChanges()
+        'End If
+
+        'temp2 = True
+        'If cmbmoneda.EditValue = MonedaBase Then DistribuirPago() Else DistribuirDalares()
+        'temp2 = False
+    End Sub
+
+    Sub DesmarcarFacturas()
+        For i As Integer = 0 To iVista.DataRowCount - 1
+            If CBool(iVista.GetRowCellValue(i, "Facturar")) Then
+                iVista.SetRowCellValue(i, "Facturar", False)
+            End If
+        Next
+
+        iVista.RefreshData()
+        _DT_Facturas.AcceptChanges()
+    End Sub
+
     Private Sub txtefectivo_EditValueChanged(sender As Object, e As EventArgs) Handles txtefectivo.EditValueChanged ', txtcheques.EditValueChanged, txttarjetas.EditValueChanged
         txtEquivalente.EditValue = 0.00
         txttotal.EditValue = 0.00
@@ -3792,9 +5049,9 @@ Public Class FrmCobrosNew
         txttarjetas.EditValue = 0.00
     End Sub
 
-    Private Sub vDatos_RowCellStyle(sender As Object, e As RowCellStyleEventArgs) Handles vDatos.RowCellStyle
+    Private Sub vDatos_RowCellStyle(sender As Object, e As RowCellStyleEventArgs) Handles iVista.RowCellStyle
         If e.Column.FieldName = "Monto_Mantenimiento" Then
-            If vDatos.GetRowCellValue(e.RowHandle, "Facturar") Then
+            If iVista.GetRowCellValue(e.RowHandle, "Facturar") Then
                 If e.CellValue <> 0 Then
                     e.Appearance.BackColor = Color.Salmon
                     e.Appearance.BackColor2 = Color.Pink
@@ -3803,9 +5060,19 @@ Public Class FrmCobrosNew
             End If
         End If
         '
+        If e.Column.FieldName = "Interes" Then
+            If iVista.GetRowCellValue(e.RowHandle, "Facturar") Then
+                If e.CellValue <> 0 Then
+                    e.Appearance.BackColor = Color.Salmon
+                    e.Appearance.BackColor2 = Color.Pink
+                    e.Appearance.ForeColor = Color.Red
+                End If
+            End If
+        End If
+
         If e.Column.FieldName = "Saldo" Then
-            If vDatos.GetRowCellValue(e.RowHandle, "Facturar") Then
-                If vDatos.GetRowCellValue(e.RowHandle, "Saldo") = 0.00 Then
+            If iVista.GetRowCellValue(e.RowHandle, "Facturar") Then
+                If iVista.GetRowCellValue(e.RowHandle, "Saldo") = 0.00 Then
                     e.Appearance.BackColor = Color.LightGreen
                     e.Appearance.BackColor2 = Color.Green
                 Else
@@ -3817,10 +5084,38 @@ Public Class FrmCobrosNew
         End If
         '
         If e.Column.FieldName = "TC_Paralelo" Then
-            If vDatos.GetRowCellValue(e.RowHandle, "TC_Paralelo") Then e.Appearance.BackColor = Color.Salmon
+            If iVista.GetRowCellValue(e.RowHandle, "TC_Paralelo") Then e.Appearance.BackColor = Color.LightPink
         End If
 
+        If e.Column.FieldName = "AP" Then
+            If iVista.GetRowCellValue(e.RowHandle, "AP") Then e.Appearance.BackColor = Color.RosyBrown
+        End If
         '
+    End Sub
+
+    Private Sub rLink_Click(sender As Object, e As EventArgs) Handles rLink.Click
+
+        Dim IdCuota As Integer = db.Detalles2(
+            iVista.GetRowCellValue(iVista.FocusedRowHandle, "No Factura"),
+            EmpresaActual).Id
+        '
+        Dim _dt As DataTable =
+            db_ArregloPago.Listar2(
+            iVista.GetRowCellValue(iVista.FocusedRowHandle, "No Factura"))
+        '
+        If IdCuota = 0 And
+            _dt.Rows.Count = 0 Then
+            Exit Sub
+        End If
+        '
+        With New frmFacturasCuotasVer
+            .Text = $"FACTURACION EN CUOTAS Y ARREGLOS DE PAGOS, FACTURA NO. {iVista.GetFocusedRowCellValue("No Factura")}"
+            .Id = IdCuota
+            .IdArreglo = IIf(_dt.Rows.Count = 0, 0, _dt.Rows.Item(0)("IdArreglo"))
+            .ShowDialog()
+            .Dispose()
+        End With
+
     End Sub
 End Class
 

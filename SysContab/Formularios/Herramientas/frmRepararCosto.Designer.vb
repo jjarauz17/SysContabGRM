@@ -350,7 +350,7 @@ Partial Class frmRepararCosto
         Me.bEditar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.bEditar.Appearance.Options.UseTextOptions = True
         Me.bEditar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.bEditar.Image = Global.SysContab.My.Resources.Resources.RibbonUserDesigner_WindowsLarge
+        Me.bEditar.ImageOptions.Image = Global.SysContab.My.Resources.Resources.RibbonUserDesigner_WindowsLarge
         Me.bEditar.Location = New System.Drawing.Point(12, 358)
         Me.bEditar.Name = "bEditar"
         Me.bEditar.Size = New System.Drawing.Size(95, 38)
@@ -363,7 +363,7 @@ Partial Class frmRepararCosto
         Me.bSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.bSalir.Appearance.Options.UseTextOptions = True
         Me.bSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.bSalir.Image = Global.SysContab.My.Resources.Resources._115
+        Me.bSalir.ImageOptions.Image = Global.SysContab.My.Resources.Resources._115
         Me.bSalir.Location = New System.Drawing.Point(582, 358)
         Me.bSalir.Name = "bSalir"
         Me.bSalir.Size = New System.Drawing.Size(79, 38)
@@ -376,7 +376,7 @@ Partial Class frmRepararCosto
         Me.bExportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.bExportar.Appearance.Options.UseTextOptions = True
         Me.bExportar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.bExportar.Image = Global.SysContab.My.Resources.Resources.Exportar
+        Me.bExportar.ImageOptions.Image = Global.SysContab.My.Resources.Resources.Exportar
         Me.bExportar.Location = New System.Drawing.Point(111, 358)
         Me.bExportar.Name = "bExportar"
         Me.bExportar.Size = New System.Drawing.Size(95, 38)
@@ -393,7 +393,7 @@ Partial Class frmRepararCosto
         Me.bBuscar.Appearance.Options.UseForeColor = True
         Me.bBuscar.Appearance.Options.UseTextOptions = True
         Me.bBuscar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.bBuscar.Image = Global.SysContab.My.Resources.Resources.RibbonPrintPreview_FindLarge
+        Me.bBuscar.ImageOptions.Image = Global.SysContab.My.Resources.Resources.RibbonPrintPreview_FindLarge
         Me.bBuscar.Location = New System.Drawing.Point(232, 12)
         Me.bBuscar.Name = "bBuscar"
         Me.bBuscar.Size = New System.Drawing.Size(85, 38)
@@ -429,7 +429,6 @@ Partial Class frmRepararCosto
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem7, Me.LayoutControlItem6, Me.LayoutControlItem9, Me.LayoutControlItem5, Me.EmptySpaceItem1, Me.LayoutControlItem11, Me.LayoutControlItem3, Me.LayoutControlItem4})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(673, 408)
         Me.LayoutControlGroup1.TextVisible = False

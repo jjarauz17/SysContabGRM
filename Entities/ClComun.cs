@@ -124,10 +124,12 @@
             }
         }
 
-        public SqlCommand ConfigurarComando(string NombreProcedimiento, object[] ListaValoresParametros)
+        public SqlCommand ConfigurarComando(string NombreProcedimiento, SqlConnection DBConnection,
+            SqlTransaction DBTransaction, object[] ListaValoresParametros)
         {
             SqlCommand cmd = new SqlCommand();
-            cmd.Connection = this.ConeccionSql;
+            cmd.Connection = DBConnection;   //this.ConeccionSql;
+            cmd.Transaction = DBTransaction;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = NombreProcedimiento;
             SqlCommandBuilder.DeriveParameters(cmd);

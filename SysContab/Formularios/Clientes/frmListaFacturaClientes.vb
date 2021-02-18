@@ -4,6 +4,9 @@ Imports System.Data.SqlClient
 Imports DevExpress.XtraReports.UI
 Imports DevExpress.XtraPrinting.BarCode
 Imports SysContab.VB.SysContab
+Imports System.Xml
+Imports DevExpress.XtraGrid.Views.Grid
+Imports Newtonsoft.Json
 
 Public Class frmListaFacturaClientes
     Inherits DevExpress.XtraEditors.XtraForm
@@ -317,9 +320,9 @@ Public Class frmListaFacturaClientes
         Me.btnBorrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnBorrar.Enabled = False
         Me.btnBorrar.ImageOptions.Image = CType(resources.GetObject("btnBorrar.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnBorrar.Location = New System.Drawing.Point(12, 180)
+        Me.btnBorrar.Location = New System.Drawing.Point(12, 172)
         Me.btnBorrar.Name = "btnBorrar"
-        Me.btnBorrar.Size = New System.Drawing.Size(107, 38)
+        Me.btnBorrar.Size = New System.Drawing.Size(109, 36)
         Me.btnBorrar.StyleController = Me.LayoutControl1
         Me.btnBorrar.TabIndex = 161
         Me.btnBorrar.Text = "&Borrar"
@@ -347,7 +350,7 @@ Public Class frmListaFacturaClientes
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup2
-        Me.LayoutControl1.Size = New System.Drawing.Size(131, 709)
+        Me.LayoutControl1.Size = New System.Drawing.Size(133, 665)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -358,7 +361,7 @@ Public Class frmListaFacturaClientes
         Me.bConsultarFE.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bConsultarFE.Enabled = False
         Me.bConsultarFE.ImageOptions.Image = CType(resources.GetObject("bConsultarFE.ImageOptions.Image"), System.Drawing.Image)
-        Me.bConsultarFE.Location = New System.Drawing.Point(12, 306)
+        Me.bConsultarFE.Location = New System.Drawing.Point(12, 296)
         Me.bConsultarFE.Name = "bConsultarFE"
         Me.bConsultarFE.Size = New System.Drawing.Size(107, 38)
         Me.bConsultarFE.StyleController = Me.LayoutControl1
@@ -384,7 +387,7 @@ Public Class frmListaFacturaClientes
         Me.bElectronica.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bElectronica.Enabled = False
         Me.bElectronica.ImageOptions.Image = CType(resources.GetObject("bElectronica.ImageOptions.Image"), System.Drawing.Image)
-        Me.bElectronica.Location = New System.Drawing.Point(12, 264)
+        Me.bElectronica.Location = New System.Drawing.Point(12, 254)
         Me.bElectronica.Name = "bElectronica"
         Me.bElectronica.Size = New System.Drawing.Size(107, 38)
         Me.bElectronica.StyleController = Me.LayoutControl1
@@ -397,9 +400,9 @@ Public Class frmListaFacturaClientes
         Me.bEditar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bEditar.Enabled = False
         Me.bEditar.ImageOptions.Image = CType(resources.GetObject("bEditar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bEditar.Location = New System.Drawing.Point(12, 54)
+        Me.bEditar.Location = New System.Drawing.Point(12, 52)
         Me.bEditar.Name = "bEditar"
-        Me.bEditar.Size = New System.Drawing.Size(107, 38)
+        Me.bEditar.Size = New System.Drawing.Size(109, 36)
         Me.bEditar.StyleController = Me.LayoutControl1
         Me.bEditar.TabIndex = 164
         Me.bEditar.Text = "&Editar"
@@ -410,9 +413,9 @@ Public Class frmListaFacturaClientes
         Me.cmdSalir.Appearance.Options.UseTextOptions = True
         Me.cmdSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 659)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 617)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(107, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(109, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl1
         Me.cmdSalir.TabIndex = 6
         Me.cmdSalir.Text = "&Salir"
@@ -423,7 +426,7 @@ Public Class frmListaFacturaClientes
         Me.bImpresoraFiscal.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bImpresoraFiscal.Enabled = False
         Me.bImpresoraFiscal.ImageOptions.Image = CType(resources.GetObject("bImpresoraFiscal.ImageOptions.Image"), System.Drawing.Image)
-        Me.bImpresoraFiscal.Location = New System.Drawing.Point(12, 222)
+        Me.bImpresoraFiscal.Location = New System.Drawing.Point(12, 212)
         Me.bImpresoraFiscal.Name = "bImpresoraFiscal"
         Me.bImpresoraFiscal.Size = New System.Drawing.Size(107, 38)
         Me.bImpresoraFiscal.StyleController = Me.LayoutControl1
@@ -437,9 +440,9 @@ Public Class frmListaFacturaClientes
         Me.btnExport.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnExport.Enabled = False
         Me.btnExport.ImageOptions.Image = CType(resources.GetObject("btnExport.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnExport.Location = New System.Drawing.Point(12, 617)
+        Me.btnExport.Location = New System.Drawing.Point(12, 577)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(107, 38)
+        Me.btnExport.Size = New System.Drawing.Size(109, 36)
         Me.btnExport.StyleController = Me.LayoutControl1
         Me.btnExport.TabIndex = 159
         Me.btnExport.Text = "&Exportar"
@@ -452,7 +455,7 @@ Public Class frmListaFacturaClientes
         Me.cmdModificar.ImageOptions.Image = CType(resources.GetObject("cmdModificar.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdModificar.Location = New System.Drawing.Point(12, 12)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(107, 38)
+        Me.cmdModificar.Size = New System.Drawing.Size(109, 36)
         Me.cmdModificar.StyleController = Me.LayoutControl1
         Me.cmdModificar.TabIndex = 2
         Me.cmdModificar.Text = "&Ver"
@@ -463,7 +466,7 @@ Public Class frmListaFacturaClientes
         Me.cmddiseño.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmddiseño.Enabled = False
         Me.cmddiseño.ImageOptions.Image = CType(resources.GetObject("cmddiseño.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmddiseño.Location = New System.Drawing.Point(12, 575)
+        Me.cmddiseño.Location = New System.Drawing.Point(12, 535)
         Me.cmddiseño.Name = "cmddiseño"
         Me.cmddiseño.Size = New System.Drawing.Size(107, 38)
         Me.cmddiseño.StyleController = Me.LayoutControl1
@@ -477,7 +480,7 @@ Public Class frmListaFacturaClientes
         Me.cmdAyuda.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdAyuda.Enabled = False
         Me.cmdAyuda.ImageOptions.Image = CType(resources.GetObject("cmdAyuda.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAyuda.Location = New System.Drawing.Point(12, 474)
+        Me.cmdAyuda.Location = New System.Drawing.Point(12, 462)
         Me.cmdAyuda.Name = "cmdAyuda"
         Me.cmdAyuda.Size = New System.Drawing.Size(107, 38)
         Me.cmdAyuda.StyleController = Me.LayoutControl1
@@ -490,7 +493,7 @@ Public Class frmListaFacturaClientes
         Me.bNoEntregados.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bNoEntregados.Enabled = False
         Me.bNoEntregados.ImageOptions.Image = CType(resources.GetObject("bNoEntregados.ImageOptions.Image"), System.Drawing.Image)
-        Me.bNoEntregados.Location = New System.Drawing.Point(12, 432)
+        Me.bNoEntregados.Location = New System.Drawing.Point(12, 420)
         Me.bNoEntregados.Name = "bNoEntregados"
         Me.bNoEntregados.Size = New System.Drawing.Size(107, 38)
         Me.bNoEntregados.StyleController = Me.LayoutControl1
@@ -503,9 +506,9 @@ Public Class frmListaFacturaClientes
         Me.btnPrint.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnPrint.Enabled = False
         Me.btnPrint.ImageOptions.Image = CType(resources.GetObject("btnPrint.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnPrint.Location = New System.Drawing.Point(12, 96)
+        Me.btnPrint.Location = New System.Drawing.Point(12, 92)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(107, 38)
+        Me.btnPrint.Size = New System.Drawing.Size(109, 36)
         Me.btnPrint.StyleController = Me.LayoutControl1
         Me.btnPrint.TabIndex = 160
         Me.btnPrint.Text = "&Imprimir"
@@ -516,9 +519,9 @@ Public Class frmListaFacturaClientes
         Me.cmdAnular.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdAnular.Enabled = False
         Me.cmdAnular.ImageOptions.Image = CType(resources.GetObject("cmdAnular.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAnular.Location = New System.Drawing.Point(12, 138)
+        Me.cmdAnular.Location = New System.Drawing.Point(12, 132)
         Me.cmdAnular.Name = "cmdAnular"
-        Me.cmdAnular.Size = New System.Drawing.Size(107, 38)
+        Me.cmdAnular.Size = New System.Drawing.Size(109, 36)
         Me.cmdAnular.StyleController = Me.LayoutControl1
         Me.cmdAnular.TabIndex = 8
         Me.cmdAnular.Text = "Anular"
@@ -529,7 +532,7 @@ Public Class frmListaFacturaClientes
         Me.bEntregarProd.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bEntregarProd.Enabled = False
         Me.bEntregarProd.ImageOptions.Image = CType(resources.GetObject("bEntregarProd.ImageOptions.Image"), System.Drawing.Image)
-        Me.bEntregarProd.Location = New System.Drawing.Point(12, 390)
+        Me.bEntregarProd.Location = New System.Drawing.Point(12, 378)
         Me.bEntregarProd.Name = "bEntregarProd"
         Me.bEntregarProd.Size = New System.Drawing.Size(107, 38)
         Me.bEntregarProd.StyleController = Me.LayoutControl1
@@ -542,9 +545,9 @@ Public Class frmListaFacturaClientes
         Me.cmdPagos.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdPagos.Enabled = False
         Me.cmdPagos.ImageOptions.Image = CType(resources.GetObject("cmdPagos.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdPagos.Location = New System.Drawing.Point(12, 348)
+        Me.cmdPagos.Location = New System.Drawing.Point(12, 338)
         Me.cmdPagos.Name = "cmdPagos"
-        Me.cmdPagos.Size = New System.Drawing.Size(107, 38)
+        Me.cmdPagos.Size = New System.Drawing.Size(109, 36)
         Me.cmdPagos.StyleController = Me.LayoutControl1
         Me.cmdPagos.TabIndex = 7
         Me.cmdPagos.Text = "Ver &Pagos"
@@ -567,9 +570,8 @@ Public Class frmListaFacturaClientes
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem13, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItem1, Me.LayoutControlItem16, Me.LayoutControlItem17, Me.LayoutControlItem19, Me.EmptySpaceItem5, Me.LayoutControlItem20, Me.LayoutControlItem18, Me.LayoutControlItem21, Me.LayoutControlItem22, Me.LayoutControlItem23, Me.LayoutControlItem24, Me.LayoutControlItem26})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(131, 709)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 665)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -577,45 +579,45 @@ Public Class frmListaFacturaClientes
         Me.LayoutControlItem2.Control = Me.cmdModificar
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
         'LayoutControlItem13
         '
         Me.LayoutControlItem13.Control = Me.btnPrint
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem13.TextVisible = False
         '
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.cmdAnular
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
         '
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.btnBorrar
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 160)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.bImpresoraFiscal
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 200)
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
@@ -623,20 +625,20 @@ Public Class frmListaFacturaClientes
         'LayoutControlItem16
         '
         Me.LayoutControlItem16.Control = Me.cmdPagos
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 336)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 326)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem16.TextVisible = False
         '
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.bEntregarProd
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 378)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 366)
         Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem17.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem17.TextVisible = False
@@ -644,11 +646,11 @@ Public Class frmListaFacturaClientes
         'LayoutControlItem19
         '
         Me.LayoutControlItem19.Control = Me.bNoEntregados
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 420)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 408)
         Me.LayoutControlItem19.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem19.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem19.TextVisible = False
@@ -656,19 +658,19 @@ Public Class frmListaFacturaClientes
         'EmptySpaceItem5
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 504)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 492)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(111, 59)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(113, 31)
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem20
         '
         Me.LayoutControlItem20.Control = Me.cmdAyuda
-        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 462)
+        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 450)
         Me.LayoutControlItem20.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem20.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
-        Me.LayoutControlItem20.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem20.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem20.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem20.TextVisible = False
@@ -676,11 +678,11 @@ Public Class frmListaFacturaClientes
         'LayoutControlItem18
         '
         Me.LayoutControlItem18.Control = Me.cmddiseño
-        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 563)
+        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 523)
         Me.LayoutControlItem18.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem18.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
-        Me.LayoutControlItem18.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem18.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem18.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem18.TextVisible = False
@@ -688,38 +690,38 @@ Public Class frmListaFacturaClientes
         'LayoutControlItem21
         '
         Me.LayoutControlItem21.Control = Me.btnExport
-        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 605)
+        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 565)
         Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem21.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem21.TextVisible = False
         '
         'LayoutControlItem22
         '
         Me.LayoutControlItem22.Control = Me.cmdSalir
-        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 647)
+        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 605)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
-        Me.LayoutControlItem22.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem22.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem22.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem22.TextVisible = False
         '
         'LayoutControlItem23
         '
         Me.LayoutControlItem23.Control = Me.bEditar
-        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem23.Name = "LayoutControlItem23"
-        Me.LayoutControlItem23.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem23.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem23.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem23.TextVisible = False
         '
         'LayoutControlItem24
         '
         Me.LayoutControlItem24.Control = Me.bElectronica
-        Me.LayoutControlItem24.Location = New System.Drawing.Point(0, 252)
+        Me.LayoutControlItem24.Location = New System.Drawing.Point(0, 242)
         Me.LayoutControlItem24.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem24.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem24.Name = "LayoutControlItem24"
-        Me.LayoutControlItem24.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem24.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem24.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem24.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem24.TextVisible = False
@@ -727,11 +729,11 @@ Public Class frmListaFacturaClientes
         'LayoutControlItem26
         '
         Me.LayoutControlItem26.Control = Me.bConsultarFE
-        Me.LayoutControlItem26.Location = New System.Drawing.Point(0, 294)
+        Me.LayoutControlItem26.Location = New System.Drawing.Point(0, 284)
         Me.LayoutControlItem26.MaxSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem26.MinSize = New System.Drawing.Size(111, 42)
         Me.LayoutControlItem26.Name = "LayoutControlItem26"
-        Me.LayoutControlItem26.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem26.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem26.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem26.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem26.TextVisible = False
@@ -754,7 +756,7 @@ Public Class frmListaFacturaClientes
         Me.frmListaFacturaClientesConvertedLayout.Name = "frmListaFacturaClientesConvertedLayout"
         Me.frmListaFacturaClientesConvertedLayout.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1058, 142, 250, 350)
         Me.frmListaFacturaClientesConvertedLayout.Root = Me.LayoutControlGroup1
-        Me.frmListaFacturaClientesConvertedLayout.Size = New System.Drawing.Size(862, 736)
+        Me.frmListaFacturaClientesConvertedLayout.Size = New System.Drawing.Size(862, 694)
         Me.frmListaFacturaClientesConvertedLayout.TabIndex = 162
         '
         'CheckEdit1
@@ -886,7 +888,7 @@ Public Class frmListaFacturaClientes
         Me.gridDatos.Location = New System.Drawing.Point(12, 90)
         Me.gridDatos.MainView = Me.vFacturas
         Me.gridDatos.Name = "gridDatos"
-        Me.gridDatos.Size = New System.Drawing.Size(838, 634)
+        Me.gridDatos.Size = New System.Drawing.Size(838, 592)
         Me.gridDatos.TabIndex = 159
         Me.gridDatos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vFacturas})
         '
@@ -1182,9 +1184,8 @@ Public Class frmListaFacturaClientes
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem12, Me.EmptySpaceItem2, Me.LayoutControlItem7, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(862, 736)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(862, 694)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem3
@@ -1193,7 +1194,7 @@ Public Class frmListaFacturaClientes
         Me.LayoutControlItem3.CustomizationFormText = "gridDatositem"
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 78)
         Me.LayoutControlItem3.Name = "gridDatositem"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(842, 638)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(842, 596)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
@@ -1378,21 +1379,21 @@ Public Class frmListaFacturaClientes
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.ShowCloseButton = False
         Me.DockPanel1.OriginalSize = New System.Drawing.Size(140, 200)
-        Me.DockPanel1.Size = New System.Drawing.Size(140, 736)
+        Me.DockPanel1.Size = New System.Drawing.Size(140, 694)
         Me.DockPanel1.Text = "Opciones"
         '
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl1)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 709)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 665)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmListaFacturaClientes
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(1002, 736)
+        Me.ClientSize = New System.Drawing.Size(1002, 694)
         Me.Controls.Add(Me.frmListaFacturaClientesConvertedLayout)
         Me.Controls.Add(Me.DockPanel1)
         Me.Name = "frmListaFacturaClientes"
@@ -1467,7 +1468,7 @@ Public Class frmListaFacturaClientes
         'GetFormaPagoListAll(Me.cbTipoFactura)
         'GetCajasFacturacion(Me.cbCajas)
 
-        GetCajasxUsuario(Me.cbCajas)
+        GetCajasxUsuario(cbCajas)
 
         'cbEstado.SelectedIndex = 0
         'cbMeses.SelectedIndex = Now.Month
@@ -1571,6 +1572,7 @@ Public Class frmListaFacturaClientes
         vFacturas.Columns("IR_Alcaldia").Visible = False
         vFacturas.Columns("Exento").Visible = False
         vFacturas.Columns("Remision").Visible = False
+        vFacturas.Columns("Ruc").Visible = False
 
         vFacturas.Columns("EstadoF").Caption = "Estado"
         vFacturas.Columns("Contab").Caption = "Contabilizada"
@@ -1761,6 +1763,7 @@ Public Class frmListaFacturaClientes
 
     Private Sub cmdPagos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPagos.Click
         Dim ds As DataSet
+
         'Registro = dgFacturasClientes.Item(dgFacturasClientes.CurrentRowIndex, 0)
         'If Registro = "Vacio" Then
         '    MsgBox("Seleccione la Factura", MsgBoxStyle.Information)
@@ -1771,7 +1774,7 @@ Public Class frmListaFacturaClientes
             XtraMsg("Seleccione la Factura")
             Exit Sub
         End If
-
+        '
         Registro = Me.vFacturas.GetFocusedRowCellValue("No Factura")
 
         ds = Clientes.CobrosHistorial(Registro)
@@ -1914,12 +1917,6 @@ Public Class frmListaFacturaClientes
 
     Private Sub cmdAnular_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAnular.Click
 
-        'Dim dsFactura As DataSet
-        'Dim dsComp As DataSet
-        'Dim Articulos As New VB.SysContab.ArticulosDB()
-        'Dim Comp As New VB.SysContab.ComprobanteDB()
-        ' Dim i As Integer
-
         If Me.vFacturas.FocusedRowHandle < 0 Then
             XtraMsg("Seleccione una Factura")
             Exit Sub
@@ -1930,18 +1927,17 @@ Public Class frmListaFacturaClientes
         If Not VerificarCierre(CDate(vFacturas.GetFocusedRowCellValue("Fecha")).Date) Then
             Exit Sub
         End If
-        '-------------------------------------------------------------------------------------
+        '-------------------------------------------------------------------------------------        
+        '
+        If CBool(vFacturas.GetFocusedRowCellValue("Estado")) Then
+            XtraMsg("La factura ya se encuentra Anulada.", MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        '
+        Dim Estado As String =
+            vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "ATV")
+        '
 
-        If vFacturas.GetFocusedRowCellValue("Estado") Then
-            XtraMsg("La factura ya se encuentra Anulada.", MessageBoxIcon.Warning)
-            Exit Sub
-        End If
-        '
-        If vFacturas.GetFocusedRowCellValue("ATV") <> "n/a" Then
-            XtraMsg("La factura ya fue reportada como Factura Electrónica, NO SE PUEDE ANULAR!!!", MessageBoxIcon.Error)
-            Exit Sub
-        End If
-        '
         If vFacturas.GetFocusedRowCellValue("Bolsa") Then
             XtraMsg("La factura ya fué reportada en Bolsa, no se puede Anular...",
                     MessageBoxIcon.Error)
@@ -1958,8 +1954,8 @@ Public Class frmListaFacturaClientes
             Exit Sub
         End If
         '
-        If Clientes.FacturaSalida(vFacturas.GetFocusedRowCellValue("No Factura")).Tables("Facturas_Ventas").Rows.Count <> 0 Then
-            XtraMsg("La factura no puede ser anulada porque ya fue descargada de Inventario.", MessageBoxIcon.Warning)
+        If Clientes.FacturaSalida(vFacturas.GetFocusedRowCellValue("No Factura")).Tables("Facturas_Ventas").Rows.Count > 0 Then
+            XtraMsg("La factura no puede ser anulada porque ya fue descargada de Inventario.", MessageBoxIcon.Error)
             Exit Sub
         End If
         '
@@ -1989,13 +1985,50 @@ Public Class frmListaFacturaClientes
             Exit Sub
         End If
         '
+        If Not Estado.Equals("n/a") Then
+            If Not Estado.Equals("rechazado") Then
+                'Para Costa Rica no se permite anular diecto.
+                If EmpresaActual.Equals("20") Then
+                    XtraMsg("La factura ya fue reportada como Factura Electrónica, NO SE PUEDE ANULAR!!!", MessageBoxIcon.Error)
+                    Exit Sub
+                ElseIf EmpresaActual.Equals("18") Then  'GT permite anulacion siempre y cuando la Factura este aceptada.
+                    If Not Estado.Equals("aceptado") Then
+                        XtraMsg($"La factura {vFacturas.GetFocusedRowCellValue("No Factura")} debe estar certificada por Hacienda para poder aplicar esta anulación", MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    '
+                    With New frmFacturaAnulacionGT
+
+                        .Factura.Text = vFacturas.GetFocusedRowCellValue("No Factura")
+                        .Fecha.DateTime = vFacturas.GetFocusedRowCellValue("Fecha")
+                        .Cliente.Text = vFacturas.GetFocusedRowCellValue("A Nombre")
+
+                        .ShowDialog()
+
+                        If .Ok Then
+                            Cargar()
+                        End If
+
+                        .Dispose()
+                        Exit Sub
+
+                    End With
+
+                End If
+
+            End If
+        End If
+        '
+        '
+
+        '
         Try
 
             If Not XtraMsg2("Desea Anular la Factura?") Then
                 Exit Sub
             End If
 
-            DBConnFacturas = New SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
+            DBConnFacturas = New SqlConnection(Rutinas.AbrirConexion())
             DBConnFacturas.Open()
             transaccionFacturas = DBConnFacturas.BeginTransaction
 
@@ -2014,17 +2047,19 @@ Public Class frmListaFacturaClientes
             '    Articulos.SumarExistencias(dsFactura.Tables("Facturas_Ventas").Rows(i).Item("Item"), dsFactura.Tables("Facturas_Ventas").Rows(i).Item("Cantidad"), "P")
             'Next
 
-            VB.SysContab.Rutinas.okTransaccion()
+            Rutinas.okTransaccion()
             '
-            If EmpresaActual = "26" Then
+            If EmpresaActual.Equals("26") Then
                 Dim fv As New Factura_ElectronicaCR
                 fv.ImpresoraFiscalXML(vFacturas.GetFocusedRowCellValue("No Factura"), 3, True)
             End If
             '
             Cargar()
+
         Catch ex As Exception
-            XtraMsg(ex.Message, MessageBoxIcon.Error)
-            VB.SysContab.Rutinas.ErrorTransaccion()
+            Rutinas.ErrorTransaccion()
+            XtraMsg(ex.Message,
+                    MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -2277,7 +2312,26 @@ Public Class frmListaFacturaClientes
     End Sub
 
     Private Sub vFacturas_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles vFacturas.DoubleClick
-        cmdModificar_Click(Nothing, Nothing)
+        Dim Atv As Object = vFacturas.GetFocusedValue()
+
+        If Atv.ToString().Equals("rechazado") Or
+              Atv.ToString().Equals("aceptado") Then
+
+            With New frmMotivoRechazo
+
+                If EmpresaActual.Equals("20") Then
+                    .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "F.Electrónica")
+                ElseIf EmpresaActual.Equals("18") Then
+                    .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "ATV")
+                End If
+
+                .Factura = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura")
+                .ShowDialog()
+                .Dispose()
+            End With
+        Else
+            cmdModificar_Click(Nothing, Nothing)
+        End If
     End Sub
 
     Private Sub dtpFechaDesde_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtpFechaDesde.EditValueChanged
@@ -2481,9 +2535,20 @@ Public Class frmListaFacturaClientes
                 e.Appearance.ForeColor = Color.Navy
             ElseIf vFacturas.GetRowCellValue(e.RowHandle, "ATV") = "recibido" Then
                 e.Appearance.ForeColor = Color.Navy
+            ElseIf vFacturas.GetRowCellValue(e.RowHandle, "ATV") = "anulado" Then
+                e.Appearance.ForeColor = Color.OrangeRed
             Else
                 e.Appearance.ForeColor = Color.White
             End If
+        End If
+        '
+        If e.Column.FieldName = "F.Electrónica" Then
+            If EmpresaActual.Equals("18") Then
+                'If vFacturas.GetRowCellValue(e.RowHandle, "F.Electrónica") Then
+
+                'End If
+            End If
+
         End If
     End Sub
 
@@ -2531,13 +2596,41 @@ Public Class frmListaFacturaClientes
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles bImpresoraFiscal.Click
+
         If vFacturas.FocusedRowHandle < 0 Then
             XtraMsg("Seleccione una Factura")
             Exit Sub
         End If
         '
-        Dim fv As New Factura_ElectronicaCR
-        fv.ImpresoraFiscalXML(vFacturas.GetFocusedRowCellValue("No Factura"), 2)
+        If EmpresaActual.Equals("18") Then
+            Dim Estado As String =
+                vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "ATV")
+
+            If Estado.Equals("aceptado") Or Estado.Equals("anulado") Then
+
+                Dim _dt As DataTable = Facturas_VentasDB.MensajeRechazo(
+                    "aceptado",
+                    vFacturas.GetFocusedRowCellValue("No Factura"),
+                    IIf(Estado.Equals("aceptado"), "01", "02"))
+
+                If _dt.Rows.Count > 0 Then
+                    Dim api As HaciendaGT.ResponseApi =
+                    JsonConvert.DeserializeObject(Of HaciendaGT.ResponseApi)(_dt.Rows.Item(0)("MensajeHacienda"))
+
+                    Dim sLink As String = $"{_dt.Rows.Item(0)("Link")}{api.uuid}"
+
+                    Process.Start(sLink)
+                End If
+            Else
+                XtraMsg("La Factura no se encuentra certificada por SAT.", MessageBoxIcon.Warning)
+            End If
+
+        Else
+            Dim fv As New Factura_ElectronicaCR
+            fv.ImpresoraFiscalXML(
+                vFacturas.GetFocusedRowCellValue("No Factura"),
+                2)
+        End If
 
         '
         'EnviarXLM(vFacturas.GetFocusedRowCellValue("No Factura"))
@@ -2592,8 +2685,8 @@ Public Class frmListaFacturaClientes
                     .bGuardar.Enabled = True
                 End If
             End If
-                '
-                If vFacturas.GetFocusedRowCellValue("Contab") Then
+            '
+            If vFacturas.GetFocusedRowCellValue("Contab") Then
                 XtraMsg("Esta Factura ya se encuentra procesada, no puede ser modificada...",
                         MessageBoxIcon.Warning)
                 .bGuardar.Enabled = False
@@ -2642,28 +2735,33 @@ Public Class frmListaFacturaClientes
     End Sub
 
     Private Sub bElectronica_Click(sender As Object, e As EventArgs) Handles bElectronica.Click
+
         If vFacturas.FocusedRowHandle < 0 Then
             XtraMsg("Seleccione una Factura")
             Exit Sub
         End If
         '     
         If vFacturas.GetFocusedRowCellValue("Estado") Then
-            XtraMsg("La factura solicitada se encuentra ANULADA...", MessageBoxIcon.Error)
+            XtraMsg("La factura solicitada se encuentra ANULADA...",
+                    MessageBoxIcon.Error)
             Exit Sub
         End If
-
-        Dim Estado As String = vFacturas.GetFocusedRowCellValue("ATV")
+        '
+        Dim Estado As String =
+            vFacturas.GetFocusedRowCellValue("ATV")
 
         If Estado.Equals("aceptado") Then
-            XtraMsg("La factura ya ha sido ""aceptada"" en Hacienda", MessageBoxIcon.Error)
+            XtraMsg("La factura ya ha sido ""aceptada"" en Hacienda",
+                    MessageBoxIcon.Error)
             Exit Sub
         End If
         '
         If vFacturas.GetFocusedRowCellValue("Entrega").ToString().Equals("Devuelto") Then
-            XtraMsg("La factura ya contiene una Nota de Crédito Electrónica por Devolución", MessageBoxIcon.Warning)
+            XtraMsg("La factura ya contiene una Nota de Crédito Electrónica por Devolución",
+                    MessageBoxIcon.Warning)
             Exit Sub
         End If
-
+        '
         Dim fv As New Factura_ElectronicaCR
         Dim EnviaFactura As New Comunicacion
         '
@@ -2672,14 +2770,18 @@ Public Class frmListaFacturaClientes
             If Not XtraMsg2("Desea consultar el estado actual de la Factura Electrónica?") Then
                 Exit Sub
             End If
-            '            
-            'ShowSplash("Consultando Estado...")
-            '
+
+            Dim Tipo As String = "01"
+
+            Try
+                Tipo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "F.Electrónica").ToString.Substring(8, 2)
+            Catch ex As Exception
+                Tipo = "01"
+            End Try
+
             EnviaFactura = fv.ConsultarComprobante(
                 vFacturas.GetFocusedRowCellValue("No Factura"),
-                "01")
-            '
-            'HideSplash()
+                Tipo)
 
             XtraMsg(EnviaFactura.mensajeRespuesta)
 
@@ -2687,73 +2789,166 @@ Public Class frmListaFacturaClientes
                 EnviarMailComprobante(
                 False,
                 EnviaFactura.estadoFactura)
-
-            'ConsultarComprobante(False, "01")
         Else
-            Dim SinReceptor As Boolean = False
+            'Validar para EQUIPSA TICA
+            If EmpresaActual.Equals("20") Then
+                Dim SinReceptor As Boolean = False,
+                    FEE As Boolean = False
 
-            With frmFacturaElectronicaTipo
-                .ShowDialog()
-                If Not .Ok Then
+                With frmFacturaElectronicaTipo
+                    .ShowDialog()
+                    If Not .Ok Then
+                        .Dispose()
+                        Exit Sub
+                    End If
+                    '
+                    If .RadioGroup1.EditValue = 3 Then
+                        FEE = True
+                    Else
+                        SinReceptor = IIf(.RadioGroup1.EditValue = 1, False, True)
+                    End If
+
                     .Dispose()
-                    Exit Sub
+                End With
+
+                If SinReceptor Then
+                    If Not XtraMsg2("Esta Seguro de Enviar esta factura sin Receptor ?") Then
+                        Exit Sub
+                    End If
                 End If
                 '
-                SinReceptor = IIf(.RadioGroup1.EditValue = 1, False, True)
-                .Dispose()
-            End With
-            '
-            If SinReceptor Then
-                If Not XtraMsg2("Esta Seguro de Enviar esta factura sin Receptor ?") Then
-                    Exit Sub
+                'ShowSplash("Enviando Factura...")
+                '
+                EnviaFactura = fv.EnviarComprobante(
+                    vFacturas.GetFocusedRowCellValue("No Factura"),
+                    IIf(FEE = False, "01", "09"),
+                    IIf(FEE = False, "FacturaElectronica", "FacturaElectronicaExportacion"),
+                    vFacturas.GetFocusedRowCellValue("Fecha"),
+                    "",
+                    0,
+                    IIf(SinReceptor, 1, 0))
+                '
+                'HideSplash()
+                '            
+                If EnviaFactura.estadoFactura Is Nothing Then
+                    GoTo FIN
                 End If
-            End If
 
-            'ShowSplash("Enviando Factura...")
-            '
-            EnviaFactura = fv.EnviarComprobante(
-                vFacturas.GetFocusedRowCellValue("No Factura"),
-                "01",
-                "FacturaElectronica",
-                vFacturas.GetFocusedRowCellValue("Fecha"),
-                "",
-                0,
-                IIf(SinReceptor, 1, 0))
-            '
-            'HideSplash()
-            '            
-            If EnviaFactura.estadoFactura _
-                .Equals("aceptado") Then
+                If EnviaFactura.estadoFactura _
+                    .Equals("aceptado") Then
 
-                Dim DT_Header As DataTable =
+                    'Si es Factura de Exportacion, no se manda correo al cliente.
+                    If FEE Then GoTo FIN
+
+                    Dim DT_Header As DataTable =
                     ObtieneDatos("sp_sel_FACTURAS_VENTAS",
                                  vFacturas.GetFocusedRowCellValue("No Factura"),
                                  EmpresaActual)
 
-                Dim ClienteDetalle As New VB.SysContab.ClientesDetails
-                ClienteDetalle = VB.SysContab.ClientesDB.GetDetails(DT_Header.Rows.Item(0)("CLIENTE"))
+                    Dim ClienteDetalle As New ClientesDetails
+                    ClienteDetalle = ClientesDB.GetDetails(DT_Header.Rows.Item(0)("CLIENTE"))
 
-                If IsNull(ClienteDetalle.Correo, "").ToString.Trim.Length = 0 Then
-                    XtraMsg("El Cliente :" & ClienteDetalle.Nombre.Trim &
+                    If IsNull(ClienteDetalle.Correo, "").ToString.Trim.Length = 0 Then
+                        XtraMsg("El Cliente :" & ClienteDetalle.Nombre.Trim &
                             " No tiene correo de Envío en su perfil de cliente, intente Re-Enviar la factuara en unos minutos...",
                             MessageBoxIcon.Warning)
-                Else
-                    ShowSplash("Enviando Correo...")
-                    VB.SysContab.Facturas_VentasDB.EnviarCorreoClienteFE(
+                    Else
+                        ShowSplash("Enviando Correo...")
+                        Facturas_VentasDB.EnviarCorreoClienteFE(
                         vFacturas.GetFocusedRowCellValue("No Factura"),
                         DT_Header.Rows.Item(0)("CLIENTE"),
                         ClienteDetalle.Correo,
                         vFacturas.GetFocusedRowCellValue("Formato"),
                         "01")
-                    HideSplash()
+                        HideSplash()
+                    End If
                 End If
-            End If
 
+                'Validar para EQUIPSA QUETZAL
+            ElseIf EmpresaActual.Equals("18") Then
+                Dim FE As HaciendaGT.Comunicacion = New HaciendaGT.Comunicacion()
+
+                If Estado.Equals("rechazado") Then
+
+                    If XtraMsg2("La factura se encuentra en estado ""RECHAZADO"", Desea ver el motivo antes de procesarla nuevamente?") Then
+                        With New frmMotivoRechazo
+                            .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "ATV")
+                            .Factura = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura")
+                            .ShowDialog()
+                            .Dispose()
+                        End With
+                    End If
+
+                End If
+                '
+                Dim FEE As Boolean = False
+
+                With frmFacturaElectronicaTipoGT
+                    .ShowDialog()
+                    If Not .Ok Then
+                        .Dispose()
+                        Exit Sub
+                    End If
+                    '
+                    If .RadioGroup1.EditValue = 2 Then FEE = True
+
+                    .Dispose()
+                End With
+
+                ShowSplash("Enviando xml...")
+
+                If Not FEE Then
+                    FE.EnvioDatosFactura(
+                        vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura"),
+                        "01",
+                        EmpresaActual)
+                Else
+                    FE.EnvioDatosFExportacion(
+                        vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura"),
+                        "09",
+                        EmpresaActual)
+                End If
+
+                HideSplash()
+
+                If Not FE.iError.Equals("Ok") Then
+                    XtraMsg(FE.iError, MessageBoxIcon.Error)
+                    Exit Sub
+                Else
+                    If FE.responseApi.resultado Then
+
+                        Dim alertas_infile As String = "Alertas InFile Descripción: "
+                        If FE.responseApi.alertas_infile Then
+                            If FE.responseApi.descripcion_alertas_infile.Count > 0 Then
+                                alertas_infile = $"{alertas_infile}{FE.responseApi.descripcion_alertas_infile(0).ToString}"
+                            End If
+                        End If
+
+                        XtraMsg($"La Factura {vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura")} ha sido ACEPTADA!" & vbCrLf &
+                            $"Número: {FE.responseApi.numero}" & vbCrLf &
+                            $"uuid: {FE.responseApi.uuid}" & vbCrLf &
+                            $"Serie: {FE.responseApi.serie}" & vbCrLf &
+                            $"Saldo: {FE.responseApi.control_emision.Saldo}" & vbCrLf &
+                            $"Creditos: {FE.responseApi.control_emision.Creditos}" & vbCrLf &
+                            $"Mensaje: {FE.responseApi.descripcion}" & vbCrLf &
+                            $"{alertas_infile}")
+                    Else
+                        With New frmMotivoRechazo
+                            .Consecutivo = "rechazado"
+                            .Factura = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura")
+                            .TipoDocumento = IIf(FEE, "09", "01")
+                            .ShowDialog()
+                            .Dispose()
+                        End With
+                    End If
+
+                End If
+                '                
+            End If
+            '
+FIN:
             Cargar()
         End If
-
-
-
 
         '    If Estado = "procesando" Then
         '    'If XtraMsg2("Desea consultar el estado actual de esta Factura?") Then
@@ -2848,47 +3043,67 @@ Public Class frmListaFacturaClientes
         '    Exit Sub
         'End If
         '
-        If Estado.Equals("rechazado") Then
-            With frmMotivoRechazo
-                .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "F.Electrónica")
+        If Estado.Equals("rechazado") Or
+                Estado.Equals("aceptado") Then
+
+            With New frmMotivoRechazo
+
+                If EmpresaActual.Equals("20") Then
+                    .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "F.Electrónica")
+                ElseIf EmpresaActual.Equals("18") Then
+                    .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "ATV")
+                End If
+
                 .Factura = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura")
-                '.mMotivo.Text = IsNull(iVista.GetRowCellValue(iVista.FocusedRowHandle, "MensajeHacienda"), "").ToString()
+
+                If Estado.Equals("aceptado") And
+                    EmpresaActual.Equals("20") Then GoTo CONULTAR_FEC_CR
+
                 .ShowDialog()
                 .Dispose()
             End With
             Exit Sub
         End If
+        '
 
-        If Not XtraMsg2("Desea consultar el estado actual de esta Factura?") Then
-            Exit Sub
+CONULTAR_FEC_CR:
+
+        If EmpresaActual.Equals("20") Then
+            If Not XtraMsg2("Desea consultar el estado actual de esta Factura?") Then
+                Exit Sub
+            End If
+            '
+            Dim fv As New Factura_ElectronicaCR
+            Dim enviaFactura As New Comunicacion
+
+            Dim Tipo As String = "01"
+
+            Try
+                Tipo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "F.Electrónica").ToString.Substring(8, 2)
+            Catch ex As Exception
+                Tipo = "01"
+            End Try
+
+            enviaFactura =
+                fv.ConsultarComprobante(
+                    vFacturas.GetFocusedRowCellValue("No Factura"),
+                    Tipo)
+
+            XtraMsg(enviaFactura.mensajeRespuesta)
+
+            If Not IsNothing(enviaFactura) Then _
+                EnviarMailComprobante(
+                True,
+                enviaFactura.estadoFactura)
         End If
-        '
-        Dim fv As New Factura_ElectronicaCR
-        Dim enviaFactura As New Comunicacion
 
-        ' ShowSplash("Consultando Estado...")
-        '
-        enviaFactura =
-            fv.ConsultarComprobante(
-                vFacturas.GetFocusedRowCellValue("No Factura"),
-                "01")
-        '
-        'HideSplash()
 
-        XtraMsg(enviaFactura.mensajeRespuesta)
-
-        If Not IsNothing(enviaFactura) Then _
-            EnviarMailComprobante(
-            True,
-            enviaFactura.estadoFactura)
 
         'If vFacturas.GetFocusedRowCellValue("Entrega") <> "Devuelto" Then ConsultarComprobante(True, "01")
         'If vFacturas.GetFocusedRowCellValue("Entrega") = "Devuelto" Then ConsultarComprobante(True, "03")
-
         'Dim fvXml As New FacturaXML
         'Dim obj As New IDP_FacturaElectronica
         'Dim fe As New Factura_ElectronicaCR
-
         'fvXml.Detalle(vFacturas.GetFocusedRowCellValue("No Factura"))
         'obj = IDP_FacturaElectronicaToken.Detalles()
         'Dim enviaFactura As New Comunicacion
@@ -2951,6 +3166,7 @@ Public Class frmListaFacturaClientes
         ''Validar si es N/C, Borrar la Devolucion
         'If Tipo = "03" Then If enviaFactura.estadoFactura = "rechazado" Then Facturas_VentasDB.BorrarNotaCreditoElectronica(vFacturas.GetFocusedRowCellValue("No Factura"))
         '
+
         'If enviaFactura.estadoFactura = "aceptado" Then
         If Estado.Equals("aceptado") Then
 
@@ -3251,6 +3467,30 @@ Public Class frmListaFacturaClientes
             End With
         End If
 
+
+    End Sub
+
+    Private Sub vFacturas_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles vFacturas.RowCellClick
+        'If e.Column.FieldName = "ATV" Then
+
+        '    If vFacturas.GetRowCellValue(e.RowHandle, "ATV").ToString().Equals("rechazado") Or
+        '            vFacturas.GetRowCellValue(e.RowHandle, "ATV").ToString().Equals("aceptado") Then
+
+        '        With New frmMotivoRechazo
+        '            If EmpresaActual.Equals("20") Then
+        '                .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "F.Electrónica")
+        '            ElseIf EmpresaActual.Equals("18") Then
+        '                .Consecutivo = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "ATV")
+        '            End If
+
+        '            .Factura = vFacturas.GetRowCellValue(vFacturas.FocusedRowHandle, "No Factura")
+        '            .ShowDialog()
+        '            .Dispose()
+        '        End With
+
+        '    End If
+
+        'End If
 
     End Sub
 

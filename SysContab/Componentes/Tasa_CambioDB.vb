@@ -491,7 +491,19 @@ Namespace VB.SysContab
 
         End Sub
 
-        Public Shared Sub Delete(ByVal MonedaBase As String, ByVal MonedaCambio As String, _
+        Public Shared Sub DeleteMes(ByVal MonedaBase As String, ByVal MonedaCambio As String,
+                                    ByVal Mes As Integer, ByVal Año As Integer)
+
+            Guardar("sp_TasaCambioDeleteMes",
+                    MonedaBase,
+                    MonedaCambio,
+                    Mes,
+                    Año,
+                    EmpresaActual)
+
+        End Sub
+
+        Public Shared Sub Delete(ByVal MonedaBase As String, ByVal MonedaCambio As String,
             ByVal Dia As String, ByVal Mes As String, ByVal Año As String)
 
             Dim DBConn As SqlConnection

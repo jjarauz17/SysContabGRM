@@ -82,7 +82,7 @@ Partial Class frmDetalleDistribucionFacturas
         Me.GridColumn2.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridColumn2.AppearanceHeader.Options.UseFont = True
         Me.GridColumn2.Caption = "Rubro"
-        Me.GridColumn2.FieldName = "Rubro"
+        Me.GridColumn2.FieldName = "IdRubroGasto"
         Me.GridColumn2.Name = "GridColumn2"
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 1
@@ -93,7 +93,7 @@ Partial Class frmDetalleDistribucionFacturas
         Me.GridColumn3.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GridColumn3.AppearanceHeader.Options.UseFont = True
         Me.GridColumn3.Caption = "Centro de Costo"
-        Me.GridColumn3.FieldName = "Centro"
+        Me.GridColumn3.FieldName = "IdCentroCosto"
         Me.GridColumn3.Name = "GridColumn3"
         Me.GridColumn3.Visible = True
         Me.GridColumn3.VisibleIndex = 2
@@ -121,7 +121,7 @@ Partial Class frmDetalleDistribucionFacturas
         '
         Me.SimpleButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.SimpleButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
+        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
         Me.SimpleButton1.Location = New System.Drawing.Point(619, 354)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(105, 38)
@@ -146,7 +146,7 @@ Partial Class frmDetalleDistribucionFacturas
         'SimpleButton2
         '
         Me.SimpleButton2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
+        Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
         Me.SimpleButton2.Location = New System.Drawing.Point(510, 354)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(105, 38)
@@ -159,7 +159,6 @@ Partial Class frmDetalleDistribucionFacturas
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(736, 404)
         Me.LayoutControlGroup1.TextVisible = False
@@ -212,9 +211,8 @@ Partial Class frmDetalleDistribucionFacturas
         Me.CancelButton = Me.SimpleButton1
         Me.ClientSize = New System.Drawing.Size(736, 404)
         Me.Controls.Add(Me.LayoutControl1)
-        Me.LookAndFeel.SkinName = "Black"
+        Me.IconOptions.ShowIcon = False
         Me.Name = "frmDetalleDistribucionFacturas"
-        Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Detalle de Distribución"

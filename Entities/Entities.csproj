@@ -64,34 +64,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArregloPagoFacturas.cs" />
     <Compile Include="BitacoraEnvioEC.cs" />
+    <Compile Include="BitacoraFacturasVencidas.cs" />
+    <Compile Include="BOLNASA.cs" />
     <Compile Include="CamposRequeridos.cs" />
+    <Compile Include="CATALOGO.cs" />
     <Compile Include="ClComun.cs" />
     <Compile Include="ClConexion.cs" />
     <Compile Include="CLIENTES.cs" />
+    <Compile Include="ClientesComiteCredito.cs" />
     <Compile Include="ClientesLetrasCambio.cs" />
+    <Compile Include="ClientesListaNegraAprobacion.cs" />
+    <Compile Include="ClientesListNegra.cs" />
+    <Compile Include="ClientesSeguimiento.cs" />
     <Compile Include="ConsecutivosDocumentos.cs" />
     <Compile Include="Credenciales.cs" />
+    <Compile Include="db_ArregloPagoFacturas.cs" />
     <Compile Include="db_BitacoraEnvioEC.cs" />
+    <Compile Include="db_BitacoraFacturasVencidas.cs" />
     <Compile Include="db_CamposRequeridos.cs" />
+    <Compile Include="db_CATALOGO.cs" />
     <Compile Include="db_CLIENTES.cs" />
+    <Compile Include="db_ClientesComiteCredito.cs" />
     <Compile Include="db_ClientesLetrasCambio.cs" />
+    <Compile Include="db_ClientesListaNegraAprobacion.cs" />
+    <Compile Include="db_ClientesListNegra.cs" />
+    <Compile Include="db_ClientesSeguimiento.cs" />
     <Compile Include="db_ConsecutivosDocumentos.cs" />
+    <Compile Include="db_Distribucion.cs" />
+    <Compile Include="db_EMPRESAS.cs" />
+    <Compile Include="db_FacturaElectronicaGT.cs" />
+    <Compile Include="db_FacturasCuotas.cs" />
+    <Compile Include="db_FacturasCuotasDetalle.cs" />
     <Compile Include="db_FacturasElectronicasCompras.cs" />
     <Compile Include="db_FacturasElectronicasComprasDetalle.cs" />
+    <Compile Include="db_PNR_PlanNegocio_Detalle.cs" />
+    <Compile Include="db_PresupuestoDetalleGastos.cs" />
+    <Compile Include="db_REST_RolesAcciones.cs" />
+    <Compile Include="db_REST_RolesMenu.cs" />
+    <Compile Include="db_REST_RolesRecursos.cs" />
+    <Compile Include="db_Roles.cs" />
+    <Compile Include="Distribucion.cs" />
+    <Compile Include="EMPRESAS.cs" />
+    <Compile Include="FacturaElectronicaGT.cs" />
+    <Compile Include="FacturasCuotasDetalle.cs" />
     <Compile Include="FacturasElectronicasCompras.cs" />
     <Compile Include="FacturasElectronicasComprasDetalle.cs" />
+    <Compile Include="FACTURAS_VENTAS.cs" />
     <Compile Include="fn.cs" />
+    <Compile Include="PNR_PlanNegocio_Detalle.cs" />
+    <Compile Include="PresupuestoDetalleGastos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REST_RolesAcciones.cs" />
+    <Compile Include="REST_RolesMenu.cs" />
+    <Compile Include="REST_RolesRecursos.cs" />
+    <Compile Include="Roles.cs" />
     <Compile Include="rptLetraCambio.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="rptLetraCambio.Designer.cs">
       <DependentUpon>rptLetraCambio.cs</DependentUpon>
     </Compile>
+    <Compile Include="sp_sel_FacturasCuotas.cs" />
+    <Compile Include="ZohoUrl.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="rptLetraCambio.resx">
       <DependentUpon>rptLetraCambio.cs</DependentUpon>
     </EmbeddedResource>

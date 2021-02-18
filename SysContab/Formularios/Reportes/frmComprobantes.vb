@@ -175,9 +175,9 @@ Public Class frmComprobantes
         Me.Button1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.Button1.Enabled = False
         Me.Button1.ImageOptions.Image = CType(resources.GetObject("Button1.ImageOptions.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(12, 338)
+        Me.Button1.Location = New System.Drawing.Point(12, 357)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(108, 38)
+        Me.Button1.Size = New System.Drawing.Size(109, 36)
         Me.Button1.StyleController = Me.LayoutControl2
         Me.Button1.TabIndex = 162
         Me.Button1.Text = "&Exportar"
@@ -198,7 +198,7 @@ Public Class frmComprobantes
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1035, 70, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 447)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 445)
         Me.LayoutControl2.TabIndex = 180
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -208,9 +208,9 @@ Public Class frmComprobantes
         Me.cmdSalir.Appearance.Options.UseTextOptions = True
         Me.cmdSalir.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 380)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 397)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(108, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(109, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
         Me.cmdSalir.TabIndex = 29
         Me.cmdSalir.Text = "&Salir"
@@ -222,9 +222,9 @@ Public Class frmComprobantes
         Me.bDiseno.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bDiseno.Enabled = False
         Me.bDiseno.ImageOptions.Image = CType(resources.GetObject("bDiseno.ImageOptions.Image"), System.Drawing.Image)
-        Me.bDiseno.Location = New System.Drawing.Point(12, 296)
+        Me.bDiseno.Location = New System.Drawing.Point(12, 317)
         Me.bDiseno.Name = "bDiseno"
-        Me.bDiseno.Size = New System.Drawing.Size(108, 38)
+        Me.bDiseno.Size = New System.Drawing.Size(109, 36)
         Me.bDiseno.StyleController = Me.LayoutControl2
         Me.bDiseno.TabIndex = 179
         Me.bDiseno.Text = "Di&seño"
@@ -236,9 +236,9 @@ Public Class frmComprobantes
         Me.bBorrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bBorrar.Enabled = False
         Me.bBorrar.ImageOptions.Image = CType(resources.GetObject("bBorrar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bBorrar.Location = New System.Drawing.Point(12, 180)
+        Me.bBorrar.Location = New System.Drawing.Point(12, 178)
         Me.bBorrar.Name = "bBorrar"
-        Me.bBorrar.Size = New System.Drawing.Size(108, 38)
+        Me.bBorrar.Size = New System.Drawing.Size(109, 36)
         Me.bBorrar.StyleController = Me.LayoutControl2
         Me.bBorrar.TabIndex = 180
         Me.bBorrar.Text = "&Borrar"
@@ -250,7 +250,7 @@ Public Class frmComprobantes
         Me.btnDiferencias.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnDiferencias.Enabled = False
         Me.btnDiferencias.ImageOptions.Image = CType(resources.GetObject("btnDiferencias.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnDiferencias.Location = New System.Drawing.Point(12, 222)
+        Me.btnDiferencias.Location = New System.Drawing.Point(12, 218)
         Me.btnDiferencias.Name = "btnDiferencias"
         Me.btnDiferencias.Size = New System.Drawing.Size(108, 38)
         Me.btnDiferencias.StyleController = Me.LayoutControl2
@@ -264,7 +264,7 @@ Public Class frmComprobantes
         Me.btnPrintAll.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnPrintAll.Enabled = False
         Me.btnPrintAll.ImageOptions.Image = CType(resources.GetObject("btnPrintAll.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnPrintAll.Location = New System.Drawing.Point(12, 96)
+        Me.btnPrintAll.Location = New System.Drawing.Point(12, 94)
         Me.btnPrintAll.Name = "btnPrintAll"
         Me.btnPrintAll.Size = New System.Drawing.Size(108, 38)
         Me.btnPrintAll.StyleController = Me.LayoutControl2
@@ -278,7 +278,7 @@ Public Class frmComprobantes
         Me.cmdBorrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdBorrar.Enabled = False
         Me.cmdBorrar.ImageOptions.Image = CType(resources.GetObject("cmdBorrar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdBorrar.Location = New System.Drawing.Point(12, 138)
+        Me.cmdBorrar.Location = New System.Drawing.Point(12, 136)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(108, 38)
         Me.cmdBorrar.StyleController = Me.LayoutControl2
@@ -294,7 +294,7 @@ Public Class frmComprobantes
         Me.btnPrint.ImageOptions.Image = CType(resources.GetObject("btnPrint.ImageOptions.Image"), System.Drawing.Image)
         Me.btnPrint.Location = New System.Drawing.Point(12, 54)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(108, 38)
+        Me.btnPrint.Size = New System.Drawing.Size(109, 36)
         Me.btnPrint.StyleController = Me.LayoutControl2
         Me.btnPrint.TabIndex = 30
         Me.btnPrint.Text = "&Imprimir"
@@ -319,9 +319,8 @@ Public Class frmComprobantes
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItem16, Me.EmptySpaceItem4})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(132, 430)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 445)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem8
@@ -332,7 +331,7 @@ Public Class frmComprobantes
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
@@ -343,7 +342,7 @@ Public Class frmComprobantes
         Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 42)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
         '
@@ -351,11 +350,11 @@ Public Class frmComprobantes
         '
         Me.LayoutControlItem10.Control = Me.btnPrintAll
         Me.LayoutControlItem10.CustomizationFormText = "LayoutControlItem10"
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 82)
         Me.LayoutControlItem10.MaxSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem10.MinSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
@@ -364,11 +363,11 @@ Public Class frmComprobantes
         '
         Me.LayoutControlItem11.Control = Me.cmdBorrar
         Me.LayoutControlItem11.CustomizationFormText = "LayoutControlItem11"
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 124)
         Me.LayoutControlItem11.MaxSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem11.MinSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
@@ -377,9 +376,9 @@ Public Class frmComprobantes
         '
         Me.LayoutControlItem12.Control = Me.bBorrar
         Me.LayoutControlItem12.CustomizationFormText = "LayoutControlItem12"
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 166)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
         '
@@ -387,11 +386,11 @@ Public Class frmComprobantes
         '
         Me.LayoutControlItem13.Control = Me.btnDiferencias
         Me.LayoutControlItem13.CustomizationFormText = "LayoutControlItem13"
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 206)
         Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem13.MinSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem13.TextVisible = False
@@ -400,9 +399,9 @@ Public Class frmComprobantes
         '
         Me.LayoutControlItem14.Control = Me.bDiseno
         Me.LayoutControlItem14.CustomizationFormText = "LayoutControlItem14"
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 284)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 305)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
         '
@@ -410,9 +409,9 @@ Public Class frmComprobantes
         '
         Me.LayoutControlItem15.Control = Me.Button1
         Me.LayoutControlItem15.CustomizationFormText = "LayoutControlItem15"
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 326)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 345)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
         '
@@ -420,9 +419,9 @@ Public Class frmComprobantes
         '
         Me.LayoutControlItem16.Control = Me.cmdSalir
         Me.LayoutControlItem16.CustomizationFormText = "LayoutControlItem16"
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 368)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 385)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem16.TextVisible = False
         '
@@ -430,9 +429,9 @@ Public Class frmComprobantes
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 252)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 248)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(112, 32)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(113, 57)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'cmdAceptar
@@ -564,7 +563,6 @@ Public Class frmComprobantes
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.EmptySpaceItem1, Me.LayoutControlItem6, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem7})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(851, 474)
         Me.LayoutControlGroup1.TextVisible = False
@@ -718,9 +716,9 @@ Public Class frmComprobantes
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 447)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 445)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmComprobantes
@@ -770,11 +768,11 @@ Public Class frmComprobantes
 
 #End Region
 
-    Dim Comp As New VB.SysContab.ComprobanteDB
-    Dim compDet As New VB.SysContab.ComprobantesDetails
-    Dim Mes As New VB.SysContab.MesesDB
-    Dim PerDB As New VB.SysContab.PeriodosDB
-    Dim Catalogo As New VB.SysContab.CatalogoDB
+    Dim Comp As New ComprobanteDB
+    Dim compDet As New ComprobantesDetails
+    Dim Mes As New MesesDB
+    Dim PerDB As New PeriodosDB
+    Dim Catalogo As New CatalogoDB
     Public Begin As Boolean = False
 
     Private Shared ChildInstance As frmComprobantes = Nothing
@@ -786,14 +784,22 @@ Public Class frmComprobantes
         Return ChildInstance
     End Function
 
+    Dim Modificar As Boolean = False,
+        ModificarConCierre As Boolean = False
+
     Private Sub frmComprobantes_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        RolesDB.UsuarioAcciones(LayoutControl2)
+        Dim _dtRol As DataTable =
+            RolesDB.UsuarioAcciones(LayoutControl2)
+
         IdRecursoComp = Recurso
-        ''
+        '
         CargarCombos()
         '
         Buscar()
         PopulateGrid()
+        '
+        If _dtRol.Select("Control = 'Modificar'").Length > 0 Then Modificar = True
+        If _dtRol.Select("Control = 'CierreModificar'").Length > 0 Then ModificarConCierre = True
     End Sub
 
     Sub CargarCombos()
@@ -873,6 +879,7 @@ Public Class frmComprobantes
     End Sub
 
     Private Sub MostrarComprobante()
+
         Dim fn As FrmComprobantesDetallesNew = FrmComprobantesDetallesNew.Instance()
         fn.Dispose()
         '
@@ -884,6 +891,8 @@ Public Class frmComprobantes
         f.Fecha1 = Me.VComprobantes.GetFocusedRowCellValue("Fecha")
         f.ComprobanteID = Me.VComprobantes.GetFocusedRowCellValue("ComprobanteID")
         f.TipoLiq = Me.VComprobantes.GetFocusedRowCellValue("TipoLiq")
+        f.Edit = Modificar
+        f.EditCierre = ModificarConCierre
         f.MdiParent = Me.MdiParent
         f.Show()
     End Sub
@@ -1184,7 +1193,12 @@ Public Class frmComprobantes
         'rptDT.Subreport1.ReportSource = rptDTL
         'rptDT.ShowRibbonPreview()
 
-        ImprimirComprobante()
+        ComprobanteDB.ImprimirComprobante(
+            VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, VComprobantes.Columns(0)),
+            VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Per_ID"),
+            VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Fecha"))
+
+        ' ImprimirComprobante()
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -1271,6 +1285,8 @@ Public Class frmComprobantes
 
     Sub ImprimirComprobante()
 
+
+
         'Dim Cadena As String
         'Dim Temp As Boolean = False
         'Dim Data() As Byte
@@ -1291,51 +1307,51 @@ Public Class frmComprobantes
         '    Temp = False
         'End Try
 
-        ShowSplash("Imprimiendo...")
-        '
-        Dim Temp As Boolean = db_Formatos.FormatoImpreso(17, "rptComprobante")
+        'ShowSplash("Imprimiendo...")
+        ''
+        'Dim Temp As Boolean = db_Formatos.FormatoImpreso(17, "rptComprobante")
 
-        Dim DSComp As New DataSet
+        'Dim DSComp As New DataSet
 
-        Dim DA As New SqlDataAdapter("_ComprobantesImpresoALL", VB.SysContab.Rutinas.AbrirConexion)
-        DA.SelectCommand.CommandType = CommandType.StoredProcedure
+        'Dim DA As New SqlDataAdapter("_ComprobantesImpresoALL", VB.SysContab.Rutinas.AbrirConexion)
+        'DA.SelectCommand.CommandType = CommandType.StoredProcedure
 
-        DA.SelectCommand.Parameters.Add("@ComprNO", SqlDbType.NChar)
-        DA.SelectCommand.Parameters.Add("@Empresa", SqlDbType.Int)
-        DA.SelectCommand.Parameters.Add("@PerID", SqlDbType.Int)
-        DA.SelectCommand.Parameters.Add("@Fecha", SqlDbType.DateTime)
+        'DA.SelectCommand.Parameters.Add("@ComprNO", SqlDbType.NChar)
+        'DA.SelectCommand.Parameters.Add("@Empresa", SqlDbType.Int)
+        'DA.SelectCommand.Parameters.Add("@PerID", SqlDbType.Int)
+        'DA.SelectCommand.Parameters.Add("@Fecha", SqlDbType.DateTime)
 
-        DA.SelectCommand.Parameters("@Empresa").Value = EmpresaActual
-        DA.SelectCommand.Parameters("@ComprNO").Value = VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, VComprobantes.Columns(0))
-        DA.SelectCommand.Parameters("@PerID").Value = VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Per_ID")
-        DA.SelectCommand.Parameters("@Fecha").Value = VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Fecha")
+        'DA.SelectCommand.Parameters("@Empresa").Value = EmpresaActual
+        'DA.SelectCommand.Parameters("@ComprNO").Value = VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, VComprobantes.Columns(0))
+        'DA.SelectCommand.Parameters("@PerID").Value = VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Per_ID")
+        'DA.SelectCommand.Parameters("@Fecha").Value = VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Fecha")
 
-        DA.Fill(DSComp, "Comprobantes")
+        'DA.Fill(DSComp, "Comprobantes")
 
-        Dim DTDistrubucion As DataTable = ObtieneDatos("JAR_GetComprobanteDistribucion " & VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, VComprobantes.Columns(0)) & "," & _
-                                                      "" & VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Per_ID") & "," & _
-                                                      "" & CDate(VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Fecha")).Month & "," & EmpresaActual)
-        Dim rptDistribucin As New rptComprobanteDistribucion
-        rptDistribucin.DataSource = DTDistrubucion
+        'Dim DTDistrubucion As DataTable = ObtieneDatos("JAR_GetComprobanteDistribucion " & VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, VComprobantes.Columns(0)) & "," &
+        '                                              "" & VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Per_ID") & "," &
+        '                                              "" & CDate(VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, "Fecha")).Month & "," & EmpresaActual)
+        'Dim rptDistribucin As New rptComprobanteDistribucion
+        'rptDistribucin.DataSource = DTDistrubucion
 
-        Dim rpt As rptComprobantesALL
+        'Dim rpt As rptComprobantesALL
 
-        If Temp = True Then
-            rpt = XtraReport.FromFile(Application.StartupPath & "\rptComprobante.repx", True)
-        Else
-            rpt = New rptComprobantesALL
-        End If
+        'If Temp = True Then
+        '    rpt = XtraReport.FromFile(Application.StartupPath & "\rptComprobante.repx", True)
+        'Else
+        '    rpt = New rptComprobantesALL
+        'End If
 
-        rpt.ver = True
-        rpt.XrSubreport1.ReportSource = rptDistribucin
-        rpt.gfDistribucion.Visible = CheckBox2.Checked
-        'rpt.DataSource = DSComp.Tables(0)
+        'rpt.ver = True
+        'rpt.XrSubreport1.ReportSource = rptDistribucin
+        'rpt.gfDistribucion.Visible = CheckBox2.Checked
+        ''rpt.DataSource = DSComp.Tables(0)
 
-        VistaPreviaDX(rpt,
-                      DSComp.Tables(0),
-                      "Comprobante No. " & VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, VComprobantes.Columns(0).ToString))
-        '
-        HideSplash()
+        'VistaPreviaDX(rpt,
+        '              DSComp.Tables(0),
+        '              "Comprobante No. " & VComprobantes.GetRowCellValue(VComprobantes.FocusedRowHandle, VComprobantes.Columns(0).ToString))
+        ''
+        'HideSplash()
         'rpt.ShowPrintMarginsWarning = False
         'rpt.BringToFront()
         'rpt.ShowRibbonPreview()

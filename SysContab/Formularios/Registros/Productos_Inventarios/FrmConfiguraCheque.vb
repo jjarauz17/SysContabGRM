@@ -1327,6 +1327,9 @@ Public Class FrmConfiguraCheque
         ElseIf Tipo = 29 Then
             Rep = New rptLetraCambio    'Formato impreso de Letra de Cambio
             Nombre = "LETRA DE CAMBIO"
+        ElseIf Tipo = 30 Then
+            Rep = New rptEstadoCuentaEnviar    'Formato impreso de Letra de Cambio
+            Nombre = "ESTADO DE CUENTA DE CLIENTE"
         End If
 
         If Temp Then
@@ -1487,7 +1490,7 @@ Public Class FrmConfiguraCheque
             Dim Rep As New rptProyecto          'Proyectos de Clientes
             Me.XrDesignPanel1.OpenReport(Rep)
         ElseIf Tipo = 27 Then
-            Dim Rep As New RptEstadoCuentaCliente          'Formato impreso de Cuentas por Cobrar
+            Dim Rep As New RptEstadoCuentaCliente          'Formato impreso de Cuentas por Cobrar Lineal
             Me.XrDesignPanel1.OpenReport(Rep)
         ElseIf Tipo = 28 Then
             Dim Rep As New rptOrdenTrabajo          'Formato impreso de Ordenes de Trabajo
@@ -1495,6 +1498,11 @@ Public Class FrmConfiguraCheque
         ElseIf Tipo = 29 Then
             Dim Rep As New rptLetraCambio          'Formato impreso de Letra de Cambio
             Me.XrDesignPanel1.OpenReport(Rep)
+        ElseIf Tipo = 30 Then
+            Dim Rep As New rptEstadoCuentaEnviar          'Formato impreso de Estado de cuenta de cliente
+            Me.XrDesignPanel1.OpenReport(Rep)
         End If
+
+        '
     End Sub
 End Class

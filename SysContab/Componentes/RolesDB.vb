@@ -5,7 +5,6 @@
         'Poner Invisible todos los Botones
         With frmPrincipalRibbon.RibbonControl
 
-
             'Poner Invisible las Paginas Categorias y sus Paginas
             For Each c As Object In .PageCategories
 
@@ -87,7 +86,8 @@
             .etUsuario.Visibility = DevExpress.XtraBars.BarItemVisibility.Always
         End With
 
-        Dim DT As DataTable = ObtieneDatos("_REST_GetMenuUsuario " & Usr_Rol & "")
+        Dim DT As DataTable =
+            ObtieneDatos("_REST_GetMenuUsuario", Usr_Rol)
 
         Try
             'Buscar Opciones en el Menu que se activarán
@@ -126,8 +126,10 @@
         Return DT
     End Function
 
-    Public Shared Function UsuarioRecursos() As DataTable      
-        Dim dt As DataTable = ObtieneDatos("_REST_GetRecursosUsuario " & Usr_Rol & "")
+    Public Shared Function UsuarioRecursos() As DataTable
+
+        Dim dt As DataTable =
+            ObtieneDatos("_REST_GetRecursosUsuario", Usr_Rol)
 
         For i As Integer = 0 To dt.Rows.Count - 1
             Try
@@ -157,14 +159,14 @@
     End Function
 
     Public Shared Function UsuarioAcciones() As DataTable
-        Dim dt As DataTable = ObtieneDatos("_REST_GetAccionesUsuario " & Usr_Rol & "," & Recurso & "")
+        Dim dt As DataTable = ObtieneDatos("_REST_GetAccionesUsuario", Usr_Rol, Recurso)
         '
         Return dt
     End Function
 
     '    Public Shared Sub UsuarioAcciones(ByVal frm As DevExpress.XtraEditors.PanelControl)
     Public Shared Function UsuarioAcciones(ByVal p As DevExpress.XtraEditors.PanelControl) As DataTable
-        Dim dt As DataTable = ObtieneDatos("_REST_GetAccionesUsuario " & Usr_Rol & "," & Recurso & "")
+        Dim dt As DataTable = ObtieneDatos("_REST_GetAccionesUsuario", Usr_Rol, Recurso)
         For i As Integer = 0 To dt.Rows.Count - 1
             Try
                 For Each c As Object In p.Controls
@@ -204,10 +206,9 @@
         Return dt
     End Function
 
-
-
     Public Shared Sub UsuarioAcciones(ByVal p As GroupBox)
-        Dim dt As DataTable = ObtieneDatos("_REST_GetAccionesUsuario " & Usr_Rol & "," & Recurso & "")
+
+        Dim dt As DataTable = ObtieneDatos("_REST_GetAccionesUsuario", Usr_Rol, Recurso)
         For i As Integer = 0 To dt.Rows.Count - 1
             Try
                 For Each c As Object In p.Controls

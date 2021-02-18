@@ -37,6 +37,8 @@ Namespace VB.SysContab
         Public Kilometraje As Boolean
         Public Descuento As Boolean
         Public Centro As Integer
+        Public Cabys As String
+        Public Impuesto As Double
 
         'Public Valor_Transporte As String
         'Public Valor_Material As String
@@ -195,6 +197,11 @@ Namespace VB.SysContab
                 Details.Centro = dsArticulos.Tables("Articulos").Rows(0).Item("CentroCosto")
 
                 Details.Cuenta = IIf(dsArticulos.Tables("Articulos").Rows(0).Item("Cuenta") Is DBNull.Value, "", dsArticulos.Tables("Articulos").Rows(0).Item("Cuenta").ToString)
+
+                Details.Cabys = dsArticulos.Tables("Articulos").Rows(0).Item("CABYS")
+                Details.Impuesto = dsArticulos.Tables("Articulos").Rows(0).Item("Impuesto")
+
+
                 'Details.Valor_Transporte = dsArticulos.Tables("Articulos").Rows(0).Item("VALOR_TRANSPORTE")
                 'Details.Valor_Material = dsArticulos.Tables("Articulos").Rows(0).Item("VALOR_MATERIAL")
                 'Details.Valor_Personal = dsArticulos.Tables("Articulos").Rows(0).Item("VALOR_PERSONAL")
@@ -364,16 +371,17 @@ Namespace VB.SysContab
 
         End Function
 
-        Public Function AddItem(ByVal Codigo As String, ByVal Nombre As String, ByVal Proveedor As String, _
-                                 ByVal Linea As String, ByVal Grupo As String, ByVal SubGrupo As String, ByVal S_SubGrupo As String, _
-                                 ByVal Costo As String, ByVal Margen As String, ByVal Costo_Promedio As String, _
-                                 ByVal Costo_Ultimo As String, ByVal Precio As String, ByVal Numero_Horas As String, _
-                                 ByVal Precio_Hora As String, ByVal Minimo_Horas As String, ByVal Incremento As String, _
-                                 ByVal Precio_Minimo As String, ByVal DescuentoA As String, ByVal DescuentoB As String, _
-                                 ByVal DescuentoC As String, ByVal Gasto_Transporte As String, _
-                                 ByVal Gasto_Material As String, ByVal Gasto_Personal As String, _
-                                 ByVal Gasto_Externo As String, ByVal Cuenta As String, ByVal Exento As Boolean, ByVal PC As String, _
-                                 Kilometraje As Integer, Descuento As Integer, Centro As Integer)
+        Public Function AddItem(ByVal Codigo As String, ByVal Nombre As String, ByVal Proveedor As String,
+                                 ByVal Linea As String, ByVal Grupo As String, ByVal SubGrupo As String, ByVal S_SubGrupo As String,
+                                 ByVal Costo As String, ByVal Margen As String, ByVal Costo_Promedio As String,
+                                 ByVal Costo_Ultimo As String, ByVal Precio As String, ByVal Numero_Horas As String,
+                                 ByVal Precio_Hora As String, ByVal Minimo_Horas As String, ByVal Incremento As String,
+                                 ByVal Precio_Minimo As String, ByVal DescuentoA As String, ByVal DescuentoB As String,
+                                 ByVal DescuentoC As String, ByVal Gasto_Transporte As String,
+                                 ByVal Gasto_Material As String, ByVal Gasto_Personal As String,
+                                 ByVal Gasto_Externo As String, ByVal Cuenta As String, ByVal Exento As Boolean, ByVal PC As String,
+                                 Kilometraje As Integer, Descuento As Integer, Centro As Integer,
+                                 Cabys As String, Impuesto As Double)
 
             ' Crea una instancia de conexion y un comando SQL
             Dim cmd As New SqlCommand
@@ -384,11 +392,11 @@ Namespace VB.SysContab
 
             ' Se define el tipo de comando
             cmd.CommandType = CommandType.Text
-            cmd.CommandText = "INSERT INTO Articulos(PC, CODIGO_ARTICULO, NOMBRE, PROVEEDOR, LINEA, GRUPO, SUBGRUPO, S_SUBGRUPO,COSTO, MARGEN, " & _
-                            " COSTO_PROM, COSTO_ULTIMO, PRECIO_VENTA_CORDOBAS, NUMERO_HORAS, PRECIO_HORA, MINIMO_HORAS, INCREMENTO, " & _
-                            " PRECIO_MINIMO, DESCUENTO_A, DESCUENTO_B, DESCUENTO_C, GASTO_TRANSPORTE, GASTO_MATERIAL, GASTO_PERSONAL, " & _
-                            " GASTO_EXTERNO, TIPO, EMPRESA, CUENTA,EXENTO, Kilometraje, Descuento, CentroCosto) " & _
-                            " Values('" & PC & "', '" & Codigo & "','" & Nombre & "','" & Proveedor & "','" & Linea & "','" & Grupo & "','" & SubGrupo & "','" & S_SubGrupo & "','" & Costo & "','" & Margen & "','" & Costo_Promedio & "','" & Costo_Ultimo & "','" & Precio & "','" & Numero_Horas & "','" & Precio_Hora & "','" & Minimo_Horas & "','" & Incremento & "','" & Precio_Minimo & "','" & DescuentoA & "','" & DescuentoB & "','" & DescuentoC & "','" & Gasto_Transporte & "','" & Gasto_Material & "','" & Gasto_Personal & "','" & Gasto_Externo & "','S','" & EmpresaActual & "','" & Cuenta & "'," & IIf(Exento, 1, 0) & "," & Kilometraje & "," & Descuento & "," & Centro & ")"
+            cmd.CommandText = "INSERT INTO Articulos(PC, CODIGO_ARTICULO, NOMBRE, PROVEEDOR, LINEA, GRUPO, SUBGRUPO, S_SUBGRUPO,COSTO, MARGEN, " &
+                            " COSTO_PROM, COSTO_ULTIMO, PRECIO_VENTA_CORDOBAS, NUMERO_HORAS, PRECIO_HORA, MINIMO_HORAS, INCREMENTO, " &
+                            " PRECIO_MINIMO, DESCUENTO_A, DESCUENTO_B, DESCUENTO_C, GASTO_TRANSPORTE, GASTO_MATERIAL, GASTO_PERSONAL, " &
+                            " GASTO_EXTERNO, TIPO, EMPRESA, CUENTA,EXENTO, Kilometraje, Descuento, CentroCosto, CABYS, Impuesto) " &
+                            " Values('" & PC & "', '" & Codigo & "','" & Nombre & "','" & Proveedor & "','" & Linea & "','" & Grupo & "','" & SubGrupo & "','" & S_SubGrupo & "','" & Costo & "','" & Margen & "','" & Costo_Promedio & "','" & Costo_Ultimo & "','" & Precio & "','" & Numero_Horas & "','" & Precio_Hora & "','" & Minimo_Horas & "','" & Incremento & "','" & Precio_Minimo & "','" & DescuentoA & "','" & DescuentoB & "','" & DescuentoC & "','" & Gasto_Transporte & "','" & Gasto_Material & "','" & Gasto_Personal & "','" & Gasto_Externo & "','S','" & EmpresaActual & "','" & Cuenta & "'," & IIf(Exento, 1, 0) & "," & Kilometraje & "," & Descuento & "," & Centro & ", '" & Cabys & "', " & Impuesto & ")"
 
             'Se asigna conexion al comando y se abre conexion 
 
@@ -399,16 +407,17 @@ Namespace VB.SysContab
 
         End Function
 
-        Public Function Update(ByVal Codigo As String, ByVal Nombre As String, ByVal Proveedor As String, _
-                               ByVal Linea As String, ByVal Grupo As String, ByVal SubGrupo As String, ByVal S_SubGrupo As String, _
-                               ByVal Costo As Double, ByVal Margen As Double, ByVal Costo_Promedio As Double, _
-                               ByVal Costo_Ultimo As Double, ByVal Precio As Double, ByVal Numero_Horas As Double, _
-                               ByVal Precio_Hora As Double, ByVal Minimo_Horas As Double, ByVal Incremento As Double, _
-                               ByVal Precio_Minimo As Double, ByVal DescuentoA As Double, ByVal DescuentoB As Double, _
-                               ByVal DescuentoC As Double, ByVal Gasto_Transporte As Double, _
-                               ByVal Gasto_Material As Double, ByVal Gasto_Personal As Double, _
-                               ByVal Gasto_Externo As Double, ByVal Cuenta As String, ByVal Exento As Boolean, ByVal PC As String, _
-                               Kilometraje As Integer, Descuento As Integer, Centro As Integer)
+        Public Function Update(ByVal Codigo As String, ByVal Nombre As String, ByVal Proveedor As String,
+                               ByVal Linea As String, ByVal Grupo As String, ByVal SubGrupo As String, ByVal S_SubGrupo As String,
+                               ByVal Costo As Double, ByVal Margen As Double, ByVal Costo_Promedio As Double,
+                               ByVal Costo_Ultimo As Double, ByVal Precio As Double, ByVal Numero_Horas As Double,
+                               ByVal Precio_Hora As Double, ByVal Minimo_Horas As Double, ByVal Incremento As Double,
+                               ByVal Precio_Minimo As Double, ByVal DescuentoA As Double, ByVal DescuentoB As Double,
+                               ByVal DescuentoC As Double, ByVal Gasto_Transporte As Double,
+                               ByVal Gasto_Material As Double, ByVal Gasto_Personal As Double,
+                               ByVal Gasto_Externo As Double, ByVal Cuenta As String, ByVal Exento As Boolean, ByVal PC As String,
+                               Kilometraje As Integer, Descuento As Integer, Centro As Integer,
+                               Cabys As String, Impuesto As Double)
 
             ' Crea una instancia de conexion y un comando SQL
             Dim cmd As New SqlCommand
@@ -420,32 +429,34 @@ Namespace VB.SysContab
             ' Se define el tipo de comando
             cmd.CommandType = CommandType.Text
 
-            cmd.CommandText = "UPDATE Articulos SET NOMBRE = '" & Nombre & "', " & _
-                              "PROVEEDOR = '" & Proveedor & "', " & _
-                              "LINEA = '" & Linea & "', " & _
-                              "CUENTA = '" & Cuenta & "', " & _
-                              "GRUPO = '" & Grupo & "', " & _
-                              "SUBGRUPO = '" & SubGrupo & "', " & _
-                              "S_SUBGRUPO = '" & S_SubGrupo & "', " & _
-                              "COSTO = " & Costo & ", " & _
-                              "MARGEN = " & Margen & ", " & _
-                              "PRECIO_VENTA_CORDOBAS = " & Precio & ", " & _
-                              "NUMERO_HORAS = " & Numero_Horas & ", " & _
-                              "PRECIO_HORA = " & Precio_Hora & ", " & _
-                              "MINIMO_HORAS = " & Minimo_Horas & ", " & _
-                              "INCREMENTO = " & Incremento & ", " & _
-                              "PRECIO_MINIMO = " & Precio_Minimo & ", " & _
-                              "DESCUENTO_A = " & DescuentoA & ", " & _
-                              "DESCUENTO_B = " & DescuentoB & ", " & _
-                              "DESCUENTO_C = " & DescuentoC & ", " & _
-                              "GASTO_TRANSPORTE = " & Gasto_Transporte & ", " & _
-                              "GASTO_MATERIAL = " & Gasto_Material & ", " & _
-                              "GASTO_PERSONAL = " & Gasto_Personal & ", " & _
-                              "GASTO_EXTERNO = " & Gasto_Externo & ", " & _
-                              "Kilometraje = " & Kilometraje & ", " & _
-                              "Descuento = " & Descuento & ", " & _
-                              "CentroCosto = " & Centro & ", " & _
-                              "EXENTO = " & IIf(Exento, 1, 0) & " " & _
+            cmd.CommandText = "UPDATE Articulos SET NOMBRE = '" & Nombre & "', " &
+                              "PROVEEDOR = '" & Proveedor & "', " &
+                              "LINEA = '" & Linea & "', " &
+                              "CUENTA = '" & Cuenta & "', " &
+                              "GRUPO = '" & Grupo & "', " &
+                              "SUBGRUPO = '" & SubGrupo & "', " &
+                              "S_SUBGRUPO = '" & S_SubGrupo & "', " &
+                              "COSTO = " & Costo & ", " &
+                              "MARGEN = " & Margen & ", " &
+                              "PRECIO_VENTA_CORDOBAS = " & Precio & ", " &
+                              "NUMERO_HORAS = " & Numero_Horas & ", " &
+                              "PRECIO_HORA = " & Precio_Hora & ", " &
+                              "MINIMO_HORAS = " & Minimo_Horas & ", " &
+                              "INCREMENTO = " & Incremento & ", " &
+                              "PRECIO_MINIMO = " & Precio_Minimo & ", " &
+                              "DESCUENTO_A = " & DescuentoA & ", " &
+                              "DESCUENTO_B = " & DescuentoB & ", " &
+                              "DESCUENTO_C = " & DescuentoC & ", " &
+                              "GASTO_TRANSPORTE = " & Gasto_Transporte & ", " &
+                              "GASTO_MATERIAL = " & Gasto_Material & ", " &
+                              "GASTO_PERSONAL = " & Gasto_Personal & ", " &
+                              "GASTO_EXTERNO = " & Gasto_Externo & ", " &
+                              "Kilometraje = " & Kilometraje & ", " &
+                              "Descuento = " & Descuento & ", " &
+                              "CentroCosto = " & Centro & ", " &
+                              "Cabys = '" & Cabys & "', " &
+                              "Impuesto = " & Impuesto & ", " &
+                              "EXENTO = " & IIf(Exento, 1, 0) & " " &
                               "WHERE CODIGO_ARTICULO = '" & Codigo & "' AND EMPRESA = '" & EmpresaActual & "' AND Tipo = 'S' AND PC = '" & PC & "'"
 
             'Se asigna conexion al comando y se abre conexion 

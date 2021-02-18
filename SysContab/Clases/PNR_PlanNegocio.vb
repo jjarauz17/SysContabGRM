@@ -11,6 +11,17 @@ Public Class PNR_PlanNegocio
         End Set
     End Property
 
+    Dim vTipo As Integer
+
+    Public Property Tipo() As Integer
+        Get
+            Return vTipo
+        End Get
+        Set(ByVal value As Integer)
+            vTipo = value
+        End Set
+    End Property
+
     Dim vCodigo As String
 
     Public Property Codigo() As String

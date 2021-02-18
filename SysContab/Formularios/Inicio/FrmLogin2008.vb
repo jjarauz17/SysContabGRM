@@ -34,7 +34,10 @@ Public Class FrmLogin2008
             'Usr_Rol = UserDetails.Role
             ' Dim dt As DataTable = ObtieneDatos("select * from Usuarios u WHERE u.Usr_Login = '" & txtlogin.Text & "' and u.Usr_Password = '" & txtpassword.Text & "'")
 
-            Dim DT As DataTable = VB.SysContab.SeguridadDB.GetLogin(txtlogin.Text, txtpassword.Text)
+            Dim DT As DataTable =
+                VB.SysContab.SeguridadDB.GetLogin(
+                txtlogin.Text,
+                txtpassword.Text)
 
             If DT.Rows.Count > 0 Then
 
@@ -160,7 +163,8 @@ Public Class FrmLogin2008
     End Sub
 
     Private Sub FrmLogin2008_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        CerrarProceso()
+        Process.GetCurrentProcess().Kill()
+        'CerrarProceso()
     End Sub
 
     Private Sub FrmLogin2008_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

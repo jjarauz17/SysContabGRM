@@ -712,7 +712,7 @@ Public Class frmActivos
             Registro = "Vacio"
         End If
 
-        FormatoGrid(Me.VActivos)
+        FormatoGrid(VActivos)
     End Sub
 
     Private Sub cmdNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdNuevo.Click

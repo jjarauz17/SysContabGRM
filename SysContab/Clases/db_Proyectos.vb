@@ -17,7 +17,7 @@ Public Class db_Proyectos
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Function Insertar(ByVal Proyectos As Proyectos, Optional Tran As Boolean = False) As Integer
-        Dim ObjParameter(22) As String
+        Dim ObjParameter(24) As String
         ObjParameter(0) = Proyectos.IdProyecto
         ObjParameter(1) = Proyectos.Numero
         ObjParameter(2) = EmpresaActual
@@ -40,6 +40,8 @@ Public Class db_Proyectos
         ObjParameter(19) = Proyectos.IdCentro
         ObjParameter(20) = Proyectos.CodigoServicio
         ObjParameter(21) = Proyectos.Precio
+        ObjParameter(22) = Proyectos.CABYS
+        ObjParameter(23) = Proyectos.Impuesto
 
         Try
             Me.InicializarMensajeError()
@@ -70,7 +72,7 @@ Public Class db_Proyectos
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Actualizar(ByVal Proyectos As Proyectos, Optional Tran As Boolean = False)
-        Dim ObjParameter(22) As String
+        Dim ObjParameter(24) As String
         ObjParameter(0) = Proyectos.IdProyecto
         ObjParameter(1) = Proyectos.Numero
         ObjParameter(2) = EmpresaActual
@@ -93,6 +95,8 @@ Public Class db_Proyectos
         ObjParameter(19) = Proyectos.IdCentro
         ObjParameter(20) = Proyectos.CodigoServicio
         ObjParameter(21) = Proyectos.Precio
+        ObjParameter(22) = Proyectos.CABYS
+        ObjParameter(23) = Proyectos.Impuesto
 
         Try
             Me.InicializarMensajeError()
@@ -184,10 +188,15 @@ Public Class db_Proyectos
 
     Public Shared Function ReporteImprimir(Desde As Date, Hasta As Date) As Data.DataTable
 
-        Return ObtieneDatos("sp_ProyectosReporteImpreso",
-                            Desde,
-                            Hasta,
-                            EmpresaActual)
+        'Return ObtieneDatos("sp_ProyectosReporteImpreso",
+        '                    Desde,
+        '                    Hasta,
+        '                    EmpresaActual)
+
+        Return ObtieneDatos("sp_ProyectosReporte",
+                          Desde,
+                          Hasta,
+                          EmpresaActual)
 
     End Function
 
@@ -295,6 +304,8 @@ Public Class db_Proyectos
                 det.Descripcion = .Item("Descripcion")
                 det.Estado = .Item("Estado")
                 det.Precio = .Item("Precio")
+                det.CABYS = .Item("CABYS")
+                det.Impuesto = .Item("Impuesto")
             End With
         End If
         Return det

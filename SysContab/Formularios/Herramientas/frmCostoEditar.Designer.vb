@@ -162,7 +162,7 @@ Partial Class frmCostoEditar
         '
         'bSalir
         '
-        Me.bSalir.Image = Global.SysContab.My.Resources.Resources._115
+        Me.bSalir.ImageOptions.Image = Global.SysContab.My.Resources.Resources._115
         Me.bSalir.Location = New System.Drawing.Point(779, 412)
         Me.bSalir.Name = "bSalir"
         Me.bSalir.Size = New System.Drawing.Size(93, 38)
@@ -172,7 +172,7 @@ Partial Class frmCostoEditar
         '
         'bGuardar
         '
-        Me.bGuardar.Image = Global.SysContab.My.Resources.Resources.RibbonPrintPreview_SaveLarge
+        Me.bGuardar.ImageOptions.Image = Global.SysContab.My.Resources.Resources.RibbonPrintPreview_SaveLarge
         Me.bGuardar.Location = New System.Drawing.Point(683, 412)
         Me.bGuardar.Name = "bGuardar"
         Me.bGuardar.Size = New System.Drawing.Size(92, 38)
@@ -220,7 +220,6 @@ Partial Class frmCostoEditar
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem7, Me.EmptySpaceItem2, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(884, 462)
         Me.LayoutControlGroup1.TextVisible = False
@@ -353,7 +352,7 @@ Partial Class frmCostoEditar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(884, 462)
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("frmCostoEditar.IconOptions.Icon"), System.Drawing.Icon)
         Me.Name = "frmCostoEditar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "*** EDITAR DETALLE DEL MOVIMIENTO"

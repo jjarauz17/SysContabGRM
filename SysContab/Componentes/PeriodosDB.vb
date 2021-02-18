@@ -314,7 +314,7 @@ Namespace VB.SysContab
         End Function
 
 
-        Public Shared Function Activo(ByVal Fecha As Date) As String
+        Public Shared Function Activo(ByVal Fecha As Date) As Integer
 
             Dim DBConn As SqlConnection
             Dim DBCommand As SqlDataAdapter
@@ -348,7 +348,7 @@ Namespace VB.SysContab
             If _Valor.Value.ToString = "" Or _Valor.Value Is DBNull.Value Then
                 Return 0
             Else
-                Return _Valor.Value.ToString
+                Return _Valor.Value
             End If
 
         End Function

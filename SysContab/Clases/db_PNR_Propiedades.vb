@@ -99,7 +99,7 @@ Public Class db_PNR_Propiedades
 
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Listar(ByVal Id As String, IdCliente As Integer, Periodo As Integer) As Data.DataTable
+    Public Shared Function Listar(Id As Integer, IdCliente As Integer, Periodo As Integer) As Data.DataTable
         Return ObtieneDatos("sp_sel_PNR_Propiedades", Id, IdCliente, EmpresaActual, Periodo)
     End Function
 
@@ -140,7 +140,7 @@ Public Class db_PNR_Propiedades
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Shared Function Detalles(ByVal Id As String, IdCliente As Integer, Periodo As Integer) As PNR_Propiedades
-        Dim dt As DataTable = Listar(Id, IdCliente, Periodo)
+        Dim dt As DataTable = ObtieneDatos("sp_sel_PNR_Propiedades", Id, IdCliente, EmpresaActual, Periodo)
         Dim det As New PNR_Propiedades
 
         If dt.Rows.Count > 0 Then

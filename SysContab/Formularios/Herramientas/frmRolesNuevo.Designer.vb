@@ -47,6 +47,7 @@ Partial Class frmRolesNuevo
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         CType(Me.txtNombre.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -70,6 +71,7 @@ Partial Class frmRolesNuevo
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtNombre
@@ -85,6 +87,7 @@ Partial Class frmRolesNuevo
         Me.txtNombre.Size = New System.Drawing.Size(565, 22)
         Me.txtNombre.StyleController = Me.LayoutControl1
         Me.txtNombre.TabIndex = 0
+        Me.txtNombre.Tag = "True"
         '
         'LayoutControl1
         '
@@ -116,9 +119,8 @@ Partial Class frmRolesNuevo
         Me.TreeListExportar.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.TreeListExportar.ColumnPanelRowHeight = 25
         Me.TreeListExportar.Location = New System.Drawing.Point(12, 358)
-        Me.TreeListExportar.LookAndFeel.SkinName = "Blue"
         Me.TreeListExportar.Name = "TreeListExportar"
-        Me.TreeListExportar.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Standard
+        Me.TreeListExportar.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.ParentsMatch
         Me.TreeListExportar.OptionsFind.AlwaysVisible = True
         Me.TreeListExportar.OptionsFind.FindMode = DevExpress.XtraTreeList.FindMode.Always
         Me.TreeListExportar.OptionsFind.ShowClearButton = False
@@ -131,7 +133,7 @@ Partial Class frmRolesNuevo
         '
         'bContraer
         '
-        Me.bContraer.Image = CType(resources.GetObject("bContraer.Image"), System.Drawing.Image)
+        Me.bContraer.ImageOptions.Image = CType(resources.GetObject("bContraer.ImageOptions.Image"), System.Drawing.Image)
         Me.bContraer.Location = New System.Drawing.Point(426, 97)
         Me.bContraer.Name = "bContraer"
         Me.bContraer.Size = New System.Drawing.Size(106, 22)
@@ -141,7 +143,7 @@ Partial Class frmRolesNuevo
         '
         'bExportar
         '
-        Me.bExportar.Image = CType(resources.GetObject("bExportar.Image"), System.Drawing.Image)
+        Me.bExportar.ImageOptions.Image = CType(resources.GetObject("bExportar.ImageOptions.Image"), System.Drawing.Image)
         Me.bExportar.Location = New System.Drawing.Point(536, 97)
         Me.bExportar.Name = "bExportar"
         Me.bExportar.Size = New System.Drawing.Size(104, 22)
@@ -160,10 +162,11 @@ Partial Class frmRolesNuevo
         Me.txtDescrip.Size = New System.Drawing.Size(565, 55)
         Me.txtDescrip.StyleController = Me.LayoutControl1
         Me.txtDescrip.TabIndex = 1
+        Me.txtDescrip.Tag = "True"
         '
         'btnExpandir
         '
-        Me.btnExpandir.Image = CType(resources.GetObject("btnExpandir.Image"), System.Drawing.Image)
+        Me.btnExpandir.ImageOptions.Image = CType(resources.GetObject("btnExpandir.ImageOptions.Image"), System.Drawing.Image)
         Me.btnExpandir.Location = New System.Drawing.Point(315, 97)
         Me.btnExpandir.Name = "btnExpandir"
         Me.btnExpandir.Size = New System.Drawing.Size(107, 22)
@@ -183,9 +186,8 @@ Partial Class frmRolesNuevo
         Me.TreeRoles.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.TreeRoles.ColumnPanelRowHeight = 25
         Me.TreeRoles.Location = New System.Drawing.Point(12, 123)
-        Me.TreeRoles.LookAndFeel.SkinName = "Blue"
         Me.TreeRoles.Name = "TreeRoles"
-        Me.TreeRoles.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Standard
+        Me.TreeRoles.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.ParentsMatch
         Me.TreeRoles.OptionsFind.AlwaysVisible = True
         Me.TreeRoles.OptionsFind.FindMode = DevExpress.XtraTreeList.FindMode.Always
         Me.TreeRoles.OptionsFind.ShowClearButton = False
@@ -202,7 +204,6 @@ Partial Class frmRolesNuevo
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.EmptySpaceItem1, Me.LayoutControlItem8, Me.LayoutControlItem9})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(652, 570)
         Me.LayoutControlGroup1.TextVisible = False
@@ -303,10 +304,10 @@ Partial Class frmRolesNuevo
         'btnExit
         '
         Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExit.Image = CType(resources.GetObject("btnExit.Image"), System.Drawing.Image)
-        Me.btnExit.Location = New System.Drawing.Point(12, 54)
+        Me.btnExit.ImageOptions.Image = CType(resources.GetObject("btnExit.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnExit.Location = New System.Drawing.Point(12, 52)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(108, 38)
+        Me.btnExit.Size = New System.Drawing.Size(109, 36)
         Me.btnExit.StyleController = Me.LayoutControl2
         Me.btnExit.TabIndex = 1
         Me.btnExit.Text = "Salir"
@@ -319,17 +320,17 @@ Partial Class frmRolesNuevo
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(132, 543)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 541)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'btnNew
         '
         Me.btnNew.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnNew.Image = CType(resources.GetObject("btnNew.Image"), System.Drawing.Image)
+        Me.btnNew.ImageOptions.Image = CType(resources.GetObject("btnNew.ImageOptions.Image"), System.Drawing.Image)
         Me.btnNew.Location = New System.Drawing.Point(12, 12)
         Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(108, 38)
+        Me.btnNew.Size = New System.Drawing.Size(109, 36)
         Me.btnNew.StyleController = Me.LayoutControl2
         Me.btnNew.TabIndex = 0
         Me.btnNew.Text = "&Guardar"
@@ -340,9 +341,8 @@ Partial Class frmRolesNuevo
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem5})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(132, 543)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 541)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem4
@@ -351,7 +351,7 @@ Partial Class frmRolesNuevo
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -359,9 +359,9 @@ Partial Class frmRolesNuevo
         '
         Me.LayoutControlItem5.Control = Me.btnExit
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(112, 481)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(113, 481)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
@@ -378,6 +378,7 @@ Partial Class frmRolesNuevo
         Me.DockPanel1.ID = New System.Guid("c54b3759-3b6d-42bb-83f0-76867ea445df")
         Me.DockPanel1.Location = New System.Drawing.Point(652, 0)
         Me.DockPanel1.Name = "DockPanel1"
+        Me.DockPanel1.Options.ShowCloseButton = False
         Me.DockPanel1.OriginalSize = New System.Drawing.Size(140, 200)
         Me.DockPanel1.Size = New System.Drawing.Size(140, 570)
         Me.DockPanel1.Text = "Opciones"
@@ -385,9 +386,9 @@ Partial Class frmRolesNuevo
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(132, 543)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 541)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmRolesNuevo
@@ -423,6 +424,7 @@ Partial Class frmRolesNuevo
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -452,4 +454,5 @@ Partial Class frmRolesNuevo
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents TreeListExportar As DevExpress.XtraTreeList.TreeList
     Friend WithEvents LayoutControlItem9 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents DxValidationProvider1 As DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider
 End Class

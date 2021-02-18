@@ -1,3 +1,5 @@
+Imports DevExpress.XtraGrid.Columns
+
 Public Class frmMovimientos
     Inherits DevExpress.XtraEditors.XtraForm
     Private Shared ChildInstance As frmMovimientos = Nothing
@@ -48,7 +50,6 @@ Public Class frmMovimientos
     Friend WithEvents cmdAnular As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
-    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
@@ -56,36 +57,35 @@ Public Class frmMovimientos
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents chkFiltro As DevExpress.XtraEditors.CheckEdit
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMovimientos))
         Me.dgMovimientos = New DevExpress.XtraGrid.GridControl()
         Me.vMovimientos = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.cmdAnular = New DevExpress.XtraEditors.SimpleButton()
+        Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.cmdSalir = New DevExpress.XtraEditors.SimpleButton()
         Me.cmdContabilizar = New DevExpress.XtraEditors.SimpleButton()
         Me.cmdVerDetalle = New DevExpress.XtraEditors.SimpleButton()
-        Me.chkFiltro = New DevExpress.XtraEditors.CheckEdit()
-        Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.CheckEdit1 = New DevExpress.XtraEditors.CheckEdit()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.dgMovimientos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vMovimientos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.chkFiltro.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,6 +93,8 @@ Public Class frmMovimientos
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgMovimientos
@@ -100,10 +102,10 @@ Public Class frmMovimientos
         Me.dgMovimientos.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgMovimientos.Location = New System.Drawing.Point(12, 35)
+        Me.dgMovimientos.Location = New System.Drawing.Point(12, 36)
         Me.dgMovimientos.MainView = Me.vMovimientos
         Me.dgMovimientos.Name = "dgMovimientos"
-        Me.dgMovimientos.Size = New System.Drawing.Size(651, 209)
+        Me.dgMovimientos.Size = New System.Drawing.Size(651, 208)
         Me.dgMovimientos.TabIndex = 0
         Me.dgMovimientos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vMovimientos})
         '
@@ -137,6 +139,36 @@ Public Class frmMovimientos
         Me.cmdAnular.StyleController = Me.LayoutControl1
         Me.cmdAnular.TabIndex = 3
         Me.cmdAnular.Text = "&Anular"
+        '
+        'LayoutControl1
+        '
+        Me.LayoutControl1.Controls.Add(Me.CheckEdit1)
+        Me.LayoutControl1.Controls.Add(Me.SimpleButton1)
+        Me.LayoutControl1.Controls.Add(Me.cmdSalir)
+        Me.LayoutControl1.Controls.Add(Me.cmdAnular)
+        Me.LayoutControl1.Controls.Add(Me.cmdContabilizar)
+        Me.LayoutControl1.Controls.Add(Me.dgMovimientos)
+        Me.LayoutControl1.Controls.Add(Me.cmdVerDetalle)
+        Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControl1.Name = "LayoutControl1"
+        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(2828, 206, 450, 400)
+        Me.LayoutControl1.Root = Me.LayoutControlGroup1
+        Me.LayoutControl1.Size = New System.Drawing.Size(675, 298)
+        Me.LayoutControl1.TabIndex = 22
+        Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight
+        Me.SimpleButton1.Location = New System.Drawing.Point(466, 248)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(99, 38)
+        Me.SimpleButton1.StyleController = Me.LayoutControl1
+        Me.SimpleButton1.TabIndex = 23
+        Me.SimpleButton1.Text = "E&xportar"
         '
         'cmdSalir
         '
@@ -172,58 +204,21 @@ Public Class frmMovimientos
         Me.cmdVerDetalle.TabIndex = 0
         Me.cmdVerDetalle.Text = "&Detalle"
         '
-        'chkFiltro
-        '
-        Me.chkFiltro.Location = New System.Drawing.Point(12, 12)
-        Me.chkFiltro.Name = "chkFiltro"
-        Me.chkFiltro.Properties.Caption = "Mostrar Todo"
-        Me.chkFiltro.Size = New System.Drawing.Size(651, 19)
-        Me.chkFiltro.StyleController = Me.LayoutControl1
-        Me.chkFiltro.TabIndex = 21
-        '
-        'LayoutControl1
-        '
-        Me.LayoutControl1.Controls.Add(Me.SimpleButton1)
-        Me.LayoutControl1.Controls.Add(Me.cmdSalir)
-        Me.LayoutControl1.Controls.Add(Me.cmdAnular)
-        Me.LayoutControl1.Controls.Add(Me.chkFiltro)
-        Me.LayoutControl1.Controls.Add(Me.cmdContabilizar)
-        Me.LayoutControl1.Controls.Add(Me.dgMovimientos)
-        Me.LayoutControl1.Controls.Add(Me.cmdVerDetalle)
-        Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControl1.Name = "LayoutControl1"
-        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(2828, 206, 450, 400)
-        Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(675, 298)
-        Me.LayoutControl1.TabIndex = 22
-        Me.LayoutControl1.Text = "LayoutControl1"
-        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.LayoutControlItem7})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.LayoutControlItem7, Me.LayoutControlItem1})
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(675, 298)
         Me.LayoutControlGroup1.TextVisible = False
         '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.chkFiltro
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(655, 23)
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem1.TextVisible = False
-        '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.dgMovimientos
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 23)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(655, 213)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(655, 212)
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
@@ -283,18 +278,6 @@ Public Class frmMovimientos
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(143, 42)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
-        'SimpleButton1
-        '
-        Me.SimpleButton1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleRight
-        Me.SimpleButton1.Location = New System.Drawing.Point(466, 248)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(99, 38)
-        Me.SimpleButton1.StyleController = Me.LayoutControl1
-        Me.SimpleButton1.TabIndex = 23
-        Me.SimpleButton1.Text = "E&xportar"
-        '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.SimpleButton1
@@ -307,21 +290,38 @@ Public Class frmMovimientos
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
         '
+        'CheckEdit1
+        '
+        Me.CheckEdit1.Location = New System.Drawing.Point(12, 12)
+        Me.CheckEdit1.Name = "CheckEdit1"
+        Me.CheckEdit1.Properties.Caption = "Mostrar Todos"
+        Me.CheckEdit1.Size = New System.Drawing.Size(651, 20)
+        Me.CheckEdit1.StyleController = Me.LayoutControl1
+        Me.CheckEdit1.TabIndex = 24
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.CheckEdit1
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(655, 24)
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem1.TextVisible = False
+        '
         'frmMovimientos
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.ClientSize = New System.Drawing.Size(675, 298)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.KeyPreview = True
         Me.Name = "frmMovimientos"
         Me.Text = "Listado de Movimientos Pendientes de Contabilizar"
         CType(Me.dgMovimientos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vMovimientos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.chkFiltro.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -329,6 +329,8 @@ Public Class frmMovimientos
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CheckEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -348,12 +350,18 @@ Public Class frmMovimientos
 
     Private Sub frmMovimientos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Cargar()
+        '
+        Dim columnCustomer As GridColumn = vMovimientos.Columns("Anulado")
+        columnCustomer.FilterInfo = New ColumnFilterInfo("[Anulado] = 'False'")
     End Sub
     Public Sub Cargar()
         Me.dgMovimientos.DataSource = VB.SysContab.Activo_FijosDB.GetMovimientos("%", "0")
+        FormatoGridNew(vMovimientos, 2, 1, False)
+        '
         Me.vMovimientos.Columns("Tipo").Visible = False
+
+        'Me.vMovimientos.Columns("Anulado").FilterInfo = Filtro       
         Me.vMovimientos.BestFitColumns()
-        Me.vMovimientos.Columns("Anulado").FilterInfo = Filtro
     End Sub
 
     Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
@@ -374,11 +382,11 @@ Public Class frmMovimientos
         Me.Cargar()
     End Sub
 
-    Private Sub chkFiltro_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkFiltro.CheckedChanged
-        If Me.chkFiltro.Checked Then
-            Me.vMovimientos.Columns("Anulado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "")
-        Else : Me.vMovimientos.Columns("Anulado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "[Anulado] = 0")
-        End If
+    Private Sub chkFiltro_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        'If Me.chkFiltro.Checked Then
+        '    Me.vMovimientos.Columns("Anulado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "")
+        'Else : Me.vMovimientos.Columns("Anulado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "[Anulado] = 0")
+        'End If
     End Sub
 
     Private Sub cmdContabilizar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdContabilizar.Click
@@ -404,13 +412,23 @@ Public Class frmMovimientos
         f.ShowDialog()
     End Sub
 
-    Private Sub frmMovimientos_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyUp
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        frmExportarImprimir.Mostrar(dgMovimientos, Me.Text)
+    End Sub
+
+    Private Sub frmMovimientos_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.F5 Then
             Me.Cargar()
         End If
     End Sub
 
-    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        frmExportarImprimir.Mostrar(dgMovimientos, Me.Text)
+    Private Sub CheckEdit1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit1.CheckedChanged
+
+        If CheckEdit1.Checked Then
+            vMovimientos.Columns("Anulado").FilterInfo = New ColumnFilterInfo(ColumnFilterType.Custom, "")
+        Else
+            vMovimientos.Columns("Anulado").FilterInfo = New ColumnFilterInfo(ColumnFilterType.Custom, "[Anulado] = 'False'")
+        End If
+
     End Sub
 End Class

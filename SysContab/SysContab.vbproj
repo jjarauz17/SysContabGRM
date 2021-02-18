@@ -34,9 +34,9 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>\\192.168.0.2\simtesis\Publish\Syscontabv3\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
+    <InstallFrom>Unc</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
@@ -53,13 +53,13 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>232</ApplicationRevision>
+    <ApplicationRevision>260</ApplicationRevision>
     <ApplicationVersion>4.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <BootstrapperComponentsUrl>\\192.168.0.2\simtesis\fx</BootstrapperComponentsUrl>
+    <BootstrapperComponentsUrl>http://facturaelectronica.equipsa.net/fx/NDP462-KB3151800-x86-x64-AllOS-ENU.exe</BootstrapperComponentsUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -574,6 +574,30 @@
     <Compile Include="Formularios\Clientes\Anticipos\frmAsociarAnticipo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmArregloPago.Designer.vb">
+      <DependentUpon>frmArregloPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmArregloPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmFacturacionCuotas.Designer.vb">
+      <DependentUpon>frmFacturacionCuotas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmFacturacionCuotas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmFacturasCuotasAdd.Designer.vb">
+      <DependentUpon>frmFacturasCuotasAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmFacturasCuotasAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmFacturasCuotasVer.Designer.vb">
+      <DependentUpon>frmFacturasCuotasVer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\AP\frmFacturasCuotasVer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Clientes\frmClientesLetras.Designer.vb">
       <DependentUpon>frmClientesLetras.vb</DependentUpon>
     </Compile>
@@ -598,10 +622,22 @@
     <Compile Include="Formularios\Clientes\frmDatosDevolucionCR.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Clientes\frmFacturaAnulacionGT.Designer.vb">
+      <DependentUpon>frmFacturaAnulacionGT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmFacturaAnulacionGT.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Clientes\frmFacturaElectronicaTipo.Designer.vb">
       <DependentUpon>frmFacturaElectronicaTipo.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Clientes\frmFacturaElectronicaTipo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmFacturaElectronicaTipoGT.Designer.vb">
+      <DependentUpon>frmFacturaElectronicaTipoGT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmFacturaElectronicaTipoGT.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Clientes\frmFacturasVentasEditar.Designer.vb">
@@ -614,6 +650,12 @@
       <DependentUpon>frmMotivoRechazo.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Clientes\frmMotivoRechazo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmNotaCreditoGT.Designer.vb">
+      <DependentUpon>frmNotaCreditoGT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\frmNotaCreditoGT.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Clientes\frmNotasTipo.Designer.vb">
@@ -640,10 +682,10 @@
     <Compile Include="Formularios\Clientes\OrdenEntrega\frmOrdenesEntregaAdd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Clientes\frmArregloPagoAdd.Designer.vb">
+    <Compile Include="Formularios\Clientes\AP\frmArregloPagoAdd.Designer.vb">
       <DependentUpon>frmArregloPagoAdd.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Clientes\frmArregloPagoAdd.vb">
+    <Compile Include="Formularios\Clientes\AP\frmArregloPagoAdd.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Clientes\frmBancosCK.Designer.vb">
@@ -838,10 +880,46 @@
     <Compile Include="Formularios\Clientes\rptLetraCambio.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Formularios\Cobranza\frmBitacoraAprobaciones.Designer.vb">
+      <DependentUpon>frmBitacoraAprobaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmBitacoraAprobaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmBitacoraEnvioEC.Designer.vb">
+      <DependentUpon>frmBitacoraEnvioEC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmBitacoraEnvioEC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Cobranza\frmListaNegra.Designer.vb">
       <DependentUpon>frmListaNegra.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Cobranza\frmListaNegra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmListaNegraAdd.Designer.vb">
+      <DependentUpon>frmListaNegraAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmListaNegraAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmListaNegraValidar.Designer.vb">
+      <DependentUpon>frmListaNegraValidar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmListaNegraValidar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmSeguimientoAdd.Designer.vb">
+      <DependentUpon>frmSeguimientoAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmSeguimientoAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmSeguimientoCobranza.Designer.vb">
+      <DependentUpon>frmSeguimientoCobranza.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Cobranza\frmSeguimientoCobranza.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\EFF\frmEstadoResultadoNew.Designer.vb">
@@ -886,10 +964,118 @@
     <Compile Include="Formularios\Inicio\frmExportToFtp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Inicio\frmPrincipalRibbon.Designer.vb">
+      <DependentUpon>frmPrincipalRibbon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Inicio\frmPrincipalRibbon.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Inicio\XtraForm2.Designer.vb">
       <DependentUpon>XtraForm2.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Inicio\XtraForm2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioList.Designer.vb">
+      <DependentUpon>frmPlanNegocioList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNew.Designer.vb">
+      <DependentUpon>frmPlanNegocioNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNewAdd.Designer.vb">
+      <DependentUpon>frmPlanNegocioNewAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNewAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNewConsolidado.Designer.vb">
+      <DependentUpon>frmPlanNegocioNewConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNewConsolidado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNewVer.Designer.vb">
+      <DependentUpon>frmPlanNegocioNewVer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\PNR\frmPlanNegocioNewVer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoAdd.Designer.vb">
+      <DependentUpon>frmPresupuestoAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoConsolidado.Designer.vb">
+      <DependentUpon>frmPresupuestoConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoConsolidado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoGastoVer.Designer.vb">
+      <DependentUpon>frmPresupuestoGastoVer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoGastoVer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoVer.Designer.vb">
+      <DependentUpon>frmPresupuestoVer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\frmPresupuestoVer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FormActualizarGastosReales.Designer.vb">
+      <DependentUpon>FormActualizarGastosReales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FormActualizarGastosReales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FormDetalleCuenta.Designer.vb">
+      <DependentUpon>FormDetalleCuenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FormDetalleCuenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FormQuickField.Designer.vb">
+      <DependentUpon>FormQuickField.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FormQuickField.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\frmPresupuestoGastosConsolidado.Designer.vb">
+      <DependentUpon>frmPresupuestoGastosConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\frmPresupuestoGastosConsolidado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FrmReportDiferente.Designer.vb">
+      <DependentUpon>FrmReportDiferente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\FrmReportDiferente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\PresuGastoResumen.Designer.vb">
+      <DependentUpon>PresuGastoResumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\PresuGastoResumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\PresuGastosAdd.Designer.vb">
+      <DependentUpon>PresuGastosAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\PresuGastosAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\PresuGastosDetalle.Designer.vb">
+      <DependentUpon>PresuGastosDetalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presupuesto\Gastos\PresuGastosDetalle.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Procesos\frmHacerComprobantes.vb">
@@ -925,10 +1111,25 @@
     <Compile Include="Formularios\Proveedores\frmFormatoRetenciones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Proveedores\FrmNotasCreditoProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\Proveedores\frmOrdenCompraToOP.Designer.vb">
       <DependentUpon>frmOrdenCompraToOP.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Proveedores\frmOrdenCompraToOP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proveedores\frmReporteAuxiliarMercaderiaTransito.Designer.vb">
+      <DependentUpon>frmReporteAuxiliarMercaderiaTransito.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Proveedores\frmReporteAuxiliarMercaderiaTransito.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Registros\Productos_Inventarios\frmCatalogoCABYS.Designer.vb">
+      <DependentUpon>frmCatalogoCABYS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Registros\Productos_Inventarios\frmCatalogoCABYS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Registros\Productos_Inventarios\frmRequisasImprimirEtiquetas.Designer.vb">
@@ -1154,12 +1355,6 @@
       <DependentUpon>frmAnularChequeProcesado.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Bancos\frmAnularChequeProcesado.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Clientes\frmArregloPago.Designer.vb">
-      <DependentUpon>frmArregloPago.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Clientes\frmArregloPago.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Clientes\frmCondicionesVenta.Designer.vb">
@@ -1412,12 +1607,6 @@
     <Compile Include="Formularios\PNR\frmPlanNegocio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\PNR\frmPlanNegocioList.Designer.vb">
-      <DependentUpon>frmPlanNegocioList.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\PNR\frmPlanNegocioList.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\PNR\frmPlanNegocioPivot.Designer.vb">
       <DependentUpon>frmPlanNegocioPivot.vb</DependentUpon>
     </Compile>
@@ -1484,28 +1673,10 @@
     <Compile Include="Formularios\PNR\rptReportePNR.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Formularios\Presupuesto\frmPresupuestoAdd.Designer.vb">
-      <DependentUpon>frmPresupuestoAdd.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Presupuesto\frmPresupuestoAdd.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Presupuesto\frmPresupuestoConsolidado.Designer.vb">
-      <DependentUpon>frmPresupuestoConsolidado.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Presupuesto\frmPresupuestoConsolidado.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\Presupuesto\frmPresupuestoNew.Designer.vb">
       <DependentUpon>frmPresupuestoNew.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Presupuesto\frmPresupuestoNew.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Presupuesto\frmPresupuestoVer.Designer.vb">
-      <DependentUpon>frmPresupuestoVer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Presupuesto\frmPresupuestoVer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Procesos\frmAjusteInventario.Designer.vb">
@@ -2093,7 +2264,6 @@
     <Compile Include="Formularios\Registros\Productos_Inventarios\XtraForm1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Bolsa\DBTEMPXML.vb" />
     <Compile Include="Formularios\Reportes\Bolsa\frmBolsa.Designer.vb">
       <DependentUpon>frmBolsa.vb</DependentUpon>
     </Compile>
@@ -2106,8 +2276,6 @@
     <Compile Include="Formularios\Reportes\Bolsa\frmBolsaAdd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Reportes\Bolsa\TRANSACCIONES.vb" />
-    <Compile Include="Formularios\Reportes\Bolsa\XmlBolsa.vb" />
     <Compile Include="Formularios\Reportes\frmAntiguedadClientesPeriodo.Designer.vb">
       <DependentUpon>frmAntiguedadClientesPeriodo.vb</DependentUpon>
     </Compile>
@@ -2624,9 +2792,6 @@
     <Compile Include="Formularios\Proveedores\frmListaPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\Proveedores\FrmNotasCreditoProveedor.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Formularios\Proveedores\frmNotasProveedoresList.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -2926,12 +3091,6 @@
     </Compile>
     <Compile Include="DeveExpresrpt\rptDetalle_Amortizacion.vb">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Formularios\Inicio\frmPrincipalRibbon.Designer.vb">
-      <DependentUpon>frmPrincipalRibbon.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Inicio\frmPrincipalRibbon.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Herramientas\FrmUsuariosPass.Designer.vb">
       <DependentUpon>FrmUsuariosPass.vb</DependentUpon>
@@ -3320,6 +3479,7 @@
     <Compile Include="Formularios\Zoho\frmZohoConnect.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modulo\DistribucionGastos.vb" />
     <Compile Include="Modulo\funciones.vb" />
     <Compile Include="Modulo\Globales.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -3461,6 +3621,18 @@
     <EmbeddedResource Include="Formularios\Clientes\Anticipos\frmAsociarAnticipo.resx">
       <DependentUpon>frmAsociarAnticipo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\AP\frmArregloPago.resx">
+      <DependentUpon>frmArregloPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\AP\frmFacturacionCuotas.resx">
+      <DependentUpon>frmFacturacionCuotas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\AP\frmFacturasCuotasAdd.resx">
+      <DependentUpon>frmFacturasCuotasAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\AP\frmFacturasCuotasVer.resx">
+      <DependentUpon>frmFacturasCuotasVer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes\frmClientesLetras.resx">
       <DependentUpon>frmClientesLetras.vb</DependentUpon>
     </EmbeddedResource>
@@ -3473,14 +3645,23 @@
     <EmbeddedResource Include="Formularios\Clientes\frmDatosDevolucionCR.resx">
       <DependentUpon>frmDatosDevolucionCR.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\frmFacturaAnulacionGT.resx">
+      <DependentUpon>frmFacturaAnulacionGT.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes\frmFacturaElectronicaTipo.resx">
       <DependentUpon>frmFacturaElectronicaTipo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\frmFacturaElectronicaTipoGT.resx">
+      <DependentUpon>frmFacturaElectronicaTipoGT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes\frmFacturasVentasEditar.resx">
       <DependentUpon>frmFacturasVentasEditar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes\frmMotivoRechazo.resx">
       <DependentUpon>frmMotivoRechazo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\frmNotaCreditoGT.resx">
+      <DependentUpon>frmNotaCreditoGT.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes\frmNotasTipo.resx">
       <DependentUpon>frmNotasTipo.vb</DependentUpon>
@@ -3497,10 +3678,7 @@
     <EmbeddedResource Include="Formularios\Bancos\frmAnularChequeProcesado.resx">
       <DependentUpon>frmAnularChequeProcesado.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Clientes\frmArregloPago.resx">
-      <DependentUpon>frmArregloPago.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Clientes\frmArregloPagoAdd.resx">
+    <EmbeddedResource Include="Formularios\Clientes\AP\frmArregloPagoAdd.resx">
       <DependentUpon>frmArregloPagoAdd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes\frmBancosCK.resx">
@@ -3629,8 +3807,26 @@
     <EmbeddedResource Include="Formularios\Clientes\rptLetraCambio.resx">
       <DependentUpon>rptLetraCambio.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cobranza\frmBitacoraAprobaciones.resx">
+      <DependentUpon>frmBitacoraAprobaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cobranza\frmBitacoraEnvioEC.resx">
+      <DependentUpon>frmBitacoraEnvioEC.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Cobranza\frmListaNegra.resx">
       <DependentUpon>frmListaNegra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cobranza\frmListaNegraAdd.resx">
+      <DependentUpon>frmListaNegraAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cobranza\frmListaNegraValidar.resx">
+      <DependentUpon>frmListaNegraValidar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cobranza\frmSeguimientoAdd.resx">
+      <DependentUpon>frmSeguimientoAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Cobranza\frmSeguimientoCobranza.resx">
+      <DependentUpon>frmSeguimientoCobranza.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\EFF\frmEstadoResultadoNew.resx">
       <DependentUpon>frmEstadoResultadoNew.vb</DependentUpon>
@@ -3650,8 +3846,63 @@
     <EmbeddedResource Include="Formularios\Inicio\frmExportToFtp.resx">
       <DependentUpon>frmExportToFtp.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Inicio\frmPrincipalRibbon.resx">
+      <DependentUpon>frmPrincipalRibbon.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inicio\XtraForm2.resx">
       <DependentUpon>XtraForm2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PNR\frmPlanNegocioList.resx">
+      <DependentUpon>frmPlanNegocioList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PNR\frmPlanNegocioNew.resx">
+      <DependentUpon>frmPlanNegocioNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PNR\frmPlanNegocioNewAdd.resx">
+      <DependentUpon>frmPlanNegocioNewAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PNR\frmPlanNegocioNewConsolidado.resx">
+      <DependentUpon>frmPlanNegocioNewConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\PNR\frmPlanNegocioNewVer.resx">
+      <DependentUpon>frmPlanNegocioNewVer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoAdd.resx">
+      <DependentUpon>frmPresupuestoAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoConsolidado.resx">
+      <DependentUpon>frmPresupuestoConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoGastoVer.resx">
+      <DependentUpon>frmPresupuestoGastoVer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoVer.resx">
+      <DependentUpon>frmPresupuestoVer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\FormActualizarGastosReales.resx">
+      <DependentUpon>FormActualizarGastosReales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\FormDetalleCuenta.resx">
+      <DependentUpon>FormDetalleCuenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\FormQuickField.resx">
+      <DependentUpon>FormQuickField.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\frmPresupuestoGastosConsolidado.resx">
+      <DependentUpon>frmPresupuestoGastosConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\FrmReportDiferente.resx">
+      <DependentUpon>FrmReportDiferente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\PresuGastoResumen.resx">
+      <DependentUpon>PresuGastoResumen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\PresuGastosAdd.resx">
+      <DependentUpon>PresuGastosAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presupuesto\Gastos\PresuGastosDetalle.resx">
+      <DependentUpon>PresuGastosDetalle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Procesos\frmHacerComprobantes.resx">
       <DependentUpon>frmHacerComprobantes.vb</DependentUpon>
@@ -3662,6 +3913,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Proveedores\ATV\frmFacturaElectronicaCompra.resx">
       <DependentUpon>frmFacturaElectronicaCompra.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Proveedores\ATV\frmOrdenPagoNew.resx">
       <DependentUpon>frmOrdenPagoNew.vb</DependentUpon>
@@ -3672,8 +3924,18 @@
     <EmbeddedResource Include="Formularios\Proveedores\frmFormatoRetenciones.resx">
       <DependentUpon>frmFormatoRetenciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proveedores\frmNotasCreditoProveedor.resx">
+      <DependentUpon>FrmNotasCreditoProveedor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Proveedores\frmOrdenCompraToOP.resx">
       <DependentUpon>frmOrdenCompraToOP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proveedores\frmReporteAuxiliarMercaderiaTransito.resx">
+      <DependentUpon>frmReporteAuxiliarMercaderiaTransito.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Registros\Productos_Inventarios\frmCatalogoCABYS.resx">
+      <DependentUpon>frmCatalogoCABYS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Registros\Productos_Inventarios\frmRequisasImprimirEtiquetas.resx">
       <DependentUpon>frmRequisasImprimirEtiquetas.vb</DependentUpon>
@@ -3838,9 +4100,6 @@
     <EmbeddedResource Include="Formularios\PNR\frmPlanNegocio.resx">
       <DependentUpon>frmPlanNegocio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\PNR\frmPlanNegocioList.resx">
-      <DependentUpon>frmPlanNegocioList.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\PNR\frmPlanNegocioPivot.resx">
       <DependentUpon>frmPlanNegocioPivot.vb</DependentUpon>
     </EmbeddedResource>
@@ -3874,17 +4133,8 @@
     <EmbeddedResource Include="Formularios\PNR\rptReportePNR.resx">
       <DependentUpon>rptReportePNR.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoAdd.resx">
-      <DependentUpon>frmPresupuestoAdd.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoConsolidado.resx">
-      <DependentUpon>frmPresupuestoConsolidado.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoNew.resx">
       <DependentUpon>frmPresupuestoNew.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Presupuesto\frmPresupuestoVer.resx">
-      <DependentUpon>frmPresupuestoVer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Procesos\frmAjusteInventario.resx">
       <DependentUpon>frmAjusteInventario.vb</DependentUpon>
@@ -4808,10 +5058,6 @@
       <DependentUpon>frmListaPedidos.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Proveedores\frmNotasCreditoProveedor.resx">
-      <DependentUpon>FrmNotasCreditoProveedor.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Proveedores\frmNotasProveedoresList.resx">
       <DependentUpon>frmNotasProveedoresList.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -5162,10 +5408,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeveExpresrpt\rptDetalle_Amortizacion.resx">
       <DependentUpon>rptDetalle_Amortizacion.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Inicio\frmPrincipalRibbon.resx">
-      <DependentUpon>frmPrincipalRibbon.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Herramientas\FrmUsuariosPass.resx">
@@ -5623,6 +5865,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CABYS.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="graphics\Ribbon_Print\Thumbs.db" />
     <None Include="graphics\Ribbon_User\Thumbs.db" />
     <None Include="graphics\Varius\Thumbs.db" />
@@ -5687,6 +5932,7 @@
     <Content Include="graphics\AgDataGrid.png" />
     <Content Include="graphics\AgLayoutControl.png" />
     <Content Include="graphics\AgMenu.png" />
+    <Content Include="graphics\agroplat.png" />
     <Content Include="graphics\AJAX.png" />
     <Content Include="graphics\alertpaybutton.jpg" />
     <Content Include="graphics\AllInOne.png" />
@@ -5828,8 +6074,10 @@
     <Content Include="graphics\light_green.png" />
     <Content Include="graphics\light_red.png" />
     <Content Include="graphics\light_yellow.png" />
+    <None Include="graphics\listanegra.png" />
     <Content Include="graphics\loading.gif" />
     <Content Include="graphics\Logo.jpg" />
+    <Content Include="graphics\logo_isabella.png" />
     <Content Include="graphics\Mail.png" />
     <Content Include="graphics\Mecno-5.png" />
     <Content Include="graphics\Menu.png" />
@@ -6588,1689 +6836,1699 @@
   <ItemGroup>
     <PublishFile Include="ADODB">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="BouncyCastle.Crypto">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="BusinessObjects.Enterprise.Sdk">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="BusinessObjects.Licensing.KeycodeDecoder">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.CrystalReports.Engine">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Enterprise.Desktop.Report">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Enterprise.Framework">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Enterprise.InfoStore">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Enterprise.PluginManager">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Enterprise.Viewing.ReportSource">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.KeyCode">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.ClientDoc">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.CommLayer">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.CommonControls">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.CommonObjectModel">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.Controllers">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.CubeDefModel">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.DataDefModel">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.DataSetConversion">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.ObjectFactory">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.Prompting">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.ReportDefModel">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportAppServer.XmlSerialize">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.ReportSource">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Shared">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Web">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="CrystalDecisions.Windows.Forms">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Data.v19.2.xml">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Images.v19.2">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.OfficeSkins.v19.2">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.Reports.v19.2.Designer">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraPivotGrid.v19.2.Core">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="DevExpress.XtraRichEdit.v19.2.Extensions">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Entities">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1122740698.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\11240282452055483059.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\114_25x25.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\114_32x32.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\115_25x25.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\115_32x32.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1210986991430451292.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1217742485.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1240193881.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\139.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1405801692.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1407612611.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\148894307.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\149169092814254399.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1504876788.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1653069209.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1677766357.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\16944570081333443355.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1699257070.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1780993424.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1799472548.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1800101156.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1819845657.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1914383588.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\1998582457807231459.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\2040610452.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\2082749552.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\390273292.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\3953-68670.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\4841823111863922470.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\491639510.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\543120981.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\6796-wagner51-WinSCP.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\85.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\911332182.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\92.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\976286929.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Abonos_pendiente.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ac.jpg">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\activate.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ActiveX.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\AdvancedDesign.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\AgCharts.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\AgDataGrid.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\AgLayoutControl.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\AgMenu.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="graphics\agroplat.png">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\AJAX.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\alertpaybutton.jpg">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\AllInOne.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Ampoule.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ampouleoff_micka_divers.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\antispam.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\anulado.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Appearance.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\aseso.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxCloudControl.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxDataView.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxEditors.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxGridView.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxHTMLEditor.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxMenu.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxNavBar.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxNewsControl.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxperience.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxPivotGrid.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxPopupControl.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxScheduler.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxSiteMapControl.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxSpellChecker.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxTabControl.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxTitleIndex.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxTreeList.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ASPxUtilities.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\as_train.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\atras.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Automatic-and-Manual.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\A_Delete_Md_N.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\badmail.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\balance_la-fouine_suite.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\banner_oficial.jpg">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\banner_simtesis.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\barra.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Basic2DSeries.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Basket.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Binding.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\BO_Notes_Large.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\BO_Organizations_Large.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\BO_Persons_Large.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\BO_Reports_Large.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\BO_Tasks_Large.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\BO_Users.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\BO_Users_Large.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\bundle_256.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\buylicense.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\calendario de pago.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\calendar_tpdk-casimir_software.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\casa.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\cf32.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\cfX.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Check.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ClientSide.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\ClientSideEvent.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\CloudControl.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Coderush.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\contactos.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\contactos8.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\contratos.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Cookies.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\cotizacion.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\creditcard_tpdk-casimir_divers.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\creditos.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\CrossBrowser.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Customer.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Customizable-Value.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\dafault.gif">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\danger32.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\Data-Filtering.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\dcusa.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\default.gif">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\demo.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\dinero.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\DINERO1.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\DINERO2.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\DINERO_MA3.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\DINERO_MA4.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\DINERO_MA5.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="graphics\DINERO_MAS2.png">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="log4net">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.Common">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.WinForms">
       <Visible>False</Visible>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="SysContab.XmlSerializers">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="xml\logoempresa.xml">
       <Visible>False</Visible>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 y x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -8339,6 +8597,10 @@
     <ProjectReference Include="..\HaciendaApi\HaciendaApi.csproj">
       <Project>{71b93ebd-cce9-4849-bf73-aaf60f439085}</Project>
       <Name>HaciendaApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaciendaGT\HaciendaGT.csproj">
+      <Project>{2016e089-95d7-484f-8d8d-7490abb1ee38}</Project>
+      <Name>HaciendaGT</Name>
     </ProjectReference>
     <ProjectReference Include="..\ZohoApi\ZohoApi.csproj">
       <Project>{b989cb18-8194-4848-b82e-0947a45f99a3}</Project>

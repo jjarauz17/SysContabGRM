@@ -107,7 +107,6 @@ Partial Class FrmConfiguracionServer
         Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
         Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit1.Properties.ZoomAccelerationFactor = 1.0R
         Me.PictureEdit1.Size = New System.Drawing.Size(119, 135)
         Me.PictureEdit1.StyleController = Me.LayoutControl1
         Me.PictureEdit1.TabIndex = 11
@@ -183,7 +182,6 @@ Partial Class FrmConfiguracionServer
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.EmptySpaceItem2, Me.LayoutControlItem9, Me.EmptySpaceItem3, Me.LayoutControlItem8, Me.EmptySpaceItem4})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(475, 374)
         Me.LayoutControlGroup1.TextVisible = False
@@ -323,7 +321,7 @@ Partial Class FrmConfiguracionServer
         Me.ClientSize = New System.Drawing.Size(475, 374)
         Me.Controls.Add(Me.LayoutControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("FrmConfiguracionServer.IconOptions.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmConfiguracionServer"

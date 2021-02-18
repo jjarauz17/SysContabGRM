@@ -98,16 +98,16 @@ Partial Class frmPlanNegocioList
         Me.LayoutControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(498, 522)
+        Me.LayoutControl1.Size = New System.Drawing.Size(551, 522)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(374, 12)
+        Me.CheckEdit1.Location = New System.Drawing.Point(427, 12)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Caption = "Mostrar Mas Datos"
-        Me.CheckEdit1.Size = New System.Drawing.Size(112, 19)
+        Me.CheckEdit1.Size = New System.Drawing.Size(112, 20)
         Me.CheckEdit1.StyleController = Me.LayoutControl1
         Me.CheckEdit1.TabIndex = 20
         '
@@ -119,7 +119,7 @@ Partial Class frmPlanNegocioList
         Me.cbPeriodo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbPeriodo.Properties.Appearance.Options.UseFont = True
         Me.cbPeriodo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbPeriodo.Size = New System.Drawing.Size(315, 20)
+        Me.cbPeriodo.Size = New System.Drawing.Size(368, 20)
         Me.cbPeriodo.StyleController = Me.LayoutControl1
         Me.cbPeriodo.TabIndex = 19
         Me.cbPeriodo.Tag = "True"
@@ -131,7 +131,7 @@ Partial Class frmPlanNegocioList
         Me.iGrid.MainView = Me.iVista
         Me.iGrid.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.iGrid.Name = "iGrid"
-        Me.iGrid.Size = New System.Drawing.Size(474, 474)
+        Me.iGrid.Size = New System.Drawing.Size(527, 474)
         Me.iGrid.TabIndex = 4
         Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista})
         '
@@ -153,9 +153,8 @@ Partial Class frmPlanNegocioList
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem13, Me.LayoutControlItem14})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(498, 522)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(551, 522)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -164,7 +163,7 @@ Partial Class frmPlanNegocioList
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(478, 478)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(531, 478)
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
         '
@@ -173,14 +172,14 @@ Partial Class frmPlanNegocioList
         Me.LayoutControlItem13.Control = Me.cbPeriodo
         Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(362, 24)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(415, 24)
         Me.LayoutControlItem13.Text = "Periodo:"
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(40, 13)
         '
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.CheckEdit1
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(362, 0)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(415, 0)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(116, 24)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(116, 24)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
@@ -200,7 +199,7 @@ Partial Class frmPlanNegocioList
         Me.DockPanel1.Controls.Add(Me.DockPanel1_Container)
         Me.DockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right
         Me.DockPanel1.ID = New System.Guid("c957dbf8-5213-4d78-a4c7-e70dbe1fbb6c")
-        Me.DockPanel1.Location = New System.Drawing.Point(498, 0)
+        Me.DockPanel1.Location = New System.Drawing.Point(551, 0)
         Me.DockPanel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.ShowCloseButton = False
@@ -211,10 +210,10 @@ Partial Class frmPlanNegocioList
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(145, 495)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(146, 493)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
@@ -236,7 +235,7 @@ Partial Class frmPlanNegocioList
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(823, 216, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(145, 495)
+        Me.LayoutControl2.Size = New System.Drawing.Size(146, 493)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -245,8 +244,8 @@ Partial Class frmPlanNegocioList
         Me.bPlan.Appearance.Options.UseTextOptions = True
         Me.bPlan.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bPlan.Enabled = False
-        Me.bPlan.Image = CType(resources.GetObject("bPlan.Image"), System.Drawing.Image)
-        Me.bPlan.Location = New System.Drawing.Point(12, 264)
+        Me.bPlan.ImageOptions.SvgImage = CType(resources.GetObject("bPlan.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bPlan.Location = New System.Drawing.Point(12, 222)
         Me.bPlan.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bPlan.Name = "bPlan"
         Me.bPlan.Size = New System.Drawing.Size(121, 38)
@@ -257,11 +256,11 @@ Partial Class frmPlanNegocioList
         'bEstacionalidad
         '
         Me.bEstacionalidad.Enabled = False
-        Me.bEstacionalidad.Image = CType(resources.GetObject("bEstacionalidad.Image"), System.Drawing.Image)
-        Me.bEstacionalidad.Location = New System.Drawing.Point(12, 222)
+        Me.bEstacionalidad.ImageOptions.Image = CType(resources.GetObject("bEstacionalidad.ImageOptions.Image"), System.Drawing.Image)
+        Me.bEstacionalidad.Location = New System.Drawing.Point(12, 348)
         Me.bEstacionalidad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bEstacionalidad.Name = "bEstacionalidad"
-        Me.bEstacionalidad.Size = New System.Drawing.Size(121, 38)
+        Me.bEstacionalidad.Size = New System.Drawing.Size(122, 36)
         Me.bEstacionalidad.StyleController = Me.LayoutControl2
         Me.bEstacionalidad.TabIndex = 8
         Me.bEstacionalidad.Text = "Est&acionalidad"
@@ -271,8 +270,8 @@ Partial Class frmPlanNegocioList
         Me.bObjetivos.Appearance.Options.UseTextOptions = True
         Me.bObjetivos.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bObjetivos.Enabled = False
-        Me.bObjetivos.Image = CType(resources.GetObject("bObjetivos.Image"), System.Drawing.Image)
-        Me.bObjetivos.Location = New System.Drawing.Point(12, 180)
+        Me.bObjetivos.ImageOptions.Image = CType(resources.GetObject("bObjetivos.ImageOptions.Image"), System.Drawing.Image)
+        Me.bObjetivos.Location = New System.Drawing.Point(12, 306)
         Me.bObjetivos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bObjetivos.Name = "bObjetivos"
         Me.bObjetivos.Size = New System.Drawing.Size(120, 38)
@@ -283,8 +282,8 @@ Partial Class frmPlanNegocioList
         'bAntecedentes
         '
         Me.bAntecedentes.Enabled = False
-        Me.bAntecedentes.Image = CType(resources.GetObject("bAntecedentes.Image"), System.Drawing.Image)
-        Me.bAntecedentes.Location = New System.Drawing.Point(12, 138)
+        Me.bAntecedentes.ImageOptions.Image = CType(resources.GetObject("bAntecedentes.ImageOptions.Image"), System.Drawing.Image)
+        Me.bAntecedentes.Location = New System.Drawing.Point(12, 264)
         Me.bAntecedentes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bAntecedentes.Name = "bAntecedentes"
         Me.bAntecedentes.Size = New System.Drawing.Size(120, 38)
@@ -297,20 +296,20 @@ Partial Class frmPlanNegocioList
         Me.bDinamico.Appearance.Options.UseTextOptions = True
         Me.bDinamico.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bDinamico.Enabled = False
-        Me.bDinamico.Image = CType(resources.GetObject("bDinamico.Image"), System.Drawing.Image)
-        Me.bDinamico.Location = New System.Drawing.Point(12, 348)
+        Me.bDinamico.ImageOptions.SvgImage = CType(resources.GetObject("bDinamico.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bDinamico.Location = New System.Drawing.Point(12, 96)
         Me.bDinamico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bDinamico.Name = "bDinamico"
         Me.bDinamico.Size = New System.Drawing.Size(120, 38)
         Me.bDinamico.StyleController = Me.LayoutControl2
         Me.bDinamico.TabIndex = 8
-        Me.bDinamico.Text = "&Dinámico"
+        Me.bDinamico.Text = "&Ver Reporte"
         '
         'bImprimir
         '
         Me.bImprimir.Enabled = False
-        Me.bImprimir.Image = CType(resources.GetObject("bImprimir.Image"), System.Drawing.Image)
-        Me.bImprimir.Location = New System.Drawing.Point(12, 306)
+        Me.bImprimir.ImageOptions.SvgImage = CType(resources.GetObject("bImprimir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bImprimir.Location = New System.Drawing.Point(12, 138)
         Me.bImprimir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bImprimir.Name = "bImprimir"
         Me.bImprimir.Size = New System.Drawing.Size(120, 38)
@@ -320,11 +319,11 @@ Partial Class frmPlanNegocioList
         '
         'bSalir
         '
-        Me.bSalir.Image = CType(resources.GetObject("bSalir.Image"), System.Drawing.Image)
+        Me.bSalir.ImageOptions.SvgImage = CType(resources.GetObject("bSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bSalir.Location = New System.Drawing.Point(12, 445)
         Me.bSalir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bSalir.Name = "bSalir"
-        Me.bSalir.Size = New System.Drawing.Size(121, 38)
+        Me.bSalir.Size = New System.Drawing.Size(122, 36)
         Me.bSalir.StyleController = Me.LayoutControl2
         Me.bSalir.TabIndex = 8
         Me.bSalir.Text = "&Salir"
@@ -332,11 +331,11 @@ Partial Class frmPlanNegocioList
         'bExportar
         '
         Me.bExportar.Enabled = False
-        Me.bExportar.Image = CType(resources.GetObject("bExportar.Image"), System.Drawing.Image)
-        Me.bExportar.Location = New System.Drawing.Point(12, 403)
+        Me.bExportar.ImageOptions.SvgImage = CType(resources.GetObject("bExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bExportar.Location = New System.Drawing.Point(12, 405)
         Me.bExportar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bExportar.Name = "bExportar"
-        Me.bExportar.Size = New System.Drawing.Size(121, 38)
+        Me.bExportar.Size = New System.Drawing.Size(122, 36)
         Me.bExportar.StyleController = Me.LayoutControl2
         Me.bExportar.TabIndex = 7
         Me.bExportar.Text = "E&xportar"
@@ -344,8 +343,8 @@ Partial Class frmPlanNegocioList
         'bBorrar
         '
         Me.bBorrar.Enabled = False
-        Me.bBorrar.Image = CType(resources.GetObject("bBorrar.Image"), System.Drawing.Image)
-        Me.bBorrar.Location = New System.Drawing.Point(12, 96)
+        Me.bBorrar.ImageOptions.SvgImage = CType(resources.GetObject("bBorrar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bBorrar.Location = New System.Drawing.Point(12, 180)
         Me.bBorrar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bBorrar.Name = "bBorrar"
         Me.bBorrar.Size = New System.Drawing.Size(120, 38)
@@ -356,7 +355,7 @@ Partial Class frmPlanNegocioList
         'bEditar
         '
         Me.bEditar.Enabled = False
-        Me.bEditar.Image = CType(resources.GetObject("bEditar.Image"), System.Drawing.Image)
+        Me.bEditar.ImageOptions.SvgImage = CType(resources.GetObject("bEditar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bEditar.Location = New System.Drawing.Point(12, 54)
         Me.bEditar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bEditar.Name = "bEditar"
@@ -368,7 +367,7 @@ Partial Class frmPlanNegocioList
         'bNuevo
         '
         Me.bNuevo.Enabled = False
-        Me.bNuevo.Image = CType(resources.GetObject("bNuevo.Image"), System.Drawing.Image)
+        Me.bNuevo.ImageOptions.SvgImage = CType(resources.GetObject("bNuevo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bNuevo.Location = New System.Drawing.Point(12, 12)
         Me.bNuevo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bNuevo.Name = "bNuevo"
@@ -382,10 +381,9 @@ Partial Class frmPlanNegocioList
         Me.LayoutControlGroup2.CustomizationFormText = "Root"
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem8, Me.LayoutControlItem7, Me.LayoutControlItem12})
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(145, 495)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(146, 493)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -396,7 +394,7 @@ Partial Class frmPlanNegocioList
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
@@ -409,7 +407,7 @@ Partial Class frmPlanNegocioList
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
@@ -418,11 +416,11 @@ Partial Class frmPlanNegocioList
         '
         Me.LayoutControlItem4.Control = Me.bBorrar
         Me.LayoutControlItem4.CustomizationFormText = "LayoutControlItem4"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 168)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -431,9 +429,9 @@ Partial Class frmPlanNegocioList
         '
         Me.LayoutControlItem5.Control = Me.bExportar
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 391)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 393)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(126, 40)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
@@ -443,7 +441,7 @@ Partial Class frmPlanNegocioList
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 433)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(126, 40)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
@@ -451,20 +449,20 @@ Partial Class frmPlanNegocioList
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 378)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 376)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(125, 13)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(126, 17)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.bImprimir
         Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 294)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 126)
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
@@ -473,11 +471,11 @@ Partial Class frmPlanNegocioList
         '
         Me.LayoutControlItem8.Control = Me.bDinamico
         Me.LayoutControlItem8.CustomizationFormText = "LayoutControlItem8"
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 336)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 84)
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
@@ -486,11 +484,11 @@ Partial Class frmPlanNegocioList
         '
         Me.LayoutControlItem9.Control = Me.bAntecedentes
         Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 252)
         Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem9.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
@@ -500,11 +498,11 @@ Partial Class frmPlanNegocioList
         '
         Me.LayoutControlItem10.Control = Me.bObjetivos
         Me.LayoutControlItem10.CustomizationFormText = "LayoutControlItem10"
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 294)
         Me.LayoutControlItem10.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem10.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
@@ -514,9 +512,9 @@ Partial Class frmPlanNegocioList
         '
         Me.LayoutControlItem11.Control = Me.bEstacionalidad
         Me.LayoutControlItem11.CustomizationFormText = "LayoutControlItem11"
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 336)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(126, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         Me.LayoutControlItem11.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -525,11 +523,11 @@ Partial Class frmPlanNegocioList
         '
         Me.LayoutControlItem12.Control = Me.bPlan
         Me.LayoutControlItem12.CustomizationFormText = "LayoutControlItem12"
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 252)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 210)
         Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(125, 42)
         Me.LayoutControlItem12.MinSize = New System.Drawing.Size(125, 42)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
@@ -538,7 +536,7 @@ Partial Class frmPlanNegocioList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(651, 522)
+        Me.ClientSize = New System.Drawing.Size(704, 522)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)

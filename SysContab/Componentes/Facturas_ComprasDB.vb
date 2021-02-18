@@ -2281,7 +2281,8 @@ Namespace VB.SysContab
                                          Optional ByVal Empleado As String = "", Optional ByVal Cliente As Integer = 0,
                                          Optional ByVal IRPorcentaje As Double = 0, Optional IdProyecto As Integer = 0,
                                          Optional IdOrdenCompra As Integer = 0,
-                                         Optional TipoImpuesto As Integer = 0) As Integer
+                                         Optional TipoImpuesto As Integer = 0,
+                                         Optional IdDetalle As Integer = 0) As Integer
 
             Dim cmd As SqlCommand = New SqlCommand("_FacturasComprasLineasAdd", DBConnFacturas)
             cmd.CommandType = CommandType.StoredProcedure
@@ -2347,6 +2348,7 @@ Namespace VB.SysContab
             cmd.Parameters.AddWithValue("@IdProyecto", IdProyecto)
             cmd.Parameters.AddWithValue("@IdOrdenCompra", IdOrdenCompra)
             cmd.Parameters.AddWithValue("@TipoImpuesto", TipoImpuesto)
+            cmd.Parameters.AddWithValue("@IdDetalle", IdDetalle)
 
             cmd.Connection = DBConnFacturas
             cmd.Transaction = transaccionFacturas
@@ -2354,6 +2356,21 @@ Namespace VB.SysContab
 
             Return _LineaID.Value
         End Function
+
+        Public Sub OrdenesComprasLineaUpdateEntregado(IdDetalle As String, Cantidad As Double)
+
+            Dim cmd As SqlCommand = New SqlCommand("sp_upd_ORDENES_COMPRA_LINEA", DBConnFacturas)
+            cmd.CommandType = CommandType.StoredProcedure
+            '
+            cmd.Parameters.AddWithValue("@IdDetalle", IdDetalle)
+            cmd.Parameters.AddWithValue("@Cantidad", Cantidad)
+            cmd.Parameters.AddWithValue("@Empresa", EmpresaActual)
+            '
+            cmd.Connection = DBConnFacturas
+            cmd.Transaction = transaccionFacturas
+            cmd.ExecuteNonQuery()
+
+        End Sub
 
         Public Function OrdenesComprasUpdateEstado(ByVal Numero As String, ByVal Estado As String, Factura As String)
             Dim cmd As SqlCommand = New SqlCommand("_OrdenesComprasUpdateEstado", DBConnFacturas)

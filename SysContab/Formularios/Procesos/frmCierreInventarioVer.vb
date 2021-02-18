@@ -42,7 +42,10 @@
 
     Private Sub frmCierreVer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
         ShowSplash("Cargando Cierre...")
+
+
         '
         'iGrid.DataSource = ObtieneDatos("sp_proc_temp_Igor", EmpresaActual)
 

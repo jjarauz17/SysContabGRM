@@ -727,7 +727,7 @@ Public Class frmHistorialCobros
         txtTotal.Refresh()
         txtFecha.Refresh()
 
-        iGrid.DataSource = ds.Tables("Cobros").DefaultView
+        iGrid.DataSource = ds.Tables("Cobros")
         FormatoGrid(iVista, 2, 0, False, False)
 
 

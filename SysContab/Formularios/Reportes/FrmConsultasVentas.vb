@@ -833,7 +833,8 @@ Public Class FrmConsultasVentas
 
     Private ds As New DataSet("Reporte")
     Dim ConfigDetalles As New VB.SysContab.ConfiguracionDetails
-    Dim Cierre As Integer = 0, Fecha_Cierre As Object = vbNullString
+    Dim Cierre As Integer = 0,
+        Fecha_Cierre As Object = vbNullString
 
     Private Sub cmdimprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdimprimir.Click
         If vDatos.DataRowCount - 1 < 0 Then
@@ -967,24 +968,28 @@ Public Class FrmConsultasVentas
             Me.vDatos.Columns("Cantidad").SummaryItem.DisplayFormat = "{0:n4}"
         End If
 
-        LeerEsquemaInicial()
+        LeerEsquemaInicial(
+            Me.Name,
+            Me.Text,
+            vDatos)
+
         'GetReportes()
     End Sub
 
 
 
-    Sub LeerEsquemaInicial()
-        ''Borrar Archivo, para evitar cache
-        If IO.File.Exists(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml") Then
-            Kill(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
-        End If
-        '
-        ''Guardar Configuracion Inicial
-        vDatos.SaveLayoutToXml(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
-        db_Esquemas.GuardarInicial(Me.Name, Me.Text, Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
-        '
-        ValidarGridSchema(vDatos, Me.Name)
-    End Sub
+    'Sub LeerEsquemaInicial()
+    '    ''Borrar Archivo, para evitar cache
+    '    If IO.File.Exists(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml") Then
+    '        Kill(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
+    '    End If
+    '    '
+    '    ''Guardar Configuracion Inicial
+    '    vDatos.SaveLayoutToXml(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
+    '    db_Esquemas.GuardarInicial(Me.Name, Me.Text, Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
+    '    '
+    '    ValidarGridSchema(vDatos, Me.Name)
+    'End Sub
 
     Private Sub GetReportes()
         'Dim DT As DataTable = ObtieneDatos("SELECT Id,Nombre as Reporte,Tipo,Consolidado from ReportesUsuarios")

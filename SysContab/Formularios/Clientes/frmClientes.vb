@@ -363,7 +363,7 @@ Public Class frmClientes
         'rLink
         '
         Me.rLink.AutoHeight = False
-        Me.rLink.Caption = "Digitales"
+        Me.rLink.Caption = "Documentos"
         Me.rLink.Name = "rLink"
         '
         'rLinkAcuerdos
@@ -388,7 +388,6 @@ Public Class frmClientes
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.LayoutControlItem11, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem14})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1117, 526)
         Me.LayoutControlGroup1.TextVisible = False
@@ -671,6 +670,7 @@ Public Class frmClientes
         Me.VClientes.Columns("Ver").ColumnEdit = rLinkAcuerdos
         Me.VClientes.Columns("Ver").AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
 
+        VClientes.Columns("IdSisCliente").Visible = False
         VClientes.Columns("CONTACTO").Visible = False
         VClientes.Columns("DIRECCION").Visible = False
         VClientes.Columns("RUC").Visible = False
@@ -686,6 +686,7 @@ Public Class frmClientes
         VClientes.Columns("DISTRIBUIDOR").Visible = False
         VClientes.Columns("Registro").Visible = False
         VClientes.Columns("MUNICIPIO").Visible = False
+        VClientes.Columns("FORMA PAGO").Visible = False
 
         If EmpresaActual = 1 Then
             VClientes.Columns("Correo Contacto").Visible = False
@@ -733,7 +734,6 @@ Public Class frmClientes
 
             .etInicio.Text = "0"
         End With
-
 
     End Sub
 
@@ -818,11 +818,14 @@ Public Class frmClientes
         'Dim f As frmReportesClientes = frmReportesClientes.Instance
         'f.MdiParent = Me.MdiParent
         'f.Show()
-        frmEnviarEmailCliente.lblTitulo.Text = "ESTADO DE CUENTA DE SALDOS DEL CLIENTE: " & VClientes.GetFocusedRowCellValue("NOMBRE")
-        frmEnviarEmailCliente.Codigo = Me.VClientes.GetFocusedRowCellValue("CODIGO")
-        frmEnviarEmailCliente.IdSucursal = IIf(EmpresaActual <> 1, "", Mid(VClientes.GetFocusedRowCellValue("CODIGO LETRA"), 1, 2))
-        frmEnviarEmailCliente.ShowDialog()
-        frmEnviarEmailCliente.Dispose()
+
+        With New frmEnviarEmailCliente
+            .lblTitulo.Text = "ESTADO DE CUENTA DE SALDOS DEL CLIENTE: " & VClientes.GetFocusedRowCellValue("NOMBRE")
+            .Codigo = Me.VClientes.GetFocusedRowCellValue("CODIGO")
+            .IdSucursal = IIf(EmpresaActual <> 1, "", Mid(VClientes.GetFocusedRowCellValue("CODIGO LETRA"), 1, 2))
+            .ShowDialog()
+            .Dispose()
+        End With
     End Sub
 
 
@@ -915,12 +918,11 @@ Public Class frmClientes
             Registro = Me.VClientes.GetFocusedRowCellValue("CODIGO")
         End If
         '
-
         frmClientesLetras.Dispose()
 
         With frmClientesLetras
             .MdiParent = Me.MdiParent
-            .Text = sender.Text
+            .Text = "Letra de Cambio"
             .Show()
             .WindowState = FormWindowState.Maximized
         End With
@@ -967,7 +969,16 @@ Public Class frmClientes
     Private Sub rLinkAcuerdos_Click(sender As Object, e As EventArgs) Handles rLinkAcuerdos.Click
         If VClientes.FocusedRowHandle < 0 Then Exit Sub
         '
-        XtraMsg("Este Cliente no contiene acuerdos de pagos")
+        frmSeguimientoCobranza.Dispose()
+        '
+        With frmSeguimientoCobranza
+            .Text = $"Seguimiento a Cliente: {VClientes.GetRowCellValue(VClientes.FocusedRowHandle, "NOMBRE")}"
+            .IdCliente = VClientes.GetRowCellValue(VClientes.FocusedRowHandle, "CODIGO")
+            .ShowDialog()
+            .Dispose()
+        End With
+
+        'XtraMsg("Este Cliente no contiene acuerdos de pagos")
     End Sub
 
 

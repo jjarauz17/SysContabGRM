@@ -314,24 +314,30 @@ Public Class frmContabAmortiza
                 '----------------------
                 'Guarda la Distribucion
                 '----------------------
-                Dim DT_F As DataTable
-                DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
-                If Not DT_F Is Nothing Then
-                    For i As Integer = 0 To DT_F.Rows.Count - 1
-                        With DT_F
-                            If .Rows(i).RowState = DataRowState.Added Then
-                                GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                                " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & Comp_No & "," & Me.fecha.DateTime.Month & "," &
-                                VB.SysContab.PeriodosDB.Activo(Me.fecha.DateTime) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") * TCambio & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
-                            ElseIf .Rows(i).RowState = DataRowState.Modified Then
-                                GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & Comp_No & ",Mes=" & Me.fecha.DateTime.Month & "," &
-                                "Per_Id = " & Per_Id & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") * TCambio & "," &
-                                "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
-                            ElseIf .Rows(i).RowState = DataRowState.Deleted Then
-                            End If
-                        End With
-                    Next
-                End If
+                GuardaDistribucion(
+                    DT_Distribucion,
+                    fecha.DateTime.Date,
+                    Comp_No,
+                    False)
+
+                'Dim DT_F As DataTable
+                'DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
+                'If Not DT_F Is Nothing Then
+                '    For i As Integer = 0 To DT_F.Rows.Count - 1
+                '        With DT_F
+                '            If .Rows(i).RowState = DataRowState.Added Then
+                '                GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+                '                " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & Comp_No & "," & Me.fecha.DateTime.Month & "," &
+                '                VB.SysContab.PeriodosDB.Activo(Me.fecha.DateTime) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") * TCambio & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+                '            ElseIf .Rows(i).RowState = DataRowState.Modified Then
+                '                GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & Comp_No & ",Mes=" & Me.fecha.DateTime.Month & "," &
+                '                "Per_Id = " & Per_Id & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") * TCambio & "," &
+                '                "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
+                '            ElseIf .Rows(i).RowState = DataRowState.Deleted Then
+                '            End If
+                '        End With
+                '    Next
+                'End If
                 '
                 Distribucion()
                 '--------------------------
@@ -340,7 +346,8 @@ Public Class frmContabAmortiza
                 '
                 Return True
             Catch ex As Exception
-                XtraMsg("Hacen Falta Datos Requeridos para Guardar el Comprobante, rebise y vuelva a Intentarlo", MessageBoxIcon.Error)
+                XtraMsg($"Hacen Falta datos requeridos para Guardar el Comprobante, revise y vuelva a intentarlo
+                        {ex.Message}", MessageBoxIcon.Error)
                 Rutinas.ErrorTransaccion()
                 Return False
             End Try

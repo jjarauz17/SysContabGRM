@@ -344,7 +344,7 @@ Public Class frmNotasProveedoresList
         'btnAnular
         '
         Me.btnAnular.Enabled = False
-        Me.btnAnular.ImageOptions.Image = CType(resources.GetObject("btnAnular.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnAnular.ImageOptions.SvgImage = CType(resources.GetObject("btnAnular.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnAnular.Location = New System.Drawing.Point(228, 267)
         Me.btnAnular.Name = "btnAnular"
         Me.btnAnular.Size = New System.Drawing.Size(100, 38)
@@ -388,7 +388,7 @@ Public Class frmNotasProveedoresList
         Me.Hasta.EditValue = Nothing
         Me.Hasta.Location = New System.Drawing.Point(49, 36)
         Me.Hasta.Name = "Hasta"
-        Me.Hasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Hasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Hasta.Properties.Appearance.Options.UseFont = True
         Me.Hasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Hasta.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -402,7 +402,7 @@ Public Class frmNotasProveedoresList
         Me.Desde.EditValue = Nothing
         Me.Desde.Location = New System.Drawing.Point(49, 12)
         Me.Desde.Name = "Desde"
-        Me.Desde.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Desde.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Desde.Properties.Appearance.Options.UseFont = True
         Me.Desde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Desde.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -414,7 +414,7 @@ Public Class frmNotasProveedoresList
         'btnSalir
         '
         Me.btnSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSalir.ImageOptions.Image = CType(resources.GetObject("btnSalir.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnSalir.ImageOptions.SvgImage = CType(resources.GetObject("btnSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnSalir.Location = New System.Drawing.Point(621, 267)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(101, 38)
@@ -425,7 +425,7 @@ Public Class frmNotasProveedoresList
         'SimpleButton1
         '
         Me.SimpleButton1.Enabled = False
-        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton1.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.SimpleButton1.Location = New System.Drawing.Point(332, 267)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(99, 38)
@@ -436,7 +436,7 @@ Public Class frmNotasProveedoresList
         'btnExportar
         '
         Me.btnExportar.Enabled = False
-        Me.btnExportar.ImageOptions.Image = CType(resources.GetObject("btnExportar.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnExportar.ImageOptions.SvgImage = CType(resources.GetObject("btnExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnExportar.Location = New System.Drawing.Point(510, 267)
         Me.btnExportar.Name = "btnExportar"
         Me.btnExportar.Size = New System.Drawing.Size(107, 38)
@@ -447,7 +447,7 @@ Public Class frmNotasProveedoresList
         'btnNuevo
         '
         Me.btnNuevo.Enabled = False
-        Me.btnNuevo.ImageOptions.Image = CType(resources.GetObject("btnNuevo.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageOptions.SvgImage = CType(resources.GetObject("btnNuevo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnNuevo.Location = New System.Drawing.Point(12, 267)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(100, 38)
@@ -458,7 +458,7 @@ Public Class frmNotasProveedoresList
         'btnImprimir
         '
         Me.btnImprimir.Enabled = False
-        Me.btnImprimir.ImageOptions.Image = CType(resources.GetObject("btnImprimir.ImageOptions.Image"), System.Drawing.Image)
+        Me.btnImprimir.ImageOptions.SvgImage = CType(resources.GetObject("btnImprimir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.btnImprimir.Location = New System.Drawing.Point(116, 267)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(108, 38)
@@ -472,7 +472,6 @@ Public Class frmNotasProveedoresList
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.EmptySpaceItem1, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.EmptySpaceItem2, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(734, 317)
         Me.LayoutControlGroup1.TextVisible = False

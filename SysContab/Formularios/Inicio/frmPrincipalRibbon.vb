@@ -123,12 +123,10 @@ Public Class frmPrincipalRibbon
                 TC_Dia.Dispose()
                 AlertControl2.Dispose()
             End If
-
         Else
             TC_Mes.Enabled = False
             TC_Mes.Dispose()
             AlertControl1.Dispose()
-
         End If
 
 
@@ -169,7 +167,8 @@ Public Class frmPrincipalRibbon
         Else
             'Close()
             'End
-            CerrarProceso()
+            'CerrarProceso()
+            Process.GetCurrentProcess().Kill()
         End If
 
     End Sub
@@ -235,6 +234,11 @@ Public Class frmPrincipalRibbon
         CargarLogo()
         '****************************************************************
 
+        'Guardar()
+        'frmExportarImprimir.Mostrar()
+
+
+
     End Sub
 
     'Sub CargarEstilos()
@@ -243,18 +247,24 @@ Public Class frmPrincipalRibbon
     'End Sub
 
     Private Sub etEmpresas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etEmpresas.ItemClick
+        Dim frm As frmEmpresas = frmEmpresas.Instance()
+        frm.Dispose()
+
         Dim f As frmEmpresas = frmEmpresas.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub etCajas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etCajas.ItemClick
+        Dim frm As frmCajas = frmCajas.Instance()
+        frm.Dispose()
+        '
         Dim f As frmCajas = frmCajas.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -263,7 +273,7 @@ Public Class frmPrincipalRibbon
     Private Sub etFormaPago_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etFormaPago.ItemClick
         Dim f As frmFormaPago = frmFormaPago.Instance
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -272,7 +282,7 @@ Public Class frmPrincipalRibbon
     Private Sub etZonas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etZonas.ItemClick
         Dim f As frmZonas = frmZonas.Instance
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -282,7 +292,7 @@ Public Class frmPrincipalRibbon
 
         Dim f As frmVendedores = frmVendedores.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -292,7 +302,7 @@ Public Class frmPrincipalRibbon
     Private Sub etTasaCambio_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etTasaCambio.ItemClick
 
         Dim f As frmTasaCambio = frmTasaCambio.Instance()
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Text = e.Item.Caption
         f.ShowDialog()
         f.Dispose()
@@ -300,7 +310,7 @@ Public Class frmPrincipalRibbon
         'Dim f As frmTasaCambio = frmTasaCambio.Instance
         'f.Inicio = True
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -310,7 +320,7 @@ Public Class frmPrincipalRibbon
     Private Sub etPuntosVenta_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etPuntosVenta.ItemClick
         Dim f As frmPuntosVenta = frmPuntosVenta.Instance
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -320,7 +330,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmEmisores = frmEmisores.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -330,7 +340,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmTarjetas = frmTarjetas.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -341,7 +351,7 @@ Public Class frmPrincipalRibbon
         ShowSplash()
         frmTipoPlantillas.Dispose()
         frmTipoPlantillas.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmTipoPlantillas.Show()
         frmTipoPlantillas.Text = e.Item.Caption
         frmTipoPlantillas.WindowState = FormWindowState.Maximized
@@ -349,7 +359,7 @@ Public Class frmPrincipalRibbon
 
         'Dim f As frmPlantillasBuscar = frmPlantillasBuscar.Instance
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -368,7 +378,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmPeriodoListar = frmPeriodoListar.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -377,7 +387,7 @@ Public Class frmPrincipalRibbon
     Private Sub etmonedas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etmonedas.ItemClick
         Dim f As frmMonedas = frmMonedas.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -386,7 +396,7 @@ Public Class frmPrincipalRibbon
     Private Sub etPaises_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etPaises.ItemClick
         Dim f As frmPaises = frmPaises.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -395,7 +405,7 @@ Public Class frmPrincipalRibbon
     Private Sub etMunicipios_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etMunicipios.ItemClick
         Dim f As frmMunicipios = frmMunicipios.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -404,7 +414,7 @@ Public Class frmPrincipalRibbon
     Private Sub etFirmasContables_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etFirmasContables.ItemClick
         Dim f As New frmFirmasContables
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -414,7 +424,7 @@ Public Class frmPrincipalRibbon
         ShowSplash()
         FrmMtnoAmortizacion.Dispose()
         FrmMtnoAmortizacion.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         FrmMtnoAmortizacion.Show()
         FrmMtnoAmortizacion.Text = e.Item.Caption
         FrmMtnoAmortizacion.WindowState = FormWindowState.Maximized
@@ -431,7 +441,7 @@ Public Class frmPrincipalRibbon
 
         TipoGrupo = "B"
         Titulo = "Mantenimiento de Grupos de Balance"
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -454,7 +464,7 @@ Public Class frmPrincipalRibbon
         TipoGrupo = "R"
         Titulo = "Mantenimiento de Grupos de Resultado"
 
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -476,7 +486,7 @@ Public Class frmPrincipalRibbon
         TipoGrupo = "O"
         Titulo = "Mantenimiento de Grupos de Orden"
 
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -498,7 +508,7 @@ Public Class frmPrincipalRibbon
         TipoGrupo = "P"
         Titulo = "Mantenimiento de Grupos de Presupuesto"
 
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -507,7 +517,7 @@ Public Class frmPrincipalRibbon
     Private Sub etGruposDepreciacion_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etGruposDepreciacion.ItemClick
         'Dim f As frmGruposDepreciacion = frmGruposDepreciacion.Instance()
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -519,7 +529,7 @@ Public Class frmPrincipalRibbon
 
         Dim f As frmCatalogo = frmCatalogo.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -528,7 +538,7 @@ Public Class frmPrincipalRibbon
     Private Sub etTipoComp_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etTipoComp.ItemClick
         Dim f As frmTipoComprobante = frmTipoComprobante.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -538,7 +548,7 @@ Public Class frmPrincipalRibbon
         Dim f As New FrmRubrosGastos '= f.Instance
         f.MdiParent = Me
         f.Text = e.Item.Caption
-        ''Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        ''Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Mostrar(FrmRubrosGastos.TipoReporte.RubrosGastos)
         f.WindowState = FormWindowState.Maximized
     End Sub
@@ -547,7 +557,7 @@ Public Class frmPrincipalRibbon
         Dim f As New FrmRubrosGastos '= f.Instance
         f.MdiParent = Me
         f.Text = e.Item.Caption
-        ''Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        ''Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Mostrar(FrmRubrosGastos.TipoReporte.CentrosCostos)
         f.WindowState = FormWindowState.Maximized
     End Sub
@@ -561,9 +571,9 @@ Public Class frmPrincipalRibbon
     End Sub
 
     Private Sub etAgrupaciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etAgrupaciones.ItemClick
-        Dim frmChildInstance As frmAgrupaciones = frmChildInstance.Instance
+        Dim frmChildInstance As frmAgrupaciones = frmAgrupaciones.Instance()
         frmChildInstance.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmChildInstance.Show()
         frmChildInstance.Text = e.Item.Caption
         frmChildInstance.Refresh()
@@ -581,7 +591,7 @@ Public Class frmPrincipalRibbon
         ShowSplash()
         frmPresupuestoNew.Dispose()
         frmPresupuestoNew.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmPresupuestoNew.Show()
         frmPresupuestoNew.Text = e.Item.Caption
         frmPresupuestoNew.WindowState = FormWindowState.Maximized
@@ -613,7 +623,7 @@ Public Class frmPrincipalRibbon
 
         TipoGrupoInv = "P"
         TituloInv = "Mantenimiento de Grupos de Productos"
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -629,7 +639,7 @@ Public Class frmPrincipalRibbon
 
         TipoGrupoInv = "S"
         TituloInv = "Mantenimiento de Grupos de Servicios"
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -638,7 +648,7 @@ Public Class frmPrincipalRibbon
     Private Sub etGrupoInventario_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etGrupoInventario.ItemClick
         Dim f As frmGruposCC = frmGruposCC.Instance
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -652,7 +662,7 @@ Public Class frmPrincipalRibbon
 
         'Dim f As frmAreasConsumo = frmAreasConsumo.Instance
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -660,11 +670,14 @@ Public Class frmPrincipalRibbon
 
     Private Sub etProductos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etProductos.ItemClick
         ShowSplash()
+        Dim frm As frmArticulos = frmArticulos.Instance()
+        frm.Dispose()
+
         Dim f As frmArticulos = frmArticulos.Instance()
         f.MdiParent = Me
 
         TituloInv = "Mantenimiento de Artículos"
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -673,9 +686,12 @@ Public Class frmPrincipalRibbon
 
     Private Sub etServicios_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etServicios.ItemClick
         ShowSplash()
+        Dim frm As frmServicios = frmServicios.Instance()
+        frm.Dispose()
+
         Dim f As frmServicios = frmServicios.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -684,9 +700,12 @@ Public Class frmPrincipalRibbon
 
     Private Sub etArticulosInventario_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etArticulosInventario.ItemClick
         ShowSplash()
+        Dim frm As frmArticulosCCList = frmArticulosCCList.Instance()
+        frm.Dispose()
+
         Dim f As frmArticulosCCList = frmArticulosCCList.Instance
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -694,9 +713,12 @@ Public Class frmPrincipalRibbon
     End Sub
 
     Private Sub etBodega_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etBodega.ItemClick
+        Dim frm As frmBodegas = frmBodegas.Instance()
+        frm.Dispose()
+
         Dim f As frmBodegas = frmBodegas.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -707,7 +729,7 @@ Public Class frmPrincipalRibbon
         frmTipoMovimientosInvent.Dispose()
         My.Forms.frmTipoMovimientosInvent.MdiParent = Me
         My.Forms.frmTipoMovimientosInvent.Text = e.Item.Caption
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         My.Forms.frmTipoMovimientosInvent.Show()
         My.Forms.frmTipoMovimientosInvent.WindowState = FormWindowState.Maximized
 
@@ -723,7 +745,7 @@ Public Class frmPrincipalRibbon
 
         frmTrasladosBodegasList.Dispose()
         frmTrasladosBodegasList.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmTrasladosBodegasList.Show()
         frmTrasladosBodegasList.Text = e.Item.Caption
         frmTrasladosBodegasList.WindowState = FormWindowState.Maximized
@@ -744,7 +766,7 @@ Public Class frmPrincipalRibbon
         ShowSplash()
         frmRemisionesPendiente.Dispose()
         frmRemisionesPendiente.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmRemisionesPendiente.Show()
         frmRemisionesPendiente.Text = e.Item.Caption
         frmRemisionesPendiente.WindowState = FormWindowState.Maximized
@@ -760,7 +782,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmRequisas_List = frmRequisas_List.Instance()
         f.MdiParent = Me
         f.Begin = True
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -776,13 +798,12 @@ Public Class frmPrincipalRibbon
         'frmChildInstance.WindowState = FormWindowState.Normal
         'dsPuntoVenta = Pv.PcNombre(Environment.MachineName.ToString)
 
-        Dim dsCajas As DataSet
-
-        dsCajas = Cajas.PcNombre(Environment.MachineName.ToString)
+        Dim dsCajas As DataSet = Cajas.PcNombre(Environment.MachineName.ToString)
 
         If dsCajas.Tables("Cajas").Rows.Count = 0 Then
             HideSplash()
-            XtraMsg("La Computadora " & Environment.MachineName.ToString & " no está configurada como Caja", MessageBoxIcon.Warning)
+            XtraMsg("La Computadora " & Environment.MachineName.ToString & " no está configurada como Caja",
+                    MessageBoxIcon.Warning)
             Exit Sub
         End If
         '
@@ -793,8 +814,10 @@ Public Class frmPrincipalRibbon
         If TC.Validar_Tasa Then
             If TC.TC_Oficial = 1.0 Then
                 HideSplash()
-                XtraMsg(TC.MensajeDia.ToUpper & vbCrLf &
-                                              "FAVOR INGRESAR TASA DE CAMBIO ANTES DE EMPEZAR A FACTURAR", MessageBoxIcon.Error)
+                XtraMsg(
+                    TC.MensajeDia.ToUpper & vbCrLf &
+                    "FAVOR INGRESAR TASA DE CAMBIO ANTES DE EMPEZAR A FACTURAR",
+                    MessageBoxIcon.Error)
                 Exit Sub
             End If
         End If
@@ -805,7 +828,7 @@ Public Class frmPrincipalRibbon
         Dim FormFacturacion As FrmFacturacionClienteNew = FrmFacturacionClienteNew.Instance()
         FormFacturacion.txtCaja.Text = dsCajas.Tables("Cajas").Rows(0).Item("cj_Codigo").ToString
 
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
 
         FormFacturacion.MdiParent = Me
         FormFacturacion.Show()
@@ -825,7 +848,7 @@ Public Class frmPrincipalRibbon
 
         Dim f As frmListaFacturaClientes = frmListaFacturaClientes.Instance()
         f.etInicio.Text = "1"
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.MdiParent = Me
         f.Show()
         f.Text = e.Item.Caption
@@ -867,7 +890,7 @@ Public Class frmPrincipalRibbon
         f.txtCaja.Text = dsCajas.Tables("Cajas").Rows(0).Item("cj_Codigo").ToString
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -885,7 +908,7 @@ Public Class frmPrincipalRibbon
 
         f.MdiParent = Me
         f.Begin = True
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -898,7 +921,7 @@ Public Class frmPrincipalRibbon
 
         Dim f As frmOtrosIngresosList = frmOtrosIngresosList.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.etInicio.Text = "1"
         f.Show()
         f.Text = e.Item.Caption
@@ -917,7 +940,7 @@ Public Class frmPrincipalRibbon
 
         Dim f As frmClientes = frmClientes.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -932,7 +955,7 @@ Public Class frmPrincipalRibbon
         Dim frm As frmListaCotizaciones = frmListaCotizaciones.Instance
         frm.etInicio.Text = "1"
         frm.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frm.Show()
         frm.Text = e.Item.Caption
         frm.WindowState = FormWindowState.Maximized
@@ -945,7 +968,7 @@ Public Class frmPrincipalRibbon
         frmOrdenesEntregaNew.Dispose()
         frmOrdenesEntregaNew.MdiParent = Me
         frmOrdenesEntregaNew.Text = e.Item.Caption
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmOrdenesEntregaNew.Show()
         frmOrdenesEntregaNew.WindowState = FormWindowState.Maximized
 
@@ -973,7 +996,7 @@ Public Class frmPrincipalRibbon
 
         'Dim f As frmListaOrdenes = frmListaOrdenes.Instance()
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -988,7 +1011,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmDevolucionesClienteList = frmDevolucionesClienteList.Instance()
         f.etInicio.Text = "1"
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -999,7 +1022,7 @@ Public Class frmPrincipalRibbon
         'Dim f As frmDevolucionesFacturas = frmDevolucionesFacturas.Instance()
         'f.etInicio.Text = "1"
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -1010,25 +1033,25 @@ Public Class frmPrincipalRibbon
         Dim f As frmSalidasCCList = frmSalidasCCList.Instance()
         f.etInicio.Text = "1"
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
         f.etInicio.Text = "0"
     End Sub
 
-    Private Sub etVentasPerdidas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles bArregoPago.ItemClick
+    Private Sub etVentasPerdidas_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
 
-        frmArregloPago.Dispose()
-        frmArregloPago.MdiParent = Me
-        frmArregloPago.Text = e.Item.Caption
-        frmArregloPago.Show()
-        frmArregloPago.WindowState = FormWindowState.Maximized
+        'frmArregloPago.Dispose()
+        'frmArregloPago.MdiParent = Me
+        'frmArregloPago.Text = e.Item.Caption
+        'frmArregloPago.Show()
+        'frmArregloPago.WindowState = FormWindowState.Maximized
 
         'Dim f As frmVentasPerdidasListaDetalle = frmVentasPerdidasListaDetalle.Instance
         'f.etInicio.Text = "1"
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -1042,7 +1065,7 @@ Public Class frmPrincipalRibbon
         ''
         Dim f As FrmNotasList = FrmNotasList.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1072,7 +1095,7 @@ Public Class frmPrincipalRibbon
         '
         Dim f As frmProveedores = frmProveedores.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1087,7 +1110,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmListaPedidos = frmListaPedidos.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1102,7 +1125,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmOrdenesCompraLista = frmOrdenesCompraLista.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1121,7 +1144,7 @@ Public Class frmPrincipalRibbon
         f.MdiParent = Me
         f.cbEstado.Enabled = True
         'f.Label1.Visible = True
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1134,7 +1157,7 @@ Public Class frmPrincipalRibbon
 
         frmEstadosOCList.Dispose()
         frmEstadosOCList.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmEstadosOCList.Show()
         frmEstadosOCList.Text = e.Item.Caption
         frmEstadosOCList.WindowState = FormWindowState.Maximized
@@ -1143,7 +1166,7 @@ Public Class frmPrincipalRibbon
         'Dim f As frmFacturasComprasSB = frmFacturasComprasSB.Instance()
         'f.etInicio.Text = "1"
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -1159,7 +1182,7 @@ Public Class frmPrincipalRibbon
         f.etInicio.Text = "1"
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1192,7 +1215,7 @@ Public Class frmPrincipalRibbon
         frmNotasProveedoresList.Dispose()
 
         frmNotasProveedoresList.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
 
         frmNotasProveedoresList.Show()
         frmNotasProveedoresList.Text = e.Item.Caption
@@ -1212,7 +1235,7 @@ Public Class frmPrincipalRibbon
     Private Sub etBancos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etBancos.ItemClick
         Dim f As frmBancos = frmBancos.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1221,7 +1244,7 @@ Public Class frmPrincipalRibbon
     Private Sub etDepositos_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etDepositos.ItemClick
         'Dim f As frmDepositos = frmDepositos.Instance()
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -1229,7 +1252,7 @@ Public Class frmPrincipalRibbon
 
         frmDepositosListNew.Dispose()
         frmDepositosListNew.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmDepositosListNew.Show()
         frmDepositosListNew.Text = e.Item.Caption
         frmDepositosListNew.WindowState = FormWindowState.Maximized
@@ -1273,7 +1296,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmBcosConc_List = frmBcosConc_List.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
 
         f.Show()
         f.Text = e.Item.Caption
@@ -1299,7 +1322,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmChequesList = frmChequesList.Instance()
         f.etInicio.Text = "1"
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
 
         f.Show()
         f.Text = e.Item.Caption
@@ -1340,7 +1363,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmPlantillasListaTemplate = frmPlantillasListaTemplate.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1398,7 +1421,7 @@ Public Class frmPrincipalRibbon
         Dim f As frmComprobantesDiariosLista = frmComprobantesDiariosLista.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Show()
         f.Text = e.Item.Caption
         f.WindowState = FormWindowState.Maximized
@@ -1408,7 +1431,7 @@ Public Class frmPrincipalRibbon
         'Dim f As frmPagosCajaChicaList = frmPagosCajaChicaList.Instance()
         'f.etInicio.Text = "1"
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -1425,7 +1448,7 @@ Public Class frmPrincipalRibbon
 
     Private Sub etCierreDia_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etCierreDia.ItemClick
         Dim Forma As New FrmCierreDia
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         Forma.ShowDialog()
         Forma.Dispose()
     End Sub
@@ -1433,7 +1456,7 @@ Public Class frmPrincipalRibbon
     Private Sub etLiquidaciones_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etLiquidaciones.ItemClick
         'Dim f As frmLiquidacionList = frmLiquidacionList.Instance()
         'f.MdiParent = Me
-        'Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        'Recurso = RolesDB.GetRecurso(e.Item.Name)
         'f.Show()
         'f.Text = e.Item.Caption
         'f.WindowState = FormWindowState.Maximized
@@ -1443,7 +1466,7 @@ Public Class frmPrincipalRibbon
         Inicio = True
         frmCacularAmortizacion.Dispose()
         frmCacularAmortizacion.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmCacularAmortizacion.Show()
         frmCacularAmortizacion.Text = e.Item.Caption
         frmCacularAmortizacion.WindowState = FormWindowState.Maximized
@@ -1463,7 +1486,7 @@ Public Class frmPrincipalRibbon
         '
         Dim f As frmComprobantes = frmComprobantes.Instance()
         f.Begin = True
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.MdiParent = Me
         f.Text = e.Item.Caption
         f.Show()
@@ -1542,7 +1565,7 @@ Public Class frmPrincipalRibbon
         ShowSplash("Centros de Costos...")
         FrmCrosstab_CentroCosto.Dispose()
         FrmCrosstab_CentroCosto.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         FrmCrosstab_CentroCosto.Text = e.Item.Caption
         FrmCrosstab_CentroCosto.Show()
         FrmCrosstab_CentroCosto.WindowState = FormWindowState.Maximized
@@ -1570,7 +1593,7 @@ Public Class frmPrincipalRibbon
         frm.Dispose()
         '
         Dim f As frmReportesOverviewGestionComercial = frmReportesOverviewGestionComercial.Instance()
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.MdiParent = Me
         f.Text = e.Item.Caption
         'f.StartPosition = FormStartPosition.CenterScreen
@@ -1634,18 +1657,20 @@ Public Class frmPrincipalRibbon
     End Sub
 
     Private Sub etDinamicoContables_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etDinamicoContables.ItemClick
+
         Dim f As frmReportesOverViewCrossTab = frmReportesOverViewCrossTab.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Text = e.Item.Caption
         f.Show()
         f.WindowState = FormWindowState.Maximized
+
     End Sub
 
     Private Sub etDinamicosGestionComercial_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etDinamicosGestionComercial.ItemClick
         Dim f As FrmReportesGestionComercialCrossTab = FrmReportesGestionComercialCrossTab.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Text = e.Item.Caption
         f.Show()
         f.WindowState = FormWindowState.Maximized
@@ -1668,7 +1693,7 @@ Public Class frmPrincipalRibbon
 
         With My.Forms.frmRoles
             .MdiParent = Me
-            Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+            Recurso = RolesDB.GetRecurso(e.Item.Name)
             .Text = e.Item.Caption
             .Show()
             .WindowState = FormWindowState.Maximized
@@ -1689,7 +1714,7 @@ Public Class frmPrincipalRibbon
         Dim f As FrmUsuariosListar = FrmUsuariosListar.Instance()
 
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Text = e.Item.Caption
         f.Show()
         f.WindowState = FormWindowState.Maximized
@@ -1706,7 +1731,7 @@ Public Class frmPrincipalRibbon
     Private Sub etAuditoria_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etAuditoria.ItemClick
         Dim f As frmAuditoriaSistema = frmAuditoriaSistema.Instance()
         f.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         f.Text = e.Item.Caption
         f.Show()
         f.WindowState = FormWindowState.Maximized
@@ -1726,7 +1751,7 @@ Public Class frmPrincipalRibbon
     Private Sub etFisico_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles etFisico.ItemClick
         FrmInventarioList.Dispose()
         FrmInventarioList.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         FrmInventarioList.Show()
         FrmInventarioList.Text = e.Item.Caption
         FrmInventarioList.WindowState = FormWindowState.Maximized
@@ -1756,6 +1781,7 @@ Public Class frmPrincipalRibbon
         FrmRequisasCrossTab.Show()
         FrmRequisasCrossTab.Text = e.Item.Caption
         FrmRequisasCrossTab.WindowState = FormWindowState.Maximized
+
     End Sub
 
     Private Sub etCierreInvent_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
@@ -1898,7 +1924,7 @@ Public Class frmPrincipalRibbon
     Private Sub bCierreInventario_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles etCierreInvent.ItemClick
         frmCierreInventario.Dispose()
         frmCierreInventario.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmCierreInventario.Show()
         frmCierreInventario.Text = e.Item.Caption
         frmCierreInventario.WindowState = FormWindowState.Maximized
@@ -1915,7 +1941,7 @@ Public Class frmPrincipalRibbon
     Private Sub bRemisionesTaller_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bRemisionesTaller.ItemClick
         frmRemisionesTaller.Dispose()
         frmRemisionesTaller.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmRemisionesTaller.Show()
         frmRemisionesTaller.Text = e.Item.Caption
         frmRemisionesTaller.WindowState = FormWindowState.Maximized
@@ -1945,9 +1971,9 @@ Public Class frmPrincipalRibbon
         ShowSplash()
         frmPlanNegocioList.Dispose()
         frmPlanNegocioList.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmPlanNegocioList.Show()
-        frmPlanNegocioList.Text = "PNR - " & e.Item.Caption
+        frmPlanNegocioList.Text = e.Item.Caption
         frmPlanNegocioList.WindowState = FormWindowState.Maximized
         HideSplash()
     End Sub
@@ -1970,7 +1996,7 @@ Public Class frmPrincipalRibbon
     Private Sub bEstadosCotizacion_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bEstadosCotizacion.ItemClick
         frmEstadosCotizacionesList.Dispose()
         frmEstadosCotizacionesList.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmEstadosCotizacionesList.Show()
         frmEstadosCotizacionesList.Text = e.Item.Caption
         frmEstadosCotizacionesList.WindowState = FormWindowState.Maximized
@@ -1979,7 +2005,7 @@ Public Class frmPrincipalRibbon
     Private Sub bCondicionesVenta_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bCondicionesVenta.ItemClick
         frmCondicionesVenta.Dispose()
         frmCondicionesVenta.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmCondicionesVenta.Show()
         frmCondicionesVenta.Text = e.Item.Caption
         frmCondicionesVenta.WindowState = FormWindowState.Maximized
@@ -2231,7 +2257,7 @@ Public Class frmPrincipalRibbon
         ShowSplash()
         frmProyectos.Dispose()
         frmProyectos.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmProyectos.Show()
         frmProyectos.Text = e.Item.Caption
         frmProyectos.WindowState = FormWindowState.Maximized
@@ -2283,7 +2309,7 @@ Public Class frmPrincipalRibbon
         ShowSplash()
         frmRemisionesCliente.Dispose()
         frmRemisionesCliente.MdiParent = Me
-        Recurso = ObtieneDatos("SELECT rr.ID FROM REST_Recursos rr WHERE rr.Control = '" & e.Item.Name & "'").Rows.Item(0)(0)
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
         frmRemisionesCliente.Show()
         frmRemisionesCliente.Text = e.Item.Caption
         frmRemisionesCliente.WindowState = FormWindowState.Maximized
@@ -2452,7 +2478,6 @@ Public Class frmPrincipalRibbon
             Me.bConnect.ItemAppearance.Normal.BackColor = Color.OrangeRed
             Me.bConnect.Caption = "Disconnect"
         End If
-
     End Sub
 
     Private Sub bReporteImpuestos_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bReporteIRAnual.ItemClick
@@ -2498,12 +2523,134 @@ Public Class frmPrincipalRibbon
     End Sub
 
     Private Sub frmPrincipalRibbon_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.F3 Then
-            With frmExportToFtp
-                .Text = "Subir Reporte de Ventas a FTP"
-                .Show()
-                .WindowState = FormWindowState.Maximized
-            End With
+        If e.KeyCode = Keys.F7 Then
+            If Login.Equals("jarauz") Then
+                With frmExportToFtp
+                    .Text = "Subir Reporte de Ventas a FTP"
+                    .Show()
+                    .WindowState = FormWindowState.Maximized
+                End With
+            End If
         End If
+    End Sub
+
+    Private Sub bListaNegra_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bListaNegra.ItemClick
+        ShowSplash("Cargando...")
+        '
+        frmListaNegra.Dispose()
+        frmListaNegra.MdiParent = Me
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
+        frmListaNegra.Show()
+        frmListaNegra.Text = e.Item.Caption
+        frmListaNegra.WindowState = FormWindowState.Maximized
+        '
+        HideSplash()
+    End Sub
+
+    Private Sub bSeguimiento_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bSeguimiento.ItemClick
+        ShowSplash()
+        frmSeguimientoCobranza.Dispose()
+        frmSeguimientoCobranza.MdiParent = Me
+        frmSeguimientoCobranza.IdCliente = 0
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
+        frmSeguimientoCobranza.Show()
+        frmSeguimientoCobranza.Text = e.Item.Caption
+        frmSeguimientoCobranza.WindowState = FormWindowState.Maximized
+        HideSplash()
+    End Sub
+
+    Private Sub bEnvioEC_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bEnvioEC.ItemClick
+        ShowSplash("Cargando...")
+        frmBitacoraEnvioEC.Dispose()
+        frmBitacoraEnvioEC.MdiParent = Me
+        frmBitacoraEnvioEC.Show()
+        frmBitacoraEnvioEC.Text = e.Item.Caption
+        frmBitacoraEnvioEC.WindowState = FormWindowState.Maximized
+        HideSplash()
+    End Sub
+
+    Private Sub bBitacoraAprobacion_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bBitacoraAprobacion.ItemClick
+        ShowSplash("Cargando...")
+        frmBitacoraAprobaciones.Dispose()
+        frmBitacoraAprobaciones.MdiParent = Me
+        frmBitacoraAprobaciones.Show()
+        frmBitacoraAprobaciones.Text = e.Item.Caption
+        frmBitacoraAprobaciones.WindowState = FormWindowState.Maximized
+        HideSplash()
+    End Sub
+
+    Private Sub BarButtonItem33_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bPresupuestoGastos.ItemClick
+        ShowSplash("Cargando...")
+        PresuGastoResumen.Dispose()
+        PresuGastoResumen.MdiParent = Me
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
+        PresuGastoResumen.Show()
+        PresuGastoResumen.Text = e.Item.Caption
+        PresuGastoResumen.WindowState = FormWindowState.Maximized
+        HideSplash()
+    End Sub
+
+    Private Sub bConsolidadoGastos_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bConsolidadoGastos.ItemClick
+
+        'ShowSplash("Cargando...")
+        'FrmReportDiferente.Dispose()
+        'FrmReportDiferente.MdiParent = Me
+        'FrmReportDiferente.Show()
+        'FrmReportDiferente.cargargridreport(0, 2)
+        'FrmReportDiferente.Text = e.Item.Caption
+        'FrmReportDiferente.WindowState = FormWindowState.Maximized
+        'HideSplash()
+
+        ShowSplash()
+        frmPresupuestoGastosConsolidado.Dispose()
+        frmPresupuestoGastosConsolidado.MdiParent = Me
+        frmPresupuestoGastosConsolidado.Show()
+        frmPresupuestoGastosConsolidado.Text = e.Item.Caption
+        frmPresupuestoGastosConsolidado.WindowState = FormWindowState.Maximized
+        HideSplash()
+
+    End Sub
+
+    Private Sub BarButtonItem33_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bPlanesMensual.ItemClick
+        ShowSplash()
+        frmPlanNegocioNew.Dispose()
+        frmPlanNegocioNew.MdiParent = Me
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
+        frmPlanNegocioNew.Show()
+        frmPlanNegocioNew.Text = e.Item.Caption
+        frmPlanNegocioNew.WindowState = FormWindowState.Maximized
+        HideSplash()
+    End Sub
+
+    Private Sub bReportePNRMensual_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bReportePNRMensual.ItemClick
+        ShowSplash()
+        frmPlanNegocioNewConsolidado.Dispose()
+        frmPlanNegocioNewConsolidado.MdiParent = Me
+        frmPlanNegocioNewConsolidado.Show()
+        frmPlanNegocioNewConsolidado.Text = e.Item.Caption
+        frmPlanNegocioNewConsolidado.WindowState = FormWindowState.Maximized
+        HideSplash()
+    End Sub
+
+    Private Sub BarButtonItem33_ItemClick_2(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bFacturasCuotas.ItemClick
+        ShowSplash()
+        frmFacturacionCuotas.Dispose()
+        frmFacturacionCuotas.MdiParent = Me
+        frmFacturacionCuotas.Text = e.Item.Caption
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
+        frmFacturacionCuotas.Show()
+        frmFacturacionCuotas.WindowState = FormWindowState.Maximized
+        HideSplash()
+    End Sub
+
+    Private Sub bArregloDePago_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles bArregloDePago.ItemClick
+        ShowSplash()
+        frmArregloPago.Dispose()
+        frmArregloPago.MdiParent = Me
+        frmArregloPago.Text = e.Item.Caption
+        Recurso = RolesDB.GetRecurso(e.Item.Name)
+        frmArregloPago.Show()
+        frmArregloPago.WindowState = FormWindowState.Maximized
+        HideSplash()
     End Sub
 End Class

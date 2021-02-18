@@ -1,5 +1,4 @@
-Imports System
-Imports System.Data
+Imports System.Linq
 Imports System.Data.SqlClient
 Imports SysContab.VB.SysContab
 Imports DevExpress.XtraEditors
@@ -578,8 +577,8 @@ Public Class frmHacerComprobantes
         Me.cbCatalogo.Name = "cbCatalogo"
         Me.cbCatalogo.NullText = ""
         Me.cbCatalogo.PopupFormMinSize = New System.Drawing.Size(800, 0)
+        Me.cbCatalogo.PopupView = Me.vCatalogo
         Me.cbCatalogo.ValueMember = "Cuenta"
-        Me.cbCatalogo.View = Me.vCatalogo
         '
         'vCatalogo
         '
@@ -673,7 +672,7 @@ Public Class frmHacerComprobantes
         Me.cbOrdenesCompra.AutoHeight = False
         Me.cbOrdenesCompra.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbOrdenesCompra.Name = "cbOrdenesCompra"
-        Me.cbOrdenesCompra.View = Me.GridView1
+        Me.cbOrdenesCompra.PopupView = Me.GridView1
         '
         'GridView1
         '
@@ -725,7 +724,7 @@ Public Class frmHacerComprobantes
         Me.cbProyecto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProyecto.Name = "cbProyecto"
         Me.cbProyecto.NullText = "[Proyecto]"
-        Me.cbProyecto.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbProyecto.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -752,7 +751,6 @@ Public Class frmHacerComprobantes
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem16, Me.LayoutControlItem17, Me.LayoutControlItem18, Me.LayoutControlItem19, Me.LayoutControlItem11, Me.lyDesgloce, Me.lyTipo, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(972, 511)
         Me.LayoutControlGroup1.TextVisible = False
@@ -1087,6 +1085,7 @@ Public Class frmHacerComprobantes
     Dim NoComp As Double = 0
 
     Private DT_Distribucion As DataTable = New DataTable("Distribucion")
+    Dim _DT As New DataTable("Comprobantes")
 
     Private Sub Distribucion()
         'Me.DT_Distribucion = ObtieneDatos("SELECT * FROM Distribucion")
@@ -1179,7 +1178,8 @@ Public Class frmHacerComprobantes
 
     Sub Cargar()
         'Me.gridDatos.DataSource = ObtieneDatos("SELECT '' as Cuenta,0.00 as Debito,0.00 as Credito,0 as NoOrden,'' as Concepto,'' ret, 0 IdProyecto, 0 IdOrdenCompra FROM Usuarios WHERE 0=1").DefaultView
-        gridDatos.DataSource = ObtieneDatos("sp_sel_ComprobantesVacio", EmpresaActual)
+        _DT = ObtieneDatos("sp_sel_ComprobantesVacio", EmpresaActual)
+        gridDatos.DataSource = _DT
         CargarCatalogo()
         RepositorySearchLook(cbProyecto, db_Proyectos.Fill(), "Nombre", "IdProyecto", 0, 5, 6, 7, 8)
         RepositorySearchLook(cbOrdenesCompra, VB.SysContab.Ordenes_ComprasDB.FillComboLiquidacion(), "Orden Compra", "IdOrden", 0)
@@ -1274,7 +1274,7 @@ Public Class frmHacerComprobantes
             Return False
         End If
 
-        If VB.SysContab.ComprobanteDB.ValidarConcecutivo(txtConcecutivo.Text, cbTipo.EditValue,
+        If ComprobanteDB.ValidarConcecutivo(txtConcecutivo.Text, cbTipo.EditValue,
                                                          dtFecha.DateTime.Month,
                                                          PeriodosDB.Activo(dtFecha.DateTime.Date)).Rows.Count > 0 Then
 
@@ -1310,9 +1310,14 @@ Public Class frmHacerComprobantes
         For i As Integer = 0 To Me.vComprobante.DataRowCount - 1
             Dim CTemp As String = vbNullString
             Try
-                CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
-                                     + " CuentaContable = '" & Me.vComprobante.GetRowCellValue(i, "Cuenta") & "'" _
-                                     + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+                'CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
+                '                     + " CuentaContable = '" & Me.vComprobante.GetRowCellValue(i, "Cuenta") & "'" _
+                '                     + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+
+                CTemp = ObtieneDatos("sp_sel_RubroGastos",
+                              vComprobante.GetRowCellValue(i, "Cuenta"),
+                              EmpresaActual).Rows(0).Item("CuentaContable")
+
             Catch ex As Exception
                 CTemp = "xxx"
             End Try
@@ -1330,12 +1335,12 @@ Public Class frmHacerComprobantes
         '
         '******** VERIFICAR CUENTAS DE INGRESO ***************************
         Dim IsCuentaIngreso As Boolean = False
-        Dim _dt As DataTable =
+        Dim _dtI As DataTable =
             ObtieneDatos("sp_sel_Cuentas_Ingresos", EmpresaActual)
 
-        If _dt.Rows.Count > 0 Then
+        If _dtI.Rows.Count > 0 Then
             For i As Integer = 0 To vComprobante.DataRowCount - 1
-                If _dt.Select("Cuenta = '" & vComprobante.GetRowCellValue(i, "Cuenta") & "'").Length > 0 Then
+                If _dtI.Select("Cuenta = '" & vComprobante.GetRowCellValue(i, "Cuenta") & "'").Length > 0 Then
                     IsCuentaIngreso = True
                     Exit For
                 End If
@@ -1378,6 +1383,8 @@ Public Class frmHacerComprobantes
             'Exit Sub
         End Try
 
+        Dim Per_Id As Integer = PeriodosDB.Activo(dtFecha.DateTime.Date)
+
         '----------------------------------------------------------------------
         Dim conexion As New VB.SysContab.Rutinas
         DBConnFacturas = New SqlConnection(Rutinas.AbrirConexion())
@@ -1386,9 +1393,10 @@ Public Class frmHacerComprobantes
         '----------------------------------------------------------------------
 
         Try
+            ShowSplash("Guardando...")
             Dim NoComprob As Double =
             ComprobanteDB.AddComprobante(Me.cbTipo.EditValue, TCambio, txtConcepto.Text,
-                                        Me.cbMoneda.EditValue, PeriodosDB.Activo(dtFecha.DateTime.Date),
+                                        Me.cbMoneda.EditValue, Per_Id,
                                         dtFecha.DateTime.Date, 0, "", False, 0, "", 0, 0, VB.SysContab.Rutinas.Fecha,
                                         0, OrigenComprobantes.NATURAL, "", 0, 0, Me.txtConcecutivo.Text, cbTipoLiq.SelectedIndex)
 
@@ -1418,40 +1426,64 @@ Public Class frmHacerComprobantes
                                                             1, 0, IsNull(.GetRowCellValue(i, "ret"), ""))
                     End If
 
+                    HideSplash()
                 Catch ex As Exception
                     XtraMsg("Hacen falta datos requeridos para guardar el comprobante, revise y vuelva a intentarlo" & vbCrLf &
                             ex.Message, MessageBoxIcon.Error)
                     Rutinas.ErrorTransaccion()
+                    HideSplash()
                     Exit Sub
                 End Try
             End With
+            '
+            Rutinas.okTransaccion()
 
             '----------------------
             'Guarda la Distribucion
             '----------------------
-            Dim DT_F As DataTable
-            DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
-            If Not DT_F Is Nothing Then
-                For i = 0 To DT_F.Rows.Count - 1
-                    With DT_F
-                        If .Rows(i).RowState = DataRowState.Added Then
-                            GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                            " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.dtFecha.DateTime.Month & "," &
-                            VB.SysContab.PeriodosDB.Activo(Me.dtFecha.DateTime) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
-                        ElseIf .Rows(i).RowState = DataRowState.Modified Then
-                            GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.dtFecha.DateTime.Month & "," &
-                            "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Me.dtFecha.DateTime) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
-                            "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
-                        ElseIf .Rows(i).RowState = DataRowState.Deleted Then
-                        End If
-                    End With
-                Next
-            End If
+            _DT.AcceptChanges()
+            Dim sCuentas = From row In _DT.AsEnumerable()
+                           Select row.Field(Of String)("Cuenta") Distinct
 
+            For Each s As Object In sCuentas
+                If Not s Is Nothing Then
+
+                    If DT_Distribucion.Select("Cuenta = '" & s & "'").Length > 0 Then
+                        GuardaDistribucion(
+                            DT_Distribucion.Select("Cuenta = '" & s & "'").CopyToDataTable,
+                            NoComprob,
+                            Per_Id,
+                            dtFecha.DateTime.Month)
+                    End If
+
+                End If
+            Next
+            '
             Distribucion()
             '--------------------------
             'Fin de Guarda Distribucion
             '--------------------------
+
+            'Dim DT_F As DataTable
+            'DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
+            'If Not DT_F Is Nothing Then
+            '    For i = 0 To DT_F.Rows.Count - 1
+            '        With DT_F
+            '            If .Rows(i).RowState = DataRowState.Added Then
+            '                GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+            '                " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.dtFecha.DateTime.Month & "," &
+            '                VB.SysContab.PeriodosDB.Activo(Me.dtFecha.DateTime) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+            '            ElseIf .Rows(i).RowState = DataRowState.Modified Then
+            '                GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.dtFecha.DateTime.Month & "," &
+            '                "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Me.dtFecha.DateTime) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
+            '                "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
+            '            ElseIf .Rows(i).RowState = DataRowState.Deleted Then
+            '            End If
+            '        End With
+            '    Next
+            'End If
+
+
             'Para las liquidaciones de importacion
             'If ckLiquidar.Checked Then
             '    Dim ComprobanteID As Integer = ObtieneDatosTrans("SELECT ComprobanteID FROM Comprobantes c WHERE c.Comp_No =" & NoComprob & _
@@ -1471,7 +1503,7 @@ Public Class frmHacerComprobantes
             '    Next
             'End If
 
-            VB.SysContab.Rutinas.okTransaccion()
+
             'SetTiempos(OrigenComprobantes.NATURAL, funciones.Tiempos.TiempoFin, Now, funciones.Eventos.Guarda, NoComprob)
 
             Cargar()
@@ -1516,6 +1548,7 @@ Public Class frmHacerComprobantes
             End If
 
             If Not .DT Is Nothing Then
+                _DT = .DT
                 gridDatos.DataSource = .DT
             End If
 

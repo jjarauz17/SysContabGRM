@@ -120,9 +120,9 @@
 
 
         //-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-        public DataTable Listar(string Id, int Empresa)
+        public DataTable Listar(DateTime Desde, DateTime Hasta, int Empresa)
         {
-            return fn.ObtieneDatos("sp_sel_BitacoraEnvioEC", Id, Empresa);
+            return fn.ObtieneDatos("sp_sel_BitacoraEnvioEC", Desde, Hasta, Empresa);
         }
 
         ////-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -163,9 +163,9 @@
         //}
 
         //-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-        public BitacoraEnvioEC Detalles(string Id, int Empresa)
+        public BitacoraEnvioEC Detalles(int Empresa)
         {
-            DataTable dt = fn.ObtieneDatos("sp_sel_BitacoraEnvioEC", Id, Empresa);
+            DataTable dt = fn.ObtieneDatos("sp_sel_BitacoraEnvioEC", DateTime.Now.Date , DateTime.Now.Date, Empresa);
             BitacoraEnvioEC det = new BitacoraEnvioEC();
 
             if (dt.Rows.Count > 0)

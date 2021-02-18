@@ -1096,18 +1096,21 @@ Ciclo:
                     'Catalogo.ActualizarCuentas(tCust.Rows(i)("Codigo1"), tCust.Rows(i)("Monto"), Opera)
                 Next
 
+                VB.SysContab.Rutinas.okTransaccion()
+
                 '----------------------
                 'Guarda la Distribucion
                 '----------------------
                 EliminaNoValidos()
-                GuardaDistribucion(DT_Distribucion, dtpFecha.Value.Date)
-                DT_Distribucion = CargaDistribucion(Me.dtpFecha.Value.Month, Comp, VB.SysContab.PeriodosDB.Activo(Me.dtpFecha.Value))
+                GuardaDistribucion(DT_Distribucion, dtpFecha.Value.Date, Comp)
+
+                DT_Distribucion = CargaDistribucion(
+                    dtpFecha.Value.Month,
+                    Comp,
+                    VB.SysContab.PeriodosDB.Activo(Me.dtpFecha.Value))
                 '--------------------------
                 'Fin de Guarda Distribucion
                 '--------------------------
-
-                VB.SysContab.Rutinas.okTransaccion()
-
             Catch Mensaje As Exception
                 VB.SysContab.Rutinas.ErrorTransaccion()
                 MsgBox(Mensaje.Message)

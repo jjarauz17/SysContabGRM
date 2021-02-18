@@ -10,6 +10,9 @@
     using System.Diagnostics;
     using Microsoft.Win32;
     using System.IO;
+    using DevExpress.XtraGrid;
+    using DevExpress.XtraPrinting;
+    using System.Drawing;
 
     //using ClasesBLL;
 
@@ -208,6 +211,82 @@
                 return false;
             }
 
+
+        }
+
+        public static void VistaPrevia(
+            GridControl iGrid,
+            string Titulo = null,
+            string Periodo = null,
+            bool Orientacion = false)
+        {
+            PrintingSystem ps = new PrintingSystem();
+            PrintableComponentLink cl = new PrintableComponentLink();
+
+            ps.Links.AddRange(new object[] { cl });
+            cl.Component = iGrid;
+
+            cl.Margins.Left = 25;
+            cl.Margins.Right = 25;
+            cl.Margins.Bottom = 45;
+            cl.Landscape = Orientacion;
+
+            string leftColumn = "Fecha y Hora : [Date Printed] - [Time Printed]";
+            string rightColumn = "Paginas: [Page # of Pages #]";
+
+            // Create a PageHeaderFooter object and initializing it with
+            // the link's PageHeaderFooter.
+            PageHeaderFooter phf;
+
+            try
+            {
+                phf = (PageHeaderFooter)cl.PageHeaderFooter;
+            }
+            catch (Exception)
+            {
+
+                phf = new PageHeaderFooter();
+            }
+
+            //Clear the PageHeaderFooter's contents.
+            phf.Footer.Content.Clear();
+            phf.Header.Content.Clear();
+            phf.Header.Font = new System.Drawing.Font("Tahoma", 11, FontStyle.Bold);
+            phf.Header.Content.AddRange(new String[]{
+                string.Empty,
+                $"{Titulo}{Environment.NewLine}{Periodo}",
+                string.Empty});
+
+
+            //Private Function CreateMarginalHeaderArea(ByVal _ As _, ByVal Link_CreateMarginalHeaderArea As[AddressOf]) As[AddHandler]
+            //cl.CreateMarginalHeaderArea = AddressOf(Link_CreateMarginalHeaderArea);
+            //cl.CreateMarginalHeaderArea as new EventHandler(Link_CreateMarginalHeaderArea);
+            /* TODO: Comprobar el tipo de delegado */            
+            //cl.CreateMarginalHeaderArea += new EventHandler(Link_CreateMarginalHeaderArea(null,null));
+
+
+            phf.Footer.LineAlignment = BrickAlignment.Center;
+            //Add custom information to the link's header.
+            phf.Footer.Content.AddRange(new String[] {
+                leftColumn,
+                string.Empty,
+                rightColumn });
+            phf.Footer.LineAlignment = BrickAlignment.Center;
+
+            cl.CreateDocument();
+            //Cl.Landscape = Orientacion
+            cl.ShowPreview();
+
+        }
+
+        private static void Link_CreateMarginalHeaderArea(object sender, CreateAreaEventArgs e)
+        {
+            BrickGraphics brickGraphics = e.Graph;
+            brickGraphics.BackColor = Color.White;
+            brickGraphics.Font = new Font("Tahoma", 11, FontStyle.Bold);
+
+            //Declare text strings.
+            string devexpress = "XtraPrintingSystem by Developer Express Inc.";
 
         }
 

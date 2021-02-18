@@ -36,28 +36,30 @@ Namespace My
         End Sub
 
         Private Sub MyApplication_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
-            'Comprobar Nueva Instancia del Servidor
-            Dim NuevaInstancia As String =
-                GetSetting(
-                My.Application.Info.ProductName.ToString,
-                "CxCadena",
-                "NServer_RAMAC")
-            '
-            If NuevaInstancia.Trim.Length > 0 Then
-                If NuevaInstancia.Trim =
-                    "192.168.0.2" Then SaveSetting(
-                    My.Application.Info.ProductName.ToString,
-                    "CxCadena",
-                    "NServer_RAMAC",
-                    "")
-            End If
+            ''Comprobar Nueva Instancia del Servidor
+            'Dim NuevaInstancia As String =
+            '    GetSetting(
+            '    My.Application.Info.ProductName.ToString,
+            '    "CxCadena",
+            '    "NServer_RAMAC")
+            ''
+            'If NuevaInstancia.Trim.Length > 0 Then
+            '    If NuevaInstancia.Trim =
+            '        "192.168.0.2" Then SaveSetting(
+            '        My.Application.Info.ProductName.ToString,
+            '        "CxCadena",
+            '        "NServer_RAMAC",
+            '        "")
+            'End If
+
 
             ''Verificar si hay datos de Configuracion
             Dim s As String() = LeeData()
 
-            If s(0).Trim.Length = 0 Then    'Es la Primera vez que se corre el Sistema y no se ha configurado nada en el registro
+            'Es la Primera vez que se corre el Sistema y no se ha configurado nada en el registro
+            If s(0).Trim.Length = 0 Then
                 Me.MainForm =
-                    Global.SysContab.FrmConfiguracionServer  ' Global.SysContab.frmConfigurar                           
+                    Global.SysContab.FrmConfiguracionServer
             End If
 
         End Sub

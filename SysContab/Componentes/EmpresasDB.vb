@@ -48,8 +48,11 @@ Namespace VB.SysContab
         Public Exento_OC As Boolean
         Public ValidarTCambio As Boolean
         Public ValidarFV As Boolean
+        Public ValidarLimite As Boolean
         Public Ruc As String
         Public NombreComercial As String
+        Public CobrosEditable As Boolean
+        Public FacturasCuotas As Boolean
     End Class
 
     Public Class EmpresasDB
@@ -104,7 +107,7 @@ seguir:         Next
             End Try
         End Function
 
-        Public Shared Function GetLogoEmpresa(ByVal Buscar As String) As String
+        Public Shared Function GetLogoEmpresaPath() As String
             Dim DBConn As SqlConnection
             Dim DBCommand As SqlDataAdapter
             Dim dsFicha As New DataSet()
@@ -120,8 +123,7 @@ seguir:         Next
             DBCommand.SelectCommand.Parameters.Add(Empresa)
 
             'Agregar la imagen
-            Dim Archivo As String
-            Archivo = ""
+            Dim Archivo As String = String.Empty
             Try
                 DBCommand.Fill(dsFicha, "_GetLogoEmpresa")
                 If dsFicha.Tables(0).Rows.Count = 1 Then
@@ -274,7 +276,7 @@ seguir:         Next
             Dim DBConn As SqlConnection
             Dim DBCommand As SqlDataAdapter
             Dim dsEmpresas As New DataSet
-            Dim Details As New EmpresasDetails
+            ' Dim Details As New EmpresasDetails
 
             Dim conexion As New VB.SysContab.Rutinas
             DBConn = New SqlConnection(Rutinas.AbrirConexion())
@@ -349,8 +351,12 @@ seguir:         Next
                 Details.Exento_OC = dsEmpresas.Tables("Empresas").Rows(0).Item("OC_Exento")
                 Details.ValidarTCambio = dsEmpresas.Tables("Empresas").Rows(0).Item("ValidarTCambio")
                 Details.ValidarFV = dsEmpresas.Tables("Empresas").Rows(0).Item("ValidarFacturasVencidas")
+                Details.ValidarLimite = dsEmpresas.Tables("Empresas").Rows(0).Item("ValidarLimiteCredito")
                 Details.Ruc = IsNull(dsEmpresas.Tables("Empresas").Rows(0).Item("Ruc"), "")
                 Details.NombreComercial = IsNull(dsEmpresas.Tables("Empresas").Rows(0).Item("NombreComercial"), "")
+                Details.CobrosEditable = dsEmpresas.Tables("Empresas").Rows(0).Item("CobrosEditable")
+                Details.FacturasCuotas = dsEmpresas.Tables("Empresas").Rows(0).Item("FacturasCuotas")
+
             End If
 
             DBConn.Close()
@@ -727,7 +733,9 @@ seguir:         Next
                                 ByVal DevolucionProveedorNumero As String, ByVal Espacio As Boolean,
                                 ByVal Bodega As String, ByVal GMT As Integer, ByVal Pais_ID As Integer, ByVal decimales As Integer,
                                 ByVal Liquidacion As Boolean, ByVal LineasFactura As Integer, IdGMT As String, Region As String,
-                                Exento_OC As Integer, ValidarTCambio As Integer)
+                                Exento_OC As Integer, ValidarTCambio As Integer, ValidarVencidas As Integer, ValidarLimite As Integer,
+                                CobroEditable As Integer,
+                                FacturasCuotas As Integer)
 
             Dim conexion As New VB.SysContab.Rutinas
             'DBConn = New SqlConnection(Rutinas.AbrirConexion())
@@ -939,6 +947,10 @@ seguir:         Next
             cmd.Parameters.AddWithValue("@Region", Region)
             cmd.Parameters.AddWithValue("@Exento_OC", Exento_OC)
             cmd.Parameters.AddWithValue("@ValidarTCambio", ValidarTCambio)
+            cmd.Parameters.AddWithValue("@ValidarVencidas", ValidarVencidas)
+            cmd.Parameters.AddWithValue("@ValidarLimite", ValidarLimite)
+            cmd.Parameters.AddWithValue("@CobrosEditable", CobroEditable)
+            cmd.Parameters.AddWithValue("@FacturasCuotas", FacturasCuotas)
 
             cmd.Connection = DBConnFacturas
             cmd.Transaction = transaccionFacturas

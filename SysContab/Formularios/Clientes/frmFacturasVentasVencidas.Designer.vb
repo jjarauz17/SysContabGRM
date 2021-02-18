@@ -21,6 +21,9 @@ Partial Class frmFacturasVentasVencidas
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFacturasVentasVencidas))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
+        Me.mRazon = New DevExpress.XtraEditors.MemoEdit()
+        Me.lblMsg = New DevExpress.XtraEditors.LabelControl()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.iGrid = New DevExpress.XtraGrid.GridControl()
@@ -30,14 +33,12 @@ Partial Class frmFacturasVentasVencidas
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
-        Me.lblMsg = New DevExpress.XtraEditors.LabelControl()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.mRazon = New DevExpress.XtraEditors.MemoEdit()
         Me.lyRazon = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.lyFacturar = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.mRazon.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.iGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.iVista, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,7 +47,6 @@ Partial Class frmFacturasVentasVencidas
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.mRazon.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lyRazon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lyFacturar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -68,9 +68,45 @@ Partial Class frmFacturasVentasVencidas
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'SimpleButton3
+        '
+        Me.SimpleButton3.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton3.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.SimpleButton3.Location = New System.Drawing.Point(12, 511)
+        Me.SimpleButton3.Name = "SimpleButton3"
+        Me.SimpleButton3.Size = New System.Drawing.Size(113, 38)
+        Me.SimpleButton3.StyleController = Me.LayoutControl1
+        Me.SimpleButton3.TabIndex = 6
+        Me.SimpleButton3.Text = "&Facturar"
+        '
+        'mRazon
+        '
+        Me.mRazon.Location = New System.Drawing.Point(123, 444)
+        Me.mRazon.Name = "mRazon"
+        Me.mRazon.Size = New System.Drawing.Size(799, 63)
+        Me.mRazon.StyleController = Me.LayoutControl1
+        Me.mRazon.TabIndex = 8
+        '
+        'lblMsg
+        '
+        Me.lblMsg.Appearance.BackColor = System.Drawing.Color.OrangeRed
+        Me.lblMsg.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMsg.Appearance.ForeColor = System.Drawing.Color.White
+        Me.lblMsg.Appearance.Options.UseBackColor = True
+        Me.lblMsg.Appearance.Options.UseFont = True
+        Me.lblMsg.Appearance.Options.UseForeColor = True
+        Me.lblMsg.Appearance.Options.UseTextOptions = True
+        Me.lblMsg.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.lblMsg.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.lblMsg.Location = New System.Drawing.Point(12, 12)
+        Me.lblMsg.Name = "lblMsg"
+        Me.lblMsg.Size = New System.Drawing.Size(910, 16)
+        Me.lblMsg.StyleController = Me.LayoutControl1
+        Me.lblMsg.TabIndex = 7
+        Me.lblMsg.Text = "Facturas Vencidas"
+        '
         'SimpleButton2
         '
-        Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton2.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.SimpleButton2.Location = New System.Drawing.Point(808, 511)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(114, 38)
@@ -80,7 +116,7 @@ Partial Class frmFacturasVentasVencidas
         '
         'SimpleButton1
         '
-        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton1.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.SimpleButton1.Location = New System.Drawing.Point(690, 511)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(114, 38)
@@ -109,7 +145,6 @@ Partial Class frmFacturasVentasVencidas
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.lyRazon, Me.lyFacturar})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(934, 561)
         Me.LayoutControlGroup1.TextVisible = False
@@ -159,24 +194,6 @@ Partial Class frmFacturasVentasVencidas
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(561, 42)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
-        'lblMsg
-        '
-        Me.lblMsg.Appearance.BackColor = System.Drawing.Color.OrangeRed
-        Me.lblMsg.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMsg.Appearance.ForeColor = System.Drawing.Color.White
-        Me.lblMsg.Appearance.Options.UseBackColor = True
-        Me.lblMsg.Appearance.Options.UseFont = True
-        Me.lblMsg.Appearance.Options.UseForeColor = True
-        Me.lblMsg.Appearance.Options.UseTextOptions = True
-        Me.lblMsg.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.lblMsg.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
-        Me.lblMsg.Location = New System.Drawing.Point(12, 12)
-        Me.lblMsg.Name = "lblMsg"
-        Me.lblMsg.Size = New System.Drawing.Size(910, 16)
-        Me.lblMsg.StyleController = Me.LayoutControl1
-        Me.lblMsg.TabIndex = 7
-        Me.lblMsg.Text = "Facturas Vencidas"
-        '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.lblMsg
@@ -185,14 +202,6 @@ Partial Class frmFacturasVentasVencidas
         Me.LayoutControlItem4.Size = New System.Drawing.Size(914, 20)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
-        '
-        'mRazon
-        '
-        Me.mRazon.Location = New System.Drawing.Point(123, 444)
-        Me.mRazon.Name = "mRazon"
-        Me.mRazon.Size = New System.Drawing.Size(799, 63)
-        Me.mRazon.StyleController = Me.LayoutControl1
-        Me.mRazon.TabIndex = 8
         '
         'lyRazon
         '
@@ -206,16 +215,6 @@ Partial Class frmFacturasVentasVencidas
         Me.lyRazon.Text = "Razón de Facturacíon:"
         Me.lyRazon.TextSize = New System.Drawing.Size(108, 13)
         Me.lyRazon.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
-        '
-        'SimpleButton3
-        '
-        Me.SimpleButton3.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton3.Location = New System.Drawing.Point(12, 511)
-        Me.SimpleButton3.Name = "SimpleButton3"
-        Me.SimpleButton3.Size = New System.Drawing.Size(113, 38)
-        Me.SimpleButton3.StyleController = Me.LayoutControl1
-        Me.SimpleButton3.TabIndex = 6
-        Me.SimpleButton3.Text = "&Facturar"
         '
         'lyFacturar
         '
@@ -236,12 +235,13 @@ Partial Class frmFacturasVentasVencidas
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(934, 561)
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("frmFacturasVentasVencidas.IconOptions.Icon"), System.Drawing.Icon)
         Me.Name = "frmFacturasVentasVencidas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmFacturasVentasVencidas"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.mRazon.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.iGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.iVista, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -250,7 +250,6 @@ Partial Class frmFacturasVentasVencidas
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.mRazon.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lyRazon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lyFacturar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

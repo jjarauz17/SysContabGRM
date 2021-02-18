@@ -16,7 +16,7 @@ Public Class frmDinamicoProduccion
         '
         'Cargar Pivot Inicial
         LlenarGrid(Desde.DateTime.AddMonths(2).Date, Hasta.DateTime.Date)
-        FormatoPivot(iPivotGrid)
+        FormatoPivot(iPivotGrid, 4)
         Ban = 1
     End Sub
 

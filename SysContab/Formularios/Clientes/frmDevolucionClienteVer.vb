@@ -159,7 +159,7 @@ Namespace DataGridTextBoxCombo
             Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
             Me.cmdImprimir.Location = New System.Drawing.Point(12, 12)
             Me.cmdImprimir.Name = "cmdImprimir"
-            Me.cmdImprimir.Size = New System.Drawing.Size(107, 38)
+            Me.cmdImprimir.Size = New System.Drawing.Size(109, 36)
             Me.cmdImprimir.StyleController = Me.LayoutControl2
             Me.cmdImprimir.TabIndex = 30
             Me.cmdImprimir.Text = "&Imprimir"
@@ -174,7 +174,7 @@ Namespace DataGridTextBoxCombo
             Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
             Me.LayoutControl2.Name = "LayoutControl2"
             Me.LayoutControl2.Root = Me.LayoutControlGroup2
-            Me.LayoutControl2.Size = New System.Drawing.Size(131, 412)
+            Me.LayoutControl2.Size = New System.Drawing.Size(133, 410)
             Me.LayoutControl2.TabIndex = 0
             Me.LayoutControl2.Text = "LayoutControl2"
             '
@@ -185,9 +185,9 @@ Namespace DataGridTextBoxCombo
             Me.SimpleButton1.Appearance.Options.UseFont = True
             Me.SimpleButton1.Appearance.Options.UseForeColor = True
             Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-            Me.SimpleButton1.Location = New System.Drawing.Point(12, 54)
+            Me.SimpleButton1.Location = New System.Drawing.Point(12, 52)
             Me.SimpleButton1.Name = "SimpleButton1"
-            Me.SimpleButton1.Size = New System.Drawing.Size(107, 38)
+            Me.SimpleButton1.Size = New System.Drawing.Size(109, 36)
             Me.SimpleButton1.StyleController = Me.LayoutControl2
             Me.SimpleButton1.TabIndex = 160
             Me.SimpleButton1.Text = "E&xportar"
@@ -200,9 +200,9 @@ Namespace DataGridTextBoxCombo
             Me.cmdCancelar.Appearance.Options.UseFont = True
             Me.cmdCancelar.Appearance.Options.UseForeColor = True
             Me.cmdCancelar.ImageOptions.Image = CType(resources.GetObject("cmdCancelar.ImageOptions.Image"), System.Drawing.Image)
-            Me.cmdCancelar.Location = New System.Drawing.Point(12, 96)
+            Me.cmdCancelar.Location = New System.Drawing.Point(12, 92)
             Me.cmdCancelar.Name = "cmdCancelar"
-            Me.cmdCancelar.Size = New System.Drawing.Size(107, 38)
+            Me.cmdCancelar.Size = New System.Drawing.Size(109, 36)
             Me.cmdCancelar.StyleController = Me.LayoutControl2
             Me.cmdCancelar.TabIndex = 29
             Me.cmdCancelar.Text = "&Salir"
@@ -212,17 +212,16 @@ Namespace DataGridTextBoxCombo
             Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
             Me.LayoutControlGroup2.GroupBordersVisible = False
             Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem10, Me.LayoutControlItem9, Me.LayoutControlItem11})
-            Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
             Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-            Me.LayoutControlGroup2.Size = New System.Drawing.Size(131, 412)
+            Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 410)
             Me.LayoutControlGroup2.TextVisible = False
             '
             'LayoutControlItem10
             '
             Me.LayoutControlItem10.Control = Me.cmdCancelar
-            Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 84)
+            Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 80)
             Me.LayoutControlItem10.Name = "LayoutControlItem10"
-            Me.LayoutControlItem10.Size = New System.Drawing.Size(111, 308)
+            Me.LayoutControlItem10.Size = New System.Drawing.Size(113, 310)
             Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
             Me.LayoutControlItem10.TextVisible = False
             '
@@ -231,16 +230,16 @@ Namespace DataGridTextBoxCombo
             Me.LayoutControlItem9.Control = Me.cmdImprimir
             Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 0)
             Me.LayoutControlItem9.Name = "LayoutControlItem9"
-            Me.LayoutControlItem9.Size = New System.Drawing.Size(111, 42)
+            Me.LayoutControlItem9.Size = New System.Drawing.Size(113, 40)
             Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
             Me.LayoutControlItem9.TextVisible = False
             '
             'LayoutControlItem11
             '
             Me.LayoutControlItem11.Control = Me.SimpleButton1
-            Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 42)
+            Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 40)
             Me.LayoutControlItem11.Name = "LayoutControlItem11"
-            Me.LayoutControlItem11.Size = New System.Drawing.Size(111, 42)
+            Me.LayoutControlItem11.Size = New System.Drawing.Size(113, 40)
             Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
             Me.LayoutControlItem11.TextVisible = False
             '
@@ -420,7 +419,6 @@ Namespace DataGridTextBoxCombo
             Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
             Me.LayoutControlGroup1.GroupBordersVisible = False
             Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.EmptySpaceItem1, Me.LayoutControlItem1, Me.LayoutControlItem4, Me.EmptySpaceItem2})
-            Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
             Me.LayoutControlGroup1.Name = "Root"
             Me.LayoutControlGroup1.Size = New System.Drawing.Size(868, 439)
             Me.LayoutControlGroup1.TextVisible = False
@@ -558,9 +556,9 @@ Namespace DataGridTextBoxCombo
             'DockPanel1_Container
             '
             Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-            Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+            Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
             Me.DockPanel1_Container.Name = "DockPanel1_Container"
-            Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 412)
+            Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 410)
             Me.DockPanel1_Container.TabIndex = 0
             '
             'frmDevolucionClienteVer

@@ -184,6 +184,9 @@ Public Class frmAgregarActivo
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarActivo))
         Me.gbCodigo = New System.Windows.Forms.GroupBox()
+        Me.txtDescripcion = New DevExpress.XtraEditors.MemoEdit()
+        Me.cbProveedor = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.dtpFecha_Compra = New System.Windows.Forms.DateTimePicker()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -205,13 +208,20 @@ Public Class frmAgregarActivo
         Me.cmdAceptar = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.gbCuentas = New System.Windows.Forms.GroupBox()
+        Me.cbCuentaDepreciacion = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Label44 = New System.Windows.Forms.Label()
+        Me.cbCuentaGastos = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cbCuentaInventario = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cbCuentaActivo = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.cbGrupoDepreciacion = New DevExpress.XtraEditors.LookUpEdit()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtRegistro_Catastral = New System.Windows.Forms.TextBox()
         Me.gbComentarios = New System.Windows.Forms.GroupBox()
+        Me.txtComentarios = New DevExpress.XtraEditors.MemoEdit()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.gbDescripcion = New System.Windows.Forms.GroupBox()
         Me.cbTipo = New System.Windows.Forms.ComboBox()
@@ -304,22 +314,22 @@ Public Class frmAgregarActivo
         Me.XtraTabPage3 = New DevExpress.XtraTab.XtraTabPage()
         Me.XtraTabPage4 = New DevExpress.XtraTab.XtraTabPage()
         Me.XtraTabPage5 = New DevExpress.XtraTab.XtraTabPage()
-        Me.cbProveedor = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.cbCuentaActivo = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.cbCuentaGastos = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.cbCuentaDepreciacion = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.GridView3 = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.txtDescripcion = New DevExpress.XtraEditors.MemoEdit()
-        Me.txtComentarios = New DevExpress.XtraEditors.MemoEdit()
         Me.gbCodigo.SuspendLayout()
+        CType(Me.txtDescripcion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbProveedor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.gbCuentas.SuspendLayout()
+        CType(Me.cbCuentaDepreciacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbCuentaGastos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbCuentaInventario.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbCuentaActivo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbGrupoDepreciacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbComentarios.SuspendLayout()
+        CType(Me.txtComentarios.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDescripcion.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GBArticulo.SuspendLayout()
@@ -352,16 +362,6 @@ Public Class frmAgregarActivo
         Me.XtraTabPage3.SuspendLayout()
         Me.XtraTabPage4.SuspendLayout()
         Me.XtraTabPage5.SuspendLayout()
-        CType(Me.cbProveedor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbCuentaActivo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbCuentaGastos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cbCuentaDepreciacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtDescripcion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtComentarios.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbCodigo
@@ -382,6 +382,32 @@ Public Class frmAgregarActivo
         Me.gbCodigo.Size = New System.Drawing.Size(712, 191)
         Me.gbCodigo.TabIndex = 0
         Me.gbCodigo.TabStop = False
+        '
+        'txtDescripcion
+        '
+        Me.txtDescripcion.Location = New System.Drawing.Point(135, 42)
+        Me.txtDescripcion.Name = "txtDescripcion"
+        Me.txtDescripcion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDescripcion.Size = New System.Drawing.Size(544, 56)
+        Me.txtDescripcion.TabIndex = 3
+        '
+        'cbProveedor
+        '
+        Me.cbProveedor.Location = New System.Drawing.Point(135, 104)
+        Me.cbProveedor.Name = "cbProveedor"
+        Me.cbProveedor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbProveedor.Properties.Appearance.Options.UseFont = True
+        Me.cbProveedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbProveedor.Properties.PopupView = Me.SearchLookUpEdit1View
+        Me.cbProveedor.Size = New System.Drawing.Size(544, 20)
+        Me.cbProveedor.TabIndex = 34
+        '
+        'SearchLookUpEdit1View
+        '
+        Me.SearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.SearchLookUpEdit1View.Name = "SearchLookUpEdit1View"
+        Me.SearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.SearchLookUpEdit1View.OptionsView.ShowGroupPanel = False
         '
         'Label21
         '
@@ -608,6 +634,24 @@ Public Class frmAgregarActivo
         Me.gbCuentas.TabIndex = 0
         Me.gbCuentas.TabStop = False
         '
+        'cbCuentaDepreciacion
+        '
+        Me.cbCuentaDepreciacion.Location = New System.Drawing.Point(176, 109)
+        Me.cbCuentaDepreciacion.Name = "cbCuentaDepreciacion"
+        Me.cbCuentaDepreciacion.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCuentaDepreciacion.Properties.Appearance.Options.UseFont = True
+        Me.cbCuentaDepreciacion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbCuentaDepreciacion.Properties.PopupView = Me.GridView3
+        Me.cbCuentaDepreciacion.Size = New System.Drawing.Size(456, 20)
+        Me.cbCuentaDepreciacion.TabIndex = 36
+        '
+        'GridView3
+        '
+        Me.GridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView3.Name = "GridView3"
+        Me.GridView3.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView3.OptionsView.ShowGroupPanel = False
+        '
         'Label44
         '
         Me.Label44.AutoSize = True
@@ -620,6 +664,24 @@ Public Class frmAgregarActivo
         Me.Label44.Text = "Cuenta de Inventario:"
         Me.Label44.Visible = False
         '
+        'cbCuentaGastos
+        '
+        Me.cbCuentaGastos.Location = New System.Drawing.Point(176, 82)
+        Me.cbCuentaGastos.Name = "cbCuentaGastos"
+        Me.cbCuentaGastos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCuentaGastos.Properties.Appearance.Options.UseFont = True
+        Me.cbCuentaGastos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbCuentaGastos.Properties.PopupView = Me.GridView2
+        Me.cbCuentaGastos.Size = New System.Drawing.Size(456, 20)
+        Me.cbCuentaGastos.TabIndex = 38
+        '
+        'GridView2
+        '
+        Me.GridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView2.Name = "GridView2"
+        Me.GridView2.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView2.OptionsView.ShowGroupPanel = False
+        '
         'cbCuentaInventario
         '
         Me.cbCuentaInventario.Location = New System.Drawing.Point(176, 135)
@@ -627,11 +689,29 @@ Public Class frmAgregarActivo
         Me.cbCuentaInventario.Properties.Appearance.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbCuentaInventario.Properties.Appearance.Options.UseFont = True
         Me.cbCuentaInventario.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCuentaInventario.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CUENTA", "", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", 200, "Nombre de la Cuenta")})
+        Me.cbCuentaInventario.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("CUENTA", "", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("NOMBRE", "Nombre de la Cuenta", 200, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.cbCuentaInventario.Properties.NullText = ""
         Me.cbCuentaInventario.Size = New System.Drawing.Size(456, 20)
         Me.cbCuentaInventario.TabIndex = 23
         Me.cbCuentaInventario.Visible = False
+        '
+        'cbCuentaActivo
+        '
+        Me.cbCuentaActivo.Location = New System.Drawing.Point(176, 56)
+        Me.cbCuentaActivo.Name = "cbCuentaActivo"
+        Me.cbCuentaActivo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCuentaActivo.Properties.Appearance.Options.UseFont = True
+        Me.cbCuentaActivo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbCuentaActivo.Properties.PopupView = Me.GridView1
+        Me.cbCuentaActivo.Size = New System.Drawing.Size(456, 20)
+        Me.cbCuentaActivo.TabIndex = 35
+        '
+        'GridView1
+        '
+        Me.GridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
         '
         'Label33
         '
@@ -685,6 +765,13 @@ Public Class frmAgregarActivo
         Me.gbComentarios.TabIndex = 1
         Me.gbComentarios.TabStop = False
         '
+        'txtComentarios
+        '
+        Me.txtComentarios.Location = New System.Drawing.Point(135, 10)
+        Me.txtComentarios.Name = "txtComentarios"
+        Me.txtComentarios.Size = New System.Drawing.Size(544, 86)
+        Me.txtComentarios.TabIndex = 4
+        '
         'Label12
         '
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -713,7 +800,7 @@ Public Class frmAgregarActivo
         'cbTipo
         '
         Me.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbTipo.Items.AddRange(New Object() {"Equipo", "Propiedad", "Vehículo", "Mobiliario", "Software"})
+        Me.cbTipo.Items.AddRange(New Object() {"Equipo", "Propiedad/Infraestructura", "Vehículo", "Mobiliario", "Software"})
         Me.cbTipo.Location = New System.Drawing.Point(142, 16)
         Me.cbTipo.Name = "cbTipo"
         Me.cbTipo.Size = New System.Drawing.Size(160, 21)
@@ -1227,7 +1314,7 @@ Public Class frmAgregarActivo
         Me.ckInicial.Properties.Appearance.Options.UseForeColor = True
         Me.ckInicial.Properties.Caption = "Saldo Inicial"
         Me.ckInicial.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far
-        Me.ckInicial.Size = New System.Drawing.Size(175, 19)
+        Me.ckInicial.Size = New System.Drawing.Size(175, 20)
         Me.ckInicial.TabIndex = 38
         '
         'txtValorDepreciado
@@ -1449,7 +1536,7 @@ Public Class frmAgregarActivo
         'cmdVerDetalle
         '
         Me.cmdVerDetalle.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cmdVerDetalle.Location = New System.Drawing.Point(83, 465)
+        Me.cmdVerDetalle.Location = New System.Drawing.Point(83, 468)
         Me.cmdVerDetalle.Name = "cmdVerDetalle"
         Me.cmdVerDetalle.Size = New System.Drawing.Size(75, 25)
         Me.cmdVerDetalle.TabIndex = 21
@@ -1458,7 +1545,7 @@ Public Class frmAgregarActivo
         'cmdAgregar
         '
         Me.cmdAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.cmdAgregar.Location = New System.Drawing.Point(3, 465)
+        Me.cmdAgregar.Location = New System.Drawing.Point(3, 468)
         Me.cmdAgregar.Name = "cmdAgregar"
         Me.cmdAgregar.Size = New System.Drawing.Size(75, 25)
         Me.cmdAgregar.TabIndex = 20
@@ -1468,10 +1555,10 @@ Public Class frmAgregarActivo
         '
         Me.dgMovimientos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgMovimientos.Location = New System.Drawing.Point(3, 214)
+        Me.dgMovimientos.Location = New System.Drawing.Point(3, 217)
         Me.dgMovimientos.MainView = Me.vMovimientos
         Me.dgMovimientos.Name = "dgMovimientos"
-        Me.dgMovimientos.Size = New System.Drawing.Size(749, 245)
+        Me.dgMovimientos.Size = New System.Drawing.Size(753, 245)
         Me.dgMovimientos.TabIndex = 19
         Me.dgMovimientos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vMovimientos})
         '
@@ -1492,7 +1579,7 @@ Public Class frmAgregarActivo
         Me.Label40.BackColor = System.Drawing.Color.Transparent
         Me.Label40.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label40.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label40.Location = New System.Drawing.Point(3, 188)
+        Me.Label40.Location = New System.Drawing.Point(3, 191)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(377, 26)
         Me.Label40.TabIndex = 18
@@ -1506,7 +1593,7 @@ Public Class frmAgregarActivo
         Me.dgDepreciaciones.Location = New System.Drawing.Point(3, 25)
         Me.dgDepreciaciones.MainView = Me.vDepreciaciones
         Me.dgDepreciaciones.Name = "dgDepreciaciones"
-        Me.dgDepreciaciones.Size = New System.Drawing.Size(749, 155)
+        Me.dgDepreciaciones.Size = New System.Drawing.Size(753, 158)
         Me.dgDepreciaciones.TabIndex = 0
         Me.dgDepreciaciones.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vDepreciaciones})
         '
@@ -1536,7 +1623,7 @@ Public Class frmAgregarActivo
         '
         Me.cmdAsignar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cmdAsignar.Enabled = False
-        Me.cmdAsignar.Location = New System.Drawing.Point(309, 444)
+        Me.cmdAsignar.Location = New System.Drawing.Point(309, 447)
         Me.cmdAsignar.Name = "cmdAsignar"
         Me.cmdAsignar.Size = New System.Drawing.Size(75, 25)
         Me.cmdAsignar.TabIndex = 7
@@ -1545,7 +1632,7 @@ Public Class frmAgregarActivo
         'LabelControl3
         '
         Me.LabelControl3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.LabelControl3.Location = New System.Drawing.Point(3, 449)
+        Me.LabelControl3.Location = New System.Drawing.Point(3, 452)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(102, 13)
         Me.LabelControl3.TabIndex = 6
@@ -1554,7 +1641,7 @@ Public Class frmAgregarActivo
         'LabelControl2
         '
         Me.LabelControl2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.LabelControl2.Location = New System.Drawing.Point(3, 397)
+        Me.LabelControl2.Location = New System.Drawing.Point(3, 400)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(83, 13)
         Me.LabelControl2.TabIndex = 5
@@ -1563,7 +1650,7 @@ Public Class frmAgregarActivo
         'LabelControl1
         '
         Me.LabelControl1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.LabelControl1.Location = New System.Drawing.Point(3, 421)
+        Me.LabelControl1.Location = New System.Drawing.Point(3, 424)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(50, 13)
         Me.LabelControl1.TabIndex = 4
@@ -1574,7 +1661,7 @@ Public Class frmAgregarActivo
         Me.dtAsignacion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dtAsignacion.EditValue = Nothing
         Me.dtAsignacion.Enabled = False
-        Me.dtAsignacion.Location = New System.Drawing.Point(111, 446)
+        Me.dtAsignacion.Location = New System.Drawing.Point(111, 449)
         Me.dtAsignacion.Name = "dtAsignacion"
         Me.dtAsignacion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dtAsignacion.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
@@ -1585,10 +1672,10 @@ Public Class frmAgregarActivo
         '
         Me.cbCentroCosto2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cbCentroCosto2.Enabled = False
-        Me.cbCentroCosto2.Location = New System.Drawing.Point(111, 390)
+        Me.cbCentroCosto2.Location = New System.Drawing.Point(111, 393)
         Me.cbCentroCosto2.Name = "cbCentroCosto2"
         Me.cbCentroCosto2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCentroCosto2.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", 40, "Nombre")})
+        Me.cbCentroCosto2.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre", 40, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.cbCentroCosto2.Properties.NullText = "[Seleccione el Centro de Costo]"
         Me.cbCentroCosto2.Size = New System.Drawing.Size(273, 20)
         Me.cbCentroCosto2.TabIndex = 2
@@ -1597,10 +1684,10 @@ Public Class frmAgregarActivo
         '
         Me.cbEmpleado2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.cbEmpleado2.Enabled = False
-        Me.cbEmpleado2.Location = New System.Drawing.Point(111, 418)
+        Me.cbEmpleado2.Location = New System.Drawing.Point(111, 421)
         Me.cbEmpleado2.Name = "cbEmpleado2"
         Me.cbEmpleado2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbEmpleado2.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", 200, "Nombre")})
+        Me.cbEmpleado2.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre", 200, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.cbEmpleado2.Properties.NullText = "[Seleccione el Empleado]"
         Me.cbEmpleado2.Size = New System.Drawing.Size(273, 20)
         Me.cbEmpleado2.TabIndex = 1
@@ -1614,7 +1701,7 @@ Public Class frmAgregarActivo
         Me.dgAsignacion.MainView = Me.vAsignacion
         Me.dgAsignacion.Name = "dgAsignacion"
         Me.dgAsignacion.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.cbEmpleados, Me.cbCentroCosto})
-        Me.dgAsignacion.Size = New System.Drawing.Size(749, 380)
+        Me.dgAsignacion.Size = New System.Drawing.Size(753, 383)
         Me.dgAsignacion.TabIndex = 0
         Me.dgAsignacion.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vAsignacion})
         '
@@ -1631,7 +1718,7 @@ Public Class frmAgregarActivo
         '
         Me.cbEmpleados.AutoHeight = False
         Me.cbEmpleados.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbEmpleados.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", 200, "Nombre")})
+        Me.cbEmpleados.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre", 200, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.cbEmpleados.Name = "cbEmpleados"
         Me.cbEmpleados.NullText = "[Seleccione el Empleado]"
         '
@@ -1639,7 +1726,7 @@ Public Class frmAgregarActivo
         '
         Me.cbCentroCosto.AutoHeight = False
         Me.cbCentroCosto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCentroCosto.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", 200, "Descripcion")})
+        Me.cbCentroCosto.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Descripcion", 200, DevExpress.Utils.FormatType.None, "", True, DevExpress.Utils.HorzAlignment.[Default], DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.[Default])})
         Me.cbCentroCosto.Name = "cbCentroCosto"
         Me.cbCentroCosto.NullText = "[Seleccione el Centro de Costo]"
         '
@@ -1665,14 +1752,14 @@ Public Class frmAgregarActivo
         Me.XtraTabPage1.Controls.Add(Me.gbCodigo)
         Me.XtraTabPage1.Controls.Add(Me.gbComentarios)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(755, 493)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(759, 496)
         Me.XtraTabPage1.Text = "Activo"
         '
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.gbDescripcion)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(755, 493)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(759, 496)
         Me.XtraTabPage2.Text = "Descripción"
         '
         'XtraTabPage3
@@ -1684,7 +1771,7 @@ Public Class frmAgregarActivo
         Me.XtraTabPage3.Controls.Add(Me.txtValor_Revalorizacion)
         Me.XtraTabPage3.Controls.Add(Me.Label22)
         Me.XtraTabPage3.Name = "XtraTabPage3"
-        Me.XtraTabPage3.Size = New System.Drawing.Size(755, 493)
+        Me.XtraTabPage3.Size = New System.Drawing.Size(759, 496)
         Me.XtraTabPage3.Text = "Cuentas/Valores"
         '
         'XtraTabPage4
@@ -1696,7 +1783,7 @@ Public Class frmAgregarActivo
         Me.XtraTabPage4.Controls.Add(Me.dgMovimientos)
         Me.XtraTabPage4.Controls.Add(Me.Label40)
         Me.XtraTabPage4.Name = "XtraTabPage4"
-        Me.XtraTabPage4.Size = New System.Drawing.Size(755, 493)
+        Me.XtraTabPage4.Size = New System.Drawing.Size(759, 496)
         Me.XtraTabPage4.Text = "Histórico de Movimientos"
         '
         'XtraTabPage5
@@ -1710,95 +1797,8 @@ Public Class frmAgregarActivo
         Me.XtraTabPage5.Controls.Add(Me.LabelControl1)
         Me.XtraTabPage5.Controls.Add(Me.dtAsignacion)
         Me.XtraTabPage5.Name = "XtraTabPage5"
-        Me.XtraTabPage5.Size = New System.Drawing.Size(755, 493)
+        Me.XtraTabPage5.Size = New System.Drawing.Size(759, 496)
         Me.XtraTabPage5.Text = "Asignación"
-        '
-        'cbProveedor
-        '
-        Me.cbProveedor.Location = New System.Drawing.Point(135, 104)
-        Me.cbProveedor.Name = "cbProveedor"
-        Me.cbProveedor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProveedor.Properties.Appearance.Options.UseFont = True
-        Me.cbProveedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbProveedor.Properties.View = Me.SearchLookUpEdit1View
-        Me.cbProveedor.Size = New System.Drawing.Size(544, 20)
-        Me.cbProveedor.TabIndex = 34
-        '
-        'SearchLookUpEdit1View
-        '
-        Me.SearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.SearchLookUpEdit1View.Name = "SearchLookUpEdit1View"
-        Me.SearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.SearchLookUpEdit1View.OptionsView.ShowGroupPanel = False
-        '
-        'cbCuentaActivo
-        '
-        Me.cbCuentaActivo.Location = New System.Drawing.Point(176, 56)
-        Me.cbCuentaActivo.Name = "cbCuentaActivo"
-        Me.cbCuentaActivo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCuentaActivo.Properties.Appearance.Options.UseFont = True
-        Me.cbCuentaActivo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCuentaActivo.Properties.View = Me.GridView1
-        Me.cbCuentaActivo.Size = New System.Drawing.Size(456, 20)
-        Me.cbCuentaActivo.TabIndex = 35
-        '
-        'GridView1
-        '
-        Me.GridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView1.Name = "GridView1"
-        Me.GridView1.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView1.OptionsView.ShowGroupPanel = False
-        '
-        'cbCuentaGastos
-        '
-        Me.cbCuentaGastos.Location = New System.Drawing.Point(176, 82)
-        Me.cbCuentaGastos.Name = "cbCuentaGastos"
-        Me.cbCuentaGastos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCuentaGastos.Properties.Appearance.Options.UseFont = True
-        Me.cbCuentaGastos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCuentaGastos.Properties.View = Me.GridView2
-        Me.cbCuentaGastos.Size = New System.Drawing.Size(456, 20)
-        Me.cbCuentaGastos.TabIndex = 38
-        '
-        'GridView2
-        '
-        Me.GridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView2.Name = "GridView2"
-        Me.GridView2.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView2.OptionsView.ShowGroupPanel = False
-        '
-        'cbCuentaDepreciacion
-        '
-        Me.cbCuentaDepreciacion.Location = New System.Drawing.Point(176, 109)
-        Me.cbCuentaDepreciacion.Name = "cbCuentaDepreciacion"
-        Me.cbCuentaDepreciacion.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCuentaDepreciacion.Properties.Appearance.Options.UseFont = True
-        Me.cbCuentaDepreciacion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCuentaDepreciacion.Properties.View = Me.GridView3
-        Me.cbCuentaDepreciacion.Size = New System.Drawing.Size(456, 20)
-        Me.cbCuentaDepreciacion.TabIndex = 36
-        '
-        'GridView3
-        '
-        Me.GridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.GridView3.Name = "GridView3"
-        Me.GridView3.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.GridView3.OptionsView.ShowGroupPanel = False
-        '
-        'txtDescripcion
-        '
-        Me.txtDescripcion.Location = New System.Drawing.Point(135, 42)
-        Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtDescripcion.Size = New System.Drawing.Size(544, 56)
-        Me.txtDescripcion.TabIndex = 3
-        '
-        'txtComentarios
-        '
-        Me.txtComentarios.Location = New System.Drawing.Point(135, 10)
-        Me.txtComentarios.Name = "txtComentarios"
-        Me.txtComentarios.Size = New System.Drawing.Size(544, 86)
-        Me.txtComentarios.TabIndex = 4
         '
         'frmAgregarActivo
         '
@@ -1813,12 +1813,22 @@ Public Class frmAgregarActivo
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.gbCodigo.ResumeLayout(False)
         Me.gbCodigo.PerformLayout()
+        CType(Me.txtDescripcion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbProveedor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.gbCuentas.ResumeLayout(False)
         Me.gbCuentas.PerformLayout()
+        CType(Me.cbCuentaDepreciacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbCuentaGastos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbCuentaInventario.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbCuentaActivo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbGrupoDepreciacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbComentarios.ResumeLayout(False)
+        CType(Me.txtComentarios.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbDescripcion.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -1858,16 +1868,6 @@ Public Class frmAgregarActivo
         Me.XtraTabPage4.ResumeLayout(False)
         Me.XtraTabPage5.ResumeLayout(False)
         Me.XtraTabPage5.PerformLayout()
-        CType(Me.cbProveedor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbCuentaActivo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbCuentaGastos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cbCuentaDepreciacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtDescripcion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtComentarios.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2508,7 +2508,7 @@ Public Class frmAgregarActivo
 
     Private Sub cmdVerDetalle_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdVerDetalle.Click
         Dim f As New frmAgregarMovimientos
-        frmAgregarMovimientos.Consecutivo = Me.vMovimientos.GetFocusedRowCellValue("Consecutivo")
+        frmAgregarMovimientos.Consecutivo = vMovimientos.GetFocusedRowCellValue("Consecutivo")
         frmAgregarMovimientos.Modo = "V"
         f.ShowDialog()
         f.Dispose()

@@ -136,8 +136,20 @@ Public Class FrmRequisasnew
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmRequisasnew))
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim StyleFormatCondition1 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
         Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.txtCosto = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
@@ -392,7 +404,7 @@ Public Class FrmRequisasnew
         Me.cbProveedor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbProveedor.Properties.Appearance.Options.UseFont = True
         Me.cbProveedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbProveedor.Properties.View = Me.GridView2
+        Me.cbProveedor.Properties.PopupView = Me.GridView2
         Me.cbProveedor.Size = New System.Drawing.Size(601, 20)
         Me.cbProveedor.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.cbProveedor.TabIndex = 135
@@ -419,12 +431,12 @@ Public Class FrmRequisasnew
         '
         'txtRecibimosDe
         '
-        Me.txtRecibimosDe.Location = New System.Drawing.Point(359, 38)
+        Me.txtRecibimosDe.Location = New System.Drawing.Point(381, 38)
         Me.txtRecibimosDe.Name = "txtRecibimosDe"
         Me.txtRecibimosDe.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtRecibimosDe.Properties.Appearance.Options.UseFont = True
         Me.txtRecibimosDe.Properties.MaxLength = 50
-        Me.txtRecibimosDe.Size = New System.Drawing.Size(336, 22)
+        Me.txtRecibimosDe.Size = New System.Drawing.Size(314, 22)
         Me.txtRecibimosDe.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.txtRecibimosDe.TabIndex = 13
         '
@@ -435,7 +447,7 @@ Public Class FrmRequisasnew
         Me.cbOrden.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbOrden.Properties.Appearance.Options.UseFont = True
         Me.cbOrden.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbOrden.Properties.View = Me.GridView3
+        Me.cbOrden.Properties.PopupView = Me.GridView3
         Me.cbOrden.Size = New System.Drawing.Size(128, 20)
         Me.cbOrden.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.cbOrden.TabIndex = 135
@@ -454,7 +466,7 @@ Public Class FrmRequisasnew
         Me.cbProyectos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbProyectos.Properties.Appearance.Options.UseFont = True
         Me.cbProyectos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbProyectos.Properties.View = Me.iVistaProyectos
+        Me.cbProyectos.Properties.PopupView = Me.iVistaProyectos
         Me.cbProyectos.Size = New System.Drawing.Size(376, 20)
         Me.cbProyectos.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.cbProyectos.TabIndex = 135
@@ -473,7 +485,7 @@ Public Class FrmRequisasnew
         Me.cbCliente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbCliente.Properties.Appearance.Options.UseFont = True
         Me.cbCliente.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCliente.Properties.View = Me.SearchLookUpEdit1View
+        Me.cbCliente.Properties.PopupView = Me.SearchLookUpEdit1View
         Me.cbCliente.Size = New System.Drawing.Size(376, 20)
         Me.cbCliente.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.cbCliente.TabIndex = 134
@@ -630,12 +642,12 @@ Public Class FrmRequisasnew
         '
         'txtReferencia
         '
-        Me.txtReferencia.Location = New System.Drawing.Point(359, 12)
+        Me.txtReferencia.Location = New System.Drawing.Point(381, 12)
         Me.txtReferencia.Name = "txtReferencia"
         Me.txtReferencia.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
         Me.txtReferencia.Properties.Appearance.Options.UseFont = True
         Me.txtReferencia.Properties.MaxLength = 50
-        Me.txtReferencia.Size = New System.Drawing.Size(323, 22)
+        Me.txtReferencia.Size = New System.Drawing.Size(301, 22)
         Me.txtReferencia.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.txtReferencia.TabIndex = 1
         '
@@ -648,7 +660,7 @@ Public Class FrmRequisasnew
         EditorButtonImageOptions1.EnableTransparency = False
         EditorButtonImageOptions2.EnableTransparency = False
         EditorButtonImageOptions3.EnableTransparency = False
-        Me.cbMovimientos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, True, True, True, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Borrar Datos"), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, True, True, True, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Editar/Cambiar  Datos"), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, True, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Agregar Nuevo Movimiento")})
+        Me.cbMovimientos.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, True, True, True, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "Borrar Datos", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, True, True, True, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "Editar/Cambiar  Datos", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, True, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "Agregar Nuevo Movimiento", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cbMovimientos.Properties.NullText = ""
         Me.cbMovimientos.Properties.ShowFooter = False
         Me.cbMovimientos.Size = New System.Drawing.Size(531, 20)
@@ -682,7 +694,7 @@ Public Class FrmRequisasnew
         Me.fecha.Properties.Appearance.Options.UseFont = True
         Me.fecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.fecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.fecha.Size = New System.Drawing.Size(115, 22)
+        Me.fecha.Size = New System.Drawing.Size(137, 22)
         Me.fecha.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.fecha.TabIndex = 0
         '
@@ -701,7 +713,7 @@ Public Class FrmRequisasnew
         Me.cmbrequisa.Properties.ShowFooter = False
         Me.cmbrequisa.Properties.ShowHeader = False
         Me.cmbrequisa.Properties.ShowLines = False
-        Me.cmbrequisa.Size = New System.Drawing.Size(115, 20)
+        Me.cmbrequisa.Size = New System.Drawing.Size(137, 20)
         Me.cmbrequisa.StyleController = Me.FrmRequisasnewConvertedLayout
         Me.cmbrequisa.TabIndex = 2
         '
@@ -791,7 +803,7 @@ Public Class FrmRequisasnew
         Me.cbProducto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.NullText = "[Agregar Producto]"
-        Me.cbProducto.View = Me.GridView1
+        Me.cbProducto.PopupView = Me.GridView1
         '
         'GridView1
         '
@@ -817,7 +829,7 @@ Public Class FrmRequisasnew
         Me.cbCatalogo.AutoHeight = False
         Me.cbCatalogo.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbCatalogo.Name = "cbCatalogo"
-        Me.cbCatalogo.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbCatalogo.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -958,7 +970,6 @@ Public Class FrmRequisasnew
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem10, Me.LayoutControlItem12, Me.lyImportar, Me.LayoutControlItem14, Me.lyRefrescar, Me.lyGuardar, Me.LayoutControlItem17, Me.EmptySpaceItem3, Me.EmptySpaceItem2, Me.LayoutControlItem1, Me.LayoutControlItem19, Me.LayoutControlItem20, Me.LayoutControlItem11, Me.LayoutControlItem4, Me.LayoutControlItem3, Me.LayoutControlItem9, Me.LayoutControlItem18, Me.LayoutControlItem21, Me.LayoutControlItem22, Me.LayoutControlItem23, Me.LayoutControlItem15, Me.LayoutControlItem16, Me.LayoutControlItem24, Me.LayoutControlItem25, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlItem13})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1008, 711)
         Me.LayoutControlGroup1.TextVisible = False
@@ -967,9 +978,9 @@ Public Class FrmRequisasnew
         '
         Me.LayoutControlItem2.Control = Me.txtReferencia
         Me.LayoutControlItem2.CustomizationFormText = "Referencia :"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(233, 0)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(255, 0)
         Me.LayoutControlItem2.Name = "txtReferenciaitem"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(441, 26)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(419, 26)
         Me.LayoutControlItem2.Text = "Referencia :"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(111, 13)
         '
@@ -978,10 +989,10 @@ Public Class FrmRequisasnew
         Me.LayoutControlItem5.Control = Me.fecha
         Me.LayoutControlItem5.CustomizationFormText = "Fecha :"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(233, 26)
-        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(233, 26)
+        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(255, 26)
+        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(255, 26)
         Me.LayoutControlItem5.Name = "fechaitem"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(233, 26)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(255, 26)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.Text = "Fecha :"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(111, 13)
@@ -1004,10 +1015,10 @@ Public Class FrmRequisasnew
         Me.LayoutControlItem7.Control = Me.cmbrequisa
         Me.LayoutControlItem7.CustomizationFormText = "Tipo:"
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 26)
-        Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(233, 24)
-        Me.LayoutControlItem7.MinSize = New System.Drawing.Size(233, 24)
+        Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(255, 26)
+        Me.LayoutControlItem7.MinSize = New System.Drawing.Size(255, 26)
         Me.LayoutControlItem7.Name = "cmbrequisaitem"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(233, 26)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(255, 26)
         Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem7.Text = "Tipo:"
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(111, 13)
@@ -1272,9 +1283,9 @@ Public Class FrmRequisasnew
         'LayoutControlItem25
         '
         Me.LayoutControlItem25.Control = Me.txtRecibimosDe
-        Me.LayoutControlItem25.Location = New System.Drawing.Point(233, 26)
+        Me.LayoutControlItem25.Location = New System.Drawing.Point(255, 26)
         Me.LayoutControlItem25.Name = "LayoutControlItem25"
-        Me.LayoutControlItem25.Size = New System.Drawing.Size(454, 26)
+        Me.LayoutControlItem25.Size = New System.Drawing.Size(432, 26)
         Me.LayoutControlItem25.Text = "Recibimos de:"
         Me.LayoutControlItem25.TextSize = New System.Drawing.Size(111, 13)
         '

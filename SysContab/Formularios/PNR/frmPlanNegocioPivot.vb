@@ -178,4 +178,12 @@ Public Class frmPlanNegocioPivot
         '    'End If
         'End If
     End Sub
+
+    Private Sub CheckEdit1_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckEdit1.CheckedChanged
+
+    End Sub
+
+    Private Sub CheckEdit2_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckEdit2.CheckedChanged
+
+    End Sub
 End Class

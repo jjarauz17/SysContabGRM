@@ -26,7 +26,7 @@
         //-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
         public bool Insertar(CLIENTES CLIENTES, bool Tran = false)
         {
-            object[] ObjParameter = new object[66];
+            object[] ObjParameter = new object[67];
             ObjParameter[0] = CLIENTES.CODIGO;
             ObjParameter[1] = CLIENTES.NOMBRE;
             ObjParameter[2] = CLIENTES.CONTACTO;
@@ -93,6 +93,7 @@
             ObjParameter[63] = CLIENTES.EMAIL_REPRESENTANTE;
             ObjParameter[64] = CLIENTES.TELEFONO_REPRESENTANTE;
             ObjParameter[65] = CLIENTES.CELULAR_REPRESENTANTE;
+            ObjParameter[66] = CLIENTES.ValidarVencidas;
 
             try
             {
@@ -131,7 +132,7 @@
         //-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
         public bool Actualizar(CLIENTES CLIENTES, bool Tran = false)
         {
-            object[] ObjParameter = new object[66];
+            object[] ObjParameter = new object[67];
             ObjParameter[0] = CLIENTES.CODIGO;
             ObjParameter[1] = CLIENTES.NOMBRE;
             ObjParameter[2] = CLIENTES.CONTACTO;
@@ -198,6 +199,7 @@
             ObjParameter[63] = CLIENTES.EMAIL_REPRESENTANTE;
             ObjParameter[64] = CLIENTES.TELEFONO_REPRESENTANTE;
             ObjParameter[65] = CLIENTES.CELULAR_REPRESENTANTE;
+            ObjParameter[66] = CLIENTES.ValidarVencidas;
 
             try
             {
@@ -346,7 +348,8 @@
                 det.Categoria = (int)dt.Rows[0]["Categoria"];
                 det.Moneda = dt.Rows[0]["Moneda"].ToString();
                 det.ValidarLimite = (bool)dt.Rows[0]["ValidarLimite"] ? 1 : 0;
-               // det.SucursalCliente = dt.Rows[0]["SucursalCliente"].ToString();
+                det.ValidarVencidas = (bool)dt.Rows[0]["ValidarVencidas"] ? 1 : 0;
+                // det.SucursalCliente = dt.Rows[0]["SucursalCliente"].ToString();
                 det.Varios = (bool)dt.Rows[0]["Varios"] ? 1 : 0;
                 det.Comentarios = dt.Rows[0]["Comentarios"].ToString();
                 det.Registro = dt.Rows[0]["Registro"].ToString();

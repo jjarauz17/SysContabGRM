@@ -689,6 +689,20 @@
             }
         }
 
+        int vValidarVencidas;
+
+        public int ValidarVencidas
+        {
+            get
+            {
+                return vValidarVencidas;
+            }
+            set
+            {
+                vValidarVencidas = value;
+            }
+        }
+
         string vSucursalCliente;
 
         public string SucursalCliente

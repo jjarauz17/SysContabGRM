@@ -40,17 +40,17 @@ Public Class FrmEstadoResultadosDetallesDistribucion
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
-        Dim GridLevelNode1 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode
-        Me.Grid = New DevExpress.XtraGrid.GridControl
-        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn
-        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
-        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn
+        Dim GridLevelNode2 As DevExpress.XtraGrid.GridLevelNode = New DevExpress.XtraGrid.GridLevelNode()
+        Me.Grid = New DevExpress.XtraGrid.GridControl()
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,12 +59,8 @@ Public Class FrmEstadoResultadosDetallesDistribucion
         'Grid
         '
         Me.Grid.Dock = System.Windows.Forms.DockStyle.Fill
-        '
-        'Grid.EmbeddedNavigator
-        '
-        Me.Grid.EmbeddedNavigator.Name = ""
-        GridLevelNode1.RelationName = "Level1"
-        Me.Grid.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode1})
+        GridLevelNode2.RelationName = "Level1"
+        Me.Grid.LevelTree.Nodes.AddRange(New DevExpress.XtraGrid.GridLevelNode() {GridLevelNode2})
         Me.Grid.Location = New System.Drawing.Point(0, 0)
         Me.Grid.LookAndFeel.SkinName = "The Asphalt World"
         Me.Grid.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003
@@ -80,7 +76,6 @@ Public Class FrmEstadoResultadosDetallesDistribucion
         Me.GridView2.GridControl = Me.Grid
         Me.GridView2.Name = "GridView2"
         Me.GridView2.OptionsView.ShowFooter = True
-
         Me.GridView2.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.GridColumn6, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
         'GridColumn2
@@ -105,6 +100,15 @@ Public Class FrmEstadoResultadosDetallesDistribucion
         Me.GridColumn1.VisibleIndex = 1
         Me.GridColumn1.Width = 95
         '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "Nombre"
+        Me.GridColumn3.FieldName = "NombreCuenta"
+        Me.GridColumn3.Name = "GridColumn3"
+        Me.GridColumn3.Visible = True
+        Me.GridColumn3.VisibleIndex = 2
+        Me.GridColumn3.Width = 256
+        '
         'GridColumn4
         '
         Me.GridColumn4.Caption = "Comprobante"
@@ -124,8 +128,7 @@ Public Class FrmEstadoResultadosDetallesDistribucion
         Me.GridColumn5.FieldName = "Debitos"
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.OptionsColumn.AllowEdit = False
-        Me.GridColumn5.SummaryItem.DisplayFormat = "{0:N}"
-        Me.GridColumn5.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.GridColumn5.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Debitos", "{0:N}")})
         Me.GridColumn5.Visible = True
         Me.GridColumn5.VisibleIndex = 4
         Me.GridColumn5.Width = 82
@@ -139,8 +142,7 @@ Public Class FrmEstadoResultadosDetallesDistribucion
         Me.GridColumn6.MinWidth = 100
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.OptionsColumn.AllowEdit = False
-        Me.GridColumn6.SummaryItem.DisplayFormat = "{0:N}"
-        Me.GridColumn6.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.GridColumn6.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Creditos", "{0:N}")})
         Me.GridColumn6.Visible = True
         Me.GridColumn6.VisibleIndex = 5
         Me.GridColumn6.Width = 101
@@ -155,9 +157,8 @@ Public Class FrmEstadoResultadosDetallesDistribucion
         Me.GridColumn9.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric
         Me.GridColumn9.Name = "GridColumn9"
         Me.GridColumn9.OptionsColumn.AllowEdit = False
-        Me.GridColumn9.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True
-        Me.GridColumn9.SummaryItem.DisplayFormat = "{0:N}"
-        Me.GridColumn9.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.GridColumn9.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.[True]
+        Me.GridColumn9.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Movimiento", "{0:N}")})
         Me.GridColumn9.Visible = True
         Me.GridColumn9.VisibleIndex = 6
         Me.GridColumn9.Width = 71
@@ -165,34 +166,29 @@ Public Class FrmEstadoResultadosDetallesDistribucion
         'GridView1
         '
         Me.GridView1.GridControl = Me.Grid
-        Me.GridView1.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
         Me.GridView1.GroupSummary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.None, "Debitos", Nothing, "{0:n}")})
         Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
         Me.GridView1.OptionsView.ShowFooter = True
         Me.GridView1.SortInfo.AddRange(New DevExpress.XtraGrid.Columns.GridColumnSortInfo() {New DevExpress.XtraGrid.Columns.GridColumnSortInfo(Me.GridColumn6, DevExpress.Data.ColumnSortOrder.Ascending)})
         '
-        'GridColumn3
-        '
-        Me.GridColumn3.Caption = "Nombre"
-        Me.GridColumn3.FieldName = "NombreCuenta"
-        Me.GridColumn3.Name = "GridColumn3"
-        Me.GridColumn3.Visible = True
-        Me.GridColumn3.VisibleIndex = 2
-        Me.GridColumn3.Width = 256
-        '
         'FrmEstadoResultadosDetallesDistribucion
         '
-        Me.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(225, Byte), CType(236, Byte), CType(236, Byte))
+        Me.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.Appearance.Options.UseBackColor = True
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
         Me.ClientSize = New System.Drawing.Size(960, 546)
         Me.Controls.Add(Me.Grid)
         Me.Name = "FrmEstadoResultadosDetallesDistribucion"
-        Me.Text = "FrmEstadoResultadosDetallesDistribucion"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+
+    End Sub
+
+    Private Sub FrmEstadoResultadosDetallesDistribucion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 

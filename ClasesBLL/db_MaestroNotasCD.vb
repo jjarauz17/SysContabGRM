@@ -10,7 +10,9 @@ Public Class db_MaestroNotasCD
                                    Vencimiento As Date, Optional IdAnticipo As Integer = 0,
                                    Optional IdTipo As Integer = 0,
                                    Optional Consecutivo As String = "",
-                                   Optional IdDevolucion As Integer = 0) As Integer
+                                   Optional IdDevolucion As Integer = 0,
+                            Optional Caja As Integer = 0,
+                            Optional IdSerie As Integer = 0) As Integer
 
         Dim Datos As New ArrayList
         Dim Variables As New ArrayList
@@ -34,6 +36,8 @@ Public Class db_MaestroNotasCD
         Variables.Add("IdTipo")
         Variables.Add("Consecutivo")
         Variables.Add("IdDevolucion")
+        Variables.Add("Caja")
+        Variables.Add("IdSerie")
         '
         Datos.Clear()
         Datos.Add(Note)
@@ -54,6 +58,8 @@ Public Class db_MaestroNotasCD
         Datos.Add(IdTipo)
         Datos.Add(Consecutivo)
         Datos.Add(IdDevolucion)
+        Datos.Add(Caja)
+        Datos.Add(IdSerie)
 
         Return ProcedureParameters(
             Datos,

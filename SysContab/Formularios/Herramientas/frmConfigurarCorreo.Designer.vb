@@ -29,6 +29,8 @@ Partial Class frmConfigurarCorreo
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.txtMailCcAlert = New DevExpress.XtraEditors.TextEdit()
+        Me.txtMailToAlert = New DevExpress.XtraEditors.TextEdit()
         Me.tCorreoEnviar = New DevExpress.XtraEditors.TextEdit()
         Me.tNombre = New DevExpress.XtraEditors.TextEdit()
         Me.cbPerfil3 = New DevExpress.XtraEditors.LookUpEdit()
@@ -81,6 +83,9 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlItem13 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlGroup7 = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.LayoutControlItem35 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem36 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup3 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -122,6 +127,8 @@ Partial Class frmConfigurarCorreo
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.txtMailCcAlert.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtMailToAlert.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tCorreoEnviar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tNombre.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbPerfil3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,6 +169,9 @@ Partial Class frmConfigurarCorreo
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem35, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem36, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -204,14 +214,14 @@ Partial Class frmConfigurarCorreo
         '
         'RibbonControl
         '
-        Me.RibbonControl.ApplicationIcon = CType(resources.GetObject("RibbonControl.ApplicationIcon"), System.Drawing.Bitmap)
+        Me.RibbonControl.ApplicationButtonImageOptions.Image = CType(resources.GetObject("RibbonControl.ApplicationButtonImageOptions.Image"), System.Drawing.Image)
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.bGuardar, Me.bGuardarSalir, Me.bSalir, Me.bPrueba})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.bGuardar, Me.bGuardarSalir, Me.bSalir, Me.bPrueba})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 5
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1})
-        Me.RibbonControl.Size = New System.Drawing.Size(627, 143)
+        Me.RibbonControl.Size = New System.Drawing.Size(627, 158)
         '
         'bGuardar
         '
@@ -253,16 +263,18 @@ Partial Class frmConfigurarCorreo
         '
         'RibbonPageGroup1
         '
+        Me.RibbonPageGroup1.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
         Me.RibbonPageGroup1.ItemLinks.Add(Me.bGuardar)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.bGuardarSalir)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.bPrueba)
         Me.RibbonPageGroup1.ItemLinks.Add(Me.bSalir)
         Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
-        Me.RibbonPageGroup1.ShowCaptionButton = False
         Me.RibbonPageGroup1.Text = "Acciones"
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.txtMailCcAlert)
+        Me.LayoutControl1.Controls.Add(Me.txtMailToAlert)
         Me.LayoutControl1.Controls.Add(Me.tCorreoEnviar)
         Me.LayoutControl1.Controls.Add(Me.tNombre)
         Me.LayoutControl1.Controls.Add(Me.cbPerfil3)
@@ -298,17 +310,35 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControl1.Controls.Add(Me.PuertoFV)
         Me.LayoutControl1.Controls.Add(Me.EnvioEC)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LayoutControl1.Location = New System.Drawing.Point(0, 143)
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 158)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(950, 296, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(627, 502)
+        Me.LayoutControl1.Size = New System.Drawing.Size(627, 566)
         Me.LayoutControl1.TabIndex = 2
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'txtMailCcAlert
+        '
+        Me.txtMailCcAlert.Location = New System.Drawing.Point(159, 248)
+        Me.txtMailCcAlert.Name = "txtMailCcAlert"
+        Me.txtMailCcAlert.Size = New System.Drawing.Size(432, 20)
+        Me.txtMailCcAlert.StyleController = Me.LayoutControl1
+        Me.txtMailCcAlert.TabIndex = 10
+        Me.txtMailCcAlert.Tag = "True"
+        '
+        'txtMailToAlert
+        '
+        Me.txtMailToAlert.Location = New System.Drawing.Point(159, 224)
+        Me.txtMailToAlert.Name = "txtMailToAlert"
+        Me.txtMailToAlert.Size = New System.Drawing.Size(432, 20)
+        Me.txtMailToAlert.StyleController = Me.LayoutControl1
+        Me.txtMailToAlert.TabIndex = 9
+        Me.txtMailToAlert.Tag = "True"
+        '
         'tCorreoEnviar
         '
-        Me.tCorreoEnviar.Location = New System.Drawing.Point(147, 70)
+        Me.tCorreoEnviar.Location = New System.Drawing.Point(147, 71)
         Me.tCorreoEnviar.MenuManager = Me.RibbonControl
         Me.tCorreoEnviar.Name = "tCorreoEnviar"
         Me.tCorreoEnviar.Size = New System.Drawing.Size(456, 20)
@@ -317,7 +347,7 @@ Partial Class frmConfigurarCorreo
         '
         'tNombre
         '
-        Me.tNombre.Location = New System.Drawing.Point(147, 160)
+        Me.tNombre.Location = New System.Drawing.Point(147, 169)
         Me.tNombre.MenuManager = Me.RibbonControl
         Me.tNombre.Name = "tNombre"
         Me.tNombre.Size = New System.Drawing.Size(456, 20)
@@ -326,7 +356,7 @@ Partial Class frmConfigurarCorreo
         '
         'cbPerfil3
         '
-        Me.cbPerfil3.Location = New System.Drawing.Point(147, 46)
+        Me.cbPerfil3.Location = New System.Drawing.Point(147, 47)
         Me.cbPerfil3.MenuManager = Me.RibbonControl
         Me.cbPerfil3.Name = "cbPerfil3"
         Me.cbPerfil3.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -336,7 +366,7 @@ Partial Class frmConfigurarCorreo
         '
         'tAsuntoVence
         '
-        Me.tAsuntoVence.Location = New System.Drawing.Point(147, 184)
+        Me.tAsuntoVence.Location = New System.Drawing.Point(147, 193)
         Me.tAsuntoVence.MenuManager = Me.RibbonControl
         Me.tAsuntoVence.Name = "tAsuntoVence"
         Me.tAsuntoVence.Size = New System.Drawing.Size(456, 20)
@@ -349,7 +379,7 @@ Partial Class frmConfigurarCorreo
         Me.LabelControl3.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.LabelControl3.Appearance.Options.UseFont = True
         Me.LabelControl3.Appearance.Options.UseForeColor = True
-        Me.LabelControl3.Location = New System.Drawing.Point(24, 94)
+        Me.LabelControl3.Location = New System.Drawing.Point(24, 95)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(579, 16)
         Me.LabelControl3.StyleController = Me.LayoutControl1
@@ -359,7 +389,7 @@ Partial Class frmConfigurarCorreo
         'SimpleButton3
         '
         Me.SimpleButton3.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton3.Location = New System.Drawing.Point(24, 208)
+        Me.SimpleButton3.Location = New System.Drawing.Point(24, 217)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(125, 22)
         Me.SimpleButton3.StyleController = Me.LayoutControl1
@@ -368,16 +398,16 @@ Partial Class frmConfigurarCorreo
         '
         'mCC3
         '
-        Me.mCC3.Location = New System.Drawing.Point(24, 114)
+        Me.mCC3.Location = New System.Drawing.Point(24, 115)
         Me.mCC3.MenuManager = Me.RibbonControl
         Me.mCC3.Name = "mCC3"
-        Me.mCC3.Size = New System.Drawing.Size(579, 42)
+        Me.mCC3.Size = New System.Drawing.Size(579, 50)
         Me.mCC3.StyleController = Me.LayoutControl1
         Me.mCC3.TabIndex = 30
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(24, 94)
+        Me.LabelControl2.Location = New System.Drawing.Point(24, 95)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(579, 13)
         Me.LabelControl2.StyleController = Me.LayoutControl1
@@ -387,7 +417,7 @@ Partial Class frmConfigurarCorreo
         'bPruebaDev
         '
         Me.bPruebaDev.ImageOptions.Image = CType(resources.GetObject("bPruebaDev.ImageOptions.Image"), System.Drawing.Image)
-        Me.bPruebaDev.Location = New System.Drawing.Point(24, 202)
+        Me.bPruebaDev.Location = New System.Drawing.Point(24, 203)
         Me.bPruebaDev.Name = "bPruebaDev"
         Me.bPruebaDev.Size = New System.Drawing.Size(127, 22)
         Me.bPruebaDev.StyleController = Me.LayoutControl1
@@ -396,7 +426,7 @@ Partial Class frmConfigurarCorreo
         '
         'tCorreo2
         '
-        Me.tCorreo2.Location = New System.Drawing.Point(147, 70)
+        Me.tCorreo2.Location = New System.Drawing.Point(147, 71)
         Me.tCorreo2.MenuManager = Me.RibbonControl
         Me.tCorreo2.Name = "tCorreo2"
         Me.tCorreo2.Size = New System.Drawing.Size(456, 20)
@@ -405,7 +435,7 @@ Partial Class frmConfigurarCorreo
         '
         'mCC2
         '
-        Me.mCC2.Location = New System.Drawing.Point(24, 111)
+        Me.mCC2.Location = New System.Drawing.Point(24, 112)
         Me.mCC2.MenuManager = Me.RibbonControl
         Me.mCC2.Name = "mCC2"
         Me.mCC2.Size = New System.Drawing.Size(579, 63)
@@ -414,7 +444,7 @@ Partial Class frmConfigurarCorreo
         '
         'tAsunto2
         '
-        Me.tAsunto2.Location = New System.Drawing.Point(147, 178)
+        Me.tAsunto2.Location = New System.Drawing.Point(147, 179)
         Me.tAsunto2.MenuManager = Me.RibbonControl
         Me.tAsunto2.Name = "tAsunto2"
         Me.tAsunto2.Size = New System.Drawing.Size(456, 20)
@@ -423,7 +453,7 @@ Partial Class frmConfigurarCorreo
         '
         'cbPerfiles2
         '
-        Me.cbPerfiles2.Location = New System.Drawing.Point(147, 46)
+        Me.cbPerfiles2.Location = New System.Drawing.Point(147, 47)
         Me.cbPerfiles2.MenuManager = Me.RibbonControl
         Me.cbPerfiles2.Name = "cbPerfiles2"
         Me.cbPerfiles2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -433,7 +463,7 @@ Partial Class frmConfigurarCorreo
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(24, 94)
+        Me.LabelControl1.Location = New System.Drawing.Point(24, 95)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(579, 13)
         Me.LabelControl1.StyleController = Me.LayoutControl1
@@ -443,7 +473,7 @@ Partial Class frmConfigurarCorreo
         'bPruebaFact
         '
         Me.bPruebaFact.ImageOptions.Image = CType(resources.GetObject("bPruebaFact.ImageOptions.Image"), System.Drawing.Image)
-        Me.bPruebaFact.Location = New System.Drawing.Point(24, 202)
+        Me.bPruebaFact.Location = New System.Drawing.Point(24, 203)
         Me.bPruebaFact.Name = "bPruebaFact"
         Me.bPruebaFact.Size = New System.Drawing.Size(123, 22)
         Me.bPruebaFact.StyleController = Me.LayoutControl1
@@ -452,7 +482,7 @@ Partial Class frmConfigurarCorreo
         '
         'tAsunto
         '
-        Me.tAsunto.Location = New System.Drawing.Point(147, 178)
+        Me.tAsunto.Location = New System.Drawing.Point(147, 179)
         Me.tAsunto.MenuManager = Me.RibbonControl
         Me.tAsunto.Name = "tAsunto"
         Me.tAsunto.Size = New System.Drawing.Size(456, 20)
@@ -461,7 +491,7 @@ Partial Class frmConfigurarCorreo
         '
         'mCC
         '
-        Me.mCC.Location = New System.Drawing.Point(24, 111)
+        Me.mCC.Location = New System.Drawing.Point(24, 112)
         Me.mCC.MenuManager = Me.RibbonControl
         Me.mCC.Name = "mCC"
         Me.mCC.Size = New System.Drawing.Size(579, 63)
@@ -470,7 +500,7 @@ Partial Class frmConfigurarCorreo
         '
         'tCorreo
         '
-        Me.tCorreo.Location = New System.Drawing.Point(147, 70)
+        Me.tCorreo.Location = New System.Drawing.Point(147, 71)
         Me.tCorreo.MenuManager = Me.RibbonControl
         Me.tCorreo.Name = "tCorreo"
         Me.tCorreo.Size = New System.Drawing.Size(456, 20)
@@ -479,7 +509,7 @@ Partial Class frmConfigurarCorreo
         '
         'cbPerfiles
         '
-        Me.cbPerfiles.Location = New System.Drawing.Point(147, 46)
+        Me.cbPerfiles.Location = New System.Drawing.Point(147, 47)
         Me.cbPerfiles.MenuManager = Me.RibbonControl
         Me.cbPerfiles.Name = "cbPerfiles"
         Me.cbPerfiles.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -489,7 +519,7 @@ Partial Class frmConfigurarCorreo
         '
         'cbSucursal
         '
-        Me.cbSucursal.Location = New System.Drawing.Point(147, 46)
+        Me.cbSucursal.Location = New System.Drawing.Point(147, 47)
         Me.cbSucursal.MenuManager = Me.RibbonControl
         Me.cbSucursal.Name = "cbSucursal"
         Me.cbSucursal.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -502,7 +532,7 @@ Partial Class frmConfigurarCorreo
         'SimpleButton2
         '
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(24, 165)
+        Me.SimpleButton2.Location = New System.Drawing.Point(24, 167)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(117, 22)
         Me.SimpleButton2.StyleController = Me.LayoutControl1
@@ -512,7 +542,7 @@ Partial Class frmConfigurarCorreo
         'SimpleButton1
         '
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(24, 189)
+        Me.SimpleButton1.Location = New System.Drawing.Point(24, 284)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(117, 22)
         Me.SimpleButton1.StyleController = Me.LayoutControl1
@@ -521,10 +551,10 @@ Partial Class frmConfigurarCorreo
         '
         'iGridFV
         '
-        Me.iGridFV.Location = New System.Drawing.Point(24, 208)
+        Me.iGridFV.Location = New System.Drawing.Point(24, 210)
         Me.iGridFV.MainView = Me.iVistaFV
         Me.iGridFV.Name = "iGridFV"
-        Me.iGridFV.Size = New System.Drawing.Size(579, 270)
+        Me.iGridFV.Size = New System.Drawing.Size(579, 332)
         Me.iGridFV.TabIndex = 15
         Me.iGridFV.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVistaFV})
         '
@@ -561,10 +591,10 @@ Partial Class frmConfigurarCorreo
         '
         'iGridEC
         '
-        Me.iGridEC.Location = New System.Drawing.Point(24, 232)
+        Me.iGridEC.Location = New System.Drawing.Point(24, 327)
         Me.iGridEC.MainView = Me.iVistaEC
         Me.iGridEC.Name = "iGridEC"
-        Me.iGridEC.Size = New System.Drawing.Size(579, 246)
+        Me.iGridEC.Size = New System.Drawing.Size(579, 215)
         Me.iGridEC.TabIndex = 9
         Me.iGridEC.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVistaEC})
         '
@@ -601,7 +631,7 @@ Partial Class frmConfigurarCorreo
         '
         'smtpFV
         '
-        Me.smtpFV.Location = New System.Drawing.Point(147, 94)
+        Me.smtpFV.Location = New System.Drawing.Point(147, 95)
         Me.smtpFV.Name = "smtpFV"
         Me.smtpFV.Size = New System.Drawing.Size(456, 20)
         Me.smtpFV.StyleController = Me.LayoutControl1
@@ -610,8 +640,11 @@ Partial Class frmConfigurarCorreo
         '
         'PuertoEC
         '
-        Me.PuertoEC.Location = New System.Drawing.Point(147, 165)
+        Me.PuertoEC.Location = New System.Drawing.Point(147, 167)
         Me.PuertoEC.Name = "PuertoEC"
+        Me.PuertoEC.Properties.Mask.EditMask = "f0"
+        Me.PuertoEC.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.PuertoEC.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.PuertoEC.Size = New System.Drawing.Size(456, 20)
         Me.PuertoEC.StyleController = Me.LayoutControl1
         Me.PuertoEC.TabIndex = 8
@@ -619,25 +652,25 @@ Partial Class frmConfigurarCorreo
         '
         'chkSslFV
         '
-        Me.chkSslFV.Location = New System.Drawing.Point(24, 118)
+        Me.chkSslFV.Location = New System.Drawing.Point(24, 119)
         Me.chkSslFV.Name = "chkSslFV"
         Me.chkSslFV.Properties.Caption = "Seguridad SSL"
-        Me.chkSslFV.Size = New System.Drawing.Size(579, 19)
+        Me.chkSslFV.Size = New System.Drawing.Size(579, 20)
         Me.chkSslFV.StyleController = Me.LayoutControl1
         Me.chkSslFV.TabIndex = 13
         '
         'chkSslEC
         '
-        Me.chkSslEC.Location = New System.Drawing.Point(24, 142)
+        Me.chkSslEC.Location = New System.Drawing.Point(24, 143)
         Me.chkSslEC.Name = "chkSslEC"
         Me.chkSslEC.Properties.Caption = "Seguridad SSL"
-        Me.chkSslEC.Size = New System.Drawing.Size(579, 19)
+        Me.chkSslEC.Size = New System.Drawing.Size(579, 20)
         Me.chkSslEC.StyleController = Me.LayoutControl1
         Me.chkSslEC.TabIndex = 7
         '
         'ClaveFV
         '
-        Me.ClaveFV.Location = New System.Drawing.Point(147, 70)
+        Me.ClaveFV.Location = New System.Drawing.Point(147, 71)
         Me.ClaveFV.Name = "ClaveFV"
         Me.ClaveFV.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.ClaveFV.Size = New System.Drawing.Size(456, 20)
@@ -647,7 +680,7 @@ Partial Class frmConfigurarCorreo
         '
         'smtpEC
         '
-        Me.smtpEC.Location = New System.Drawing.Point(147, 118)
+        Me.smtpEC.Location = New System.Drawing.Point(147, 119)
         Me.smtpEC.Name = "smtpEC"
         Me.smtpEC.Size = New System.Drawing.Size(456, 20)
         Me.smtpEC.StyleController = Me.LayoutControl1
@@ -656,7 +689,7 @@ Partial Class frmConfigurarCorreo
         '
         'EnvioFV
         '
-        Me.EnvioFV.Location = New System.Drawing.Point(147, 46)
+        Me.EnvioFV.Location = New System.Drawing.Point(147, 47)
         Me.EnvioFV.Name = "EnvioFV"
         Me.EnvioFV.Size = New System.Drawing.Size(456, 20)
         Me.EnvioFV.StyleController = Me.LayoutControl1
@@ -665,7 +698,7 @@ Partial Class frmConfigurarCorreo
         '
         'ClaveEC
         '
-        Me.ClaveEC.Location = New System.Drawing.Point(147, 94)
+        Me.ClaveEC.Location = New System.Drawing.Point(147, 95)
         Me.ClaveEC.Name = "ClaveEC"
         Me.ClaveEC.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.ClaveEC.Size = New System.Drawing.Size(456, 20)
@@ -675,7 +708,7 @@ Partial Class frmConfigurarCorreo
         '
         'PuertoFV
         '
-        Me.PuertoFV.Location = New System.Drawing.Point(147, 141)
+        Me.PuertoFV.Location = New System.Drawing.Point(147, 143)
         Me.PuertoFV.Name = "PuertoFV"
         Me.PuertoFV.Properties.Mask.EditMask = "n0"
         Me.PuertoFV.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -688,7 +721,7 @@ Partial Class frmConfigurarCorreo
         'EnvioEC
         '
         Me.EnvioEC.EditValue = ""
-        Me.EnvioEC.Location = New System.Drawing.Point(147, 70)
+        Me.EnvioEC.Location = New System.Drawing.Point(147, 71)
         Me.EnvioEC.Name = "EnvioEC"
         Me.EnvioEC.Size = New System.Drawing.Size(456, 20)
         Me.EnvioEC.StyleController = Me.LayoutControl1
@@ -701,9 +734,8 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.TabbedControlGroup1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(627, 502)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(627, 566)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'TabbedControlGroup1
@@ -712,18 +744,17 @@ Partial Class frmConfigurarCorreo
         Me.TabbedControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.TabbedControlGroup1.Name = "TabbedControlGroup1"
         Me.TabbedControlGroup1.SelectedTabPage = Me.LayoutControlGroup2
-        Me.TabbedControlGroup1.SelectedTabPageIndex = 0
-        Me.TabbedControlGroup1.Size = New System.Drawing.Size(607, 482)
+        Me.TabbedControlGroup1.Size = New System.Drawing.Size(607, 546)
         Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlGroup3, Me.LayoutControlGroup4, Me.LayoutControlGroup5, Me.LayoutControlGroup6})
         Me.TabbedControlGroup1.Text = "Alerta Devolución"
         '
         'LayoutControlGroup2
         '
         Me.LayoutControlGroup2.CustomizationFormText = "Estado de Cuenta (Clientes)"
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem13, Me.EmptySpaceItem1, Me.LayoutControlItem15})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem13, Me.EmptySpaceItem1, Me.LayoutControlItem15, Me.LayoutControlGroup7})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(583, 436)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(583, 499)
         Me.LayoutControlGroup2.Text = "Estado de Cuenta (Clientes)"
         '
         'LayoutControlItem1
@@ -760,7 +791,7 @@ Partial Class frmConfigurarCorreo
         '
         Me.LayoutControlItem4.Control = Me.PuertoEC
         Me.LayoutControlItem4.CustomizationFormText = "Puerto:"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 119)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
         Me.LayoutControlItem4.Size = New System.Drawing.Size(583, 24)
         Me.LayoutControlItem4.Text = "Puerto:"
@@ -772,21 +803,21 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 96)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(583, 23)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(583, 24)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LayoutControlItem6.AppearanceItemCaption.ForeColor = System.Drawing.Color.Red
+        Me.LayoutControlItem6.AppearanceItemCaption.ForeColor = System.Drawing.Color.OrangeRed
         Me.LayoutControlItem6.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem6.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem6.Control = Me.iGridEC
         Me.LayoutControlItem6.CustomizationFormText = "Correo con Copia a:"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 169)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 263)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(583, 267)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(583, 236)
         Me.LayoutControlItem6.Text = "Correo con Copia a:"
         Me.LayoutControlItem6.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(120, 14)
@@ -795,7 +826,7 @@ Partial Class frmConfigurarCorreo
         '
         Me.LayoutControlItem13.Control = Me.SimpleButton1
         Me.LayoutControlItem13.CustomizationFormText = "LayoutControlItem13"
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 143)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 237)
         Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(121, 26)
         Me.LayoutControlItem13.MinSize = New System.Drawing.Size(121, 26)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
@@ -808,7 +839,7 @@ Partial Class frmConfigurarCorreo
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(121, 143)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(121, 237)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(462, 26)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -822,20 +853,48 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlItem15.Text = "Sucursal:"
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(120, 13)
         '
+        'LayoutControlGroup7
+        '
+        Me.LayoutControlGroup7.AppearanceGroup.ForeColor = System.Drawing.Color.OrangeRed
+        Me.LayoutControlGroup7.AppearanceGroup.Options.UseForeColor = True
+        Me.LayoutControlGroup7.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem35, Me.LayoutControlItem36})
+        Me.LayoutControlGroup7.Location = New System.Drawing.Point(0, 144)
+        Me.LayoutControlGroup7.Name = "LayoutControlGroup7"
+        Me.LayoutControlGroup7.Size = New System.Drawing.Size(583, 93)
+        Me.LayoutControlGroup7.Text = "Alertas Acuerdos de Pagos!"
+        '
+        'LayoutControlItem35
+        '
+        Me.LayoutControlItem35.Control = Me.txtMailToAlert
+        Me.LayoutControlItem35.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem35.Name = "LayoutControlItem35"
+        Me.LayoutControlItem35.Size = New System.Drawing.Size(559, 24)
+        Me.LayoutControlItem35.Text = "Mail To Alerta:"
+        Me.LayoutControlItem35.TextSize = New System.Drawing.Size(120, 13)
+        '
+        'LayoutControlItem36
+        '
+        Me.LayoutControlItem36.Control = Me.txtMailCcAlert
+        Me.LayoutControlItem36.Location = New System.Drawing.Point(0, 24)
+        Me.LayoutControlItem36.Name = "LayoutControlItem36"
+        Me.LayoutControlItem36.Size = New System.Drawing.Size(559, 24)
+        Me.LayoutControlItem36.Text = "Mail Cc Alerta:"
+        Me.LayoutControlItem36.TextSize = New System.Drawing.Size(120, 13)
+        '
         'LayoutControlGroup3
         '
         Me.LayoutControlGroup3.CustomizationFormText = "Facturas Vencidas"
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem12, Me.LayoutControlItem11, Me.LayoutControlItem14, Me.EmptySpaceItem2})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(583, 436)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(583, 499)
         Me.LayoutControlGroup3.Text = "Facturas Vencidas"
         '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.PuertoFV
         Me.LayoutControlItem7.CustomizationFormText = "Puerto:"
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 95)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 96)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
         Me.LayoutControlItem7.Size = New System.Drawing.Size(583, 24)
         Me.LayoutControlItem7.Text = "Puerto:"
@@ -867,7 +926,7 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlItem10.CustomizationFormText = "LayoutControlItem10"
         Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 72)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(583, 23)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(583, 24)
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
         '
@@ -879,9 +938,9 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlItem12.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem12.Control = Me.iGridFV
         Me.LayoutControlItem12.CustomizationFormText = "Correo con Copia a:"
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 145)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 146)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(583, 291)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(583, 353)
         Me.LayoutControlItem12.Text = "Correo con Copia a:"
         Me.LayoutControlItem12.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(120, 14)
@@ -900,7 +959,7 @@ Partial Class frmConfigurarCorreo
         '
         Me.LayoutControlItem14.Control = Me.SimpleButton2
         Me.LayoutControlItem14.CustomizationFormText = "LayoutControlItem14"
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 119)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(121, 26)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(121, 26)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
@@ -913,7 +972,7 @@ Partial Class frmConfigurarCorreo
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(121, 119)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(121, 120)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(462, 26)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -923,7 +982,7 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem16, Me.LayoutControlItem17, Me.LayoutControlItem18, Me.LayoutControlItem19, Me.EmptySpaceItem3, Me.LayoutControlItem20, Me.EmptySpaceItem4, Me.LayoutControlItem21})
         Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup4.Name = "LayoutControlGroup4"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(583, 436)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(583, 499)
         Me.LayoutControlGroup4.Text = "Alerta Facturación"
         '
         'LayoutControlItem16
@@ -972,7 +1031,7 @@ Partial Class frmConfigurarCorreo
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 182)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(583, 254)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(583, 317)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem20
@@ -1009,7 +1068,7 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem26, Me.LayoutControlItem23, Me.LayoutControlItem24, Me.LayoutControlItem25, Me.LayoutControlItem22, Me.EmptySpaceItem5, Me.LayoutControlItem27, Me.EmptySpaceItem6})
         Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
-        Me.LayoutControlGroup5.Size = New System.Drawing.Size(583, 436)
+        Me.LayoutControlGroup5.Size = New System.Drawing.Size(583, 499)
         Me.LayoutControlGroup5.Text = "Alerta Devolución"
         '
         'LayoutControlItem26
@@ -1065,7 +1124,7 @@ Partial Class frmConfigurarCorreo
         Me.EmptySpaceItem5.AllowHotTrack = False
         Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 182)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(583, 254)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(583, 317)
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem27
@@ -1090,7 +1149,7 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlGroup6.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem28, Me.EmptySpaceItem7, Me.LayoutControlItem29, Me.EmptySpaceItem8, Me.LayoutControlItem30, Me.LayoutControlItem31, Me.LayoutControlItem32, Me.LayoutControlItem33, Me.LayoutControlItem34})
         Me.LayoutControlGroup6.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup6.Name = "LayoutControlGroup6"
-        Me.LayoutControlGroup6.Size = New System.Drawing.Size(583, 436)
+        Me.LayoutControlGroup6.Size = New System.Drawing.Size(583, 499)
         Me.LayoutControlGroup6.Text = "Aprobar Vencimiento"
         '
         'LayoutControlItem28
@@ -1098,7 +1157,7 @@ Partial Class frmConfigurarCorreo
         Me.LayoutControlItem28.Control = Me.mCC3
         Me.LayoutControlItem28.Location = New System.Drawing.Point(0, 68)
         Me.LayoutControlItem28.Name = "LayoutControlItem28"
-        Me.LayoutControlItem28.Size = New System.Drawing.Size(583, 46)
+        Me.LayoutControlItem28.Size = New System.Drawing.Size(583, 54)
         Me.LayoutControlItem28.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem28.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem28.TextVisible = False
@@ -1106,15 +1165,15 @@ Partial Class frmConfigurarCorreo
         'EmptySpaceItem7
         '
         Me.EmptySpaceItem7.AllowHotTrack = False
-        Me.EmptySpaceItem7.Location = New System.Drawing.Point(0, 188)
+        Me.EmptySpaceItem7.Location = New System.Drawing.Point(0, 196)
         Me.EmptySpaceItem7.Name = "EmptySpaceItem7"
-        Me.EmptySpaceItem7.Size = New System.Drawing.Size(583, 248)
+        Me.EmptySpaceItem7.Size = New System.Drawing.Size(583, 303)
         Me.EmptySpaceItem7.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem29
         '
         Me.LayoutControlItem29.Control = Me.SimpleButton3
-        Me.LayoutControlItem29.Location = New System.Drawing.Point(0, 162)
+        Me.LayoutControlItem29.Location = New System.Drawing.Point(0, 170)
         Me.LayoutControlItem29.MaxSize = New System.Drawing.Size(129, 26)
         Me.LayoutControlItem29.MinSize = New System.Drawing.Size(129, 26)
         Me.LayoutControlItem29.Name = "LayoutControlItem29"
@@ -1126,7 +1185,7 @@ Partial Class frmConfigurarCorreo
         'EmptySpaceItem8
         '
         Me.EmptySpaceItem8.AllowHotTrack = False
-        Me.EmptySpaceItem8.Location = New System.Drawing.Point(129, 162)
+        Me.EmptySpaceItem8.Location = New System.Drawing.Point(129, 170)
         Me.EmptySpaceItem8.Name = "EmptySpaceItem8"
         Me.EmptySpaceItem8.Size = New System.Drawing.Size(454, 26)
         Me.EmptySpaceItem8.TextSize = New System.Drawing.Size(0, 0)
@@ -1143,7 +1202,7 @@ Partial Class frmConfigurarCorreo
         'LayoutControlItem31
         '
         Me.LayoutControlItem31.Control = Me.tAsuntoVence
-        Me.LayoutControlItem31.Location = New System.Drawing.Point(0, 138)
+        Me.LayoutControlItem31.Location = New System.Drawing.Point(0, 146)
         Me.LayoutControlItem31.Name = "LayoutControlItem31"
         Me.LayoutControlItem31.Size = New System.Drawing.Size(583, 24)
         Me.LayoutControlItem31.Text = "Asunto:"
@@ -1161,7 +1220,7 @@ Partial Class frmConfigurarCorreo
         'LayoutControlItem33
         '
         Me.LayoutControlItem33.Control = Me.tNombre
-        Me.LayoutControlItem33.Location = New System.Drawing.Point(0, 114)
+        Me.LayoutControlItem33.Location = New System.Drawing.Point(0, 122)
         Me.LayoutControlItem33.Name = "LayoutControlItem33"
         Me.LayoutControlItem33.Size = New System.Drawing.Size(583, 24)
         Me.LayoutControlItem33.Text = "Dirigir Correo a:"
@@ -1180,7 +1239,7 @@ Partial Class frmConfigurarCorreo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(627, 645)
+        Me.ClientSize = New System.Drawing.Size(627, 724)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.RibbonControl)
         Me.Name = "frmConfigurarCorreo"
@@ -1189,6 +1248,8 @@ Partial Class frmConfigurarCorreo
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.txtMailCcAlert.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtMailToAlert.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tCorreoEnviar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tNombre.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbPerfil3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1229,6 +1290,9 @@ Partial Class frmConfigurarCorreo
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroup7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem35, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem36, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1370,6 +1434,9 @@ Partial Class frmConfigurarCorreo
     Friend WithEvents LayoutControlItem33 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents tCorreoEnviar As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem34 As DevExpress.XtraLayout.LayoutControlItem
-
-
+    Friend WithEvents txtMailToAlert As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LayoutControlItem35 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents txtMailCcAlert As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LayoutControlItem36 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlGroup7 As DevExpress.XtraLayout.LayoutControlGroup
 End Class

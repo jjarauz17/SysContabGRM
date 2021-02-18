@@ -11,11 +11,11 @@ Public Class frmRemisionesTaller
 
     Private Sub frmRemisionesTaller_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DT_ROL = RolesDB.UsuarioAcciones(LayoutControl2)
-
+        '
         Dim f As Date = VB.SysContab.Rutinas.Fecha().Date
         Desde.DateTime = New DateTime(f.Year, f.Month, 1).Date
         Hasta.DateTime = UltimoDiaDelMes(f.Date).Date
-
+        '
         Cargar()
         Formato()
     End Sub

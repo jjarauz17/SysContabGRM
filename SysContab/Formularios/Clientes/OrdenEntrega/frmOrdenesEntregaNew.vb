@@ -37,7 +37,11 @@ Public Class frmOrdenesEntregaNew
     End Sub
 
     Public Sub Cargar()
-        iGrid.DataSource = db_OrdenesEntrega.Listar(0, Desde.DateTime.Date, Hasta.DateTime.Date)
+        iGrid.DataSource =
+            db_OrdenesEntrega.Listar(
+            0,
+            Desde.DateTime.Date,
+            Hasta.DateTime.Date)
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles cmdNuevo.Click

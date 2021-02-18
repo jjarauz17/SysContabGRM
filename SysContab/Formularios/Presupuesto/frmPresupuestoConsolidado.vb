@@ -1,4 +1,6 @@
-﻿Public Class frmPresupuestoConsolidado
+﻿Imports DevExpress.XtraPivotGrid
+
+Public Class frmPresupuestoConsolidado
 
     Public IdPresupuesto As Integer = 0
 
@@ -6,6 +8,9 @@
         If e.KeyCode = Keys.F5 Then Cargar()
     End Sub
     Private Sub frmPresupuestoVer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Combo(cbPeriodo, VB.SysContab.PeriodosDB.GetList().Tables("Periodos"))
+        cbPeriodo.ItemIndex = 0
+        '
         LlenarGrid()
         FormatoPivot(iPivotGrid)
         '
@@ -15,7 +20,7 @@
     End Sub
 
     Sub LlenarGrid()
-        Dim DT As DataTable = db_Presupuesto.ReporteDinamicoConsolidado()
+        Dim DT As DataTable = db_Presupuesto.ReporteDinamicoConsolidado(cbPeriodo.EditValue)
         '
         iPivotGrid.DataSource = DT
         iPivotGrid.Fields.Clear()
@@ -29,9 +34,16 @@
         '
         iPivotGrid.Fields("Descripción").Width = 200
 
+        If EmpresaActual.Equals("1") Then
+            iPivotGrid.Fields("Sucursal").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+            iPivotGrid.Fields("Cultivo").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        Else
+            iPivotGrid.Fields("CentroCosto").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        End If
+
         iPivotGrid.Fields("Codigo").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
         iPivotGrid.Fields("Descripción").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
-        iPivotGrid.Fields("Presentacion").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        'iPivotGrid.Fields("Presentacion").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
         iPivotGrid.Fields("Clase").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
 
         iPivotGrid.Fields("Año").Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea
@@ -63,7 +75,7 @@
 
     Sub Cargar()
         ShowSplash("Actualizando Datos...")
-        Dim DT As DataTable = db_Presupuesto.ReporteDinamicoConsolidado()
+        Dim DT As DataTable = db_Presupuesto.ReporteDinamicoConsolidado(cbPeriodo.EditValue)
         iPivotGrid.DataSource = DT
         HideSplash()
     End Sub
@@ -96,5 +108,32 @@
 
     Private Sub bSalir_Click(sender As Object, e As EventArgs) Handles bSalir.Click
         Close()
+    End Sub
+
+    Private Sub cbPeriodo_EditValueChanged(sender As Object, e As EventArgs) Handles cbPeriodo.EditValueChanged
+        If Inicio Then Exit Sub
+        '
+        Cargar()
+    End Sub
+
+    Private Sub iPivotGrid_CustomAppearance(sender As Object, e As PivotCustomAppearanceEventArgs) Handles iPivotGrid.CustomAppearance
+        If e.DataField.ToString() = "Variación" Then
+            e.Appearance.Font = New Font("Thaoma", 8, FontStyle.Bold)
+            If (e.GetFieldValue(e.DataField) < 0.00) Then
+                e.Appearance.ForeColor = Color.DarkRed
+            ElseIf ((e.GetFieldValue(e.DataField) > 0.00) And e.GetFieldValue(iPivotGrid.Fields.Item("Cantidad"))) > 0 Then
+                e.Appearance.ForeColor = Color.DarkGreen
+            Else
+                e.Appearance.ForeColor = Color.Navy
+            End If
+        End If
+    End Sub
+
+    Private Sub CheckEdit1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit1.CheckedChanged
+        iPivotGrid.OptionsView.ShowRowTotals = Not CheckEdit1.Checked
+    End Sub
+
+    Private Sub CheckEdit2_CheckedChanged(sender As Object, e As EventArgs) Handles CheckEdit2.CheckedChanged
+        iPivotGrid.OptionsView.ShowRowGrandTotals = Not CheckEdit2.Checked
     End Sub
 End Class

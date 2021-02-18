@@ -1155,7 +1155,10 @@ Public Class frmRptBalanceClientes
             vDatos.Columns("Encabezado").Visible = False
         End If
 
-        LeerEsquemaInicial()
+        LeerEsquemaInicial(
+            Me.Name,
+            Me.Text,
+            vDatos)
 
         'Me.cbSucursal.Properties.DataSource = ObtieneDatos("sp_GetSucursalesClientes " & EmpresaActual)
         'Me.cbSucursal.Properties.ValueMember = "Cliente"
@@ -1605,18 +1608,18 @@ Public Class frmRptBalanceClientes
         cbCliente.Enabled = chkPorCliente.Checked
     End Sub
 
-    Sub LeerEsquemaInicial()
-        ''Borrar Archivo, para evitar cache
-        If IO.File.Exists(Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml") Then
-            Kill(Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml")
-        End If
-        '
-        ''Guardar Configuracion Inicial
-        vDatos.SaveLayoutToXml(Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml")
-        db_Esquemas.GuardarInicial(Me.Name, Me.Text, Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml")
-        '
-        ValidarGridSchema(vDatos, Me.Name & "_" & TReporte)
-    End Sub
+    'Sub LeerEsquemaInicial()
+    '    ''Borrar Archivo, para evitar cache
+    '    If IO.File.Exists(Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml") Then
+    '        Kill(Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml")
+    '    End If
+    '    '
+    '    ''Guardar Configuracion Inicial
+    '    vDatos.SaveLayoutToXml(Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml")
+    '    db_Esquemas.GuardarInicial(Me.Name, Me.Text, Application.StartupPath & "\xml\xml_" & Me.Name & "_" & TReporte & ".xml")
+    '    '
+    '    ValidarGridSchema(vDatos, Me.Name & "_" & TReporte)
+    'End Sub
 
     Private Sub bGuardarEsquema_Click(sender As Object, e As EventArgs) Handles bGuardarEsquema.Click
         Try

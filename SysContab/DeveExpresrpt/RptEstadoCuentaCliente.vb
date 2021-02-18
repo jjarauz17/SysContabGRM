@@ -145,58 +145,62 @@ Public Class RptEstadoCuentaCliente
         'SaldoU
         '
         Me.SaldoU.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.SaldoU.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "SaldoU", "{0:n2}")})
+        Me.SaldoU.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SaldoU]")})
         Me.SaldoU.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.SaldoU.LocationFloat = New DevExpress.Utils.PointFloat(710.4167!, 0.0!)
+        Me.SaldoU.LocationFloat = New DevExpress.Utils.PointFloat(710.4167!, 0!)
         Me.SaldoU.Name = "SaldoU"
         Me.SaldoU.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.SaldoU.SizeF = New System.Drawing.SizeF(89.58331!, 18.0!)
         Me.SaldoU.StylePriority.UseTextAlignment = False
         Me.SaldoU.Text = "0.00"
         Me.SaldoU.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.SaldoU.TextFormatString = "{0:n2}"
         '
         'Saldo
         '
         Me.Saldo.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.Saldo.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Saldo", "{0:n2}")})
+        Me.Saldo.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Saldo]")})
         Me.Saldo.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.Saldo.LocationFloat = New DevExpress.Utils.PointFloat(627.0833!, 0.0!)
+        Me.Saldo.LocationFloat = New DevExpress.Utils.PointFloat(627.0833!, 0!)
         Me.Saldo.Name = "Saldo"
         Me.Saldo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Saldo.SizeF = New System.Drawing.SizeF(83.33337!, 18.0!)
         Me.Saldo.StylePriority.UseTextAlignment = False
         Me.Saldo.Text = "0.00"
         Me.Saldo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.Saldo.TextFormatString = "{0:n2}"
         '
         'Monto
         '
-        Me.Monto.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Monto", "{0:n2}")})
+        Me.Monto.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Monto]")})
         Me.Monto.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.Monto.LocationFloat = New DevExpress.Utils.PointFloat(466.6667!, 0.0!)
+        Me.Monto.LocationFloat = New DevExpress.Utils.PointFloat(466.6667!, 0!)
         Me.Monto.Name = "Monto"
         Me.Monto.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Monto.SizeF = New System.Drawing.SizeF(80.58328!, 18.0!)
         Me.Monto.StylePriority.UseTextAlignment = False
         Me.Monto.Text = "Monto"
         Me.Monto.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.Monto.TextFormatString = "{0:n2}"
         '
         'Fecha
         '
-        Me.Fecha.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Fecha", "{0:dd/MM/yyyy}")})
+        Me.Fecha.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Fecha]")})
         Me.Fecha.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.Fecha.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
+        Me.Fecha.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.Fecha.Name = "Fecha"
         Me.Fecha.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Fecha.SizeF = New System.Drawing.SizeF(61.95832!, 18.0!)
         Me.Fecha.StylePriority.UseTextAlignment = False
         Me.Fecha.Text = "Fecha"
         Me.Fecha.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        Me.Fecha.TextFormatString = "{0:dd/MM/yyyy}"
         '
         'Accion
         '
-        Me.Accion.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Accion")})
+        Me.Accion.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Accion]")})
         Me.Accion.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.Accion.LocationFloat = New DevExpress.Utils.PointFloat(61.95833!, 0.0!)
+        Me.Accion.LocationFloat = New DevExpress.Utils.PointFloat(61.95833!, 0!)
         Me.Accion.Name = "Accion"
         Me.Accion.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Accion.SizeF = New System.Drawing.SizeF(70.0!, 18.0!)
@@ -206,9 +210,9 @@ Public Class RptEstadoCuentaCliente
         '
         'Recibo
         '
-        Me.Recibo.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Recibo")})
+        Me.Recibo.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Recibo]")})
         Me.Recibo.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.Recibo.LocationFloat = New DevExpress.Utils.PointFloat(197.5833!, 0.0!)
+        Me.Recibo.LocationFloat = New DevExpress.Utils.PointFloat(197.5833!, 0!)
         Me.Recibo.Name = "Recibo"
         Me.Recibo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Recibo.SizeF = New System.Drawing.SizeF(269.0833!, 18.0!)
@@ -218,9 +222,9 @@ Public Class RptEstadoCuentaCliente
         '
         'Factura
         '
-        Me.Factura.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Factura")})
+        Me.Factura.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Factura]")})
         Me.Factura.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.Factura.LocationFloat = New DevExpress.Utils.PointFloat(131.9583!, 0.0!)
+        Me.Factura.LocationFloat = New DevExpress.Utils.PointFloat(131.9583!, 0!)
         Me.Factura.Name = "Factura"
         Me.Factura.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Factura.SizeF = New System.Drawing.SizeF(65.625!, 18.0!)
@@ -230,15 +234,16 @@ Public Class RptEstadoCuentaCliente
         '
         'Abono
         '
-        Me.Abono.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Abono", "{0:n2}")})
+        Me.Abono.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Abono]")})
         Me.Abono.Font = New System.Drawing.Font("Arial", 8.0!)
-        Me.Abono.LocationFloat = New DevExpress.Utils.PointFloat(547.2499!, 0.0!)
+        Me.Abono.LocationFloat = New DevExpress.Utils.PointFloat(547.2499!, 0!)
         Me.Abono.Name = "Abono"
         Me.Abono.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Abono.SizeF = New System.Drawing.SizeF(79.83337!, 18.0!)
         Me.Abono.StylePriority.UseTextAlignment = False
         Me.Abono.Text = "Abono"
         Me.Abono.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.Abono.TextFormatString = "{0:n2}"
         '
         'PageHeader
         '
@@ -262,9 +267,9 @@ Public Class RptEstadoCuentaCliente
         '
         'Empresa
         '
-        Me.Empresa.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Empresa")})
+        Me.Empresa.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Empresa]")})
         Me.Empresa.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Empresa.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 7.999992!)
+        Me.Empresa.LocationFloat = New DevExpress.Utils.PointFloat(0!, 7.999992!)
         Me.Empresa.Name = "Empresa"
         Me.Empresa.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Empresa.SizeF = New System.Drawing.SizeF(800.0!, 25.0!)
@@ -274,7 +279,7 @@ Public Class RptEstadoCuentaCliente
         'Periodo
         '
         Me.Periodo.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.Periodo.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 57.99999!)
+        Me.Periodo.LocationFloat = New DevExpress.Utils.PointFloat(0!, 57.99999!)
         Me.Periodo.Multiline = True
         Me.Periodo.Name = "Periodo"
         Me.Periodo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -284,7 +289,7 @@ Public Class RptEstadoCuentaCliente
         'SaldoMoneda
         '
         Me.SaldoMoneda.Borders = CType((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.SaldoMoneda.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "SaldoMoneda")})
+        Me.SaldoMoneda.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SaldoMoneda]")})
         Me.SaldoMoneda.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
         Me.SaldoMoneda.LocationFloat = New DevExpress.Utils.PointFloat(627.0834!, 110.4167!)
         Me.SaldoMoneda.Name = "SaldoMoneda"
@@ -358,7 +363,7 @@ Public Class RptEstadoCuentaCliente
         '
         Me.XrLabel7.Borders = CType((DevExpress.XtraPrinting.BorderSide.Top Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
         Me.XrLabel7.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 110.4167!)
+        Me.XrLabel7.LocationFloat = New DevExpress.Utils.PointFloat(0!, 110.4167!)
         Me.XrLabel7.Name = "XrLabel7"
         Me.XrLabel7.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel7.SizeF = New System.Drawing.SizeF(61.95832!, 25.0!)
@@ -368,7 +373,7 @@ Public Class RptEstadoCuentaCliente
         '
         'Logo
         '
-        Me.Logo.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
+        Me.Logo.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.Logo.Name = "Logo"
         Me.Logo.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
         Me.Logo.SizeF = New System.Drawing.SizeF(108.0!, 83.0!)
@@ -377,7 +382,7 @@ Public Class RptEstadoCuentaCliente
         'XrLabel3
         '
         Me.XrLabel3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 32.99999!)
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(0!, 32.99999!)
         Me.XrLabel3.Name = "XrLabel3"
         Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel3.SizeF = New System.Drawing.SizeF(800.0!, 25.0!)
@@ -386,9 +391,9 @@ Public Class RptEstadoCuentaCliente
         '
         'Cliente
         '
-        Me.Cliente.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Cliente")})
+        Me.Cliente.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Cliente]")})
         Me.Cliente.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.Cliente.LocationFloat = New DevExpress.Utils.PointFloat(82.99999!, 0.0!)
+        Me.Cliente.LocationFloat = New DevExpress.Utils.PointFloat(82.99999!, 0!)
         Me.Cliente.Name = "Cliente"
         Me.Cliente.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.Cliente.SizeF = New System.Drawing.SizeF(717.0!, 20.0!)
@@ -398,7 +403,7 @@ Public Class RptEstadoCuentaCliente
         'XrLabel4
         '
         Me.XrLabel4.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(0.0!, 0.0!)
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrLabel4.Name = "XrLabel4"
         Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel4.SizeF = New System.Drawing.SizeF(83.0!, 20.0!)
@@ -416,23 +421,23 @@ Public Class RptEstadoCuentaCliente
         'XrPageInfo2
         '
         Me.XrPageInfo2.Font = New System.Drawing.Font("Arial", 7.0!)
-        Me.XrPageInfo2.Format = "Fecha Impresion : {0:MM/dd/yyyy hh:mm tt}"
         Me.XrPageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(490.0!, 17.0!)
         Me.XrPageInfo2.Name = "XrPageInfo2"
         Me.XrPageInfo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo2.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
         Me.XrPageInfo2.SizeF = New System.Drawing.SizeF(300.0!, 16.0!)
         Me.XrPageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrPageInfo2.TextFormatString = "Fecha Impresion : {0:MM/dd/yyyy hh:mm tt}"
         '
         'XrPageInfo1
         '
         Me.XrPageInfo1.Font = New System.Drawing.Font("Arial", 7.0!)
-        Me.XrPageInfo1.Format = "Pagina {0} de {1}"
-        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(665.0!, 0.0!)
+        Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(665.0!, 0!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrPageInfo1.SizeF = New System.Drawing.SizeF(125.0!, 16.0!)
         Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrPageInfo1.TextFormatString = "Pagina {0} de {1}"
         '
         'ReportFooter
         '
@@ -445,56 +450,56 @@ Public Class RptEstadoCuentaCliente
         'XrLabel19
         '
         Me.XrLabel19.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.XrLabel19.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "AcumuladoU")})
+        Me.XrLabel19.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([AcumuladoU])")})
         Me.XrLabel19.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(710.4167!, 0.0!)
+        Me.XrLabel19.LocationFloat = New DevExpress.Utils.PointFloat(710.4167!, 0!)
         Me.XrLabel19.Name = "XrLabel19"
         Me.XrLabel19.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel19.SizeF = New System.Drawing.SizeF(89.58331!, 25.0!)
         Me.XrLabel19.StylePriority.UseTextAlignment = False
-        XrSummary1.FormatString = "{0:n2}"
         XrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report
         Me.XrLabel19.Summary = XrSummary1
         Me.XrLabel19.Text = "AcumTotal"
         Me.XrLabel19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrLabel19.TextFormatString = "{0:n2}"
         '
         'XrLabel15
         '
         Me.XrLabel15.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.XrLabel15.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Abono")})
+        Me.XrLabel15.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Abono])")})
         Me.XrLabel15.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(547.2499!, 0.0!)
+        Me.XrLabel15.LocationFloat = New DevExpress.Utils.PointFloat(547.2499!, 0!)
         Me.XrLabel15.Name = "XrLabel15"
         Me.XrLabel15.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel15.SizeF = New System.Drawing.SizeF(79.83325!, 25.0!)
         Me.XrLabel15.StylePriority.UseTextAlignment = False
-        XrSummary2.FormatString = "{0:n2}"
         XrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report
         Me.XrLabel15.Summary = XrSummary2
         Me.XrLabel15.Text = "XrLabel15"
         Me.XrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrLabel15.TextFormatString = "{0:n2}"
         '
         'XrLabel14
         '
         Me.XrLabel14.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.XrLabel14.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Monto")})
+        Me.XrLabel14.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Monto])")})
         Me.XrLabel14.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(433.3333!, 0.0!)
+        Me.XrLabel14.LocationFloat = New DevExpress.Utils.PointFloat(433.3333!, 0!)
         Me.XrLabel14.Name = "XrLabel14"
         Me.XrLabel14.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel14.SizeF = New System.Drawing.SizeF(113.9167!, 25.0!)
         Me.XrLabel14.StylePriority.UseTextAlignment = False
-        XrSummary3.FormatString = "{0:n2}"
         XrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report
         Me.XrLabel14.Summary = XrSummary3
         Me.XrLabel14.Text = "XrLabel14"
         Me.XrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrLabel14.TextFormatString = "{0:n2}"
         '
         'XrLabel6
         '
         Me.XrLabel6.Borders = DevExpress.XtraPrinting.BorderSide.Top
         Me.XrLabel6.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(267.0!, 0.0!)
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(267.0!, 0!)
         Me.XrLabel6.Name = "XrLabel6"
         Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel6.SizeF = New System.Drawing.SizeF(166.3333!, 25.0!)
@@ -504,18 +509,18 @@ Public Class RptEstadoCuentaCliente
         'AcumTotal
         '
         Me.AcumTotal.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.AcumTotal.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Acumulado")})
+        Me.AcumTotal.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Acumulado])")})
         Me.AcumTotal.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.AcumTotal.LocationFloat = New DevExpress.Utils.PointFloat(627.0833!, 0.0!)
+        Me.AcumTotal.LocationFloat = New DevExpress.Utils.PointFloat(627.0833!, 0!)
         Me.AcumTotal.Name = "AcumTotal"
         Me.AcumTotal.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.AcumTotal.SizeF = New System.Drawing.SizeF(83.3335!, 25.0!)
         Me.AcumTotal.StylePriority.UseTextAlignment = False
-        XrSummary4.FormatString = "{0:n2}"
         XrSummary4.Running = DevExpress.XtraReports.UI.SummaryRunning.Report
         Me.AcumTotal.Summary = XrSummary4
         Me.AcumTotal.Text = "AcumTotal"
         Me.AcumTotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.AcumTotal.TextFormatString = "{0:n2}"
         '
         'GrpCliente
         '
@@ -537,40 +542,40 @@ Public Class RptEstadoCuentaCliente
         'XrLabel18
         '
         Me.XrLabel18.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.XrLabel18.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "AcumuladoU")})
+        Me.XrLabel18.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([AcumuladoU])")})
         Me.XrLabel18.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(710.4167!, 0.0!)
+        Me.XrLabel18.LocationFloat = New DevExpress.Utils.PointFloat(710.4167!, 0!)
         Me.XrLabel18.Name = "XrLabel18"
         Me.XrLabel18.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel18.SizeF = New System.Drawing.SizeF(89.58331!, 20.0!)
         Me.XrLabel18.StylePriority.UseTextAlignment = False
-        XrSummary5.FormatString = "{0:n2}"
         XrSummary5.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
         Me.XrLabel18.Summary = XrSummary5
         Me.XrLabel18.Text = "XrLabel17"
         Me.XrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrLabel18.TextFormatString = "{0:n2}"
         '
         'XrLabel17
         '
         Me.XrLabel17.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.XrLabel17.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Acumulado")})
+        Me.XrLabel17.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Acumulado])")})
         Me.XrLabel17.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(627.0833!, 0.0!)
+        Me.XrLabel17.LocationFloat = New DevExpress.Utils.PointFloat(627.0833!, 0!)
         Me.XrLabel17.Name = "XrLabel17"
         Me.XrLabel17.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel17.SizeF = New System.Drawing.SizeF(83.33337!, 20.0!)
         Me.XrLabel17.StylePriority.UseTextAlignment = False
-        XrSummary6.FormatString = "{0:n2}"
         XrSummary6.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
         Me.XrLabel17.Summary = XrSummary6
         Me.XrLabel17.Text = "XrLabel17"
         Me.XrLabel17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrLabel17.TextFormatString = "{0:n2}"
         '
         'XrLabel16
         '
         Me.XrLabel16.Borders = DevExpress.XtraPrinting.BorderSide.Top
         Me.XrLabel16.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(267.0!, 0.0!)
+        Me.XrLabel16.LocationFloat = New DevExpress.Utils.PointFloat(267.0!, 0!)
         Me.XrLabel16.Name = "XrLabel16"
         Me.XrLabel16.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel16.SizeF = New System.Drawing.SizeF(166.3333!, 20.0!)
@@ -580,34 +585,34 @@ Public Class RptEstadoCuentaCliente
         'XrLabel2
         '
         Me.XrLabel2.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.XrLabel2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Abono")})
+        Me.XrLabel2.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Abono])")})
         Me.XrLabel2.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(547.2499!, 0.0!)
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(547.2499!, 0!)
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(79.83331!, 20.0!)
         Me.XrLabel2.StylePriority.UseTextAlignment = False
-        XrSummary7.FormatString = "{0:n2}"
         XrSummary7.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
         Me.XrLabel2.Summary = XrSummary7
         Me.XrLabel2.Text = "XrLabel2"
         Me.XrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrLabel2.TextFormatString = "{0:n2}"
         '
         'XrLabel1
         '
         Me.XrLabel1.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.XrLabel1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Monto")})
+        Me.XrLabel1.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "sumSum([Monto])")})
         Me.XrLabel1.Font = New System.Drawing.Font("Arial", 8.0!, System.Drawing.FontStyle.Bold)
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(433.3333!, 0.0!)
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(433.3333!, 0!)
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
         Me.XrLabel1.SizeF = New System.Drawing.SizeF(113.9167!, 20.0!)
         Me.XrLabel1.StylePriority.UseTextAlignment = False
-        XrSummary8.FormatString = "{0:n2}"
         XrSummary8.Running = DevExpress.XtraReports.UI.SummaryRunning.Group
         Me.XrLabel1.Summary = XrSummary8
         Me.XrLabel1.Text = "XrLabel1"
         Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrLabel1.TextFormatString = "{0:n2}"
         '
         'TopMarginBand1
         '
@@ -623,7 +628,7 @@ Public Class RptEstadoCuentaCliente
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.PageHeader, Me.PageFooter, Me.ReportFooter, Me.GrpCliente, Me.PieCliente, Me.TopMarginBand1, Me.BottomMarginBand1})
         Me.Margins = New System.Drawing.Printing.Margins(25, 25, 25, 25)
-        Me.Version = "15.2"
+        Me.Version = "19.2"
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub

@@ -22,6 +22,17 @@ Public Class TipoNotasCD
         End Set
     End Property
 
+    Dim vListaNegra As Integer
+
+    Public Property ListaNegra() As Integer
+        Get
+            Return vListaNegra
+        End Get
+        Set(ByVal value As Integer)
+            vListaNegra = value
+        End Set
+    End Property
+
     Dim vNombre As String
 
     Public Property Nombre() As String

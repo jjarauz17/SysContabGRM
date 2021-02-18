@@ -106,6 +106,8 @@ Public Class frmReporteCuentasxPagar
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmReporteCuentasxPagar))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.cbProveedores = New DevExpress.XtraEditors.SearchLookUpEdit()
+        Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.cbFormaPago = New DevExpress.XtraEditors.LookUpEdit()
         Me.rbRango = New System.Windows.Forms.RadioButton()
         Me.rbFecha1 = New System.Windows.Forms.RadioButton()
@@ -130,6 +132,7 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup4 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -152,11 +155,10 @@ Public Class frmReporteCuentasxPagar
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
-        Me.cbProveedores = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.cbProveedores.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbFormaPago.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTPickerHasta.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTPickerHasta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -180,6 +182,7 @@ Public Class frmReporteCuentasxPagar
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -199,9 +202,6 @@ Public Class frmReporteCuentasxPagar
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
-        CType(Me.cbProveedores.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -231,9 +231,28 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControl1.TabIndex = 116
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'cbProveedores
+        '
+        Me.cbProveedores.Location = New System.Drawing.Point(88, 69)
+        Me.cbProveedores.Name = "cbProveedores"
+        Me.cbProveedores.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.cbProveedores.Properties.Appearance.Options.UseFont = True
+        Me.cbProveedores.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbProveedores.Properties.PopupView = Me.SearchLookUpEdit1View
+        Me.cbProveedores.Size = New System.Drawing.Size(490, 20)
+        Me.cbProveedores.StyleController = Me.LayoutControl1
+        Me.cbProveedores.TabIndex = 119
+        '
+        'SearchLookUpEdit1View
+        '
+        Me.SearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.SearchLookUpEdit1View.Name = "SearchLookUpEdit1View"
+        Me.SearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.SearchLookUpEdit1View.OptionsView.ShowGroupPanel = False
+        '
         'cbFormaPago
         '
-        Me.cbFormaPago.Location = New System.Drawing.Point(88, 91)
+        Me.cbFormaPago.Location = New System.Drawing.Point(88, 93)
         Me.cbFormaPago.Name = "cbFormaPago"
         Me.cbFormaPago.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cbFormaPago.Properties.Appearance.Options.UseFont = True
@@ -247,7 +266,7 @@ Public Class frmReporteCuentasxPagar
         Me.rbRango.BackColor = System.Drawing.Color.Transparent
         Me.rbRango.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbRango.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.rbRango.Location = New System.Drawing.Point(24, 297)
+        Me.rbRango.Location = New System.Drawing.Point(24, 301)
         Me.rbRango.Name = "rbRango"
         Me.rbRango.Size = New System.Drawing.Size(108, 25)
         Me.rbRango.TabIndex = 3
@@ -261,7 +280,7 @@ Public Class frmReporteCuentasxPagar
         Me.rbFecha1.Checked = True
         Me.rbFecha1.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbFecha1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.rbFecha1.Location = New System.Drawing.Point(24, 268)
+        Me.rbFecha1.Location = New System.Drawing.Point(24, 272)
         Me.rbFecha1.Name = "rbFecha1"
         Me.rbFecha1.Size = New System.Drawing.Size(108, 25)
         Me.rbFecha1.TabIndex = 2
@@ -273,7 +292,7 @@ Public Class frmReporteCuentasxPagar
         'DTPickerHasta
         '
         Me.DTPickerHasta.EditValue = Nothing
-        Me.DTPickerHasta.Location = New System.Drawing.Point(200, 326)
+        Me.DTPickerHasta.Location = New System.Drawing.Point(200, 330)
         Me.DTPickerHasta.Name = "DTPickerHasta"
         Me.DTPickerHasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPickerHasta.Properties.Appearance.Options.UseFont = True
@@ -286,7 +305,7 @@ Public Class frmReporteCuentasxPagar
         '
         'cbMes
         '
-        Me.cbMes.Location = New System.Drawing.Point(136, 239)
+        Me.cbMes.Location = New System.Drawing.Point(136, 243)
         Me.cbMes.Name = "cbMes"
         Me.cbMes.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMes.Properties.Appearance.Options.UseFont = True
@@ -302,7 +321,7 @@ Public Class frmReporteCuentasxPagar
         Me.rbMes.BackColor = System.Drawing.Color.Transparent
         Me.rbMes.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbMes.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.rbMes.Location = New System.Drawing.Point(24, 239)
+        Me.rbMes.Location = New System.Drawing.Point(24, 243)
         Me.rbMes.Name = "rbMes"
         Me.rbMes.Size = New System.Drawing.Size(108, 25)
         Me.rbMes.TabIndex = 0
@@ -313,7 +332,7 @@ Public Class frmReporteCuentasxPagar
         'DTPickerDe
         '
         Me.DTPickerDe.EditValue = Nothing
-        Me.DTPickerDe.Location = New System.Drawing.Point(200, 297)
+        Me.DTPickerDe.Location = New System.Drawing.Point(200, 301)
         Me.DTPickerDe.Name = "DTPickerDe"
         Me.DTPickerDe.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPickerDe.Properties.Appearance.Options.UseFont = True
@@ -327,7 +346,7 @@ Public Class frmReporteCuentasxPagar
         'DTPicker
         '
         Me.DTPicker.EditValue = Nothing
-        Me.DTPicker.Location = New System.Drawing.Point(136, 268)
+        Me.DTPicker.Location = New System.Drawing.Point(136, 272)
         Me.DTPicker.Name = "DTPicker"
         Me.DTPicker.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPicker.Properties.Appearance.Options.UseFont = True
@@ -341,18 +360,18 @@ Public Class frmReporteCuentasxPagar
         'rgTipoR
         '
         Me.rgTipoR.EditValue = 2
-        Me.rgTipoR.Location = New System.Drawing.Point(157, 167)
+        Me.rgTipoR.Location = New System.Drawing.Point(157, 169)
         Me.rgTipoR.Name = "rgTipoR"
         Me.rgTipoR.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rgTipoR.Properties.Appearance.Options.UseFont = True
         Me.rgTipoR.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Reporte Tradicional"), New DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Consolidado de Saldos")})
-        Me.rgTipoR.Size = New System.Drawing.Size(438, 25)
+        Me.rgTipoR.Size = New System.Drawing.Size(421, 25)
         Me.rgTipoR.StyleController = Me.LayoutControl1
         Me.rgTipoR.TabIndex = 1
         '
         'chkResumido
         '
-        Me.chkResumido.Location = New System.Drawing.Point(24, 167)
+        Me.chkResumido.Location = New System.Drawing.Point(24, 169)
         Me.chkResumido.Name = "chkResumido"
         Me.chkResumido.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkResumido.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -378,23 +397,23 @@ Public Class frmReporteCuentasxPagar
         '
         'cbMonedas
         '
-        Me.cbMonedas.Location = New System.Drawing.Point(88, 141)
+        Me.cbMonedas.Location = New System.Drawing.Point(88, 143)
         Me.cbMonedas.Name = "cbMonedas"
         Me.cbMonedas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMonedas.Properties.Appearance.Options.UseFont = True
         Me.cbMonedas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbMonedas.Size = New System.Drawing.Size(507, 22)
+        Me.cbMonedas.Size = New System.Drawing.Size(490, 22)
         Me.cbMonedas.StyleController = Me.LayoutControl1
         Me.cbMonedas.TabIndex = 3
         '
         'cbRubro
         '
-        Me.cbRubro.Location = New System.Drawing.Point(88, 115)
+        Me.cbRubro.Location = New System.Drawing.Point(88, 117)
         Me.cbRubro.Name = "cbRubro"
         Me.cbRubro.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbRubro.Properties.Appearance.Options.UseFont = True
         Me.cbRubro.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbRubro.Size = New System.Drawing.Size(507, 22)
+        Me.cbRubro.Size = New System.Drawing.Size(490, 22)
         Me.cbRubro.StyleController = Me.LayoutControl1
         Me.cbRubro.TabIndex = 2
         '
@@ -405,7 +424,7 @@ Public Class frmReporteCuentasxPagar
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label4.Location = New System.Drawing.Point(12, 12)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(595, 20)
+        Me.Label4.Size = New System.Drawing.Size(578, 20)
         Me.Label4.TabIndex = 114
         Me.Label4.Text = "REPORTE DE CUENTAS POR PAGAR"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -429,9 +448,8 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlGroup2, Me.LayoutControlGroup4})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(619, 375)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(602, 376)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
@@ -442,7 +460,7 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(0, 24)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(24, 24)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(599, 24)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(582, 24)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem1.TextVisible = False
@@ -459,7 +477,7 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.EmptySpaceItem2, Me.LayoutControlItem2, Me.LayoutControlItem6, Me.LayoutControlItem9, Me.LayoutControlItem5, Me.LayoutControlItem4})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(599, 172)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(582, 174)
         Me.LayoutControlGroup2.Text = "CRITERIOS DE SELECCION"
         '
         'LayoutControlItem7
@@ -470,7 +488,7 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(0, 29)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(54, 29)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(442, 29)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(425, 29)
         Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
@@ -481,7 +499,7 @@ Public Class frmReporteCuentasxPagar
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(301, 24)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(274, 24)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(257, 24)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem2
@@ -503,7 +521,7 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlItem6.CustomizationFormText = "Moneda:"
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 74)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(575, 26)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(558, 26)
         Me.LayoutControlItem6.Text = "Moneda:"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(61, 13)
         '
@@ -526,9 +544,18 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlItem5.CustomizationFormText = "Rubro:"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(575, 26)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(558, 26)
         Me.LayoutControlItem5.Text = "Rubro:"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(61, 13)
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.cbProveedores
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(558, 24)
+        Me.LayoutControlItem4.Text = "Proveedor:"
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(61, 13)
         '
         'LayoutControlGroup4
         '
@@ -540,9 +567,9 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlGroup4.AppearanceGroup.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.LayoutControlGroup4.CustomizationFormText = "TIEMPOS"
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem15, Me.LayoutControlItem14, Me.LayoutControlItem16, Me.EmptySpaceItem1, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 196)
+        Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 198)
         Me.LayoutControlGroup4.Name = "LayoutControlGroup4"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(599, 159)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(582, 158)
         Me.LayoutControlGroup4.Text = "TIEMPOS"
         '
         'LayoutControlItem15
@@ -592,7 +619,7 @@ Public Class frmReporteCuentasxPagar
         Me.EmptySpaceItem1.MaxSize = New System.Drawing.Size(112, 26)
         Me.EmptySpaceItem1.MinSize = New System.Drawing.Size(112, 26)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(112, 29)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(112, 26)
         Me.EmptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
@@ -643,7 +670,7 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(208, 26)
         Me.LayoutControlItem13.MinSize = New System.Drawing.Size(208, 26)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(208, 29)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(208, 26)
         Me.LayoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem13.Text = "Hasta:"
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(61, 13)
@@ -654,7 +681,7 @@ Public Class frmReporteCuentasxPagar
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Location = New System.Drawing.Point(320, 0)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(255, 116)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(238, 113)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'cmdAyuda
@@ -677,16 +704,16 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup3
-        Me.LayoutControl2.Size = New System.Drawing.Size(141, 348)
+        Me.LayoutControl2.Size = New System.Drawing.Size(143, 346)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'Cancel
         '
         Me.Cancel.ImageOptions.Image = CType(resources.GetObject("Cancel.ImageOptions.Image"), System.Drawing.Image)
-        Me.Cancel.Location = New System.Drawing.Point(12, 54)
+        Me.Cancel.Location = New System.Drawing.Point(12, 52)
         Me.Cancel.Name = "Cancel"
-        Me.Cancel.Size = New System.Drawing.Size(117, 38)
+        Me.Cancel.Size = New System.Drawing.Size(119, 36)
         Me.Cancel.StyleController = Me.LayoutControl2
         Me.Cancel.TabIndex = 2
         Me.Cancel.Text = "&Salir"
@@ -696,7 +723,7 @@ Public Class frmReporteCuentasxPagar
         Me.Print.ImageOptions.Image = CType(resources.GetObject("Print.ImageOptions.Image"), System.Drawing.Image)
         Me.Print.Location = New System.Drawing.Point(12, 12)
         Me.Print.Name = "Print"
-        Me.Print.Size = New System.Drawing.Size(117, 38)
+        Me.Print.Size = New System.Drawing.Size(119, 36)
         Me.Print.StyleController = Me.LayoutControl2
         Me.Print.TabIndex = 0
         Me.Print.Text = "&Generar"
@@ -717,9 +744,8 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup3.GroupBordersVisible = False
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem17, Me.LayoutControlItem19})
-        Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(141, 348)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(143, 346)
         Me.LayoutControlGroup3.TextVisible = False
         '
         'LayoutControlItem17
@@ -728,7 +754,7 @@ Public Class frmReporteCuentasxPagar
         Me.LayoutControlItem17.CustomizationFormText = "LayoutControlItem17"
         Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(121, 42)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem17.TextVisible = False
         '
@@ -736,9 +762,9 @@ Public Class frmReporteCuentasxPagar
         '
         Me.LayoutControlItem19.Control = Me.Cancel
         Me.LayoutControlItem19.CustomizationFormText = "LayoutControlItem19"
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(121, 286)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(123, 286)
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem19.TextVisible = False
         '
@@ -773,38 +799,10 @@ Public Class frmReporteCuentasxPagar
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(141, 348)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(143, 346)
         Me.DockPanel1_Container.TabIndex = 0
-        '
-        'cbProveedores
-        '
-        Me.cbProveedores.Location = New System.Drawing.Point(88, 67)
-        Me.cbProveedores.Name = "cbProveedores"
-        Me.cbProveedores.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.cbProveedores.Properties.Appearance.Options.UseFont = True
-        Me.cbProveedores.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbProveedores.Properties.View = Me.SearchLookUpEdit1View
-        Me.cbProveedores.Size = New System.Drawing.Size(507, 20)
-        Me.cbProveedores.StyleController = Me.LayoutControl1
-        Me.cbProveedores.TabIndex = 119
-        '
-        'LayoutControlItem4
-        '
-        Me.LayoutControlItem4.Control = Me.cbProveedores
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(575, 24)
-        Me.LayoutControlItem4.Text = "Proveedor:"
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(61, 13)
-        '
-        'SearchLookUpEdit1View
-        '
-        Me.SearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.SearchLookUpEdit1View.Name = "SearchLookUpEdit1View"
-        Me.SearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.SearchLookUpEdit1View.OptionsView.ShowGroupPanel = False
         '
         'frmReporteCuentasxPagar
         '
@@ -812,11 +810,13 @@ Public Class frmReporteCuentasxPagar
         Me.ClientSize = New System.Drawing.Size(769, 375)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("frmReporteCuentasxPagar.IconOptions.Icon"), System.Drawing.Icon)
         Me.Name = "frmReporteCuentasxPagar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.cbProveedores.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbFormaPago.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTPickerHasta.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTPickerHasta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -840,6 +840,7 @@ Public Class frmReporteCuentasxPagar
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
@@ -859,9 +860,6 @@ Public Class frmReporteCuentasxPagar
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
-        CType(Me.cbProveedores.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -1,6 +1,10 @@
 Imports System.IO
 Imports DevExpress.XtraReports.UI
 Imports ClasesBLL
+Imports ZohoApi
+Imports Entities
+Imports DevExpress.XtraGrid.Views.Grid
+
 Public Class frmArticulos
     Inherits DevExpress.XtraEditors.XtraForm
 
@@ -848,7 +852,8 @@ Public Class frmArticulos
 
 #End Region
 
-    Dim DT_ROL As DataTable
+    Dim DT_ROL As DataTable,
+        _DT_CABYS As DataTable = New DataTable("CABYS")
 
     Private Sub frmArticulos_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.F5 Then Cargar()
@@ -886,16 +891,21 @@ Public Class frmArticulos
         Cargar()
         ArmarGrid()
 
-        LeerEsquemaInicial()
+        LeerEsquemaInicial(Me.Name,
+                           Me.Text,
+                           Vista)
         ValidarAccesos()
+        '
+        'Cargar Catalogo CABYS para CR
+        _DT_CABYS = ObtieneDatos("sp_sel_CR_CABYS", EmpresaActual)
 
         'VB.SysContab.Rutinas.UsuariosAcciones(Me, Me.Name)
         'Me.Text = "Mantenimiento de Productos"
-        Me.Refresh()
+        'Me.Refresh()
     End Sub
 
     Public Sub Cargar()
-        Me.dgArticulos.DataSource = Articulos.ArticulosConsultaLetra()
+        dgArticulos.DataSource = Articulos.ArticulosConsultaLetra()
     End Sub
 
     Sub ValidarAccesos()
@@ -1090,6 +1100,7 @@ Public Class frmArticulos
         With frmProductosAdd
             .MdiParent = Me.MdiParent
             .Text = "Nuevo Producto"
+            .DT_CABYS = _DT_CABYS
             .Show()
             .WindowState = FormWindowState.Maximized
             '.cbProveedores.EditValue = Nothing
@@ -1132,6 +1143,7 @@ Public Class frmArticulos
         With frmProductosAdd
             .MdiParent = Me.MdiParent
             .Text = "Editar Producto"
+            .DT_CABYS = _DT_CABYS
             .Show()
             .WindowState = FormWindowState.Maximized
         End With
@@ -1437,8 +1449,27 @@ Public Class frmArticulos
     End Sub
 
     Private Sub btnDiseno_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDiseno.Click
-        Dim f As New FrmConfiguraCheque
 
+        'Dim prod As New Novazys.Products
+        'Dim Url As New ZohoUrl
+
+        'Url = Url.Load(EmpresaActual)
+
+        'prod.EnviarToZoho(
+        '    "23440027",
+        '    "F3220NG FTR, NON LUBE MODULE 1900 SCFM # ",
+        '    "EQUIPOS",
+        '    "23440027",
+        '    10584.61,
+        '    1,
+        '    "NI",
+        '    Url.UrlEnviar)
+
+        'Exit Sub
+
+        FrmConfiguraCheque.Dispose()
+        '
+        Dim f As New FrmConfiguraCheque
         f.Tipo = 16
         f.Text = "Diseño Codigos de Barras"
         f.Show()
@@ -1487,21 +1518,21 @@ Public Class frmArticulos
         End Try
     End Sub
 
-    Sub LeerEsquemaInicial()
-        ''Borrar Archivo, para evitar cache
-        If IO.File.Exists(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml") Then
-            Kill(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
-        End If
-        '
-        ''Guardar Configuracion Inicial
-        Vista.SaveLayoutToXml(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
-        db_Esquemas.GuardarInicial(
-            Me.Name,
-            Me.Text,
-            Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
-        '
-        ValidarGridSchema(Vista, Me.Name)
-    End Sub
+    'Sub LeerEsquemaInicial()
+    '    ''Borrar Archivo, para evitar cache
+    '    If IO.File.Exists(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml") Then
+    '        Kill(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
+    '    End If
+    '    '
+    '    ''Guardar Configuracion Inicial
+    '    Vista.SaveLayoutToXml(Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
+    '    db_Esquemas.GuardarInicial(
+    '        Me.Name,
+    '        Me.Text,
+    '        Application.StartupPath & "\xml\xml_" & Me.Name.ToString & ".xml")
+    '    '
+    '    ValidarGridSchema(Vista, Me.Name)
+    'End Sub
 
     Private Sub bRestauraEsquema_Click(sender As Object, e As EventArgs) Handles bRestauraEsquema.Click
         db_Esquemas.Borrar(Me.Name, 0)
@@ -1565,6 +1596,42 @@ Public Class frmArticulos
             End With
         End If
 
+
+    End Sub
+
+    Private Sub Vista_RowCellStyle(sender As Object, e As RowCellStyleEventArgs) Handles Vista.RowCellStyle
+        If e.Column.FieldName = "CABYS" Then
+            e.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+            e.Appearance.ForeColor = Color.MidnightBlue
+            e.Appearance.Font = New Font("Tahoma", 8, FontStyle.Underline)
+
+        End If
+    End Sub
+    '
+    Private Sub Vista_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles Vista.RowCellClick
+        If e.Column.FieldName = "CABYS" Then
+
+            If Vista.GetRowCellValue(e.RowHandle, "CABYS").ToString.Length > 0 Then
+
+                With frmCatalogoCABYS
+                    .Main(_DT_CABYS)
+
+                    If .ok Then
+                        Vista.SetRowCellValue(e.RowHandle, "CABYS", .Codigo)
+                        Vista.SetRowCellValue(e.RowHandle, "Impuesto", $"{ .Impuesto.ToString}%")
+                        Vista.SetRowCellValue(e.RowHandle, "Exento", IIf(.Impuesto = 0, True, False))
+
+                        VB.SysContab.ArticulosDB.UpdateCabys(
+                            Vista.GetRowCellValue(Vista.FocusedRowHandle, "Codigo"),
+                            "P",
+                            .Codigo,
+                            .Impuesto)
+                    End If
+                End With
+
+            End If
+
+        End If
 
     End Sub
 End Class

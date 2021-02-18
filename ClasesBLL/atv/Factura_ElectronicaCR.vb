@@ -57,13 +57,13 @@ Public Class Factura_ElectronicaCR
                                       Optional SinReceptor As Integer = 0) As Comunicacion
 
 
-        ShowSplash("Firmando XML...")
+        ShowSplash("Firmando XML...")        
         '
         obj = IDP_FacturaElectronicaToken.Detalles()
 
         If SinReceptor = 1 Then Etiqueta = "TiqueteElectronico"
 
-        Dim DT As New DataTable("Datos_XML")
+        Dim DT As DataTable = New DataTable("Datos_XML")
 
         If Tipo.Equals("01") Then
             DT = GetDatosFacturaFE(
@@ -77,6 +77,10 @@ Public Class Factura_ElectronicaCR
             IdNota,
             FechaEmision,
             Razon)
+        ElseIf Tipo.Equals("09") Then
+            DT = GetDatosFacturaFEE(
+            Factura,
+            Tipo)
         End If
         '        
         Dim xDoc As XDocument = JsonConvert.DeserializeXNode(
@@ -141,8 +145,14 @@ Public Class Factura_ElectronicaCR
         If SinReceptor Then
             myReceptor.sinReceptor = True
         Else
-            Dim ReceptorNumero As String = xmlDocSF.GetElementsByTagName("Receptor")(0)("Identificacion")("Numero").InnerText
-            Dim ReceptorTipo As String = xmlDocSF.GetElementsByTagName("Receptor")(0)("Identificacion")("Tipo").InnerText
+            Dim ReceptorNumero As String = String.Empty,
+                ReceptorTipo As String = String.Empty
+
+            'Para las facturas de Exportacion, solo llevan el nombre del receptor.
+            If Not Tipo.Equals("09") Then
+                ReceptorNumero = IIf(Tipo.Equals("09"), "", xmlDocSF.GetElementsByTagName("Receptor")(0)("Identificacion")("Numero").InnerText)
+                ReceptorTipo = IIf(Tipo.Equals("09"), "", xmlDocSF.GetElementsByTagName("Receptor")(0)("Identificacion")("Tipo").InnerText)
+            End If
 
             myReceptor = New Receptor With {.numeroIdentificacion = ReceptorNumero, .TipoIdentificacion = ReceptorTipo}
         End If
@@ -745,8 +755,7 @@ Public Class Factura_ElectronicaCR
 
     End Function
 
-    Public Function GetDatosFacturaFE(
-                                     Factura As String,
+    Public Function GetDatosFacturaFE(Factura As String,
                                      Tipo As String,
                                      SinReceptor As Integer) As DataTable
 
@@ -760,8 +769,17 @@ Public Class Factura_ElectronicaCR
 
     End Function
 
-    Public Function GetDatosFacturaNC(
-                                     Factura As String,
+    Public Function GetDatosFacturaFEE(Factura As String,
+                                     Tipo As String) As DataTable
+
+        Return ObtieneDatos("sp_facturaElectronicaDatosFEE",
+                            Factura,
+                            Tipo,
+                            EmpresaA)
+
+    End Function
+
+    Public Function GetDatosFacturaNC(Factura As String,
                                      Tipo As String,
                                      IdNota As Integer,
                                      FechaEmision As DateTime,
@@ -991,31 +1009,36 @@ Public Class Factura_ElectronicaCR
 
     End Sub
 
-    'Public Sub FacturaElectronicaUpdate(Factura As String, Estado As String, Mensaje As String, TK As String, Consecutivo As String)
+    Public Sub FacturaElectronicaUpdate(ID As Integer,
+                                        FacturaXML As String,
+                                        ClaveNumerica As String,
+                                        Estado As String,
+                                        Mensaje As String,
+                                        XMLFirmado As String)
 
-    '    Try
-    '        Dim cnn As SqlConnection = New SqlConnection(Conexion())
-    '        Dim cmd As New SqlCommand("sp_upd_FACTURAS_VENTAS_XML")
-    '        cmd.Connection = cnn
-    '        cmd.CommandType = CommandType.StoredProcedure
+        Try
+            Dim cnn As SqlConnection = New SqlConnection(Conexion())
+            Dim cmd As New SqlCommand("sp_upd_FACTURAS_VENTAS_XML_GT")
+            cmd.Connection = cnn
+            cmd.CommandType = CommandType.StoredProcedure
 
-    '        cmd.Parameters.AddWithValue("@Factura", Factura)
-    '        'cmd.Parameters.AddWithValue("@FacturaXML", XmlSinFirma)
-    '        cmd.Parameters.AddWithValue("@XmlFirmado", XmlFirmado)
-    '        cmd.Parameters.AddWithValue("@Estado", Estado)
-    '        cmd.Parameters.AddWithValue("@Mensaje", Mensaje)
-    '        cmd.Parameters.AddWithValue("@Token", TK)
-    '        cmd.Parameters.AddWithValue("@Consecutivo", Consecutivo)
-    '        cmd.Parameters.AddWithValue("@Empresa", EmpresaA)
+            cmd.Parameters.AddWithValue("@ID", ID)
+            cmd.Parameters.AddWithValue("@FacturaXML", FacturaXML)
+            cmd.Parameters.AddWithValue("@ClaveNumerica", ClaveNumerica)
+            cmd.Parameters.AddWithValue("@Estado", XMLFirmado)
+            cmd.Parameters.AddWithValue("@MensajeHacienda", Estado)
+            cmd.Parameters.AddWithValue("@XmlFirmado", Mensaje)
+            cmd.Parameters.AddWithValue("@Empresa", EmpresaA)
 
-    '        cnn.Open()
-    '        cmd.ExecuteNonQuery()
-    '        cnn.Close()
-    '    Catch ex As Exception
-    '        XtraMsg("Error al guardar XML: " & vbCrLf & ex.Message, Windows.Forms.MessageBoxIcon.Error)
-    '    End Try
+            cnn.Open()
+            cmd.ExecuteNonQuery()
+            cnn.Close()
+        Catch ex As Exception
+            XtraMsg("Error al Actualizar Tabla, SP: sp_upd_FACTURAS_VENTAS_XML_GT. " & vbCrLf & ex.Message,
+                    Windows.Forms.MessageBoxIcon.Error)
+        End Try
 
-    'End Sub
+    End Sub
 
 
     Public Sub FacturaElectronicaUpdateEstado(Factura As String, Estado As String, Mensaje As String, TK As String, Consecutivo As String)
@@ -1041,6 +1064,13 @@ Public Class Factura_ElectronicaCR
         End Try
 
     End Sub
+
+    Public Function GetConsecutivo() As Integer
+
+        Return ObtieneDatos("sp_sel_FACTURAS_VENTAS_XML_Consecutivo", EmpresaA).Rows.Item(0)("Numero")
+
+    End Function
+
 
 
 

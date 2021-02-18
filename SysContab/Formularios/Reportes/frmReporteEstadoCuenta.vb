@@ -75,6 +75,8 @@ Public Class frmReporteEstadoCuenta
     Friend WithEvents cbClientes As DevExpress.XtraEditors.SearchLookUpEdit
     Friend WithEvents SearchLookUpEdit1View As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents LayoutControlItem20 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Dim r As New VB.SysContab.Rutinas
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -157,6 +159,7 @@ Public Class frmReporteEstadoCuenta
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.Cancel = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControl2 = New DevExpress.XtraLayout.LayoutControl()
+        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.Print = New DevExpress.XtraEditors.SimpleButton()
@@ -166,6 +169,7 @@ Public Class frmReporteEstadoCuenta
         Me.EmptySpaceItem4 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem17 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem19 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.tbValorTotal = New System.Windows.Forms.TextBox()
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
@@ -218,6 +222,7 @@ Public Class frmReporteEstadoCuenta
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem19, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
@@ -267,12 +272,12 @@ Public Class frmReporteEstadoCuenta
         '
         'cbClientes
         '
-        Me.cbClientes.Location = New System.Drawing.Point(88, 67)
+        Me.cbClientes.Location = New System.Drawing.Point(88, 69)
         Me.cbClientes.Name = "cbClientes"
         Me.cbClientes.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbClientes.Properties.Appearance.Options.UseFont = True
         Me.cbClientes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbClientes.Properties.View = Me.SearchLookUpEdit1View
+        Me.cbClientes.Properties.PopupView = Me.SearchLookUpEdit1View
         Me.cbClientes.Size = New System.Drawing.Size(507, 20)
         Me.cbClientes.StyleController = Me.LayoutControl1
         Me.cbClientes.TabIndex = 121
@@ -286,7 +291,7 @@ Public Class frmReporteEstadoCuenta
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(334, 318)
+        Me.CheckEdit1.Location = New System.Drawing.Point(334, 322)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.RoyalBlue
@@ -300,7 +305,7 @@ Public Class frmReporteEstadoCuenta
         '
         'cbRubro
         '
-        Me.cbRubro.Location = New System.Drawing.Point(88, 169)
+        Me.cbRubro.Location = New System.Drawing.Point(88, 171)
         Me.cbRubro.Name = "cbRubro"
         Me.cbRubro.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbRubro.Properties.Appearance.Options.UseFont = True
@@ -311,7 +316,7 @@ Public Class frmReporteEstadoCuenta
         '
         'cbBodegas
         '
-        Me.cbBodegas.Location = New System.Drawing.Point(88, 143)
+        Me.cbBodegas.Location = New System.Drawing.Point(88, 145)
         Me.cbBodegas.Name = "cbBodegas"
         Me.cbBodegas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
         Me.cbBodegas.Properties.Appearance.Options.UseFont = True
@@ -324,7 +329,7 @@ Public Class frmReporteEstadoCuenta
         '
         'cbMeses
         '
-        Me.cbMeses.Location = New System.Drawing.Point(124, 236)
+        Me.cbMeses.Location = New System.Drawing.Point(124, 240)
         Me.cbMeses.Name = "cbMeses"
         Me.cbMeses.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
         Me.cbMeses.Properties.Appearance.Options.UseFont = True
@@ -337,7 +342,7 @@ Public Class frmReporteEstadoCuenta
         '
         'cbFormaPago
         '
-        Me.cbFormaPago.Location = New System.Drawing.Point(88, 91)
+        Me.cbFormaPago.Location = New System.Drawing.Point(88, 93)
         Me.cbFormaPago.Name = "cbFormaPago"
         Me.cbFormaPago.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbFormaPago.Properties.Appearance.Options.UseFont = True
@@ -349,7 +354,7 @@ Public Class frmReporteEstadoCuenta
         'RadioGroup1
         '
         Me.RadioGroup1.EditValue = 2
-        Me.RadioGroup1.Location = New System.Drawing.Point(334, 236)
+        Me.RadioGroup1.Location = New System.Drawing.Point(334, 240)
         Me.RadioGroup1.Name = "RadioGroup1"
         Me.RadioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.RadioGroup1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -366,7 +371,7 @@ Public Class frmReporteEstadoCuenta
         '
         Me.rbRango.BackColor = System.Drawing.Color.Transparent
         Me.rbRango.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(162, Byte), Integer))
-        Me.rbRango.Location = New System.Drawing.Point(24, 294)
+        Me.rbRango.Location = New System.Drawing.Point(24, 298)
         Me.rbRango.Name = "rbRango"
         Me.rbRango.Size = New System.Drawing.Size(96, 25)
         Me.rbRango.TabIndex = 3
@@ -377,7 +382,7 @@ Public Class frmReporteEstadoCuenta
         'DTPickerHasta
         '
         Me.DTPickerHasta.EditValue = Nothing
-        Me.DTPickerHasta.Location = New System.Drawing.Point(188, 318)
+        Me.DTPickerHasta.Location = New System.Drawing.Point(188, 322)
         Me.DTPickerHasta.Name = "DTPickerHasta"
         Me.DTPickerHasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPickerHasta.Properties.Appearance.Options.UseFont = True
@@ -392,7 +397,7 @@ Public Class frmReporteEstadoCuenta
         '
         Me.rbFecha1.BackColor = System.Drawing.Color.Transparent
         Me.rbFecha1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(162, Byte), Integer))
-        Me.rbFecha1.Location = New System.Drawing.Point(24, 265)
+        Me.rbFecha1.Location = New System.Drawing.Point(24, 269)
         Me.rbFecha1.Name = "rbFecha1"
         Me.rbFecha1.Size = New System.Drawing.Size(96, 25)
         Me.rbFecha1.TabIndex = 2
@@ -405,7 +410,7 @@ Public Class frmReporteEstadoCuenta
         Me.rbMes.BackColor = System.Drawing.Color.Transparent
         Me.rbMes.Checked = True
         Me.rbMes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(162, Byte), Integer))
-        Me.rbMes.Location = New System.Drawing.Point(24, 236)
+        Me.rbMes.Location = New System.Drawing.Point(24, 240)
         Me.rbMes.Name = "rbMes"
         Me.rbMes.Size = New System.Drawing.Size(96, 25)
         Me.rbMes.TabIndex = 1
@@ -417,7 +422,7 @@ Public Class frmReporteEstadoCuenta
         'DTPickerDe
         '
         Me.DTPickerDe.EditValue = Nothing
-        Me.DTPickerDe.Location = New System.Drawing.Point(188, 289)
+        Me.DTPickerDe.Location = New System.Drawing.Point(188, 293)
         Me.DTPickerDe.Name = "DTPickerDe"
         Me.DTPickerDe.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPickerDe.Properties.Appearance.Options.UseFont = True
@@ -430,7 +435,7 @@ Public Class frmReporteEstadoCuenta
         '
         'cbSucursal
         '
-        Me.cbSucursal.Location = New System.Drawing.Point(88, 117)
+        Me.cbSucursal.Location = New System.Drawing.Point(88, 119)
         Me.cbSucursal.Name = "cbSucursal"
         Me.cbSucursal.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbSucursal.Properties.Appearance.Options.UseFont = True
@@ -446,7 +451,7 @@ Public Class frmReporteEstadoCuenta
         'DTPicker
         '
         Me.DTPicker.EditValue = Nothing
-        Me.DTPicker.Location = New System.Drawing.Point(124, 260)
+        Me.DTPicker.Location = New System.Drawing.Point(124, 264)
         Me.DTPicker.Name = "DTPicker"
         Me.DTPicker.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPicker.Properties.Appearance.Options.UseFont = True
@@ -485,7 +490,6 @@ Public Class frmReporteEstadoCuenta
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlGroup2, Me.LayoutControlGroup3, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(619, 383)
         Me.LayoutControlGroup1.TextVisible = False
@@ -515,7 +519,7 @@ Public Class frmReporteEstadoCuenta
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5, Me.LayoutControlItem15, Me.EmptySpaceItem2, Me.LayoutControlItem7, Me.LayoutControlItem18, Me.LayoutControlItem20})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(599, 169)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(599, 171)
         Me.LayoutControlGroup2.Text = "CRITERIOS DE SELECCION"
         '
         'LayoutControlItem5
@@ -588,9 +592,9 @@ Public Class frmReporteEstadoCuenta
         Me.LayoutControlGroup3.AppearanceGroup.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.LayoutControlGroup3.CustomizationFormText = "TIEMPOS"
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem11, Me.LayoutControlItem2, Me.LayoutControlItem12, Me.LayoutControlItem8, Me.LayoutControlItem13, Me.LayoutControlItem9, Me.EmptySpaceItem1, Me.LayoutControlItem10, Me.LayoutControlItem4, Me.lyQuitarSaldo})
-        Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 193)
+        Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 195)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(599, 151)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(599, 153)
         Me.LayoutControlGroup3.Text = "TIEMPOS"
         '
         'LayoutControlItem11
@@ -713,23 +717,24 @@ Public Class frmReporteEstadoCuenta
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 344)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 348)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(599, 19)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(599, 15)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'Cancel
         '
         Me.Cancel.ImageOptions.Image = CType(resources.GetObject("Cancel.ImageOptions.Image"), System.Drawing.Image)
-        Me.Cancel.Location = New System.Drawing.Point(12, 289)
+        Me.Cancel.Location = New System.Drawing.Point(12, 306)
         Me.Cancel.Name = "Cancel"
-        Me.Cancel.Size = New System.Drawing.Size(118, 38)
+        Me.Cancel.Size = New System.Drawing.Size(119, 36)
         Me.Cancel.StyleController = Me.LayoutControl2
         Me.Cancel.TabIndex = 1
         Me.Cancel.Text = "&Salir"
         '
         'LayoutControl2
         '
+        Me.LayoutControl2.Controls.Add(Me.SimpleButton3)
         Me.LayoutControl2.Controls.Add(Me.SimpleButton2)
         Me.LayoutControl2.Controls.Add(Me.SimpleButton1)
         Me.LayoutControl2.Controls.Add(Me.Print)
@@ -739,26 +744,40 @@ Public Class frmReporteEstadoCuenta
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(949, 487, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup4
-        Me.LayoutControl2.Size = New System.Drawing.Size(141, 356)
+        Me.LayoutControl2.Size = New System.Drawing.Size(143, 354)
         Me.LayoutControl2.TabIndex = 3
         Me.LayoutControl2.Text = "LayoutControl2"
         '
+        'SimpleButton3
+        '
+        Me.SimpleButton3.Appearance.Options.UseTextOptions = True
+        Me.SimpleButton3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.SimpleButton3.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton3.Location = New System.Drawing.Point(12, 226)
+        Me.SimpleButton3.Name = "SimpleButton3"
+        Me.SimpleButton3.Size = New System.Drawing.Size(119, 36)
+        Me.SimpleButton3.StyleController = Me.LayoutControl2
+        Me.SimpleButton3.TabIndex = 119
+        Me.SimpleButton3.Text = "&Diseño E.C Cliente"
+        '
         'SimpleButton2
         '
+        Me.SimpleButton2.Appearance.Options.UseTextOptions = True
+        Me.SimpleButton2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(12, 247)
+        Me.SimpleButton2.Location = New System.Drawing.Point(12, 266)
         Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(118, 38)
+        Me.SimpleButton2.Size = New System.Drawing.Size(119, 36)
         Me.SimpleButton2.StyleController = Me.LayoutControl2
         Me.SimpleButton2.TabIndex = 118
-        Me.SimpleButton2.Text = "&Diseño"
+        Me.SimpleButton2.Text = "&Diseño E.C Lineal"
         '
         'SimpleButton1
         '
         Me.SimpleButton1.Appearance.Options.UseTextOptions = True
         Me.SimpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(12, 54)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 52)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(118, 38)
         Me.SimpleButton1.StyleController = Me.LayoutControl2
@@ -770,7 +789,7 @@ Public Class frmReporteEstadoCuenta
         Me.Print.ImageOptions.Image = CType(resources.GetObject("Print.ImageOptions.Image"), System.Drawing.Image)
         Me.Print.Location = New System.Drawing.Point(12, 12)
         Me.Print.Name = "Print"
-        Me.Print.Size = New System.Drawing.Size(118, 38)
+        Me.Print.Size = New System.Drawing.Size(119, 36)
         Me.Print.StyleController = Me.LayoutControl2
         Me.Print.TabIndex = 0
         Me.Print.Text = "&Imprimir"
@@ -780,10 +799,9 @@ Public Class frmReporteEstadoCuenta
         Me.LayoutControlGroup4.CustomizationFormText = "LayoutControlGroup4"
         Me.LayoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup4.GroupBordersVisible = False
-        Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem14, Me.LayoutControlItem16, Me.EmptySpaceItem4, Me.LayoutControlItem17, Me.LayoutControlItem19})
-        Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem14, Me.LayoutControlItem16, Me.EmptySpaceItem4, Me.LayoutControlItem17, Me.LayoutControlItem19, Me.LayoutControlItem3})
         Me.LayoutControlGroup4.Name = "Root"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(142, 339)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(143, 354)
         Me.LayoutControlGroup4.TextVisible = False
         '
         'LayoutControlItem14
@@ -792,7 +810,7 @@ Public Class frmReporteEstadoCuenta
         Me.LayoutControlItem14.CustomizationFormText = "LayoutControlItem14"
         Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
         '
@@ -800,28 +818,28 @@ Public Class frmReporteEstadoCuenta
         '
         Me.LayoutControlItem16.Control = Me.Cancel
         Me.LayoutControlItem16.CustomizationFormText = "LayoutControlItem16"
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 277)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 294)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem16.TextVisible = False
         '
         'EmptySpaceItem4
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 84)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 82)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(122, 151)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(123, 132)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.SimpleButton1
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem17.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem17.TextVisible = False
@@ -829,11 +847,26 @@ Public Class frmReporteEstadoCuenta
         'LayoutControlItem19
         '
         Me.LayoutControlItem19.Control = Me.SimpleButton2
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 235)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 254)
+        Me.LayoutControlItem19.MaxSize = New System.Drawing.Size(123, 40)
+        Me.LayoutControlItem19.MinSize = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(123, 40)
+        Me.LayoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem19.TextVisible = False
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.SimpleButton3
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 214)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(123, 40)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(123, 40)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(123, 40)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextVisible = False
         '
         'tbValorTotal
         '
@@ -867,9 +900,9 @@ Public Class frmReporteEstadoCuenta
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(141, 356)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(143, 354)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmReporteEstadoCuenta
@@ -878,7 +911,7 @@ Public Class frmReporteEstadoCuenta
         Me.ClientSize = New System.Drawing.Size(769, 383)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("frmReporteEstadoCuenta.IconOptions.Icon"), System.Drawing.Icon)
         Me.Name = "frmReporteEstadoCuenta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         CType(Me.cbMoneda.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -929,6 +962,7 @@ Public Class frmReporteEstadoCuenta
         CType(Me.EmptySpaceItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem19, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
@@ -1054,6 +1088,8 @@ Public Class frmReporteEstadoCuenta
         Dim FechaDesde As String
         Dim FechaHasta As String
 
+        Dim LogoPath As Object = VB.SysContab.EmpresasDB.GetLogoEmpresaPath()
+
         If RadioGroup1.EditValue = 1 Then  '' Estado de Cuenta para Cliente
             If Not rbFecha1.Checked Then
                 XtraMsg("Seleccione la Fecha de Corte")
@@ -1073,10 +1109,21 @@ Public Class frmReporteEstadoCuenta
             'End If
 
             ShowSplash("Imprimiendo Reporte...")
-            ''
-            Dim r As New rptEstadoCuentaEnviar
+            ''            
+            Dim rpt As rptEstadoCuentaEnviar
 
-            r.Periodo.Text = "Al Corte: " & DTPicker.DateTime.Date
+            If db_Formatos.FormatoImpreso(30, "rptEstadoCuentaEnviar") Then
+                rpt = XtraReport.FromFile(Application.StartupPath & "\rptEstadoCuentaEnviar.repx", True)
+            Else
+                rpt = New rptEstadoCuentaEnviar
+            End If
+
+            Try
+                rpt.Logo.Image = Image.FromFile(LogoPath)
+            Catch ex As Exception
+            End Try
+
+            rpt.Periodo.Text = "Al Corte: " & DTPicker.DateTime.Date
             ''r.Periodo.Text = "Desde : " & DTPickerDe.DateTime.Date & " Hasta : " & DTPickerHasta.DateTime.Date
             Dim _DT As DataTable = ObtieneDatos("SP_EstadoCuentaReporteEnviar",
                                                 cbClientes.EditValue,
@@ -1084,45 +1131,47 @@ Public Class frmReporteEstadoCuenta
                                                 DTPicker.DateTime.Date,
                                                 EmpresaActual)
 
-            'r.DataSource = ObtieneDatos("SP_EstadoCuentaReporteEnviar", cbClientes.EditValue, DTPicker.DateTime.Date, DTPicker.DateTime.Date, EmpresaActual)
-            'HideSplash()
-
-            VistaPreviaDX(r, _DT, "ESTADO CUENTA DE CLIENTE - " & cbClientes.Text)
-
-            'r.ShowPrintMarginsWarning = False
-            'r.BringToFront()
-            'r.ShowRibbonPreview()
-            ''
+            VistaPreviaDX(rpt, _DT, "ESTADO CUENTA DE CLIENTE - " & cbClientes.Text)
+            '
             HideSplash()
         ElseIf RadioGroup1.EditValue = 2 Then   'Estado de Cuenta Lineal
             ShowSplash("Imprimiendo Reporte...")
             ''
-            Dim Cadena As String
-            Dim Temp As Boolean = False
-            Dim Data() As Byte
-
-            Try
-                Data = CType(ObtieneDatos("SELECT ChequeD FROM Formatos WHERE Tipo = 27 and Empresa = " & EmpresaActual).Rows(0).Item(0), Byte())
-                Temp = True
-                '
-                Dim Tamano As Integer
-                Tamano = Data.GetUpperBound(0)
-                Cadena = Application.StartupPath & "\rptCuentasxCobrar.repx"
-                If File.Exists(Cadena) Then Kill(Cadena)
-                Dim Archivo As New FileStream(Cadena, FileMode.OpenOrCreate, FileAccess.Write)
-                Archivo.Write(Data, 0, Tamano)
-                Archivo.Close()
-            Catch ex As Exception
-                Temp = False
-            End Try
-
             Dim rpt As RptEstadoCuentaCliente
 
-            If Temp = True Then
+            If db_Formatos.FormatoImpreso(27, "rptCuentasxCobrar") Then
                 rpt = XtraReport.FromFile(Application.StartupPath & "\rptCuentasxCobrar.repx", True)
             Else
                 rpt = New RptEstadoCuentaCliente
             End If
+
+
+            'Dim Cadena As String
+            'Dim Temp As Boolean = False
+            'Dim Data() As Byte
+
+            'Try
+            '    Data = CType(ObtieneDatos("SELECT ChequeD FROM Formatos WHERE Tipo = 27 and Empresa = " & EmpresaActual).Rows(0).Item(0), Byte())
+            '    Temp = True
+            '    '
+            '    Dim Tamano As Integer
+            '    Tamano = Data.GetUpperBound(0)
+            '    Cadena = Application.StartupPath & "\rptCuentasxCobrar.repx"
+            '    If File.Exists(Cadena) Then Kill(Cadena)
+            '    Dim Archivo As New FileStream(Cadena, FileMode.OpenOrCreate, FileAccess.Write)
+            '    Archivo.Write(Data, 0, Tamano)
+            '    Archivo.Close()
+            'Catch ex As Exception
+            '    Temp = False
+            'End Try
+
+
+
+            'If Temp = True Then
+            '    rpt = XtraReport.FromFile(Application.StartupPath & "\rptCuentasxCobrar.repx", True)
+            'Else
+            '    rpt = New RptEstadoCuentaCliente
+            'End If
 
             ' Dim rpt As New RptEstadoCuentaCliente
             '
@@ -1172,10 +1221,10 @@ Public Class frmReporteEstadoCuenta
             'rpt.DataSource = DT_EC
 
             Try
-                Dim DT_LOGO As DataTable = VB.SysContab.EmpresasDB.GetLogoEmpresa().Tables(0)
-                Dim _logo As Byte() = DirectCast(DT_LOGO.Rows.Item(0)("Logo"), Byte())
-                Dim ms As New System.IO.MemoryStream(_logo)
-                rpt.Logo.Image = Image.FromStream(ms)
+                'Dim DT_LOGO As DataTable = VB.SysContab.EmpresasDB.GetLogoEmpresa().Tables(0)
+                'Dim _logo As Byte() = DirectCast(LogoPath, Byte())
+                'Dim ms As New System.IO.MemoryStream(_logo)
+                rpt.Logo.Image = Image.FromFile(LogoPath)  'Image.FromStream(ms)
             Catch ex As Exception
             End Try
 
@@ -1315,6 +1364,7 @@ Public Class frmReporteEstadoCuenta
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         With FrmConfiguraCheque
             .Tipo = 27
+            .Text = "Diseñar Estado de Cuenta Lineal"
             .Show()
             .WindowState = FormWindowState.Maximized
         End With
@@ -1323,5 +1373,14 @@ Public Class frmReporteEstadoCuenta
     Private Sub RadioGroup1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles RadioGroup1.SelectedIndexChanged
         If RadioGroup1.EditValue = 1 Then lyQuitarSaldo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         If RadioGroup1.EditValue = 2 Then lyQuitarSaldo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+    End Sub
+
+    Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
+        With FrmConfiguraCheque
+            .Tipo = 30
+            .Text = "Diseñar Estado de Cuenta Cliente"
+            .Show()
+            .WindowState = FormWindowState.Maximized
+        End With
     End Sub
 End Class

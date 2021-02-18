@@ -245,7 +245,8 @@ Module DAL
                     cmd.Parameters(i).Value = Parametros(i - 1)
                 Next
             End If
-            cmd.ExecuteNonQuery()
+
+            Dim valor As Object = cmd.ExecuteNonQuery()
             cmd = Nothing
             cn.Close()
 

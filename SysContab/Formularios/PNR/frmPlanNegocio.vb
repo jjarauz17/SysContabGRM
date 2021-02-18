@@ -9,9 +9,11 @@ Public Class frmPlanNegocio
 
     Dim Articulos As New VB.SysContab.ArticulosDB
 
-    Public IdPlanNegocio As Integer = 0
+    Public IdPlanNegocio As Integer = 0,
+        DT_ROL As DataTable = New DataTable("Rol")
+
     Dim DT_DTL As DataTable = New DataTable("PNR_Detalle")
-    Public DT_ROL As DataTable
+
 
     Private Sub frmPlanNegocio_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If frmPlanNegocioList.Created Then frmPlanNegocioList.Cargar()
@@ -79,9 +81,7 @@ Public Class frmPlanNegocio
         cbCliente.Properties.PopupFormSize = New Point(900, 0)
 
         Application.DoEvents()
-        'GetCentrosCostosList(cbSucursal)
         Combo(cbSucursal, ObtieneDatos("sp_GetSucursalesxUsuario " & EmpresaActual & "," & Usuario_ID & ""))
-        'bSucursal.EditValue = Nothing
 
         Application.DoEvents()
         Combo(cbResponsable, db_PNR_Responsables.Listar(0))

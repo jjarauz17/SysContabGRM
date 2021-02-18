@@ -471,12 +471,12 @@ Public Class frmComprobantesDiariosLista
         'plan = Plantilla.GetTipoPlantilla(2, 6).ToString
         plan = Plantilla.GetTipoPlantilla(4, 1).ToString
 
-        '''If plan = "" Or plan Is DBNull.Value Then
-        '''    MsgBox("No hay plantilla disponible para realizar esta transacción", MsgBoxStyle.Information)
-        '''    Exit Sub
-        '''End If
+        'If plan = "" Or plan Is DBNull.Value Then
+        '    MsgBox("No hay plantilla disponible para realizar esta transacción", MsgBoxStyle.Information)
+        '    Exit Sub
+        'End If
 
-        Dim f As frmFacturasComprasContadoContabilizar = f.Instance
+        Dim f As frmFacturasComprasContadoContabilizar = frmFacturasComprasContadoContabilizar.Instance()
         f.lblTipoProv.Text = 0
         f.etPlantilla.Text = plan
 

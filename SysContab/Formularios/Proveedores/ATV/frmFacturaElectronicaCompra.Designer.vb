@@ -165,7 +165,7 @@ Partial Class frmFacturaElectronicaCompra
         'RibbonControl
         '
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.bGuardar, Me.bSalir, Me.BarButtonItem1, Me.RibbonControl.SearchEditItem})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.bGuardar, Me.bSalir, Me.BarButtonItem1})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 5
         Me.RibbonControl.Name = "RibbonControl"
@@ -596,7 +596,7 @@ Partial Class frmFacturaElectronicaCompra
         Me.rDescuento.Appearance.Options.UseFont = True
         Me.rDescuento.Appearance.Options.UseForeColor = True
         Me.rDescuento.AutoHeight = False
-        Me.rDescuento.Mask.EditMask = "p3"
+        Me.rDescuento.Mask.EditMask = "P3"
         Me.rDescuento.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.rDescuento.Mask.UseMaskAsDisplayFormat = True
         Me.rDescuento.Name = "rDescuento"
@@ -633,14 +633,14 @@ Partial Class frmFacturaElectronicaCompra
         'FechaPago
         '
         Me.FechaPago.EditValue = Nothing
-        Me.FechaPago.Location = New System.Drawing.Point(336, 60)
+        Me.FechaPago.Location = New System.Drawing.Point(355, 60)
         Me.FechaPago.Name = "FechaPago"
         Me.FechaPago.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FechaPago.Properties.Appearance.Options.UseFont = True
         Me.FechaPago.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FechaPago.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.FechaPago.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.FechaPago.Size = New System.Drawing.Size(120, 22)
+        Me.FechaPago.Size = New System.Drawing.Size(139, 22)
         Me.FechaPago.StyleController = Me.LayoutControl1
         Me.FechaPago.TabIndex = 28
         '
@@ -687,7 +687,7 @@ Partial Class frmFacturaElectronicaCompra
         Me.Fecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Fecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Fecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.Fecha.Size = New System.Drawing.Size(122, 22)
+        Me.Fecha.Size = New System.Drawing.Size(141, 22)
         Me.Fecha.StyleController = Me.LayoutControl1
         Me.Fecha.TabIndex = 27
         '
@@ -704,10 +704,10 @@ Partial Class frmFacturaElectronicaCompra
         '
         Me.LayoutControlItem1.Control = Me.Fecha
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 48)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(225, 26)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(225, 26)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(244, 26)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(244, 26)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(225, 26)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(244, 26)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "Fecha:"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(96, 13)
@@ -778,11 +778,11 @@ Partial Class frmFacturaElectronicaCompra
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.FechaPago
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(225, 48)
-        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(223, 26)
-        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(223, 26)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(244, 48)
+        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(242, 26)
+        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(242, 26)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(223, 26)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(242, 26)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Text = "Fecha de Pago:"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(96, 13)
@@ -911,9 +911,9 @@ Partial Class frmFacturaElectronicaCompra
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(448, 48)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(486, 48)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(323, 26)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(285, 26)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem20

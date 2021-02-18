@@ -87,7 +87,6 @@ Partial Class frmPrincipalRibbon
         Me.etRecibos = New DevExpress.XtraBars.BarButtonItem()
         Me.etFacturaPuntoVenta = New DevExpress.XtraBars.BarButtonItem()
         Me.etDevolucionesCliente = New DevExpress.XtraBars.BarButtonItem()
-        Me.bArregoPago = New DevExpress.XtraBars.BarButtonItem()
         Me.bAsignarDescuento = New DevExpress.XtraBars.BarButtonItem()
         Me.etOtrosIngresos = New DevExpress.XtraBars.BarButtonItem()
         Me.etNotasCD = New DevExpress.XtraBars.BarButtonItem()
@@ -235,10 +234,23 @@ Partial Class frmPrincipalRibbon
         Me.SkinDropDownButtonItem1 = New DevExpress.XtraBars.SkinDropDownButtonItem()
         Me.SkinPaletteDropDownButtonItem1 = New DevExpress.XtraBars.SkinPaletteDropDownButtonItem()
         Me.SkinPaletteRibbonGalleryBarItem1 = New DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem()
+        Me.SkinRibbonGalleryBarItem1 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
+        Me.SkinDropDownButtonItem2 = New DevExpress.XtraBars.SkinDropDownButtonItem()
+        Me.SkinRibbonGalleryBarItem2 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
+        Me.bEnvioEC = New DevExpress.XtraBars.BarButtonItem()
+        Me.bBitacoraAprobacion = New DevExpress.XtraBars.BarButtonItem()
+        Me.bPresupuestoGastos = New DevExpress.XtraBars.BarButtonItem()
+        Me.bConsolidadoGastos = New DevExpress.XtraBars.BarButtonItem()
+        Me.bPlanesMensual = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem34 = New DevExpress.XtraBars.BarButtonItem()
+        Me.bReportePNRMensual = New DevExpress.XtraBars.BarButtonItem()
+        Me.bFacturasCuotas = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem33 = New DevExpress.XtraBars.BarButtonItem()
         Me.rPageCategoria = New DevExpress.XtraBars.Ribbon.RibbonPageCategory()
         Me.rGenerales = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rContables = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup24 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup7 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rInventario = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -257,7 +269,8 @@ Partial Class frmPrincipalRibbon
         Me.RibbonPageGroup22 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup19 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rPlanNegocio = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RibbonPageGroup16 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.rpPNR = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.rpPNRReportes = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rProduccion = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -280,10 +293,7 @@ Partial Class frmPrincipalRibbon
         Me.TC_Dia = New System.Windows.Forms.Timer(Me.components)
         Me.AlertControl2 = New DevExpress.XtraBars.Alerter.AlertControl(Me.components)
         Me.TimerRed = New System.Windows.Forms.Timer(Me.components)
-        Me.SkinRibbonGalleryBarItem1 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
-        Me.RibbonPageGroup23 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.SkinDropDownButtonItem2 = New DevExpress.XtraBars.SkinDropDownButtonItem()
-        Me.SkinRibbonGalleryBarItem2 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
+        Me.bArregloDePago = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -304,7 +314,7 @@ Partial Class frmPrincipalRibbon
         Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 431)
         Me.RibbonStatusBar.Name = "RibbonStatusBar"
         Me.RibbonStatusBar.Ribbon = Me.RibbonControl
-        Me.RibbonStatusBar.Size = New System.Drawing.Size(1222, 24)
+        Me.RibbonStatusBar.Size = New System.Drawing.Size(1114, 24)
         '
         'etHora
         '
@@ -400,9 +410,9 @@ Partial Class frmPrincipalRibbon
         Me.RibbonControl.AutoSizeItems = True
         Me.RibbonControl.ExpandCollapseItem.Id = 0
         Me.RibbonControl.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.etEmpresas, Me.etFormaPago, Me.etZonas, Me.etVendedores, Me.etProveedores, Me.etTasaCambio, Me.etBancos, Me.etPuntosVenta, Me.etCajas, Me.etEmisores, Me.etTipoTarjetas, Me.etTipoPlantillas, Me.etServiciosBasicos, Me.etPeriodos, Me.etmonedas, Me.etPaises, Me.etMunicipios, Me.etFirmasContables, Me.etAmortiza, Me.etClientes, Me.etGrupoProductos, Me.etGrupoServicios, Me.etGrupoInventario, Me.bConsultarExistencias, Me.etProductos, Me.etServicios, Me.etBodega, Me.etTMovimientos, Me.etTrasladoBodega, Me.etRemisiones, Me.etRequisas, Me.etBalance, Me.etResultado, Me.etOrden, Me.etPresupuesto, Me.etGruposDepreciacion, Me.etActivos, Me.etAgrupaciones, Me.etCatalogo, Me.etTipoComp, Me.etConceptos, Me.etPresupuestos, Me.etPlantillaPlanilla, Me.etRubrosDistribucion, Me.etCentrosCosto, Me.etHora, Me.etFecha, Me.etUsuario, Me.BarStaticItem1, Me.BarStaticItem2, Me.etPeriodo, Me.etArticulosInventario, Me.etFacturacionCliente, Me.etFacturas, Me.etCobros, Me.etRecibos, Me.etFacturaPuntoVenta, Me.etDevolucionesCliente, Me.bArregoPago, Me.bAsignarDescuento, Me.etOtrosIngresos, Me.etNotasCD, Me.bExoneraciones, Me.etCotizaciones, Me.etListaPedidos, Me.etListaFacturas, Me.bEstadoOC, Me.etDevolucionesProveedor, Me.bDetallePagos, Me.etNotas, Me.etOverViewProveedores, Me.etOrdenesCompras, Me.etDepositos, Me.etTransferencias, Me.etLibroBancos, Me.etConciliacion, Me.etChequeAgregar, Me.etCheques, Me.etInversiones, Me.etOverViewBancos, Me.etEfectuarPagos, Me.etComprobantes, Me.etArqueo, Me.etContabilizar, Me.etPagosCajaChica, Me.etLevantaInvent, Me.etCierreDia, Me.etLiquidaciones, Me.etDetalleAmortiza, Me.etOverViewProcesos, Me.etReporteContabilidad, Me.etReporteGestionComercial, Me.etReporteActivoFijo, Me.etrptPresupuesto, Me.bBuroCredito, Me.etRazonesFin, Me.etDinamicoContables, Me.etDinamicosGestionComercial, Me.etCambiarEmpresa, Me.etRoles, Me.etUsuarios, Me.etContraseña, Me.etAuditoria, Me.etDBRespaldo, Me.etAyuda, Me.rgbSkin, Me.etMayorA, Me.etLibroDiario, Me.etBalanza, Me.etER, Me.etES, Me.etDistribucion, Me.etFlujoc, Me.etCentroCostoR, Me.etFisico, Me.etInventario, Me.bDMovimientos, Me.etServidor, Me.BarStaticItem3, Me.BarStaticItem4, Me.etBase, Me.btnObligaciones, Me.bEstiloActual, Me.lblpublicacion, Me.etCierreInvent, Me.BarMdiChildrenListItem1, Me.bAuditoria, Me.bAjusteCxC, Me.RepararCostos, Me.bConsignatarios, Me.bEnvio, Me.bAgencias, Me.bVencimiento, Me.BarStaticItem5, Me.bCierreDia, Me.bInformeIR, Me.bCodigosAutorizacion, Me.bAsociarPagos, Me.bDetalleMovimientos, Me.bAsociarPagosC, Me.bRemisionesTaller, Me.bAjusteInventario, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem6, Me.bExportarAPDA, Me.bImportarDePDA, Me.bEstadosCotizacion, Me.bCondicionesVenta, Me.bMovimientosContables, Me.bDetalleMovimientoCxC, Me.bEnvioCorreo, Me.bConsolidado, Me.BarButtonItem7, Me.bPlanAccion, Me.BarButtonItem8, Me.bAntiguedadInventario, Me.BarButtonItem9, Me.BarEditItem1, Me.bConfigurarBalance, Me.bConfiguraER, Me.bIntereses, Me.bImportarRecibos, Me.bEstadisticasPNR, Me.BarButtonItem10, Me.BarButtonItem11, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem16, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BarButtonItem21, Me.bProyectos, Me.bSolicitudesEnviadas, Me.bSolicitudesPendientes, Me.BarButtonItem23, Me.bConsultaExistenciaEmpresas, Me.bConsolidadoPresupuesto, Me.bRemisionesCliente, Me.etOTPendientes, Me.bZohoCrm, Me.bAnticipo, Me.bComprobantesElectronicos, Me.BarButtonItem22, Me.BarButtonItem24, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30, Me.BarButtonItem31, Me.bConnect, Me.BarButtonItem32, Me.bReporteIRAnual, Me.bTCambio, Me.bAnalisis, Me.bListaNegra, Me.bSeguimiento, Me.bReporteCobro, Me.SkinDropDownButtonItem1, Me.SkinPaletteDropDownButtonItem1, Me.SkinPaletteRibbonGalleryBarItem1, Me.SkinRibbonGalleryBarItem1, Me.SkinDropDownButtonItem2, Me.SkinRibbonGalleryBarItem2})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.RibbonControl.SearchEditItem, Me.etEmpresas, Me.etFormaPago, Me.etZonas, Me.etVendedores, Me.etProveedores, Me.etTasaCambio, Me.etBancos, Me.etPuntosVenta, Me.etCajas, Me.etEmisores, Me.etTipoTarjetas, Me.etTipoPlantillas, Me.etServiciosBasicos, Me.etPeriodos, Me.etmonedas, Me.etPaises, Me.etMunicipios, Me.etFirmasContables, Me.etAmortiza, Me.etClientes, Me.etGrupoProductos, Me.etGrupoServicios, Me.etGrupoInventario, Me.bConsultarExistencias, Me.etProductos, Me.etServicios, Me.etBodega, Me.etTMovimientos, Me.etTrasladoBodega, Me.etRemisiones, Me.etRequisas, Me.etBalance, Me.etResultado, Me.etOrden, Me.etPresupuesto, Me.etGruposDepreciacion, Me.etActivos, Me.etAgrupaciones, Me.etCatalogo, Me.etTipoComp, Me.etConceptos, Me.etPresupuestos, Me.etPlantillaPlanilla, Me.etRubrosDistribucion, Me.etCentrosCosto, Me.etHora, Me.etFecha, Me.etUsuario, Me.BarStaticItem1, Me.BarStaticItem2, Me.etPeriodo, Me.etArticulosInventario, Me.etFacturacionCliente, Me.etFacturas, Me.etCobros, Me.etRecibos, Me.etFacturaPuntoVenta, Me.etDevolucionesCliente, Me.bAsignarDescuento, Me.etOtrosIngresos, Me.etNotasCD, Me.bExoneraciones, Me.etCotizaciones, Me.etListaPedidos, Me.etListaFacturas, Me.bEstadoOC, Me.etDevolucionesProveedor, Me.bDetallePagos, Me.etNotas, Me.etOverViewProveedores, Me.etOrdenesCompras, Me.etDepositos, Me.etTransferencias, Me.etLibroBancos, Me.etConciliacion, Me.etChequeAgregar, Me.etCheques, Me.etInversiones, Me.etOverViewBancos, Me.etEfectuarPagos, Me.etComprobantes, Me.etArqueo, Me.etContabilizar, Me.etPagosCajaChica, Me.etLevantaInvent, Me.etCierreDia, Me.etLiquidaciones, Me.etDetalleAmortiza, Me.etOverViewProcesos, Me.etReporteContabilidad, Me.etReporteGestionComercial, Me.etReporteActivoFijo, Me.etrptPresupuesto, Me.bBuroCredito, Me.etRazonesFin, Me.etDinamicoContables, Me.etDinamicosGestionComercial, Me.etCambiarEmpresa, Me.etRoles, Me.etUsuarios, Me.etContraseña, Me.etAuditoria, Me.etDBRespaldo, Me.etAyuda, Me.rgbSkin, Me.etMayorA, Me.etLibroDiario, Me.etBalanza, Me.etER, Me.etES, Me.etDistribucion, Me.etFlujoc, Me.etCentroCostoR, Me.etFisico, Me.etInventario, Me.bDMovimientos, Me.etServidor, Me.BarStaticItem3, Me.BarStaticItem4, Me.etBase, Me.btnObligaciones, Me.bEstiloActual, Me.lblpublicacion, Me.etCierreInvent, Me.BarMdiChildrenListItem1, Me.bAuditoria, Me.bAjusteCxC, Me.RepararCostos, Me.bConsignatarios, Me.bEnvio, Me.bAgencias, Me.bVencimiento, Me.BarStaticItem5, Me.bCierreDia, Me.bInformeIR, Me.bCodigosAutorizacion, Me.bAsociarPagos, Me.bDetalleMovimientos, Me.bAsociarPagosC, Me.bRemisionesTaller, Me.bAjusteInventario, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem6, Me.bExportarAPDA, Me.bImportarDePDA, Me.bEstadosCotizacion, Me.bCondicionesVenta, Me.bMovimientosContables, Me.bDetalleMovimientoCxC, Me.bEnvioCorreo, Me.bConsolidado, Me.BarButtonItem7, Me.bPlanAccion, Me.BarButtonItem8, Me.bAntiguedadInventario, Me.BarButtonItem9, Me.BarEditItem1, Me.bConfigurarBalance, Me.bConfiguraER, Me.bIntereses, Me.bImportarRecibos, Me.bEstadisticasPNR, Me.BarButtonItem10, Me.BarButtonItem11, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem16, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BarButtonItem21, Me.bProyectos, Me.bSolicitudesEnviadas, Me.bSolicitudesPendientes, Me.BarButtonItem23, Me.bConsultaExistenciaEmpresas, Me.bConsolidadoPresupuesto, Me.bRemisionesCliente, Me.etOTPendientes, Me.bZohoCrm, Me.bAnticipo, Me.bComprobantesElectronicos, Me.BarButtonItem22, Me.BarButtonItem24, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30, Me.BarButtonItem31, Me.bConnect, Me.BarButtonItem32, Me.bReporteIRAnual, Me.bTCambio, Me.bAnalisis, Me.bListaNegra, Me.bSeguimiento, Me.bReporteCobro, Me.SkinDropDownButtonItem1, Me.SkinPaletteDropDownButtonItem1, Me.SkinPaletteRibbonGalleryBarItem1, Me.SkinRibbonGalleryBarItem1, Me.SkinDropDownButtonItem2, Me.SkinRibbonGalleryBarItem2, Me.bEnvioEC, Me.bBitacoraAprobacion, Me.bPresupuestoGastos, Me.bConsolidadoGastos, Me.bPlanesMensual, Me.BarButtonItem34, Me.bReportePNRMensual, Me.bFacturasCuotas, Me.BarButtonItem33, Me.bArregloDePago})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 237
+        Me.RibbonControl.MaxItemId = 247
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.PageCategories.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageCategory() {Me.rPageCategoria})
         Me.RibbonControl.PageHeaderItemLinks.Add(Me.bEstiloActual)
@@ -411,7 +421,7 @@ Partial Class frmPrincipalRibbon
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rClientes, Me.rProveedores, Me.rBancos, Me.rProcesos, Me.rReportes, Me.rCobranza, Me.rPlanNegocio, Me.rProduccion, Me.rPresupuesto, Me.rActivoFijo, Me.rHerramientas})
         Me.RibbonControl.QuickToolbarItemLinks.Add(Me.lblpublicacion)
         Me.RibbonControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTrackBar1})
-        Me.RibbonControl.Size = New System.Drawing.Size(1222, 158)
+        Me.RibbonControl.Size = New System.Drawing.Size(1114, 158)
         Me.RibbonControl.StatusBar = Me.RibbonStatusBar
         '
         'etEmpresas
@@ -419,7 +429,7 @@ Partial Class frmPrincipalRibbon
         Me.etEmpresas.Caption = "Empresas"
         Me.etEmpresas.Enabled = False
         Me.etEmpresas.Id = 0
-        Me.etEmpresas.ImageOptions.LargeImage = CType(resources.GetObject("etEmpresas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etEmpresas.ImageOptions.SvgImage = CType(resources.GetObject("etEmpresas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etEmpresas.Name = "etEmpresas"
         '
         'etFormaPago
@@ -427,7 +437,7 @@ Partial Class frmPrincipalRibbon
         Me.etFormaPago.Caption = "Forma de Pago"
         Me.etFormaPago.Enabled = False
         Me.etFormaPago.Id = 1
-        Me.etFormaPago.ImageOptions.LargeImage = CType(resources.GetObject("etFormaPago.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etFormaPago.ImageOptions.SvgImage = CType(resources.GetObject("etFormaPago.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etFormaPago.Name = "etFormaPago"
         '
         'etZonas
@@ -443,7 +453,7 @@ Partial Class frmPrincipalRibbon
         Me.etVendedores.Caption = "Vendedores"
         Me.etVendedores.Enabled = False
         Me.etVendedores.Id = 3
-        Me.etVendedores.ImageOptions.LargeImage = CType(resources.GetObject("etVendedores.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etVendedores.ImageOptions.SvgImage = CType(resources.GetObject("etVendedores.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etVendedores.Name = "etVendedores"
         '
         'etProveedores
@@ -451,7 +461,7 @@ Partial Class frmPrincipalRibbon
         Me.etProveedores.Caption = "Lista de Proveedores"
         Me.etProveedores.Enabled = False
         Me.etProveedores.Id = 5
-        Me.etProveedores.ImageOptions.LargeImage = CType(resources.GetObject("etProveedores.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etProveedores.ImageOptions.SvgImage = CType(resources.GetObject("etProveedores.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etProveedores.Name = "etProveedores"
         '
         'etTasaCambio
@@ -459,7 +469,7 @@ Partial Class frmPrincipalRibbon
         Me.etTasaCambio.Caption = "Tasa de Cambio"
         Me.etTasaCambio.Enabled = False
         Me.etTasaCambio.Id = 6
-        Me.etTasaCambio.ImageOptions.LargeImage = CType(resources.GetObject("etTasaCambio.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etTasaCambio.ImageOptions.SvgImage = CType(resources.GetObject("etTasaCambio.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etTasaCambio.Name = "etTasaCambio"
         '
         'etBancos
@@ -483,7 +493,7 @@ Partial Class frmPrincipalRibbon
         Me.etCajas.Caption = "Cajas"
         Me.etCajas.Enabled = False
         Me.etCajas.Id = 9
-        Me.etCajas.ImageOptions.LargeImage = CType(resources.GetObject("etCajas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etCajas.ImageOptions.SvgImage = CType(resources.GetObject("etCajas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etCajas.Name = "etCajas"
         '
         'etEmisores
@@ -491,7 +501,7 @@ Partial Class frmPrincipalRibbon
         Me.etEmisores.Caption = "Emisores"
         Me.etEmisores.Enabled = False
         Me.etEmisores.Id = 10
-        Me.etEmisores.ImageOptions.LargeImage = CType(resources.GetObject("etEmisores.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etEmisores.ImageOptions.SvgImage = CType(resources.GetObject("etEmisores.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etEmisores.Name = "etEmisores"
         '
         'etTipoTarjetas
@@ -499,7 +509,7 @@ Partial Class frmPrincipalRibbon
         Me.etTipoTarjetas.Caption = "Tipos de Tarjetas"
         Me.etTipoTarjetas.Enabled = False
         Me.etTipoTarjetas.Id = 11
-        Me.etTipoTarjetas.ImageOptions.LargeImage = CType(resources.GetObject("etTipoTarjetas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etTipoTarjetas.ImageOptions.SvgImage = CType(resources.GetObject("etTipoTarjetas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etTipoTarjetas.Name = "etTipoTarjetas"
         '
         'etTipoPlantillas
@@ -507,7 +517,7 @@ Partial Class frmPrincipalRibbon
         Me.etTipoPlantillas.Caption = "Tipos de Plantillas"
         Me.etTipoPlantillas.Enabled = False
         Me.etTipoPlantillas.Id = 12
-        Me.etTipoPlantillas.ImageOptions.LargeImage = CType(resources.GetObject("etTipoPlantillas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etTipoPlantillas.ImageOptions.SvgImage = CType(resources.GetObject("etTipoPlantillas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etTipoPlantillas.Name = "etTipoPlantillas"
         '
         'etServiciosBasicos
@@ -517,13 +527,14 @@ Partial Class frmPrincipalRibbon
         Me.etServiciosBasicos.Id = 13
         Me.etServiciosBasicos.ImageOptions.LargeImage = CType(resources.GetObject("etServiciosBasicos.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.etServiciosBasicos.Name = "etServiciosBasicos"
+        Me.etServiciosBasicos.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'etPeriodos
         '
         Me.etPeriodos.Caption = "Periodos"
         Me.etPeriodos.Enabled = False
         Me.etPeriodos.Id = 14
-        Me.etPeriodos.ImageOptions.LargeImage = CType(resources.GetObject("etPeriodos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etPeriodos.ImageOptions.SvgImage = CType(resources.GetObject("etPeriodos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etPeriodos.Name = "etPeriodos"
         '
         'etmonedas
@@ -531,7 +542,7 @@ Partial Class frmPrincipalRibbon
         Me.etmonedas.Caption = "Monedas"
         Me.etmonedas.Enabled = False
         Me.etmonedas.Id = 15
-        Me.etmonedas.ImageOptions.LargeImage = CType(resources.GetObject("etmonedas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etmonedas.ImageOptions.SvgImage = CType(resources.GetObject("etmonedas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etmonedas.Name = "etmonedas"
         '
         'etPaises
@@ -539,8 +550,7 @@ Partial Class frmPrincipalRibbon
         Me.etPaises.Caption = "Paises"
         Me.etPaises.Enabled = False
         Me.etPaises.Id = 16
-        Me.etPaises.ImageOptions.Image = CType(resources.GetObject("etPaises.ImageOptions.Image"), System.Drawing.Image)
-        Me.etPaises.ImageOptions.LargeImage = CType(resources.GetObject("etPaises.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etPaises.ImageOptions.SvgImage = CType(resources.GetObject("etPaises.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etPaises.Name = "etPaises"
         '
         'etMunicipios
@@ -558,7 +568,7 @@ Partial Class frmPrincipalRibbon
         Me.etFirmasContables.Caption = "Firmas Contables"
         Me.etFirmasContables.Enabled = False
         Me.etFirmasContables.Id = 18
-        Me.etFirmasContables.ImageOptions.LargeImage = CType(resources.GetObject("etFirmasContables.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etFirmasContables.ImageOptions.SvgImage = CType(resources.GetObject("etFirmasContables.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etFirmasContables.Name = "etFirmasContables"
         '
         'etAmortiza
@@ -566,7 +576,7 @@ Partial Class frmPrincipalRibbon
         Me.etAmortiza.Caption = "Amortizaciones"
         Me.etAmortiza.Enabled = False
         Me.etAmortiza.Id = 19
-        Me.etAmortiza.ImageOptions.LargeImage = CType(resources.GetObject("etAmortiza.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etAmortiza.ImageOptions.SvgImage = CType(resources.GetObject("etAmortiza.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etAmortiza.Name = "etAmortiza"
         '
         'etClientes
@@ -574,7 +584,7 @@ Partial Class frmPrincipalRibbon
         Me.etClientes.Caption = "Lista de Clientes"
         Me.etClientes.Enabled = False
         Me.etClientes.Id = 21
-        Me.etClientes.ImageOptions.LargeImage = CType(resources.GetObject("etClientes.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etClientes.ImageOptions.SvgImage = CType(resources.GetObject("etClientes.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etClientes.Name = "etClientes"
         '
         'etGrupoProductos
@@ -582,7 +592,7 @@ Partial Class frmPrincipalRibbon
         Me.etGrupoProductos.Caption = "Grupos de Productos"
         Me.etGrupoProductos.Enabled = False
         Me.etGrupoProductos.Id = 22
-        Me.etGrupoProductos.ImageOptions.LargeImage = CType(resources.GetObject("etGrupoProductos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etGrupoProductos.ImageOptions.SvgImage = CType(resources.GetObject("etGrupoProductos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etGrupoProductos.Name = "etGrupoProductos"
         '
         'etGrupoServicios
@@ -590,7 +600,7 @@ Partial Class frmPrincipalRibbon
         Me.etGrupoServicios.Caption = "Grupo de Servicios"
         Me.etGrupoServicios.Enabled = False
         Me.etGrupoServicios.Id = 23
-        Me.etGrupoServicios.ImageOptions.LargeImage = CType(resources.GetObject("etGrupoServicios.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etGrupoServicios.ImageOptions.SvgImage = CType(resources.GetObject("etGrupoServicios.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etGrupoServicios.Name = "etGrupoServicios"
         '
         'etGrupoInventario
@@ -598,7 +608,7 @@ Partial Class frmPrincipalRibbon
         Me.etGrupoInventario.Caption = "Grupos de Inventario"
         Me.etGrupoInventario.Enabled = False
         Me.etGrupoInventario.Id = 24
-        Me.etGrupoInventario.ImageOptions.LargeImage = CType(resources.GetObject("etGrupoInventario.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etGrupoInventario.ImageOptions.SvgImage = CType(resources.GetObject("etGrupoInventario.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etGrupoInventario.Name = "etGrupoInventario"
         '
         'bConsultarExistencias
@@ -615,7 +625,7 @@ Partial Class frmPrincipalRibbon
         Me.etProductos.Caption = "Maestro de Productos"
         Me.etProductos.Enabled = False
         Me.etProductos.Id = 26
-        Me.etProductos.ImageOptions.LargeImage = CType(resources.GetObject("etProductos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etProductos.ImageOptions.SvgImage = CType(resources.GetObject("etProductos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etProductos.Name = "etProductos"
         '
         'etServicios
@@ -623,7 +633,7 @@ Partial Class frmPrincipalRibbon
         Me.etServicios.Caption = "Maestro de Servicios"
         Me.etServicios.Enabled = False
         Me.etServicios.Id = 27
-        Me.etServicios.ImageOptions.LargeImage = CType(resources.GetObject("etServicios.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etServicios.ImageOptions.SvgImage = CType(resources.GetObject("etServicios.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etServicios.Name = "etServicios"
         '
         'etBodega
@@ -631,7 +641,7 @@ Partial Class frmPrincipalRibbon
         Me.etBodega.Caption = "Bodegas"
         Me.etBodega.Enabled = False
         Me.etBodega.Id = 28
-        Me.etBodega.ImageOptions.LargeImage = CType(resources.GetObject("etBodega.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etBodega.ImageOptions.SvgImage = CType(resources.GetObject("etBodega.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etBodega.Name = "etBodega"
         '
         'etTMovimientos
@@ -639,7 +649,7 @@ Partial Class frmPrincipalRibbon
         Me.etTMovimientos.Caption = "Tipos de Movimientos"
         Me.etTMovimientos.Enabled = False
         Me.etTMovimientos.Id = 29
-        Me.etTMovimientos.ImageOptions.LargeImage = CType(resources.GetObject("etTMovimientos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etTMovimientos.ImageOptions.SvgImage = CType(resources.GetObject("etTMovimientos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etTMovimientos.Name = "etTMovimientos"
         '
         'etTrasladoBodega
@@ -647,7 +657,7 @@ Partial Class frmPrincipalRibbon
         Me.etTrasladoBodega.Caption = "Traslados de Bodega"
         Me.etTrasladoBodega.Enabled = False
         Me.etTrasladoBodega.Id = 30
-        Me.etTrasladoBodega.ImageOptions.LargeImage = CType(resources.GetObject("etTrasladoBodega.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etTrasladoBodega.ImageOptions.SvgImage = CType(resources.GetObject("etTrasladoBodega.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etTrasladoBodega.Name = "etTrasladoBodega"
         '
         'etRemisiones
@@ -664,7 +674,7 @@ Partial Class frmPrincipalRibbon
         Me.etRequisas.Caption = "Movimientos de Inventario"
         Me.etRequisas.Enabled = False
         Me.etRequisas.Id = 32
-        Me.etRequisas.ImageOptions.LargeImage = CType(resources.GetObject("etRequisas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etRequisas.ImageOptions.SvgImage = CType(resources.GetObject("etRequisas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etRequisas.Name = "etRequisas"
         '
         'etBalance
@@ -672,7 +682,7 @@ Partial Class frmPrincipalRibbon
         Me.etBalance.Caption = "Grupos de Balance"
         Me.etBalance.Enabled = False
         Me.etBalance.Id = 34
-        Me.etBalance.ImageOptions.LargeImage = CType(resources.GetObject("etBalance.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etBalance.ImageOptions.SvgImage = CType(resources.GetObject("etBalance.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etBalance.Name = "etBalance"
         '
         'etResultado
@@ -680,7 +690,7 @@ Partial Class frmPrincipalRibbon
         Me.etResultado.Caption = "Grupos de Resultado"
         Me.etResultado.Enabled = False
         Me.etResultado.Id = 35
-        Me.etResultado.ImageOptions.LargeImage = CType(resources.GetObject("etResultado.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etResultado.ImageOptions.SvgImage = CType(resources.GetObject("etResultado.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etResultado.Name = "etResultado"
         '
         'etOrden
@@ -688,7 +698,7 @@ Partial Class frmPrincipalRibbon
         Me.etOrden.Caption = "Grupo de Orden"
         Me.etOrden.Enabled = False
         Me.etOrden.Id = 36
-        Me.etOrden.ImageOptions.LargeImage = CType(resources.GetObject("etOrden.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etOrden.ImageOptions.SvgImage = CType(resources.GetObject("etOrden.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etOrden.Name = "etOrden"
         '
         'etPresupuesto
@@ -696,7 +706,7 @@ Partial Class frmPrincipalRibbon
         Me.etPresupuesto.Caption = "Grupo de Presupuesto"
         Me.etPresupuesto.Enabled = False
         Me.etPresupuesto.Id = 37
-        Me.etPresupuesto.ImageOptions.LargeImage = CType(resources.GetObject("etPresupuesto.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etPresupuesto.ImageOptions.SvgImage = CType(resources.GetObject("etPresupuesto.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etPresupuesto.Name = "etPresupuesto"
         '
         'etGruposDepreciacion
@@ -704,7 +714,7 @@ Partial Class frmPrincipalRibbon
         Me.etGruposDepreciacion.Caption = "Grupos de Depreciación"
         Me.etGruposDepreciacion.Enabled = False
         Me.etGruposDepreciacion.Id = 38
-        Me.etGruposDepreciacion.ImageOptions.LargeImage = CType(resources.GetObject("etGruposDepreciacion.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etGruposDepreciacion.ImageOptions.SvgImage = CType(resources.GetObject("etGruposDepreciacion.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etGruposDepreciacion.Name = "etGruposDepreciacion"
         '
         'etActivos
@@ -721,7 +731,7 @@ Partial Class frmPrincipalRibbon
         Me.etAgrupaciones.Caption = "Agrupaciones"
         Me.etAgrupaciones.Enabled = False
         Me.etAgrupaciones.Id = 40
-        Me.etAgrupaciones.ImageOptions.LargeImage = CType(resources.GetObject("etAgrupaciones.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etAgrupaciones.ImageOptions.SvgImage = CType(resources.GetObject("etAgrupaciones.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etAgrupaciones.Name = "etAgrupaciones"
         '
         'etCatalogo
@@ -729,7 +739,7 @@ Partial Class frmPrincipalRibbon
         Me.etCatalogo.Caption = "Catalogo de Cuentas"
         Me.etCatalogo.Enabled = False
         Me.etCatalogo.Id = 41
-        Me.etCatalogo.ImageOptions.LargeImage = CType(resources.GetObject("etCatalogo.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etCatalogo.ImageOptions.SvgImage = CType(resources.GetObject("etCatalogo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etCatalogo.Name = "etCatalogo"
         '
         'etTipoComp
@@ -737,7 +747,7 @@ Partial Class frmPrincipalRibbon
         Me.etTipoComp.Caption = "Tipo de Comprobantes"
         Me.etTipoComp.Enabled = False
         Me.etTipoComp.Id = 42
-        Me.etTipoComp.ImageOptions.LargeImage = CType(resources.GetObject("etTipoComp.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etTipoComp.ImageOptions.SvgImage = CType(resources.GetObject("etTipoComp.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etTipoComp.Name = "etTipoComp"
         '
         'etConceptos
@@ -745,15 +755,14 @@ Partial Class frmPrincipalRibbon
         Me.etConceptos.Caption = "Conceptos Contables"
         Me.etConceptos.Enabled = False
         Me.etConceptos.Id = 43
-        Me.etConceptos.ImageOptions.LargeImage = CType(resources.GetObject("etConceptos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etConceptos.ImageOptions.SvgImage = CType(resources.GetObject("etConceptos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etConceptos.Name = "etConceptos"
         '
         'etPresupuestos
         '
-        Me.etPresupuestos.Caption = "Presupuesto"
+        Me.etPresupuestos.Caption = "Presupuesto por Productos"
         Me.etPresupuestos.Id = 44
-        Me.etPresupuestos.ImageOptions.Image = CType(resources.GetObject("etPresupuestos.ImageOptions.Image"), System.Drawing.Image)
-        Me.etPresupuestos.ImageOptions.LargeImage = CType(resources.GetObject("etPresupuestos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etPresupuestos.ImageOptions.SvgImage = CType(resources.GetObject("etPresupuestos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etPresupuestos.Name = "etPresupuestos"
         '
         'etPlantillaPlanilla
@@ -761,7 +770,7 @@ Partial Class frmPrincipalRibbon
         Me.etPlantillaPlanilla.Caption = "Plantilla Planilla"
         Me.etPlantillaPlanilla.Enabled = False
         Me.etPlantillaPlanilla.Id = 45
-        Me.etPlantillaPlanilla.ImageOptions.LargeImage = CType(resources.GetObject("etPlantillaPlanilla.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etPlantillaPlanilla.ImageOptions.SvgImage = CType(resources.GetObject("etPlantillaPlanilla.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etPlantillaPlanilla.Name = "etPlantillaPlanilla"
         '
         'etRubrosDistribucion
@@ -769,7 +778,7 @@ Partial Class frmPrincipalRibbon
         Me.etRubrosDistribucion.Caption = "Rubros Distribución"
         Me.etRubrosDistribucion.Enabled = False
         Me.etRubrosDistribucion.Id = 46
-        Me.etRubrosDistribucion.ImageOptions.LargeImage = CType(resources.GetObject("etRubrosDistribucion.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etRubrosDistribucion.ImageOptions.SvgImage = CType(resources.GetObject("etRubrosDistribucion.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etRubrosDistribucion.Name = "etRubrosDistribucion"
         '
         'etCentrosCosto
@@ -777,7 +786,7 @@ Partial Class frmPrincipalRibbon
         Me.etCentrosCosto.Caption = "Centros de Costo"
         Me.etCentrosCosto.Enabled = False
         Me.etCentrosCosto.Id = 47
-        Me.etCentrosCosto.ImageOptions.LargeImage = CType(resources.GetObject("etCentrosCosto.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etCentrosCosto.ImageOptions.SvgImage = CType(resources.GetObject("etCentrosCosto.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etCentrosCosto.Name = "etCentrosCosto"
         '
         'etFecha
@@ -804,7 +813,7 @@ Partial Class frmPrincipalRibbon
         Me.etArticulosInventario.Caption = "Maestro de Inventario"
         Me.etArticulosInventario.Enabled = False
         Me.etArticulosInventario.Id = 56
-        Me.etArticulosInventario.ImageOptions.LargeImage = CType(resources.GetObject("etArticulosInventario.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etArticulosInventario.ImageOptions.SvgImage = CType(resources.GetObject("etArticulosInventario.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etArticulosInventario.Name = "etArticulosInventario"
         '
         'etFacturacionCliente
@@ -812,7 +821,7 @@ Partial Class frmPrincipalRibbon
         Me.etFacturacionCliente.Caption = "Facturación de Venta"
         Me.etFacturacionCliente.Enabled = False
         Me.etFacturacionCliente.Id = 57
-        Me.etFacturacionCliente.ImageOptions.LargeImage = CType(resources.GetObject("etFacturacionCliente.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etFacturacionCliente.ImageOptions.SvgImage = CType(resources.GetObject("etFacturacionCliente.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etFacturacionCliente.Name = "etFacturacionCliente"
         '
         'etFacturas
@@ -820,6 +829,7 @@ Partial Class frmPrincipalRibbon
         Me.etFacturas.Caption = "Lista de Facturas"
         Me.etFacturas.Enabled = False
         Me.etFacturas.Id = 58
+        Me.etFacturas.ImageOptions.Image = CType(resources.GetObject("etFacturas.ImageOptions.Image"), System.Drawing.Image)
         Me.etFacturas.ImageOptions.LargeImage = CType(resources.GetObject("etFacturas.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.etFacturas.Name = "etFacturas"
         '
@@ -828,7 +838,7 @@ Partial Class frmPrincipalRibbon
         Me.etCobros.Caption = "Cobros de Venta"
         Me.etCobros.Enabled = False
         Me.etCobros.Id = 59
-        Me.etCobros.ImageOptions.LargeImage = CType(resources.GetObject("etCobros.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etCobros.ImageOptions.SvgImage = CType(resources.GetObject("etCobros.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etCobros.Name = "etCobros"
         '
         'etRecibos
@@ -836,6 +846,7 @@ Partial Class frmPrincipalRibbon
         Me.etRecibos.Caption = "Recibos de Caja"
         Me.etRecibos.Enabled = False
         Me.etRecibos.Id = 60
+        Me.etRecibos.ImageOptions.Image = CType(resources.GetObject("etRecibos.ImageOptions.Image"), System.Drawing.Image)
         Me.etRecibos.ImageOptions.LargeImage = CType(resources.GetObject("etRecibos.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.etRecibos.Name = "etRecibos"
         '
@@ -856,16 +867,6 @@ Partial Class frmPrincipalRibbon
         Me.etDevolucionesCliente.ImageOptions.LargeImage = CType(resources.GetObject("etDevolucionesCliente.ImageOptions.LargeImage"), System.Drawing.Image)
         Me.etDevolucionesCliente.Name = "etDevolucionesCliente"
         '
-        'bArregoPago
-        '
-        Me.bArregoPago.Caption = "Arreglos de Pago"
-        Me.bArregoPago.Enabled = False
-        Me.bArregoPago.Id = 63
-        Me.bArregoPago.ImageOptions.Image = CType(resources.GetObject("bArregoPago.ImageOptions.Image"), System.Drawing.Image)
-        Me.bArregoPago.ImageOptions.LargeImage = CType(resources.GetObject("bArregoPago.ImageOptions.LargeImage"), System.Drawing.Image)
-        Me.bArregoPago.Name = "bArregoPago"
-        Me.bArregoPago.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
-        '
         'bAsignarDescuento
         '
         Me.bAsignarDescuento.Caption = "Asignacion de Descuentos"
@@ -880,7 +881,7 @@ Partial Class frmPrincipalRibbon
         Me.etOtrosIngresos.Caption = "Otros Ingresos"
         Me.etOtrosIngresos.Enabled = False
         Me.etOtrosIngresos.Id = 65
-        Me.etOtrosIngresos.ImageOptions.LargeImage = CType(resources.GetObject("etOtrosIngresos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etOtrosIngresos.ImageOptions.SvgImage = CType(resources.GetObject("etOtrosIngresos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etOtrosIngresos.Name = "etOtrosIngresos"
         '
         'etNotasCD
@@ -888,7 +889,7 @@ Partial Class frmPrincipalRibbon
         Me.etNotasCD.Caption = "Notas de Débito/Crédito"
         Me.etNotasCD.Enabled = False
         Me.etNotasCD.Id = 66
-        Me.etNotasCD.ImageOptions.LargeImage = CType(resources.GetObject("etNotasCD.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etNotasCD.ImageOptions.SvgImage = CType(resources.GetObject("etNotasCD.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etNotasCD.Name = "etNotasCD"
         '
         'bExoneraciones
@@ -906,7 +907,7 @@ Partial Class frmPrincipalRibbon
         Me.etCotizaciones.Caption = "Cotizaciones de Clientes"
         Me.etCotizaciones.Enabled = False
         Me.etCotizaciones.Id = 69
-        Me.etCotizaciones.ImageOptions.LargeImage = CType(resources.GetObject("etCotizaciones.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etCotizaciones.ImageOptions.SvgImage = CType(resources.GetObject("etCotizaciones.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etCotizaciones.Name = "etCotizaciones"
         '
         'etListaPedidos
@@ -914,7 +915,7 @@ Partial Class frmPrincipalRibbon
         Me.etListaPedidos.Caption = "Solicitud de Pedidos"
         Me.etListaPedidos.Enabled = False
         Me.etListaPedidos.Id = 70
-        Me.etListaPedidos.ImageOptions.LargeImage = CType(resources.GetObject("etListaPedidos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etListaPedidos.ImageOptions.SvgImage = CType(resources.GetObject("etListaPedidos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etListaPedidos.Name = "etListaPedidos"
         '
         'etListaFacturas
@@ -922,7 +923,7 @@ Partial Class frmPrincipalRibbon
         Me.etListaFacturas.Caption = "Orden de Pago"
         Me.etListaFacturas.Enabled = False
         Me.etListaFacturas.Id = 71
-        Me.etListaFacturas.ImageOptions.LargeImage = CType(resources.GetObject("etListaFacturas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etListaFacturas.ImageOptions.SvgImage = CType(resources.GetObject("etListaFacturas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etListaFacturas.Name = "etListaFacturas"
         '
         'bEstadoOC
@@ -956,7 +957,7 @@ Partial Class frmPrincipalRibbon
         Me.etNotas.Caption = "Notas de Débito/Crédito"
         Me.etNotas.Enabled = False
         Me.etNotas.Id = 76
-        Me.etNotas.ImageOptions.LargeImage = CType(resources.GetObject("etNotas.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etNotas.ImageOptions.SvgImage = CType(resources.GetObject("etNotas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etNotas.Name = "etNotas"
         '
         'etOverViewProveedores
@@ -973,7 +974,7 @@ Partial Class frmPrincipalRibbon
         Me.etOrdenesCompras.Caption = "Orden de Compra"
         Me.etOrdenesCompras.Enabled = False
         Me.etOrdenesCompras.Id = 79
-        Me.etOrdenesCompras.ImageOptions.LargeImage = CType(resources.GetObject("etOrdenesCompras.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etOrdenesCompras.ImageOptions.SvgImage = CType(resources.GetObject("etOrdenesCompras.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etOrdenesCompras.Name = "etOrdenesCompras"
         '
         'etDepositos
@@ -1049,7 +1050,7 @@ Partial Class frmPrincipalRibbon
         Me.etEfectuarPagos.Caption = "Efectuar Pagos"
         Me.etEfectuarPagos.Enabled = False
         Me.etEfectuarPagos.Id = 88
-        Me.etEfectuarPagos.ImageOptions.LargeImage = CType(resources.GetObject("etEfectuarPagos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etEfectuarPagos.ImageOptions.SvgImage = CType(resources.GetObject("etEfectuarPagos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etEfectuarPagos.Name = "etEfectuarPagos"
         '
         'etComprobantes
@@ -1057,8 +1058,7 @@ Partial Class frmPrincipalRibbon
         Me.etComprobantes.Caption = "Hacer Comprobantes"
         Me.etComprobantes.Enabled = False
         Me.etComprobantes.Id = 89
-        Me.etComprobantes.ImageOptions.Image = CType(resources.GetObject("etComprobantes.ImageOptions.Image"), System.Drawing.Image)
-        Me.etComprobantes.ImageOptions.LargeImage = CType(resources.GetObject("etComprobantes.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etComprobantes.ImageOptions.SvgImage = CType(resources.GetObject("etComprobantes.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etComprobantes.Name = "etComprobantes"
         '
         'etArqueo
@@ -1075,8 +1075,7 @@ Partial Class frmPrincipalRibbon
         Me.etContabilizar.Caption = "Contabilizar"
         Me.etContabilizar.Enabled = False
         Me.etContabilizar.Id = 91
-        Me.etContabilizar.ImageOptions.Image = CType(resources.GetObject("etContabilizar.ImageOptions.Image"), System.Drawing.Image)
-        Me.etContabilizar.ImageOptions.LargeImage = CType(resources.GetObject("etContabilizar.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etContabilizar.ImageOptions.SvgImage = CType(resources.GetObject("etContabilizar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etContabilizar.Name = "etContabilizar"
         '
         'etPagosCajaChica
@@ -1273,7 +1272,7 @@ Partial Class frmPrincipalRibbon
         Me.etMayorA.Caption = "Mayor Auxiliar"
         Me.etMayorA.Enabled = False
         Me.etMayorA.Id = 115
-        Me.etMayorA.ImageOptions.LargeImage = CType(resources.GetObject("etMayorA.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etMayorA.ImageOptions.SvgImage = CType(resources.GetObject("etMayorA.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etMayorA.Name = "etMayorA"
         '
         'etLibroDiario
@@ -1281,7 +1280,7 @@ Partial Class frmPrincipalRibbon
         Me.etLibroDiario.Caption = "Libro Diario"
         Me.etLibroDiario.Enabled = False
         Me.etLibroDiario.Id = 116
-        Me.etLibroDiario.ImageOptions.LargeImage = CType(resources.GetObject("etLibroDiario.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etLibroDiario.ImageOptions.SvgImage = CType(resources.GetObject("etLibroDiario.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etLibroDiario.Name = "etLibroDiario"
         '
         'etBalanza
@@ -1289,7 +1288,7 @@ Partial Class frmPrincipalRibbon
         Me.etBalanza.Caption = "Balanza de Comprobación"
         Me.etBalanza.Enabled = False
         Me.etBalanza.Id = 117
-        Me.etBalanza.ImageOptions.LargeImage = CType(resources.GetObject("etBalanza.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etBalanza.ImageOptions.SvgImage = CType(resources.GetObject("etBalanza.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etBalanza.Name = "etBalanza"
         '
         'etER
@@ -1297,7 +1296,7 @@ Partial Class frmPrincipalRibbon
         Me.etER.Caption = "Estado de Resultado"
         Me.etER.Enabled = False
         Me.etER.Id = 118
-        Me.etER.ImageOptions.LargeImage = CType(resources.GetObject("etER.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etER.ImageOptions.SvgImage = CType(resources.GetObject("etER.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etER.Name = "etER"
         '
         'etES
@@ -1305,7 +1304,7 @@ Partial Class frmPrincipalRibbon
         Me.etES.Caption = "Estado de Situación"
         Me.etES.Enabled = False
         Me.etES.Id = 119
-        Me.etES.ImageOptions.LargeImage = CType(resources.GetObject("etES.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.etES.ImageOptions.SvgImage = CType(resources.GetObject("etES.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.etES.Name = "etES"
         '
         'etDistribucion
@@ -1510,8 +1509,7 @@ Partial Class frmPrincipalRibbon
         Me.bAsociarPagos.Caption = "Asociar Pagos a Proveedores"
         Me.bAsociarPagos.Enabled = False
         Me.bAsociarPagos.Id = 152
-        Me.bAsociarPagos.ImageOptions.Image = CType(resources.GetObject("bAsociarPagos.ImageOptions.Image"), System.Drawing.Image)
-        Me.bAsociarPagos.ImageOptions.LargeImage = CType(resources.GetObject("bAsociarPagos.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.bAsociarPagos.ImageOptions.SvgImage = CType(resources.GetObject("bAsociarPagos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bAsociarPagos.Name = "bAsociarPagos"
         '
         'bDetalleMovimientos
@@ -1555,26 +1553,23 @@ Partial Class frmPrincipalRibbon
         Me.BarButtonItem1.Caption = "Propiedades por Cliente"
         Me.BarButtonItem1.Enabled = False
         Me.BarButtonItem1.Id = 158
-        Me.BarButtonItem1.ImageOptions.Image = CType(resources.GetObject("BarButtonItem1.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem1.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem1.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.BarButtonItem1.Name = "BarButtonItem1"
         '
         'BarButtonItem2
         '
-        Me.BarButtonItem2.Caption = "Responsables"
+        Me.BarButtonItem2.Caption = "Responsables de PNRs"
         Me.BarButtonItem2.Enabled = False
         Me.BarButtonItem2.Id = 159
-        Me.BarButtonItem2.ImageOptions.Image = CType(resources.GetObject("BarButtonItem2.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem2.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem2.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.BarButtonItem2.Name = "BarButtonItem2"
         '
         'BarButtonItem3
         '
-        Me.BarButtonItem3.Caption = "Planes de Negocio"
+        Me.BarButtonItem3.Caption = "Planes de Negocio Trimestral"
         Me.BarButtonItem3.Enabled = False
         Me.BarButtonItem3.Id = 160
-        Me.BarButtonItem3.ImageOptions.Image = CType(resources.GetObject("BarButtonItem3.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem3.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem3.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem3.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.BarButtonItem3.Name = "BarButtonItem3"
         '
         'BarButtonItem4
@@ -1582,8 +1577,7 @@ Partial Class frmPrincipalRibbon
         Me.BarButtonItem4.Caption = "Informe de Antecedentes"
         Me.BarButtonItem4.Enabled = False
         Me.BarButtonItem4.Id = 161
-        Me.BarButtonItem4.ImageOptions.Image = CType(resources.GetObject("BarButtonItem4.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem4.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem4.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem4.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem4.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.BarButtonItem4.Name = "BarButtonItem4"
         '
         'BarButtonItem5
@@ -1591,8 +1585,7 @@ Partial Class frmPrincipalRibbon
         Me.BarButtonItem5.Caption = "Objetivos Estrategicos"
         Me.BarButtonItem5.Enabled = False
         Me.BarButtonItem5.Id = 162
-        Me.BarButtonItem5.ImageOptions.Image = CType(resources.GetObject("BarButtonItem5.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem5.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem5.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem5.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem5.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.BarButtonItem5.Name = "BarButtonItem5"
         '
         'BarButtonItem6
@@ -1600,8 +1593,7 @@ Partial Class frmPrincipalRibbon
         Me.BarButtonItem6.Caption = "Trasladar PNR al Siguiente Periodo"
         Me.BarButtonItem6.Enabled = False
         Me.BarButtonItem6.Id = 163
-        Me.BarButtonItem6.ImageOptions.Image = CType(resources.GetObject("BarButtonItem6.ImageOptions.Image"), System.Drawing.Image)
-        Me.BarButtonItem6.ImageOptions.LargeImage = CType(resources.GetObject("BarButtonItem6.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.BarButtonItem6.ImageOptions.SvgImage = CType(resources.GetObject("BarButtonItem6.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.BarButtonItem6.Name = "BarButtonItem6"
         Me.BarButtonItem6.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
@@ -1670,11 +1662,10 @@ Partial Class frmPrincipalRibbon
         '
         'bConsolidado
         '
-        Me.bConsolidado.Caption = "Reporte Consolidado"
+        Me.bConsolidado.Caption = "Reporte Consolidado Trimestral"
         Me.bConsolidado.Enabled = False
         Me.bConsolidado.Id = 171
-        Me.bConsolidado.ImageOptions.Image = CType(resources.GetObject("bConsolidado.ImageOptions.Image"), System.Drawing.Image)
-        Me.bConsolidado.ImageOptions.LargeImage = CType(resources.GetObject("bConsolidado.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.bConsolidado.ImageOptions.SvgImage = CType(resources.GetObject("bConsolidado.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bConsolidado.Name = "bConsolidado"
         '
         'BarButtonItem7
@@ -1688,8 +1679,7 @@ Partial Class frmPrincipalRibbon
         Me.bPlanAccion.Caption = "Planes de Acción"
         Me.bPlanAccion.Enabled = False
         Me.bPlanAccion.Id = 173
-        Me.bPlanAccion.ImageOptions.Image = CType(resources.GetObject("bPlanAccion.ImageOptions.Image"), System.Drawing.Image)
-        Me.bPlanAccion.ImageOptions.LargeImage = CType(resources.GetObject("bPlanAccion.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.bPlanAccion.ImageOptions.SvgImage = CType(resources.GetObject("bPlanAccion.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bPlanAccion.Name = "bPlanAccion"
         '
         'BarButtonItem8
@@ -1764,8 +1754,7 @@ Partial Class frmPrincipalRibbon
         '
         Me.bEstadisticasPNR.Caption = "Estadisticas de Uso"
         Me.bEstadisticasPNR.Id = 186
-        Me.bEstadisticasPNR.ImageOptions.Image = CType(resources.GetObject("bEstadisticasPNR.ImageOptions.Image"), System.Drawing.Image)
-        Me.bEstadisticasPNR.ImageOptions.LargeImage = CType(resources.GetObject("bEstadisticasPNR.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.bEstadisticasPNR.ImageOptions.SvgImage = CType(resources.GetObject("bEstadisticasPNR.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bEstadisticasPNR.Name = "bEstadisticasPNR"
         '
         'BarButtonItem10
@@ -1898,10 +1887,9 @@ Partial Class frmPrincipalRibbon
         '
         'bConsolidadoPresupuesto
         '
-        Me.bConsolidadoPresupuesto.Caption = "Presupuesto Consolidado"
+        Me.bConsolidadoPresupuesto.Caption = "Consolidado de Productos"
         Me.bConsolidadoPresupuesto.Id = 204
-        Me.bConsolidadoPresupuesto.ImageOptions.Image = CType(resources.GetObject("bConsolidadoPresupuesto.ImageOptions.Image"), System.Drawing.Image)
-        Me.bConsolidadoPresupuesto.ImageOptions.LargeImage = CType(resources.GetObject("bConsolidadoPresupuesto.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.bConsolidadoPresupuesto.ImageOptions.SvgImage = CType(resources.GetObject("bConsolidadoPresupuesto.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bConsolidadoPresupuesto.Name = "bConsolidadoPresupuesto"
         '
         'bRemisionesCliente
@@ -1932,8 +1920,7 @@ Partial Class frmPrincipalRibbon
         '
         Me.bAnticipo.Caption = "Anticipos de Clientes"
         Me.bAnticipo.Id = 208
-        Me.bAnticipo.ImageOptions.Image = CType(resources.GetObject("bAnticipo.ImageOptions.Image"), System.Drawing.Image)
-        Me.bAnticipo.ImageOptions.LargeImage = CType(resources.GetObject("bAnticipo.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.bAnticipo.ImageOptions.SvgImage = CType(resources.GetObject("bAnticipo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bAnticipo.Name = "bAnticipo"
         '
         'bComprobantesElectronicos
@@ -2071,7 +2058,7 @@ Partial Class frmPrincipalRibbon
         '
         'bReporteCobro
         '
-        Me.bReporteCobro.Caption = "Reporte de Cobro"
+        Me.bReporteCobro.Caption = "Reporte Indicadores"
         Me.bReporteCobro.Id = 230
         Me.bReporteCobro.ImageOptions.Image = CType(resources.GetObject("bReporteCobro.ImageOptions.Image"), System.Drawing.Image)
         Me.bReporteCobro.ImageOptions.LargeImage = CType(resources.GetObject("bReporteCobro.ImageOptions.LargeImage"), System.Drawing.Image)
@@ -2092,6 +2079,84 @@ Partial Class frmPrincipalRibbon
         Me.SkinPaletteRibbonGalleryBarItem1.Caption = "SkinPaletteRibbonGalleryBarItem1"
         Me.SkinPaletteRibbonGalleryBarItem1.Id = 233
         Me.SkinPaletteRibbonGalleryBarItem1.Name = "SkinPaletteRibbonGalleryBarItem1"
+        '
+        'SkinRibbonGalleryBarItem1
+        '
+        Me.SkinRibbonGalleryBarItem1.Caption = "SkinRibbonGalleryBarItem1"
+        Me.SkinRibbonGalleryBarItem1.Id = 234
+        Me.SkinRibbonGalleryBarItem1.Name = "SkinRibbonGalleryBarItem1"
+        '
+        'SkinDropDownButtonItem2
+        '
+        Me.SkinDropDownButtonItem2.Id = 235
+        Me.SkinDropDownButtonItem2.Name = "SkinDropDownButtonItem2"
+        '
+        'SkinRibbonGalleryBarItem2
+        '
+        Me.SkinRibbonGalleryBarItem2.Caption = "SkinRibbonGalleryBarItem2"
+        Me.SkinRibbonGalleryBarItem2.Id = 236
+        Me.SkinRibbonGalleryBarItem2.Name = "SkinRibbonGalleryBarItem2"
+        '
+        'bEnvioEC
+        '
+        Me.bEnvioEC.Caption = "Envios Estados de Cuenta"
+        Me.bEnvioEC.Id = 237
+        Me.bEnvioEC.ImageOptions.SvgImage = CType(resources.GetObject("bEnvioEC.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bEnvioEC.Name = "bEnvioEC"
+        '
+        'bBitacoraAprobacion
+        '
+        Me.bBitacoraAprobacion.Caption = "Bitacora de Aprobaciones"
+        Me.bBitacoraAprobacion.Id = 238
+        Me.bBitacoraAprobacion.ImageOptions.SvgImage = CType(resources.GetObject("bBitacoraAprobacion.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bBitacoraAprobacion.Name = "bBitacoraAprobacion"
+        '
+        'bPresupuestoGastos
+        '
+        Me.bPresupuestoGastos.Caption = "Presupuesto de Gastos"
+        Me.bPresupuestoGastos.Id = 239
+        Me.bPresupuestoGastos.ImageOptions.SvgImage = CType(resources.GetObject("bPresupuestoGastos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bPresupuestoGastos.Name = "bPresupuestoGastos"
+        '
+        'bConsolidadoGastos
+        '
+        Me.bConsolidadoGastos.Caption = "Consolidado de Gastos"
+        Me.bConsolidadoGastos.Id = 240
+        Me.bConsolidadoGastos.ImageOptions.SvgImage = CType(resources.GetObject("bConsolidadoGastos.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bConsolidadoGastos.Name = "bConsolidadoGastos"
+        '
+        'bPlanesMensual
+        '
+        Me.bPlanesMensual.Caption = "Planes de Negocio Mensual"
+        Me.bPlanesMensual.Id = 241
+        Me.bPlanesMensual.ImageOptions.SvgImage = CType(resources.GetObject("bPlanesMensual.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bPlanesMensual.Name = "bPlanesMensual"
+        '
+        'BarButtonItem34
+        '
+        Me.BarButtonItem34.Caption = "BarButtonItem34"
+        Me.BarButtonItem34.Id = 242
+        Me.BarButtonItem34.Name = "BarButtonItem34"
+        '
+        'bReportePNRMensual
+        '
+        Me.bReportePNRMensual.Caption = "Reporte Consolidado Mensual"
+        Me.bReportePNRMensual.Id = 243
+        Me.bReportePNRMensual.ImageOptions.SvgImage = CType(resources.GetObject("bReportePNRMensual.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bReportePNRMensual.Name = "bReportePNRMensual"
+        '
+        'bFacturasCuotas
+        '
+        Me.bFacturasCuotas.Caption = "Facturación en Cuotas"
+        Me.bFacturasCuotas.Id = 244
+        Me.bFacturasCuotas.ImageOptions.SvgImage = CType(resources.GetObject("bFacturasCuotas.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bFacturasCuotas.Name = "bFacturasCuotas"
+        '
+        'BarButtonItem33
+        '
+        Me.BarButtonItem33.Caption = "Arreglo de Pago"
+        Me.BarButtonItem33.Id = 245
+        Me.BarButtonItem33.Name = "BarButtonItem33"
         '
         'rPageCategoria
         '
@@ -2132,19 +2197,25 @@ Partial Class frmPrincipalRibbon
         '
         'rContables
         '
-        Me.rContables.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup7})
+        Me.rContables.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup24, Me.RibbonPageGroup7})
         Me.rContables.Name = "rContables"
         Me.rContables.Text = "Contables"
+        '
+        'RibbonPageGroup24
+        '
+        Me.RibbonPageGroup24.AllowTextClipping = False
+        Me.RibbonPageGroup24.ItemLinks.Add(Me.etBalance)
+        Me.RibbonPageGroup24.ItemLinks.Add(Me.etResultado)
+        Me.RibbonPageGroup24.ItemLinks.Add(Me.etOrden)
+        Me.RibbonPageGroup24.ItemLinks.Add(Me.etPresupuesto)
+        Me.RibbonPageGroup24.ItemLinks.Add(Me.etGruposDepreciacion)
+        Me.RibbonPageGroup24.ItemLinks.Add(Me.etAgrupaciones)
+        Me.RibbonPageGroup24.Name = "RibbonPageGroup24"
+        Me.RibbonPageGroup24.Text = "Grupos"
         '
         'RibbonPageGroup7
         '
         Me.RibbonPageGroup7.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
-        Me.RibbonPageGroup7.ItemLinks.Add(Me.etBalance)
-        Me.RibbonPageGroup7.ItemLinks.Add(Me.etResultado)
-        Me.RibbonPageGroup7.ItemLinks.Add(Me.etOrden)
-        Me.RibbonPageGroup7.ItemLinks.Add(Me.etPresupuesto)
-        Me.RibbonPageGroup7.ItemLinks.Add(Me.etGruposDepreciacion)
-        Me.RibbonPageGroup7.ItemLinks.Add(Me.etAgrupaciones)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.etCatalogo)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.etTipoComp)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.etRubrosDistribucion)
@@ -2153,7 +2224,7 @@ Partial Class frmPrincipalRibbon
         Me.RibbonPageGroup7.ItemLinks.Add(Me.etConceptos)
         Me.RibbonPageGroup7.ItemLinks.Add(Me.etActivos)
         Me.RibbonPageGroup7.Name = "RibbonPageGroup7"
-        Me.RibbonPageGroup7.Text = "Módulo Registros Contables"
+        Me.RibbonPageGroup7.Text = "Catalogos"
         '
         'rInventario
         '
@@ -2208,9 +2279,12 @@ Partial Class frmPrincipalRibbon
         Me.RibbonPageGroup20.ItemLinks.Add(Me.etCobros)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.etRecibos)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.etClientes)
-        Me.RibbonPageGroup20.ItemLinks.Add(Me.etOtrosIngresos)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bAnticipo)
+        Me.RibbonPageGroup20.ItemLinks.Add(Me.bProyectos)
+        Me.RibbonPageGroup20.ItemLinks.Add(Me.bFacturasCuotas)
+        Me.RibbonPageGroup20.ItemLinks.Add(Me.bArregloDePago)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bDetalleMovimientoCxC)
+        Me.RibbonPageGroup20.ItemLinks.Add(Me.etOtrosIngresos)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bEstadosCotizacion)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bCondicionesVenta)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.etCotizaciones)
@@ -2220,7 +2294,6 @@ Partial Class frmPrincipalRibbon
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bSolicitudesPendientes)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bSolicitudesEnviadas)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.etNotasCD)
-        Me.RibbonPageGroup20.ItemLinks.Add(Me.bProyectos)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bAsignarDescuento)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bAsociarPagosC)
         Me.RibbonPageGroup20.ItemLinks.Add(Me.bExoneraciones)
@@ -2299,7 +2372,6 @@ Partial Class frmPrincipalRibbon
         Me.RibbonPageGroup15.ItemLinks.Add(Me.etCierreInvent)
         Me.RibbonPageGroup15.ItemLinks.Add(Me.bAjusteInventario)
         Me.RibbonPageGroup15.ItemLinks.Add(Me.bIntereses)
-        Me.RibbonPageGroup15.ItemLinks.Add(Me.bArregoPago)
         Me.RibbonPageGroup15.ItemLinks.Add(Me.bImportarRecibos)
         Me.RibbonPageGroup15.ItemLinks.Add(Me.bReporteIRAnual)
         Me.RibbonPageGroup15.Name = "RibbonPageGroup15"
@@ -2347,7 +2419,8 @@ Partial Class frmPrincipalRibbon
         Me.RibbonPageGroup22.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
         Me.RibbonPageGroup22.ItemLinks.Add(Me.bListaNegra)
         Me.RibbonPageGroup22.ItemLinks.Add(Me.bSeguimiento)
-        Me.RibbonPageGroup22.ItemLinks.Add(Me.bReporteCobro)
+        Me.RibbonPageGroup22.ItemLinks.Add(Me.bEnvioEC)
+        Me.RibbonPageGroup22.ItemLinks.Add(Me.bBitacoraAprobacion)
         Me.RibbonPageGroup22.Name = "RibbonPageGroup22"
         Me.RibbonPageGroup22.Text = "Cobranza"
         '
@@ -2355,31 +2428,39 @@ Partial Class frmPrincipalRibbon
         '
         Me.RibbonPageGroup19.AllowTextClipping = False
         Me.RibbonPageGroup19.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
+        Me.RibbonPageGroup19.ItemLinks.Add(Me.bReporteCobro)
         Me.RibbonPageGroup19.ItemLinks.Add(Me.bAnalisis)
         Me.RibbonPageGroup19.Name = "RibbonPageGroup19"
         Me.RibbonPageGroup19.Text = "Reportes"
         '
         'rPlanNegocio
         '
-        Me.rPlanNegocio.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup16})
+        Me.rPlanNegocio.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.rpPNR, Me.rpPNRReportes})
         Me.rPlanNegocio.Name = "rPlanNegocio"
         Me.rPlanNegocio.Text = "Plan de Negocio"
         '
-        'RibbonPageGroup16
+        'rpPNR
         '
-        Me.RibbonPageGroup16.AllowTextClipping = False
-        Me.RibbonPageGroup16.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.BarButtonItem2)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.BarButtonItem1)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.BarButtonItem3)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.bConsolidado)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.bPlanAccion)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.BarButtonItem4)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.BarButtonItem5)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.BarButtonItem6)
-        Me.RibbonPageGroup16.ItemLinks.Add(Me.bEstadisticasPNR)
-        Me.RibbonPageGroup16.Name = "RibbonPageGroup16"
-        Me.RibbonPageGroup16.Text = "Módulo Plan de Negocio"
+        Me.rpPNR.AllowTextClipping = False
+        Me.rpPNR.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
+        Me.rpPNR.ItemLinks.Add(Me.BarButtonItem2)
+        Me.rpPNR.ItemLinks.Add(Me.BarButtonItem1)
+        Me.rpPNR.ItemLinks.Add(Me.BarButtonItem3)
+        Me.rpPNR.ItemLinks.Add(Me.bPlanesMensual)
+        Me.rpPNR.ItemLinks.Add(Me.bPlanAccion)
+        Me.rpPNR.ItemLinks.Add(Me.BarButtonItem6)
+        Me.rpPNR.Name = "rpPNR"
+        Me.rpPNR.Text = "Planes de Negocio"
+        '
+        'rpPNRReportes
+        '
+        Me.rpPNRReportes.ItemLinks.Add(Me.bConsolidado)
+        Me.rpPNRReportes.ItemLinks.Add(Me.bReportePNRMensual)
+        Me.rpPNRReportes.ItemLinks.Add(Me.BarButtonItem4)
+        Me.rpPNRReportes.ItemLinks.Add(Me.BarButtonItem5)
+        Me.rpPNRReportes.ItemLinks.Add(Me.bEstadisticasPNR)
+        Me.rpPNRReportes.Name = "rpPNRReportes"
+        Me.rpPNRReportes.Text = "Reportes"
         '
         'rProduccion
         '
@@ -2424,13 +2505,15 @@ Partial Class frmPrincipalRibbon
         '
         Me.RibbonPageGroup10.CaptionButtonVisible = DevExpress.Utils.DefaultBoolean.[False]
         Me.RibbonPageGroup10.ItemLinks.Add(Me.etPresupuestos)
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.bPresupuestoGastos)
         Me.RibbonPageGroup10.ItemLinks.Add(Me.bConsolidadoPresupuesto)
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.bConsolidadoGastos)
         Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
         Me.RibbonPageGroup10.Text = "Presupuesto"
         '
         'rActivoFijo
         '
-        Me.rActivoFijo.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup14, Me.RibbonPageGroup17, Me.RibbonPageGroup18, Me.RibbonPageGroup23})
+        Me.rActivoFijo.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup14, Me.RibbonPageGroup17, Me.RibbonPageGroup18})
         Me.rActivoFijo.Name = "rActivoFijo"
         Me.rActivoFijo.Text = "Activo Fijo"
         '
@@ -2535,7 +2618,7 @@ Partial Class frmPrincipalRibbon
         '
         Me.pLogo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pLogo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.pLogo.Location = New System.Drawing.Point(1122, 65)
+        Me.pLogo.Location = New System.Drawing.Point(1014, 65)
         Me.pLogo.MenuManager = Me.RibbonControl
         Me.pLogo.Name = "pLogo"
         Me.pLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
@@ -2567,35 +2650,18 @@ Partial Class frmPrincipalRibbon
         '
         Me.TimerRed.Interval = 10000
         '
-        'SkinRibbonGalleryBarItem1
+        'bArregloDePago
         '
-        Me.SkinRibbonGalleryBarItem1.Caption = "SkinRibbonGalleryBarItem1"
-        Me.SkinRibbonGalleryBarItem1.Id = 234
-        Me.SkinRibbonGalleryBarItem1.Name = "SkinRibbonGalleryBarItem1"
-        '
-        'RibbonPageGroup23
-        '
-        Me.RibbonPageGroup23.ItemLinks.Add(Me.SkinDropDownButtonItem2)
-        Me.RibbonPageGroup23.ItemLinks.Add(Me.SkinRibbonGalleryBarItem2)
-        Me.RibbonPageGroup23.Name = "RibbonPageGroup23"
-        Me.RibbonPageGroup23.Text = "RibbonPageGroup23"
-        '
-        'SkinDropDownButtonItem2
-        '
-        Me.SkinDropDownButtonItem2.Id = 235
-        Me.SkinDropDownButtonItem2.Name = "SkinDropDownButtonItem2"
-        '
-        'SkinRibbonGalleryBarItem2
-        '
-        Me.SkinRibbonGalleryBarItem2.Caption = "SkinRibbonGalleryBarItem2"
-        Me.SkinRibbonGalleryBarItem2.Id = 236
-        Me.SkinRibbonGalleryBarItem2.Name = "SkinRibbonGalleryBarItem2"
+        Me.bArregloDePago.Caption = "Arreglos de Pago"
+        Me.bArregloDePago.Id = 246
+        Me.bArregloDePago.ImageOptions.SvgImage = CType(resources.GetObject("bArregloDePago.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bArregloDePago.Name = "bArregloDePago"
         '
         'frmPrincipalRibbon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1222, 455)
+        Me.ClientSize = New System.Drawing.Size(1114, 455)
         Me.Controls.Add(Me.RibbonStatusBar)
         Me.Controls.Add(Me.pLogo)
         Me.Controls.Add(Me.RibbonControl)
@@ -2695,7 +2761,6 @@ Partial Class frmPrincipalRibbon
     Friend WithEvents etRecibos As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents etFacturaPuntoVenta As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents etDevolucionesCliente As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents bArregoPago As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents bAsignarDescuento As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents etOtrosIngresos As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents etNotasCD As DevExpress.XtraBars.BarButtonItem
@@ -2784,7 +2849,7 @@ Partial Class frmPrincipalRibbon
     Friend WithEvents bAjusteInventario As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPageGroup15 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents rPlanNegocio As DevExpress.XtraBars.Ribbon.RibbonPage
-    Friend WithEvents RibbonPageGroup16 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents rpPNR As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
@@ -2878,5 +2943,16 @@ Partial Class frmPrincipalRibbon
     Friend WithEvents SkinRibbonGalleryBarItem1 As DevExpress.XtraBars.SkinRibbonGalleryBarItem
     Friend WithEvents SkinDropDownButtonItem2 As DevExpress.XtraBars.SkinDropDownButtonItem
     Friend WithEvents SkinRibbonGalleryBarItem2 As DevExpress.XtraBars.SkinRibbonGalleryBarItem
-    Friend WithEvents RibbonPageGroup23 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents bEnvioEC As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents bBitacoraAprobacion As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup24 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents bPresupuestoGastos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents bConsolidadoGastos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents bPlanesMensual As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem34 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents bReportePNRMensual As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents rpPNRReportes As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents bFacturasCuotas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem33 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents bArregloDePago As DevExpress.XtraBars.BarButtonItem
 End Class

@@ -154,4 +154,24 @@ Public Class ArregloPago
         End Set
     End Property
 
+    Private vComentario As String
+    Public Property Comentario() As String
+        Get
+            Return vComentario
+        End Get
+        Set(ByVal value As String)
+            vComentario = value
+        End Set
+    End Property
+
+    Private vAprobado As Integer
+    Public Property Aprobado() As Integer
+        Get
+            Return vAprobado
+        End Get
+        Set(ByVal value As Integer)
+            vAprobado = value
+        End Set
+    End Property
+
 End Class

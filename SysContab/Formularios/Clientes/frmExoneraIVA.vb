@@ -30,8 +30,8 @@
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles bGuardar.Click
         If Not DxValidationProvider1.Validate() Then Exit Sub
         '
-        If ObtieneDatos("sp_Clientes_Exoneraciones_ValidarExiste", txtFactura.Text, EmpresaActual).Rows.Count > 0 Then
-            XtraMsg("El Número de Factura: " + txtFactura.Text + " Ya se le aplicó Exoneración de IVA, Favor consultar informe de Exoneración", MessageBoxIcon.Error)
+        If db_Clientes_Exoneraciones.Validar(txtFactura.Text).Rows.Count > 0 Then
+            XtraMsg($"El Número de Factura: {txtFactura.Text} Ya se le aplicó Exoneración de IVA, Favor consultar informe de Exoneración", MessageBoxIcon.Error)
             Exit Sub
         End If
         '

@@ -2047,25 +2047,32 @@ Public Class frmNotasCreditoProveedor
             '----------------------
             'Guarda la Distribucion
             '----------------------
-            Dim DT_F As DataTable
 
-            DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
-            If Not DT_F Is Nothing Then
-                For i As Integer = 0 To DT_F.Rows.Count - 1
-                    With DT_F
-                        If .Rows(i).RowState = DataRowState.Added Then
-                            GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                            " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.Fecha.DateTime.Month & "," &
-                            Per_Id & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
-                        ElseIf .Rows(i).RowState = DataRowState.Modified Then
-                            GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.Fecha.DateTime.Month & "," &
-                            "Per_Id = " & Per_Id & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
-                            "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
-                        ElseIf .Rows(i).RowState = DataRowState.Deleted Then
-                        End If
-                    End With
-                Next
-            End If
+            GuardaDistribucion(
+                DT_Distribucion,
+                Fecha.DateTime.Date,
+                NoComprob,
+                False)
+
+            'Dim DT_F As DataTable
+
+            'DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Deleted)
+            'If Not DT_F Is Nothing Then
+            '    For i As Integer = 0 To DT_F.Rows.Count - 1
+            '        With DT_F
+            '            If .Rows(i).RowState = DataRowState.Added Then
+            '                GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+            '                " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & NoComprob & "," & Me.Fecha.DateTime.Month & "," &
+            '                Per_Id & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & .Rows(i).Item("Valor") & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+            '            ElseIf .Rows(i).RowState = DataRowState.Modified Then
+            '                GuardaDatos("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.Fecha.DateTime.Month & "," &
+            '                "Per_Id = " & Per_Id & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
+            '                "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
+            '            ElseIf .Rows(i).RowState = DataRowState.Deleted Then
+            '            End If
+            '        End With
+            '    Next
+            'End If
 
             Distribucion()
             '--------------------------
@@ -2082,16 +2089,24 @@ Public Class frmNotasCreditoProveedor
                     'ds.Tables.Add(dtPrint)
                     'ds.WriteXml(Application.StartupPath & "\xml\rptNotaProveedorImprimir.xml", XmlWriteMode.WriteSchema)
 
-                    Dim rpt As New rptNotasProveedores
+                    ShowSplash("Imprimiendo...")
+
+                    'Dim rpt As New rptNotasProveedores
                     'rpt.XmlDataPath = Application.StartupPath & "\xml\rptNotaProveedorImprimir.xml"
-                    rpt.DataSource = VB.SysContab.ProveedoresDB.NotaProveedorImprimir(Me.txtRef.Text,
+                    Dim DT_PROV As DataTable = ProveedoresDB.NotaProveedorImprimir(Me.txtRef.Text,
                                                                                       Me.cbProveedor.EditValue,
                                                                                       IIf(DC = 1, "D", "C"),
                                                                                       VB.SysContab.Rutinas.Letras(Me.txtMonto.EditValue))
 
-                    rpt.ShowPrintMarginsWarning = False
-                    rpt.BringToFront()
-                    rpt.ShowRibbonPreview()
+                    'rpt.ShowPrintMarginsWarning = False
+                    'rpt.BringToFront()
+                    'rpt.ShowRibbonPreview()
+
+                    Dim rpt As New rptNotasProveedores
+                    rpt.pLogo.Image = frmPrincipalRibbon.pLogo.Image
+                    VistaPreviaDX(rpt, DT_PROV, "Nota D/C a Proveedor No. " & txtRef.Text)
+                    '
+                    HideSplash()
                 End If
             End If
 

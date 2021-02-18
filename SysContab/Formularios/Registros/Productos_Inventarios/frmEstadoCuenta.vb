@@ -804,18 +804,19 @@ Public Class frmEstadoCuenta
         'f.WindowState = FormWindowState.Maximized
         'Dim Clientes As New VB.SysContab.ClientesDB
 
-
+        ShowSplash()
         Dim rpt As New RptEstadoCuentaCliente
         rpt.DataSource = Clientes.EstadoCuentaReporteNew(RegistroCliente, 0, 0, Now.Date, DateAdd(DateInterval.Year, -10, Now.Date), Now.Date, "%", "%", 0).Tables(0)
+        HideSplash()
 
         Try
-            Dim DT_LOGO As DataTable = VB.SysContab.EmpresasDB.GetLogoEmpresa().Tables(0)
-            Dim data As Byte() = DirectCast(DT_LOGO.Rows.Item(0)("Logo"), Byte())
-            Dim ms As New System.IO.MemoryStream(data)
-            rpt.Logo.Image = Image.FromStream(ms)
+            Dim LogoPath As Object = VB.SysContab.EmpresasDB.GetLogoEmpresaPath()
+            'Dim DT_LOGO As DataTable = VB.SysContab.EmpresasDB.GetLogoEmpresa().Tables(0)
+            'Dim data As Byte() = DirectCast(LogoPath, Byte())
+            'Dim ms As New System.IO.MemoryStream(data)
+            rpt.Logo.Image = Image.FromFile(LogoPath) 'Image.FromStream(ms)
         Catch ex As Exception
         End Try
-
 
         rpt.ShowPrintMarginsWarning = False
         rpt.BringToFront()

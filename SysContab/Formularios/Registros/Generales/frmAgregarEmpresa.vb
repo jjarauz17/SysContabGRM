@@ -134,6 +134,14 @@ Public Class frmAgregarEmpresa
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents chkValidar As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents LayoutControlItem49 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkAdvertenciaVencidas As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem50 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkLimite As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem51 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkCobros As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem52 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkFCuotas As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem53 As DevExpress.XtraLayout.LayoutControlItem
     Dim Bodegas As New VB.SysContab.BodegasDB()
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -183,8 +191,6 @@ Public Class frmAgregarEmpresa
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarEmpresa))
         Me.cbPais = New DevExpress.XtraEditors.LookUpEdit()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
-        Me.lblCuenta = New DevExpress.XtraEditors.LabelControl()
-        Me.cbMes = New DevExpress.XtraScheduler.UI.MonthEdit()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtSerie = New System.Windows.Forms.TextBox()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
@@ -195,6 +201,12 @@ Public Class frmAgregarEmpresa
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.dgSeries = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.txtPresPorcMin = New DevExpress.XtraEditors.TextEdit()
+        Me.chkCobros = New DevExpress.XtraEditors.CheckEdit()
+        Me.chkLimite = New DevExpress.XtraEditors.CheckEdit()
+        Me.chkAdvertenciaVencidas = New DevExpress.XtraEditors.CheckEdit()
+        Me.chkValidar = New DevExpress.XtraEditors.CheckEdit()
+        Me.lblCuenta = New DevExpress.XtraEditors.LabelControl()
+        Me.cbMes = New DevExpress.XtraScheduler.UI.MonthEdit()
         Me.txtRequisaBodegaNumero = New DevExpress.XtraEditors.SpinEdit()
         Me.chkOC = New DevExpress.XtraEditors.CheckEdit()
         Me.ckMultiple = New DevExpress.XtraEditors.CheckEdit()
@@ -292,6 +304,10 @@ Public Class frmAgregarEmpresa
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem30 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.LayoutControlItem49 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem50 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem51 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem52 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.cmdAceptar = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControl2 = New DevExpress.XtraLayout.LayoutControl()
         Me.cmdCancelar = New DevExpress.XtraEditors.SimpleButton()
@@ -303,16 +319,20 @@ Public Class frmAgregarEmpresa
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
-        Me.chkValidar = New DevExpress.XtraEditors.CheckEdit()
-        Me.LayoutControlItem49 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.chkFCuotas = New DevExpress.XtraEditors.CheckEdit()
+        Me.LayoutControlItem53 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.cbPais.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.cbMes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgSeries, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPresPorcMin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkCobros.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkLimite.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkAdvertenciaVencidas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkValidar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbMes.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtRequisaBodegaNumero.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chkOC.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ckMultiple.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -410,6 +430,10 @@ Public Class frmAgregarEmpresa
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem30, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem49, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem50, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem51, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem52, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl2.SuspendLayout()
         CType(Me.LayoutControlGroup5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -419,13 +443,13 @@ Public Class frmAgregarEmpresa
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.chkValidar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem49, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkFCuotas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem53, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbPais
         '
-        Me.cbPais.Location = New System.Drawing.Point(186, 94)
+        Me.cbPais.Location = New System.Drawing.Point(186, 95)
         Me.cbPais.Name = "cbPais"
         Me.cbPais.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbPais.Properties.Appearance.Options.UseFont = True
@@ -438,11 +462,15 @@ Public Class frmAgregarEmpresa
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.chkFCuotas)
+        Me.LayoutControl1.Controls.Add(Me.Panel1)
+        Me.LayoutControl1.Controls.Add(Me.txtPresPorcMin)
+        Me.LayoutControl1.Controls.Add(Me.chkCobros)
+        Me.LayoutControl1.Controls.Add(Me.chkLimite)
+        Me.LayoutControl1.Controls.Add(Me.chkAdvertenciaVencidas)
         Me.LayoutControl1.Controls.Add(Me.chkValidar)
         Me.LayoutControl1.Controls.Add(Me.lblCuenta)
         Me.LayoutControl1.Controls.Add(Me.cbMes)
-        Me.LayoutControl1.Controls.Add(Me.Panel1)
-        Me.LayoutControl1.Controls.Add(Me.txtPresPorcMin)
         Me.LayoutControl1.Controls.Add(Me.txtRequisaBodegaNumero)
         Me.LayoutControl1.Controls.Add(Me.chkOC)
         Me.LayoutControl1.Controls.Add(Me.ckMultiple)
@@ -495,34 +523,6 @@ Public Class frmAgregarEmpresa
         Me.LayoutControl1.Size = New System.Drawing.Size(884, 561)
         Me.LayoutControl1.TabIndex = 163
         Me.LayoutControl1.Text = "LayoutControl1"
-        '
-        'lblCuenta
-        '
-        Me.lblCuenta.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCuenta.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lblCuenta.Appearance.Options.UseFont = True
-        Me.lblCuenta.Appearance.Options.UseForeColor = True
-        Me.lblCuenta.Appearance.Options.UseTextOptions = True
-        Me.lblCuenta.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.lblCuenta.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblCuenta.Location = New System.Drawing.Point(36, 409)
-        Me.lblCuenta.Name = "lblCuenta"
-        Me.lblCuenta.Size = New System.Drawing.Size(812, 18)
-        Me.lblCuenta.StyleController = Me.LayoutControl1
-        Me.lblCuenta.TabIndex = 214
-        Me.lblCuenta.Text = "Ejemplo Cuenta: 0000 00 00 000"
-        '
-        'cbMes
-        '
-        Me.cbMes.Location = New System.Drawing.Point(186, 214)
-        Me.cbMes.Name = "cbMes"
-        Me.cbMes.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbMes.Properties.Appearance.Options.UseFont = True
-        Me.cbMes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbMes.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.cbMes.Size = New System.Drawing.Size(296, 22)
-        Me.cbMes.StyleController = Me.LayoutControl1
-        Me.cbMes.TabIndex = 213
         '
         'Panel1
         '
@@ -623,10 +623,98 @@ Public Class frmAgregarEmpresa
         Me.txtPresPorcMin.StyleController = Me.LayoutControl1
         Me.txtPresPorcMin.TabIndex = 207
         '
+        'chkCobros
+        '
+        Me.chkCobros.Location = New System.Drawing.Point(508, 203)
+        Me.chkCobros.Name = "chkCobros"
+        Me.chkCobros.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkCobros.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.chkCobros.Properties.Appearance.Options.UseFont = True
+        Me.chkCobros.Properties.Appearance.Options.UseForeColor = True
+        Me.chkCobros.Properties.Caption = "Cobro Editable en R.O.C"
+        Me.chkCobros.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkCobros.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
+        Me.chkCobros.Size = New System.Drawing.Size(352, 22)
+        Me.chkCobros.StyleController = Me.LayoutControl1
+        Me.chkCobros.TabIndex = 188
+        '
+        'chkLimite
+        '
+        Me.chkLimite.Location = New System.Drawing.Point(508, 177)
+        Me.chkLimite.Name = "chkLimite"
+        Me.chkLimite.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkLimite.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.chkLimite.Properties.Appearance.Options.UseFont = True
+        Me.chkLimite.Properties.Appearance.Options.UseForeColor = True
+        Me.chkLimite.Properties.Caption = "Validar Limite de Crédito"
+        Me.chkLimite.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkLimite.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
+        Me.chkLimite.Size = New System.Drawing.Size(352, 22)
+        Me.chkLimite.StyleController = Me.LayoutControl1
+        Me.chkLimite.TabIndex = 187
+        '
+        'chkAdvertenciaVencidas
+        '
+        Me.chkAdvertenciaVencidas.Location = New System.Drawing.Point(508, 151)
+        Me.chkAdvertenciaVencidas.Name = "chkAdvertenciaVencidas"
+        Me.chkAdvertenciaVencidas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkAdvertenciaVencidas.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.chkAdvertenciaVencidas.Properties.Appearance.Options.UseFont = True
+        Me.chkAdvertenciaVencidas.Properties.Appearance.Options.UseForeColor = True
+        Me.chkAdvertenciaVencidas.Properties.Caption = "Advertencia Facturas Vencidas"
+        Me.chkAdvertenciaVencidas.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkAdvertenciaVencidas.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
+        Me.chkAdvertenciaVencidas.Size = New System.Drawing.Size(352, 22)
+        Me.chkAdvertenciaVencidas.StyleController = Me.LayoutControl1
+        Me.chkAdvertenciaVencidas.TabIndex = 186
+        '
+        'chkValidar
+        '
+        Me.chkValidar.Location = New System.Drawing.Point(508, 125)
+        Me.chkValidar.Name = "chkValidar"
+        Me.chkValidar.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkValidar.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.chkValidar.Properties.Appearance.Options.UseFont = True
+        Me.chkValidar.Properties.Appearance.Options.UseForeColor = True
+        Me.chkValidar.Properties.Caption = "Validar Tasa de Cambio"
+        Me.chkValidar.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkValidar.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
+        Me.chkValidar.Size = New System.Drawing.Size(352, 22)
+        Me.chkValidar.StyleController = Me.LayoutControl1
+        Me.chkValidar.TabIndex = 185
+        '
+        'lblCuenta
+        '
+        Me.lblCuenta.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCuenta.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblCuenta.Appearance.Options.UseFont = True
+        Me.lblCuenta.Appearance.Options.UseForeColor = True
+        Me.lblCuenta.Appearance.Options.UseTextOptions = True
+        Me.lblCuenta.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.lblCuenta.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.lblCuenta.Location = New System.Drawing.Point(36, 412)
+        Me.lblCuenta.Name = "lblCuenta"
+        Me.lblCuenta.Size = New System.Drawing.Size(812, 18)
+        Me.lblCuenta.StyleController = Me.LayoutControl1
+        Me.lblCuenta.TabIndex = 214
+        Me.lblCuenta.Text = "Ejemplo Cuenta: 0000 00 00 000"
+        '
+        'cbMes
+        '
+        Me.cbMes.Location = New System.Drawing.Point(186, 215)
+        Me.cbMes.Name = "cbMes"
+        Me.cbMes.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbMes.Properties.Appearance.Options.UseFont = True
+        Me.cbMes.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbMes.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.cbMes.Size = New System.Drawing.Size(296, 22)
+        Me.cbMes.StyleController = Me.LayoutControl1
+        Me.cbMes.TabIndex = 213
+        '
         'txtRequisaBodegaNumero
         '
         Me.txtRequisaBodegaNumero.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtRequisaBodegaNumero.Location = New System.Drawing.Point(186, 358)
+        Me.txtRequisaBodegaNumero.Location = New System.Drawing.Point(186, 359)
         Me.txtRequisaBodegaNumero.Name = "txtRequisaBodegaNumero"
         Me.txtRequisaBodegaNumero.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRequisaBodegaNumero.Properties.Appearance.Options.UseFont = True
@@ -639,7 +727,7 @@ Public Class frmAgregarEmpresa
         '
         'chkOC
         '
-        Me.chkOC.Location = New System.Drawing.Point(508, 46)
+        Me.chkOC.Location = New System.Drawing.Point(508, 47)
         Me.chkOC.Name = "chkOC"
         Me.chkOC.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkOC.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -654,7 +742,7 @@ Public Class frmAgregarEmpresa
         '
         'ckMultiple
         '
-        Me.ckMultiple.Location = New System.Drawing.Point(508, 98)
+        Me.ckMultiple.Location = New System.Drawing.Point(508, 99)
         Me.ckMultiple.Name = "ckMultiple"
         Me.ckMultiple.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckMultiple.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -669,7 +757,7 @@ Public Class frmAgregarEmpresa
         '
         'ckLiquidacion
         '
-        Me.ckLiquidacion.Location = New System.Drawing.Point(508, 72)
+        Me.ckLiquidacion.Location = New System.Drawing.Point(508, 73)
         Me.ckLiquidacion.Name = "ckLiquidacion"
         Me.ckLiquidacion.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ckLiquidacion.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -685,7 +773,7 @@ Public Class frmAgregarEmpresa
         'txtLineas
         '
         Me.txtLineas.EditValue = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.txtLineas.Location = New System.Drawing.Point(186, 488)
+        Me.txtLineas.Location = New System.Drawing.Point(186, 489)
         Me.txtLineas.Name = "txtLineas"
         Me.txtLineas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLineas.Properties.Appearance.Options.UseFont = True
@@ -699,7 +787,7 @@ Public Class frmAgregarEmpresa
         'txtNoDecimales
         '
         Me.txtNoDecimales.EditValue = New Decimal(New Integer() {2, 0, 0, 0})
-        Me.txtNoDecimales.Location = New System.Drawing.Point(186, 462)
+        Me.txtNoDecimales.Location = New System.Drawing.Point(186, 463)
         Me.txtNoDecimales.Name = "txtNoDecimales"
         Me.txtNoDecimales.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNoDecimales.Properties.Appearance.Options.UseFont = True
@@ -713,7 +801,7 @@ Public Class frmAgregarEmpresa
         'txtDevolucionProveedorNumero
         '
         Me.txtDevolucionProveedorNumero.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtDevolucionProveedorNumero.Location = New System.Drawing.Point(186, 384)
+        Me.txtDevolucionProveedorNumero.Location = New System.Drawing.Point(186, 385)
         Me.txtDevolucionProveedorNumero.Name = "txtDevolucionProveedorNumero"
         Me.txtDevolucionProveedorNumero.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDevolucionProveedorNumero.Properties.Appearance.Options.UseFont = True
@@ -727,7 +815,7 @@ Public Class frmAgregarEmpresa
         'txtDevolucionClienteNumero
         '
         Me.txtDevolucionClienteNumero.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtDevolucionClienteNumero.Location = New System.Drawing.Point(186, 410)
+        Me.txtDevolucionClienteNumero.Location = New System.Drawing.Point(186, 411)
         Me.txtDevolucionClienteNumero.Name = "txtDevolucionClienteNumero"
         Me.txtDevolucionClienteNumero.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDevolucionClienteNumero.Properties.Appearance.Options.UseFont = True
@@ -741,7 +829,7 @@ Public Class frmAgregarEmpresa
         'txtOrdenCompraNumero
         '
         Me.txtOrdenCompraNumero.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtOrdenCompraNumero.Location = New System.Drawing.Point(186, 436)
+        Me.txtOrdenCompraNumero.Location = New System.Drawing.Point(186, 437)
         Me.txtOrdenCompraNumero.Name = "txtOrdenCompraNumero"
         Me.txtOrdenCompraNumero.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOrdenCompraNumero.Properties.Appearance.Options.UseFont = True
@@ -755,7 +843,7 @@ Public Class frmAgregarEmpresa
         'txtPedidoNumero
         '
         Me.txtPedidoNumero.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtPedidoNumero.Location = New System.Drawing.Point(186, 332)
+        Me.txtPedidoNumero.Location = New System.Drawing.Point(186, 333)
         Me.txtPedidoNumero.Name = "txtPedidoNumero"
         Me.txtPedidoNumero.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPedidoNumero.Properties.Appearance.Options.UseFont = True
@@ -769,7 +857,7 @@ Public Class frmAgregarEmpresa
         'txtCotizacionNumero
         '
         Me.txtCotizacionNumero.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtCotizacionNumero.Location = New System.Drawing.Point(186, 306)
+        Me.txtCotizacionNumero.Location = New System.Drawing.Point(186, 307)
         Me.txtCotizacionNumero.Name = "txtCotizacionNumero"
         Me.txtCotizacionNumero.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCotizacionNumero.Properties.Appearance.Options.UseFont = True
@@ -783,7 +871,7 @@ Public Class frmAgregarEmpresa
         'txtOrdenVentaInicial
         '
         Me.txtOrdenVentaInicial.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtOrdenVentaInicial.Location = New System.Drawing.Point(186, 280)
+        Me.txtOrdenVentaInicial.Location = New System.Drawing.Point(186, 281)
         Me.txtOrdenVentaInicial.Name = "txtOrdenVentaInicial"
         Me.txtOrdenVentaInicial.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOrdenVentaInicial.Properties.Appearance.Options.UseFont = True
@@ -797,7 +885,7 @@ Public Class frmAgregarEmpresa
         'txtReciboNumero
         '
         Me.txtReciboNumero.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtReciboNumero.Location = New System.Drawing.Point(186, 254)
+        Me.txtReciboNumero.Location = New System.Drawing.Point(186, 255)
         Me.txtReciboNumero.Name = "txtReciboNumero"
         Me.txtReciboNumero.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtReciboNumero.Properties.Appearance.Options.UseFont = True
@@ -811,7 +899,7 @@ Public Class frmAgregarEmpresa
         'txtReciboDigitos
         '
         Me.txtReciboDigitos.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtReciboDigitos.Location = New System.Drawing.Point(186, 228)
+        Me.txtReciboDigitos.Location = New System.Drawing.Point(186, 229)
         Me.txtReciboDigitos.Name = "txtReciboDigitos"
         Me.txtReciboDigitos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtReciboDigitos.Properties.Appearance.Options.UseFont = True
@@ -825,7 +913,7 @@ Public Class frmAgregarEmpresa
         'txtFacturaDigitos
         '
         Me.txtFacturaDigitos.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtFacturaDigitos.Location = New System.Drawing.Point(186, 202)
+        Me.txtFacturaDigitos.Location = New System.Drawing.Point(186, 203)
         Me.txtFacturaDigitos.Name = "txtFacturaDigitos"
         Me.txtFacturaDigitos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFacturaDigitos.Properties.Appearance.Options.UseFont = True
@@ -839,7 +927,7 @@ Public Class frmAgregarEmpresa
         'txtInatec
         '
         Me.txtInatec.EditValue = New Decimal(New Integer() {2, 0, 0, 0})
-        Me.txtInatec.Location = New System.Drawing.Point(186, 176)
+        Me.txtInatec.Location = New System.Drawing.Point(186, 177)
         Me.txtInatec.Name = "txtInatec"
         Me.txtInatec.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtInatec.Properties.Appearance.Options.UseFont = True
@@ -855,7 +943,7 @@ Public Class frmAgregarEmpresa
         'txtMontoIR
         '
         Me.txtMontoIR.EditValue = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.txtMontoIR.Location = New System.Drawing.Point(186, 150)
+        Me.txtMontoIR.Location = New System.Drawing.Point(186, 151)
         Me.txtMontoIR.Name = "txtMontoIR"
         Me.txtMontoIR.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMontoIR.Properties.Appearance.Options.UseFont = True
@@ -871,7 +959,7 @@ Public Class frmAgregarEmpresa
         'txtIRVentas
         '
         Me.txtIRVentas.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtIRVentas.Location = New System.Drawing.Point(186, 124)
+        Me.txtIRVentas.Location = New System.Drawing.Point(186, 125)
         Me.txtIRVentas.Name = "txtIRVentas"
         Me.txtIRVentas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIRVentas.Properties.Appearance.Options.UseFont = True
@@ -887,7 +975,7 @@ Public Class frmAgregarEmpresa
         'txtIRServicios
         '
         Me.txtIRServicios.EditValue = New Decimal(New Integer() {10, 0, 0, 0})
-        Me.txtIRServicios.Location = New System.Drawing.Point(186, 98)
+        Me.txtIRServicios.Location = New System.Drawing.Point(186, 99)
         Me.txtIRServicios.Name = "txtIRServicios"
         Me.txtIRServicios.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIRServicios.Properties.Appearance.Options.UseFont = True
@@ -903,7 +991,7 @@ Public Class frmAgregarEmpresa
         'txtIRProductos
         '
         Me.txtIRProductos.EditValue = New Decimal(New Integer() {2, 0, 0, 0})
-        Me.txtIRProductos.Location = New System.Drawing.Point(186, 72)
+        Me.txtIRProductos.Location = New System.Drawing.Point(186, 73)
         Me.txtIRProductos.Name = "txtIRProductos"
         Me.txtIRProductos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIRProductos.Properties.Appearance.Options.UseFont = True
@@ -919,7 +1007,7 @@ Public Class frmAgregarEmpresa
         'txtIva
         '
         Me.txtIva.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtIva.Location = New System.Drawing.Point(186, 46)
+        Me.txtIva.Location = New System.Drawing.Point(186, 47)
         Me.txtIva.Name = "txtIva"
         Me.txtIva.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIva.Properties.Appearance.Options.UseFont = True
@@ -934,7 +1022,7 @@ Public Class frmAgregarEmpresa
         '
         'chkEspacio
         '
-        Me.chkEspacio.Location = New System.Drawing.Point(36, 383)
+        Me.chkEspacio.Location = New System.Drawing.Point(36, 386)
         Me.chkEspacio.Name = "chkEspacio"
         Me.chkEspacio.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkEspacio.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
@@ -949,7 +1037,7 @@ Public Class frmAgregarEmpresa
         'txtSCuenta5
         '
         Me.txtSCuenta5.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta5.Location = New System.Drawing.Point(36, 357)
+        Me.txtSCuenta5.Location = New System.Drawing.Point(36, 360)
         Me.txtSCuenta5.Name = "txtSCuenta5"
         Me.txtSCuenta5.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta5.Properties.Appearance.Options.UseFont = True
@@ -962,7 +1050,7 @@ Public Class frmAgregarEmpresa
         'txtSCuenta7
         '
         Me.txtSCuenta7.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta7.Location = New System.Drawing.Point(362, 357)
+        Me.txtSCuenta7.Location = New System.Drawing.Point(362, 360)
         Me.txtSCuenta7.Name = "txtSCuenta7"
         Me.txtSCuenta7.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta7.Properties.Appearance.Options.UseFont = True
@@ -975,33 +1063,33 @@ Public Class frmAgregarEmpresa
         'txtSCuenta9
         '
         Me.txtSCuenta9.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta9.Location = New System.Drawing.Point(689, 357)
+        Me.txtSCuenta9.Location = New System.Drawing.Point(688, 360)
         Me.txtSCuenta9.Name = "txtSCuenta9"
         Me.txtSCuenta9.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta9.Properties.Appearance.Options.UseFont = True
         Me.txtSCuenta9.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtSCuenta9.Properties.MaxValue = New Decimal(New Integer() {100, 0, 0, 0})
-        Me.txtSCuenta9.Size = New System.Drawing.Size(159, 22)
+        Me.txtSCuenta9.Size = New System.Drawing.Size(160, 22)
         Me.txtSCuenta9.StyleController = Me.LayoutControl1
         Me.txtSCuenta9.TabIndex = 174
         '
         'txtSCuenta8
         '
         Me.txtSCuenta8.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta8.Location = New System.Drawing.Point(525, 357)
+        Me.txtSCuenta8.Location = New System.Drawing.Point(525, 360)
         Me.txtSCuenta8.Name = "txtSCuenta8"
         Me.txtSCuenta8.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta8.Properties.Appearance.Options.UseFont = True
         Me.txtSCuenta8.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtSCuenta8.Properties.MaxValue = New Decimal(New Integer() {100, 0, 0, 0})
-        Me.txtSCuenta8.Size = New System.Drawing.Size(160, 22)
+        Me.txtSCuenta8.Size = New System.Drawing.Size(159, 22)
         Me.txtSCuenta8.StyleController = Me.LayoutControl1
         Me.txtSCuenta8.TabIndex = 174
         '
         'txtSCuenta6
         '
         Me.txtSCuenta6.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta6.Location = New System.Drawing.Point(199, 357)
+        Me.txtSCuenta6.Location = New System.Drawing.Point(199, 360)
         Me.txtSCuenta6.Name = "txtSCuenta6"
         Me.txtSCuenta6.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta6.Properties.Appearance.Options.UseFont = True
@@ -1014,33 +1102,33 @@ Public Class frmAgregarEmpresa
         'txtSCuenta4
         '
         Me.txtSCuenta4.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta4.Location = New System.Drawing.Point(689, 314)
+        Me.txtSCuenta4.Location = New System.Drawing.Point(688, 317)
         Me.txtSCuenta4.Name = "txtSCuenta4"
         Me.txtSCuenta4.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta4.Properties.Appearance.Options.UseFont = True
         Me.txtSCuenta4.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtSCuenta4.Properties.MaxValue = New Decimal(New Integer() {100, 0, 0, 0})
-        Me.txtSCuenta4.Size = New System.Drawing.Size(159, 22)
+        Me.txtSCuenta4.Size = New System.Drawing.Size(160, 22)
         Me.txtSCuenta4.StyleController = Me.LayoutControl1
         Me.txtSCuenta4.TabIndex = 174
         '
         'txtSCuenta3
         '
         Me.txtSCuenta3.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta3.Location = New System.Drawing.Point(525, 314)
+        Me.txtSCuenta3.Location = New System.Drawing.Point(525, 317)
         Me.txtSCuenta3.Name = "txtSCuenta3"
         Me.txtSCuenta3.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta3.Properties.Appearance.Options.UseFont = True
         Me.txtSCuenta3.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.txtSCuenta3.Properties.MaxValue = New Decimal(New Integer() {100, 0, 0, 0})
-        Me.txtSCuenta3.Size = New System.Drawing.Size(160, 22)
+        Me.txtSCuenta3.Size = New System.Drawing.Size(159, 22)
         Me.txtSCuenta3.StyleController = Me.LayoutControl1
         Me.txtSCuenta3.TabIndex = 173
         '
         'txtSCuenta2
         '
         Me.txtSCuenta2.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta2.Location = New System.Drawing.Point(362, 314)
+        Me.txtSCuenta2.Location = New System.Drawing.Point(362, 317)
         Me.txtSCuenta2.Name = "txtSCuenta2"
         Me.txtSCuenta2.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta2.Properties.Appearance.Options.UseFont = True
@@ -1053,7 +1141,7 @@ Public Class frmAgregarEmpresa
         'txtSCuenta1
         '
         Me.txtSCuenta1.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtSCuenta1.Location = New System.Drawing.Point(199, 314)
+        Me.txtSCuenta1.Location = New System.Drawing.Point(199, 317)
         Me.txtSCuenta1.Name = "txtSCuenta1"
         Me.txtSCuenta1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCuenta1.Properties.Appearance.Options.UseFont = True
@@ -1066,7 +1154,7 @@ Public Class frmAgregarEmpresa
         'txtMayor
         '
         Me.txtMayor.EditValue = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtMayor.Location = New System.Drawing.Point(36, 314)
+        Me.txtMayor.Location = New System.Drawing.Point(36, 317)
         Me.txtMayor.Name = "txtMayor"
         Me.txtMayor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMayor.Properties.Appearance.Options.UseFont = True
@@ -1079,7 +1167,7 @@ Public Class frmAgregarEmpresa
         '
         'cbRegion
         '
-        Me.cbRegion.Location = New System.Drawing.Point(186, 166)
+        Me.cbRegion.Location = New System.Drawing.Point(186, 167)
         Me.cbRegion.Name = "cbRegion"
         Me.cbRegion.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbRegion.Properties.Appearance.Options.UseFont = True
@@ -1090,7 +1178,7 @@ Public Class frmAgregarEmpresa
         '
         'cbGMT
         '
-        Me.cbGMT.Location = New System.Drawing.Point(186, 142)
+        Me.cbGMT.Location = New System.Drawing.Point(186, 143)
         Me.cbGMT.Name = "cbGMT"
         Me.cbGMT.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbGMT.Properties.Appearance.Options.UseFont = True
@@ -1101,7 +1189,7 @@ Public Class frmAgregarEmpresa
         '
         'cbMonedaSalario
         '
-        Me.cbMonedaSalario.Location = New System.Drawing.Point(648, 240)
+        Me.cbMonedaSalario.Location = New System.Drawing.Point(648, 241)
         Me.cbMonedaSalario.Name = "cbMonedaSalario"
         Me.cbMonedaSalario.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMonedaSalario.Properties.Appearance.Options.UseFont = True
@@ -1113,7 +1201,7 @@ Public Class frmAgregarEmpresa
         'nudAnio
         '
         Me.nudAnio.EditValue = New Decimal(New Integer() {2000, 0, 0, 0})
-        Me.nudAnio.Location = New System.Drawing.Point(186, 240)
+        Me.nudAnio.Location = New System.Drawing.Point(186, 241)
         Me.nudAnio.Name = "nudAnio"
         Me.nudAnio.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nudAnio.Properties.Appearance.Options.UseFont = True
@@ -1126,7 +1214,7 @@ Public Class frmAgregarEmpresa
         '
         'cbMonedaBase
         '
-        Me.cbMonedaBase.Location = New System.Drawing.Point(648, 214)
+        Me.cbMonedaBase.Location = New System.Drawing.Point(648, 215)
         Me.cbMonedaBase.Name = "cbMonedaBase"
         Me.cbMonedaBase.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMonedaBase.Properties.Appearance.Options.UseFont = True
@@ -1137,7 +1225,7 @@ Public Class frmAgregarEmpresa
         '
         'cbBodegas
         '
-        Me.cbBodegas.Location = New System.Drawing.Point(648, 190)
+        Me.cbBodegas.Location = New System.Drawing.Point(648, 191)
         Me.cbBodegas.Name = "cbBodegas"
         Me.cbBodegas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbBodegas.Properties.Appearance.Options.UseFont = True
@@ -1148,7 +1236,7 @@ Public Class frmAgregarEmpresa
         '
         'txtContador
         '
-        Me.txtContador.Location = New System.Drawing.Point(186, 70)
+        Me.txtContador.Location = New System.Drawing.Point(186, 71)
         Me.txtContador.Name = "txtContador"
         Me.txtContador.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContador.Properties.Appearance.Options.UseFont = True
@@ -1160,7 +1248,7 @@ Public Class frmAgregarEmpresa
         '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(186, 190)
+        Me.txtTelefono.Location = New System.Drawing.Point(186, 191)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefono.Properties.Appearance.Options.UseFont = True
@@ -1172,7 +1260,7 @@ Public Class frmAgregarEmpresa
         '
         'txtCiudad
         '
-        Me.txtCiudad.Location = New System.Drawing.Point(186, 118)
+        Me.txtCiudad.Location = New System.Drawing.Point(186, 119)
         Me.txtCiudad.Name = "txtCiudad"
         Me.txtCiudad.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiudad.Properties.Appearance.Options.UseFont = True
@@ -1184,7 +1272,7 @@ Public Class frmAgregarEmpresa
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(186, 46)
+        Me.txtNombre.Location = New System.Drawing.Point(186, 47)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombre.Properties.Appearance.Options.UseFont = True
@@ -1217,7 +1305,6 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.TabbedControlGroup1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(884, 561)
         Me.LayoutControlGroup1.TextVisible = False
@@ -1227,7 +1314,6 @@ Public Class frmAgregarEmpresa
         Me.TabbedControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.TabbedControlGroup1.Name = "TabbedControlGroup1"
         Me.TabbedControlGroup1.SelectedTabPage = Me.LayoutControlGroup2
-        Me.TabbedControlGroup1.SelectedTabPageIndex = 0
         Me.TabbedControlGroup1.Size = New System.Drawing.Size(864, 541)
         Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlGroup3})
         '
@@ -1236,7 +1322,7 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem4, Me.LayoutControlItem10, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem11, Me.LayoutControlGroup4, Me.LayoutControlItem5, Me.LayoutControlItem7, Me.LayoutControlItem12, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem48})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(840, 495)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(840, 494)
         Me.LayoutControlGroup2.Text = "Datos Generales"
         '
         'LayoutControlItem1
@@ -1303,7 +1389,7 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem15, Me.LayoutControlItem16, Me.LayoutControlItem23, Me.LayoutControlItem17, Me.LayoutControlItem19, Me.LayoutControlItem20, Me.LayoutControlItem21, Me.LayoutControlItem14, Me.LayoutControlItem13, Me.LayoutControlItem18, Me.LayoutControlItem22, Me.LayoutControlItem6})
         Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 220)
         Me.LayoutControlGroup4.Name = "LayoutControlGroup4"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(840, 275)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(840, 274)
         Me.LayoutControlGroup4.Text = "Configurar Niveles y Longitud de Cuenta Contable"
         '
         'LayoutControlItem15
@@ -1325,7 +1411,7 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlItem16.Control = Me.txtSCuenta3
         Me.LayoutControlItem16.Location = New System.Drawing.Point(489, 0)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(164, 43)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(163, 43)
         Me.LayoutControlItem16.Text = "Nivel 3"
         Me.LayoutControlItem16.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(159, 14)
@@ -1344,9 +1430,9 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlItem17.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LayoutControlItem17.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem17.Control = Me.txtSCuenta4
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(653, 0)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(652, 0)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(163, 43)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(164, 43)
         Me.LayoutControlItem17.Text = "Nivel 4"
         Me.LayoutControlItem17.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(159, 14)
@@ -1358,7 +1444,7 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlItem19.Control = Me.txtSCuenta8
         Me.LayoutControlItem19.Location = New System.Drawing.Point(489, 43)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(164, 43)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(163, 43)
         Me.LayoutControlItem19.Text = "Nivel 8"
         Me.LayoutControlItem19.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(159, 14)
@@ -1368,9 +1454,9 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlItem20.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LayoutControlItem20.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem20.Control = Me.txtSCuenta9
-        Me.LayoutControlItem20.Location = New System.Drawing.Point(653, 43)
+        Me.LayoutControlItem20.Location = New System.Drawing.Point(652, 43)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
-        Me.LayoutControlItem20.Size = New System.Drawing.Size(163, 43)
+        Me.LayoutControlItem20.Size = New System.Drawing.Size(164, 43)
         Me.LayoutControlItem20.Text = "Nivel 9"
         Me.LayoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem20.TextSize = New System.Drawing.Size(159, 14)
@@ -1440,7 +1526,7 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlItem6.Control = Me.lblCuenta
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 112)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(816, 120)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(816, 117)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
@@ -1500,10 +1586,10 @@ Public Class frmAgregarEmpresa
         '
         'LayoutControlGroup3
         '
-        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem33, Me.LayoutControlItem24, Me.LayoutControlItem25, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlItem28, Me.LayoutControlItem39, Me.LayoutControlItem38, Me.LayoutControlItem43, Me.EmptySpaceItem1, Me.lytxtFacturaDigitos, Me.LayoutControlItem29, Me.LayoutControlItem31, Me.LayoutControlItem34, Me.LayoutControlItem35, Me.LayoutControlItem36, Me.LayoutControlItem37, Me.LayoutControlItem42, Me.LayoutControlItem47, Me.LayoutControlItem44, Me.LayoutControlItem32, Me.EmptySpaceItem2, Me.LayoutControlItem30, Me.EmptySpaceItem3, Me.LayoutControlItem49})
+        Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem33, Me.LayoutControlItem24, Me.LayoutControlItem25, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlItem28, Me.LayoutControlItem39, Me.LayoutControlItem38, Me.LayoutControlItem43, Me.EmptySpaceItem1, Me.lytxtFacturaDigitos, Me.LayoutControlItem29, Me.LayoutControlItem31, Me.LayoutControlItem34, Me.LayoutControlItem35, Me.LayoutControlItem36, Me.LayoutControlItem37, Me.LayoutControlItem42, Me.LayoutControlItem47, Me.LayoutControlItem44, Me.LayoutControlItem32, Me.EmptySpaceItem2, Me.LayoutControlItem30, Me.EmptySpaceItem3, Me.LayoutControlItem49, Me.LayoutControlItem50, Me.LayoutControlItem51, Me.LayoutControlItem52, Me.LayoutControlItem53})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(840, 495)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(840, 494)
         Me.LayoutControlGroup3.Text = "Configuraciones"
         '
         'LayoutControlItem33
@@ -1592,7 +1678,7 @@ Public Class frmAgregarEmpresa
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 468)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(840, 27)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(840, 26)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'lytxtFacturaDigitos
@@ -1697,9 +1783,9 @@ Public Class frmAgregarEmpresa
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(484, 156)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(484, 208)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(356, 78)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(356, 26)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem30
@@ -1719,6 +1805,42 @@ Public Class frmAgregarEmpresa
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(356, 234)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
+        'LayoutControlItem49
+        '
+        Me.LayoutControlItem49.Control = Me.chkValidar
+        Me.LayoutControlItem49.Location = New System.Drawing.Point(484, 78)
+        Me.LayoutControlItem49.Name = "LayoutControlItem49"
+        Me.LayoutControlItem49.Size = New System.Drawing.Size(356, 26)
+        Me.LayoutControlItem49.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem49.TextVisible = False
+        '
+        'LayoutControlItem50
+        '
+        Me.LayoutControlItem50.Control = Me.chkAdvertenciaVencidas
+        Me.LayoutControlItem50.Location = New System.Drawing.Point(484, 104)
+        Me.LayoutControlItem50.Name = "LayoutControlItem50"
+        Me.LayoutControlItem50.Size = New System.Drawing.Size(356, 26)
+        Me.LayoutControlItem50.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem50.TextVisible = False
+        '
+        'LayoutControlItem51
+        '
+        Me.LayoutControlItem51.Control = Me.chkLimite
+        Me.LayoutControlItem51.Location = New System.Drawing.Point(484, 130)
+        Me.LayoutControlItem51.Name = "LayoutControlItem51"
+        Me.LayoutControlItem51.Size = New System.Drawing.Size(356, 26)
+        Me.LayoutControlItem51.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem51.TextVisible = False
+        '
+        'LayoutControlItem52
+        '
+        Me.LayoutControlItem52.Control = Me.chkCobros
+        Me.LayoutControlItem52.Location = New System.Drawing.Point(484, 156)
+        Me.LayoutControlItem52.Name = "LayoutControlItem52"
+        Me.LayoutControlItem52.Size = New System.Drawing.Size(356, 26)
+        Me.LayoutControlItem52.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem52.TextVisible = False
+        '
         'cmdAceptar
         '
         Me.cmdAceptar.Appearance.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1728,7 +1850,7 @@ Public Class frmAgregarEmpresa
         Me.cmdAceptar.ImageOptions.Image = CType(resources.GetObject("cmdAceptar.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdAceptar.Location = New System.Drawing.Point(12, 12)
         Me.cmdAceptar.Name = "cmdAceptar"
-        Me.cmdAceptar.Size = New System.Drawing.Size(107, 38)
+        Me.cmdAceptar.Size = New System.Drawing.Size(109, 36)
         Me.cmdAceptar.StyleController = Me.LayoutControl2
         Me.cmdAceptar.TabIndex = 20
         Me.cmdAceptar.Text = "&Guardar"
@@ -1741,7 +1863,7 @@ Public Class frmAgregarEmpresa
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup5
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 588)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 586)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -1752,9 +1874,9 @@ Public Class frmAgregarEmpresa
         Me.cmdCancelar.Appearance.Options.UseFont = True
         Me.cmdCancelar.Appearance.Options.UseForeColor = True
         Me.cmdCancelar.ImageOptions.Image = CType(resources.GetObject("cmdCancelar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdCancelar.Location = New System.Drawing.Point(12, 54)
+        Me.cmdCancelar.Location = New System.Drawing.Point(12, 52)
         Me.cmdCancelar.Name = "cmdCancelar"
-        Me.cmdCancelar.Size = New System.Drawing.Size(107, 38)
+        Me.cmdCancelar.Size = New System.Drawing.Size(109, 36)
         Me.cmdCancelar.StyleController = Me.LayoutControl2
         Me.cmdCancelar.TabIndex = 21
         Me.cmdCancelar.Text = "&Salir"
@@ -1764,9 +1886,8 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlGroup5.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup5.GroupBordersVisible = False
         Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem40, Me.LayoutControlItem46})
-        Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
-        Me.LayoutControlGroup5.Size = New System.Drawing.Size(131, 588)
+        Me.LayoutControlGroup5.Size = New System.Drawing.Size(133, 586)
         Me.LayoutControlGroup5.TextVisible = False
         '
         'LayoutControlItem40
@@ -1774,16 +1895,16 @@ Public Class frmAgregarEmpresa
         Me.LayoutControlItem40.Control = Me.cmdAceptar
         Me.LayoutControlItem40.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem40.Name = "LayoutControlItem40"
-        Me.LayoutControlItem40.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem40.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem40.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem40.TextVisible = False
         '
         'LayoutControlItem46
         '
         Me.LayoutControlItem46.Control = Me.cmdCancelar
-        Me.LayoutControlItem46.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem46.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem46.Name = "LayoutControlItem46"
-        Me.LayoutControlItem46.Size = New System.Drawing.Size(111, 526)
+        Me.LayoutControlItem46.Size = New System.Drawing.Size(113, 526)
         Me.LayoutControlItem46.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem46.TextVisible = False
         '
@@ -1820,34 +1941,34 @@ Public Class frmAgregarEmpresa
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 588)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 586)
         Me.DockPanel1_Container.TabIndex = 0
         '
-        'chkValidar
+        'chkFCuotas
         '
-        Me.chkValidar.Location = New System.Drawing.Point(508, 124)
-        Me.chkValidar.Name = "chkValidar"
-        Me.chkValidar.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkValidar.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.chkValidar.Properties.Appearance.Options.UseFont = True
-        Me.chkValidar.Properties.Appearance.Options.UseForeColor = True
-        Me.chkValidar.Properties.Caption = "Validar Tasa de Cambio"
-        Me.chkValidar.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
-        Me.chkValidar.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
-        Me.chkValidar.Size = New System.Drawing.Size(352, 22)
-        Me.chkValidar.StyleController = Me.LayoutControl1
-        Me.chkValidar.TabIndex = 185
+        Me.chkFCuotas.Location = New System.Drawing.Point(508, 229)
+        Me.chkFCuotas.Name = "chkFCuotas"
+        Me.chkFCuotas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkFCuotas.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.chkFCuotas.Properties.Appearance.Options.UseFont = True
+        Me.chkFCuotas.Properties.Appearance.Options.UseForeColor = True
+        Me.chkFCuotas.Properties.Caption = "Modulo de Facturas en Cuotas"
+        Me.chkFCuotas.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkFCuotas.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.[Default]
+        Me.chkFCuotas.Size = New System.Drawing.Size(352, 22)
+        Me.chkFCuotas.StyleController = Me.LayoutControl1
+        Me.chkFCuotas.TabIndex = 189
         '
-        'LayoutControlItem49
+        'LayoutControlItem53
         '
-        Me.LayoutControlItem49.Control = Me.chkValidar
-        Me.LayoutControlItem49.Location = New System.Drawing.Point(484, 78)
-        Me.LayoutControlItem49.Name = "LayoutControlItem49"
-        Me.LayoutControlItem49.Size = New System.Drawing.Size(356, 78)
-        Me.LayoutControlItem49.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem49.TextVisible = False
+        Me.LayoutControlItem53.Control = Me.chkFCuotas
+        Me.LayoutControlItem53.Location = New System.Drawing.Point(484, 182)
+        Me.LayoutControlItem53.Name = "LayoutControlItem53"
+        Me.LayoutControlItem53.Size = New System.Drawing.Size(356, 26)
+        Me.LayoutControlItem53.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem53.TextVisible = False
         '
         'frmAgregarEmpresa
         '
@@ -1861,12 +1982,16 @@ Public Class frmAgregarEmpresa
         CType(Me.cbPais.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.cbMes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgSeries, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPresPorcMin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkCobros.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkLimite.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkAdvertenciaVencidas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkValidar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbMes.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtRequisaBodegaNumero.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chkOC.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ckMultiple.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1964,6 +2089,10 @@ Public Class frmAgregarEmpresa
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem30, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem49, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem50, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem51, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem52, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl2.ResumeLayout(False)
         CType(Me.LayoutControlGroup5, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1973,8 +2102,8 @@ Public Class frmAgregarEmpresa
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.chkValidar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem49, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkFCuotas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem53, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2071,6 +2200,10 @@ Public Class frmAgregarEmpresa
             cbRegion.EditValue = DetallesEmpresa.Region
             chkOC.Checked = DetallesEmpresa.Exento_OC
             chkValidar.Checked = DetallesEmpresa.ValidarTCambio
+            chkAdvertenciaVencidas.Checked = DetallesEmpresa.ValidarFV
+            chkLimite.Checked = DetallesEmpresa.ValidarLimite
+            chkCobros.Checked = DetallesEmpresa.CobrosEditable
+            chkFCuotas.Checked = DetallesEmpresa.FacturasCuotas
 
             Me.txtIva.Text = ConfigDetalles.IVA
             Me.txtIRProductos.Text = ConfigDetalles.IRProd
@@ -2735,17 +2868,17 @@ Public Class frmAgregarEmpresa
             transaccionFacturas = DBConnFacturas.BeginTransaction
 
             If Nuevo = "SI" Then
-                VB.SysContab.EmpresasDB.AddItem(txtNombre.Text, txtCiudad.Text, cbPais.Text, txtTelefono.Text, _
-                txtContador.Text, mes, nudAnio.Value, Now.Date, _
-                Mayor, SC01, SC02, SC03, SC04, SC05, SC06, SC07, SC08, SC09, _
-                Me.cbMonedaBase.EditValue, Me.cbMonedaSalario.EditValue, Me.txtIva.EditValue, _
-                Me.txtIRProductos.EditValue, Me.txtIRServicios.EditValue, Me.txtIRVentas.EditValue, Me.txtMontoIR.EditValue, _
-                Me.txtInatec.EditValue, Me.txtPresPorcMin.EditValue, Me.txtFacturaDigitos.EditValue, Me.txtRequisaBodegaNumero.EditValue, ckMultiple.Checked, _
-                Me.txtReciboDigitos.EditValue, Me.txtReciboNumero.EditValue, Me.txtOrdenVentaInicial.EditValue, _
-                Me.txtCotizacionNumero.EditValue, Me.txtPedidoNumero.EditValue, _
-                Me.txtOrdenCompraNumero.EditValue, Me.txtDevolucionClienteNumero.EditValue, _
-                Me.txtDevolucionProveedorNumero.EditValue, Me.chkEspacio.Checked, _
-                IIf(Me.cbBodegas.EditValue Is Nothing Or Me.cbBodegas.EditValue = "", "", Me.cbBodegas.EditValue), _
+                VB.SysContab.EmpresasDB.AddItem(txtNombre.Text, txtCiudad.Text, cbPais.Text, txtTelefono.Text,
+                txtContador.Text, mes, nudAnio.Value, Now.Date,
+                Mayor, SC01, SC02, SC03, SC04, SC05, SC06, SC07, SC08, SC09,
+                Me.cbMonedaBase.EditValue, Me.cbMonedaSalario.EditValue, Me.txtIva.EditValue,
+                Me.txtIRProductos.EditValue, Me.txtIRServicios.EditValue, Me.txtIRVentas.EditValue, Me.txtMontoIR.EditValue,
+                Me.txtInatec.EditValue, Me.txtPresPorcMin.EditValue, Me.txtFacturaDigitos.EditValue, Me.txtRequisaBodegaNumero.EditValue, ckMultiple.Checked,
+                Me.txtReciboDigitos.EditValue, Me.txtReciboNumero.EditValue, Me.txtOrdenVentaInicial.EditValue,
+                Me.txtCotizacionNumero.EditValue, Me.txtPedidoNumero.EditValue,
+                Me.txtOrdenCompraNumero.EditValue, Me.txtDevolucionClienteNumero.EditValue,
+                Me.txtDevolucionProveedorNumero.EditValue, Me.chkEspacio.Checked,
+                IIf(Me.cbBodegas.EditValue Is Nothing Or Me.cbBodegas.EditValue = "", "", Me.cbBodegas.EditValue),
                 intGMT, Me.cbPais.EditValue, IIf(IsNumeric(Me.txtNoDecimales.EditValue), CInt(Me.txtNoDecimales.EditValue), 2), ckLiquidacion.CheckState)
 
                 'MsgBox("Los datos han sido guardados correctament", MsgBoxStyle.Information)
@@ -2761,7 +2894,9 @@ Public Class frmAgregarEmpresa
                 Me.txtDevolucionClienteNumero.EditValue, Me.txtDevolucionProveedorNumero.EditValue, Me.chkEspacio.Checked,
                 IIf(Me.cbBodegas.EditValue Is Nothing Or Me.cbBodegas.EditValue = "", "", Me.cbBodegas.EditValue),
                 intGMT, Me.cbPais.EditValue, IIf(IsNumeric(Me.txtNoDecimales.EditValue), CInt(Me.txtNoDecimales.EditValue), 2), ckLiquidacion.CheckState,
-                txtLineas.EditValue, cbGMT.EditValue, cbRegion.EditValue, IIf(chkOC.Checked, 1, 0), IIf(chkValidar.Checked, 1, 0))
+                txtLineas.EditValue, cbGMT.EditValue, cbRegion.EditValue, IIf(chkOC.Checked, 1, 0), IIf(chkValidar.Checked, 1, 0),
+                IIf(chkAdvertenciaVencidas.Checked, 1, 0), IIf(chkLimite.Checked, 1, 0), IIf(chkCobros.Checked, 1, 0),
+                IIf(chkFCuotas.Checked, 1, 0))
 
 
                 My.Application.ChangeCulture(cbRegion.EditValue)
@@ -2779,8 +2914,8 @@ Public Class frmAgregarEmpresa
             'End If
             Close()
         Catch ex As Exception
-            XtraMsg(ex.Message, MessageBoxIcon.Error)
             VB.SysContab.Rutinas.ErrorTransaccion()
+            XtraMsg(ex.Message, MessageBoxIcon.Error)
         End Try
 
     End Sub

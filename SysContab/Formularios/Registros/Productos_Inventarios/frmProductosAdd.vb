@@ -4,6 +4,16 @@ Imports DevExpress.XtraEditors.Controls
 
 Public Class frmProductosAdd
 
+    Private _DT_CABYS As DataTable
+    Public Property DT_CABYS() As DataTable
+        Get
+            Return _DT_CABYS
+        End Get
+        Set(ByVal value As DataTable)
+            _DT_CABYS = value
+        End Set
+    End Property
+
     Dim r As New VB.SysContab.Rutinas
     Public save As Boolean = False
     Private PVDolar As Double = 0
@@ -16,7 +26,8 @@ Public Class frmProductosAdd
         '
         If Nuevo = "NO" Then
 
-            Dim Detalles As VB.SysContab.ArticulosDetails = VB.SysContab.ArticulosDB.GetDetails(Registro, "P")
+            Dim Detalles As VB.SysContab.ArticulosDetails =
+                VB.SysContab.ArticulosDB.GetDetails(Registro, "P")
 
             txtCodigo.Text = Detalles.Codigo
             txtCodigo.ReadOnly = True
@@ -112,6 +123,8 @@ Public Class frmProductosAdd
             chkObsoleto.Checked = Detalles.Obsoleto
             txtMarca.Text = Detalles.Marca
             txtUrl.Text = Detalles.Url
+            txtCabys.Text = Detalles.Cabys
+            txtImpuesto.EditValue = Detalles.Impuesto
 
             If Detalles.Foto IsNot Nothing Then pFoto.Image = Bytes2Image(Detalles.Foto)
 
@@ -264,7 +277,7 @@ Public Class frmProductosAdd
                              IIf(chkValidar.Checked, 1, 0), IIf(chkObsoleto.Checked, 1, 0), txtPrecoio2.EditValue, txtCosto2.EditValue, 0,
                              txtCodigoParte.Text, txtNombreProveedor.Text,
                              IIf(cbFabricante.EditValue Is Nothing, 0, cbFabricante.EditValue), txtFactorIngreso.EditValue, txtMarca.Text,
-                             txtUrl.Text, Foto)
+                             txtUrl.Text, Foto, txtCabys.Text, txtImpuesto.EditValue)
 
             XtraMsg("El Producto : " & txtCodigo.Text + " ha sido registrado con éxito!")
             '
@@ -286,7 +299,7 @@ Public Class frmProductosAdd
                             IIf(chkValidar.Checked, 1, 0), IIf(chkObsoleto.Checked, 1, 0), txtPrecoio2.EditValue, txtCosto2.EditValue, 0,
                             txtCodigoParte.Text, txtNombreProveedor.Text, IIf(cbFabricante.EditValue Is Nothing, 0, cbFabricante.EditValue),
                             txtFactorIngreso.EditValue, txtMarca.Text,
-                            txtUrl.Text, Foto)
+                            txtUrl.Text, Foto, txtCabys.Text, txtImpuesto.EditValue)
 
             save = True
             Close()
@@ -522,5 +535,16 @@ Public Class frmProductosAdd
         End If
 
         pFoto.Image = Image.FromFile(OpenFile.FileName)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        With frmCatalogoCABYS
+            .Main(DT_CABYS)
+
+            If .ok Then
+                txtCabys.Text = .Codigo
+                txtImpuesto.EditValue = .Impuesto
+            End If
+        End With
     End Sub
 End Class

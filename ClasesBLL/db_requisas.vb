@@ -347,6 +347,12 @@ Public Class db_requisas
         End If
     End Sub
 
+    Public Shared Function GetDetalles(Codigo As Integer) As DataTable
+
+        Return ObtieneDatos("sp_sel_requisas", Codigo, EmpresaA, 1)
+
+    End Function
+
     Public Function BorrarMovimiento(Req_Codigo As Integer) As Boolean
 
         Return Guardar("sp_MovimientoDelete", Req_Codigo, EmpresaA)

@@ -17,7 +17,11 @@ Public Class frmDinamicoOrdenesTrabajo
     End Sub
 
     Private Sub LlenarGrid()
-        Dim DT As DataTable = db_OrdenesTrabajo.Reporte(Desde.DateTime.Date.AddMonths(2).Date, Hasta.DateTime.Date)
+
+        Dim DT As DataTable =
+            db_OrdenesTrabajo.Reporte(
+            Desde.DateTime.Date.AddMonths(2).Date,
+            Hasta.DateTime.Date)
 
         iPivotGrid.DataSource = DT
         iPivotGrid.Fields.Clear()

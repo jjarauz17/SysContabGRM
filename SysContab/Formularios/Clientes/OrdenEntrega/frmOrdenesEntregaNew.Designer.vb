@@ -114,7 +114,7 @@ Partial Class frmOrdenesEntregaNew
         'SimpleButton1
         '
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(152, 22)
+        Me.SimpleButton1.Location = New System.Drawing.Point(178, 22)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(97, 38)
         Me.SimpleButton1.StyleController = Me.LayoutControl1
@@ -130,7 +130,8 @@ Partial Class frmOrdenesEntregaNew
         Me.Hasta.Properties.Appearance.Options.UseFont = True
         Me.Hasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Hasta.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.Hasta.Size = New System.Drawing.Size(99, 20)
+        Me.Hasta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.Hasta.Size = New System.Drawing.Size(125, 20)
         Me.Hasta.StyleController = Me.LayoutControl1
         Me.Hasta.TabIndex = 161
         '
@@ -143,7 +144,8 @@ Partial Class frmOrdenesEntregaNew
         Me.Desde.Properties.Appearance.Options.UseFont = True
         Me.Desde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Desde.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.Desde.Size = New System.Drawing.Size(99, 20)
+        Me.Desde.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.Desde.Size = New System.Drawing.Size(125, 20)
         Me.Desde.StyleController = Me.LayoutControl1
         Me.Desde.TabIndex = 160
         '
@@ -183,7 +185,6 @@ Partial Class frmOrdenesEntregaNew
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem9, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.LayoutControlItem14, Me.EmptySpaceItem2, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(521, 482)
         Me.LayoutControlGroup1.TextVisible = False
@@ -210,10 +211,10 @@ Partial Class frmOrdenesEntregaNew
         '
         Me.LayoutControlItem12.Control = Me.Desde
         Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(140, 24)
-        Me.LayoutControlItem12.MinSize = New System.Drawing.Size(140, 24)
+        Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(166, 24)
+        Me.LayoutControlItem12.MinSize = New System.Drawing.Size(166, 24)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(140, 24)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(166, 24)
         Me.LayoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem12.Text = "Desde:"
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(34, 13)
@@ -222,10 +223,10 @@ Partial Class frmOrdenesEntregaNew
         '
         Me.LayoutControlItem13.Control = Me.Hasta
         Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 24)
-        Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(140, 24)
-        Me.LayoutControlItem13.MinSize = New System.Drawing.Size(140, 24)
+        Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(166, 28)
+        Me.LayoutControlItem13.MinSize = New System.Drawing.Size(166, 28)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(140, 28)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(166, 28)
         Me.LayoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem13.Text = "Hasta:"
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(34, 13)
@@ -233,7 +234,7 @@ Partial Class frmOrdenesEntregaNew
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.SimpleButton1
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(140, 10)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(166, 10)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(101, 42)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(101, 42)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
@@ -245,15 +246,15 @@ Partial Class frmOrdenesEntregaNew
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(241, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(267, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(260, 52)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(234, 52)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(140, 0)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(166, 0)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(101, 10)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -279,9 +280,9 @@ Partial Class frmOrdenesEntregaNew
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(141, 455)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(143, 453)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
@@ -300,7 +301,7 @@ Partial Class frmOrdenesEntregaNew
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1059, 565, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(141, 455)
+        Me.LayoutControl2.Size = New System.Drawing.Size(143, 453)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -308,9 +309,9 @@ Partial Class frmOrdenesEntregaNew
         '
         Me.cmdImprimir.Enabled = False
         Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdImprimir.Location = New System.Drawing.Point(12, 138)
+        Me.cmdImprimir.Location = New System.Drawing.Point(12, 136)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(118, 38)
+        Me.cmdImprimir.Size = New System.Drawing.Size(119, 36)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 6
         Me.cmdImprimir.Text = "&Imprimir"
@@ -319,9 +320,9 @@ Partial Class frmOrdenesEntregaNew
         '
         Me.btnDesign.Enabled = False
         Me.btnDesign.ImageOptions.Image = CType(resources.GetObject("btnDesign.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnDesign.Location = New System.Drawing.Point(12, 304)
+        Me.btnDesign.Location = New System.Drawing.Point(12, 323)
         Me.btnDesign.Name = "btnDesign"
-        Me.btnDesign.Size = New System.Drawing.Size(118, 38)
+        Me.btnDesign.Size = New System.Drawing.Size(119, 36)
         Me.btnDesign.StyleController = Me.LayoutControl2
         Me.btnDesign.TabIndex = 119
         Me.btnDesign.Text = "&Diseño"
@@ -331,7 +332,7 @@ Partial Class frmOrdenesEntregaNew
         Me.SimpleButton7.Appearance.Options.UseTextOptions = True
         Me.SimpleButton7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton7.ImageOptions.Image = CType(resources.GetObject("SimpleButton7.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton7.Location = New System.Drawing.Point(12, 388)
+        Me.SimpleButton7.Location = New System.Drawing.Point(12, 403)
         Me.SimpleButton7.Name = "SimpleButton7"
         Me.SimpleButton7.Size = New System.Drawing.Size(118, 38)
         Me.SimpleButton7.StyleController = Me.LayoutControl2
@@ -344,9 +345,9 @@ Partial Class frmOrdenesEntregaNew
         Me.cmdAyuda.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdAyuda.Enabled = False
         Me.cmdAyuda.ImageOptions.Image = CType(resources.GetObject("cmdAyuda.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAyuda.Location = New System.Drawing.Point(12, 346)
+        Me.cmdAyuda.Location = New System.Drawing.Point(12, 363)
         Me.cmdAyuda.Name = "cmdAyuda"
-        Me.cmdAyuda.Size = New System.Drawing.Size(118, 38)
+        Me.cmdAyuda.Size = New System.Drawing.Size(119, 36)
         Me.cmdAyuda.StyleController = Me.LayoutControl2
         Me.cmdAyuda.TabIndex = 9
         Me.cmdAyuda.Text = "E&xportar"
@@ -357,7 +358,7 @@ Partial Class frmOrdenesEntregaNew
         Me.bARemsion.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bARemsion.Enabled = False
         Me.bARemsion.ImageOptions.Image = CType(resources.GetObject("bARemsion.ImageOptions.Image"), System.Drawing.Image)
-        Me.bARemsion.Location = New System.Drawing.Point(12, 180)
+        Me.bARemsion.Location = New System.Drawing.Point(12, 176)
         Me.bARemsion.Name = "bARemsion"
         Me.bARemsion.Size = New System.Drawing.Size(118, 38)
         Me.bARemsion.StyleController = Me.LayoutControl2
@@ -370,7 +371,7 @@ Partial Class frmOrdenesEntregaNew
         Me.cmdBorrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdBorrar.Enabled = False
         Me.cmdBorrar.ImageOptions.Image = CType(resources.GetObject("cmdBorrar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdBorrar.Location = New System.Drawing.Point(12, 222)
+        Me.cmdBorrar.Location = New System.Drawing.Point(12, 218)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(118, 38)
         Me.cmdBorrar.StyleController = Me.LayoutControl2
@@ -383,7 +384,7 @@ Partial Class frmOrdenesEntregaNew
         Me.bAutorizar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bAutorizar.Enabled = False
         Me.bAutorizar.ImageOptions.Image = CType(resources.GetObject("bAutorizar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bAutorizar.Location = New System.Drawing.Point(12, 96)
+        Me.bAutorizar.Location = New System.Drawing.Point(12, 94)
         Me.bAutorizar.Name = "bAutorizar"
         Me.bAutorizar.Size = New System.Drawing.Size(118, 38)
         Me.bAutorizar.StyleController = Me.LayoutControl2
@@ -398,7 +399,7 @@ Partial Class frmOrdenesEntregaNew
         Me.cmdModificar.ImageOptions.Image = CType(resources.GetObject("cmdModificar.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdModificar.Location = New System.Drawing.Point(12, 54)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(118, 38)
+        Me.cmdModificar.Size = New System.Drawing.Size(119, 36)
         Me.cmdModificar.StyleController = Me.LayoutControl2
         Me.cmdModificar.TabIndex = 5
         Me.cmdModificar.Text = "&Editar Orden"
@@ -421,9 +422,8 @@ Partial Class frmOrdenesEntregaNew
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem5, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.EmptySpaceItem1, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem4, Me.LayoutControlItem6})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(142, 438)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(143, 453)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -433,7 +433,7 @@ Partial Class frmOrdenesEntregaNew
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
@@ -443,18 +443,18 @@ Partial Class frmOrdenesEntregaNew
         Me.LayoutControlItem3.Control = Me.cmdModificar
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 42)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.cmdBorrar
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 206)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
@@ -462,20 +462,20 @@ Partial Class frmOrdenesEntregaNew
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.cmdAyuda
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 334)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 351)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
         '
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.SimpleButton7
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 376)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 391)
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
@@ -483,37 +483,37 @@ Partial Class frmOrdenesEntregaNew
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 252)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 248)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(122, 40)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(123, 63)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem10
         '
         Me.LayoutControlItem10.Control = Me.btnDesign
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 292)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 311)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
         '
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.cmdImprimir
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 124)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.bAutorizar
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 82)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -521,11 +521,11 @@ Partial Class frmOrdenesEntregaNew
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.bARemsion
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 164)
         Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem6.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False

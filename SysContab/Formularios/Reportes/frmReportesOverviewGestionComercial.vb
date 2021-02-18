@@ -250,7 +250,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1058, 325, 450, 400)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(878, 600)
+        Me.LayoutControl1.Size = New System.Drawing.Size(893, 600)
         Me.LayoutControl1.TabIndex = 160
         Me.LayoutControl1.Text = "LayoutControl1"
         '
@@ -598,7 +598,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlGroup3, Me.LayoutControlItem1, Me.LayoutControlGroup5, Me.EmptySpaceItem2, Me.EmptySpaceItem3})
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(878, 600)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(893, 600)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlGroup2
@@ -855,7 +855,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.Location = New System.Drawing.Point(837, 0)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(21, 580)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(36, 580)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'Button3
@@ -865,7 +865,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.Button3.ImageOptions.Image = CType(resources.GetObject("Button3.ImageOptions.Image"), System.Drawing.Image)
         Me.Button3.Location = New System.Drawing.Point(12, 12)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(169, 36)
+        Me.Button3.Size = New System.Drawing.Size(129, 36)
         Me.Button3.StyleController = Me.LayoutControl2
         Me.Button3.TabIndex = 3
         Me.Button3.Text = "&SALIR"
@@ -877,7 +877,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup4
-        Me.LayoutControl2.Size = New System.Drawing.Size(193, 571)
+        Me.LayoutControl2.Size = New System.Drawing.Size(153, 571)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -887,7 +887,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.LayoutControlGroup4.GroupBordersVisible = False
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem21, Me.EmptySpaceItem1})
         Me.LayoutControlGroup4.Name = "LayoutControlGroup4"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(193, 571)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(153, 571)
         Me.LayoutControlGroup4.TextVisible = False
         '
         'LayoutControlItem21
@@ -895,7 +895,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.LayoutControlItem21.Control = Me.Button3
         Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(173, 40)
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(133, 40)
         Me.LayoutControlItem21.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem21.TextVisible = False
         '
@@ -904,7 +904,7 @@ Public Class frmReportesOverviewGestionComercial
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 40)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(173, 511)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(133, 511)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'DockManager1
@@ -918,11 +918,11 @@ Public Class frmReportesOverviewGestionComercial
         Me.DockPanel1.Controls.Add(Me.DockPanel1_Container)
         Me.DockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right
         Me.DockPanel1.ID = New System.Guid("571f5295-6aae-4043-94a3-bd67636cfd1e")
-        Me.DockPanel1.Location = New System.Drawing.Point(878, 0)
+        Me.DockPanel1.Location = New System.Drawing.Point(893, 0)
         Me.DockPanel1.Name = "DockPanel1"
         Me.DockPanel1.Options.ShowCloseButton = False
-        Me.DockPanel1.OriginalSize = New System.Drawing.Size(200, 200)
-        Me.DockPanel1.Size = New System.Drawing.Size(200, 600)
+        Me.DockPanel1.OriginalSize = New System.Drawing.Size(160, 200)
+        Me.DockPanel1.Size = New System.Drawing.Size(160, 600)
         Me.DockPanel1.Text = "Opciones"
         '
         'DockPanel1_Container
@@ -930,13 +930,13 @@ Public Class frmReportesOverviewGestionComercial
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
         Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(193, 571)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(153, 571)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmReportesOverviewGestionComercial
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(1078, 600)
+        Me.ClientSize = New System.Drawing.Size(1053, 600)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.DockPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

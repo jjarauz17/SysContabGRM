@@ -202,9 +202,9 @@ Public Class frmLibroEstadoSituacion
         'cmdSalir
         '
         Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 54)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 52)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(107, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(109, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
         Me.cmdSalir.TabIndex = 1
         Me.cmdSalir.Text = "Salir"
@@ -217,7 +217,7 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 264)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 262)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -226,7 +226,7 @@ Public Class frmLibroEstadoSituacion
         Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdImprimir.Location = New System.Drawing.Point(12, 12)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(107, 38)
+        Me.cmdImprimir.Size = New System.Drawing.Size(109, 36)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 0
         Me.cmdImprimir.Text = "Imprimir"
@@ -236,9 +236,8 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem14, Me.LayoutControlItem15})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(131, 264)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 262)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem14
@@ -246,16 +245,16 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControlItem14.Control = Me.cmdImprimir
         Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(111, 42)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
         '
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.cmdSalir
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(111, 202)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 202)
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
         '
@@ -263,7 +262,7 @@ Public Class frmLibroEstadoSituacion
         '
         Me.cbNiveles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbNiveles.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbNiveles.Location = New System.Drawing.Point(93, 72)
+        Me.cbNiveles.Location = New System.Drawing.Point(93, 73)
         Me.cbNiveles.Name = "cbNiveles"
         Me.cbNiveles.Size = New System.Drawing.Size(360, 23)
         Me.cbNiveles.TabIndex = 29
@@ -272,7 +271,7 @@ Public Class frmLibroEstadoSituacion
         '
         Me.cbGrupos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbGrupos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbGrupos.Location = New System.Drawing.Point(93, 46)
+        Me.cbGrupos.Location = New System.Drawing.Point(93, 47)
         Me.cbGrupos.Name = "cbGrupos"
         Me.cbGrupos.Size = New System.Drawing.Size(360, 23)
         Me.cbGrupos.TabIndex = 8
@@ -306,7 +305,7 @@ Public Class frmLibroEstadoSituacion
         '
         'chkAnexos
         '
-        Me.chkAnexos.Location = New System.Drawing.Point(24, 96)
+        Me.chkAnexos.Location = New System.Drawing.Point(24, 97)
         Me.chkAnexos.Name = "chkAnexos"
         Me.chkAnexos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkAnexos.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -320,7 +319,7 @@ Public Class frmLibroEstadoSituacion
         '
         'cbMoneda
         '
-        Me.cbMoneda.Location = New System.Drawing.Point(93, 70)
+        Me.cbMoneda.Location = New System.Drawing.Point(93, 71)
         Me.cbMoneda.Name = "cbMoneda"
         Me.cbMoneda.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMoneda.Properties.Appearance.Options.UseFont = True
@@ -332,7 +331,7 @@ Public Class frmLibroEstadoSituacion
         'Hasta
         '
         Me.Hasta.EditValue = Nothing
-        Me.Hasta.Location = New System.Drawing.Point(93, 46)
+        Me.Hasta.Location = New System.Drawing.Point(93, 47)
         Me.Hasta.Name = "Hasta"
         Me.Hasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Hasta.Properties.Appearance.Options.UseFont = True
@@ -345,18 +344,18 @@ Public Class frmLibroEstadoSituacion
         'RadioGroup1
         '
         Me.RadioGroup1.EditValue = 1
-        Me.RadioGroup1.Location = New System.Drawing.Point(93, 224)
+        Me.RadioGroup1.Location = New System.Drawing.Point(93, 225)
         Me.RadioGroup1.Name = "RadioGroup1"
         Me.RadioGroup1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioGroup1.Properties.Appearance.Options.UseFont = True
         Me.RadioGroup1.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Vertical"), New DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Regla T")})
-        Me.RadioGroup1.Size = New System.Drawing.Size(527, 43)
+        Me.RadioGroup1.Size = New System.Drawing.Size(527, 42)
         Me.RadioGroup1.StyleController = Me.LayoutControl1
         Me.RadioGroup1.TabIndex = 39
         '
         'txtTitulo
         '
-        Me.txtTitulo.Location = New System.Drawing.Point(93, 200)
+        Me.txtTitulo.Location = New System.Drawing.Point(93, 201)
         Me.txtTitulo.Name = "txtTitulo"
         Me.txtTitulo.Size = New System.Drawing.Size(527, 20)
         Me.txtTitulo.StyleController = Me.LayoutControl1
@@ -365,7 +364,7 @@ Public Class frmLibroEstadoSituacion
         'dtpHasta
         '
         Me.dtpHasta.EditValue = Nothing
-        Me.dtpHasta.Location = New System.Drawing.Point(392, 176)
+        Me.dtpHasta.Location = New System.Drawing.Point(392, 177)
         Me.dtpHasta.Name = "dtpHasta"
         Me.dtpHasta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpHasta.Properties.Appearance.Options.UseFont = True
@@ -378,7 +377,7 @@ Public Class frmLibroEstadoSituacion
         'dtpDesde
         '
         Me.dtpDesde.EditValue = Nothing
-        Me.dtpDesde.Location = New System.Drawing.Point(93, 176)
+        Me.dtpDesde.Location = New System.Drawing.Point(93, 177)
         Me.dtpDesde.Name = "dtpDesde"
         Me.dtpDesde.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpDesde.Properties.Appearance.Options.UseFont = True
@@ -390,7 +389,7 @@ Public Class frmLibroEstadoSituacion
         '
         'cbMonedaCambio
         '
-        Me.cbMonedaCambio.Location = New System.Drawing.Point(93, 150)
+        Me.cbMonedaCambio.Location = New System.Drawing.Point(93, 151)
         Me.cbMonedaCambio.Name = "cbMonedaCambio"
         Me.cbMonedaCambio.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMonedaCambio.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
@@ -403,7 +402,7 @@ Public Class frmLibroEstadoSituacion
         '
         'chkSAnterior
         '
-        Me.chkSAnterior.Location = New System.Drawing.Point(457, 72)
+        Me.chkSAnterior.Location = New System.Drawing.Point(457, 73)
         Me.chkSAnterior.Name = "chkSAnterior"
         Me.chkSAnterior.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkSAnterior.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
@@ -417,7 +416,7 @@ Public Class frmLibroEstadoSituacion
         '
         'chkZeros
         '
-        Me.chkZeros.Location = New System.Drawing.Point(457, 46)
+        Me.chkZeros.Location = New System.Drawing.Point(457, 47)
         Me.chkZeros.Name = "chkZeros"
         Me.chkZeros.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkZeros.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
@@ -431,7 +430,7 @@ Public Class frmLibroEstadoSituacion
         '
         'chkCuenta
         '
-        Me.chkCuenta.Location = New System.Drawing.Point(457, 124)
+        Me.chkCuenta.Location = New System.Drawing.Point(457, 125)
         Me.chkCuenta.Name = "chkCuenta"
         Me.chkCuenta.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkCuenta.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
@@ -445,7 +444,7 @@ Public Class frmLibroEstadoSituacion
         '
         'chkOrden
         '
-        Me.chkOrden.Location = New System.Drawing.Point(457, 98)
+        Me.chkOrden.Location = New System.Drawing.Point(457, 99)
         Me.chkOrden.Name = "chkOrden"
         Me.chkOrden.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkOrden.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
@@ -459,7 +458,7 @@ Public Class frmLibroEstadoSituacion
         '
         'chkPorc
         '
-        Me.chkPorc.Location = New System.Drawing.Point(24, 124)
+        Me.chkPorc.Location = New System.Drawing.Point(24, 125)
         Me.chkPorc.Name = "chkPorc"
         Me.chkPorc.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkPorc.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
@@ -473,7 +472,7 @@ Public Class frmLibroEstadoSituacion
         '
         'chkCtaDist
         '
-        Me.chkCtaDist.Location = New System.Drawing.Point(24, 98)
+        Me.chkCtaDist.Location = New System.Drawing.Point(24, 99)
         Me.chkCtaDist.Name = "chkCtaDist"
         Me.chkCtaDist.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkCtaDist.Properties.Appearance.ForeColor = System.Drawing.Color.MediumBlue
@@ -490,7 +489,6 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.TabbedControlGroup1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(644, 291)
         Me.LayoutControlGroup1.TextVisible = False
@@ -500,7 +498,6 @@ Public Class frmLibroEstadoSituacion
         Me.TabbedControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.TabbedControlGroup1.Name = "TabbedControlGroup1"
         Me.TabbedControlGroup1.SelectedTabPage = Me.LayoutControlGroup3
-        Me.TabbedControlGroup1.SelectedTabPageIndex = 0
         Me.TabbedControlGroup1.Size = New System.Drawing.Size(624, 271)
         Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup3, Me.LayoutControlGroup4})
         '
@@ -509,7 +506,7 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem4, Me.LayoutControlItem3, Me.LayoutControlItem6, Me.LayoutControlItem5, Me.LayoutControlItem8, Me.LayoutControlItem7, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem13})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(600, 225)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(600, 224)
         Me.LayoutControlGroup3.Text = "BALANCE GENERAL TRADICIONAL"
         '
         'LayoutControlItem1
@@ -637,7 +634,7 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControlItem13.Control = Me.RadioGroup1
         Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 178)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(600, 47)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(600, 46)
         Me.LayoutControlItem13.Text = "Presentación:"
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(66, 13)
         '
@@ -646,7 +643,7 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem16, Me.LayoutControlItem17, Me.EmptySpaceItem1, Me.LayoutControlItem18})
         Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup4.Name = "LayoutControlGroup4"
-        Me.LayoutControlGroup4.Size = New System.Drawing.Size(600, 225)
+        Me.LayoutControlGroup4.Size = New System.Drawing.Size(600, 224)
         Me.LayoutControlGroup4.Text = "BALANCE GENERAL GERENCIAL"
         '
         'LayoutControlItem16
@@ -683,7 +680,7 @@ Public Class frmLibroEstadoSituacion
         Me.LayoutControlItem18.Control = Me.chkAnexos
         Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 50)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
-        Me.LayoutControlItem18.Size = New System.Drawing.Size(600, 175)
+        Me.LayoutControlItem18.Size = New System.Drawing.Size(600, 174)
         Me.LayoutControlItem18.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem18.TextVisible = False
         '
@@ -708,9 +705,9 @@ Public Class frmLibroEstadoSituacion
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 264)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 262)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmLibroEstadoSituacion

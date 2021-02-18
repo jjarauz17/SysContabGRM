@@ -123,7 +123,7 @@ Partial Class frmRemisionesCliente
         'SimpleButton1
         '
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(152, 22)
+        Me.SimpleButton1.Location = New System.Drawing.Point(190, 22)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(97, 38)
         Me.SimpleButton1.StyleController = Me.LayoutControl1
@@ -139,7 +139,8 @@ Partial Class frmRemisionesCliente
         Me.Hasta.Properties.Appearance.Options.UseFont = True
         Me.Hasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Hasta.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.Hasta.Size = New System.Drawing.Size(99, 20)
+        Me.Hasta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.Hasta.Size = New System.Drawing.Size(137, 20)
         Me.Hasta.StyleController = Me.LayoutControl1
         Me.Hasta.TabIndex = 161
         '
@@ -152,7 +153,8 @@ Partial Class frmRemisionesCliente
         Me.Desde.Properties.Appearance.Options.UseFont = True
         Me.Desde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Desde.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.Desde.Size = New System.Drawing.Size(99, 20)
+        Me.Desde.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
+        Me.Desde.Size = New System.Drawing.Size(137, 20)
         Me.Desde.StyleController = Me.LayoutControl1
         Me.Desde.TabIndex = 160
         '
@@ -192,7 +194,6 @@ Partial Class frmRemisionesCliente
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem9, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.LayoutControlItem14, Me.EmptySpaceItem2, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(672, 593)
         Me.LayoutControlGroup1.TextVisible = False
@@ -219,10 +220,10 @@ Partial Class frmRemisionesCliente
         '
         Me.LayoutControlItem12.Control = Me.Desde
         Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(140, 24)
-        Me.LayoutControlItem12.MinSize = New System.Drawing.Size(140, 24)
+        Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(178, 24)
+        Me.LayoutControlItem12.MinSize = New System.Drawing.Size(178, 24)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(140, 24)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(178, 24)
         Me.LayoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem12.Text = "Desde:"
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(34, 13)
@@ -231,10 +232,10 @@ Partial Class frmRemisionesCliente
         '
         Me.LayoutControlItem13.Control = Me.Hasta
         Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 24)
-        Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(140, 24)
-        Me.LayoutControlItem13.MinSize = New System.Drawing.Size(140, 24)
+        Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(178, 28)
+        Me.LayoutControlItem13.MinSize = New System.Drawing.Size(178, 28)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(140, 28)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(178, 28)
         Me.LayoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem13.Text = "Hasta:"
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(34, 13)
@@ -242,7 +243,7 @@ Partial Class frmRemisionesCliente
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.SimpleButton1
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(140, 10)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(178, 10)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(101, 42)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(101, 42)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
@@ -254,15 +255,15 @@ Partial Class frmRemisionesCliente
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(241, 0)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(279, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(411, 52)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(373, 52)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(140, 0)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(178, 0)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
         Me.EmptySpaceItem3.Size = New System.Drawing.Size(101, 10)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
@@ -288,9 +289,9 @@ Partial Class frmRemisionesCliente
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(141, 566)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(143, 564)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
@@ -312,7 +313,7 @@ Partial Class frmRemisionesCliente
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1059, 565, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(141, 566)
+        Me.LayoutControl2.Size = New System.Drawing.Size(143, 564)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -322,7 +323,7 @@ Partial Class frmRemisionesCliente
         Me.bReporte.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bReporte.Enabled = False
         Me.bReporte.ImageOptions.Image = CType(resources.GetObject("bReporte.ImageOptions.Image"), System.Drawing.Image)
-        Me.bReporte.Location = New System.Drawing.Point(12, 373)
+        Me.bReporte.Location = New System.Drawing.Point(12, 392)
         Me.bReporte.Name = "bReporte"
         Me.bReporte.Size = New System.Drawing.Size(118, 38)
         Me.bReporte.StyleController = Me.LayoutControl2
@@ -335,7 +336,7 @@ Partial Class frmRemisionesCliente
         Me.bGenerarOT.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bGenerarOT.Enabled = False
         Me.bGenerarOT.ImageOptions.Image = CType(resources.GetObject("bGenerarOT.ImageOptions.Image"), System.Drawing.Image)
-        Me.bGenerarOT.Location = New System.Drawing.Point(12, 222)
+        Me.bGenerarOT.Location = New System.Drawing.Point(12, 218)
         Me.bGenerarOT.Name = "bGenerarOT"
         Me.bGenerarOT.Size = New System.Drawing.Size(118, 38)
         Me.bGenerarOT.StyleController = Me.LayoutControl2
@@ -348,9 +349,9 @@ Partial Class frmRemisionesCliente
         Me.bContabilizar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bContabilizar.Enabled = False
         Me.bContabilizar.ImageOptions.Image = CType(resources.GetObject("bContabilizar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bContabilizar.Location = New System.Drawing.Point(12, 264)
+        Me.bContabilizar.Location = New System.Drawing.Point(12, 260)
         Me.bContabilizar.Name = "bContabilizar"
-        Me.bContabilizar.Size = New System.Drawing.Size(118, 38)
+        Me.bContabilizar.Size = New System.Drawing.Size(119, 36)
         Me.bContabilizar.StyleController = Me.LayoutControl2
         Me.bContabilizar.TabIndex = 8
         Me.bContabilizar.Text = "&Contabilizar"
@@ -361,7 +362,7 @@ Partial Class frmRemisionesCliente
         Me.bGenerarMovimiento.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bGenerarMovimiento.Enabled = False
         Me.bGenerarMovimiento.ImageOptions.Image = CType(resources.GetObject("bGenerarMovimiento.ImageOptions.Image"), System.Drawing.Image)
-        Me.bGenerarMovimiento.Location = New System.Drawing.Point(12, 180)
+        Me.bGenerarMovimiento.Location = New System.Drawing.Point(12, 176)
         Me.bGenerarMovimiento.Name = "bGenerarMovimiento"
         Me.bGenerarMovimiento.Size = New System.Drawing.Size(118, 38)
         Me.bGenerarMovimiento.StyleController = Me.LayoutControl2
@@ -374,7 +375,7 @@ Partial Class frmRemisionesCliente
         Me.bTraslado.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bTraslado.Enabled = False
         Me.bTraslado.ImageOptions.Image = CType(resources.GetObject("bTraslado.ImageOptions.Image"), System.Drawing.Image)
-        Me.bTraslado.Location = New System.Drawing.Point(12, 138)
+        Me.bTraslado.Location = New System.Drawing.Point(12, 134)
         Me.bTraslado.Name = "bTraslado"
         Me.bTraslado.Size = New System.Drawing.Size(118, 38)
         Me.bTraslado.StyleController = Me.LayoutControl2
@@ -385,9 +386,9 @@ Partial Class frmRemisionesCliente
         '
         Me.cmdImprimir.Enabled = False
         Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdImprimir.Location = New System.Drawing.Point(12, 96)
+        Me.cmdImprimir.Location = New System.Drawing.Point(12, 94)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(118, 38)
+        Me.cmdImprimir.Size = New System.Drawing.Size(119, 36)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 6
         Me.cmdImprimir.Text = "&Imprimir"
@@ -396,9 +397,9 @@ Partial Class frmRemisionesCliente
         '
         Me.btnDesign.Enabled = False
         Me.btnDesign.ImageOptions.Image = CType(resources.GetObject("btnDesign.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnDesign.Location = New System.Drawing.Point(12, 415)
+        Me.btnDesign.Location = New System.Drawing.Point(12, 434)
         Me.btnDesign.Name = "btnDesign"
-        Me.btnDesign.Size = New System.Drawing.Size(118, 38)
+        Me.btnDesign.Size = New System.Drawing.Size(119, 36)
         Me.btnDesign.StyleController = Me.LayoutControl2
         Me.btnDesign.TabIndex = 119
         Me.btnDesign.Text = "&Diseño"
@@ -408,7 +409,7 @@ Partial Class frmRemisionesCliente
         Me.SimpleButton7.Appearance.Options.UseTextOptions = True
         Me.SimpleButton7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton7.ImageOptions.Image = CType(resources.GetObject("SimpleButton7.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton7.Location = New System.Drawing.Point(12, 499)
+        Me.SimpleButton7.Location = New System.Drawing.Point(12, 514)
         Me.SimpleButton7.Name = "SimpleButton7"
         Me.SimpleButton7.Size = New System.Drawing.Size(118, 38)
         Me.SimpleButton7.StyleController = Me.LayoutControl2
@@ -421,9 +422,9 @@ Partial Class frmRemisionesCliente
         Me.cmdAyuda.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdAyuda.Enabled = False
         Me.cmdAyuda.ImageOptions.Image = CType(resources.GetObject("cmdAyuda.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAyuda.Location = New System.Drawing.Point(12, 457)
+        Me.cmdAyuda.Location = New System.Drawing.Point(12, 474)
         Me.cmdAyuda.Name = "cmdAyuda"
-        Me.cmdAyuda.Size = New System.Drawing.Size(118, 38)
+        Me.cmdAyuda.Size = New System.Drawing.Size(119, 36)
         Me.cmdAyuda.StyleController = Me.LayoutControl2
         Me.cmdAyuda.TabIndex = 9
         Me.cmdAyuda.Text = "E&xportar"
@@ -434,7 +435,7 @@ Partial Class frmRemisionesCliente
         Me.cmdBorrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdBorrar.Enabled = False
         Me.cmdBorrar.ImageOptions.Image = CType(resources.GetObject("cmdBorrar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdBorrar.Location = New System.Drawing.Point(12, 306)
+        Me.cmdBorrar.Location = New System.Drawing.Point(12, 300)
         Me.cmdBorrar.Name = "cmdBorrar"
         Me.cmdBorrar.Size = New System.Drawing.Size(118, 38)
         Me.cmdBorrar.StyleController = Me.LayoutControl2
@@ -449,7 +450,7 @@ Partial Class frmRemisionesCliente
         Me.cmdModificar.ImageOptions.Image = CType(resources.GetObject("cmdModificar.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdModificar.Location = New System.Drawing.Point(12, 54)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(118, 38)
+        Me.cmdModificar.Size = New System.Drawing.Size(119, 36)
         Me.cmdModificar.StyleController = Me.LayoutControl2
         Me.cmdModificar.TabIndex = 5
         Me.cmdModificar.Text = "&Editar"
@@ -472,9 +473,8 @@ Partial Class frmRemisionesCliente
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem5, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.EmptySpaceItem1, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem4, Me.LayoutControlItem6, Me.LayoutControlItem15, Me.LayoutControlItem16, Me.LayoutControlItem17})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(142, 549)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(143, 564)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -484,7 +484,7 @@ Partial Class frmRemisionesCliente
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
@@ -494,18 +494,18 @@ Partial Class frmRemisionesCliente
         Me.LayoutControlItem3.Control = Me.cmdModificar
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 42)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.cmdBorrar
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 294)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 288)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
@@ -513,20 +513,20 @@ Partial Class frmRemisionesCliente
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.cmdAyuda
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 445)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 462)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
         '
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.SimpleButton7
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 487)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 502)
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
@@ -534,37 +534,37 @@ Partial Class frmRemisionesCliente
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 336)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 330)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(122, 25)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(123, 50)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem10
         '
         Me.LayoutControlItem10.Control = Me.btnDesign
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 403)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 422)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
         '
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.cmdImprimir
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 82)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.bTraslado
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 122)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -572,11 +572,11 @@ Partial Class frmRemisionesCliente
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.bGenerarMovimiento
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 164)
         Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem6.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
@@ -584,20 +584,20 @@ Partial Class frmRemisionesCliente
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.bContabilizar
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 252)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 248)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
         '
         'LayoutControlItem16
         '
         Me.LayoutControlItem16.Control = Me.bGenerarOT
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 206)
         Me.LayoutControlItem16.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem16.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem16.TextVisible = False
@@ -605,11 +605,11 @@ Partial Class frmRemisionesCliente
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.bReporte
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 361)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 380)
         Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem17.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem17.TextVisible = False

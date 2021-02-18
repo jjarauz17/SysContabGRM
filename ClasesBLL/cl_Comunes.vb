@@ -93,7 +93,7 @@ Public MustInherit Class ClComun
                 Dim smtp As New SmtpClient()
                 smtp.Host = "mail.ramac.com.ni"
                 smtp.EnableSsl = False
-                Dim NetworkCred As New NetworkCredential("jonnys.arauz@ramac.com.ni", "Jon%Ara121805")
+                Dim NetworkCred As New NetworkCredential("jonnys.arauz@ramac.com.ni", "Pa$$w0rd2018*")
                 smtp.UseDefaultCredentials = True
                 smtp.Credentials = NetworkCred
                 smtp.Port = 25

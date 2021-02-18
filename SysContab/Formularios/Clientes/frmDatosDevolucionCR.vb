@@ -4,16 +4,24 @@ Public Class frmDatosDevolucionCR
 
     Public Ok As String = "NO"
     Public NoFactura As String
-    Dim dv As New DevolucionesClienteDB
-    Dim cl As New ClientesDB()
+    Dim dv As New DevolucionesClienteDB(),
+        Cajas As New CajasDB(),
+        cl As New ClientesDB()
 
-    Dim EsProducto As Boolean = True
+    Dim EsProducto As Boolean = True,
+        IdCaja As Integer = 0
     Private Sub frmDatosDevolucionCR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AddValidation(Me, DxValidationProvider1)
+        'Verificar si la PC contiene configuración de Caja.
+        Dim dsCajas As DataSet = Cajas.PcNombre(Environment.MachineName.ToString)
+
+        If dsCajas.Tables("Cajas").Rows.Count > 0 Then
+            IdCaja = dsCajas.Tables("Cajas").Rows(0).Item("cj_Codigo")
+        End If
 
         Fecha.DateTime = VB.SysContab.Rutinas.Fecha()
         txtDevolucion.Text = DevolucionesClienteDB.Numero()
-        txtReferencia.Text = "NC" + IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura)
+        'txtReferencia.Text = "NC" + IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura)
         GetTipoMovimientos(cbMovimientos, 1)
         cbMovimientos.ItemIndex = 0
 
@@ -26,6 +34,69 @@ Public Class frmDatosDevolucionCR
             lyMovimiento.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
             ' lyTipoNC.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         End If
+        '
+        CargaSeries()
+        '
+        txtnota.Text = $"NC{IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura)}"
+    End Sub
+
+    Private Sub chkSerie_CheckedChanged(sender As Object, e As EventArgs) Handles chkSerie.CheckedChanged
+        GetNumeroNotaSerie()
+    End Sub
+
+    Private Sub cmbserie_EditValueChanged(sender As Object, e As EventArgs) Handles cmbserie.EditValueChanged
+        If cmbserie.EditValue Is Nothing Then Exit Sub
+        '
+        GetNumeroNotaSerie()
+    End Sub
+    '
+    Function CargaSeries() As Boolean
+
+        'Dim objFactura As New FACTURAS_VENTAS
+        'objFactura = Facturas_VentasDB.Detalles(txtFactura.Text)
+
+        Dim _dt As DataTable = ObtieneDatos("sp_sel_SeriesCajas",
+                                            IdCaja,
+                                            EmpresaActual,
+                                            "NC")
+        LookUp(cmbserie,
+               _dt,
+               "Serie",
+               "IdDetalle",
+               "",
+               0, 3, 4)
+
+        cmbserie.Properties.ShowHeader = True
+
+        If _dt.Rows.Count = 0 Then Return False
+        If _dt.Rows.Count > 0 Then Return True
+    End Function
+
+    Sub GetNumeroNotaSerie()
+
+        If chkSerie.Checked Then
+            If CargaSeries() Then
+                txtnota.Properties.ReadOnly = True
+                txtnota.Text = String.Empty
+                cmbserie.Enabled = True
+                cmbserie.ItemIndex = 0
+                '
+                txtnota.Text = Format(cmbserie.GetColumnValue("Factura"), "00000000")
+            Else
+                XtraMsg("No se han encontrados series configuradas.",
+                        MessageBoxIcon.Error)
+                chkSerie.Checked = False
+            End If
+        Else
+            cmbserie.EditValue = Nothing
+            txtnota.Properties.ReadOnly = False
+            cmbserie.Enabled = False
+            'txtnota.Text = db_MaestroNotasCD.GetNumero(1)
+            txtnota.Text = $"NC{IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura)}"
+            txtnota.Focus()
+            txtnota.SelectAll()
+        End If
+
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
@@ -72,6 +143,20 @@ Public Class frmDatosDevolucionCR
             Exit Sub
         End If
         '*******************************************************************************************
+
+        If chkSerie.Checked Then
+            If Not cmbserie.EditValue Is Nothing Then
+                txtnota.Text = $"{cmbserie.Text}{txtnota.Text}"
+            Else
+                txtnota.Text = $"NC{txtnota.Text.PadLeft(6, "0"c)}"
+            End If
+        Else
+            txtnota.Text = $"NC{IIf(NoFactura.Length < 6, NoFactura.PadLeft(6, "0"), NoFactura)}"
+        End If
+        '
+        If db_MaestroNotasCD.Buscar(txtnota.Text) = "SI" Then
+            txtnota.Text = $"{txtnota.Text}-2"
+        End If
 
         Ok = "SI"
         Close()

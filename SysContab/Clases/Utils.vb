@@ -51,6 +51,26 @@ Module Utils
         End If
     End Sub
 
+    Sub LeerEsquemaInicial(FormName As String,
+                           FormText As String,
+                           iVista As DevExpress.XtraGrid.Views.Grid.GridView)
+
+        'Borrar Archivo, para evitar cache
+        If IO.File.Exists(Application.StartupPath & "\xml\xml_" & FormName & ".xml") Then
+            Kill(Application.StartupPath & "\xml\xml_" & FormName.ToString & ".xml")
+        End If
+        '        
+        'Guardar Configuracion Inicial
+        iVista.SaveLayoutToXml(Application.StartupPath & "\xml\xml_" & FormName & ".xml")
+
+        db_Esquemas.GuardarInicial(
+            FormName,
+            FormText,
+            Application.StartupPath & "\xml\xml_" & FormName & ".xml")
+        '
+        ValidarGridSchema(iVista, FormName)
+    End Sub
+
     Public Sub ValidarGridSchema(iVista As DevExpress.XtraGrid.Views.Grid.GridView,
                                  frmName As String)
 
@@ -183,6 +203,7 @@ Module Utils
         Try
             Grid.OptionsView.ShowFooter = True
             Grid.OptionsView.ShowAutoFilterRow = AutoFiltro
+            Grid.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
             '
             Grid.OptionsFind.AlwaysVisible = VerFind
             Grid.OptionsFind.ShowClearButton = False
@@ -223,7 +244,7 @@ Module Utils
                     Grid.Columns(i).DisplayFormat.FormatString = "{0}"
                 End If
 
-                If Grid.Columns(i).GetCaption = "Tasa" Then
+                If Grid.Columns(i).GetCaption = "Tasa" Or Grid.Columns(i).GetCaption = "TCambio" Then
                     Grid.Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                     Grid.Columns(i).DisplayFormat.FormatString = "{0:n4}"
                 End If
@@ -251,6 +272,7 @@ Module Utils
         Try
             Grid.OptionsView.ShowFooter = True
             Grid.OptionsView.ShowAutoFilterRow = AutoFiltro
+            Grid.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
             '
             Grid.OptionsFind.AlwaysVisible = VerFind
             Grid.OptionsFind.ShowClearButton = False
@@ -291,7 +313,7 @@ Module Utils
                     Grid.Columns(i).DisplayFormat.FormatString = "{0}"
                 End If
 
-                If Grid.Columns(i).GetCaption = "Tasa" Then
+                If Grid.Columns(i).GetCaption = "Tasa" Or Grid.Columns(i).GetCaption = "TCambio" Then
                     Grid.Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
                     Grid.Columns(i).DisplayFormat.FormatString = "{0:n4}"
                 End If
@@ -303,6 +325,95 @@ Module Utils
 
                 ' Grid.Columns(i).OptionsColumn.AllowEdit = Editable
             Next
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Public Sub FormatoGridNew(ByRef iVista As DevExpress.XtraGrid.Views.Grid.GridView,
+                                Optional Decimales As Integer = 2,
+                                Optional CountSummaryIndex As Integer = 0,
+                                Optional VerFind As Boolean = True,
+                                Optional Editable As Boolean = False,
+                                Optional AutoFiltro As Boolean = True,
+                                Optional ShowViewCaption As Boolean = False,
+                                Optional ViewCaption As String = "")
+
+
+        Try
+            iVista.OptionsView.ShowFooter = True
+            iVista.OptionsView.ShowAutoFilterRow = AutoFiltro
+            iVista.OptionsView.ShowViewCaption = ShowViewCaption
+            iVista.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+            '
+            iVista.OptionsFind.AlwaysVisible = VerFind
+            iVista.OptionsFind.ShowClearButton = False
+
+            iVista.OptionsBehavior.Editable = Editable
+            'iVista.Columns(0).Width = "50"
+            iVista.Columns(CountSummaryIndex).SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+
+            With iVista
+                For i As Integer = 0 To .Columns.Count - 1
+
+                    'XtraMsg(.Columns(i).ColumnType.FullName)
+
+                    If .Columns(i).ColumnType.FullName = "System.Double" Or
+                        .Columns(i).ColumnType.FullName = "System.Decimal" Then
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "{0:n" & Decimales.ToString & "}"
+
+                        .Columns(i).SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+                        .Columns(i).SummaryItem.DisplayFormat = "{0:n" & Decimales.ToString & "}"
+                    End If
+
+                    If .Columns(i).ColumnType.FullName = "System.DateTime" Or
+                        .Columns(i).ColumnType.FullName = "System.DateTime" Then
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                        .Columns(i).DisplayFormat.FormatString = "{0:dd/MM/yyyy}"
+
+                        If .Columns(i).GetCaption = "Registro" Or
+                            .Columns(i).GetCaption = "Fecha_Creacion" Or
+                            .Columns(i).GetCaption = "Fecha_Modificacion" Then
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "{0:dd/MM/yyyy hh:mm tt}"
+                        End If
+
+                        If .Columns(i).GetCaption.Contains("Hora") Then
+                            .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                            .Columns(i).DisplayFormat.FormatString = "{0:hh:mm tt}"
+                        End If
+                    End If
+
+                    If .Columns(i).ColumnType.FullName = "System.Int32" Or
+                        .Columns(i).ColumnType.FullName = "System.Int16" Or
+                        .Columns(i).ColumnType.FullName = "System.Integer" Then
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "{0}"
+                    End If
+
+                    If .Columns(i).GetCaption = "Tasa" Or
+                        .Columns(i).GetCaption = "TCambio" Then
+                        .Columns(i).DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        .Columns(i).DisplayFormat.FormatString = "{0:n4}"
+                    End If
+
+
+                    '.Columns(i).AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                    '.Columns(i).AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+                    '.Columns(i).AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 10, FontStyle.Bold)
+                Next
+
+                .Appearance.HeaderPanel.Font = New Font("Tahoma", 10, FontStyle.Bold)
+                .Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+                .Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+
+                .Appearance.ViewCaption.ForeColor = Color.OrangeRed
+                .Appearance.ViewCaption.Font = New Font("Tahoma", 10, FontStyle.Bold)
+                .Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+
+                .ViewCaption = ViewCaption
+            End With
+
         Catch ex As Exception
         End Try
     End Sub
@@ -403,23 +514,24 @@ Module Utils
         '  End If
     End Sub
 
-    Public Sub FormatoPivot(ByRef iPivot As DevExpress.XtraPivotGrid.PivotGridControl)
+    Public Sub FormatoPivot(ByRef iPivot As DevExpress.XtraPivotGrid.PivotGridControl, Optional ByRef Decimales As Integer = 2)
         For i As Integer = 0 To iPivot.Fields.Count - 1
 
             If iPivot.Fields(i).DataType.FullName = "System.Double" Or iPivot.Fields(i).DataType.FullName = "System.Decimal" Then
                 iPivot.Fields(i).CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                iPivot.Fields(i).CellFormat.FormatString = "{0:n2}"
+                iPivot.Fields(i).CellFormat.FormatString = "{0:n" + Decimales.ToString() + "}"
+
                 'iPivot.Fields(i).CellFormat.FormatString = "{0:#,##.0#;(#,##.0#);\0.00}"
 
-                If iPivot.Fields(i).FieldName = "Cantidad" Or
-                    iPivot.Fields(i).FieldName = "Costo Unitario" Or
-                    iPivot.Fields(i).FieldName = "Costo Promedio" Or
-                    iPivot.Fields(i).FieldName = "Precio" Or
-                    iPivot.Fields(i).FieldName = "Flete" Then
-                    iPivot.Fields(i).CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-                    iPivot.Fields(i).CellFormat.FormatString = "{0:n4}"
-                    'iPivot.Fields(i).CellFormat.FormatString = "{0:#,##.0###;(#,##.0###);\0.0000}"
-                End If
+                'If iPivot.Fields(i).FieldName = "Cantidad" Or
+                '    iPivot.Fields(i).FieldName = "Costo Unitario" Or
+                '    iPivot.Fields(i).FieldName = "Costo Promedio" Or
+                '    iPivot.Fields(i).FieldName = "Precio" Or
+                '    iPivot.Fields(i).FieldName = "Flete" Then
+                '    iPivot.Fields(i).CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                '    iPivot.Fields(i).CellFormat.FormatString = "{0:n4}"
+                '    'iPivot.Fields(i).CellFormat.FormatString = "{0:#,##.0###;(#,##.0###);\0.0000}"
+                'End If
                 '
                 If iPivot.Fields(i).FieldName = "MargenP" Or
                     iPivot.Fields(i).FieldName = "MargenProd" Then
@@ -441,6 +553,16 @@ Module Utils
 
                     iPivot.Fields(i).ValueFormat.FormatType = DevExpress.Utils.FormatType.DateTime
                     iPivot.Fields(i).ValueFormat.FormatString = "{0:hh:mm tt}"
+                End If
+
+                If iPivot.Fields(i).FieldName = "Fecha_Creacion" Or
+                        iPivot.Fields(i).FieldName = "Fecha_Proceso" Then
+
+                    iPivot.Fields(i).CellFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                    iPivot.Fields(i).CellFormat.FormatString = "{0:dd/MM/yyyy hh:mm tt}"
+
+                    iPivot.Fields(i).ValueFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+                    iPivot.Fields(i).ValueFormat.FormatString = "{0:dd/MM/yyyy hh:mm tt}"
                 End If
             End If
         Next
@@ -655,7 +777,7 @@ Module Utils
         'Dim pageInfoBrick As PageInfoBrick
         'Dim pageImageBrick As PageImageBrick
 
-        ' Declare text strings.
+        'Declare text strings.
         Dim devexpress As String = "XtraPrintingSystem by Developer Express Inc."
 
         ' Define the image to display.        
@@ -884,7 +1006,7 @@ Module Utils
         Combo.Properties.PopulateViewColumns()
 
         Combo.Properties.View.OptionsView.ShowAutoFilterRow = True
-        FormatoGrid(Combo.Properties.View)
+        FormatoGridNew(Combo.Properties.View, 2, 0)
         Combo.Properties.PopupFormMinSize = New Point(1000, 0)
         Combo.Properties.NullText = "[Seleccione]"
         Combo.Properties.ShowClearButton = False

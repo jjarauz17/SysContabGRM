@@ -133,10 +133,10 @@ Partial Class frmInformeRetenciones
         '
         'dgDatos
         '
-        Me.dgDatos.Location = New System.Drawing.Point(24, 73)
+        Me.dgDatos.Location = New System.Drawing.Point(24, 74)
         Me.dgDatos.MainView = Me.vDatos
         Me.dgDatos.Name = "dgDatos"
-        Me.dgDatos.Size = New System.Drawing.Size(662, 288)
+        Me.dgDatos.Size = New System.Drawing.Size(662, 287)
         Me.dgDatos.TabIndex = 3
         Me.dgDatos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vDatos, Me.GridView1, Me.BandedGridView1, Me.BandedGridView2, Me.BandedGridView4})
         '
@@ -252,7 +252,7 @@ Partial Class frmInformeRetenciones
         'SimpleButton4
         '
         Me.SimpleButton4.ImageOptions.Image = CType(resources.GetObject("SimpleButton4.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton4.Location = New System.Drawing.Point(182, 69)
+        Me.SimpleButton4.Location = New System.Drawing.Point(182, 70)
         Me.SimpleButton4.Name = "SimpleButton4"
         Me.SimpleButton4.Size = New System.Drawing.Size(96, 22)
         Me.SimpleButton4.StyleController = Me.frmConsignatariosConvertedLayout
@@ -262,7 +262,7 @@ Partial Class frmInformeRetenciones
         'dHasta
         '
         Me.dHasta.EditValue = Nothing
-        Me.dHasta.Location = New System.Drawing.Point(61, 71)
+        Me.dHasta.Location = New System.Drawing.Point(61, 72)
         Me.dHasta.Name = "dHasta"
         Me.dHasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dHasta.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -283,10 +283,10 @@ Partial Class frmInformeRetenciones
         '
         'iGrid
         '
-        Me.iGrid.Location = New System.Drawing.Point(24, 95)
+        Me.iGrid.Location = New System.Drawing.Point(24, 96)
         Me.iGrid.MainView = Me.iVista
         Me.iGrid.Name = "iGrid"
-        Me.iGrid.Size = New System.Drawing.Size(662, 266)
+        Me.iGrid.Size = New System.Drawing.Size(662, 265)
         Me.iGrid.TabIndex = 5
         Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista, Me.GridView3, Me.BandedGridView3, Me.BandedGridView5, Me.BandedGridView6})
         '
@@ -364,7 +364,7 @@ Partial Class frmInformeRetenciones
         'dDesde
         '
         Me.dDesde.EditValue = Nothing
-        Me.dDesde.Location = New System.Drawing.Point(61, 47)
+        Me.dDesde.Location = New System.Drawing.Point(61, 48)
         Me.dDesde.Name = "dDesde"
         Me.dDesde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dDesde.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -386,7 +386,7 @@ Partial Class frmInformeRetenciones
         '
         'CheckEdit2
         '
-        Me.CheckEdit2.Location = New System.Drawing.Point(593, 47)
+        Me.CheckEdit2.Location = New System.Drawing.Point(593, 48)
         Me.CheckEdit2.Name = "CheckEdit2"
         Me.CheckEdit2.Properties.Caption = "Marcar Todo"
         Me.CheckEdit2.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
@@ -396,7 +396,7 @@ Partial Class frmInformeRetenciones
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(473, 47)
+        Me.CheckEdit1.Location = New System.Drawing.Point(473, 48)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Caption = "Selector de Datos"
         Me.CheckEdit1.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
@@ -407,7 +407,7 @@ Partial Class frmInformeRetenciones
         'Hasta
         '
         Me.Hasta.EditValue = Nothing
-        Me.Hasta.Location = New System.Drawing.Point(61, 47)
+        Me.Hasta.Location = New System.Drawing.Point(61, 48)
         Me.Hasta.Name = "Hasta"
         Me.Hasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Hasta.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -440,7 +440,7 @@ Partial Class frmInformeRetenciones
         'bBuscar
         '
         Me.bBuscar.ImageOptions.Image = CType(resources.GetObject("bBuscar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bBuscar.Location = New System.Drawing.Point(191, 47)
+        Me.bBuscar.Location = New System.Drawing.Point(191, 48)
         Me.bBuscar.Name = "bBuscar"
         Me.bBuscar.Size = New System.Drawing.Size(93, 22)
         Me.bBuscar.StyleController = Me.frmConsignatariosConvertedLayout
@@ -466,7 +466,6 @@ Partial Class frmInformeRetenciones
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.TabbedControlGroup1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(710, 427)
         Me.LayoutControlGroup1.TextVisible = False
@@ -476,7 +475,6 @@ Partial Class frmInformeRetenciones
         Me.TabbedControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.TabbedControlGroup1.Name = "TabbedControlGroup1"
         Me.TabbedControlGroup1.SelectedTabPage = Me.LayoutControlGroup2
-        Me.TabbedControlGroup1.SelectedTabPageIndex = 0
         Me.TabbedControlGroup1.Size = New System.Drawing.Size(690, 407)
         Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlGroup3})
         '
@@ -497,7 +495,7 @@ Partial Class frmInformeRetenciones
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5, Me.dgDatositem, Me.LayoutControlItem4, Me.EmptySpaceItem4, Me.LayoutControlItem3, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.EmptySpaceItem1, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem15})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(666, 360)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(666, 359)
         Me.LayoutControlGroup2.Text = "REPORTAR RETENCIONES"
         '
         'LayoutControlItem5
@@ -519,7 +517,7 @@ Partial Class frmInformeRetenciones
         Me.dgDatositem.CustomizationFormText = "dgDatositem"
         Me.dgDatositem.Location = New System.Drawing.Point(0, 26)
         Me.dgDatositem.Name = "dgDatositem"
-        Me.dgDatositem.Size = New System.Drawing.Size(666, 292)
+        Me.dgDatositem.Size = New System.Drawing.Size(666, 291)
         Me.dgDatositem.TextSize = New System.Drawing.Size(0, 0)
         Me.dgDatositem.TextVisible = False
         '
@@ -575,8 +573,8 @@ Partial Class frmInformeRetenciones
         '
         Me.LayoutControlItem9.Control = Me.SimpleButton1
         Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
-        Me.LayoutControlItem9.Image = CType(resources.GetObject("LayoutControlItem9.Image"), System.Drawing.Image)
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 318)
+        Me.LayoutControlItem9.ImageOptions.Image = CType(resources.GetObject("LayoutControlItem9.ImageOptions.Image"), System.Drawing.Image)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 317)
         Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem9.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
@@ -589,7 +587,7 @@ Partial Class frmInformeRetenciones
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(249, 318)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(249, 317)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(221, 42)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -598,7 +596,7 @@ Partial Class frmInformeRetenciones
         '
         Me.LayoutControlItem6.Control = Me.btnExportar
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(470, 318)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(470, 317)
         Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(99, 42)
         Me.LayoutControlItem6.MinSize = New System.Drawing.Size(99, 42)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
@@ -611,7 +609,7 @@ Partial Class frmInformeRetenciones
         '
         Me.LayoutControlItem7.Control = Me.btnSalir
         Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(569, 318)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(569, 317)
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(97, 42)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(97, 42)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
@@ -623,7 +621,7 @@ Partial Class frmInformeRetenciones
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.bFormato
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(124, 318)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(124, 317)
         Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(125, 42)
         Me.LayoutControlItem15.MinSize = New System.Drawing.Size(125, 42)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
@@ -645,7 +643,7 @@ Partial Class frmInformeRetenciones
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.EmptySpaceItem2, Me.LayoutControlItem14, Me.EmptySpaceItem3, Me.EmptySpaceItem5})
         Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "LayoutControlGroup3"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(666, 360)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(666, 359)
         Me.LayoutControlGroup3.Text = "RETENCIONES REPORTADAS"
         '
         'LayoutControlItem1
@@ -665,14 +663,14 @@ Partial Class frmInformeRetenciones
         Me.LayoutControlItem10.Control = Me.iGrid
         Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(666, 270)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(666, 269)
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
         '
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.SimpleButton3
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(466, 318)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(466, 317)
         Me.LayoutControlItem11.MaxSize = New System.Drawing.Size(99, 42)
         Me.LayoutControlItem11.MinSize = New System.Drawing.Size(99, 42)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
@@ -684,7 +682,7 @@ Partial Class frmInformeRetenciones
         'LayoutControlItem12
         '
         Me.LayoutControlItem12.Control = Me.SimpleButton2
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(565, 318)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(565, 317)
         Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(101, 42)
         Me.LayoutControlItem12.MinSize = New System.Drawing.Size(101, 42)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
@@ -736,7 +734,7 @@ Partial Class frmInformeRetenciones
         'EmptySpaceItem5
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 318)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 317)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
         Me.EmptySpaceItem5.Size = New System.Drawing.Size(466, 42)
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)

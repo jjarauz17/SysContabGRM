@@ -7,6 +7,7 @@ Public Class frmProyectAdd
 
     Dim obj As New Proyectos
     Dim db As New db_Proyectos
+    Private _DT_CABYS As DataTable = New DataTable("CABYS")
 
     Private Sub frmProyectAdd_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then Close()
@@ -18,6 +19,9 @@ Public Class frmProyectAdd
         CargarCombos()
         '
         Cargar()
+        '
+        'Cargar Catalogo CABYS para CR
+        _DT_CABYS = ObtieneDatos("sp_sel_CR_CABYS", EmpresaActual)
     End Sub
 
     Sub Cargar()
@@ -44,6 +48,8 @@ Public Class frmProyectAdd
                 cbGrupo.EditValue = obj.Grupo
                 mDescripcion.Text = obj.Descripcion
                 txtPrecio.EditValue = obj.Precio
+                txtCabys.Text = obj.CABYS
+                txtImpuesto.EditValue = obj.Impuesto
             End If
 
             txtCodigo.Properties.ReadOnly = True
@@ -57,7 +63,7 @@ Public Class frmProyectAdd
 
     Sub CargarCombos()
 
-        SearchLookUp(cbServicio, ObtieneDatos("SP_ArticulosGetAll", "S", EmpresaActual), "Nombre", "Codigo", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26)
+        SearchLookUp(cbServicio, ObtieneDatos("SP_ArticulosGetAll", "S", EmpresaActual), "Nombre", "Codigo", 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31)
         SearchLookUp(cbCliente, ObtieneDatos("SP_GetClientes", EmpresaActual, 1), "Nombre", "Codigo", 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
         SearchLookUp(cbCatalogo, ObtieneDatos("_GetCatalogo_Cuenta", EmpresaActual), "Display", "Cuenta", 2)
         SearchLookUp(cbCatalogoCosto, ObtieneDatos("_GetCatalogo_Cuenta", EmpresaActual), "Display", "Cuenta", 2)
@@ -113,6 +119,8 @@ Public Class frmProyectAdd
         obj.Descripcion = mDescripcion.Text
         obj.Estado = "I"
         obj.Precio = txtPrecio.EditValue
+        obj.CABYS = txtCabys.Text
+        obj.Impuesto = txtImpuesto.EditValue
 
         If IdProyecto = 0 Then
 
@@ -167,5 +175,17 @@ Public Class frmProyectAdd
 
     Private Sub cbServicio_EditValueChanged(sender As Object, e As EventArgs) Handles cbServicio.EditValueChanged
         Nombre.Text = sender.Text
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        With New frmCatalogoCABYS
+            .Main(_DT_CABYS)
+            '
+            If .ok Then
+                txtCabys.Text = .Codigo
+                txtImpuesto.EditValue = .Impuesto
+            End If
+
+        End With
     End Sub
 End Class

@@ -1,5 +1,7 @@
 ﻿Public Class frmFacturaElectronicaTipo
+
     Public Ok As Boolean = False
+
     Private Sub frmFacturaElectronicaTipo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub

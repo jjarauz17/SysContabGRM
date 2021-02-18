@@ -1,16 +1,17 @@
 ﻿Imports ClasesBLL
 Public Class frmNotasTipo
 
-
     Private Sub frmNotasTipo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar()
         iVistas.PopulateColumns()
+        FormatoGridNew(iVistas, 2, 0)
         iVistas.Columns("IdTipo").Visible = False
     End Sub
 
 
     Sub Cargar()
-        iGrid.DataSource = db_TipoNotasCD.Listar(0)
+        iGrid.DataSource =
+            db_TipoNotasCD.Listar(0)
     End Sub
 
     Private Sub cmdnuevo_Click(sender As Object, e As EventArgs) Handles cmdnuevo.Click
@@ -56,5 +57,9 @@ Public Class frmNotasTipo
 
     Private Sub cmdanular_Click(sender As Object, e As EventArgs) Handles cmdanular.Click
 
+    End Sub
+
+    Private Sub frmNotasTipo_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then Close()
     End Sub
 End Class

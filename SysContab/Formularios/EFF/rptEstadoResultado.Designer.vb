@@ -21,14 +21,10 @@ Partial Public Class rptEstadoResultado
     Private Sub InitializeComponent()
         Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
         Me.PorcentajeSaldoAnterior = New DevExpress.XtraReports.UI.XRLabel()
-        Me.rSubraya = New DevExpress.XtraReports.UI.FormattingRule()
-        Me.rNegrita = New DevExpress.XtraReports.UI.FormattingRule()
-        Me.rNegritaSubraya = New DevExpress.XtraReports.UI.FormattingRule()
         Me.AcumuladoAnterior = New DevExpress.XtraReports.UI.XRLabel()
         Me.PorcentajeAcumuadoAnterior = New DevExpress.XtraReports.UI.XRLabel()
         Me.SaldoAnterior = New DevExpress.XtraReports.UI.XRLabel()
         Me.Nombre = New DevExpress.XtraReports.UI.XRLabel()
-        Me.rNegritaTitulo = New DevExpress.XtraReports.UI.FormattingRule()
         Me.Saldo = New DevExpress.XtraReports.UI.XRLabel()
         Me.PorcentajeSaldo = New DevExpress.XtraReports.UI.XRLabel()
         Me.Acumulado = New DevExpress.XtraReports.UI.XRLabel()
@@ -52,10 +48,8 @@ Partial Public Class rptEstadoResultado
         Me.Cargo1 = New DevExpress.XtraReports.UI.XRLabel()
         Me.Nombre2 = New DevExpress.XtraReports.UI.XRLabel()
         Me.Cargo2 = New DevExpress.XtraReports.UI.XRLabel()
-        Me.FormattingRule2 = New DevExpress.XtraReports.UI.FormattingRule()
-        Me.FormattingRule1 = New DevExpress.XtraReports.UI.FormattingRule()
-        Me.QuitarNulos = New DevExpress.XtraReports.UI.FormattingRule()
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand()
+        Me.pLogo = New DevExpress.XtraReports.UI.XRPictureBox()
         Me.XrPageInfo3 = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.XrPageInfo4 = New DevExpress.XtraReports.UI.XRPageInfo()
         Me.Empresa = New DevExpress.XtraReports.UI.XRLabel()
@@ -63,7 +57,6 @@ Partial Public Class rptEstadoResultado
         Me.Moneda = New DevExpress.XtraReports.UI.XRLabel()
         Me.Fecha = New DevExpress.XtraReports.UI.XRLabel()
         Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand()
-        Me.pLogo = New DevExpress.XtraReports.UI.XRPictureBox()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'Detail
@@ -77,11 +70,8 @@ Partial Public Class rptEstadoResultado
         'PorcentajeSaldoAnterior
         '
         Me.PorcentajeSaldoAnterior.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.PorcentajeSaldoAnterior.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "PorcentajeSaldoAnterior", "{0:p2}")})
+        Me.PorcentajeSaldoAnterior.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PorcentajeSaldoAnterior]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.PorcentajeSaldoAnterior.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PorcentajeSaldoAnterior.FormattingRules.Add(Me.rSubraya)
-        Me.PorcentajeSaldoAnterior.FormattingRules.Add(Me.rNegrita)
-        Me.PorcentajeSaldoAnterior.FormattingRules.Add(Me.rNegritaSubraya)
         Me.PorcentajeSaldoAnterior.LocationFloat = New DevExpress.Utils.PointFloat(575.0!, 0!)
         Me.PorcentajeSaldoAnterior.Name = "PorcentajeSaldoAnterior"
         Me.PorcentajeSaldoAnterior.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -91,35 +81,13 @@ Partial Public Class rptEstadoResultado
         Me.PorcentajeSaldoAnterior.StylePriority.UseTextAlignment = False
         Me.PorcentajeSaldoAnterior.Text = "Porcentaje %"
         Me.PorcentajeSaldoAnterior.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
-        '
-        'rSubraya
-        '
-        Me.rSubraya.Condition = "[SubTitulo] = True"
-        Me.rSubraya.Formatting.Borders = DevExpress.XtraPrinting.BorderSide.Bottom
-        Me.rSubraya.Formatting.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rSubraya.Name = "rSubraya"
-        '
-        'rNegrita
-        '
-        Me.rNegrita.Condition = "[Negrita] = True"
-        Me.rNegrita.Formatting.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rNegrita.Name = "rNegrita"
-        '
-        'rNegritaSubraya
-        '
-        Me.rNegritaSubraya.Condition = "[Titulo] = True"
-        Me.rNegritaSubraya.Formatting.Borders = DevExpress.XtraPrinting.BorderSide.Bottom
-        Me.rNegritaSubraya.Formatting.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rNegritaSubraya.Name = "rNegritaSubraya"
+        Me.PorcentajeSaldoAnterior.TextFormatString = "{0:p2}"
         '
         'AcumuladoAnterior
         '
         Me.AcumuladoAnterior.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.AcumuladoAnterior.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "AcumuladoAnterior", "{0:##,#.00;(##,##.00);'0.00'}")})
+        Me.AcumuladoAnterior.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AcumuladoAnterior]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.AcumuladoAnterior.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AcumuladoAnterior.FormattingRules.Add(Me.rSubraya)
-        Me.AcumuladoAnterior.FormattingRules.Add(Me.rNegrita)
-        Me.AcumuladoAnterior.FormattingRules.Add(Me.rNegritaSubraya)
         Me.AcumuladoAnterior.LocationFloat = New DevExpress.Utils.PointFloat(850.0!, 0!)
         Me.AcumuladoAnterior.Multiline = True
         Me.AcumuladoAnterior.Name = "AcumuladoAnterior"
@@ -130,15 +98,13 @@ Partial Public Class rptEstadoResultado
         Me.AcumuladoAnterior.StylePriority.UseTextAlignment = False
         Me.AcumuladoAnterior.Text = "Acumulado" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Mes Actual"
         Me.AcumuladoAnterior.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.AcumuladoAnterior.TextFormatString = "{0:##,#.00;(##,##.00);'0.00'}"
         '
         'PorcentajeAcumuadoAnterior
         '
         Me.PorcentajeAcumuadoAnterior.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.PorcentajeAcumuadoAnterior.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "PorcentajeAcumuadoAnterior", "{0:p2}")})
+        Me.PorcentajeAcumuadoAnterior.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PorcentajeAcumuadoAnterior]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.PorcentajeAcumuadoAnterior.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PorcentajeAcumuadoAnterior.FormattingRules.Add(Me.rSubraya)
-        Me.PorcentajeAcumuadoAnterior.FormattingRules.Add(Me.rNegrita)
-        Me.PorcentajeAcumuadoAnterior.FormattingRules.Add(Me.rNegritaSubraya)
         Me.PorcentajeAcumuadoAnterior.LocationFloat = New DevExpress.Utils.PointFloat(976.0401!, 0!)
         Me.PorcentajeAcumuadoAnterior.Name = "PorcentajeAcumuadoAnterior"
         Me.PorcentajeAcumuadoAnterior.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -148,15 +114,13 @@ Partial Public Class rptEstadoResultado
         Me.PorcentajeAcumuadoAnterior.StylePriority.UseTextAlignment = False
         Me.PorcentajeAcumuadoAnterior.Text = "Porcentaje %"
         Me.PorcentajeAcumuadoAnterior.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.PorcentajeAcumuadoAnterior.TextFormatString = "{0:p2}"
         '
         'SaldoAnterior
         '
         Me.SaldoAnterior.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.SaldoAnterior.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "SaldoAnterior", "{0:##,#.00;(##,##.00);'0.00'}")})
+        Me.SaldoAnterior.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SaldoAnterior]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.SaldoAnterior.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaldoAnterior.FormattingRules.Add(Me.rSubraya)
-        Me.SaldoAnterior.FormattingRules.Add(Me.rNegrita)
-        Me.SaldoAnterior.FormattingRules.Add(Me.rNegritaSubraya)
         Me.SaldoAnterior.LocationFloat = New DevExpress.Utils.PointFloat(450.0!, 0!)
         Me.SaldoAnterior.Name = "SaldoAnterior"
         Me.SaldoAnterior.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -166,13 +130,12 @@ Partial Public Class rptEstadoResultado
         Me.SaldoAnterior.StylePriority.UseTextAlignment = False
         Me.SaldoAnterior.Text = "Mes Actual"
         Me.SaldoAnterior.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.SaldoAnterior.TextFormatString = "{0:##,#.00;(##,##.00);'0.00'}"
         '
         'Nombre
         '
-        Me.Nombre.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Nombre")})
+        Me.Nombre.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Nombre]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Negrita] = True Or [Titulo] = True, True, [Negrita] = True, True, ?)")})
         Me.Nombre.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Nombre.FormattingRules.Add(Me.rNegrita)
-        Me.Nombre.FormattingRules.Add(Me.rNegritaTitulo)
         Me.Nombre.LocationFloat = New DevExpress.Utils.PointFloat(0.0001430511!, 0!)
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -182,20 +145,11 @@ Partial Public Class rptEstadoResultado
         Me.Nombre.Text = "Empresa"
         Me.Nombre.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
-        'rNegritaTitulo
-        '
-        Me.rNegritaTitulo.Condition = "[Negrita] = True OR [Titulo] = True"
-        Me.rNegritaTitulo.Formatting.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rNegritaTitulo.Name = "rNegritaTitulo"
-        '
         'Saldo
         '
         Me.Saldo.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.Saldo.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Saldo", "{0:##,#.00;(##,##.00);'0.00'}")})
+        Me.Saldo.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Saldo]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.Saldo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Saldo.FormattingRules.Add(Me.rSubraya)
-        Me.Saldo.FormattingRules.Add(Me.rNegrita)
-        Me.Saldo.FormattingRules.Add(Me.rNegritaSubraya)
         Me.Saldo.LocationFloat = New DevExpress.Utils.PointFloat(250.0002!, 0!)
         Me.Saldo.Name = "Saldo"
         Me.Saldo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -205,15 +159,13 @@ Partial Public Class rptEstadoResultado
         Me.Saldo.StylePriority.UseTextAlignment = False
         Me.Saldo.Text = "Mes Actual"
         Me.Saldo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.Saldo.TextFormatString = "{0:##,#.00;(##,##.00);'0.00'}"
         '
         'PorcentajeSaldo
         '
         Me.PorcentajeSaldo.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.PorcentajeSaldo.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "PorcentajeSaldo", "{0:p2}")})
+        Me.PorcentajeSaldo.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PorcentajeSaldo]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.PorcentajeSaldo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PorcentajeSaldo.FormattingRules.Add(Me.rSubraya)
-        Me.PorcentajeSaldo.FormattingRules.Add(Me.rNegrita)
-        Me.PorcentajeSaldo.FormattingRules.Add(Me.rNegritaSubraya)
         Me.PorcentajeSaldo.LocationFloat = New DevExpress.Utils.PointFloat(375.0!, 0!)
         Me.PorcentajeSaldo.Name = "PorcentajeSaldo"
         Me.PorcentajeSaldo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -223,15 +175,13 @@ Partial Public Class rptEstadoResultado
         Me.PorcentajeSaldo.StylePriority.UseTextAlignment = False
         Me.PorcentajeSaldo.Text = "Porcentaje %"
         Me.PorcentajeSaldo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.PorcentajeSaldo.TextFormatString = "{0:p2}"
         '
         'Acumulado
         '
         Me.Acumulado.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.Acumulado.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Acumulado", "{0:##,#.00;(##,##.00);'0.00'}")})
+        Me.Acumulado.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Acumulado]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.Acumulado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Acumulado.FormattingRules.Add(Me.rSubraya)
-        Me.Acumulado.FormattingRules.Add(Me.rNegrita)
-        Me.Acumulado.FormattingRules.Add(Me.rNegritaSubraya)
         Me.Acumulado.LocationFloat = New DevExpress.Utils.PointFloat(650.0!, 0!)
         Me.Acumulado.Multiline = True
         Me.Acumulado.Name = "Acumulado"
@@ -242,15 +192,13 @@ Partial Public Class rptEstadoResultado
         Me.Acumulado.StylePriority.UseTextAlignment = False
         Me.Acumulado.Text = "Acumulado" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Mes Actual"
         Me.Acumulado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.Acumulado.TextFormatString = "{0:##,#.00;(##,##.00);'0.00'}"
         '
         'PorcentajeAcumulado
         '
         Me.PorcentajeAcumulado.Borders = DevExpress.XtraPrinting.BorderSide.None
-        Me.PorcentajeAcumulado.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "PorcentajeAcumulado", "{0:p2}")})
+        Me.PorcentajeAcumulado.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PorcentajeAcumulado]"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Borders", "Iif([Titulo] = True, 'Bottom', [SubTitulo] = True, 'Bottom', ?)"), New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Font.Bold", "Iif([Titulo] = True, True, [Negrita] = True, True, [SubTitulo] = True, False, ?)")})
         Me.PorcentajeAcumulado.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PorcentajeAcumulado.FormattingRules.Add(Me.rSubraya)
-        Me.PorcentajeAcumulado.FormattingRules.Add(Me.rNegrita)
-        Me.PorcentajeAcumulado.FormattingRules.Add(Me.rNegritaSubraya)
         Me.PorcentajeAcumulado.LocationFloat = New DevExpress.Utils.PointFloat(775.0!, 0!)
         Me.PorcentajeAcumulado.Name = "PorcentajeAcumulado"
         Me.PorcentajeAcumulado.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -260,6 +208,7 @@ Partial Public Class rptEstadoResultado
         Me.PorcentajeAcumulado.StylePriority.UseTextAlignment = False
         Me.PorcentajeAcumulado.Text = "Porcentaje %"
         Me.PorcentajeAcumulado.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.PorcentajeAcumulado.TextFormatString = "{0:p2}"
         '
         'TopMargin
         '
@@ -277,7 +226,7 @@ Partial Public Class rptEstadoResultado
         '
         'Usuario
         '
-        Me.Usuario.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Usuario")})
+        Me.Usuario.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Usuario]")})
         Me.Usuario.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Usuario.LocationFloat = New DevExpress.Utils.PointFloat(1.04181!, 10.00001!)
         Me.Usuario.Name = "Usuario"
@@ -291,7 +240,6 @@ Partial Public Class rptEstadoResultado
         'XrPageInfo1
         '
         Me.XrPageInfo1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrPageInfo1.Format = "Pag. {0} / {1}"
         Me.XrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(952.0816!, 10.00001!)
         Me.XrPageInfo1.Name = "XrPageInfo1"
         Me.XrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -299,6 +247,7 @@ Partial Public Class rptEstadoResultado
         Me.XrPageInfo1.StylePriority.UseFont = False
         Me.XrPageInfo1.StylePriority.UseTextAlignment = False
         Me.XrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrPageInfo1.TextFormatString = "Pag. {0} / {1}"
         '
         'GroupHeader2
         '
@@ -429,7 +378,7 @@ Partial Public Class rptEstadoResultado
         'Nombre3
         '
         Me.Nombre3.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.Nombre3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Nombre3")})
+        Me.Nombre3.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Nombre3]")})
         Me.Nombre3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Nombre3.LocationFloat = New DevExpress.Utils.PointFloat(418.75!, 0!)
         Me.Nombre3.Name = "Nombre3"
@@ -443,7 +392,7 @@ Partial Public Class rptEstadoResultado
         '
         'Cargo3
         '
-        Me.Cargo3.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Cargo3")})
+        Me.Cargo3.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Cargo3]")})
         Me.Cargo3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cargo3.LocationFloat = New DevExpress.Utils.PointFloat(418.75!, 14.99999!)
         Me.Cargo3.Name = "Cargo3"
@@ -457,7 +406,7 @@ Partial Public Class rptEstadoResultado
         'Nombre1
         '
         Me.Nombre1.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.Nombre1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Nombre1")})
+        Me.Nombre1.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Nombre1]")})
         Me.Nombre1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Nombre1.LocationFloat = New DevExpress.Utils.PointFloat(133.3335!, 0!)
         Me.Nombre1.Name = "Nombre1"
@@ -471,7 +420,7 @@ Partial Public Class rptEstadoResultado
         '
         'Cargo1
         '
-        Me.Cargo1.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Cargo1")})
+        Me.Cargo1.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Cargo1]")})
         Me.Cargo1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cargo1.LocationFloat = New DevExpress.Utils.PointFloat(133.3335!, 14.99999!)
         Me.Cargo1.Name = "Cargo1"
@@ -485,7 +434,7 @@ Partial Public Class rptEstadoResultado
         'Nombre2
         '
         Me.Nombre2.Borders = DevExpress.XtraPrinting.BorderSide.Top
-        Me.Nombre2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Nombre2")})
+        Me.Nombre2.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Nombre2]")})
         Me.Nombre2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Nombre2.LocationFloat = New DevExpress.Utils.PointFloat(702.0815!, 0!)
         Me.Nombre2.Name = "Nombre2"
@@ -499,7 +448,7 @@ Partial Public Class rptEstadoResultado
         '
         'Cargo2
         '
-        Me.Cargo2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Cargo2")})
+        Me.Cargo2.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Cargo2]")})
         Me.Cargo2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cargo2.LocationFloat = New DevExpress.Utils.PointFloat(702.0815!, 14.99999!)
         Me.Cargo2.Name = "Cargo2"
@@ -510,32 +459,22 @@ Partial Public Class rptEstadoResultado
         Me.Cargo2.Text = "Empresa"
         Me.Cargo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
         '
-        'FormattingRule2
-        '
-        Me.FormattingRule2.Condition = "(Saldo)   !=  0"
-        Me.FormattingRule2.Name = "FormattingRule2"
-        '
-        'FormattingRule1
-        '
-        Me.FormattingRule1.Condition = "Abs(Saldo) > 0"
-        Me.FormattingRule1.DataMember = "Saldo"
-        Me.FormattingRule1.Name = "FormattingRule1"
-        '
-        'QuitarNulos
-        '
-        Me.QuitarNulos.Condition = "(Saldo)  = Abs(Saldo)"
-        Me.QuitarNulos.Name = "QuitarNulos"
-        '
         'ReportHeader
         '
         Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.pLogo, Me.XrPageInfo3, Me.XrPageInfo4, Me.Empresa, Me.Titulo, Me.Moneda, Me.Fecha})
         Me.ReportHeader.HeightF = 80.20834!
         Me.ReportHeader.Name = "ReportHeader"
         '
+        'pLogo
+        '
+        Me.pLogo.LocationFloat = New DevExpress.Utils.PointFloat(1.04181!, 0.000002861023!)
+        Me.pLogo.Name = "pLogo"
+        Me.pLogo.SizeF = New System.Drawing.SizeF(123.9583!, 68.99999!)
+        Me.pLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
+        '
         'XrPageInfo3
         '
         Me.XrPageInfo3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrPageInfo3.Format = "{0:dd/MM/yyyy}"
         Me.XrPageInfo3.LocationFloat = New DevExpress.Utils.PointFloat(976.04!, 0!)
         Me.XrPageInfo3.Name = "XrPageInfo3"
         Me.XrPageInfo3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -544,11 +483,11 @@ Partial Public Class rptEstadoResultado
         Me.XrPageInfo3.StylePriority.UseFont = False
         Me.XrPageInfo3.StylePriority.UseTextAlignment = False
         Me.XrPageInfo3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrPageInfo3.TextFormatString = "{0:dd/MM/yyyy}"
         '
         'XrPageInfo4
         '
         Me.XrPageInfo4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.XrPageInfo4.Format = "{0:hh:mm tt}"
         Me.XrPageInfo4.LocationFloat = New DevExpress.Utils.PointFloat(976.0401!, 18.0!)
         Me.XrPageInfo4.Name = "XrPageInfo4"
         Me.XrPageInfo4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
@@ -557,10 +496,11 @@ Partial Public Class rptEstadoResultado
         Me.XrPageInfo4.StylePriority.UseFont = False
         Me.XrPageInfo4.StylePriority.UseTextAlignment = False
         Me.XrPageInfo4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
+        Me.XrPageInfo4.TextFormatString = "{0:hh:mm tt}"
         '
         'Empresa
         '
-        Me.Empresa.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Empresa")})
+        Me.Empresa.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Empresa]")})
         Me.Empresa.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Empresa.LocationFloat = New DevExpress.Utils.PointFloat(0.00002384186!, 0.000002861023!)
         Me.Empresa.Name = "Empresa"
@@ -573,7 +513,7 @@ Partial Public Class rptEstadoResultado
         '
         'Titulo
         '
-        Me.Titulo.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "TituloReporte")})
+        Me.Titulo.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[TituloReporte]")})
         Me.Titulo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Titulo.LocationFloat = New DevExpress.Utils.PointFloat(0.0001430511!, 18.0!)
         Me.Titulo.Name = "Titulo"
@@ -586,7 +526,7 @@ Partial Public Class rptEstadoResultado
         '
         'Moneda
         '
-        Me.Moneda.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Moneda")})
+        Me.Moneda.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Moneda]")})
         Me.Moneda.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Moneda.LocationFloat = New DevExpress.Utils.PointFloat(0.00002384186!, 36.0!)
         Me.Moneda.Name = "Moneda"
@@ -599,7 +539,7 @@ Partial Public Class rptEstadoResultado
         '
         'Fecha
         '
-        Me.Fecha.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "Fecha")})
+        Me.Fecha.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Fecha]")})
         Me.Fecha.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Fecha.LocationFloat = New DevExpress.Utils.PointFloat(0.0001430511!, 54.0!)
         Me.Fecha.Name = "Fecha"
@@ -616,23 +556,15 @@ Partial Public Class rptEstadoResultado
         Me.PageFooter.HeightF = 30.00001!
         Me.PageFooter.Name = "PageFooter"
         '
-        'pLogo
-        '
-        Me.pLogo.LocationFloat = New DevExpress.Utils.PointFloat(1.04181!, 0.000002861023!)
-        Me.pLogo.Name = "pLogo"
-        Me.pLogo.SizeF = New System.Drawing.SizeF(123.9583!, 68.99999!)
-        Me.pLogo.Sizing = DevExpress.XtraPrinting.ImageSizeMode.StretchImage
-        '
         'rptEstadoResultado
         '
         Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.TopMargin, Me.BottomMargin, Me.GroupHeader2, Me.ReportHeader, Me.PageFooter})
-        Me.FormattingRuleSheet.AddRange(New DevExpress.XtraReports.UI.FormattingRule() {Me.FormattingRule1, Me.FormattingRule2, Me.QuitarNulos, Me.rNegrita, Me.rSubraya, Me.rNegritaSubraya, Me.rNegritaTitulo})
         Me.Landscape = True
         Me.Margins = New System.Drawing.Printing.Margins(25, 25, 25, 25)
         Me.PageHeight = 850
         Me.PageWidth = 1100
         Me.ScriptLanguage = DevExpress.XtraReports.ScriptLanguage.VisualBasic
-        Me.Version = "17.1"
+        Me.Version = "19.2"
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -648,9 +580,6 @@ Partial Public Class rptEstadoResultado
     Friend WithEvents PorcentajeSaldo As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents Acumulado As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents PorcentajeAcumulado As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents FormattingRule1 As DevExpress.XtraReports.UI.FormattingRule
-    Friend WithEvents FormattingRule2 As DevExpress.XtraReports.UI.FormattingRule
-    Friend WithEvents QuitarNulos As DevExpress.XtraReports.UI.FormattingRule
     Friend WithEvents ReportHeader As DevExpress.XtraReports.UI.ReportHeaderBand
     Friend WithEvents XrPageInfo3 As DevExpress.XtraReports.UI.XRPageInfo
     Friend WithEvents XrPageInfo4 As DevExpress.XtraReports.UI.XRPageInfo
@@ -673,10 +602,6 @@ Partial Public Class rptEstadoResultado
     Friend WithEvents PorcentajeSaldoAnterior As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents AcumuladoAnterior As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents PorcentajeAcumuadoAnterior As DevExpress.XtraReports.UI.XRLabel
-    Friend WithEvents rNegrita As DevExpress.XtraReports.UI.FormattingRule
-    Friend WithEvents rSubraya As DevExpress.XtraReports.UI.FormattingRule
-    Friend WithEvents rNegritaSubraya As DevExpress.XtraReports.UI.FormattingRule
-    Friend WithEvents rNegritaTitulo As DevExpress.XtraReports.UI.FormattingRule
     Friend WithEvents Nombre3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents Cargo3 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents PageFooter As DevExpress.XtraReports.UI.PageFooterBand

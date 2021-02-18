@@ -14,6 +14,12 @@ Public Class frmTipoCultivo
             Exit Sub
         End If
 
+        If Not IsNumeric(TextEdit1.Text) Then
+            XtraMsg("El Código del Cultivo es inválido, debe ser un valor numerico.", MessageBoxIcon.Error)
+            TextEdit1.Focus()
+            Exit Sub
+        End If
+
         If Me.MemoEdit1.Text.Trim.Length = 0 Then
             XtraMsg("Describa el Tipo de Cultivo", MessageBoxIcon.Error)
             Me.MemoEdit1.Focus()

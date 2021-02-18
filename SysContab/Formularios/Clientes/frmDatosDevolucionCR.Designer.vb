@@ -47,6 +47,12 @@ Partial Class frmDatosDevolucionCR
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
+        Me.chkSerie = New DevExpress.XtraEditors.CheckEdit()
+        Me.cmbserie = New DevExpress.XtraEditors.LookUpEdit()
+        Me.txtnota = New DevExpress.XtraEditors.TextEdit()
+        Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.txtTCambio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,10 +77,19 @@ Partial Class frmDatosDevolucionCR
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkSerie.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cmbserie.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtnota.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.txtnota)
+        Me.LayoutControl1.Controls.Add(Me.cmbserie)
+        Me.LayoutControl1.Controls.Add(Me.chkSerie)
         Me.LayoutControl1.Controls.Add(Me.txtTCambio)
         Me.LayoutControl1.Controls.Add(Me.txtReferencia)
         Me.LayoutControl1.Controls.Add(Me.cbTipoNota)
@@ -125,13 +140,15 @@ Partial Class frmDatosDevolucionCR
         Me.txtReferencia.Properties.Appearance.Options.UseBackColor = True
         Me.txtReferencia.Properties.Appearance.Options.UseFont = True
         Me.txtReferencia.Properties.Appearance.Options.UseForeColor = True
+        Me.txtReferencia.Properties.MaxLength = 50
         Me.txtReferencia.Size = New System.Drawing.Size(321, 22)
         Me.txtReferencia.StyleController = Me.LayoutControl1
         Me.txtReferencia.TabIndex = 3
+        Me.txtReferencia.Tag = "True"
         '
         'cbTipoNota
         '
-        Me.cbTipoNota.Location = New System.Drawing.Point(173, 86)
+        Me.cbTipoNota.Location = New System.Drawing.Point(173, 112)
         Me.cbTipoNota.Name = "cbTipoNota"
         Me.cbTipoNota.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbTipoNota.Properties.NullText = ""
@@ -145,7 +162,7 @@ Partial Class frmDatosDevolucionCR
         '
         Me.cbMovimientos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cbMovimientos.Location = New System.Drawing.Point(173, 62)
+        Me.cbMovimientos.Location = New System.Drawing.Point(173, 88)
         Me.cbMovimientos.Name = "cbMovimientos"
         Me.cbMovimientos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMovimientos.Properties.Appearance.Options.UseFont = True
@@ -176,7 +193,7 @@ Partial Class frmDatosDevolucionCR
         Me.LabelControl1.Appearance.Options.UseFont = True
         Me.LabelControl1.Appearance.Options.UseForeColor = True
         Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 266)
+        Me.LabelControl1.Location = New System.Drawing.Point(12, 268)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(654, 28)
         Me.LabelControl1.StyleController = Me.LayoutControl1
@@ -186,29 +203,29 @@ Partial Class frmDatosDevolucionCR
         '
         'SimpleButton2
         '
-        Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(535, 298)
+        Me.SimpleButton2.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton2.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.SimpleButton2.Location = New System.Drawing.Point(545, 300)
         Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(131, 38)
+        Me.SimpleButton2.Size = New System.Drawing.Size(121, 36)
         Me.SimpleButton2.StyleController = Me.LayoutControl1
         Me.SimpleButton2.TabIndex = 7
         Me.SimpleButton2.Text = "&Cancelar"
         '
         'SimpleButton1
         '
-        Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(419, 298)
+        Me.SimpleButton1.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.SimpleButton1.Location = New System.Drawing.Point(419, 300)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(112, 38)
+        Me.SimpleButton1.Size = New System.Drawing.Size(122, 36)
         Me.SimpleButton1.StyleController = Me.LayoutControl1
         Me.SimpleButton1.TabIndex = 6
-        Me.SimpleButton1.Text = "&Aceptar"
+        Me.SimpleButton1.Text = "&Guardar"
         '
         'Razon
         '
-        Me.Razon.Location = New System.Drawing.Point(12, 126)
+        Me.Razon.Location = New System.Drawing.Point(12, 152)
         Me.Razon.Name = "Razon"
-        Me.Razon.Size = New System.Drawing.Size(654, 111)
+        Me.Razon.Size = New System.Drawing.Size(654, 96)
         Me.Razon.StyleController = Me.LayoutControl1
         Me.Razon.TabIndex = 5
         Me.Razon.Tag = "True"
@@ -231,7 +248,7 @@ Partial Class frmDatosDevolucionCR
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.lyMovimiento, Me.lyTipoNC, Me.LayoutControlItem7, Me.LayoutControlItem8})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.EmptySpaceItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.lyMovimiento, Me.lyTipoNC, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem11})
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(678, 348)
         Me.LayoutControlGroup1.TextVisible = False
@@ -251,17 +268,17 @@ Partial Class frmDatosDevolucionCR
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 229)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 240)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(658, 25)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(658, 16)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.Razon
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 98)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 124)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(658, 131)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(658, 116)
         Me.LayoutControlItem2.Text = "Motivo de Devolución / Anulación"
         Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(158, 13)
@@ -269,11 +286,11 @@ Partial Class frmDatosDevolucionCR
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.SimpleButton1
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(407, 286)
-        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(116, 42)
-        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(407, 288)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(126, 40)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(126, 40)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(126, 40)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
@@ -281,11 +298,11 @@ Partial Class frmDatosDevolucionCR
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.SimpleButton2
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(523, 286)
-        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(135, 42)
-        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(135, 42)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(533, 288)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(125, 40)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(135, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(125, 40)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -293,9 +310,9 @@ Partial Class frmDatosDevolucionCR
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 286)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 288)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(407, 42)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(407, 40)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem3
@@ -309,7 +326,7 @@ Partial Class frmDatosDevolucionCR
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.LabelControl1
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 254)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 256)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
         Me.LayoutControlItem5.Size = New System.Drawing.Size(658, 32)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
@@ -330,7 +347,7 @@ Partial Class frmDatosDevolucionCR
         'lyMovimiento
         '
         Me.lyMovimiento.Control = Me.cbMovimientos
-        Me.lyMovimiento.Location = New System.Drawing.Point(0, 50)
+        Me.lyMovimiento.Location = New System.Drawing.Point(0, 76)
         Me.lyMovimiento.Name = "lyMovimiento"
         Me.lyMovimiento.Size = New System.Drawing.Size(658, 24)
         Me.lyMovimiento.Text = "Movimiento:"
@@ -339,7 +356,7 @@ Partial Class frmDatosDevolucionCR
         'lyTipoNC
         '
         Me.lyTipoNC.Control = Me.cbTipoNota
-        Me.lyTipoNC.Location = New System.Drawing.Point(0, 74)
+        Me.lyTipoNC.Location = New System.Drawing.Point(0, 100)
         Me.lyTipoNC.Name = "lyTipoNC"
         Me.lyTipoNC.Size = New System.Drawing.Size(658, 24)
         Me.lyTipoNC.Text = "Tipo N / C:"
@@ -368,6 +385,88 @@ Partial Class frmDatosDevolucionCR
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(49, 13)
         Me.LayoutControlItem8.TextToControlDistance = 5
         '
+        'chkSerie
+        '
+        Me.chkSerie.Location = New System.Drawing.Point(12, 62)
+        Me.chkSerie.Name = "chkSerie"
+        Me.chkSerie.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkSerie.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.chkSerie.Properties.Appearance.Options.UseFont = True
+        Me.chkSerie.Properties.Appearance.Options.UseForeColor = True
+        Me.chkSerie.Properties.Caption = "Serie:"
+        Me.chkSerie.Size = New System.Drawing.Size(72, 20)
+        Me.chkSerie.StyleController = Me.LayoutControl1
+        Me.chkSerie.TabIndex = 26
+        '
+        'cmbserie
+        '
+        Me.cmbserie.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbserie.Enabled = False
+        Me.cmbserie.EnterMoveNextControl = True
+        Me.cmbserie.Location = New System.Drawing.Point(88, 62)
+        Me.cmbserie.Name = "cmbserie"
+        Me.cmbserie.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmbserie.Properties.Appearance.Options.UseFont = True
+        Me.cmbserie.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cmbserie.Properties.NullText = ""
+        Me.cmbserie.Properties.ShowFooter = False
+        Me.cmbserie.Properties.ShowHeader = False
+        Me.cmbserie.Size = New System.Drawing.Size(184, 22)
+        Me.cmbserie.StyleController = Me.LayoutControl1
+        Me.cmbserie.TabIndex = 25
+        '
+        'txtnota
+        '
+        Me.txtnota.Location = New System.Drawing.Point(437, 62)
+        Me.txtnota.Name = "txtnota"
+        Me.txtnota.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
+        Me.txtnota.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtnota.Properties.Appearance.ForeColor = System.Drawing.Color.Maroon
+        Me.txtnota.Properties.Appearance.Options.UseBackColor = True
+        Me.txtnota.Properties.Appearance.Options.UseFont = True
+        Me.txtnota.Properties.Appearance.Options.UseForeColor = True
+        Me.txtnota.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtnota.Properties.MaxLength = 10
+        Me.txtnota.Size = New System.Drawing.Size(229, 22)
+        Me.txtnota.StyleController = Me.LayoutControl1
+        Me.txtnota.TabIndex = 24
+        Me.txtnota.Tag = "True"
+        '
+        'LayoutControlItem9
+        '
+        Me.LayoutControlItem9.Control = Me.chkSerie
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 50)
+        Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(76, 26)
+        Me.LayoutControlItem9.MinSize = New System.Drawing.Size(76, 26)
+        Me.LayoutControlItem9.Name = "LayoutControlItem9"
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(76, 26)
+        Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem9.TextVisible = False
+        '
+        'LayoutControlItem10
+        '
+        Me.LayoutControlItem10.Control = Me.cmbserie
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(76, 50)
+        Me.LayoutControlItem10.MaxSize = New System.Drawing.Size(188, 26)
+        Me.LayoutControlItem10.MinSize = New System.Drawing.Size(188, 26)
+        Me.LayoutControlItem10.Name = "LayoutControlItem10"
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(188, 26)
+        Me.LayoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem10.TextVisible = False
+        '
+        'LayoutControlItem11
+        '
+        Me.LayoutControlItem11.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LayoutControlItem11.AppearanceItemCaption.Options.UseFont = True
+        Me.LayoutControlItem11.Control = Me.txtnota
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(264, 50)
+        Me.LayoutControlItem11.Name = "LayoutControlItem11"
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(394, 26)
+        Me.LayoutControlItem11.Text = "#Nota N / C:"
+        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(158, 16)
+        '
         'frmDatosDevolucionCR
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -375,6 +474,7 @@ Partial Class frmDatosDevolucionCR
         Me.ClientSize = New System.Drawing.Size(678, 348)
         Me.Controls.Add(Me.LayoutControl1)
         Me.IconOptions.Icon = CType(resources.GetObject("frmDatosDevolucionCR.IconOptions.Icon"), System.Drawing.Icon)
+        Me.IconOptions.SvgImage = CType(resources.GetObject("frmDatosDevolucionCR.IconOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmDatosDevolucionCR"
@@ -404,6 +504,12 @@ Partial Class frmDatosDevolucionCR
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkSerie.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cmbserie.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtnota.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -434,4 +540,10 @@ Partial Class frmDatosDevolucionCR
     Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents txtTCambio As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents txtnota As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cmbserie As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents chkSerie As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem9 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem10 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem11 As DevExpress.XtraLayout.LayoutControlItem
 End Class

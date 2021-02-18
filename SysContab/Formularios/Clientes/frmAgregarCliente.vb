@@ -66,7 +66,7 @@ Public Class frmAgregarCliente
     Friend WithEvents LayoutControlItem57 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents cbMunicipios As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents LayoutControlItem29 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents bDocumentos As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem30 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents chkActivo As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
@@ -176,6 +176,8 @@ Public Class frmAgregarCliente
     Friend WithEvents SimpleButton6 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem70 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem71 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents chkAprobacionVencidas As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents LayoutControlItem72 As DevExpress.XtraLayout.LayoutControlItem
     Dim Cod_Cuenta As String
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -214,12 +216,24 @@ Public Class frmAgregarCliente
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAgregarCliente))
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim EditorButtonImageOptions3 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
+        Dim SerializableAppearanceObject9 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject10 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject11 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject12 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.cmdNotasDebitos = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControl3 = New DevExpress.XtraLayout.LayoutControl()
         Me.bAcuerdosPagos = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
+        Me.bDocumentos = New DevExpress.XtraEditors.SimpleButton()
         Me.etInicio = New System.Windows.Forms.Label()
         Me.cmdCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.cmdEstadoCuenta = New DevExpress.XtraEditors.SimpleButton()
@@ -239,6 +253,8 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem64 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.txtObservaciones = New DevExpress.XtraEditors.MemoEdit()
         Me.LayoutControl4 = New DevExpress.XtraLayout.LayoutControl()
+        Me.chkAprobacionVencidas = New DevExpress.XtraEditors.CheckEdit()
+        Me.SimpleButton7 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
@@ -252,6 +268,7 @@ Public Class frmAgregarCliente
         Me.cbPais = New DevExpress.XtraEditors.LookUpEdit()
         Me.txtCodigoLetra = New DevExpress.XtraEditors.TextEdit()
         Me.txtCodigo = New DevExpress.XtraEditors.TextEdit()
+        Me.txtFax = New DevExpress.XtraEditors.TextEdit()
         Me.txCelularRepresentante = New DevExpress.XtraEditors.TextEdit()
         Me.txtTelefonoRepresentante = New DevExpress.XtraEditors.TextEdit()
         Me.txtCorreoRepresentante = New DevExpress.XtraEditors.TextEdit()
@@ -272,7 +289,6 @@ Public Class frmAgregarCliente
         Me.txtContacto = New DevExpress.XtraEditors.TextEdit()
         Me.txtCelularContacto = New DevExpress.XtraEditors.TextEdit()
         Me.txtTelefonoContacto = New DevExpress.XtraEditors.TextEdit()
-        Me.txtFax = New DevExpress.XtraEditors.TextEdit()
         Me.txtTelefono = New DevExpress.XtraEditors.TextEdit()
         Me.txtCiudad = New DevExpress.XtraEditors.TextEdit()
         Me.txtCorreo = New DevExpress.XtraEditors.TextEdit()
@@ -299,6 +315,7 @@ Public Class frmAgregarCliente
         Me.chkGarantia = New DevExpress.XtraEditors.CheckEdit()
         Me.chkEmpl = New DevExpress.XtraEditors.CheckEdit()
         Me.txtNombreGerente = New DevExpress.XtraEditors.TextEdit()
+        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup4 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.TabbedControlGroup1 = New DevExpress.XtraLayout.TabbedControlGroup()
@@ -316,6 +333,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem40 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem42 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem16 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem72 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup9 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem19 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem18 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -340,6 +358,8 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem29 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem65 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem70 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem71 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup8 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlGroup10 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem31 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -380,10 +400,6 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem45 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
         Me.BehaviorManager1 = New DevExpress.Utils.Behaviors.BehaviorManager(Me.components)
-        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton()
-        Me.LayoutControlItem70 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.SimpleButton7 = New DevExpress.XtraEditors.SimpleButton()
-        Me.LayoutControlItem71 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl3.SuspendLayout()
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -400,6 +416,7 @@ Public Class frmAgregarCliente
         CType(Me.txtObservaciones.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl4.SuspendLayout()
+        CType(Me.chkAprobacionVencidas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCelular.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbClasificacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbTipoCliente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -408,6 +425,7 @@ Public Class frmAgregarCliente
         CType(Me.cbPais.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCodigoLetra.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCodigo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtFax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txCelularRepresentante.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTelefonoRepresentante.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCorreoRepresentante.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -428,7 +446,6 @@ Public Class frmAgregarCliente
         CType(Me.txtContacto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCelularContacto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTelefonoContacto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtFax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTelefono.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCiudad.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCorreo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -472,6 +489,7 @@ Public Class frmAgregarCliente
         CType(Me.LayoutControlItem40, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem42, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem72, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem19, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem18, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -496,6 +514,8 @@ Public Class frmAgregarCliente
         CType(Me.LayoutControlItem29, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem65, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem70, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem71, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -536,8 +556,6 @@ Public Class frmAgregarCliente
         CType(Me.LayoutControlItem45, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem70, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem71, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmdNotasDebitos
@@ -559,7 +577,7 @@ Public Class frmAgregarCliente
         'LayoutControl3
         '
         Me.LayoutControl3.Controls.Add(Me.bAcuerdosPagos)
-        Me.LayoutControl3.Controls.Add(Me.SimpleButton4)
+        Me.LayoutControl3.Controls.Add(Me.bDocumentos)
         Me.LayoutControl3.Controls.Add(Me.etInicio)
         Me.LayoutControl3.Controls.Add(Me.cmdNotasDebitos)
         Me.LayoutControl3.Controls.Add(Me.cmdCancelar)
@@ -573,7 +591,7 @@ Public Class frmAgregarCliente
         Me.LayoutControl3.Name = "LayoutControl3"
         Me.LayoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1059, 175, 250, 350)
         Me.LayoutControl3.Root = Me.LayoutControlGroup3
-        Me.LayoutControl3.Size = New System.Drawing.Size(141, 558)
+        Me.LayoutControl3.Size = New System.Drawing.Size(143, 556)
         Me.LayoutControl3.TabIndex = 0
         Me.LayoutControl3.Text = "LayoutControl3"
         '
@@ -594,21 +612,22 @@ Public Class frmAgregarCliente
         Me.bAcuerdosPagos.TabIndex = 5
         Me.bAcuerdosPagos.Text = "Acuerdos de P&agos"
         '
-        'SimpleButton4
+        'bDocumentos
         '
-        Me.SimpleButton4.Appearance.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SimpleButton4.Appearance.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.SimpleButton4.Appearance.Options.UseFont = True
-        Me.SimpleButton4.Appearance.Options.UseForeColor = True
-        Me.SimpleButton4.Appearance.Options.UseTextOptions = True
-        Me.SimpleButton4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.SimpleButton4.ImageOptions.Image = CType(resources.GetObject("SimpleButton4.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton4.Location = New System.Drawing.Point(12, 96)
-        Me.SimpleButton4.Name = "SimpleButton4"
-        Me.SimpleButton4.Size = New System.Drawing.Size(118, 38)
-        Me.SimpleButton4.StyleController = Me.LayoutControl3
-        Me.SimpleButton4.TabIndex = 5
-        Me.SimpleButton4.Text = "&Documentos Digitales"
+        Me.bDocumentos.Appearance.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.bDocumentos.Appearance.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.bDocumentos.Appearance.Options.UseFont = True
+        Me.bDocumentos.Appearance.Options.UseForeColor = True
+        Me.bDocumentos.Appearance.Options.UseTextOptions = True
+        Me.bDocumentos.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.bDocumentos.Enabled = False
+        Me.bDocumentos.ImageOptions.Image = CType(resources.GetObject("bDocumentos.ImageOptions.Image"), System.Drawing.Image)
+        Me.bDocumentos.Location = New System.Drawing.Point(12, 96)
+        Me.bDocumentos.Name = "bDocumentos"
+        Me.bDocumentos.Size = New System.Drawing.Size(118, 38)
+        Me.bDocumentos.StyleController = Me.LayoutControl3
+        Me.bDocumentos.TabIndex = 5
+        Me.bDocumentos.Text = "&Documentos Digitales"
         '
         'etInicio
         '
@@ -628,7 +647,7 @@ Public Class frmAgregarCliente
         Me.cmdCancelar.Appearance.Options.UseTextOptions = True
         Me.cmdCancelar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdCancelar.ImageOptions.Image = CType(resources.GetObject("cmdCancelar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdCancelar.Location = New System.Drawing.Point(12, 491)
+        Me.cmdCancelar.Location = New System.Drawing.Point(12, 506)
         Me.cmdCancelar.Name = "cmdCancelar"
         Me.cmdCancelar.Size = New System.Drawing.Size(118, 38)
         Me.cmdCancelar.StyleController = Me.LayoutControl3
@@ -675,7 +694,7 @@ Public Class frmAgregarCliente
         Me.cmdAcumulado.Appearance.Options.UseTextOptions = True
         Me.cmdAcumulado.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdAcumulado.ImageOptions.Image = CType(resources.GetObject("cmdAcumulado.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAcumulado.Location = New System.Drawing.Point(12, 449)
+        Me.cmdAcumulado.Location = New System.Drawing.Point(12, 464)
         Me.cmdAcumulado.Name = "cmdAcumulado"
         Me.cmdAcumulado.Size = New System.Drawing.Size(118, 38)
         Me.cmdAcumulado.StyleController = Me.LayoutControl3
@@ -741,9 +760,8 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup3.GroupBordersVisible = False
         Me.LayoutControlGroup3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem12, Me.LayoutControlItem30, Me.EmptySpaceItem4, Me.LayoutControlItem64})
-        Me.LayoutControlGroup3.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup3.Name = "Root"
-        Me.LayoutControlGroup3.Size = New System.Drawing.Size(142, 541)
+        Me.LayoutControlGroup3.Size = New System.Drawing.Size(143, 556)
         Me.LayoutControlGroup3.TextVisible = False
         '
         'LayoutControlItem7
@@ -754,7 +772,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
@@ -767,7 +785,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
@@ -776,11 +794,11 @@ Public Class frmAgregarCliente
         '
         Me.LayoutControlItem9.Control = Me.cmdAcumulado
         Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 437)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 452)
         Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem9.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
@@ -789,23 +807,23 @@ Public Class frmAgregarCliente
         '
         Me.LayoutControlItem12.Control = Me.cmdCancelar
         Me.LayoutControlItem12.CustomizationFormText = "LayoutControlItem12"
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 479)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 494)
         Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem12.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
         '
         'LayoutControlItem30
         '
-        Me.LayoutControlItem30.Control = Me.SimpleButton4
+        Me.LayoutControlItem30.Control = Me.bDocumentos
         Me.LayoutControlItem30.Location = New System.Drawing.Point(0, 84)
         Me.LayoutControlItem30.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem30.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem30.Name = "LayoutControlItem30"
-        Me.LayoutControlItem30.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem30.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem30.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem30.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem30.TextVisible = False
@@ -816,7 +834,7 @@ Public Class frmAgregarCliente
         Me.EmptySpaceItem4.CustomizationFormText = "EmptySpaceItem4"
         Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 168)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(122, 269)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(123, 284)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem64
@@ -826,7 +844,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem64.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem64.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem64.Name = "LayoutControlItem64"
-        Me.LayoutControlItem64.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem64.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem64.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem64.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem64.TextVisible = False
@@ -834,7 +852,7 @@ Public Class frmAgregarCliente
         'txtObservaciones
         '
         Me.txtObservaciones.EditValue = ""
-        Me.txtObservaciones.Location = New System.Drawing.Point(528, 291)
+        Me.txtObservaciones.Location = New System.Drawing.Point(528, 292)
         Me.txtObservaciones.Name = "txtObservaciones"
         Me.txtObservaciones.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtObservaciones.Properties.Appearance.ForeColor = System.Drawing.Color.Red
@@ -846,6 +864,7 @@ Public Class frmAgregarCliente
         '
         'LayoutControl4
         '
+        Me.LayoutControl4.Controls.Add(Me.chkAprobacionVencidas)
         Me.LayoutControl4.Controls.Add(Me.SimpleButton7)
         Me.LayoutControl4.Controls.Add(Me.SimpleButton5)
         Me.LayoutControl4.Controls.Add(Me.SimpleButton3)
@@ -917,10 +936,34 @@ Public Class frmAgregarCliente
         Me.LayoutControl4.TabIndex = 3
         Me.LayoutControl4.Text = "LayoutControl4"
         '
+        'chkAprobacionVencidas
+        '
+        Me.chkAprobacionVencidas.Location = New System.Drawing.Point(605, 453)
+        Me.chkAprobacionVencidas.Name = "chkAprobacionVencidas"
+        Me.chkAprobacionVencidas.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkAprobacionVencidas.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
+        Me.chkAprobacionVencidas.Properties.Appearance.Options.UseFont = True
+        Me.chkAprobacionVencidas.Properties.Appearance.Options.UseForeColor = True
+        Me.chkAprobacionVencidas.Properties.Caption = "Aprobación Facturas Vencidas"
+        Me.chkAprobacionVencidas.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
+        Me.chkAprobacionVencidas.Size = New System.Drawing.Size(247, 22)
+        Me.chkAprobacionVencidas.StyleController = Me.LayoutControl4
+        Me.chkAprobacionVencidas.TabIndex = 212
+        '
+        'SimpleButton7
+        '
+        Me.SimpleButton7.ImageOptions.Image = CType(resources.GetObject("SimpleButton7.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton7.Location = New System.Drawing.Point(393, 217)
+        Me.SimpleButton7.Name = "SimpleButton7"
+        Me.SimpleButton7.Size = New System.Drawing.Size(24, 22)
+        Me.SimpleButton7.StyleController = Me.LayoutControl4
+        Me.SimpleButton7.TabIndex = 236
+        Me.SimpleButton7.ToolTip = "Quitar Mascara"
+        '
         'SimpleButton5
         '
         Me.SimpleButton5.ImageOptions.Image = CType(resources.GetObject("SimpleButton5.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton5.Location = New System.Drawing.Point(816, 254)
+        Me.SimpleButton5.Location = New System.Drawing.Point(816, 259)
         Me.SimpleButton5.Name = "SimpleButton5"
         Me.SimpleButton5.Size = New System.Drawing.Size(24, 22)
         Me.SimpleButton5.StyleController = Me.LayoutControl4
@@ -930,7 +973,7 @@ Public Class frmAgregarCliente
         'SimpleButton3
         '
         Me.SimpleButton3.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton3.Location = New System.Drawing.Point(828, 101)
+        Me.SimpleButton3.Location = New System.Drawing.Point(828, 104)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(24, 22)
         Me.SimpleButton3.StyleController = Me.LayoutControl4
@@ -940,7 +983,7 @@ Public Class frmAgregarCliente
         'SimpleButton2
         '
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(396, 290)
+        Me.SimpleButton2.Location = New System.Drawing.Point(391, 295)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(24, 22)
         Me.SimpleButton2.StyleController = Me.LayoutControl4
@@ -950,7 +993,7 @@ Public Class frmAgregarCliente
         'SimpleButton1
         '
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(396, 125)
+        Me.SimpleButton1.Location = New System.Drawing.Point(391, 128)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(24, 22)
         Me.SimpleButton1.StyleController = Me.LayoutControl4
@@ -960,7 +1003,7 @@ Public Class frmAgregarCliente
         'sMascara
         '
         Me.sMascara.ImageOptions.Image = CType(resources.GetObject("sMascara.ImageOptions.Image"), System.Drawing.Image)
-        Me.sMascara.Location = New System.Drawing.Point(671, 190)
+        Me.sMascara.Location = New System.Drawing.Point(671, 191)
         Me.sMascara.Name = "sMascara"
         Me.sMascara.Size = New System.Drawing.Size(24, 22)
         Me.sMascara.StyleController = Me.LayoutControl4
@@ -969,7 +1012,7 @@ Public Class frmAgregarCliente
         '
         'txtCelular
         '
-        Me.txtCelular.Location = New System.Drawing.Point(463, 216)
+        Me.txtCelular.Location = New System.Drawing.Point(463, 217)
         Me.txtCelular.Name = "txtCelular"
         Me.txtCelular.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCelular.Properties.Appearance.Options.UseFont = True
@@ -983,7 +1026,7 @@ Public Class frmAgregarCliente
         '
         'cbClasificacion
         '
-        Me.cbClasificacion.Location = New System.Drawing.Point(182, 500)
+        Me.cbClasificacion.Location = New System.Drawing.Point(182, 503)
         Me.cbClasificacion.Name = "cbClasificacion"
         Me.cbClasificacion.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbClasificacion.Properties.Appearance.Options.UseFont = True
@@ -994,7 +1037,7 @@ Public Class frmAgregarCliente
         '
         'cbTipoCliente
         '
-        Me.cbTipoCliente.Location = New System.Drawing.Point(480, 142)
+        Me.cbTipoCliente.Location = New System.Drawing.Point(480, 143)
         Me.cbTipoCliente.Name = "cbTipoCliente"
         Me.cbTipoCliente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbTipoCliente.Properties.Appearance.Options.UseFont = True
@@ -1006,7 +1049,7 @@ Public Class frmAgregarCliente
         '
         'txtRuc
         '
-        Me.txtRuc.Location = New System.Drawing.Point(481, 166)
+        Me.txtRuc.Location = New System.Drawing.Point(481, 167)
         Me.txtRuc.Name = "txtRuc"
         Me.txtRuc.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtRuc.Properties.Appearance.Options.UseFont = True
@@ -1017,7 +1060,7 @@ Public Class frmAgregarCliente
         '
         'Cedula
         '
-        Me.Cedula.Location = New System.Drawing.Point(493, 190)
+        Me.Cedula.Location = New System.Drawing.Point(493, 191)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Cedula.Properties.Appearance.Options.UseFont = True
@@ -1032,7 +1075,7 @@ Public Class frmAgregarCliente
         '
         'cbPais
         '
-        Me.cbPais.Location = New System.Drawing.Point(170, 118)
+        Me.cbPais.Location = New System.Drawing.Point(170, 119)
         Me.cbPais.Name = "cbPais"
         Me.cbPais.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbPais.Properties.Appearance.Options.UseFont = True
@@ -1044,7 +1087,7 @@ Public Class frmAgregarCliente
         '
         'txtCodigoLetra
         '
-        Me.txtCodigoLetra.Location = New System.Drawing.Point(438, 46)
+        Me.txtCodigoLetra.Location = New System.Drawing.Point(438, 47)
         Me.txtCodigoLetra.Name = "txtCodigoLetra"
         Me.txtCodigoLetra.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigoLetra.Properties.Appearance.ForeColor = System.Drawing.Color.Navy
@@ -1059,7 +1102,7 @@ Public Class frmAgregarCliente
         '
         'txtCodigo
         '
-        Me.txtCodigo.Location = New System.Drawing.Point(170, 46)
+        Me.txtCodigo.Location = New System.Drawing.Point(170, 47)
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCodigo.Properties.Appearance.Options.UseFont = True
@@ -1075,9 +1118,19 @@ Public Class frmAgregarCliente
         Me.txtCodigo.TabIndex = 225
         Me.txtCodigo.Tag = "True"
         '
+        'txtFax
+        '
+        Me.txtFax.Location = New System.Drawing.Point(170, 190)
+        Me.txtFax.Name = "txtFax"
+        Me.txtFax.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFax.Properties.Appearance.Options.UseFont = True
+        Me.txtFax.Size = New System.Drawing.Size(478, 20)
+        Me.txtFax.StyleController = Me.LayoutControl4
+        Me.txtFax.TabIndex = 216
+        '
         'txCelularRepresentante
         '
-        Me.txCelularRepresentante.Location = New System.Drawing.Point(495, 175)
+        Me.txCelularRepresentante.Location = New System.Drawing.Point(495, 178)
         Me.txCelularRepresentante.Name = "txCelularRepresentante"
         Me.txCelularRepresentante.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txCelularRepresentante.Properties.Appearance.Options.UseFont = True
@@ -1091,7 +1144,7 @@ Public Class frmAgregarCliente
         '
         'txtTelefonoRepresentante
         '
-        Me.txtTelefonoRepresentante.Location = New System.Drawing.Point(504, 151)
+        Me.txtTelefonoRepresentante.Location = New System.Drawing.Point(504, 154)
         Me.txtTelefonoRepresentante.Name = "txtTelefonoRepresentante"
         Me.txtTelefonoRepresentante.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefonoRepresentante.Properties.Appearance.Options.UseFont = True
@@ -1105,7 +1158,7 @@ Public Class frmAgregarCliente
         '
         'txtCorreoRepresentante
         '
-        Me.txtCorreoRepresentante.Location = New System.Drawing.Point(495, 127)
+        Me.txtCorreoRepresentante.Location = New System.Drawing.Point(495, 130)
         Me.txtCorreoRepresentante.Name = "txtCorreoRepresentante"
         Me.txtCorreoRepresentante.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCorreoRepresentante.Properties.Appearance.Options.UseFont = True
@@ -1115,7 +1168,7 @@ Public Class frmAgregarCliente
         '
         'txtCedulaRepresentante
         '
-        Me.txtCedulaRepresentante.Location = New System.Drawing.Point(495, 101)
+        Me.txtCedulaRepresentante.Location = New System.Drawing.Point(495, 104)
         Me.txtCedulaRepresentante.Name = "txtCedulaRepresentante"
         Me.txtCedulaRepresentante.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCedulaRepresentante.Properties.Appearance.Options.UseFont = True
@@ -1129,7 +1182,7 @@ Public Class frmAgregarCliente
         '
         'txtNombreRepresentante
         '
-        Me.txtNombreRepresentante.Location = New System.Drawing.Point(499, 77)
+        Me.txtNombreRepresentante.Location = New System.Drawing.Point(499, 80)
         Me.txtNombreRepresentante.Name = "txtNombreRepresentante"
         Me.txtNombreRepresentante.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombreRepresentante.Properties.Appearance.Options.UseFont = True
@@ -1139,7 +1192,7 @@ Public Class frmAgregarCliente
         '
         'txCedulaContador
         '
-        Me.txCedulaContador.Location = New System.Drawing.Point(78, 290)
+        Me.txCedulaContador.Location = New System.Drawing.Point(78, 295)
         Me.txCedulaContador.Name = "txCedulaContador"
         Me.txCedulaContador.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txCedulaContador.Properties.Appearance.Options.UseFont = True
@@ -1147,13 +1200,13 @@ Public Class frmAgregarCliente
         Me.txCedulaContador.Properties.Mask.EditMask = "000-000000-0000L"
         Me.txCedulaContador.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.txCedulaContador.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txCedulaContador.Size = New System.Drawing.Size(314, 20)
+        Me.txCedulaContador.Size = New System.Drawing.Size(309, 20)
         Me.txCedulaContador.StyleController = Me.LayoutControl4
         Me.txCedulaContador.TabIndex = 227
         '
         'txCedulaGerente
         '
-        Me.txCedulaGerente.Location = New System.Drawing.Point(507, 254)
+        Me.txCedulaGerente.Location = New System.Drawing.Point(507, 259)
         Me.txCedulaGerente.Name = "txCedulaGerente"
         Me.txCedulaGerente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txCedulaGerente.Properties.Appearance.Options.UseFont = True
@@ -1167,7 +1220,7 @@ Public Class frmAgregarCliente
         '
         'txtCelularContador
         '
-        Me.txtCelularContador.Location = New System.Drawing.Point(78, 364)
+        Me.txtCelularContador.Location = New System.Drawing.Point(78, 369)
         Me.txtCelularContador.Name = "txtCelularContador"
         Me.txtCelularContador.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCelularContador.Properties.Appearance.Options.UseFont = True
@@ -1175,13 +1228,13 @@ Public Class frmAgregarCliente
         Me.txtCelularContador.Properties.Mask.EditMask = "(999) 0000-0000"
         Me.txtCelularContador.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.txtCelularContador.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtCelularContador.Size = New System.Drawing.Size(342, 20)
+        Me.txtCelularContador.Size = New System.Drawing.Size(337, 20)
         Me.txtCelularContador.StyleController = Me.LayoutControl4
         Me.txtCelularContador.TabIndex = 230
         '
         'txtCelularGerente
         '
-        Me.txtCelularGerente.Location = New System.Drawing.Point(507, 328)
+        Me.txtCelularGerente.Location = New System.Drawing.Point(507, 333)
         Me.txtCelularGerente.Name = "txtCelularGerente"
         Me.txtCelularGerente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCelularGerente.Properties.Appearance.Options.UseFont = True
@@ -1195,7 +1248,7 @@ Public Class frmAgregarCliente
         '
         'txtTelefonoContador
         '
-        Me.txtTelefonoContador.Location = New System.Drawing.Point(87, 340)
+        Me.txtTelefonoContador.Location = New System.Drawing.Point(87, 345)
         Me.txtTelefonoContador.Name = "txtTelefonoContador"
         Me.txtTelefonoContador.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefonoContador.Properties.Appearance.Options.UseFont = True
@@ -1203,23 +1256,23 @@ Public Class frmAgregarCliente
         Me.txtTelefonoContador.Properties.Mask.EditMask = "(999) 0000-0000"
         Me.txtTelefonoContador.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.txtTelefonoContador.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtTelefonoContador.Size = New System.Drawing.Size(333, 20)
+        Me.txtTelefonoContador.Size = New System.Drawing.Size(328, 20)
         Me.txtTelefonoContador.StyleController = Me.LayoutControl4
         Me.txtTelefonoContador.TabIndex = 229
         '
         'txtEmailContador
         '
-        Me.txtEmailContador.Location = New System.Drawing.Point(78, 316)
+        Me.txtEmailContador.Location = New System.Drawing.Point(78, 321)
         Me.txtEmailContador.Name = "txtEmailContador"
         Me.txtEmailContador.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmailContador.Properties.Appearance.Options.UseFont = True
-        Me.txtEmailContador.Size = New System.Drawing.Size(342, 20)
+        Me.txtEmailContador.Size = New System.Drawing.Size(337, 20)
         Me.txtEmailContador.StyleController = Me.LayoutControl4
         Me.txtEmailContador.TabIndex = 231
         '
         'txtEmailGerente
         '
-        Me.txtEmailGerente.Location = New System.Drawing.Point(507, 280)
+        Me.txtEmailGerente.Location = New System.Drawing.Point(507, 285)
         Me.txtEmailGerente.Name = "txtEmailGerente"
         Me.txtEmailGerente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmailGerente.Properties.Appearance.Options.UseFont = True
@@ -1229,7 +1282,7 @@ Public Class frmAgregarCliente
         '
         'txtTelefonoGerente
         '
-        Me.txtTelefonoGerente.Location = New System.Drawing.Point(516, 304)
+        Me.txtTelefonoGerente.Location = New System.Drawing.Point(516, 309)
         Me.txtTelefonoGerente.Name = "txtTelefonoGerente"
         Me.txtTelefonoGerente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefonoGerente.Properties.Appearance.Options.UseFont = True
@@ -1243,15 +1296,15 @@ Public Class frmAgregarCliente
         '
         'txtContador
         '
-        Me.txtContador.Location = New System.Drawing.Point(82, 266)
+        Me.txtContador.Location = New System.Drawing.Point(82, 271)
         Me.txtContador.Name = "txtContador"
-        Me.txtContador.Size = New System.Drawing.Size(338, 20)
+        Me.txtContador.Size = New System.Drawing.Size(333, 20)
         Me.txtContador.StyleController = Me.LayoutControl4
         Me.txtContador.TabIndex = 232
         '
         'txtCedulaContacto
         '
-        Me.txtCedulaContacto.Location = New System.Drawing.Point(78, 125)
+        Me.txtCedulaContacto.Location = New System.Drawing.Point(78, 128)
         Me.txtCedulaContacto.Name = "txtCedulaContacto"
         Me.txtCedulaContacto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCedulaContacto.Properties.Appearance.Options.UseFont = True
@@ -1259,43 +1312,43 @@ Public Class frmAgregarCliente
         Me.txtCedulaContacto.Properties.Mask.EditMask = "000-000000-0000L"
         Me.txtCedulaContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.txtCedulaContacto.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtCedulaContacto.Size = New System.Drawing.Size(314, 20)
+        Me.txtCedulaContacto.Size = New System.Drawing.Size(309, 20)
         Me.txtCedulaContacto.StyleController = Me.LayoutControl4
         Me.txtCedulaContacto.TabIndex = 226
         '
         'txtEmailContacto
         '
-        Me.txtEmailContacto.Location = New System.Drawing.Point(78, 151)
+        Me.txtEmailContacto.Location = New System.Drawing.Point(78, 154)
         Me.txtEmailContacto.Name = "txtEmailContacto"
         Me.txtEmailContacto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmailContacto.Properties.Appearance.Options.UseFont = True
-        Me.txtEmailContacto.Size = New System.Drawing.Size(342, 20)
+        Me.txtEmailContacto.Size = New System.Drawing.Size(337, 20)
         Me.txtEmailContacto.StyleController = Me.LayoutControl4
         Me.txtEmailContacto.TabIndex = 226
         '
         'txtCargoContacto
         '
-        Me.txtCargoContacto.Location = New System.Drawing.Point(74, 101)
+        Me.txtCargoContacto.Location = New System.Drawing.Point(74, 104)
         Me.txtCargoContacto.Name = "txtCargoContacto"
         Me.txtCargoContacto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCargoContacto.Properties.Appearance.Options.UseFont = True
-        Me.txtCargoContacto.Size = New System.Drawing.Size(346, 20)
+        Me.txtCargoContacto.Size = New System.Drawing.Size(341, 20)
         Me.txtCargoContacto.StyleController = Me.LayoutControl4
         Me.txtCargoContacto.TabIndex = 225
         '
         'txtContacto
         '
-        Me.txtContacto.Location = New System.Drawing.Point(82, 77)
+        Me.txtContacto.Location = New System.Drawing.Point(82, 80)
         Me.txtContacto.Name = "txtContacto"
         Me.txtContacto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContacto.Properties.Appearance.Options.UseFont = True
-        Me.txtContacto.Size = New System.Drawing.Size(338, 20)
+        Me.txtContacto.Size = New System.Drawing.Size(333, 20)
         Me.txtContacto.StyleController = Me.LayoutControl4
         Me.txtContacto.TabIndex = 224
         '
         'txtCelularContacto
         '
-        Me.txtCelularContacto.Location = New System.Drawing.Point(78, 199)
+        Me.txtCelularContacto.Location = New System.Drawing.Point(78, 202)
         Me.txtCelularContacto.Name = "txtCelularContacto"
         Me.txtCelularContacto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCelularContacto.Properties.Appearance.Options.UseFont = True
@@ -1303,13 +1356,13 @@ Public Class frmAgregarCliente
         Me.txtCelularContacto.Properties.Mask.EditMask = "(999) 0000-0000"
         Me.txtCelularContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.txtCelularContacto.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtCelularContacto.Size = New System.Drawing.Size(342, 20)
+        Me.txtCelularContacto.Size = New System.Drawing.Size(337, 20)
         Me.txtCelularContacto.StyleController = Me.LayoutControl4
         Me.txtCelularContacto.TabIndex = 223
         '
         'txtTelefonoContacto
         '
-        Me.txtTelefonoContacto.Location = New System.Drawing.Point(87, 175)
+        Me.txtTelefonoContacto.Location = New System.Drawing.Point(87, 178)
         Me.txtTelefonoContacto.Name = "txtTelefonoContacto"
         Me.txtTelefonoContacto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefonoContacto.Properties.Appearance.Options.UseFont = True
@@ -1317,23 +1370,13 @@ Public Class frmAgregarCliente
         Me.txtTelefonoContacto.Properties.Mask.EditMask = "(999) 0000-0000"
         Me.txtTelefonoContacto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
         Me.txtTelefonoContacto.Properties.Mask.UseMaskAsDisplayFormat = True
-        Me.txtTelefonoContacto.Size = New System.Drawing.Size(333, 20)
+        Me.txtTelefonoContacto.Size = New System.Drawing.Size(328, 20)
         Me.txtTelefonoContacto.StyleController = Me.LayoutControl4
         Me.txtTelefonoContacto.TabIndex = 222
         '
-        'txtFax
-        '
-        Me.txtFax.Location = New System.Drawing.Point(170, 190)
-        Me.txtFax.Name = "txtFax"
-        Me.txtFax.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFax.Properties.Appearance.Options.UseFont = True
-        Me.txtFax.Size = New System.Drawing.Size(478, 20)
-        Me.txtFax.StyleController = Me.LayoutControl4
-        Me.txtFax.TabIndex = 216
-        '
         'txtTelefono
         '
-        Me.txtTelefono.Location = New System.Drawing.Point(170, 216)
+        Me.txtTelefono.Location = New System.Drawing.Point(170, 217)
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTelefono.Properties.Appearance.Options.UseFont = True
@@ -1347,7 +1390,7 @@ Public Class frmAgregarCliente
         '
         'txtCiudad
         '
-        Me.txtCiudad.Location = New System.Drawing.Point(170, 347)
+        Me.txtCiudad.Location = New System.Drawing.Point(170, 348)
         Me.txtCiudad.Name = "txtCiudad"
         Me.txtCiudad.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiudad.Properties.Appearance.Options.UseFont = True
@@ -1357,7 +1400,7 @@ Public Class frmAgregarCliente
         '
         'txtCorreo
         '
-        Me.txtCorreo.Location = New System.Drawing.Point(170, 242)
+        Me.txtCorreo.Location = New System.Drawing.Point(170, 243)
         Me.txtCorreo.Name = "txtCorreo"
         Me.txtCorreo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCorreo.Properties.Appearance.Options.UseFont = True
@@ -1367,7 +1410,7 @@ Public Class frmAgregarCliente
         '
         'cbFormaPago
         '
-        Me.cbFormaPago.Location = New System.Drawing.Point(502, 242)
+        Me.cbFormaPago.Location = New System.Drawing.Point(502, 243)
         Me.cbFormaPago.Name = "cbFormaPago"
         Me.cbFormaPago.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbFormaPago.Properties.Appearance.Options.UseFont = True
@@ -1379,10 +1422,10 @@ Public Class frmAgregarCliente
         '
         'cbVendedor
         '
-        Me.cbVendedor.Location = New System.Drawing.Point(170, 395)
+        Me.cbVendedor.Location = New System.Drawing.Point(170, 396)
         Me.cbVendedor.Name = "cbVendedor"
         Me.cbVendedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbVendedor.Properties.View = Me.GridView1
+        Me.cbVendedor.Properties.PopupView = Me.GridView1
         Me.cbVendedor.Size = New System.Drawing.Size(354, 20)
         Me.cbVendedor.StyleController = Me.LayoutControl4
         Me.cbVendedor.TabIndex = 218
@@ -1397,10 +1440,10 @@ Public Class frmAgregarCliente
         '
         'cbCatalogo
         '
-        Me.cbCatalogo.Location = New System.Drawing.Point(170, 371)
+        Me.cbCatalogo.Location = New System.Drawing.Point(170, 372)
         Me.cbCatalogo.Name = "cbCatalogo"
         Me.cbCatalogo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCatalogo.Properties.View = Me.SearchLookUpEdit1View
+        Me.cbCatalogo.Properties.PopupView = Me.SearchLookUpEdit1View
         Me.cbCatalogo.Size = New System.Drawing.Size(354, 20)
         Me.cbCatalogo.StyleController = Me.LayoutControl4
         Me.cbCatalogo.TabIndex = 217
@@ -1415,7 +1458,7 @@ Public Class frmAgregarCliente
         '
         'cbZona
         '
-        Me.cbZona.Location = New System.Drawing.Point(170, 323)
+        Me.cbZona.Location = New System.Drawing.Point(170, 324)
         Me.cbZona.Name = "cbZona"
         Me.cbZona.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbZona.Properties.Appearance.Options.UseFont = True
@@ -1426,7 +1469,7 @@ Public Class frmAgregarCliente
         '
         'tNombreComercial
         '
-        Me.tNombreComercial.Location = New System.Drawing.Point(170, 94)
+        Me.tNombreComercial.Location = New System.Drawing.Point(170, 95)
         Me.tNombreComercial.Name = "tNombreComercial"
         Me.tNombreComercial.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.tNombreComercial.Size = New System.Drawing.Size(525, 20)
@@ -1435,7 +1478,7 @@ Public Class frmAgregarCliente
         '
         'chkAgro
         '
-        Me.chkAgro.Location = New System.Drawing.Point(711, 103)
+        Me.chkAgro.Location = New System.Drawing.Point(711, 106)
         Me.chkAgro.Name = "chkAgro"
         Me.chkAgro.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkAgro.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1449,7 +1492,7 @@ Public Class frmAgregarCliente
         '
         'chkActivo
         '
-        Me.chkActivo.Location = New System.Drawing.Point(711, 77)
+        Me.chkActivo.Location = New System.Drawing.Point(711, 80)
         Me.chkActivo.Name = "chkActivo"
         Me.chkActivo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkActivo.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1463,7 +1506,7 @@ Public Class frmAgregarCliente
         '
         'cbMunicipios
         '
-        Me.cbMunicipios.Location = New System.Drawing.Point(170, 299)
+        Me.cbMunicipios.Location = New System.Drawing.Point(170, 300)
         Me.cbMunicipios.Name = "cbMunicipios"
         Me.cbMunicipios.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMunicipios.Properties.Appearance.Options.UseFont = True
@@ -1475,7 +1518,7 @@ Public Class frmAgregarCliente
         '
         'cbDepartamentos
         '
-        Me.cbDepartamentos.Location = New System.Drawing.Point(170, 275)
+        Me.cbDepartamentos.Location = New System.Drawing.Point(170, 276)
         Me.cbDepartamentos.Name = "cbDepartamentos"
         Me.cbDepartamentos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbDepartamentos.Properties.Appearance.Options.UseFont = True
@@ -1487,7 +1530,7 @@ Public Class frmAgregarCliente
         '
         'txtNombre
         '
-        Me.txtNombre.Location = New System.Drawing.Point(170, 70)
+        Me.txtNombre.Location = New System.Drawing.Point(170, 71)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtNombre.Size = New System.Drawing.Size(525, 20)
@@ -1497,7 +1540,7 @@ Public Class frmAgregarCliente
         '
         'txtDireccion
         '
-        Me.txtDireccion.Location = New System.Drawing.Point(170, 142)
+        Me.txtDireccion.Location = New System.Drawing.Point(170, 143)
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(277, 68)
         Me.txtDireccion.StyleController = Me.LayoutControl4
@@ -1505,7 +1548,7 @@ Public Class frmAgregarCliente
         '
         'chkLimite
         '
-        Me.chkLimite.Location = New System.Drawing.Point(36, 450)
+        Me.chkLimite.Location = New System.Drawing.Point(36, 453)
         Me.chkLimite.Name = "chkLimite"
         Me.chkLimite.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkLimite.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1513,14 +1556,14 @@ Public Class frmAgregarCliente
         Me.chkLimite.Properties.Appearance.Options.UseForeColor = True
         Me.chkLimite.Properties.Caption = "Validar Limite de Crédito"
         Me.chkLimite.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
-        Me.chkLimite.Size = New System.Drawing.Size(816, 22)
+        Me.chkLimite.Size = New System.Drawing.Size(565, 22)
         Me.chkLimite.StyleController = Me.LayoutControl4
         Me.chkLimite.TabIndex = 211
         '
         'cmbmoneda
         '
         Me.cmbmoneda.EnterMoveNextControl = True
-        Me.cmbmoneda.Location = New System.Drawing.Point(632, 476)
+        Me.cmbmoneda.Location = New System.Drawing.Point(632, 479)
         Me.cmbmoneda.Name = "cmbmoneda"
         Me.cmbmoneda.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cmbmoneda.Properties.NullText = ""
@@ -1535,7 +1578,7 @@ Public Class frmAgregarCliente
         'txtLimiteCredito
         '
         Me.txtLimiteCredito.EditValue = New Decimal(New Integer() {0, 0, 0, 131072})
-        Me.txtLimiteCredito.Location = New System.Drawing.Point(674, 500)
+        Me.txtLimiteCredito.Location = New System.Drawing.Point(674, 503)
         Me.txtLimiteCredito.Name = "txtLimiteCredito"
         Me.txtLimiteCredito.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
         Me.txtLimiteCredito.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1554,7 +1597,7 @@ Public Class frmAgregarCliente
         '
         'chkRetenedorAlcaldia
         '
-        Me.chkRetenedorAlcaldia.Location = New System.Drawing.Point(711, 233)
+        Me.chkRetenedorAlcaldia.Location = New System.Drawing.Point(711, 236)
         Me.chkRetenedorAlcaldia.Name = "chkRetenedorAlcaldia"
         Me.chkRetenedorAlcaldia.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkRetenedorAlcaldia.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1568,7 +1611,7 @@ Public Class frmAgregarCliente
         '
         'chkExcento
         '
-        Me.chkExcento.Location = New System.Drawing.Point(711, 207)
+        Me.chkExcento.Location = New System.Drawing.Point(711, 210)
         Me.chkExcento.Name = "chkExcento"
         Me.chkExcento.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkExcento.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1582,14 +1625,14 @@ Public Class frmAgregarCliente
         '
         'cbCategoria
         '
-        Me.cbCategoria.Location = New System.Drawing.Point(182, 476)
+        Me.cbCategoria.Location = New System.Drawing.Point(182, 479)
         Me.cbCategoria.Name = "cbCategoria"
         Me.cbCategoria.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbCategoria.Properties.Appearance.Options.UseFont = True
         EditorButtonImageOptions1.EnableTransparency = False
         EditorButtonImageOptions2.EnableTransparency = False
         EditorButtonImageOptions3.EnableTransparency = False
-        Me.cbCategoria.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, True, True, True, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Borrar Datos"), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, True, True, True, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Editar/Cambiar  Datos"), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, True, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), "Agregar Nuevo Movimiento")})
+        Me.cbCategoria.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, True, True, True, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "Borrar Datos", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, True, True, True, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "Editar/Cambiar  Datos", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default]), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, True, EditorButtonImageOptions3, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject9, SerializableAppearanceObject10, SerializableAppearanceObject11, SerializableAppearanceObject12, "Agregar Nuevo Movimiento", Nothing, Nothing, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cbCategoria.Properties.NullText = "[Seleccione Categoria]"
         Me.cbCategoria.Properties.ShowFooter = False
         Me.cbCategoria.Size = New System.Drawing.Size(399, 20)
@@ -1598,7 +1641,7 @@ Public Class frmAgregarCliente
         '
         'chkRetenedor
         '
-        Me.chkRetenedor.Location = New System.Drawing.Point(711, 181)
+        Me.chkRetenedor.Location = New System.Drawing.Point(711, 184)
         Me.chkRetenedor.Name = "chkRetenedor"
         Me.chkRetenedor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkRetenedor.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1612,7 +1655,7 @@ Public Class frmAgregarCliente
         '
         'chkGarantia
         '
-        Me.chkGarantia.Location = New System.Drawing.Point(711, 129)
+        Me.chkGarantia.Location = New System.Drawing.Point(711, 132)
         Me.chkGarantia.Name = "chkGarantia"
         Me.chkGarantia.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkGarantia.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1626,7 +1669,7 @@ Public Class frmAgregarCliente
         '
         'chkEmpl
         '
-        Me.chkEmpl.Location = New System.Drawing.Point(711, 155)
+        Me.chkEmpl.Location = New System.Drawing.Point(711, 158)
         Me.chkEmpl.Name = "chkEmpl"
         Me.chkEmpl.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkEmpl.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1640,11 +1683,21 @@ Public Class frmAgregarCliente
         '
         'txtNombreGerente
         '
-        Me.txtNombreGerente.Location = New System.Drawing.Point(507, 230)
+        Me.txtNombreGerente.Location = New System.Drawing.Point(507, 235)
         Me.txtNombreGerente.Name = "txtNombreGerente"
         Me.txtNombreGerente.Size = New System.Drawing.Size(333, 20)
         Me.txtNombreGerente.StyleController = Me.LayoutControl4
         Me.txtNombreGerente.TabIndex = 228
+        '
+        'SimpleButton6
+        '
+        Me.SimpleButton6.ImageOptions.Image = CType(resources.GetObject("SimpleButton6.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton6.Location = New System.Drawing.Point(671, 217)
+        Me.SimpleButton6.Name = "SimpleButton6"
+        Me.SimpleButton6.Size = New System.Drawing.Size(24, 22)
+        Me.SimpleButton6.StyleController = Me.LayoutControl4
+        Me.SimpleButton6.TabIndex = 235
+        Me.SimpleButton6.ToolTip = "Quitar Mascara"
         '
         'LayoutControlItem4
         '
@@ -1661,7 +1714,6 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup4.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup4.GroupBordersVisible = False
         Me.LayoutControlGroup4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.TabbedControlGroup1})
-        Me.LayoutControlGroup4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup4.Name = "Root"
         Me.LayoutControlGroup4.Size = New System.Drawing.Size(888, 585)
         Me.LayoutControlGroup4.TextVisible = False
@@ -1672,7 +1724,6 @@ Public Class frmAgregarCliente
         Me.TabbedControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.TabbedControlGroup1.Name = "TabbedControlGroup1"
         Me.TabbedControlGroup1.SelectedTabPage = Me.LayoutControlGroup5
-        Me.TabbedControlGroup1.SelectedTabPageIndex = 0
         Me.TabbedControlGroup1.Size = New System.Drawing.Size(868, 565)
         Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup5, Me.LayoutControlGroup8})
         '
@@ -1682,7 +1733,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem21, Me.LayoutControlItem1, Me.LayoutControlItem6, Me.LayoutControlItem32, Me.EmptySpaceItem1, Me.LayoutControlItem62, Me.LayoutControlItem63, Me.LayoutControlGroup2, Me.LayoutControlGroup9, Me.LayoutControlItem5, Me.LayoutControlItem35, Me.LayoutControlItem22, Me.LayoutControlItem17, Me.LayoutControlItem44, Me.LayoutControlItem20, Me.LayoutControlItem26, Me.LayoutControlItem28, Me.LayoutControlItem14, Me.LayoutControlItem34, Me.LayoutControlItem27, Me.LayoutControlItem33, Me.LayoutControlItem57, Me.LayoutControlItem29, Me.EmptySpaceItem2, Me.LayoutControlItem65, Me.LayoutControlItem70, Me.LayoutControlItem71})
         Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
-        Me.LayoutControlGroup5.Size = New System.Drawing.Size(844, 519)
+        Me.LayoutControlGroup5.Size = New System.Drawing.Size(844, 518)
         Me.LayoutControlGroup5.Text = "Datos Generales"
         '
         'LayoutControlItem21
@@ -1727,9 +1778,9 @@ Public Class frmAgregarCliente
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 492)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 494)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(844, 27)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(844, 24)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem62
@@ -1764,10 +1815,10 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup2.AppearanceGroup.Options.UseFont = True
         Me.LayoutControlGroup2.AppearanceItemCaption.BackColor = System.Drawing.Color.Transparent
         Me.LayoutControlGroup2.AppearanceItemCaption.Options.UseBackColor = True
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem43, Me.LayoutControlItem41, Me.LayoutControlItem40, Me.LayoutControlItem42, Me.LayoutControlItem16})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem43, Me.LayoutControlItem41, Me.LayoutControlItem40, Me.LayoutControlItem42, Me.LayoutControlItem16, Me.LayoutControlItem72})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 373)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(844, 119)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(844, 121)
         Me.LayoutControlGroup2.Text = "Limite de Crédito"
         '
         'LayoutControlItem43
@@ -1776,7 +1827,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem43.CustomizationFormText = "LayoutControlItem43"
         Me.LayoutControlItem43.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem43.Name = "LayoutControlItem43"
-        Me.LayoutControlItem43.Size = New System.Drawing.Size(820, 26)
+        Me.LayoutControlItem43.Size = New System.Drawing.Size(569, 26)
         Me.LayoutControlItem43.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem43.TextVisible = False
         '
@@ -1828,6 +1879,18 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem16.Size = New System.Drawing.Size(549, 26)
         Me.LayoutControlItem16.Text = "Clasificación:"
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(143, 13)
+        '
+        'LayoutControlItem72
+        '
+        Me.LayoutControlItem72.Control = Me.chkAprobacionVencidas
+        Me.LayoutControlItem72.Location = New System.Drawing.Point(569, 0)
+        Me.LayoutControlItem72.MaxSize = New System.Drawing.Size(251, 26)
+        Me.LayoutControlItem72.MinSize = New System.Drawing.Size(251, 26)
+        Me.LayoutControlItem72.Name = "LayoutControlItem72"
+        Me.LayoutControlItem72.Size = New System.Drawing.Size(251, 26)
+        Me.LayoutControlItem72.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem72.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem72.TextVisible = False
         '
         'LayoutControlGroup9
         '
@@ -1906,7 +1969,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem25.CustomizationFormText = "LayoutControlItem25"
         Me.LayoutControlItem25.Location = New System.Drawing.Point(0, 156)
         Me.LayoutControlItem25.Name = "LayoutControlItem25"
-        Me.LayoutControlItem25.Size = New System.Drawing.Size(145, 30)
+        Me.LayoutControlItem25.Size = New System.Drawing.Size(145, 28)
         Me.LayoutControlItem25.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem25.TextVisible = False
         '
@@ -2082,13 +2145,37 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem65.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem65.TextVisible = False
         '
+        'LayoutControlItem70
+        '
+        Me.LayoutControlItem70.Control = Me.SimpleButton6
+        Me.LayoutControlItem70.Location = New System.Drawing.Point(647, 170)
+        Me.LayoutControlItem70.MaxSize = New System.Drawing.Size(28, 26)
+        Me.LayoutControlItem70.MinSize = New System.Drawing.Size(28, 26)
+        Me.LayoutControlItem70.Name = "LayoutControlItem70"
+        Me.LayoutControlItem70.Size = New System.Drawing.Size(28, 26)
+        Me.LayoutControlItem70.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem70.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem70.TextVisible = False
+        '
+        'LayoutControlItem71
+        '
+        Me.LayoutControlItem71.Control = Me.SimpleButton7
+        Me.LayoutControlItem71.Location = New System.Drawing.Point(369, 170)
+        Me.LayoutControlItem71.MaxSize = New System.Drawing.Size(28, 26)
+        Me.LayoutControlItem71.MinSize = New System.Drawing.Size(28, 26)
+        Me.LayoutControlItem71.Name = "LayoutControlItem71"
+        Me.LayoutControlItem71.Size = New System.Drawing.Size(28, 26)
+        Me.LayoutControlItem71.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem71.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem71.TextVisible = False
+        '
         'LayoutControlGroup8
         '
         Me.LayoutControlGroup8.CustomizationFormText = "Contactos"
         Me.LayoutControlGroup8.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup10, Me.LayoutControlGroup12, Me.LayoutControlGroup1, Me.EmptySpaceItem3, Me.SplitterItem1})
         Me.LayoutControlGroup8.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup8.Name = "LayoutControlGroup8"
-        Me.LayoutControlGroup8.Size = New System.Drawing.Size(844, 519)
+        Me.LayoutControlGroup8.Size = New System.Drawing.Size(844, 518)
         Me.LayoutControlGroup8.Text = "Contactos"
         '
         'LayoutControlGroup10
@@ -2101,7 +2188,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup10.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem31, Me.LayoutControlItem38, Me.LayoutControlItem39, Me.LayoutControlItem15, Me.LayoutControlItem37, Me.LayoutControlItem36, Me.LayoutControlItem66})
         Me.LayoutControlGroup10.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup10.Name = "LayoutControlGroup10"
-        Me.LayoutControlGroup10.Size = New System.Drawing.Size(412, 189)
+        Me.LayoutControlGroup10.Size = New System.Drawing.Size(407, 191)
         Me.LayoutControlGroup10.Text = "Contacto"
         '
         'LayoutControlItem31
@@ -2109,7 +2196,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem31.Control = Me.txtContacto
         Me.LayoutControlItem31.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem31.Name = "LayoutControlItem31"
-        Me.LayoutControlItem31.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem31.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem31.Text = "Nombre:"
         Me.LayoutControlItem31.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem31.TextSize = New System.Drawing.Size(41, 13)
@@ -2120,7 +2207,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem38.Control = Me.txtEmailContacto
         Me.LayoutControlItem38.Location = New System.Drawing.Point(0, 74)
         Me.LayoutControlItem38.Name = "LayoutControlItem38"
-        Me.LayoutControlItem38.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem38.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem38.Text = "Correo:"
         Me.LayoutControlItem38.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem38.TextSize = New System.Drawing.Size(37, 13)
@@ -2131,7 +2218,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem39.Control = Me.txtCedulaContacto
         Me.LayoutControlItem39.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem39.Name = "LayoutControlItem39"
-        Me.LayoutControlItem39.Size = New System.Drawing.Size(360, 26)
+        Me.LayoutControlItem39.Size = New System.Drawing.Size(355, 26)
         Me.LayoutControlItem39.Text = "Cédula:"
         Me.LayoutControlItem39.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem39.TextSize = New System.Drawing.Size(37, 13)
@@ -2142,7 +2229,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem15.Control = Me.txtCargoContacto
         Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem15.Text = "Cargo:"
         Me.LayoutControlItem15.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(33, 13)
@@ -2153,7 +2240,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem37.Control = Me.txtCelularContacto
         Me.LayoutControlItem37.Location = New System.Drawing.Point(0, 122)
         Me.LayoutControlItem37.Name = "LayoutControlItem37"
-        Me.LayoutControlItem37.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem37.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem37.Text = "Celular:"
         Me.LayoutControlItem37.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem37.TextSize = New System.Drawing.Size(37, 13)
@@ -2164,7 +2251,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem36.Control = Me.txtTelefonoContacto
         Me.LayoutControlItem36.Location = New System.Drawing.Point(0, 98)
         Me.LayoutControlItem36.Name = "LayoutControlItem36"
-        Me.LayoutControlItem36.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem36.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem36.Text = "Telefono:"
         Me.LayoutControlItem36.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem36.TextSize = New System.Drawing.Size(46, 13)
@@ -2173,7 +2260,7 @@ Public Class frmAgregarCliente
         'LayoutControlItem66
         '
         Me.LayoutControlItem66.Control = Me.SimpleButton1
-        Me.LayoutControlItem66.Location = New System.Drawing.Point(360, 48)
+        Me.LayoutControlItem66.Location = New System.Drawing.Point(355, 48)
         Me.LayoutControlItem66.MaxSize = New System.Drawing.Size(28, 26)
         Me.LayoutControlItem66.MinSize = New System.Drawing.Size(28, 26)
         Me.LayoutControlItem66.Name = "LayoutControlItem66"
@@ -2190,9 +2277,9 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup12.AppearanceGroup.Options.UseForeColor = True
         Me.LayoutControlGroup12.CustomizationFormText = "Contador"
         Me.LayoutControlGroup12.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem50, Me.LayoutControlItem51, Me.LayoutControlItem52, Me.LayoutControlItem58, Me.LayoutControlItem54, Me.LayoutControlItem67})
-        Me.LayoutControlGroup12.Location = New System.Drawing.Point(0, 189)
+        Me.LayoutControlGroup12.Location = New System.Drawing.Point(0, 191)
         Me.LayoutControlGroup12.Name = "LayoutControlGroup12"
-        Me.LayoutControlGroup12.Size = New System.Drawing.Size(412, 165)
+        Me.LayoutControlGroup12.Size = New System.Drawing.Size(407, 167)
         Me.LayoutControlGroup12.Text = "Contador"
         '
         'LayoutControlItem50
@@ -2200,7 +2287,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem50.Control = Me.txtContador
         Me.LayoutControlItem50.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem50.Name = "LayoutControlItem50"
-        Me.LayoutControlItem50.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem50.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem50.Text = "Nombre:"
         Me.LayoutControlItem50.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem50.TextSize = New System.Drawing.Size(41, 13)
@@ -2211,7 +2298,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem51.Control = Me.txtEmailContador
         Me.LayoutControlItem51.Location = New System.Drawing.Point(0, 50)
         Me.LayoutControlItem51.Name = "LayoutControlItem51"
-        Me.LayoutControlItem51.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem51.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem51.Text = "Correo:"
         Me.LayoutControlItem51.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem51.TextSize = New System.Drawing.Size(37, 13)
@@ -2222,7 +2309,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem52.Control = Me.txtTelefonoContador
         Me.LayoutControlItem52.Location = New System.Drawing.Point(0, 74)
         Me.LayoutControlItem52.Name = "LayoutControlItem52"
-        Me.LayoutControlItem52.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem52.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem52.Text = "Telefono:"
         Me.LayoutControlItem52.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem52.TextSize = New System.Drawing.Size(46, 13)
@@ -2233,7 +2320,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem58.Control = Me.txtCelularContador
         Me.LayoutControlItem58.Location = New System.Drawing.Point(0, 98)
         Me.LayoutControlItem58.Name = "LayoutControlItem58"
-        Me.LayoutControlItem58.Size = New System.Drawing.Size(388, 24)
+        Me.LayoutControlItem58.Size = New System.Drawing.Size(383, 24)
         Me.LayoutControlItem58.Text = "Celular:"
         Me.LayoutControlItem58.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem58.TextSize = New System.Drawing.Size(37, 13)
@@ -2244,7 +2331,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem54.Control = Me.txCedulaContador
         Me.LayoutControlItem54.Location = New System.Drawing.Point(0, 24)
         Me.LayoutControlItem54.Name = "LayoutControlItem54"
-        Me.LayoutControlItem54.Size = New System.Drawing.Size(360, 26)
+        Me.LayoutControlItem54.Size = New System.Drawing.Size(355, 26)
         Me.LayoutControlItem54.Text = "Cédula:"
         Me.LayoutControlItem54.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem54.TextSize = New System.Drawing.Size(37, 13)
@@ -2253,7 +2340,7 @@ Public Class frmAgregarCliente
         'LayoutControlItem67
         '
         Me.LayoutControlItem67.Control = Me.SimpleButton2
-        Me.LayoutControlItem67.Location = New System.Drawing.Point(360, 24)
+        Me.LayoutControlItem67.Location = New System.Drawing.Point(355, 24)
         Me.LayoutControlItem67.MaxSize = New System.Drawing.Size(28, 26)
         Me.LayoutControlItem67.MinSize = New System.Drawing.Size(28, 26)
         Me.LayoutControlItem67.Name = "LayoutControlItem67"
@@ -2271,7 +2358,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem55, Me.LayoutControlItem56, Me.LayoutControlItem59, Me.LayoutControlItem60, Me.LayoutControlItem61, Me.LayoutControlGroup11, Me.LayoutControlItem68})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(417, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(427, 354)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(427, 358)
         Me.LayoutControlGroup1.Text = "Representante Legal"
         '
         'LayoutControlItem55
@@ -2338,7 +2425,7 @@ Public Class frmAgregarCliente
         Me.LayoutControlGroup11.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem46, Me.LayoutControlItem47, Me.LayoutControlItem48, Me.LayoutControlItem49, Me.LayoutControlItem53, Me.LayoutControlItem69})
         Me.LayoutControlGroup11.Location = New System.Drawing.Point(0, 122)
         Me.LayoutControlGroup11.Name = "LayoutControlGroup11"
-        Me.LayoutControlGroup11.Size = New System.Drawing.Size(403, 189)
+        Me.LayoutControlGroup11.Size = New System.Drawing.Size(403, 191)
         Me.LayoutControlGroup11.Text = "Gerente"
         '
         'LayoutControlItem46
@@ -2424,17 +2511,17 @@ Public Class frmAgregarCliente
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 354)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 358)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(844, 165)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(844, 160)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'SplitterItem1
         '
         Me.SplitterItem1.AllowHotTrack = True
-        Me.SplitterItem1.Location = New System.Drawing.Point(412, 0)
+        Me.SplitterItem1.Location = New System.Drawing.Point(407, 0)
         Me.SplitterItem1.Name = "SplitterItem1"
-        Me.SplitterItem1.Size = New System.Drawing.Size(5, 354)
+        Me.SplitterItem1.Size = New System.Drawing.Size(10, 358)
         '
         'DockManager1
         '
@@ -2457,9 +2544,9 @@ Public Class frmAgregarCliente
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl3)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(141, 558)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(143, 556)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControlGroup6
@@ -2482,50 +2569,6 @@ Public Class frmAgregarCliente
         Me.LayoutControlItem45.Name = "LayoutControlItem45"
         Me.LayoutControlItem45.Size = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem45.TextSize = New System.Drawing.Size(50, 20)
-        '
-        'SimpleButton6
-        '
-        Me.SimpleButton6.ImageOptions.Image = CType(resources.GetObject("SimpleButton6.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton6.Location = New System.Drawing.Point(671, 216)
-        Me.SimpleButton6.Name = "SimpleButton6"
-        Me.SimpleButton6.Size = New System.Drawing.Size(24, 22)
-        Me.SimpleButton6.StyleController = Me.LayoutControl4
-        Me.SimpleButton6.TabIndex = 235
-        Me.SimpleButton6.ToolTip = "Quitar Mascara"
-        '
-        'LayoutControlItem70
-        '
-        Me.LayoutControlItem70.Control = Me.SimpleButton6
-        Me.LayoutControlItem70.Location = New System.Drawing.Point(647, 170)
-        Me.LayoutControlItem70.MaxSize = New System.Drawing.Size(28, 26)
-        Me.LayoutControlItem70.MinSize = New System.Drawing.Size(28, 26)
-        Me.LayoutControlItem70.Name = "LayoutControlItem70"
-        Me.LayoutControlItem70.Size = New System.Drawing.Size(28, 26)
-        Me.LayoutControlItem70.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem70.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem70.TextVisible = False
-        '
-        'SimpleButton7
-        '
-        Me.SimpleButton7.ImageOptions.Image = CType(resources.GetObject("SimpleButton7.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton7.Location = New System.Drawing.Point(393, 216)
-        Me.SimpleButton7.Name = "SimpleButton7"
-        Me.SimpleButton7.Size = New System.Drawing.Size(24, 22)
-        Me.SimpleButton7.StyleController = Me.LayoutControl4
-        Me.SimpleButton7.TabIndex = 236
-        Me.SimpleButton7.ToolTip = "Quitar Mascara"
-        '
-        'LayoutControlItem71
-        '
-        Me.LayoutControlItem71.Control = Me.SimpleButton7
-        Me.LayoutControlItem71.Location = New System.Drawing.Point(369, 170)
-        Me.LayoutControlItem71.MaxSize = New System.Drawing.Size(28, 26)
-        Me.LayoutControlItem71.MinSize = New System.Drawing.Size(28, 26)
-        Me.LayoutControlItem71.Name = "LayoutControlItem71"
-        Me.LayoutControlItem71.Size = New System.Drawing.Size(28, 26)
-        Me.LayoutControlItem71.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem71.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem71.TextVisible = False
         '
         'frmAgregarCliente
         '
@@ -2551,6 +2594,7 @@ Public Class frmAgregarCliente
         CType(Me.txtObservaciones.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl4.ResumeLayout(False)
+        CType(Me.chkAprobacionVencidas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCelular.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbClasificacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbTipoCliente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2559,6 +2603,7 @@ Public Class frmAgregarCliente
         CType(Me.cbPais.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCodigoLetra.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCodigo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtFax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txCelularRepresentante.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTelefonoRepresentante.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCorreoRepresentante.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2579,7 +2624,6 @@ Public Class frmAgregarCliente
         CType(Me.txtContacto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCelularContacto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTelefonoContacto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtFax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTelefono.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCiudad.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtCorreo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2623,6 +2667,7 @@ Public Class frmAgregarCliente
         CType(Me.LayoutControlItem40, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem42, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem72, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem19, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem18, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2647,6 +2692,8 @@ Public Class frmAgregarCliente
         CType(Me.LayoutControlItem29, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem65, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem70, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem71, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2687,8 +2734,6 @@ Public Class frmAgregarCliente
         CType(Me.LayoutControlItem45, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem70, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem71, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -2710,6 +2755,7 @@ Public Class frmAgregarCliente
 
     Dim objCliente As New CLIENTES
     Dim ClienteDB As New db_CLIENTES
+    Dim LimiteCreditoActual As Double = 0.00
     Private Sub frmAgregarCliente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'Verificar si hay campos requeridos
         RequeridosDB.SetCamposRequeridos(
@@ -2724,6 +2770,7 @@ Public Class frmAgregarCliente
         If Cliente > 0 Then
             cmdEstadoCuenta.Enabled = True
             bAcuerdosPagos.Enabled = True
+            bDocumentos.Enabled = True
             '
             MostrarDatos()
         Else
@@ -2894,10 +2941,12 @@ Public Class frmAgregarCliente
         Cod_Cuenta = objCliente.CUENTA
         '
         chkLimite.Checked = IIf(objCliente.ValidarLimite = 1, True, False)
+        chkAprobacionVencidas.Checked = IIf(objCliente.ValidarVencidas = 1, True, False)
         cbCategoria.EditValue = objCliente.Categoria
         cbClasificacion.EditValue = objCliente.Clasificacion
         cmbmoneda.EditValue = objCliente.Moneda
         txtLimiteCredito.EditValue = objCliente.LIMITE_CREDITO
+        LimiteCreditoActual = objCliente.LIMITE_CREDITO
         '
         chkActivo.Checked = IIf(objCliente.ACTIVO = 1, True, False)
         chkAgro.Checked = IIf(objCliente.AgroServicio = 1, True, False)
@@ -3042,6 +3091,7 @@ Public Class frmAgregarCliente
         objCliente.CodConsecutPorcentaje = 0
         objCliente.Categoria = cbCategoria.EditValue
         objCliente.ValidarLimite = IIf(chkLimite.Checked, 1, 0)
+        objCliente.ValidarVencidas = IIf(chkAprobacionVencidas.Checked, 1, 0)
         objCliente.SucursalCliente = String.Empty
         objCliente.Comentarios = txtObservaciones.Text.Trim
         objCliente.Registro = Now.Date
@@ -3072,6 +3122,31 @@ Public Class frmAgregarCliente
                 End If
             End If
         Else
+            Dim EmpresaDetalle As VB.SysContab.EmpresasDetails =
+                VB.SysContab.EmpresasDB.GetDetails(EmpresaActual)
+
+            'Verificar si la empresa tiene configurado Validar el limite de credito
+            If EmpresaDetalle.ValidarLimite Then
+                If chkLimite.Checked Then
+                    If LimiteCreditoActual <> txtLimiteCredito.EditValue Then
+                        frmListaNegraValidar.Dispose()
+                        '
+                        With frmListaNegraValidar
+                            .Text = $"Cliente: {txtNombre.Text}"
+                            .IdCliente = txtCodigo.Text
+                            .ClienteN = txtNombre.Text
+                            .Factura = String.Empty
+                            .IdSucursal = txtCodigoLetra.Text.Substring(0, 2)
+                            .TipoAprobacion = "Limite Credito"
+                            .ShowDialog()
+                            If Not .Ok Then
+                                Exit Sub
+                            End If
+                        End With
+                    End If
+                End If
+            End If
+
             If ClienteDB.Actualizar(objCliente) Then
                 Close()
                 Dim frm As frmClientes = frmClientes.Instance()
@@ -3681,7 +3756,7 @@ Public Class frmAgregarCliente
         '  End If
     End Sub
 
-    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles bDocumentos.Click
         If Nuevo = "SI" Then
             XtraMsg("Debe Guardar Primero el Cliente...")
             Exit Sub
@@ -3769,6 +3844,15 @@ Public Class frmAgregarCliente
         txtCedulaRepresentante.Properties.Mask.EditMask = String.Empty
         txtCedulaRepresentante.EditValue = String.Empty
         txtCedulaRepresentante.Focus()
+    End Sub
+
+    Private Sub bAcuerdosPagos_Click(sender As Object, e As EventArgs) Handles bAcuerdosPagos.Click
+        With frmSeguimientoCobranza
+            .Text = $"Seguimiento a Cliente: {txtNombre.Text}"
+            .IdCliente = txtCodigo.Text
+            .ShowDialog()
+            .Dispose()
+        End With
     End Sub
 
     Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click

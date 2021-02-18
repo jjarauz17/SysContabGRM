@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports DevExpress.XtraReports.UI
 Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraGrid.Columns
+Imports ClasesBLL
 
 Public Class frmFacturasComprasList
     Inherits DevExpress.XtraEditors.XtraForm
@@ -226,8 +227,8 @@ Public Class frmFacturasComprasList
         Me.btnDisenoRet.Appearance.Options.UseTextOptions = True
         Me.btnDisenoRet.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnDisenoRet.Enabled = False
-        Me.btnDisenoRet.ImageOptions.Image = CType(resources.GetObject("btnDisenoRet.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnDisenoRet.Location = New System.Drawing.Point(12, 450)
+        Me.btnDisenoRet.ImageOptions.SvgImage = CType(resources.GetObject("btnDisenoRet.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.btnDisenoRet.Location = New System.Drawing.Point(12, 469)
         Me.btnDisenoRet.Name = "btnDisenoRet"
         Me.btnDisenoRet.Size = New System.Drawing.Size(118, 38)
         Me.btnDisenoRet.StyleController = Me.LayoutControl2
@@ -254,7 +255,7 @@ Public Class frmFacturasComprasList
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1364, 543, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(141, 601)
+        Me.LayoutControl2.Size = New System.Drawing.Size(143, 599)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -262,10 +263,10 @@ Public Class frmFacturasComprasList
         '
         Me.cmdExportar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdExportar.Enabled = False
-        Me.cmdExportar.ImageOptions.Image = CType(resources.GetObject("cmdExportar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdExportar.Location = New System.Drawing.Point(12, 492)
+        Me.cmdExportar.ImageOptions.SvgImage = CType(resources.GetObject("cmdExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdExportar.Location = New System.Drawing.Point(12, 511)
         Me.cmdExportar.Name = "cmdExportar"
-        Me.cmdExportar.Size = New System.Drawing.Size(118, 38)
+        Me.cmdExportar.Size = New System.Drawing.Size(119, 36)
         Me.cmdExportar.StyleController = Me.LayoutControl2
         Me.cmdExportar.TabIndex = 11
         Me.cmdExportar.Text = "E&xportar"
@@ -273,10 +274,10 @@ Public Class frmFacturasComprasList
         'cmdSalir
         '
         Me.cmdSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 534)
+        Me.cmdSalir.ImageOptions.SvgImage = CType(resources.GetObject("cmdSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 551)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(118, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(119, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
         Me.cmdSalir.TabIndex = 12
         Me.cmdSalir.Text = "&Salir"
@@ -284,10 +285,10 @@ Public Class frmFacturasComprasList
         'cmdNuevo
         '
         Me.cmdNuevo.Enabled = False
-        Me.cmdNuevo.ImageOptions.Image = CType(resources.GetObject("cmdNuevo.ImageOptions.Image"), System.Drawing.Image)
+        Me.cmdNuevo.ImageOptions.SvgImage = CType(resources.GetObject("cmdNuevo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.cmdNuevo.Location = New System.Drawing.Point(12, 12)
         Me.cmdNuevo.Name = "cmdNuevo"
-        Me.cmdNuevo.Size = New System.Drawing.Size(118, 38)
+        Me.cmdNuevo.Size = New System.Drawing.Size(119, 36)
         Me.cmdNuevo.StyleController = Me.LayoutControl2
         Me.cmdNuevo.TabIndex = 0
         Me.cmdNuevo.Text = "&Nuevo"
@@ -297,8 +298,8 @@ Public Class frmFacturasComprasList
         Me.cmdSairi.Appearance.Options.UseTextOptions = True
         Me.cmdSairi.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdSairi.Enabled = False
-        Me.cmdSairi.ImageOptions.Image = CType(resources.GetObject("cmdSairi.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSairi.Location = New System.Drawing.Point(12, 408)
+        Me.cmdSairi.ImageOptions.SvgImage = CType(resources.GetObject("cmdSairi.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdSairi.Location = New System.Drawing.Point(12, 427)
         Me.cmdSairi.Name = "cmdSairi"
         Me.cmdSairi.Size = New System.Drawing.Size(118, 38)
         Me.cmdSairi.StyleController = Me.LayoutControl2
@@ -310,8 +311,8 @@ Public Class frmFacturasComprasList
         Me.btnPrintRet.Appearance.Options.UseTextOptions = True
         Me.btnPrintRet.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnPrintRet.Enabled = False
-        Me.btnPrintRet.ImageOptions.Image = CType(resources.GetObject("btnPrintRet.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnPrintRet.Location = New System.Drawing.Point(12, 348)
+        Me.btnPrintRet.ImageOptions.SvgImage = CType(resources.GetObject("btnPrintRet.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.btnPrintRet.Location = New System.Drawing.Point(12, 336)
         Me.btnPrintRet.Name = "btnPrintRet"
         Me.btnPrintRet.Size = New System.Drawing.Size(118, 38)
         Me.btnPrintRet.StyleController = Me.LayoutControl2
@@ -323,10 +324,10 @@ Public Class frmFacturasComprasList
         Me.cmdModificar.Appearance.Options.UseTextOptions = True
         Me.cmdModificar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdModificar.Enabled = False
-        Me.cmdModificar.ImageOptions.Image = CType(resources.GetObject("cmdModificar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdModificar.Location = New System.Drawing.Point(12, 54)
+        Me.cmdModificar.ImageOptions.SvgImage = CType(resources.GetObject("cmdModificar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdModificar.Location = New System.Drawing.Point(12, 52)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(118, 38)
+        Me.cmdModificar.Size = New System.Drawing.Size(119, 36)
         Me.cmdModificar.StyleController = Me.LayoutControl2
         Me.cmdModificar.TabIndex = 1
         Me.cmdModificar.Text = "&Ver"
@@ -336,10 +337,10 @@ Public Class frmFacturasComprasList
         Me.cmdeditar.Appearance.Options.UseTextOptions = True
         Me.cmdeditar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdeditar.Enabled = False
-        Me.cmdeditar.ImageOptions.Image = CType(resources.GetObject("cmdeditar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdeditar.Location = New System.Drawing.Point(12, 96)
+        Me.cmdeditar.ImageOptions.SvgImage = CType(resources.GetObject("cmdeditar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdeditar.Location = New System.Drawing.Point(12, 92)
         Me.cmdeditar.Name = "cmdeditar"
-        Me.cmdeditar.Size = New System.Drawing.Size(118, 38)
+        Me.cmdeditar.Size = New System.Drawing.Size(119, 36)
         Me.cmdeditar.StyleController = Me.LayoutControl2
         Me.cmdeditar.TabIndex = 4
         Me.cmdeditar.Text = "&Modificar"
@@ -347,10 +348,10 @@ Public Class frmFacturasComprasList
         'cmdImprimir
         '
         Me.cmdImprimir.Enabled = False
-        Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdImprimir.Location = New System.Drawing.Point(12, 222)
+        Me.cmdImprimir.ImageOptions.SvgImage = CType(resources.GetObject("cmdImprimir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdImprimir.Location = New System.Drawing.Point(12, 212)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(118, 38)
+        Me.cmdImprimir.Size = New System.Drawing.Size(119, 36)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 7
         Me.cmdImprimir.Text = "Im&primir"
@@ -361,9 +362,9 @@ Public Class frmFacturasComprasList
         Me.cmdAnular.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdAnular.Enabled = False
         Me.cmdAnular.ImageOptions.Image = CType(resources.GetObject("cmdAnular.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAnular.Location = New System.Drawing.Point(12, 138)
+        Me.cmdAnular.Location = New System.Drawing.Point(12, 132)
         Me.cmdAnular.Name = "cmdAnular"
-        Me.cmdAnular.Size = New System.Drawing.Size(118, 38)
+        Me.cmdAnular.Size = New System.Drawing.Size(119, 36)
         Me.cmdAnular.StyleController = Me.LayoutControl2
         Me.cmdAnular.TabIndex = 2
         Me.cmdAnular.Text = "&Anular"
@@ -374,9 +375,9 @@ Public Class frmFacturasComprasList
         Me.btnBorrar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnBorrar.Enabled = False
         Me.btnBorrar.ImageOptions.Image = CType(resources.GetObject("btnBorrar.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnBorrar.Location = New System.Drawing.Point(12, 180)
+        Me.btnBorrar.Location = New System.Drawing.Point(12, 172)
         Me.btnBorrar.Name = "btnBorrar"
-        Me.btnBorrar.Size = New System.Drawing.Size(118, 38)
+        Me.btnBorrar.Size = New System.Drawing.Size(119, 36)
         Me.btnBorrar.StyleController = Me.LayoutControl2
         Me.btnBorrar.TabIndex = 3
         Me.btnBorrar.Text = "&Borrar"
@@ -386,8 +387,8 @@ Public Class frmFacturasComprasList
         Me.cmdVerEntradaAlmacen.Appearance.Options.UseTextOptions = True
         Me.cmdVerEntradaAlmacen.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdVerEntradaAlmacen.Enabled = False
-        Me.cmdVerEntradaAlmacen.ImageOptions.Image = CType(resources.GetObject("cmdVerEntradaAlmacen.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdVerEntradaAlmacen.Location = New System.Drawing.Point(12, 306)
+        Me.cmdVerEntradaAlmacen.ImageOptions.SvgImage = CType(resources.GetObject("cmdVerEntradaAlmacen.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdVerEntradaAlmacen.Location = New System.Drawing.Point(12, 294)
         Me.cmdVerEntradaAlmacen.Name = "cmdVerEntradaAlmacen"
         Me.cmdVerEntradaAlmacen.Size = New System.Drawing.Size(118, 38)
         Me.cmdVerEntradaAlmacen.StyleController = Me.LayoutControl2
@@ -399,8 +400,8 @@ Public Class frmFacturasComprasList
         Me.cmdEntradaAlmacen.Appearance.Options.UseTextOptions = True
         Me.cmdEntradaAlmacen.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdEntradaAlmacen.Enabled = False
-        Me.cmdEntradaAlmacen.ImageOptions.Image = CType(resources.GetObject("cmdEntradaAlmacen.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdEntradaAlmacen.Location = New System.Drawing.Point(12, 264)
+        Me.cmdEntradaAlmacen.ImageOptions.SvgImage = CType(resources.GetObject("cmdEntradaAlmacen.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdEntradaAlmacen.Location = New System.Drawing.Point(12, 252)
         Me.cmdEntradaAlmacen.Name = "cmdEntradaAlmacen"
         Me.cmdEntradaAlmacen.Size = New System.Drawing.Size(118, 38)
         Me.cmdEntradaAlmacen.StyleController = Me.LayoutControl2
@@ -412,9 +413,8 @@ Public Class frmFacturasComprasList
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem15, Me.LayoutControlItem13, Me.LayoutControlItem14, Me.LayoutControlItem16, Me.LayoutControlItem23, Me.LayoutControlItem17, Me.LayoutControlItem18, Me.LayoutControlItem20, Me.LayoutControlItem19, Me.LayoutControlItem21, Me.EmptySpaceItem5, Me.LayoutControlItem22})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(142, 584)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(143, 599)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem11
@@ -422,54 +422,54 @@ Public Class frmFacturasComprasList
         Me.LayoutControlItem11.Control = Me.cmdNuevo
         Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         '
         'LayoutControlItem12
         '
         Me.LayoutControlItem12.Control = Me.cmdModificar
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
         '
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.cmdeditar
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
         '
         'LayoutControlItem13
         '
         Me.LayoutControlItem13.Control = Me.cmdAnular
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem13.TextVisible = False
         '
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.btnBorrar
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 160)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
         '
         'LayoutControlItem16
         '
         Me.LayoutControlItem16.Control = Me.cmdEntradaAlmacen
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 252)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 240)
         Me.LayoutControlItem16.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem16.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem16.TextVisible = False
@@ -477,20 +477,20 @@ Public Class frmFacturasComprasList
         'LayoutControlItem23
         '
         Me.LayoutControlItem23.Control = Me.cmdSalir
-        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 522)
+        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 539)
         Me.LayoutControlItem23.Name = "LayoutControlItem23"
-        Me.LayoutControlItem23.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem23.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem23.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem23.TextVisible = False
         '
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.cmdVerEntradaAlmacen
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 294)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 282)
         Me.LayoutControlItem17.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem17.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem17.TextVisible = False
@@ -498,20 +498,20 @@ Public Class frmFacturasComprasList
         'LayoutControlItem18
         '
         Me.LayoutControlItem18.Control = Me.cmdImprimir
-        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 200)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
-        Me.LayoutControlItem18.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem18.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem18.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem18.TextVisible = False
         '
         'LayoutControlItem20
         '
         Me.LayoutControlItem20.Control = Me.btnPrintRet
-        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 336)
+        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 324)
         Me.LayoutControlItem20.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem20.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
-        Me.LayoutControlItem20.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem20.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem20.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem20.TextVisible = False
@@ -519,11 +519,11 @@ Public Class frmFacturasComprasList
         'LayoutControlItem19
         '
         Me.LayoutControlItem19.Control = Me.cmdSairi
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 396)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 415)
         Me.LayoutControlItem19.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem19.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem19.TextVisible = False
@@ -531,11 +531,11 @@ Public Class frmFacturasComprasList
         'LayoutControlItem21
         '
         Me.LayoutControlItem21.Control = Me.btnDisenoRet
-        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 438)
+        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 457)
         Me.LayoutControlItem21.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem21.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem21.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem21.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem21.TextVisible = False
@@ -543,17 +543,17 @@ Public Class frmFacturasComprasList
         'EmptySpaceItem5
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 378)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 366)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
-        Me.EmptySpaceItem5.Size = New System.Drawing.Size(122, 18)
+        Me.EmptySpaceItem5.Size = New System.Drawing.Size(123, 49)
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem22
         '
         Me.LayoutControlItem22.Control = Me.cmdExportar
-        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 480)
+        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 499)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
-        Me.LayoutControlItem22.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem22.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem22.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem22.TextVisible = False
         '
@@ -714,7 +714,6 @@ Public Class frmFacturasComprasList
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.EmptySpaceItem3, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem10})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(600, 628)
         Me.LayoutControlGroup1.TextVisible = False
@@ -873,9 +872,9 @@ Public Class frmFacturasComprasList
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(141, 601)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(143, 599)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmFacturasComprasList
@@ -1061,6 +1060,7 @@ Public Class frmFacturasComprasList
         Me.VFacturas.Columns("Tipo").Visible = False
         Me.VFacturas.Columns("Monto").Visible = False
         Me.VFacturas.Columns("Registro").Visible = False
+        Me.VFacturas.Columns("Ruc").Visible = False
 
         'Me.VFacturas.Columns("LineasLiq").Visible = False
         'Me.VFacturas.Columns("LiqTipo").Visible = False
@@ -1151,7 +1151,7 @@ Public Class frmFacturasComprasList
         Else
             rpt = New rptOrdenPago
         End If
-
+        '
         Dim _DT As DataTable = ObtieneDatos("JAR_GetOrdenPagoImpresa", VFacturas.GetFocusedRowCellValue("No. Orden Pago"),
                                       VFacturas.GetFocusedRowCellValue("Proveedor_ID"),
                                       EmpresaActual)
@@ -1162,6 +1162,7 @@ Public Class frmFacturasComprasList
                       "Orden de Pago No. " & VFacturas.GetFocusedRowCellValue("No. Orden Pago"))
 
         HideSplash()
+
         'rpt.ShowPrintMarginsWarning = False
         'rpt.BringToFront()
         'rpt.ShowRibbonPreview()
@@ -1461,82 +1462,83 @@ Public Class frmFacturasComprasList
         '    Exit Sub
         'End If
 
-        Try
-            '  dsFactura = VB.SysContab.Facturas_ComprasDB.FacturaDetalle(Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago"), _
-            'Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID"), _
-            'Me.VFacturas.GetFocusedRowCellValue("Destino"))
 
+        '  dsFactura = VB.SysContab.Facturas_ComprasDB.FacturaDetalle(Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago"), _
+        'Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID"), _
+        'Me.VFacturas.GetFocusedRowCellValue("Destino"))
 
-            Dim dsxAnular As New DataSet
-
-            dsxAnular = VB.SysContab.ComprobanteDB.GetComprobante(Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago"),
+        Dim dsxAnular As DataSet = VB.SysContab.ComprobanteDB.GetComprobante(Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago"),
                 Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID"),
                 Me.VFacturas.GetFocusedRowCellValue("Fecha"))
 
-            If dsxAnular.Tables(0).Rows.Count > 1 Then
-                XtraMsg("Mas de un comprobante encontrado.", MessageBoxIcon.Warning)
+        If dsxAnular.Tables(0).Rows.Count > 1 Then
+            XtraMsg("Mas de un comprobante encontrado.", MessageBoxIcon.Warning)
+            Exit Sub
+        End If
+
+        If dsxAnular.Tables(0).Rows.Count = 1 Then
+            Dim Registros As Integer = VB.SysContab.ComprobanteDB.ComprobanteAnularBuscar(dsxAnular.Tables(0).Rows(0).Item("Comp_No"),
+                                                dsxAnular.Tables(0).Rows(0).Item("Per_ID"),
+                                                 dsxAnular.Tables(0).Rows(0).Item("Comp_Fecha"))
+
+            If Registros > 0 Then
+                XtraMsg("El comprobante ya fue anulado", MessageBoxIcon.Warning)
                 Exit Sub
             End If
+        Else
+            XtraMsg("La O/P " & VFacturas.GetFocusedRowCellValue("No. Orden Pago") & " No contiene Comprobante Contable", MessageBoxIcon.Error)
+        End If
 
-            If dsxAnular.Tables(0).Rows.Count = 1 Then
-                Dim Registros As Integer = VB.SysContab.ComprobanteDB.ComprobanteAnularBuscar(dsxAnular.Tables(0).Rows(0).Item("Comp_No"),
+        Try
+            ''*************  INICIAR TRANSACCION    *****************************
+            DBConnFacturas = New SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
+            DBConnFacturas.Open()
+            transaccionFacturas = DBConnFacturas.BeginTransaction
+            ''**********************************************************************
+
+            VB.SysContab.ComprobanteDB.ComprobanteAnular(dsxAnular.Tables(0).Rows(0).Item("Comp_No"),
                                                     dsxAnular.Tables(0).Rows(0).Item("Per_ID"),
                                                      dsxAnular.Tables(0).Rows(0).Item("Comp_Fecha"))
 
-                If Registros > 0 Then
-                    XtraMsg("El comprobante ya fue anulado", MessageBoxIcon.Warning)
-                    Exit Sub
-                End If
+            'NO ES NECESARIO PORQUE AL ANULAR EL  COMPROBANTE SE BORRA LA DISTRIBUCION.
+            'With dsxAnular.Tables(0).Rows(0)
+            '    EliminaDistribucionTrans(.Item("Comp_No"), .Item("Per_Id"), .Item("Comp_Fecha").Month) 'Revisar si funciona
+            'End With
 
-                ''*************  INICIAR TRANSACCION    *****************************
-                DBConnFacturas = New SqlConnection(VB.SysContab.Rutinas.AbrirConexion())
-                DBConnFacturas.Open()
-                transaccionFacturas = DBConnFacturas.BeginTransaction
-                ''**********************************************************************
+            VB.SysContab.ComprobanteDB.CancelarFactura(dsxAnular.Tables(0).Rows(0).Item("Factura"), dsxAnular.Tables(0).Rows(0).Item("Proveedor"), 0)
+            VB.SysContab.ComprobanteDB.PagosFacturasBorrar(dsxAnular.Tables(0).Rows(0).Item("Comp_No"), dsxAnular.Tables(0).Rows(0).Item("Mes"), dsxAnular.Tables(0).Rows(0).Item("Per_ID"))
 
-                VB.SysContab.ComprobanteDB.ComprobanteAnular(dsxAnular.Tables(0).Rows(0).Item("Comp_No"),
-                                                    dsxAnular.Tables(0).Rows(0).Item("Per_ID"),
-                                                     dsxAnular.Tables(0).Rows(0).Item("Comp_Fecha"))
+            ''Verificar Si la Factura Entro a Bodega y Deshacer Transacción.
+            'If Me.VFacturas.GetFocusedRowCellValue("Estado") = "Facturada" And Me.VFacturas.GetFocusedRowCellValue("TipoF") <> "S" Then
+            '    Dim dtl As DataTable = ObtieneDatosTrans("sp_GetEntradaBodega '" & Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago") & "'," _
+            '                                             + " '" & Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID") & "'," _
+            '                                             + " " & EmpresaActual)
+            '    With dtl
+            '        For i As Integer = 0 To dtl.Rows.Count - 1
+            '            'Restar Existencias de la Entrada registrada Segun Factura.
+            '            GuardaDatosTrans("sp_SumarExistencias '" & .Rows.Item(i)("codigo_bodega") & "'," _
+            '                             + " '" & .Rows.Item(i)("codigo_articulo") & "'," _
+            '                             + " " & (.Rows.Item(i)("cantidad") * -1) & "," _
+            '                             + " '" & .Rows.Item(i)("Articulo_tipo") & "'," & EmpresaActual)
+            '        Next
+            '    End With
 
-                With dsxAnular.Tables(0).Rows(0)
-                    EliminaDistribucionTrans(.Item("Comp_No"), .Item("Per_Id"), .Item("Comp_Fecha").Month) 'Revisar si funciona
-                End With
+            '    'Borrar Transaccion Generadas en Bodega.
+            '    GuardaDatosTrans("sp_TransaccionBodegaDelete '" & Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago") & "'," _
+            '                     + " " & Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID") & "," & EmpresaActual)
+            'End If
 
-                VB.SysContab.ComprobanteDB.CancelarFactura(dsxAnular.Tables(0).Rows(0).Item("Factura"), dsxAnular.Tables(0).Rows(0).Item("Proveedor"), 0)
-                VB.SysContab.ComprobanteDB.PagosFacturasBorrar(dsxAnular.Tables(0).Rows(0).Item("Comp_No"), dsxAnular.Tables(0).Rows(0).Item("Mes"), dsxAnular.Tables(0).Rows(0).Item("Per_ID"))
-
-                ''Verificar Si la Factura Entro a Bodega y Deshacer Transacción.
-                'If Me.VFacturas.GetFocusedRowCellValue("Estado") = "Facturada" And Me.VFacturas.GetFocusedRowCellValue("TipoF") <> "S" Then
-                '    Dim dtl As DataTable = ObtieneDatosTrans("sp_GetEntradaBodega '" & Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago") & "'," _
-                '                                             + " '" & Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID") & "'," _
-                '                                             + " " & EmpresaActual)
-                '    With dtl
-                '        For i As Integer = 0 To dtl.Rows.Count - 1
-                '            'Restar Existencias de la Entrada registrada Segun Factura.
-                '            GuardaDatosTrans("sp_SumarExistencias '" & .Rows.Item(i)("codigo_bodega") & "'," _
-                '                             + " '" & .Rows.Item(i)("codigo_articulo") & "'," _
-                '                             + " " & (.Rows.Item(i)("cantidad") * -1) & "," _
-                '                             + " '" & .Rows.Item(i)("Articulo_tipo") & "'," & EmpresaActual)
-                '        Next
-                '    End With
-
-                '    'Borrar Transaccion Generadas en Bodega.
-                '    GuardaDatosTrans("sp_TransaccionBodegaDelete '" & Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago") & "'," _
-                '                     + " " & Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID") & "," & EmpresaActual)
-                'End If
-
-                VB.SysContab.Facturas_ComprasDB.UpdateEstado(Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago"),
+            VB.SysContab.Facturas_ComprasDB.UpdateEstado(Me.VFacturas.GetFocusedRowCellValue("No. Orden Pago"),
                     "A", VB.SysContab.Rutinas.Fecha, Me.VFacturas.GetFocusedRowCellValue("Proveedor_ID"))
 
-                VB.SysContab.Rutinas.okTransaccion()
-                '
-                Cargar()
-            Else
-                XtraMsg("La O/P " & VFacturas.GetFocusedRowCellValue("No. Orden Pago") & " No contiene Comprobante Contable", MessageBoxIcon.Error)
-            End If
+            VB.SysContab.Rutinas.okTransaccion()
+            '
+            ShowSplash()
+            Cargar()
+            HideSplash()
         Catch ex As Exception
-            XtraMsg(ex.Message, MessageBoxIcon.Error)
             VB.SysContab.Rutinas.ErrorTransaccion()
+            XtraMsg(ex.Message, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -1559,7 +1561,8 @@ Public Class frmFacturasComprasList
         End If
         '--------------------------------------------------------------------
 
-        Dim Estado As Boolean = True
+        Dim Estado As Boolean = True,
+            Pagos As Boolean = False
 
         If Me.VFacturas.GetFocusedRowCellValue("Estado") = "Anulada" Then
             XtraMsg("La Factura Seleccionada se encuentra ANULADA")
@@ -1579,27 +1582,27 @@ Public Class frmFacturasComprasList
         '    Exit Sub
         'End If
 
-        Dim requisa As New ClasesBLL.db_requisas
+        Dim req As New db_requisas
 
-        requisa.Detalles(VFacturas.GetFocusedRowCellValue("No. Orden Pago"),
+        req.Detalles(VFacturas.GetFocusedRowCellValue("No. Orden Pago"),
                          VFacturas.GetFocusedRowCellValue("Proveedor_ID"))
 
 
         'Si la OP Tiene Movimiento de Inventario
-        If requisa.req_codigo > 0 Then
-            If requisa.Procesado Then
+        If req.req_codigo > 0 Then
+            If req.Procesado Then
                 XtraMsg("La O/P Seleccionada contiene un movimiento ya procesado en el Inventario, No puede ser Modificada!", MessageBoxIcon.Error)
                 Estado = False
                 'Exit Sub
             Else
-                XtraMsg("Esta O/P: " & VFacturas.GetFocusedRowCellValue("No. Orden Pago") & " contiene el Movimiento de Inventario No. " & requisa.req_codigo.ToString() & ", debe ser borrado primero para poder ser Modificada." & vbCrLf, MessageBoxIcon.Warning)
+                XtraMsg("Esta O/P: " & VFacturas.GetFocusedRowCellValue("No. Orden Pago") & " contiene el Movimiento de Inventario No. " & req.req_codigo.ToString() & ", debe ser borrado primero para poder ser Modificada." & vbCrLf, MessageBoxIcon.Warning)
                 Estado = False
                 'Exit Sub
             End If
         End If
 
         If CDbl(Me.VFacturas.GetFocusedRowCellValue("PAGOS")) > 0 Then
-
+            Pagos = True
             If Not XtraMsg2("La Factura Seleccionada ya tiene registrado Pagos." & vbCrLf &
                         "Esta Seguro que desea Modificarla?", MessageBoxIcon.Warning) Then
                 Exit Sub
@@ -1618,8 +1621,7 @@ Public Class frmFacturasComprasList
         '    Exit Sub
         'End If
 
-
-        ShowSplash()
+        ShowSplash("Cargando O/P...")
         '
         Dim frm As frmFacturasCompra = frmFacturasCompra.Instance()
         frm.Dispose()
@@ -1634,7 +1636,10 @@ Public Class frmFacturasComprasList
         f.Modifica = True
         f.cmdAceptar.Enabled = Estado
         f.TipoC = 2
+        f.TienePagos = Pagos
+
         'f.rbServicios.Checked = True
+
         f.gbTipo.Enabled = False
 
         If f.TipoF = "P" Then

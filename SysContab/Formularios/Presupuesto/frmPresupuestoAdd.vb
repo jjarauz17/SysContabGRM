@@ -19,7 +19,7 @@
         AddValidation(Me, DxValidationProvider1)
         '
         CargaInicial()
-        ArmarGrid()       
+        ArmarGrid()
     End Sub
 
     Sub CargaInicial()
@@ -35,20 +35,33 @@
     End Sub
 
     Sub Cargar()
+
+        Dim Anio As Integer = VB.SysContab.Rutinas.Fecha.Year
+
+        If Not cbPeriodo.EditValue Is Nothing Then
+            Anio = VB.SysContab.PeriodosDB.GetDetails(cbPeriodo.EditValue).Final.Year - 1
+        End If
+
         DT_DTL =
-            db_PresupuestoDetalle.Listar(IdPresupuesto, cbSucursal.EditValue)
+            db_PresupuestoDetalle.Listar(
+            IdPresupuesto,
+            IIf(EmpresaActual.Equals("1"), cbSucursal.EditValue, ""),
+            Anio)
+
         iGrid.DataSource = DT_DTL
     End Sub
 
     Sub ArmarGrid()
         iVista.PopulateColumns()
-        FormatoGrid(iVista, 2, 0, False)
+        'FormatoGrid(iVista, 2, 0, False)
+        FormatoGridNew(iVista, 2, 2, False, True, True)
 
         iVista.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always
         iVista.OptionsView.ColumnAutoWidth = False
 
         iVista.Columns("IdDetalle").Visible = False
-        iVista.Columns("Producto").Width = 150
+        iVista.Columns("Tipo").Visible = False
+        iVista.Columns("Producto").Width = 200
         iVista.Columns("Presentacion").Width = 120
         iVista.Columns("Unidad").Width = 80
         iVista.Columns("Clase").Width = 150
@@ -91,26 +104,49 @@
     End Sub
 
     Sub CargarCombos()
+
         Application.DoEvents()
         Combo(cbSucursal, ObtieneDatos("sp_GetSucursalesxUsuario", EmpresaActual, Usuario_ID))
         cbSucursal.ItemIndex = 0
+        '
+        GetCentrosCostosList(cbCentro, 1)
+        cbCentro.ItemIndex = 0
+
+        If CInt(EmpresaActual) = 1 Then
+            'Application.DoEvents()
+            'Combo(cbSucursal, ObtieneDatos("sp_GetSucursalesxUsuario", EmpresaActual, Usuario_ID))
+            'cbSucursal.ItemIndex = 0
+            '
+            Application.DoEvents()
+            SearchLookUp(cbCultivo, GetCultivo(), "Nombre", "Codigo", 0)
+
+            'Combo(cbCultivo, GetCultivo())
+            'cbCultivo.ItemIndex = 0
+        Else
+            'lySucursal.Text = "Centro Costo:"
+            lyCultivo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+
+            'GetCentrosCostosList(cbSucursal, 1)
+            'cbSucursal.ItemIndex = 0
+        End If
         '
         Application.DoEvents()
         Combo(cbPeriodo, VB.SysContab.PeriodosDB.GetList().Tables("Periodos"))
         cbPeriodo.ItemIndex = 0
 
         Application.DoEvents()
-        Combo(cbCultivo, GetCultivo())
-        cbCultivo.ItemIndex = 0
-
-        Application.DoEvents()
-        RepositoryGridLookup(cbItems, ObtieneDatos("sp_ArticulosPresupuestoList " & EmpresaActual), "Nombre", "Codigo")
+        RepositoryGridLookup(cbItems, ObtieneDatos("sp_ArticulosPresupuestoList", EmpresaActual), "Nombre", "Codigo")
     End Sub
 
     Sub MostrarDatos()
         If IdPresupuesto = 0 Then
             Numero.Text =
-                db_Presupuesto.GetNumero(IIf(cbSucursal.EditValue Is Nothing, "", cbSucursal.EditValue))
+                db_Presupuesto.GetNumero(IIf(cbSucursal.EditValue Is Nothing, "", cbSucursal.EditValue), 1, cbPeriodo.EditValue)
+
+            txtUsuario.Text = VB.SysContab.SeguridadDB.GetLogin(Login).Rows.Item(0)("Usr_NombreCompleto")
+            '
+            bVer.Enabled = False
+            bImprimir.Enabled = False
         Else
             obj = db_Presupuesto.Detalles(IdPresupuesto)
 
@@ -118,17 +154,21 @@
             Numero.Text = obj.Codigo
             cbPeriodo.EditValue = obj.Periodo
             cbCultivo.EditValue = obj.IdCultivo
-            cbSucursal.EditValue = obj.IdSucursal
+            cbSucursal.EditValue = obj.IdSucursal   'IIf(EmpresaActual.Equals("1"), obj.IdSucursal, obj.IdCentroCosto)
+            cbCentro.EditValue = obj.IdCentroCosto
             mObservaciones.Text = obj.Descripcion
+            txtUsuario.Text = VB.SysContab.SeguridadDB.GetLogin(obj.Usuario).Rows.Item(0)("Usr_NombreCompleto")
 
             cbSucursal.Properties.ReadOnly = True
+            bVer.Enabled = True
+            bImprimir.Enabled = True
         End If
     End Sub
 
     Private Sub cbSucursal_EditValueChanged(sender As Object, e As EventArgs) Handles cbSucursal.EditValueChanged
         If IdPresupuesto = 0 Then
             Numero.Text =
-                db_Presupuesto.GetNumero(IIf(cbSucursal.EditValue Is Nothing, "", cbSucursal.EditValue))
+                db_Presupuesto.GetNumero(IIf(cbSucursal.EditValue Is Nothing, "", cbSucursal.EditValue), 1, cbPeriodo.EditValue)
 
             Cargar()
         End If
@@ -142,6 +182,7 @@
             iVista.SetRowCellValue(e.RowHandle, "Unidad", dr.Item("Unidad"))
             iVista.SetRowCellValue(e.RowHandle, "Presentacion", dr.Item("Presentacion"))
             iVista.SetRowCellValue(e.RowHandle, "Clase", dr.Item("Clase"))
+            iVista.SetRowCellValue(e.RowHandle, "Tipo", dr.Item("Tipo"))
             iVista.SetRowCellValue(e.RowHandle, "Precio U$",
                                    CDbl(ObtieneDatos("SELECT dbo.fn_GetPrecioPromedio(" & cbPeriodo.GetColumnValue("Año") - 1 & ",'" & e.Value & "','" & cbSucursal.EditValue & "'," & EmpresaActual & ") Precio;").Rows.Item(0)(0)))
 
@@ -197,8 +238,16 @@
         '
         'Validar que no se repita el Presupuesto por Cultivo y por Periodo.
         If IdPresupuesto = 0 Then
-            If db_Presupuesto.ValidarPresupuesto(IsNull(cbPeriodo.EditValue, 0), IsNull(cbCultivo.EditValue, 0), IsNull(cbSucursal.EditValue, "")) Then
-                XtraMsg("El Presupuesto que intenta ingresar para el Cultivo " & cbCultivo.Text & " Ya Exite!", MessageBoxIcon.Error)
+            If db_Presupuesto.ValidarPresupuesto(IsNull(cbPeriodo.EditValue, 0), IsNull(cbCultivo.EditValue, 0), IsNull(cbSucursal.EditValue, ""), 1, 0) Then
+                XtraMsg("Ya existe un Presupuesto para los parametros seleccionados!", MessageBoxIcon.Error)
+                Exit Sub
+            End If
+        End If
+        '
+        If EmpresaActual.Equals("1") Then
+            If cbCultivo.EditValue Is Nothing Then
+                XtraMsg("Seleccione el Tipo de Cultivo para este Presupuesto!", MessageBoxIcon.Warning)
+                cbCultivo.Focus()
                 Exit Sub
             End If
         End If
@@ -207,13 +256,15 @@
             XtraMsg("No se han registrado los Productos para este Presupuesto!", MessageBoxIcon.Error)
             Exit Sub
         End If
-
+        '
         obj.IdPresupuesto = IdPresupuesto
-        obj.Codigo = IIf(IdPresupuesto = 0, db_Presupuesto.GetNumero(IIf(cbSucursal.EditValue Is Nothing, "", cbSucursal.EditValue)), Numero.Text)
+        obj.Codigo = IIf(IdPresupuesto = 0, db_Presupuesto.GetNumero(IIf(cbSucursal.EditValue Is Nothing, "", cbSucursal.EditValue), 1, cbPeriodo.EditValue), Numero.Text)
         obj.Periodo = cbPeriodo.EditValue
+        obj.Tipo = 1
         obj.Fecha = Fecha.DateTime.Date
         obj.IdSucursal = IsNull(cbSucursal.EditValue, "")
         obj.IdCultivo = IsNull(cbCultivo.EditValue, 0)
+        obj.IdCentroCosto = IsNull(cbCentro.EditValue, 0)
         obj.Descripcion = mObservaciones.Text
 
         If IdPresupuesto = 0 Then
@@ -224,14 +275,16 @@
             '*************** Gudar Detalle  ***********************
             '******************************************************
             Dim _DT_DTL As DataTable =
-                DT_DTL.GetChanges(DataRowState.Added Or DataRowState.Modified)
+                DT_DTL.GetChanges(DataRowState.Added Or DataRowState.Modified Or DataRowState.Unchanged)
 
             If Not _DT_DTL Is Nothing Then
+                obj_dtl.IdPresupuesto = IdPresupuesto
+
                 For i As Integer = 0 To _DT_DTL.Rows.Count - 1
-                    obj_dtl.IdPresupuesto = IdPresupuesto
                     obj_dtl.Producto = _DT_DTL.Rows.Item(i)("Producto")
                     obj_dtl.Presentacion = IsNull(_DT_DTL.Rows.Item(i)("Presentacion"), "")
                     obj_dtl.Unidad = IsNull(_DT_DTL.Rows.Item(i)("Unidad"), "")
+                    obj_dtl.Tipo = IsNull(_DT_DTL.Rows.Item(i)("Tipo"), "P")
                     obj_dtl.Precio = IsNull(_DT_DTL.Rows.Item(i)("Precio U$"), 0.0)
                     '
                     obj_dtl.Cantidad1 = IsNull(_DT_DTL.Rows.Item(i)("Enero"), 0.0)
@@ -273,6 +326,7 @@
                     obj_dtl.Producto = _DT_UPD.Rows.Item(i)("Producto")
                     obj_dtl.Presentacion = IsNull(_DT_UPD.Rows.Item(i)("Presentacion"), "")
                     obj_dtl.Unidad = IsNull(_DT_UPD.Rows.Item(i)("Unidad"), "")
+                    obj_dtl.Tipo = IsNull(_DT_UPD.Rows.Item(i)("Tipo"), "P")
                     obj_dtl.Precio = IsNull(_DT_UPD.Rows.Item(i)("Precio U$"), 0.0)
                     '
                     obj_dtl.Cantidad1 = IsNull(_DT_UPD.Rows.Item(i)("Enero"), 0.0)
@@ -301,6 +355,7 @@
                     obj_dtl.Producto = _DT_NEW.Rows.Item(i)("Producto")
                     obj_dtl.Presentacion = IsNull(_DT_NEW.Rows.Item(i)("Presentacion"), "")
                     obj_dtl.Unidad = IsNull(_DT_NEW.Rows.Item(i)("Unidad"), "")
+                    obj_dtl.Tipo = IsNull(_DT_NEW.Rows.Item(i)("Tipo"), "P")
                     obj_dtl.Precio = IsNull(_DT_NEW.Rows.Item(i)("Precio U$"), 0.0)
                     '
                     obj_dtl.Cantidad1 = IsNull(_DT_NEW.Rows.Item(i)("Enero"), 0.0)
@@ -337,7 +392,7 @@
         End If
     End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles bImprimir.Click
         If IdPresupuesto <> 0 Then
 
         End If
@@ -351,16 +406,47 @@
         Close()
     End Sub
 
-    Private Sub SimpleButton7_Click(sender As Object, e As EventArgs) Handles SimpleButton7.Click
+    Private Sub SimpleButton7_Click(sender As Object, e As EventArgs) Handles bVer.Click
         If IdPresupuesto <> 0 Then
-            ShowSplash("Cargando Datos...")
+
+            ShowSplash("Cargando Presupuesto...")
             frmPresupuestoVer.Dispose()
-            frmPresupuestoVer.MdiParent = Me.MdiParent
-            frmPresupuestoVer.IdPresupuesto = iVista.GetFocusedRowCellValue("IdPresupuesto")
-            frmPresupuestoVer.Text = "Ver Presupuesto"
-            frmPresupuestoVer.Show()
-            frmPresupuestoVer.WindowState = FormWindowState.Maximized
+            '
+            With frmPresupuestoVer
+                .MdiParent = Me.MdiParent
+                .Text = $"Ver Presupuesto No. {Numero.Text}"
+                .Mostrar(
+                    IdPresupuesto,
+                    cbSucursal.Text,
+                    cbSucursal.Text,
+                    cbPeriodo.Text,
+                    cbCultivo.Text)
+                .Show()
+                .WindowState = FormWindowState.Maximized
+            End With
             HideSplash()
+
+            'frmPresupuestoVer.MdiParent = Me.MdiParent
+            'frmPresupuestoVer.IdPresupuesto = IdPresupuesto
+            'frmPresupuestoVer.Text = "Ver Presupuesto"
+            'frmPresupuestoVer.Show()
+            'frmPresupuestoVer.WindowState = FormWindowState.Maximized
+            'HideSplash()
         End If
+    End Sub
+
+    Private Sub cbPeriodo_EditValueChanged(sender As Object, e As EventArgs) Handles cbPeriodo.EditValueChanged
+        If Inicio Then Exit Sub
+        '
+        If IdPresupuesto = 0 Then
+            Numero.Text =
+                db_Presupuesto.GetNumero(IIf(cbSucursal.EditValue Is Nothing, "", cbSucursal.EditValue), 1, cbPeriodo.EditValue)
+        End If
+        '
+        If IdPresupuesto = 0 Then Cargar()
+    End Sub
+
+    Private Sub cbCultivo_EditValueChanged(sender As Object, e As EventArgs)
+
     End Sub
 End Class

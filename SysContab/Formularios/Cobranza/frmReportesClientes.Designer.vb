@@ -55,16 +55,16 @@ Partial Class frmReportesClientes
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.tcgReporte = New DevExpress.XtraLayout.TabbedControlGroup()
-        Me.lyGReporte1 = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.lyPivot1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lyGReporte2 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.lyPivot2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem16 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem17 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.lyGReporte1 = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.lyPivot1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.lyGReporte3 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.lyGrid = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem12 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -111,16 +111,16 @@ Partial Class frmReportesClientes
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tcgReporte, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lyGReporte1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.lyPivot1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lyGReporte2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lyPivot2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lyGReporte1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lyPivot1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lyGReporte3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lyGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -182,7 +182,7 @@ Partial Class frmReportesClientes
         '
         'chkMasDatos
         '
-        Me.chkMasDatos.Location = New System.Drawing.Point(619, 139)
+        Me.chkMasDatos.Location = New System.Drawing.Point(619, 140)
         Me.chkMasDatos.Name = "chkMasDatos"
         Me.chkMasDatos.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkMasDatos.Properties.Appearance.ForeColor = System.Drawing.Color.OrangeRed
@@ -196,79 +196,79 @@ Partial Class frmReportesClientes
         '
         'CheckEdit6
         '
-        Me.CheckEdit6.Location = New System.Drawing.Point(609, 139)
+        Me.CheckEdit6.Location = New System.Drawing.Point(609, 140)
         Me.CheckEdit6.Name = "CheckEdit6"
         Me.CheckEdit6.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit6.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.CheckEdit6.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit6.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit6.Properties.Caption = "Quitar Sub Totales"
-        Me.CheckEdit6.Size = New System.Drawing.Size(134, 19)
+        Me.CheckEdit6.Size = New System.Drawing.Size(134, 20)
         Me.CheckEdit6.StyleController = Me.LayoutControl1
         Me.CheckEdit6.TabIndex = 188
         '
         'CheckEdit7
         '
-        Me.CheckEdit7.Location = New System.Drawing.Point(747, 139)
+        Me.CheckEdit7.Location = New System.Drawing.Point(747, 140)
         Me.CheckEdit7.Name = "CheckEdit7"
         Me.CheckEdit7.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit7.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.CheckEdit7.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit7.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit7.Properties.Caption = "Quitar Gran Total"
-        Me.CheckEdit7.Size = New System.Drawing.Size(125, 19)
+        Me.CheckEdit7.Size = New System.Drawing.Size(125, 20)
         Me.CheckEdit7.StyleController = Me.LayoutControl1
         Me.CheckEdit7.TabIndex = 190
         '
         'CheckEdit2
         '
-        Me.CheckEdit2.Location = New System.Drawing.Point(745, 139)
+        Me.CheckEdit2.Location = New System.Drawing.Point(745, 140)
         Me.CheckEdit2.Name = "CheckEdit2"
         Me.CheckEdit2.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.CheckEdit2.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit2.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit2.Properties.Caption = "Quitar Gran Total"
-        Me.CheckEdit2.Size = New System.Drawing.Size(127, 19)
+        Me.CheckEdit2.Size = New System.Drawing.Size(127, 20)
         Me.CheckEdit2.StyleController = Me.LayoutControl1
         Me.CheckEdit2.TabIndex = 188
         '
         'CheckEdit3
         '
-        Me.CheckEdit3.Location = New System.Drawing.Point(744, 139)
+        Me.CheckEdit3.Location = New System.Drawing.Point(744, 140)
         Me.CheckEdit3.Name = "CheckEdit3"
         Me.CheckEdit3.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.CheckEdit3.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit3.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit3.Properties.Caption = "Quitar Gran Total"
-        Me.CheckEdit3.Size = New System.Drawing.Size(128, 19)
+        Me.CheckEdit3.Size = New System.Drawing.Size(128, 20)
         Me.CheckEdit3.StyleController = Me.LayoutControl1
         Me.CheckEdit3.TabIndex = 186
         '
         'CheckEdit5
         '
-        Me.CheckEdit5.Location = New System.Drawing.Point(610, 139)
+        Me.CheckEdit5.Location = New System.Drawing.Point(610, 140)
         Me.CheckEdit5.Name = "CheckEdit5"
         Me.CheckEdit5.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit5.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.CheckEdit5.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit5.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit5.Properties.Caption = "Quitar Sub Totales"
-        Me.CheckEdit5.Size = New System.Drawing.Size(131, 19)
+        Me.CheckEdit5.Size = New System.Drawing.Size(131, 20)
         Me.CheckEdit5.StyleController = Me.LayoutControl1
         Me.CheckEdit5.TabIndex = 187
         '
         'CheckEdit4
         '
-        Me.CheckEdit4.Location = New System.Drawing.Point(611, 139)
+        Me.CheckEdit4.Location = New System.Drawing.Point(611, 140)
         Me.CheckEdit4.Name = "CheckEdit4"
         Me.CheckEdit4.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit4.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
         Me.CheckEdit4.Properties.Appearance.Options.UseFont = True
         Me.CheckEdit4.Properties.Appearance.Options.UseForeColor = True
         Me.CheckEdit4.Properties.Caption = "Quitar Sub Totales"
-        Me.CheckEdit4.Size = New System.Drawing.Size(129, 19)
+        Me.CheckEdit4.Size = New System.Drawing.Size(129, 20)
         Me.CheckEdit4.StyleController = Me.LayoutControl1
         Me.CheckEdit4.TabIndex = 185
         '
@@ -281,7 +281,7 @@ Partial Class frmReportesClientes
         Me.lblTitulo4.Appearance.Options.UseFont = True
         Me.lblTitulo4.Appearance.Options.UseForeColor = True
         Me.lblTitulo4.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblTitulo4.Location = New System.Drawing.Point(24, 139)
+        Me.lblTitulo4.Location = New System.Drawing.Point(24, 140)
         Me.lblTitulo4.Name = "lblTitulo4"
         Me.lblTitulo4.Size = New System.Drawing.Size(581, 23)
         Me.lblTitulo4.StyleController = Me.LayoutControl1
@@ -296,7 +296,7 @@ Partial Class frmReportesClientes
         Me.lblTitulo3.Appearance.Options.UseFont = True
         Me.lblTitulo3.Appearance.Options.UseForeColor = True
         Me.lblTitulo3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblTitulo3.Location = New System.Drawing.Point(24, 139)
+        Me.lblTitulo3.Location = New System.Drawing.Point(24, 140)
         Me.lblTitulo3.Name = "lblTitulo3"
         Me.lblTitulo3.Size = New System.Drawing.Size(591, 23)
         Me.lblTitulo3.StyleController = Me.LayoutControl1
@@ -311,7 +311,7 @@ Partial Class frmReportesClientes
         Me.lblTitulo2.Appearance.Options.UseFont = True
         Me.lblTitulo2.Appearance.Options.UseForeColor = True
         Me.lblTitulo2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblTitulo2.Location = New System.Drawing.Point(24, 139)
+        Me.lblTitulo2.Location = New System.Drawing.Point(24, 140)
         Me.lblTitulo2.Name = "lblTitulo2"
         Me.lblTitulo2.Size = New System.Drawing.Size(582, 23)
         Me.lblTitulo2.StyleController = Me.LayoutControl1
@@ -328,9 +328,9 @@ Partial Class frmReportesClientes
         Me.iPivotVenta.Appearance.FieldValueGrandTotal.Options.UseFont = True
         Me.iPivotVenta.Appearance.FieldValueTotal.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.iPivotVenta.Appearance.FieldValueTotal.Options.UseFont = True
-        Me.iPivotVenta.Location = New System.Drawing.Point(24, 166)
+        Me.iPivotVenta.Location = New System.Drawing.Point(24, 167)
         Me.iPivotVenta.Name = "iPivotVenta"
-        Me.iPivotVenta.Size = New System.Drawing.Size(848, 363)
+        Me.iPivotVenta.Size = New System.Drawing.Size(848, 362)
         Me.iPivotVenta.TabIndex = 7
         '
         'iPivotGrid2
@@ -344,14 +344,14 @@ Partial Class frmReportesClientes
         Me.iPivotGrid2.Appearance.FieldValueGrandTotal.Options.UseFont = True
         Me.iPivotGrid2.Appearance.FieldValueTotal.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.iPivotGrid2.Appearance.FieldValueTotal.Options.UseFont = True
-        Me.iPivotGrid2.Location = New System.Drawing.Point(24, 166)
+        Me.iPivotGrid2.Location = New System.Drawing.Point(24, 167)
         Me.iPivotGrid2.Name = "iPivotGrid2"
-        Me.iPivotGrid2.Size = New System.Drawing.Size(848, 363)
+        Me.iPivotGrid2.Size = New System.Drawing.Size(848, 362)
         Me.iPivotGrid2.TabIndex = 6
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(765, 139)
+        Me.CheckEdit1.Location = New System.Drawing.Point(765, 140)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.OrangeRed
@@ -383,9 +383,9 @@ Partial Class frmReportesClientes
         Me.iPivotGrid.Appearance.FieldValueGrandTotal.Options.UseFont = True
         Me.iPivotGrid.Appearance.FieldValueTotal.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.iPivotGrid.Appearance.FieldValueTotal.Options.UseFont = True
-        Me.iPivotGrid.Location = New System.Drawing.Point(24, 166)
+        Me.iPivotGrid.Location = New System.Drawing.Point(24, 167)
         Me.iPivotGrid.Name = "iPivotGrid"
-        Me.iPivotGrid.Size = New System.Drawing.Size(848, 363)
+        Me.iPivotGrid.Size = New System.Drawing.Size(848, 362)
         Me.iPivotGrid.TabIndex = 5
         '
         'cbMoneda
@@ -415,7 +415,7 @@ Partial Class frmReportesClientes
         Me.lblTitulo1.Appearance.Options.UseFont = True
         Me.lblTitulo1.Appearance.Options.UseForeColor = True
         Me.lblTitulo1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.lblTitulo1.Location = New System.Drawing.Point(24, 139)
+        Me.lblTitulo1.Location = New System.Drawing.Point(24, 140)
         Me.lblTitulo1.Name = "lblTitulo1"
         Me.lblTitulo1.Size = New System.Drawing.Size(583, 23)
         Me.lblTitulo1.StyleController = Me.LayoutControl1
@@ -479,7 +479,7 @@ Partial Class frmReportesClientes
         Me.SimpleButton1.Size = New System.Drawing.Size(129, 22)
         Me.SimpleButton1.StyleController = Me.LayoutControl1
         Me.SimpleButton1.TabIndex = 6
-        Me.SimpleButton1.Text = "&Exportar"
+        Me.SimpleButton1.Text = "&Exportar/Imprimir"
         '
         'NavBarControl1
         '
@@ -509,40 +509,40 @@ Partial Class frmReportesClientes
         Me.nReporte1.AppearancePressed.Options.UseFont = True
         Me.nReporte1.AppearancePressed.Options.UseForeColor = True
         Me.nReporte1.Caption = "Ventas Crédito vs. Recuperación"
+        Me.nReporte1.ImageOptions.SmallImage = CType(resources.GetObject("nReporte1.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nReporte1.Name = "nReporte1"
-        Me.nReporte1.SmallImage = CType(resources.GetObject("nReporte1.SmallImage"), System.Drawing.Image)
         '
         'nReporte2
         '
         Me.nReporte2.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nReporte2.Appearance.Options.UseFont = True
         Me.nReporte2.Caption = "Proximas a Vence por Período"
-        Me.nReporte2.LargeImage = CType(resources.GetObject("nReporte2.LargeImage"), System.Drawing.Image)
+        Me.nReporte2.ImageOptions.LargeImage = CType(resources.GetObject("nReporte2.ImageOptions.LargeImage"), System.Drawing.Image)
+        Me.nReporte2.ImageOptions.SmallImage = CType(resources.GetObject("nReporte2.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nReporte2.Name = "nReporte2"
-        Me.nReporte2.SmallImage = CType(resources.GetObject("nReporte2.SmallImage"), System.Drawing.Image)
         '
         'nReporte3
         '
         Me.nReporte3.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nReporte3.Appearance.Options.UseFont = True
         Me.nReporte3.Caption = "Saldo de Clientes"
+        Me.nReporte3.ImageOptions.SmallImage = CType(resources.GetObject("nReporte3.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nReporte3.Name = "nReporte3"
-        Me.nReporte3.SmallImage = CType(resources.GetObject("nReporte3.SmallImage"), System.Drawing.Image)
         '
         'nReporte4
         '
         Me.nReporte4.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nReporte4.Appearance.Options.UseFont = True
         Me.nReporte4.Caption = "Ventas Totales"
+        Me.nReporte4.ImageOptions.SmallImage = CType(resources.GetObject("nReporte4.ImageOptions.SmallImage"), System.Drawing.Image)
         Me.nReporte4.Name = "nReporte4"
-        Me.nReporte4.SmallImage = CType(resources.GetObject("nReporte4.SmallImage"), System.Drawing.Image)
         '
         'iGrid
         '
-        Me.iGrid.Location = New System.Drawing.Point(24, 166)
+        Me.iGrid.Location = New System.Drawing.Point(24, 167)
         Me.iGrid.MainView = Me.iVista
         Me.iGrid.Name = "iGrid"
-        Me.iGrid.Size = New System.Drawing.Size(848, 363)
+        Me.iGrid.Size = New System.Drawing.Size(848, 362)
         Me.iGrid.TabIndex = 5
         Me.iGrid.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista})
         '
@@ -573,7 +573,6 @@ Partial Class frmReportesClientes
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.tcgReporte, Me.LayoutControlItem2, Me.LayoutControlItem10, Me.EmptySpaceItem3, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem4, Me.EmptySpaceItem5, Me.lyMoneda, Me.LayoutControlItem3, Me.LayoutControlItem7})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(896, 553)
         Me.LayoutControlGroup1.TextVisible = False
@@ -583,72 +582,18 @@ Partial Class frmReportesClientes
         Me.tcgReporte.Location = New System.Drawing.Point(0, 74)
         Me.tcgReporte.Name = "tcgReporte"
         Me.tcgReporte.SelectedTabPage = Me.lyGReporte1
-        Me.tcgReporte.SelectedTabPageIndex = 0
         Me.tcgReporte.Size = New System.Drawing.Size(876, 459)
         Me.tcgReporte.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lyGReporte1, Me.lyGReporte2, Me.lyGReporte3, Me.lyGReporte4})
-        '
-        'lyGReporte1
-        '
-        Me.lyGReporte1.AppearanceTabPage.Header.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lyGReporte1.AppearanceTabPage.Header.Options.UseFont = True
-        Me.lyGReporte1.CaptionImage = CType(resources.GetObject("lyGReporte1.CaptionImage"), System.Drawing.Image)
-        Me.lyGReporte1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lyPivot1, Me.LayoutControlItem8, Me.LayoutControlItem14, Me.LayoutControlItem15})
-        Me.lyGReporte1.Location = New System.Drawing.Point(0, 0)
-        Me.lyGReporte1.Name = "lyGReporte1"
-        Me.lyGReporte1.Size = New System.Drawing.Size(852, 394)
-        Me.lyGReporte1.Text = "Ventas Crédito vs. Recuperación"
-        '
-        'lyPivot1
-        '
-        Me.lyPivot1.Control = Me.iPivotGrid
-        Me.lyPivot1.Location = New System.Drawing.Point(0, 27)
-        Me.lyPivot1.Name = "lyPivot1"
-        Me.lyPivot1.Size = New System.Drawing.Size(852, 367)
-        Me.lyPivot1.TextSize = New System.Drawing.Size(0, 0)
-        Me.lyPivot1.TextVisible = False
-        '
-        'LayoutControlItem8
-        '
-        Me.LayoutControlItem8.Control = Me.lblTitulo1
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(587, 27)
-        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem8.TextVisible = False
-        '
-        'LayoutControlItem14
-        '
-        Me.LayoutControlItem14.Control = Me.CheckEdit4
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(587, 0)
-        Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(133, 27)
-        Me.LayoutControlItem14.MinSize = New System.Drawing.Size(133, 27)
-        Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(133, 27)
-        Me.LayoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem14.TextVisible = False
-        '
-        'LayoutControlItem15
-        '
-        Me.LayoutControlItem15.Control = Me.CheckEdit3
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(720, 0)
-        Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(132, 27)
-        Me.LayoutControlItem15.MinSize = New System.Drawing.Size(132, 27)
-        Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(132, 27)
-        Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem15.TextVisible = False
         '
         'lyGReporte2
         '
         Me.lyGReporte2.AppearanceTabPage.Header.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lyGReporte2.AppearanceTabPage.Header.Options.UseFont = True
-        Me.lyGReporte2.CaptionImage = CType(resources.GetObject("lyGReporte2.CaptionImage"), System.Drawing.Image)
+        Me.lyGReporte2.CaptionImageOptions.Image = CType(resources.GetObject("lyGReporte2.CaptionImageOptions.Image"), System.Drawing.Image)
         Me.lyGReporte2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lyPivot2, Me.LayoutControlItem11, Me.LayoutControlItem16, Me.LayoutControlItem17})
         Me.lyGReporte2.Location = New System.Drawing.Point(0, 0)
         Me.lyGReporte2.Name = "lyGReporte2"
-        Me.lyGReporte2.Size = New System.Drawing.Size(852, 394)
+        Me.lyGReporte2.Size = New System.Drawing.Size(852, 393)
         Me.lyGReporte2.Text = "Proximas a Vence por Período"
         '
         'lyPivot2
@@ -656,7 +601,7 @@ Partial Class frmReportesClientes
         Me.lyPivot2.Control = Me.iPivotGrid2
         Me.lyPivot2.Location = New System.Drawing.Point(0, 27)
         Me.lyPivot2.Name = "lyPivot2"
-        Me.lyPivot2.Size = New System.Drawing.Size(852, 367)
+        Me.lyPivot2.Size = New System.Drawing.Size(852, 366)
         Me.lyPivot2.TextSize = New System.Drawing.Size(0, 0)
         Me.lyPivot2.TextVisible = False
         '
@@ -693,15 +638,68 @@ Partial Class frmReportesClientes
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem17.TextVisible = False
         '
+        'lyGReporte1
+        '
+        Me.lyGReporte1.AppearanceTabPage.Header.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lyGReporte1.AppearanceTabPage.Header.Options.UseFont = True
+        Me.lyGReporte1.CaptionImageOptions.Image = CType(resources.GetObject("lyGReporte1.CaptionImageOptions.Image"), System.Drawing.Image)
+        Me.lyGReporte1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lyPivot1, Me.LayoutControlItem8, Me.LayoutControlItem14, Me.LayoutControlItem15})
+        Me.lyGReporte1.Location = New System.Drawing.Point(0, 0)
+        Me.lyGReporte1.Name = "lyGReporte1"
+        Me.lyGReporte1.Size = New System.Drawing.Size(852, 393)
+        Me.lyGReporte1.Text = "Ventas Crédito vs. Recuperación"
+        '
+        'lyPivot1
+        '
+        Me.lyPivot1.Control = Me.iPivotGrid
+        Me.lyPivot1.Location = New System.Drawing.Point(0, 27)
+        Me.lyPivot1.Name = "lyPivot1"
+        Me.lyPivot1.Size = New System.Drawing.Size(852, 366)
+        Me.lyPivot1.TextSize = New System.Drawing.Size(0, 0)
+        Me.lyPivot1.TextVisible = False
+        '
+        'LayoutControlItem8
+        '
+        Me.LayoutControlItem8.Control = Me.lblTitulo1
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem8.Name = "LayoutControlItem8"
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(587, 27)
+        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem8.TextVisible = False
+        '
+        'LayoutControlItem14
+        '
+        Me.LayoutControlItem14.Control = Me.CheckEdit4
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(587, 0)
+        Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(133, 27)
+        Me.LayoutControlItem14.MinSize = New System.Drawing.Size(133, 27)
+        Me.LayoutControlItem14.Name = "LayoutControlItem14"
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(133, 27)
+        Me.LayoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem14.TextVisible = False
+        '
+        'LayoutControlItem15
+        '
+        Me.LayoutControlItem15.Control = Me.CheckEdit3
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(720, 0)
+        Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(132, 27)
+        Me.LayoutControlItem15.MinSize = New System.Drawing.Size(132, 27)
+        Me.LayoutControlItem15.Name = "LayoutControlItem15"
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(132, 27)
+        Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem15.TextVisible = False
+        '
         'lyGReporte3
         '
         Me.lyGReporte3.AppearanceTabPage.Header.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lyGReporte3.AppearanceTabPage.Header.Options.UseFont = True
-        Me.lyGReporte3.CaptionImage = CType(resources.GetObject("lyGReporte3.CaptionImage"), System.Drawing.Image)
+        Me.lyGReporte3.CaptionImageOptions.Image = CType(resources.GetObject("lyGReporte3.CaptionImageOptions.Image"), System.Drawing.Image)
         Me.lyGReporte3.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lyGrid, Me.LayoutControlItem12, Me.lyDetalle, Me.LayoutControlItem20})
         Me.lyGReporte3.Location = New System.Drawing.Point(0, 0)
         Me.lyGReporte3.Name = "lyGReporte3"
-        Me.lyGReporte3.Size = New System.Drawing.Size(852, 394)
+        Me.lyGReporte3.Size = New System.Drawing.Size(852, 393)
         Me.lyGReporte3.Text = "Saldo de Clientes"
         '
         'lyGrid
@@ -709,7 +707,7 @@ Partial Class frmReportesClientes
         Me.lyGrid.Control = Me.iGrid
         Me.lyGrid.Location = New System.Drawing.Point(0, 27)
         Me.lyGrid.Name = "lyGrid"
-        Me.lyGrid.Size = New System.Drawing.Size(852, 367)
+        Me.lyGrid.Size = New System.Drawing.Size(852, 366)
         Me.lyGrid.TextSize = New System.Drawing.Size(0, 0)
         Me.lyGrid.TextVisible = False
         '
@@ -750,11 +748,11 @@ Partial Class frmReportesClientes
         '
         Me.lyGReporte4.AppearanceTabPage.Header.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lyGReporte4.AppearanceTabPage.Header.Options.UseFont = True
-        Me.lyGReporte4.CaptionImage = CType(resources.GetObject("lyGReporte4.CaptionImage"), System.Drawing.Image)
+        Me.lyGReporte4.CaptionImageOptions.Image = CType(resources.GetObject("lyGReporte4.CaptionImageOptions.Image"), System.Drawing.Image)
         Me.lyGReporte4.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem9, Me.LayoutControlItem13, Me.LayoutControlItem18, Me.LayoutControlItem19})
         Me.lyGReporte4.Location = New System.Drawing.Point(0, 0)
         Me.lyGReporte4.Name = "lyGReporte4"
-        Me.lyGReporte4.Size = New System.Drawing.Size(852, 394)
+        Me.lyGReporte4.Size = New System.Drawing.Size(852, 393)
         Me.lyGReporte4.Text = "Ventas Totales"
         '
         'LayoutControlItem9
@@ -762,7 +760,7 @@ Partial Class frmReportesClientes
         Me.LayoutControlItem9.Control = Me.iPivotVenta
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 27)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(852, 367)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(852, 366)
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
         '
@@ -940,16 +938,16 @@ Partial Class frmReportesClientes
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tcgReporte, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lyGReporte1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.lyPivot1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lyGReporte2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lyPivot2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lyGReporte1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lyPivot1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lyGReporte3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lyGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem12, System.ComponentModel.ISupportInitialize).EndInit()

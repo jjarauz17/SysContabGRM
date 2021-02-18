@@ -66,6 +66,16 @@ Public Class PresupuestoDetalle
         End Set
     End Property
 
+    Private vTipo As String
+    Public Property Tipo() As String
+        Get
+            Return vTipo
+        End Get
+        Set(ByVal value As String)
+            vTipo = value
+        End Set
+    End Property
+
     Dim vPrecio As Double
 
     Public Property Precio() As Double

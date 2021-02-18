@@ -563,7 +563,8 @@ Public Class frmMovimientos_Contabilizar
             VB.SysContab.Activo_FijosDB.TranValor_Contabilizar(Me.Consecutivo)
 
             If Me.Tipo = 3 Then
-                VB.SysContab.Activo_FijosDB.AF_UpdateSituacion(Me.DetalleActivo.Codigo, "V")
+                VB.SysContab.Activo_FijosDB.AF_UpdateSituacion(DetalleActivo.Codigo, "V")
+
                 'VB.SysContab.Activo_FijosDB.AF_ValorLibrosUpdate(Me.DetalleActivo.Codigo)
                 'Dim dt As DataTable = ObtieneDatosTrans("SELECT isnull(sum(afd.valor_depreciacion),0) Valor FROM Activo_Fijo_Depreciacion afd WHERE afd.CODIGO_ACTIVO = '" & Me.DetalleActivo.Codigo & "'")
                 'If dt.Rows.Item(0)("Valor") > 0 Then
@@ -571,7 +572,7 @@ Public Class frmMovimientos_Contabilizar
                 '    GuardaDatosTrans("SET DATEFORMAT dmy; INSERT INTO Activo_Fijo_Depreciacion VALUES (" & EmpresaActual & ",'" & Me.DetalleActivo.Codigo & "','" & mes & "','" & Me.dtpFecha.DateTime.Date & "'," & dt.Rows.Item(0)("Valor") * -1 & ",1,0,0)")
                 'End If
             ElseIf Me.Tipo = 4 Then
-                VB.SysContab.Activo_FijosDB.AF_UpdateSituacion(Me.DetalleActivo.Codigo, "B")
+                VB.SysContab.Activo_FijosDB.AF_UpdateSituacion(DetalleActivo.Codigo, "B")
             End If
 
             VB.SysContab.Rutinas.okTransaccion()

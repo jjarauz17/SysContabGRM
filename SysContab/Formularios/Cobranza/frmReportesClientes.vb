@@ -48,6 +48,7 @@ Public Class frmReportesClientes
 
         cbRubro.ItemIndex = 0
         GetMonedasList(cbMoneda)
+        cbMoneda.ItemIndex = 1
         '
         'iGrid.DataSource =
         '        ObtieneDatos("sp_ReporteCartera1",
@@ -141,7 +142,12 @@ Public Class frmReportesClientes
             Next
         End With
         '
-        iPivotGrid2.Fields("Sucursal").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        'iPivotGrid2.Fields("Sucursal").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        iPivotGrid2.Fields("Cliente").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        iPivotGrid2.Fields("Celular").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        iPivotGrid2.Fields("Factura").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        iPivotGrid2.Fields("Vencimiento").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
+        iPivotGrid2.Fields("Dias").Area = DevExpress.XtraPivotGrid.PivotArea.RowArea
         '
         iPivotGrid2.Fields("Saldo").Area = DevExpress.XtraPivotGrid.PivotArea.DataArea
         iPivotGrid2.Fields("Periodo").Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea
@@ -152,8 +158,6 @@ Public Class frmReportesClientes
         iPivotGrid2.OptionsView.ShowColumnGrandTotals = True
         '
         iPivotGrid2.OptionsSelection.MultiSelect = True
-        'iPivotGrid2.OptionsView.ShowRowTotals = False
-        'iPivotGrid2.OptionsView.ShowRowGrandTotals = True
     End Sub
 
     Private Sub LlenarPivot3(IdEmpresa As Integer)
@@ -492,6 +496,11 @@ Public Class frmReportesClientes
 
     Private Sub tcgReporte_SelectedPageChanged(sender As Object, e As LayoutTabPageChangedEventArgs) Handles tcgReporte.SelectedPageChanged
 
+        TitulosReportes()
+
+    End Sub
+
+    Sub TitulosReportes()
         Select Case tcgReporte.SelectedTabPageIndex
             Case 0
                 lblTitulo1.Text = "Del Periodo " + Desde.DateTime.ToShortDateString + " Al " + Hasta.DateTime.ToShortDateString
@@ -502,7 +511,6 @@ Public Class frmReportesClientes
             Case 3
                 lblTitulo4.Text = "Del Periodo " + Desde.DateTime.ToShortDateString + " Al " + Hasta.DateTime.ToShortDateString
         End Select
-
     End Sub
 
     Private Sub tcgReporte_CustomHeaderButtonClick(sender As Object, e As CustomHeaderButtonEventArgs) Handles tcgReporte.CustomHeaderButtonClick
@@ -584,4 +592,9 @@ Public Class frmReportesClientes
     Private Sub iVista_HideCustomizationForm(sender As Object, e As EventArgs) Handles iVista.HideCustomizationForm
         chkMasDatos.Checked = False
     End Sub
+
+    Private Sub Desde_EditValueChanged(sender As Object, e As EventArgs) Handles Desde.EditValueChanged, Hasta.EditValueChanged
+        TitulosReportes()
+    End Sub
+
 End Class

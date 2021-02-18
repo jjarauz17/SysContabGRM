@@ -244,7 +244,7 @@ Public Class frmRequisas_List
         Me.btnVerInventario.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnVerInventario.Enabled = False
         Me.btnVerInventario.ImageOptions.Image = CType(resources.GetObject("btnVerInventario.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnVerInventario.Location = New System.Drawing.Point(12, 348)
+        Me.btnVerInventario.Location = New System.Drawing.Point(12, 340)
         Me.btnVerInventario.Name = "btnVerInventario"
         Me.btnVerInventario.Size = New System.Drawing.Size(112, 38)
         Me.btnVerInventario.StyleController = Me.LayoutControl2
@@ -270,7 +270,7 @@ Public Class frmRequisas_List
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(136, 594)
+        Me.LayoutControl2.Size = New System.Drawing.Size(138, 592)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -280,7 +280,7 @@ Public Class frmRequisas_List
         Me.bImprimirEtiquetas.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bImprimirEtiquetas.Enabled = False
         Me.bImprimirEtiquetas.ImageOptions.Image = CType(resources.GetObject("bImprimirEtiquetas.ImageOptions.Image"), System.Drawing.Image)
-        Me.bImprimirEtiquetas.Location = New System.Drawing.Point(12, 418)
+        Me.bImprimirEtiquetas.Location = New System.Drawing.Point(12, 422)
         Me.bImprimirEtiquetas.Name = "bImprimirEtiquetas"
         Me.bImprimirEtiquetas.Size = New System.Drawing.Size(112, 38)
         Me.bImprimirEtiquetas.StyleController = Me.LayoutControl2
@@ -293,7 +293,7 @@ Public Class frmRequisas_List
         Me.bProcesarCombos.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bProcesarCombos.Enabled = False
         Me.bProcesarCombos.ImageOptions.Image = CType(resources.GetObject("bProcesarCombos.ImageOptions.Image"), System.Drawing.Image)
-        Me.bProcesarCombos.Location = New System.Drawing.Point(12, 264)
+        Me.bProcesarCombos.Location = New System.Drawing.Point(12, 256)
         Me.bProcesarCombos.Name = "bProcesarCombos"
         Me.bProcesarCombos.Size = New System.Drawing.Size(112, 38)
         Me.bProcesarCombos.StyleController = Me.LayoutControl2
@@ -306,7 +306,7 @@ Public Class frmRequisas_List
         Me.cmdNuevo.ImageOptions.Image = CType(resources.GetObject("cmdNuevo.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdNuevo.Location = New System.Drawing.Point(12, 12)
         Me.cmdNuevo.Name = "cmdNuevo"
-        Me.cmdNuevo.Size = New System.Drawing.Size(112, 38)
+        Me.cmdNuevo.Size = New System.Drawing.Size(114, 36)
         Me.cmdNuevo.StyleController = Me.LayoutControl2
         Me.cmdNuevo.TabIndex = 7
         Me.cmdNuevo.Text = "&Nuevo"
@@ -316,7 +316,7 @@ Public Class frmRequisas_List
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
         Me.SimpleButton1.Location = New System.Drawing.Point(12, 544)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(112, 38)
+        Me.SimpleButton1.Size = New System.Drawing.Size(114, 36)
         Me.SimpleButton1.StyleController = Me.LayoutControl2
         Me.SimpleButton1.TabIndex = 107
         Me.SimpleButton1.Text = "&Salir"
@@ -325,9 +325,9 @@ Public Class frmRequisas_List
         '
         Me.bDiseno.Enabled = False
         Me.bDiseno.ImageOptions.Image = CType(resources.GetObject("bDiseno.ImageOptions.Image"), System.Drawing.Image)
-        Me.bDiseno.Location = New System.Drawing.Point(12, 460)
+        Me.bDiseno.Location = New System.Drawing.Point(12, 464)
         Me.bDiseno.Name = "bDiseno"
-        Me.bDiseno.Size = New System.Drawing.Size(112, 38)
+        Me.bDiseno.Size = New System.Drawing.Size(114, 36)
         Me.bDiseno.StyleController = Me.LayoutControl2
         Me.bDiseno.TabIndex = 104
         Me.bDiseno.Text = "Dise&ño"
@@ -336,9 +336,9 @@ Public Class frmRequisas_List
         '
         Me.cmdEditar.Enabled = False
         Me.cmdEditar.ImageOptions.Image = CType(resources.GetObject("cmdEditar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdEditar.Location = New System.Drawing.Point(12, 54)
+        Me.cmdEditar.Location = New System.Drawing.Point(12, 52)
         Me.cmdEditar.Name = "cmdEditar"
-        Me.cmdEditar.Size = New System.Drawing.Size(112, 38)
+        Me.cmdEditar.Size = New System.Drawing.Size(114, 36)
         Me.cmdEditar.StyleController = Me.LayoutControl2
         Me.cmdEditar.TabIndex = 9
         Me.cmdEditar.Text = "&Editar"
@@ -347,9 +347,9 @@ Public Class frmRequisas_List
         '
         Me.cmdImprimir.Enabled = False
         Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdImprimir.Location = New System.Drawing.Point(12, 502)
+        Me.cmdImprimir.Location = New System.Drawing.Point(12, 504)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(112, 38)
+        Me.cmdImprimir.Size = New System.Drawing.Size(114, 36)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 10
         Me.cmdImprimir.Text = "E&xportar"
@@ -358,9 +358,9 @@ Public Class frmRequisas_List
         '
         Me.bImprimir.Enabled = False
         Me.bImprimir.ImageOptions.Image = CType(resources.GetObject("bImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.bImprimir.Location = New System.Drawing.Point(12, 96)
+        Me.bImprimir.Location = New System.Drawing.Point(12, 92)
         Me.bImprimir.Name = "bImprimir"
-        Me.bImprimir.Size = New System.Drawing.Size(112, 38)
+        Me.bImprimir.Size = New System.Drawing.Size(114, 36)
         Me.bImprimir.StyleController = Me.LayoutControl2
         Me.bImprimir.TabIndex = 104
         Me.bImprimir.Text = "&Imprimir"
@@ -369,9 +369,9 @@ Public Class frmRequisas_List
         '
         Me.cmdBorrar.Enabled = False
         Me.cmdBorrar.ImageOptions.Image = CType(resources.GetObject("cmdBorrar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdBorrar.Location = New System.Drawing.Point(12, 138)
+        Me.cmdBorrar.Location = New System.Drawing.Point(12, 132)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(112, 38)
+        Me.cmdBorrar.Size = New System.Drawing.Size(114, 36)
         Me.cmdBorrar.StyleController = Me.LayoutControl2
         Me.cmdBorrar.TabIndex = 9
         Me.cmdBorrar.Text = "&Borrar"
@@ -382,7 +382,7 @@ Public Class frmRequisas_List
         Me.cmdContabilizar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdContabilizar.Enabled = False
         Me.cmdContabilizar.ImageOptions.Image = CType(resources.GetObject("cmdContabilizar.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdContabilizar.Location = New System.Drawing.Point(12, 306)
+        Me.cmdContabilizar.Location = New System.Drawing.Point(12, 298)
         Me.cmdContabilizar.Name = "cmdContabilizar"
         Me.cmdContabilizar.Size = New System.Drawing.Size(112, 38)
         Me.cmdContabilizar.StyleController = Me.LayoutControl2
@@ -395,7 +395,7 @@ Public Class frmRequisas_List
         Me.btnProcesarT.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnProcesarT.Enabled = False
         Me.btnProcesarT.ImageOptions.Image = CType(resources.GetObject("btnProcesarT.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnProcesarT.Location = New System.Drawing.Point(12, 222)
+        Me.btnProcesarT.Location = New System.Drawing.Point(12, 214)
         Me.btnProcesarT.Name = "btnProcesarT"
         Me.btnProcesarT.Size = New System.Drawing.Size(112, 38)
         Me.btnProcesarT.StyleController = Me.LayoutControl2
@@ -408,7 +408,7 @@ Public Class frmRequisas_List
         Me.btnProcesar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.btnProcesar.Enabled = False
         Me.btnProcesar.ImageOptions.Image = CType(resources.GetObject("btnProcesar.ImageOptions.Image"), System.Drawing.Image)
-        Me.btnProcesar.Location = New System.Drawing.Point(12, 180)
+        Me.btnProcesar.Location = New System.Drawing.Point(12, 172)
         Me.btnProcesar.Name = "btnProcesar"
         Me.btnProcesar.Size = New System.Drawing.Size(112, 38)
         Me.btnProcesar.StyleController = Me.LayoutControl2
@@ -420,9 +420,8 @@ Public Class frmRequisas_List
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem16, Me.LayoutControlItem10, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.LayoutControlItem14, Me.EmptySpaceItem4, Me.LayoutControlItem17, Me.LayoutControlItem11, Me.LayoutControlItem3, Me.LayoutControlItem15, Me.LayoutControlItem18, Me.LayoutControlItem19})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(136, 594)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(138, 592)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem8
@@ -430,45 +429,45 @@ Public Class frmRequisas_List
         Me.LayoutControlItem8.Control = Me.cmdNuevo
         Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
         '
         'LayoutControlItem9
         '
         Me.LayoutControlItem9.Control = Me.cmdEditar
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
         '
         'LayoutControlItem16
         '
         Me.LayoutControlItem16.Control = Me.bImprimir
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem16.TextVisible = False
         '
         'LayoutControlItem10
         '
         Me.LayoutControlItem10.Control = Me.cmdBorrar
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem10.TextVisible = False
         '
         'LayoutControlItem12
         '
         Me.LayoutControlItem12.Control = Me.btnProcesar
-        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem12.Location = New System.Drawing.Point(0, 160)
         Me.LayoutControlItem12.MaxSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem12.MinSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem12.Name = "LayoutControlItem12"
-        Me.LayoutControlItem12.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem12.Size = New System.Drawing.Size(118, 42)
         Me.LayoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem12.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem12.TextVisible = False
@@ -476,11 +475,11 @@ Public Class frmRequisas_List
         'LayoutControlItem13
         '
         Me.LayoutControlItem13.Control = Me.btnProcesarT
-        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 210)
+        Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 202)
         Me.LayoutControlItem13.MaxSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem13.MinSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(118, 42)
         Me.LayoutControlItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem13.TextVisible = False
@@ -488,11 +487,11 @@ Public Class frmRequisas_List
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.cmdContabilizar
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 294)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 286)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(118, 42)
         Me.LayoutControlItem14.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem14.TextVisible = False
@@ -500,26 +499,26 @@ Public Class frmRequisas_List
         'EmptySpaceItem4
         '
         Me.EmptySpaceItem4.AllowHotTrack = False
-        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 378)
+        Me.EmptySpaceItem4.Location = New System.Drawing.Point(0, 370)
         Me.EmptySpaceItem4.Name = "EmptySpaceItem4"
-        Me.EmptySpaceItem4.Size = New System.Drawing.Size(116, 28)
+        Me.EmptySpaceItem4.Size = New System.Drawing.Size(118, 40)
         Me.EmptySpaceItem4.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem17
         '
         Me.LayoutControlItem17.Control = Me.bDiseno
-        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 448)
+        Me.LayoutControlItem17.Location = New System.Drawing.Point(0, 452)
         Me.LayoutControlItem17.Name = "LayoutControlItem17"
-        Me.LayoutControlItem17.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem17.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem17.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem17.TextVisible = False
         '
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.cmdImprimir
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 490)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 492)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         '
@@ -528,18 +527,18 @@ Public Class frmRequisas_List
         Me.LayoutControlItem3.Control = Me.SimpleButton1
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 532)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(118, 40)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
         'LayoutControlItem15
         '
         Me.LayoutControlItem15.Control = Me.btnVerInventario
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 336)
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 328)
         Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem15.MinSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(118, 42)
         Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
@@ -547,11 +546,11 @@ Public Class frmRequisas_List
         'LayoutControlItem18
         '
         Me.LayoutControlItem18.Control = Me.bProcesarCombos
-        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 252)
+        Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 244)
         Me.LayoutControlItem18.MaxSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem18.MinSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
-        Me.LayoutControlItem18.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem18.Size = New System.Drawing.Size(118, 42)
         Me.LayoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem18.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem18.TextVisible = False
@@ -559,11 +558,11 @@ Public Class frmRequisas_List
         'LayoutControlItem19
         '
         Me.LayoutControlItem19.Control = Me.bImprimirEtiquetas
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 406)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 410)
         Me.LayoutControlItem19.MaxSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem19.MinSize = New System.Drawing.Size(116, 42)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(116, 42)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(118, 42)
         Me.LayoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem19.TextVisible = False
@@ -600,14 +599,14 @@ Public Class frmRequisas_List
         Me.CheckEdit2.Location = New System.Drawing.Point(793, 12)
         Me.CheckEdit2.Name = "CheckEdit2"
         Me.CheckEdit2.Properties.Caption = "Selector de Datos"
-        Me.CheckEdit2.Size = New System.Drawing.Size(131, 19)
+        Me.CheckEdit2.Size = New System.Drawing.Size(131, 20)
         Me.CheckEdit2.StyleController = Me.LayoutControl1
         Me.CheckEdit2.TabIndex = 106
         '
         'SimpleButton2
         '
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(165, 36)
+        Me.SimpleButton2.Location = New System.Drawing.Point(187, 36)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(88, 22)
         Me.SimpleButton2.StyleController = Me.LayoutControl1
@@ -624,7 +623,7 @@ Public Class frmRequisas_List
         Me.Hasta.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Hasta.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.Hasta.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.Hasta.Size = New System.Drawing.Size(112, 20)
+        Me.Hasta.Size = New System.Drawing.Size(134, 20)
         Me.Hasta.StyleController = Me.LayoutControl1
         Me.Hasta.TabIndex = 104
         '
@@ -638,7 +637,7 @@ Public Class frmRequisas_List
         Me.Desde.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Desde.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.Desde.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.Desde.Size = New System.Drawing.Size(112, 20)
+        Me.Desde.Size = New System.Drawing.Size(134, 20)
         Me.Desde.StyleController = Me.LayoutControl1
         Me.Desde.TabIndex = 103
         '
@@ -896,7 +895,6 @@ Public Class frmRequisas_List
         '
         Me.LayoutControlGroup1.CustomizationFormText = "Root"
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.EmptySpaceItem2, Me.LayoutControlItem6, Me.LayoutControlItem1, Me.LayoutControlItem7, Me.lyImportarInventario})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(936, 621)
         Me.LayoutControlGroup1.TextVisible = False
@@ -915,9 +913,9 @@ Public Class frmRequisas_List
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(153, 0)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(175, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(628, 24)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(606, 24)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem4
@@ -925,10 +923,10 @@ Public Class frmRequisas_List
         Me.LayoutControlItem4.Control = Me.Desde
         Me.LayoutControlItem4.CustomizationFormText = "Desde:"
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(153, 24)
-        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(153, 24)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(175, 24)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(175, 24)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(153, 24)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(175, 24)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.Text = "Desde:"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(34, 13)
@@ -938,10 +936,10 @@ Public Class frmRequisas_List
         Me.LayoutControlItem5.Control = Me.Hasta
         Me.LayoutControlItem5.CustomizationFormText = "Hasta:"
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 24)
-        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(153, 27)
-        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(153, 27)
+        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(175, 27)
+        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(175, 27)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(153, 27)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(175, 27)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.Text = "Hasta:"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(34, 13)
@@ -950,16 +948,16 @@ Public Class frmRequisas_List
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(245, 24)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(267, 24)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(381, 27)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(359, 27)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem6
         '
         Me.LayoutControlItem6.Control = Me.SimpleButton2
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(153, 24)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(175, 24)
         Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(92, 26)
         Me.LayoutControlItem6.MinSize = New System.Drawing.Size(92, 26)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
@@ -1028,9 +1026,9 @@ Public Class frmRequisas_List
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(136, 594)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(138, 592)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmRequisas_List
@@ -1361,10 +1359,23 @@ Public Class frmRequisas_List
             .TRequisa = Mid(vDatos.GetFocusedRowCellValue("Tipo").ToString, 1, 1).ToString     'vDatos.GetRowCellValue(vDatos.FocusedRowHandle, "req_tipo")
             .Bodega = vDatos.GetFocusedRowCellValue("codigo_bodega")
 
-            .txtConcepto.Text = IIf(vDatos.GetFocusedRowCellValue("Tipo") = "Entrada", "ENTRADA A ALMACEN POR: ", "SALIDA DE ALMACEN POR: ") +
+            If EmpresaActual = 19 Or
+                EmpresaActual = 21 Or
+                 EmpresaActual = 23 Or
+                  EmpresaActual = 24 Or
+                   EmpresaActual = 29 Or
+                    EmpresaActual = 30 Then
+
+                .txtConcepto.Text = $"{IIf(vDatos.GetFocusedRowCellValue("Tipo") = "Entrada", "ENTRADA A ALMACEN POR: ", "SALIDA DE ALMACEN POR: ")}{vDatos.GetFocusedRowCellValue("Movimiento").ToString.ToUpper}, EN CONCEPTO DE: " +
+                                    db_requisas.GetDetalles(vDatos.GetFocusedRowCellValue("req_codigo")).Rows.Item(0)("Concepto")
+            Else
+                .txtConcepto.Text = IIf(vDatos.GetFocusedRowCellValue("Tipo") = "Entrada", "ENTRADA A ALMACEN POR: ", "SALIDA DE ALMACEN POR: ") +
                                     vDatos.GetFocusedRowCellValue("Movimiento").ToString.ToUpper + ", EN BODEGA: " +
                                     vDatos.GetFocusedRowCellValue("Bodega").ToString.ToUpper + ", CON REFERENICA #:" +
                                     IsNull(vDatos.GetFocusedRowCellValue("Referencia"), "").ToString.ToUpper
+            End If
+
+
 
             .Fecha.DateTime = vDatos.GetFocusedRowCellValue("Fecha")
             .Referencia = vDatos.GetFocusedRowCellValue("Referencia")

@@ -44,6 +44,7 @@ Partial Class frmProcesarMovimientos
         Me.DockManager1 = New DevExpress.XtraBars.Docking.DockManager(Me.components)
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
+        Me.rVariacion = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         CType(Me.dgDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtCosto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,6 +67,7 @@ Partial Class frmProcesarMovimientos
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DockPanel1.SuspendLayout()
         Me.DockPanel1_Container.SuspendLayout()
+        CType(Me.rVariacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgDatos
@@ -76,7 +78,7 @@ Partial Class frmProcesarMovimientos
         Me.dgDatos.Location = New System.Drawing.Point(12, 35)
         Me.dgDatos.MainView = Me.vDatos
         Me.dgDatos.Name = "dgDatos"
-        Me.dgDatos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtCosto})
+        Me.dgDatos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtCosto, Me.rVariacion})
         Me.dgDatos.Size = New System.Drawing.Size(800, 493)
         Me.dgDatos.TabIndex = 0
         Me.dgDatos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vDatos})
@@ -123,7 +125,7 @@ Partial Class frmProcesarMovimientos
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1034, 174, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(151, 535)
+        Me.LayoutControl2.Size = New System.Drawing.Size(153, 533)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -131,9 +133,9 @@ Partial Class frmProcesarMovimientos
         '
         Me.cmdSalir.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 468)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 485)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(128, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(129, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
         Me.cmdSalir.TabIndex = 13
         Me.cmdSalir.Text = "&Salir"
@@ -157,9 +159,8 @@ Partial Class frmProcesarMovimientos
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem2})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(152, 518)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(153, 533)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem4
@@ -170,7 +171,7 @@ Partial Class frmProcesarMovimientos
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(133, 42)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -183,7 +184,7 @@ Partial Class frmProcesarMovimientos
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(132, 42)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(133, 42)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
@@ -192,9 +193,9 @@ Partial Class frmProcesarMovimientos
         '
         Me.LayoutControlItem6.Control = Me.cmdSalir
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 456)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 473)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(132, 42)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(133, 40)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
@@ -204,7 +205,7 @@ Partial Class frmProcesarMovimientos
         Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 84)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(132, 372)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(133, 389)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'ProgressBarControl1
@@ -237,7 +238,7 @@ Partial Class frmProcesarMovimientos
         Me.CheckEdit1.Location = New System.Drawing.Point(698, 12)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Caption = "Selector de Datos"
-        Me.CheckEdit1.Size = New System.Drawing.Size(114, 19)
+        Me.CheckEdit1.Size = New System.Drawing.Size(114, 20)
         Me.CheckEdit1.StyleController = Me.LayoutControl1
         Me.CheckEdit1.TabIndex = 5
         '
@@ -247,7 +248,6 @@ Partial Class frmProcesarMovimientos
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.EmptySpaceItem1, Me.LayoutControlItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(824, 562)
         Me.LayoutControlGroup1.TextVisible = False
@@ -318,10 +318,18 @@ Partial Class frmProcesarMovimientos
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(151, 535)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(153, 533)
         Me.DockPanel1_Container.TabIndex = 0
+        '
+        'rVariacion
+        '
+        Me.rVariacion.AutoHeight = False
+        Me.rVariacion.Mask.EditMask = "P2"
+        Me.rVariacion.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.rVariacion.Mask.UseMaskAsDisplayFormat = True
+        Me.rVariacion.Name = "rVariacion"
         '
         'frmProcesarMovimientos
         '
@@ -356,6 +364,7 @@ Partial Class frmProcesarMovimientos
         CType(Me.DockManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DockPanel1.ResumeLayout(False)
         Me.DockPanel1_Container.ResumeLayout(False)
+        CType(Me.rVariacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -382,4 +391,5 @@ Partial Class frmProcesarMovimientos
     Friend WithEvents DockPanel1 As DevExpress.XtraBars.Docking.DockPanel
     Friend WithEvents DockPanel1_Container As DevExpress.XtraBars.Docking.ControlContainer
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents rVariacion As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
 End Class

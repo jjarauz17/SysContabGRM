@@ -10,24 +10,42 @@ Public Class frmPlanNegocioList
         '
         Application.DoEvents()
         Combo(cbPeriodo, db_PNR_PlanNegocio.GetPeriodos())
-        cbPeriodo.EditValue = VB.SysContab.Rutinas.Fecha().Year        
+        cbPeriodo.EditValue = VB.SysContab.Rutinas.Fecha().Year
+        '
+        FormatoGridNew(iVista, 2, 1)
+        iVista.Columns("IdPlanNegocio").Visible = False
+        iVista.Columns("PB Total U$").Visible = False
+        iVista.Columns("Registro").Visible = False
+        iVista.Columns("Observaciones").Visible = False
     End Sub
 
     Sub Cargar()
-        iGrid.DataSource = db_PNR_PlanNegocio.Listar(0, cbPeriodo.EditValue)
-        SimpleFormatGrid(iVista, False, DevExpress.Utils.HorzAlignment.Center, 1, 2, 14, 0, 13)
+        iGrid.DataSource = db_PNR_PlanNegocio.Listar(cbPeriodo.EditValue, 4)
+        'SimpleFormatGrid(iVista, False, DevExpress.Utils.HorzAlignment.Center, 1, 2, 14, 0, 13)
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles bNuevo.Click
+        XtraMsg("Los PNRs a partir del año 2021 se proyectan mensualemnte.")
+
         ShowSplash("Cargando Datos...")
-        frmPlanNegocio.Dispose()
-        frmPlanNegocio.MdiParent = Me.MdiParent
-        frmPlanNegocio.IdPlanNegocio = 0
-        frmPlanNegocio.Text = "Plan de Negocio"
-        frmPlanNegocio.DT_ROL = DT_ROL
-        frmPlanNegocio.Show()
-        frmPlanNegocio.WindowState = FormWindowState.Maximized
+        frmPlanNegocioNewAdd.Dispose()
+        frmPlanNegocioNewAdd.MdiParent = Me.MdiParent
+        frmPlanNegocioNewAdd.IdPlanNegocio = 0
+        frmPlanNegocioNewAdd.Text = "Plan de Negocio"
+        frmPlanNegocioNewAdd.DT_ROL = DT_ROL
+        frmPlanNegocioNewAdd.Show()
+        frmPlanNegocioNewAdd.WindowState = FormWindowState.Maximized
         HideSplash()
+
+        'ShowSplash("Cargando Datos...")
+        'frmPlanNegocio.Dispose()
+        'frmPlanNegocio.MdiParent = Me.MdiParent
+        'frmPlanNegocio.IdPlanNegocio = 0
+        'frmPlanNegocio.Text = "Plan de Negocio"
+        'frmPlanNegocio.DT_ROL = DT_ROL
+        'frmPlanNegocio.Show()
+        'frmPlanNegocio.WindowState = FormWindowState.Maximized
+        'HideSplash()
     End Sub
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles bEditar.Click

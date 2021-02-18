@@ -81,7 +81,7 @@ Partial Class frmReporteAuxiliarProyectos
         '
         'SimpleButton8
         '
-        Me.SimpleButton8.ImageOptions.Image = CType(resources.GetObject("SimpleButton8.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton8.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton8.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.SimpleButton8.Location = New System.Drawing.Point(330, 484)
         Me.SimpleButton8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SimpleButton8.Name = "SimpleButton8"
@@ -92,7 +92,7 @@ Partial Class frmReporteAuxiliarProyectos
         '
         'SimpleButton5
         '
-        Me.SimpleButton5.ImageOptions.Image = CType(resources.GetObject("SimpleButton5.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton5.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton5.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.SimpleButton5.Location = New System.Drawing.Point(540, 484)
         Me.SimpleButton5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SimpleButton5.Name = "SimpleButton5"
@@ -113,7 +113,7 @@ Partial Class frmReporteAuxiliarProyectos
         '
         'SimpleButton4
         '
-        Me.SimpleButton4.ImageOptions.Image = CType(resources.GetObject("SimpleButton4.ImageOptions.Image"), System.Drawing.Image)
+        Me.SimpleButton4.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton4.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.SimpleButton4.Location = New System.Drawing.Point(437, 484)
         Me.SimpleButton4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SimpleButton4.Name = "SimpleButton4"
@@ -176,7 +176,6 @@ Partial Class frmReporteAuxiliarProyectos
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem3, Me.LayoutControlItem7})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(651, 534)
         Me.LayoutControlGroup1.TextVisible = False

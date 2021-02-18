@@ -1349,7 +1349,8 @@ Public Class FrmHacerCheques
     End Sub
 
     Private Sub FrmHacerCheques_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        DT_Distribucion = CargaDistribucion(0, 0, 0)
+        DT_Distribucion =
+            CargaDistribucion(0, 0, 0)
 
         Dim CatalogoBancos As New VB.SysContab.Catalogo_BancosDB
         Dim Proveedores As New VB.SysContab.ProveedoresDB
@@ -1686,9 +1687,11 @@ Public Class FrmHacerCheques
         For i As Integer = 0 To GridView1.DataRowCount - 1
             Dim CTemp As String = vbNullString
             Try
-                CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
-                                     + " CuentaContable = '" & GridView1.GetRowCellValue(i, "Cuenta") & "'" _
-                                     + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+                'CTemp = ObtieneDatos("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND" _
+                '                     + " CuentaContable = '" & GridView1.GetRowCellValue(i, "Cuenta") & "'" _
+                '                     + " AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+
+                CTemp = ObtieneDatos("sp_sel_RubroGastos", GridView1.GetRowCellValue(i, "Cuenta"), EmpresaActual).Rows.Item(0)("CuentaContable")
             Catch ex As Exception
                 CTemp = "xxx"
             End Try

@@ -1,8 +1,9 @@
-Imports System.IO
+Imports System.Linq
 Imports System.Data.SqlClient
 Imports SysContab.VB.SysContab
 Imports DevExpress.XtraReports.UI
 Imports DevExpress.XtraGrid.Views.Grid
+Imports Entities
 
 Public Class FrmComprobantesDetallesNew
     Inherits DevExpress.XtraEditors.XtraForm
@@ -329,7 +330,7 @@ Public Class FrmComprobantesDetallesNew
         Me.Fecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Fecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
         Me.Fecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
-        Me.Fecha.Size = New System.Drawing.Size(109, 20)
+        Me.Fecha.Size = New System.Drawing.Size(144, 20)
         Me.Fecha.StyleController = Me.LayoutControl1
         Me.Fecha.TabIndex = 197
         '
@@ -558,7 +559,7 @@ Public Class FrmComprobantesDetallesNew
         Me.ItemCuenta.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.ItemCuenta.Name = "ItemCuenta"
         Me.ItemCuenta.NullText = ""
-        Me.ItemCuenta.View = Me.vCatalogo1
+        Me.ItemCuenta.PopupView = Me.vCatalogo1
         '
         'vCatalogo1
         '
@@ -588,7 +589,7 @@ Public Class FrmComprobantesDetallesNew
         Me.ItemCuentas.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.ItemCuentas.Name = "ItemCuentas"
         Me.ItemCuentas.NullText = ""
-        Me.ItemCuentas.View = Me.vCatalogo2
+        Me.ItemCuentas.PopupView = Me.vCatalogo2
         '
         'vCatalogo2
         '
@@ -710,7 +711,7 @@ Public Class FrmComprobantesDetallesNew
         Me.cbOrdenCompra.AutoHeight = False
         Me.cbOrdenCompra.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbOrdenCompra.Name = "cbOrdenCompra"
-        Me.cbOrdenCompra.View = Me.GridView2
+        Me.cbOrdenCompra.PopupView = Me.GridView2
         '
         'GridView2
         '
@@ -739,7 +740,7 @@ Public Class FrmComprobantesDetallesNew
         Me.cbProyecto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProyecto.Name = "cbProyecto"
         Me.cbProyecto.NullText = "[Proyecto]"
-        Me.cbProyecto.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbProyecto.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -848,7 +849,7 @@ Public Class FrmComprobantesDetallesNew
         '
         'txtConsecutivo
         '
-        Me.txtConsecutivo.Location = New System.Drawing.Point(550, 12)
+        Me.txtConsecutivo.Location = New System.Drawing.Point(530, 12)
         Me.txtConsecutivo.Name = "txtConsecutivo"
         Me.txtConsecutivo.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info
         Me.txtConsecutivo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -859,7 +860,7 @@ Public Class FrmComprobantesDetallesNew
         Me.txtConsecutivo.Properties.Appearance.Options.UseTextOptions = True
         Me.txtConsecutivo.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
         Me.txtConsecutivo.Properties.MaxLength = 50
-        Me.txtConsecutivo.Size = New System.Drawing.Size(122, 22)
+        Me.txtConsecutivo.Size = New System.Drawing.Size(142, 22)
         Me.txtConsecutivo.StyleController = Me.LayoutControl1
         Me.txtConsecutivo.TabIndex = 1031
         '
@@ -883,7 +884,7 @@ Public Class FrmComprobantesDetallesNew
         'txtlNoComprobante
         '
         Me.txtlNoComprobante.EditValue = 0R
-        Me.txtlNoComprobante.Location = New System.Drawing.Point(317, 12)
+        Me.txtlNoComprobante.Location = New System.Drawing.Point(352, 12)
         Me.txtlNoComprobante.Name = "txtlNoComprobante"
         Me.txtlNoComprobante.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtlNoComprobante.Properties.AppearanceReadOnly.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -897,7 +898,7 @@ Public Class FrmComprobantesDetallesNew
         Me.txtlNoComprobante.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtlNoComprobante.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.txtlNoComprobante.Properties.ReadOnly = True
-        Me.txtlNoComprobante.Size = New System.Drawing.Size(133, 24)
+        Me.txtlNoComprobante.Size = New System.Drawing.Size(78, 24)
         Me.txtlNoComprobante.StyleController = Me.LayoutControl1
         Me.txtlNoComprobante.TabIndex = 1030
         '
@@ -1008,7 +1009,6 @@ Public Class FrmComprobantesDetallesNew
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.etCheque, Me.etchequeNombre, Me.LayoutControlItem6, Me.LayoutControlItem9, Me.LayoutControlItem5, Me.LayoutControlItem7, Me.LayoutControlItem10, Me.LayoutControlItem14, Me.lyAnulado, Me.LayoutControlItem15, Me.LayoutControlItem2, Me.LayoutControlItem16, Me.LayoutControlItem17, Me.LayoutControlItem8, Me.EmptySpaceItem4, Me.LayoutControlItem13, Me.LayoutControlItem11, Me.lyVer, Me.LayoutControlItem12})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(858, 711)
         Me.LayoutControlGroup1.TextVisible = False
@@ -1017,10 +1017,10 @@ Public Class FrmComprobantesDetallesNew
         '
         Me.LayoutControlItem1.Control = Me.Fecha
         Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(209, 28)
-        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(209, 28)
+        Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(244, 28)
+        Me.LayoutControlItem1.MinSize = New System.Drawing.Size(244, 28)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(209, 28)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(244, 28)
         Me.LayoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem1.Text = "Fecha:"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(93, 13)
@@ -1085,18 +1085,18 @@ Public Class FrmComprobantesDetallesNew
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.txtlNoComprobante
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(209, 0)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(244, 0)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(233, 28)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(178, 28)
         Me.LayoutControlItem5.Text = "#Comprobante:"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(93, 13)
         '
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.txtConsecutivo
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(442, 0)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(422, 0)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(222, 28)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(242, 28)
         Me.LayoutControlItem7.Text = "#Consecutivo:"
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(93, 13)
         '
@@ -1261,9 +1261,9 @@ Public Class FrmComprobantesDetallesNew
         Me.bExportar.Appearance.Options.UseTextOptions = True
         Me.bExportar.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bExportar.ImageOptions.Image = CType(resources.GetObject("bExportar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bExportar.Location = New System.Drawing.Point(12, 575)
+        Me.bExportar.Location = New System.Drawing.Point(12, 594)
         Me.bExportar.Name = "bExportar"
-        Me.bExportar.Size = New System.Drawing.Size(118, 38)
+        Me.bExportar.Size = New System.Drawing.Size(119, 36)
         Me.bExportar.StyleController = Me.LayoutControl2
         Me.bExportar.TabIndex = 118
         Me.bExportar.Text = "E&xportar"
@@ -1284,13 +1284,13 @@ Public Class FrmComprobantesDetallesNew
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1059, 175, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(141, 684)
+        Me.LayoutControl2.Size = New System.Drawing.Size(143, 682)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'chkImprimir
         '
-        Me.chkImprimir.Location = New System.Drawing.Point(12, 96)
+        Me.chkImprimir.Location = New System.Drawing.Point(12, 92)
         Me.chkImprimir.Name = "chkImprimir"
         Me.chkImprimir.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkImprimir.Properties.Appearance.ForeColor = System.Drawing.Color.DarkRed
@@ -1312,9 +1312,9 @@ Public Class FrmComprobantesDetallesNew
         Me.cmdSalir.Appearance.Options.UseFont = True
         Me.cmdSalir.Appearance.Options.UseForeColor = True
         Me.cmdSalir.ImageOptions.Image = CType(resources.GetObject("cmdSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdSalir.Location = New System.Drawing.Point(12, 617)
+        Me.cmdSalir.Location = New System.Drawing.Point(12, 634)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(118, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(119, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
         Me.cmdSalir.TabIndex = 111
         Me.cmdSalir.Text = "&Salir"
@@ -1326,9 +1326,9 @@ Public Class FrmComprobantesDetallesNew
         Me.cmdAnular.Appearance.Options.UseFont = True
         Me.cmdAnular.Appearance.Options.UseForeColor = True
         Me.cmdAnular.ImageOptions.Image = CType(resources.GetObject("cmdAnular.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdAnular.Location = New System.Drawing.Point(12, 136)
+        Me.cmdAnular.Location = New System.Drawing.Point(12, 132)
         Me.cmdAnular.Name = "cmdAnular"
-        Me.cmdAnular.Size = New System.Drawing.Size(118, 38)
+        Me.cmdAnular.Size = New System.Drawing.Size(119, 36)
         Me.cmdAnular.StyleController = Me.LayoutControl2
         Me.cmdAnular.TabIndex = 115
         Me.cmdAnular.Text = "A&nular"
@@ -1342,7 +1342,7 @@ Public Class FrmComprobantesDetallesNew
         Me.cmdDetalleDistribucion.Appearance.Options.UseTextOptions = True
         Me.cmdDetalleDistribucion.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.cmdDetalleDistribucion.ImageOptions.Image = CType(resources.GetObject("cmdDetalleDistribucion.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdDetalleDistribucion.Location = New System.Drawing.Point(12, 220)
+        Me.cmdDetalleDistribucion.Location = New System.Drawing.Point(12, 212)
         Me.cmdDetalleDistribucion.Name = "cmdDetalleDistribucion"
         Me.cmdDetalleDistribucion.Size = New System.Drawing.Size(118, 38)
         Me.cmdDetalleDistribucion.StyleController = Me.LayoutControl2
@@ -1358,9 +1358,9 @@ Public Class FrmComprobantesDetallesNew
         Me.SimpleButton1.Appearance.Options.UseTextOptions = True
         Me.SimpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(12, 178)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 172)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(118, 38)
+        Me.SimpleButton1.Size = New System.Drawing.Size(119, 36)
         Me.SimpleButton1.StyleController = Me.LayoutControl2
         Me.SimpleButton1.TabIndex = 117
         Me.SimpleButton1.Text = "&Actualizar"
@@ -1371,9 +1371,9 @@ Public Class FrmComprobantesDetallesNew
         Me.cmdAyuda.Appearance.ForeColor = System.Drawing.Color.Black
         Me.cmdAyuda.Appearance.Options.UseFont = True
         Me.cmdAyuda.Appearance.Options.UseForeColor = True
-        Me.cmdAyuda.Location = New System.Drawing.Point(12, 549)
+        Me.cmdAyuda.Location = New System.Drawing.Point(12, 568)
         Me.cmdAyuda.Name = "cmdAyuda"
-        Me.cmdAyuda.Size = New System.Drawing.Size(118, 22)
+        Me.cmdAyuda.Size = New System.Drawing.Size(119, 22)
         Me.cmdAyuda.StyleController = Me.LayoutControl2
         Me.cmdAyuda.TabIndex = 112
         Me.cmdAyuda.Text = "&Ayuda"
@@ -1385,9 +1385,9 @@ Public Class FrmComprobantesDetallesNew
         Me.cmdImprimir.Appearance.Options.UseFont = True
         Me.cmdImprimir.Appearance.Options.UseForeColor = True
         Me.cmdImprimir.ImageOptions.Image = CType(resources.GetObject("cmdImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.cmdImprimir.Location = New System.Drawing.Point(12, 54)
+        Me.cmdImprimir.Location = New System.Drawing.Point(12, 52)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(118, 38)
+        Me.cmdImprimir.Size = New System.Drawing.Size(119, 36)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 113
         Me.cmdImprimir.Text = "&Imprimir"
@@ -1401,7 +1401,7 @@ Public Class FrmComprobantesDetallesNew
         Me.cmdAceptar.ImageOptions.Image = CType(resources.GetObject("cmdAceptar.ImageOptions.Image"), System.Drawing.Image)
         Me.cmdAceptar.Location = New System.Drawing.Point(12, 12)
         Me.cmdAceptar.Name = "cmdAceptar"
-        Me.cmdAceptar.Size = New System.Drawing.Size(118, 38)
+        Me.cmdAceptar.Size = New System.Drawing.Size(119, 36)
         Me.cmdAceptar.StyleController = Me.LayoutControl2
         Me.cmdAceptar.TabIndex = 114
         Me.cmdAceptar.Text = "&Guardar"
@@ -1411,9 +1411,8 @@ Public Class FrmComprobantesDetallesNew
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem18, Me.LayoutControlItem19, Me.LayoutControlItem22, Me.LayoutControlItem24, Me.LayoutControlItem25, Me.EmptySpaceItem2, Me.LayoutControlItem21, Me.LayoutControlItem23, Me.LayoutControlItem26, Me.EmptySpaceItem3, Me.LayoutControlItem20})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(142, 667)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(143, 682)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem18
@@ -1421,60 +1420,60 @@ Public Class FrmComprobantesDetallesNew
         Me.LayoutControlItem18.Control = Me.cmdAceptar
         Me.LayoutControlItem18.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem18.Name = "LayoutControlItem18"
-        Me.LayoutControlItem18.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem18.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem18.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem18.TextVisible = False
         '
         'LayoutControlItem19
         '
         Me.LayoutControlItem19.Control = Me.cmdImprimir
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem19.TextVisible = False
         '
         'LayoutControlItem22
         '
         Me.LayoutControlItem22.Control = Me.SimpleButton1
-        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 166)
+        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 160)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
-        Me.LayoutControlItem22.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem22.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem22.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem22.TextVisible = False
         '
         'LayoutControlItem24
         '
         Me.LayoutControlItem24.Control = Me.bExportar
-        Me.LayoutControlItem24.Location = New System.Drawing.Point(0, 563)
+        Me.LayoutControlItem24.Location = New System.Drawing.Point(0, 582)
         Me.LayoutControlItem24.Name = "LayoutControlItem24"
-        Me.LayoutControlItem24.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem24.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem24.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem24.TextVisible = False
         '
         'LayoutControlItem25
         '
         Me.LayoutControlItem25.Control = Me.cmdSalir
-        Me.LayoutControlItem25.Location = New System.Drawing.Point(0, 605)
+        Me.LayoutControlItem25.Location = New System.Drawing.Point(0, 622)
         Me.LayoutControlItem25.Name = "LayoutControlItem25"
-        Me.LayoutControlItem25.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem25.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem25.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem25.TextVisible = False
         '
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 250)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 242)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(122, 287)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(123, 314)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem21
         '
         Me.LayoutControlItem21.Control = Me.cmdAyuda
-        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 537)
+        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 556)
         Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(122, 26)
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(123, 26)
         Me.LayoutControlItem21.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem21.TextVisible = False
         Me.LayoutControlItem21.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -1482,11 +1481,11 @@ Public Class FrmComprobantesDetallesNew
         'LayoutControlItem23
         '
         Me.LayoutControlItem23.Control = Me.cmdDetalleDistribucion
-        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 208)
+        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 200)
         Me.LayoutControlItem23.MaxSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem23.MinSize = New System.Drawing.Size(122, 42)
         Me.LayoutControlItem23.Name = "LayoutControlItem23"
-        Me.LayoutControlItem23.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem23.Size = New System.Drawing.Size(123, 42)
         Me.LayoutControlItem23.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem23.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem23.TextVisible = False
@@ -1494,11 +1493,11 @@ Public Class FrmComprobantesDetallesNew
         'LayoutControlItem26
         '
         Me.LayoutControlItem26.Control = Me.chkImprimir
-        Me.LayoutControlItem26.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem26.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem26.MaxSize = New System.Drawing.Size(122, 23)
         Me.LayoutControlItem26.MinSize = New System.Drawing.Size(122, 23)
         Me.LayoutControlItem26.Name = "LayoutControlItem26"
-        Me.LayoutControlItem26.Size = New System.Drawing.Size(122, 23)
+        Me.LayoutControlItem26.Size = New System.Drawing.Size(123, 23)
         Me.LayoutControlItem26.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem26.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem26.TextVisible = False
@@ -1506,17 +1505,17 @@ Public Class FrmComprobantesDetallesNew
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 107)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 103)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(122, 17)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(123, 17)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem20
         '
         Me.LayoutControlItem20.Control = Me.cmdAnular
-        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 124)
+        Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 120)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
-        Me.LayoutControlItem20.Size = New System.Drawing.Size(122, 42)
+        Me.LayoutControlItem20.Size = New System.Drawing.Size(123, 40)
         Me.LayoutControlItem20.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem20.TextVisible = False
         '
@@ -1541,9 +1540,9 @@ Public Class FrmComprobantesDetallesNew
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(141, 684)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(143, 682)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'FrmComprobantesDetallesNew
@@ -1666,24 +1665,80 @@ Public Class FrmComprobantesDetallesNew
     Dim DataLiq As New DataTable
     Dim ModificarComp As Boolean = False
 
+    Private _Edit As Boolean,
+            _EditCierre As Boolean
+
+    Public Property Edit() As Boolean
+        Get
+            Return _Edit
+        End Get
+        Set(ByVal value As Boolean)
+            _Edit = value
+        End Set
+    End Property
+
+
+    Public Property EditCierre() As Boolean
+        Get
+            Return _EditCierre
+        End Get
+        Set(ByVal value As Boolean)
+            _EditCierre = value
+        End Set
+    End Property
+
 
     Private Sub FrmComprobantesDetallesNew_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-        If Cambios <> Me.GridView1.DataRowCount Then
-            If XtraMsg2("No se han Guardado los Cambios ¿ Desea Registrarlos ?") Then
-                'If Not VerificarCierre(Fecha.DateTime.Date) Then
-                e.Cancel = True
-                'End If
 
-                If Validar() Then
-                    GuardarComprobante()
-                Else
-                    e.Cancel = True
-                End If
+        'Si se agregaron lineas o quitaron lineas al comprobante,
+        'Preguntar si quiere guardar los cambios.
+        If Cambios <> GridView1.DataRowCount Then
+
+            'If XtraMsg2("Se han encontrado cambios sin guardar, Desea Registrarlos?") Then
+            '    e.Cancel = True
+            '    If Validar() Then
+            '        If GuardarComprobante() Then Distribuir()
+            '    Else
+            '        e.Cancel = True
+            '    End If
+            'End If
+
+            If Not GuardarCambioasAlSalir() Then e.Cancel = True
+
+        Else
+            Dim _data As DataTable =
+                Datas.GetChanges(DataRowState.Modified)
+
+            If Not _data Is Nothing Then
+
+                If Not GuardarCambioasAlSalir() Then e.Cancel = True
+
             End If
+
         End If
     End Sub
 
+    Function GuardarCambioasAlSalir() As Boolean
+
+        If XtraMsg2("Se han encontrado cambios sin guardar, Desea Registrarlos?") Then
+
+            If Validar() Then
+                If GuardarComprobante() Then
+                    Distribuir()
+                    Return True
+                End If
+                Return True
+            Else
+                Return False
+            End If
+        Else
+            Return True
+        End If
+
+    End Function
+
     Private Sub FrmComprobantesDetallesNew_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
         CargarCombos()
 
         'Dim Datos As New ArrayList
@@ -1779,7 +1834,7 @@ Public Class FrmComprobantesDetallesNew
         End If
 
         Dim Registros As Integer
-        Registros = comp.ComprobanteAnularBuscar(txtlNoComprobante.EditValue, Periodo, Fecha.DateTime.Date)
+        Registros = ComprobanteDB.ComprobanteAnularBuscar(txtlNoComprobante.EditValue, Periodo, Fecha.DateTime.Date)
 
         '//*******  VALIDAR SI ESTA ANULADO
         If Registros > 0 Then
@@ -1805,12 +1860,17 @@ Public Class FrmComprobantesDetallesNew
         Else
             GridView1.OptionsBehavior.Editable = True
         End If
-        '//*******  FIN VALIDAR SI ESTA ANULADO
+        '
+        'Cargar Distribucion del Comprobante
+        DT_Distribucion =
+            CargaDistribucion(
+            Fecha.DateTime.Month,
+            txtlNoComprobante.EditValue,
+            Periodo)
 
-        DT_Distribucion = CargaDistribucion(Fecha.DateTime.Month, txtlNoComprobante.EditValue, VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date))
         Totales()
 
-        Cambios = Me.GridView1.DataRowCount
+        Cambios = GridView1.DataRowCount
 
         'If VerifyLiqOption() Then
         '    ckLiquidar.Enabled = True
@@ -1841,7 +1901,7 @@ Public Class FrmComprobantesDetallesNew
 
     Sub CargarCombos()
 
-        cmbtipocomprobante.Properties.DataSource = comp.GetTiposComprobantes(0).Tables("TipoComprobantes")
+        cmbtipocomprobante.Properties.DataSource = ComprobanteDB.GetTiposComprobantes(0).Tables("TipoComprobantes")
         cmbtipocomprobante.Properties.ValueMember = "TipComp_Id"
         cmbtipocomprobante.Properties.DisplayMember = "TipComp_Nombre"
         cmbtipocomprobante.Properties.PopulateColumns()
@@ -1920,7 +1980,7 @@ Public Class FrmComprobantesDetallesNew
         '-------------------------------------------------------------------
 
         Dim Registros As Integer
-        Registros = comp.ComprobanteAnularBuscar(txtlNoComprobante.EditValue, Periodo, Fecha.DateTime.Date)
+        Registros = ComprobanteDB.ComprobanteAnularBuscar(txtlNoComprobante.EditValue, Periodo, Fecha.DateTime.Date)
 
         If Registros > 0 Then
             XtraMsg("El comprobante ya fue anulado", MessageBoxIcon.Error)
@@ -1953,11 +2013,11 @@ Public Class FrmComprobantesDetallesNew
         DBConnFacturas.Open()
         transaccionFacturas = DBConnFacturas.BeginTransaction
         Try
-            comp.ComprobanteAnular(txtlNoComprobante.EditValue, Periodo, Fecha.DateTime.Date)
+            ComprobanteDB.ComprobanteAnular(txtlNoComprobante.EditValue, Periodo, Fecha.DateTime.Date)
 
-            comp.CancelarFactura(compDet.Factura1, compDet.Proveedor, 0)
+            ComprobanteDB.CancelarFactura(compDet.Factura1, compDet.Proveedor, 0)
 
-            comp.PagosFacturasBorrar(txtlNoComprobante.EditValue, Fecha.DateTime.Month, Periodo)
+            ComprobanteDB.PagosFacturasBorrar(txtlNoComprobante.EditValue, Fecha.DateTime.Month, Periodo)
 
             GridView1.OptionsBehavior.Editable = False
             Me.txtConcepto.ReadOnly = True
@@ -1970,10 +2030,10 @@ Public Class FrmComprobantesDetallesNew
             lyAnulado.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
             '------------------------------
             '------------------------------
-            EliminaDistribucion(txtCheque.Text, Periodo, Fecha.DateTime.Month, True)
+            EliminaDistribucion(txtlNoComprobante.EditValue, Periodo, Fecha.DateTime.Month, True)
             '------------------------------
             '------------------------------
-            VB.SysContab.Rutinas.okTransaccion()
+            Rutinas.okTransaccion()
 
             Dim f As frmComprobantes = frmComprobantes.Instance()
             f.Buscar()
@@ -1981,7 +2041,7 @@ Public Class FrmComprobantesDetallesNew
             Me.Close()
         Catch ex As Exception
             XtraMsg(ex.Message, MessageBoxIcon.Error)
-            VB.SysContab.Rutinas.ErrorTransaccion()
+            Rutinas.ErrorTransaccion()
             Exit Sub
         End Try
 
@@ -1998,6 +2058,7 @@ Public Class FrmComprobantesDetallesNew
         Ds = VB.SysContab.DistribucionDB.GetData(txtlNoComprobante.EditValue,
              Periodo, Fecha.DateTime.Date, Moneda)
         f.Grid.DataSource = Ds.Tables(0)
+        FormatoGridNew(f.GridView2, 2, 0, False, False, False)
         f.Width = 1024
         f.Height = 400
         f.ShowDialog()
@@ -2056,7 +2117,12 @@ Public Class FrmComprobantesDetallesNew
         'fReportes.crvReportes.Zoom(91)
         'fReportes.Show()
 
-        ImprimirComprobante()
+        ComprobanteDB.ImprimirComprobante(
+                txtlNoComprobante.EditValue,
+                Periodo,
+                Fecha.DateTime.Date)
+
+        'ImprimirComprobante()
     End Sub
 
     Sub ImprimirComprobante()
@@ -2102,9 +2168,13 @@ Public Class FrmComprobantesDetallesNew
 
         DA.Fill(DSComp, "Comprobantes")
 
-        Dim DTDistrubucion As DataTable = ObtieneDatos("JAR_GetComprobanteDistribucion " & txtlNoComprobante.EditValue & "," &
-                                                     "" & Periodo & "," &
-                                                     "" & Fecha.DateTime.Date.Month & "," & EmpresaActual)
+        Dim DTDistrubucion As DataTable =
+            ObtieneDatos("JAR_GetComprobanteDistribucion",
+                         txtlNoComprobante.EditValue,
+                         Periodo,
+                         Fecha.DateTime.Date.Month,
+                         EmpresaActual)
+
         Dim rptDistribucin As New rptComprobanteDistribucion
         rptDistribucin.DataSource = DTDistrubucion
 
@@ -2134,21 +2204,23 @@ Public Class FrmComprobantesDetallesNew
 
     Private Sub GridDetalle_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridDetalle.DoubleClick
         If IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Codigo"), "") = "" Or
-        IIf(IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Debito"), 0) = 0, IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"), 0), IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Debito"), 0)) = 0 Then
+        IIf(IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Debito"), 0.00) = 0.00, IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"), 0.00), IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Debito"), 0.00)) = 0.00 Then
             XtraMsg("Complete al informacion", MessageBoxIcon.Error)
             Exit Sub
         End If
         '
         Try
-            Dim forma As New FrmDetalleRequisas
-            forma.Cuenta = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Codigo")
-            forma.Monto = IIf(IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"), 0) = 0, GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Debito"), GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"))
-            forma.Tipo = IIf(IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"), 0) = 0, "D", "C")
-            forma.Periodo = VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date)
-            forma.CompNo = txtlNoComprobante.EditValue
-            forma.Mes = Fecha.DateTime.Month
-            forma.Mostrar(DT_Distribucion)
-            Me.DT_Distribucion.DefaultView.RowFilter = ""
+            Dim frm As New FrmDetalleRequisas
+            With frm
+                .Cuenta = GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Codigo")
+                .Monto = IIf(IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"), 0.00) = 0.00, GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Debito"), GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"))
+                .Tipo = IIf(IsNull(GridView1.GetRowCellValue(GridView1.FocusedRowHandle, "Credito"), 0.00) = 0.00, "D", "C")
+                .Periodo = Periodo
+                .CompNo = txtlNoComprobante.EditValue
+                .Mes = Fecha.DateTime.Month
+                .Mostrar(DT_Distribucion)
+                Me.DT_Distribucion.DefaultView.RowFilter = ""
+            End With
         Catch ex As Exception
             XtraMsg(ex.Message, MessageBoxIcon.Error)
         End Try
@@ -2212,29 +2284,27 @@ Public Class FrmComprobantesDetallesNew
 
     Private Sub cmdAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAceptar.Click
 
-        'Verificar Cierre del Día Nueva Fecha
-        '---------------------------------------------------------------------
-        If Not VerificarCierre(Fecha.DateTime.Date) Then
-            Exit Sub
-        End If
-        '--------------------------------------------------------------------
-        '
-        'Verificar Cierre del Día de la Fecha Original
-        '---------------------------------------------------------------------
-        If Not VerificarCierre(Fecha1.Date) Then
-            Exit Sub
-        End If
-        '--------------------------------------------------------------------
-
         If Validar() Then
+
             ShowSplash("Guardando Comprobante...")
+            '
             If GuardarComprobante() Then
+                '----------------------------
+                'Guardar Distribucion
+                '----------------------------
+                Distribuir()
+                '-----------------------------
+                'Fin de Guardar Distribucion
+                '-----------------------------
+
                 Dim f As frmComprobantes = frmComprobantes.Instance()
                 f.Buscar()
-
-                Cambios = Me.GridView1.DataRowCount
-                Me.Close()
+                '
+                Cambios = GridView1.DataRowCount
+                '
+                Close()
             End If
+            '
             HideSplash()
         End If
     End Sub
@@ -2245,16 +2315,30 @@ Public Class FrmComprobantesDetallesNew
         '    Return False
         'End If
 
+        'Verificar Cierre del Día Nueva Fecha
+        '---------------------------------------------------------------------
+        If Not VerificarCierre(Fecha.DateTime.Date) Then
+            Return False
+        End If
+        '--------------------------------------------------------------------
+        '
+        'Verificar Cierre del Día de la Fecha Original
+        '---------------------------------------------------------------------
+        If Not VerificarCierre(Fecha1.Date) Then
+            Return False
+        End If
+        '--------------------------------------------------------------------
+        '
         If Math.Round(lblDiferencia.EditValue, 2) <> 0 Then
             XtraMsg("No se puede guardar un comprobante con diferencia", MessageBoxIcon.Error)
             Return False
         End If
-
+        '
         If cmbtipocomprobante.EditValue = Nothing Then
             XtraMsg("Seleccione el tipo de comprobante", MessageBoxIcon.Error)
             Return False
         End If
-
+        '
         If GridView1.DataRowCount - 1 < 0 Then
             XtraMsg("No hay registros para guardar", MessageBoxIcon.Error)
             Return False
@@ -2348,7 +2432,7 @@ Public Class FrmComprobantesDetallesNew
     End Function
 
     Function GuardarComprobante() As Boolean
-        Dim Dist As Boolean = False
+        'Dim Dist As Boolean = False
 
         'If Not chkdistribuir.Checked Then
         ' If VerificaDistribucion() = False Then Return False
@@ -2370,7 +2454,7 @@ Public Class FrmComprobantesDetallesNew
         '    'End If
         'End If
 
-        Dim PeriodosDB As New VB.SysContab.PeriodosDB
+        Dim PeriodosDB As New PeriodosDB
         Dim CompNumero As Integer
         Dim NoComprob As Integer
         Dim CambioMes As Boolean = False
@@ -2415,8 +2499,6 @@ Public Class FrmComprobantesDetallesNew
                     0,
                     compDet.Consecutivo)
 
-                txtlNoComprobante.EditValue = NoComprob
-
                 For i As Integer = 0 To GridView1.DataRowCount - 1
                     With GridView1
                         ComprobanteDB.AddComprobanteDetalles(
@@ -2437,9 +2519,44 @@ Public Class FrmComprobantesDetallesNew
                             IsNull(.GetRowCellValue(i, "IdOrdenCompra"), 0))
                     End With
                 Next
-                Datas.AcceptChanges()
+
+                'Datas.AcceptChanges()
+
+                'ObtieneDatos("UPDATE Distribucion set nocomp = " & CompNumero & ",mes = " & Fecha1.Date.Month & ", per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha.DateTime) & " where nocomp = " & txtlNoComprobante.EditValue & " and mes = " & Fecha1.Date.Month & " and idempresa = " & EmpresaActual & " and per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha1.Date))
+                '---------------------------------------
+                'Actualizar información de la 
+                'Distribucion en el nuevo comprobante.
+                '---------------------------------------
+                'Dim objDistribucion As New Distribucion,
+                '    dbDistribucion As New db_Distribucion
+
+                'objDistribucion.NoComp = NoComprob
+                'objDistribucion.Mes = Fecha.DateTime.Month
+                'objDistribucion.Per_Id = PeriodosDB.Activo(Fecha.DateTime.Date)
+
+                'objDistribucion.NoComp = txtlNoComprobante.EditValue
+                'objDistribucion.Mes = Fecha1.Month
+                'objDistribucion.Per_Id = Periodo
+                'objDistribucion.IdEmpresa = EmpresaActual
+
+                'dbDistribucion.Actualizar2(
+                '    objDistribucion,
+                '    True,
+                '    DBConnFacturas,
+                '    transaccionFacturas)
+
+                '--------------------------------
+                'Fin de Actualizar Distribucion
+                '--------------------------------
+                txtlNoComprobante.EditValue = NoComprob
             Else
                 CambioMes = True
+                CompNumero = ComprobanteDB.ComprobanteUpdate(txtlNoComprobante.EditValue, cmbtipocomprobante.EditValue,
+                                                    TasaCambio, Me.txtConcepto.Text, Moneda, Periodo,
+                                                    Fecha.DateTime.Date, 0, False, Fecha1.Date, RUC,
+                                                    Me.lblChequeNombre.Text, Pagara, Factura1, FechaVencimiento.DateTime.Date,
+                                                    FormaPago, TipoX, txtConsecutivo.Text)
+
                 For i As Integer = 0 To GridView1.DataRowCount - 1
                     With GridView1
                         Try
@@ -2466,8 +2583,9 @@ Public Class FrmComprobantesDetallesNew
                         End Try
                     End With
                 Next
-                'Datas.AcceptChanges()
             End If
+
+            'Datas.AcceptChanges()
 
             Dim Eliminados As DataTable =
                 Datas.GetChanges(DataRowState.Deleted)
@@ -2479,150 +2597,247 @@ Public Class FrmComprobantesDetallesNew
                 Next
             End If
 
-            'Dim Modificados As DataTable = Datas.GetChanges(DataRowState.Modified)
-            'If Not Modificados Is Nothing Then
-            '    For i As Integer = 0 To Modificados.Rows.Count - 1
-            '        comp.ComprobanteDetallesUpdate(Modificados.Rows(i)("Cdet_Id"), Modificados.Rows(i)("Codigo"), _
-            '                                       IIf(IsNull(Modificados.Rows(i)("Credito"), 0) = 0, Math.Round((Modificados.Rows(i)("Debito") * TasaCambio), 2), _
-            '                                           Math.Round((Modificados.Rows(i)("Credito") * TasaCambio), 2)), Modificados.Rows(i)("Concepto").ToString, _
-            '                                           IIf(IsNull(Modificados.Rows(i)("Credito"), 0) = 0, "D", "C"))
-            '    Next
-            'End If
-
-            'Dim Agregados As DataTable = Datas.GetChanges(DataRowState.Added)
-            'If Not Agregados Is Nothing Then
-            '    For i As Integer = 0 To Agregados.Rows.Count - 1
-            '        comp.AddComprobanteDetalles(lblNoComprobante.Text, Agregados.Rows(i)("Codigo"), Agregados.Rows(i)("Concepto").ToString, _
-            '                                    IIf(IsNull(Agregados.Rows(i)("Credito"), 0) = 0, Math.Round((IsNull(Agregados.Rows(i)("Debito"), 0) * TasaCambio), 2), _
-            '                                        Math.Round((IsNull(Agregados.Rows(i)("Credito"), 0) * TasaCambio), 2)), 0, cmbtipocomprobante.EditValue, _
-            '                                        IIf(IsNull(Agregados.Rows(i)("Credito"), 0) = 0, "D", "C"), 0, 0, Fecha.DateTime.Date, compDet.Detalles.Tables(0).Rows(0).Item("Detalle"))
-            '    Next
-            'End If
-
-            If cmbtipocomprobante.EditValue <> CInt(compDet.Tipo1) Then
-                GuardaDatosTrans("UPDATE ComprobantesDetalles SET Comp_Tipo = " & cmbtipocomprobante.EditValue & " WHERE comp_no = " & txtlNoComprobante.EditValue & " AND mes = " & Fecha1.Date.Month & " AND per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha1.Date) & " AND Empresa = " & EmpresaActual)
-            End If
-
-            If Not chkdistribuir.Checked Then Distribuir()
-
-            If CambioMes Then
-                CompNumero = ComprobanteDB.ComprobanteUpdate(txtlNoComprobante.EditValue, cmbtipocomprobante.EditValue,
-                                                    TasaCambio, Me.txtConcepto.Text, Moneda, Periodo,
-                                                    Fecha.DateTime.Date, 0, False, Fecha1.Date, RUC,
-                                                    Me.lblChequeNombre.Text, Pagara, Factura1, FechaVencimiento.DateTime.Date,
-                                                    FormaPago, TipoX, txtConsecutivo.Text)
-            End If
-
-            VB.SysContab.Rutinas.okTransaccion()
-
-            If CambioMes Then
-                ObtieneDatos("UPDATE Distribucion set nocomp = " & CompNumero & ",mes = " & Fecha1.Date.Month & ", per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha.DateTime) & " where nocomp = " & txtlNoComprobante.EditValue & " and mes = " & Fecha1.Date.Month & " and idempresa = " & EmpresaActual & " and per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha1.Date))
-            End If
-
-            If Dist Then GuardaDatos("SPDS_NoDistribuidos " & txtlNoComprobante.EditValue & "," & VB.SysContab.PeriodosDB.Activo(Fecha1.Date) & "," & Fecha1.Date.Month & "," & EmpresaActual)
-
-            'If VerifyLiqOption() Then
-            '    If ckLiquidar.Checked = True Then
-            '        For j As Integer = 0 To Datas.Rows.Count - 1
-            '            Try
-            '                If IsNull(DataLiq.Rows(j).Item("MtID"), 0) <> IsNull(GridView1.GetRowCellValue(j, "MtID"), 0) Then
-            '                    ObtieneDatos("SP_LiqMercTransitUpdate " & ComprobanteID & "," & EmpresaActual & ",'" & _
-            '                                 GridView1.GetRowCellValue(j, "Codigo") & "'," & GridView1.GetRowCellValue(j, "MtID") & _
-            '                                 "," & GridView1.GetRowCellValue(j, "MtID") & "," & _
-            '                                IIf(IsNull(GridView1.GetRowCellValue(j, "Credito"), 0) = 0, GridView1.GetRowCellValue(j, "Debito"), GridView1.GetRowCellValue(j, "Credito")) & _
-            '                                 "," & ckDesgloce.Checked)
-            '                End If
-            '            Catch ex As Exception
-            '            End Try
-            '        Next
-            '    End If
-            'End If
+            Rutinas.okTransaccion()
 
             Return True
         Catch ex As Exception
             XtraMsg(ex.Message, MessageBoxIcon.Error)
             'VB.SysContab.Rutinas.ErrorTransaccion()
             Return False
-        Finally
-            Dist = False
+            'Finally
+            '    Dist = False
         End Try
+
+        'Dim Modificados As DataTable = Datas.GetChanges(DataRowState.Modified)
+        'If Not Modificados Is Nothing Then
+        '    For i As Integer = 0 To Modificados.Rows.Count - 1
+        '        comp.ComprobanteDetallesUpdate(Modificados.Rows(i)("Cdet_Id"), Modificados.Rows(i)("Codigo"), _
+        '                                       IIf(IsNull(Modificados.Rows(i)("Credito"), 0) = 0, Math.Round((Modificados.Rows(i)("Debito") * TasaCambio), 2), _
+        '                                           Math.Round((Modificados.Rows(i)("Credito") * TasaCambio), 2)), Modificados.Rows(i)("Concepto").ToString, _
+        '                                           IIf(IsNull(Modificados.Rows(i)("Credito"), 0) = 0, "D", "C"))
+        '    Next
+        'End If
+
+        'Dim Agregados As DataTable = Datas.GetChanges(DataRowState.Added)
+        'If Not Agregados Is Nothing Then
+        '    For i As Integer = 0 To Agregados.Rows.Count - 1
+        '        comp.AddComprobanteDetalles(lblNoComprobante.Text, Agregados.Rows(i)("Codigo"), Agregados.Rows(i)("Concepto").ToString, _
+        '                                    IIf(IsNull(Agregados.Rows(i)("Credito"), 0) = 0, Math.Round((IsNull(Agregados.Rows(i)("Debito"), 0) * TasaCambio), 2), _
+        '                                        Math.Round((IsNull(Agregados.Rows(i)("Credito"), 0) * TasaCambio), 2)), 0, cmbtipocomprobante.EditValue, _
+        '                                        IIf(IsNull(Agregados.Rows(i)("Credito"), 0) = 0, "D", "C"), 0, 0, Fecha.DateTime.Date, compDet.Detalles.Tables(0).Rows(0).Item("Detalle"))
+        '    Next
+        'End If
+
+        'If cmbtipocomprobante.EditValue <> CInt(compDet.Tipo1) Then
+        '    GuardaDatosTrans("UPDATE ComprobantesDetalles SET Comp_Tipo = " & cmbtipocomprobante.EditValue & " WHERE comp_no = " & txtlNoComprobante.EditValue & " AND mes = " & Fecha1.Date.Month & " AND per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha1.Date) & " AND Empresa = " & EmpresaActual)
+        'End If
+
+        'If CambioMes Then
+        '    CompNumero = ComprobanteDB.ComprobanteUpdate(txtlNoComprobante.EditValue, cmbtipocomprobante.EditValue,
+        '                                        TasaCambio, Me.txtConcepto.Text, Moneda, Periodo,
+        '                                        Fecha.DateTime.Date, 0, False, Fecha1.Date, RUC,
+        '                                        Me.lblChequeNombre.Text, Pagara, Factura1, FechaVencimiento.DateTime.Date,
+        '                                        FormaPago, TipoX, txtConsecutivo.Text)
+        'End If
+
+        'Rutinas.okTransaccion()
+
+        '----------------------------
+        'Guardar Distribucion
+        '----------------------------
+        'If CambioMes Then Distribuir()
+        'Distribuir()
+        'GuardaDistribucion(DT_Distribucion, Fecha.DateTime.Date, txtlNoComprobante.EditValue)
+        '-----------------------------
+        'Fin de Guardar Distribucion
+        '-----------------------------
+
+        'If Not chkdistribuir.Checked Then Distribuir()
+        'Distribuir()
+
+        'If CambioMes Then
+        '    ObtieneDatos("UPDATE Distribucion set nocomp = " & CompNumero & ",mes = " & Fecha1.Date.Month & ", per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha.DateTime) & " where nocomp = " & txtlNoComprobante.EditValue & " and mes = " & Fecha1.Date.Month & " and idempresa = " & EmpresaActual & " and per_id = " & VB.SysContab.PeriodosDB.Activo(Fecha1.Date))
+        'End If
+
+        'If Dist Then GuardaDatos("SPDS_NoDistribuidos " & txtlNoComprobante.EditValue & "," & VB.SysContab.PeriodosDB.Activo(Fecha1.Date) & "," & Fecha1.Date.Month & "," & EmpresaActual)
+
+        'If VerifyLiqOption() Then
+        '    If ckLiquidar.Checked = True Then
+        '        For j As Integer = 0 To Datas.Rows.Count - 1
+        '            Try
+        '                If IsNull(DataLiq.Rows(j).Item("MtID"), 0) <> IsNull(GridView1.GetRowCellValue(j, "MtID"), 0) Then
+        '                    ObtieneDatos("SP_LiqMercTransitUpdate " & ComprobanteID & "," & EmpresaActual & ",'" & _
+        '                                 GridView1.GetRowCellValue(j, "Codigo") & "'," & GridView1.GetRowCellValue(j, "MtID") & _
+        '                                 "," & GridView1.GetRowCellValue(j, "MtID") & "," & _
+        '                                IIf(IsNull(GridView1.GetRowCellValue(j, "Credito"), 0) = 0, GridView1.GetRowCellValue(j, "Debito"), GridView1.GetRowCellValue(j, "Credito")) & _
+        '                                 "," & ckDesgloce.Checked)
+        '                End If
+        '            Catch ex As Exception
+        '            End Try
+        '        Next
+        '    End If
+        'End If              
     End Function
 
 #Region "Funciones de Distribucion"
 
     Private Sub Distribuir()
-        Dim Valor As Double
+        'Dim Valor As Double
+        '----------------------
+        'Guarda la Distribucion
+        '----------------------
+        Datas.AcceptChanges()
+        Dim sCuentas = From row In Datas.AsEnumerable()
+                       Select row.Field(Of String)("Codigo") Distinct
 
-        For i As Integer = 0 To GridView1.DataRowCount - 1
-            With GridView1
-                Dim CTemp As String
-                Try
-                    CTemp = ObtieneDatosTrans("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND CuentaContable = '" & .GetRowCellValue(i, "Codigo") & "' AND Empresa = " & EmpresaActual).Rows(0).Item(0)
-                Catch e As Exception
-                    CTemp = ""
-                End Try
+        For Each s As Object In sCuentas
+            If Not s Is Nothing Then
 
-                If CTemp <> Nothing Then
-                    Dim dtD As DataTable = ObtieneDatosTrans("SELECT * FROM Distribucion d WHERE d.NoComp = '" & txtlNoComprobante.EditValue & "'" _
-                                                        + " AND d.Per_Id = " & VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & " AND d.Mes = " & Fecha.DateTime.Month & " AND d.Cuenta = '" & .GetRowCellValue(i, "Codigo") & "' AND d.IdEmpresa = " & EmpresaActual)
+                If DT_Distribucion.Select("Cuenta = '" & s & "'").Length > 0 Then
 
-                    If dtD.Rows.Count = 0 Then  ' Si no se ha distribuido la Cuenta, se distribuye y evitar duplicados cuando las cuentas se repiten en el comprobante
-                        ' Revision de Actualizacion de Distribucion. 04/09/08
-                        ' Error de Deleted Row Information. Corregido
-                        If Not DT_Distribucion.GetChanges(DataRowState.Added) Is Nothing Then
-                            For j As Integer = 0 To DT_Distribucion.GetChanges(DataRowState.Added).Rows.Count - 1
-                                Dim Fila As DataRow = DT_Distribucion.GetChanges(DataRowState.Added).Rows(j)
-                                If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
-                                    GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                                    " VALUES(" & EmpresaActual & "," & txtlNoComprobante.EditValue & "," & Fecha.DateTime.Month & "," &
-                                    VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," &
-                                    Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" &
-                                    Fila.Item("Cuenta") & "')")
-                                End If
-                            Next
-                        End If
+                    GuardaDistribucion(
+                            DT_Distribucion.Select("Cuenta = '" & s & "'").CopyToDataTable,
+                            txtlNoComprobante.EditValue,
+                            PeriodosDB.Activo(Fecha.DateTime.Date),
+                            Fecha.DateTime.Month)
 
-                        If Not DT_Distribucion.GetChanges(DataRowState.Modified) Is Nothing Then
-                            For j As Integer = 0 To DT_Distribucion.GetChanges(DataRowState.Modified).Rows.Count - 1
-                                Dim Fila As DataRow = DT_Distribucion.GetChanges(DataRowState.Modified).Rows(j)
-                                If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
-                                    GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                                    " VALUES(" & EmpresaActual & "," & txtlNoComprobante.EditValue & "," & Fecha.DateTime.Month & "," &
-                                    VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," &
-                                    Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" &
-                                    Fila.Item("Cuenta") & "')")
-                                End If
-                            Next
-                        End If
-
-                        If Not DT_Distribucion.GetChanges(DataRowState.Unchanged) Is Nothing Then
-                            For j As Integer = 0 To DT_Distribucion.GetChanges(DataRowState.Unchanged).Rows.Count - 1
-                                Dim Fila As DataRow = DT_Distribucion.GetChanges(DataRowState.Unchanged).Rows(j)
-                                If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
-                                    GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                                    " VALUES(" & EmpresaActual & "," & txtlNoComprobante.EditValue & "," & Fecha.DateTime.Month & "," &
-                                    VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," &
-                                    Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" &
-                                    Fila.Item("Cuenta") & "')")
-                                End If
-                            Next
-                        End If
-
-
-                        'For j As Integer = 0 To DT_Distribucion.Rows.Count - 1
-                        '    Dim Fila As DataRow = DT_Distribucion.Rows(j)
-                        '    If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
-                        '        GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " & _
-                        '        " VALUES(" & EmpresaActual & "," & Me.lblNoComprobante.Text & "," & Fecha.DateTime.Month & "," & _
-                        '        VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," & _
-                        '        Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" & _
-                        '        Fila.Item("Cuenta") & "')")
-                        '    End If
-                        'Next
-                    End If
                 End If
-            End With
+            End If
         Next
+
+
+        'Dim objDistribucion As New Distribucion,
+        '    dbDistribucion As New db_Distribucion
+
+        'For i As Integer = 0 To GridView1.DataRowCount - 1
+        '    With GridView1
+
+        '        Dim CTemp As String = String.Empty
+        '        Try
+        '            ' CTemp = ObtieneDatosTrans("SELECT CuentaContable FROM RubrosGastos WHERE Activo = 1 AND CuentaContable = '" & .GetRowCellValue(i, "Codigo") & "' AND Empresa = " & EmpresaActual).Rows(0).Item(0)
+
+        '            CTemp = ObtieneDatos("sp_sel_RubroGastos",
+        '                               .GetRowCellValue(i, "Codigo"),
+        '                               EmpresaActual).
+        '                               Rows.Item(0)("CuentaContable")
+
+        '        Catch e As Exception
+        '            CTemp = String.Empty
+        '        End Try
+
+        '        If Not CTemp.Equals(String.Empty) Then
+
+        '            'Dim dtD As DataTable =
+        '            '    ObtieneDatosTrans("SELECT * FROM Distribucion d WHERE d.NoComp = '" & txtlNoComprobante.EditValue & "'" _
+        '            '                                    + " AND d.Per_Id = " & VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "" _
+        '            '+ "AND d.Mes = " & Fecha.DateTime.Month & " And d.Cuenta = '" & .GetRowCellValue(i, "Codigo") & "' AND d.IdEmpresa = " & EmpresaActual)
+
+        '            Dim Per_Id As Integer = PeriodosDB.Activo(Fecha.DateTime.Date)
+
+        '            Dim _DTDist As DataTable = dbDistribucion.CargaDistribucion(
+        '                txtlNoComprobante.EditValue,
+        '                Per_Id,
+        '                Fecha.DateTime.Month,
+        '                EmpresaActual,
+        '                .GetRowCellValue(i, "Codigo"))
+
+        '            If _DTDist.Rows.Count = 0 Then
+        '                ' Si no se ha distribuido la Cuenta, se distribuye y evitar duplicados cuando las cuentas se repiten en el comprobante
+        '                ' Revision de Actualizacion de Distribucion. 04/09/08
+        '                ' Error de Deleted Row Information. Corregido
+
+        '                objDistribucion.IdEmpresa = EmpresaActual
+        '                objDistribucion.NoComp = txtlNoComprobante.EditValue
+        '                objDistribucion.Mes = Fecha.DateTime.Month
+        '                objDistribucion.Per_Id = Per_Id
+
+        '                If Not DT_Distribucion.GetChanges(DataRowState.Added) Is Nothing Then
+        '                    For j As Integer = 0 To DT_Distribucion.GetChanges(DataRowState.Added).Rows.Count - 1
+        '                        Dim Fila As DataRow = DT_Distribucion.GetChanges(DataRowState.Added).Rows(j)
+        '                        If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
+
+        '                            With Fila
+        '                                objDistribucion.IdRubroGasto = .Item("IdRubroGasto")
+        '                                objDistribucion.IdCentroCosto = .Item("IdCentroCosto")
+        '                                objDistribucion.Valor = .Item("Valor")
+        '                                objDistribucion.Tipo = .Item("Tipo")
+        '                                objDistribucion.Cuenta = .Item("Cuenta")
+
+        '                                dbDistribucion.Insertar(objDistribucion)
+        '                            End With
+
+        '                            'GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+        '                            '" VALUES(" & EmpresaActual & "," & txtlNoComprobante.EditValue & "," & Fecha.DateTime.Month & "," &
+        '                            'VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," &
+        '                            'Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" &
+        '                            'Fila.Item("Cuenta") & "')")
+        '                        End If
+        '                    Next
+        '                End If
+
+        '                If Not DT_Distribucion.GetChanges(DataRowState.Modified) Is Nothing Then
+        '                    For j As Integer = 0 To DT_Distribucion.GetChanges(DataRowState.Modified).Rows.Count - 1
+        '                        Dim Fila As DataRow = DT_Distribucion.GetChanges(DataRowState.Modified).Rows(j)
+        '                        If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
+
+        '                            With Fila
+        '                                objDistribucion.IdRubroGasto = .Item("IdRubroGasto")
+        '                                objDistribucion.IdCentroCosto = .Item("IdCentroCosto")
+        '                                objDistribucion.Valor = .Item("Valor")
+        '                                objDistribucion.Tipo = .Item("Tipo")
+        '                                objDistribucion.Cuenta = .Item("Cuenta")
+
+        '                                dbDistribucion.Insertar(objDistribucion)
+        '                            End With
+
+        '                            'GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+        '                            '" VALUES(" & EmpresaActual & "," & txtlNoComprobante.EditValue & "," & Fecha.DateTime.Month & "," &
+        '                            'VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," &
+        '                            'Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" &
+        '                            'Fila.Item("Cuenta") & "')")
+        '                        End If
+        '                    Next
+        '                End If
+
+        '                If Not DT_Distribucion.GetChanges(DataRowState.Unchanged) Is Nothing Then
+        '                    For j As Integer = 0 To DT_Distribucion.GetChanges(DataRowState.Unchanged).Rows.Count - 1
+        '                        Dim Fila As DataRow = DT_Distribucion.GetChanges(DataRowState.Unchanged).Rows(j)
+        '                        If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
+
+        '                            With Fila
+        '                                objDistribucion.IdRubroGasto = .Item("IdRubroGasto")
+        '                                objDistribucion.IdCentroCosto = .Item("IdCentroCosto")
+        '                                objDistribucion.Valor = .Item("Valor")
+        '                                objDistribucion.Tipo = .Item("Tipo")
+        '                                objDistribucion.Cuenta = .Item("Cuenta")
+
+        '                                dbDistribucion.Insertar(objDistribucion)
+        '                            End With
+
+        '                            'GuardaDatosTrans("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+        '                            '" VALUES(" & EmpresaActual & "," & txtlNoComprobante.EditValue & "," & Fecha.DateTime.Month & "," &
+        '                            'VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," &
+        '                            'Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" &
+        '                            'Fila.Item("Cuenta") & "')")
+        '                        End If
+        '                    Next
+        '                End If
+
+
+        '                'For j As Integer = 0 To DT_Distribucion.Rows.Count - 1
+        '                '    Dim Fila As DataRow = DT_Distribucion.Rows(j)
+        '                '    If Fila.Item("Cuenta") = .GetRowCellValue(i, "Codigo") And Fila.Item("Tipo") = IIf(IsNull(.GetRowCellValue(i, "Credito"), 0) = 0, "D", "C") Then
+        '                '        GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " & _
+        '                '        " VALUES(" & EmpresaActual & "," & Me.lblNoComprobante.Text & "," & Fecha.DateTime.Month & "," & _
+        '                '        VB.SysContab.PeriodosDB.Activo(Fecha.DateTime.Date) & "," & Fila.Item("IdRubroGasto") & "," & _
+        '                '        Fila.Item("IdCentroCosto") & "," & Fila.Item("Valor") & ",'" & Fila.Item("Tipo") & "','" & _
+        '                '        Fila.Item("Cuenta") & "')")
+        '                '    End If
+        '                'Next
+        '            End If
+        '        End If
+        '    End With
+        'Next
     End Sub
 
     'Private Function VerificaDistribucion() As Boolean
@@ -2677,7 +2892,6 @@ Public Class FrmComprobantesDetallesNew
     'End Function
 
 #End Region
-
 
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
         CargarCombos()

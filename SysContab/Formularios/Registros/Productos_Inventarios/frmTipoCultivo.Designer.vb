@@ -21,6 +21,7 @@ Partial Class frmTipoCultivo
     Private Sub InitializeComponent()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.MemoEdit1 = New DevExpress.XtraEditors.MemoEdit()
@@ -31,7 +32,6 @@ Partial Class frmTipoCultivo
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,7 +52,7 @@ Partial Class frmTipoCultivo
         'SimpleButton1
         '
         Me.SimpleButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.SimpleButton1.Location = New System.Drawing.Point(306, 145)
+        Me.SimpleButton1.Location = New System.Drawing.Point(310, 149)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(80, 22)
         Me.SimpleButton1.StyleController = Me.LayoutControl1
@@ -71,24 +71,42 @@ Partial Class frmTipoCultivo
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(781, 228, 250, 350)
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(398, 179)
+        Me.LayoutControl1.Size = New System.Drawing.Size(402, 183)
         Me.LayoutControl1.TabIndex = 4
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LabelControl1.Appearance.Options.UseBackColor = True
+        Me.LabelControl1.Appearance.Options.UseFont = True
+        Me.LabelControl1.Appearance.Options.UseForeColor = True
+        Me.LabelControl1.Appearance.Options.UseTextOptions = True
+        Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.LabelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(378, 16)
+        Me.LabelControl1.StyleController = Me.LayoutControl1
+        Me.LabelControl1.TabIndex = 6
+        Me.LabelControl1.Text = "Registrando Cultivos..."
+        '
         'TextEdit1
         '
-        Me.TextEdit1.Location = New System.Drawing.Point(52, 62)
+        Me.TextEdit1.Location = New System.Drawing.Point(52, 63)
         Me.TextEdit1.Name = "TextEdit1"
         Me.TextEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextEdit1.Properties.Appearance.Options.UseFont = True
-        Me.TextEdit1.Properties.MaxLength = 10
-        Me.TextEdit1.Size = New System.Drawing.Size(145, 22)
+        Me.TextEdit1.Properties.MaxLength = 2
+        Me.TextEdit1.Size = New System.Drawing.Size(147, 22)
         Me.TextEdit1.StyleController = Me.LayoutControl1
         Me.TextEdit1.TabIndex = 0
         '
         'SimpleButton2
         '
-        Me.SimpleButton2.Location = New System.Drawing.Point(216, 145)
+        Me.SimpleButton2.Location = New System.Drawing.Point(220, 149)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(86, 22)
         Me.SimpleButton2.StyleController = Me.LayoutControl1
@@ -97,9 +115,9 @@ Partial Class frmTipoCultivo
         '
         'MemoEdit1
         '
-        Me.MemoEdit1.Location = New System.Drawing.Point(52, 88)
+        Me.MemoEdit1.Location = New System.Drawing.Point(52, 89)
         Me.MemoEdit1.Name = "MemoEdit1"
-        Me.MemoEdit1.Size = New System.Drawing.Size(334, 53)
+        Me.MemoEdit1.Size = New System.Drawing.Size(338, 56)
         Me.MemoEdit1.StyleController = Me.LayoutControl1
         Me.MemoEdit1.TabIndex = 1
         '
@@ -108,33 +126,32 @@ Partial Class frmTipoCultivo
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem1, Me.EmptySpaceItem2, Me.LayoutControlItem5, Me.EmptySpaceItem3})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(398, 179)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(402, 183)
         Me.LayoutControlGroup1.TextVisible = False
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.TextEdit1
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 50)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 51)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(189, 26)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(191, 26)
         Me.LayoutControlItem1.Text = "Código:"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(37, 13)
         '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.MemoEdit1
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 76)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 77)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(378, 57)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(382, 60)
         Me.LayoutControlItem2.Text = "Cultivo:"
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(37, 13)
         '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.SimpleButton2
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(204, 133)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(208, 137)
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(90, 26)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(90, 26)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
@@ -146,7 +163,7 @@ Partial Class frmTipoCultivo
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.SimpleButton1
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(294, 133)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(298, 137)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(84, 26)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(84, 26)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
@@ -158,39 +175,25 @@ Partial Class frmTipoCultivo
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 133)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 137)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(204, 26)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(208, 26)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(189, 50)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(191, 51)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(189, 26)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(191, 26)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.LabelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.LabelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 12)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(374, 16)
-        Me.LabelControl1.StyleController = Me.LayoutControl1
-        Me.LabelControl1.TabIndex = 6
-        Me.LabelControl1.Text = "Registrando Cultivos..."
         '
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.LabelControl1
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(378, 20)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(382, 20)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
@@ -199,7 +202,7 @@ Partial Class frmTipoCultivo
         Me.EmptySpaceItem3.AllowHotTrack = False
         Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 20)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(378, 30)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(382, 31)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'frmTipoCultivo
@@ -208,7 +211,7 @@ Partial Class frmTipoCultivo
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.SimpleButton1
-        Me.ClientSize = New System.Drawing.Size(398, 179)
+        Me.ClientSize = New System.Drawing.Size(402, 183)
         Me.ControlBox = False
         Me.Controls.Add(Me.LayoutControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog

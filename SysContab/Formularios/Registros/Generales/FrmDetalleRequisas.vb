@@ -1,5 +1,4 @@
-Imports System.Data
-Imports System.Data.SqlClient
+Imports Entities
 Imports DevExpress.XtraGrid
 Imports DevExpress.XtraEditors.Repository
 
@@ -35,72 +34,90 @@ Public Class FrmDetalleRequisas
     'Puede modificarse utilizando el Diseñador de Windows Forms. 
     'No lo modifique con el editor de código.
     Friend WithEvents cmdaceptar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cmdcancelar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents lblrubro As System.Windows.Forms.Label
     Friend WithEvents GridDetalle As DevExpress.XtraGrid.GridControl
+    Friend WithEvents rMonto As RepositoryItemTextEdit
+    Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
+    Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents lblTotal As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDetalleRequisas))
         Me.cmdaceptar = New DevExpress.XtraEditors.SimpleButton()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmdcancelar = New DevExpress.XtraEditors.SimpleButton()
-        Me.lblrubro = New System.Windows.Forms.Label()
         Me.GridDetalle = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.rMonto = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.lblTotal = New DevExpress.XtraEditors.LabelControl()
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.GridDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rMonto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LayoutControl1.SuspendLayout()
+        CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmdaceptar
         '
         Me.cmdaceptar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdaceptar.Location = New System.Drawing.Point(433, 296)
+        Me.cmdaceptar.ImageOptions.SvgImage = CType(resources.GetObject("cmdaceptar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdaceptar.Location = New System.Drawing.Point(563, 390)
         Me.cmdaceptar.Name = "cmdaceptar"
-        Me.cmdaceptar.Size = New System.Drawing.Size(75, 25)
-        Me.cmdaceptar.TabIndex = 1
+        Me.cmdaceptar.Size = New System.Drawing.Size(106, 36)
+        Me.cmdaceptar.StyleController = Me.LayoutControl1
+        Me.cmdaceptar.TabIndex = 3
         Me.cmdaceptar.Text = "&Aceptar"
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 296)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(334, 25)
-        Me.Label1.TabIndex = 3
         '
         'cmdcancelar
         '
         Me.cmdcancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.cmdcancelar.Location = New System.Drawing.Point(352, 296)
+        Me.cmdcancelar.ImageOptions.SvgImage = CType(resources.GetObject("cmdcancelar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdcancelar.Location = New System.Drawing.Point(453, 390)
         Me.cmdcancelar.Name = "cmdcancelar"
-        Me.cmdcancelar.Size = New System.Drawing.Size(75, 25)
-        Me.cmdcancelar.TabIndex = 1
+        Me.cmdcancelar.Size = New System.Drawing.Size(106, 36)
+        Me.cmdcancelar.StyleController = Me.LayoutControl1
+        Me.cmdcancelar.TabIndex = 2
         Me.cmdcancelar.Text = "&Cancelar"
         Me.cmdcancelar.Visible = False
-        '
-        'lblrubro
-        '
-        Me.lblrubro.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblrubro.Location = New System.Drawing.Point(16, 9)
-        Me.lblrubro.Name = "lblrubro"
-        Me.lblrubro.Size = New System.Drawing.Size(376, 24)
-        Me.lblrubro.TabIndex = 4
         '
         'GridDetalle
         '
         Me.GridDetalle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GridDetalle.Location = New System.Drawing.Point(0, 48)
+        Me.GridDetalle.Location = New System.Drawing.Point(12, 12)
         Me.GridDetalle.MainView = Me.GridView1
         Me.GridDetalle.Name = "GridDetalle"
-        Me.GridDetalle.Size = New System.Drawing.Size(520, 242)
-        Me.GridDetalle.TabIndex = 5
+        Me.GridDetalle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.rMonto})
+        Me.GridDetalle.Size = New System.Drawing.Size(657, 354)
+        Me.GridDetalle.TabIndex = 0
         Me.GridDetalle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
         'GridView1
         '
+        Me.GridView1.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GridView1.Appearance.GroupFooter.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridView1.Appearance.GroupFooter.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.GridView1.Appearance.GroupFooter.Options.UseBackColor = True
+        Me.GridView1.Appearance.GroupFooter.Options.UseFont = True
+        Me.GridView1.Appearance.GroupFooter.Options.UseForeColor = True
         Me.GridView1.GridControl = Me.GridDetalle
         Me.GridView1.Name = "GridView1"
         Me.GridView1.OptionsCustomization.AllowFilter = False
@@ -112,21 +129,133 @@ Public Class FrmDetalleRequisas
         Me.GridView1.OptionsView.ShowFooter = True
         Me.GridView1.OptionsView.ShowGroupPanel = False
         '
+        'rMonto
+        '
+        Me.rMonto.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.rMonto.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rMonto.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rMonto.Appearance.Options.UseBackColor = True
+        Me.rMonto.Appearance.Options.UseFont = True
+        Me.rMonto.Appearance.Options.UseForeColor = True
+        Me.rMonto.Appearance.Options.UseTextOptions = True
+        Me.rMonto.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.rMonto.AutoHeight = False
+        Me.rMonto.Mask.EditMask = "n4"
+        Me.rMonto.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.rMonto.Name = "rMonto"
+        '
+        'LayoutControl1
+        '
+        Me.LayoutControl1.Controls.Add(Me.lblTotal)
+        Me.LayoutControl1.Controls.Add(Me.cmdaceptar)
+        Me.LayoutControl1.Controls.Add(Me.cmdcancelar)
+        Me.LayoutControl1.Controls.Add(Me.GridDetalle)
+        Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControl1.Name = "LayoutControl1"
+        Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(729, 190, 650, 400)
+        Me.LayoutControl1.Root = Me.Root
+        Me.LayoutControl1.Size = New System.Drawing.Size(681, 438)
+        Me.LayoutControl1.TabIndex = 6
+        Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'Root
+        '
+        Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.Root.GroupBordersVisible = False
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.EmptySpaceItem1, Me.LayoutControlItem5})
+        Me.Root.Name = "Root"
+        Me.Root.Size = New System.Drawing.Size(681, 438)
+        Me.Root.TextVisible = False
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.GridDetalle
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(661, 358)
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem1.TextVisible = False
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.cmdcancelar
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(441, 378)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(110, 40)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(110, 40)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(110, 40)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextVisible = False
+        Me.LayoutControlItem3.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.cmdaceptar
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(551, 378)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(110, 40)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(110, 40)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(110, 40)
+        Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem4.TextVisible = False
+        '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 378)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(441, 40)
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'lblTotal
+        '
+        Me.lblTotal.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblTotal.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblTotal.Appearance.Options.UseBackColor = True
+        Me.lblTotal.Appearance.Options.UseFont = True
+        Me.lblTotal.Appearance.Options.UseForeColor = True
+        Me.lblTotal.Location = New System.Drawing.Point(12, 370)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(657, 16)
+        Me.lblTotal.StyleController = Me.LayoutControl1
+        Me.lblTotal.TabIndex = 8
+        '
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.lblTotal
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 358)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(661, 20)
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem5.TextVisible = False
+        '
         'FrmDetalleRequisas
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 14)
-        Me.ClientSize = New System.Drawing.Size(520, 338)
-        Me.ControlBox = False
-        Me.Controls.Add(Me.GridDetalle)
-        Me.Controls.Add(Me.lblrubro)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.cmdaceptar)
-        Me.Controls.Add(Me.cmdcancelar)
+        Me.ClientSize = New System.Drawing.Size(681, 438)
+        Me.Controls.Add(Me.LayoutControl1)
+        Me.IconOptions.SvgImage = CType(resources.GetObject("FrmDetalleRequisas.IconOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmDetalleRequisas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Detalle de Distribucion"
         CType(Me.GridDetalle, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rMonto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -209,30 +338,38 @@ Public Class FrmDetalleRequisas
     Private Sub FrmDetalleRequisas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Vista = GridDetalle.MainView
         With Vista
-
             DT.DefaultView.RowFilter = "Cuenta = '" & Cuenta & "' AND NoComp = " & CompNo & " AND Per_Id = " & Periodo & " AND IdEmpresa = " & EmpresaActual & " AND Mes = " & Mes & " AND Tipo = '" & Tipo & "'"
             GridDetalle.DataSource = DT
             GridView1.PopulateColumns()
-            GridView1.Columns("Valor").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
-            GridView1.Columns("Valor").DisplayFormat.FormatString = "n2"
-            'Dim Rubros As New RepositoryItemLookUpEdit
-            Dim DT1 As New DataTable
-            DT1 = ObtieneDatos("SELECT Codigo,Nombre FROM RubrosGastos WHERE CuentaContable = '" & Cuenta & "' AND Empresa = " & EmpresaActual)
 
-            If DT1.Rows.Count <= 0 Then
-                XtraMsg("No hay definidos rubros", MessageBoxIcon.Error)
+            GridView1.Columns("Valor").ColumnEdit = rMonto
+            GridView1.Columns("Valor").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+            GridView1.Columns("Valor").DisplayFormat.FormatString = "n4"
+
+            'Dim Rubros As New RepositoryItemLookUpEdit
+            'Dim DT1 As New DataTable
+            'DT1 = ObtieneDatos("SELECT Codigo,Nombre FROM RubrosGastos WHERE CuentaContable = '" & Cuenta & "' AND Empresa = " & EmpresaActual)            
+
+            Dim _dt As DataTable =
+                ObtieneDatos("sp_sel_RubroGastos", Cuenta, EmpresaActual)
+
+            If _dt.Rows.Count = 0 Then
+                XtraMsg($"La cuenta {Cuenta} no se encuentra en Rubros de Distribución",
+                        MessageBoxIcon.Error)
                 Close()
                 Exit Sub
             End If
 
-            Rubro = DT1.Rows(0).Item("Codigo")
-            lblrubro.Text = "Rubro : " & DT1.Rows(0).Item("Nombre")
+            Rubro = _dt.Rows(0).Item("Codigo")
+            'lblrubro.Text = "Rubro : " & _dt.Rows(0).Item("Nombre")
+            FormatoGridNew(GridView1, 4, 0, False, True, False, True, $"Rubro : {_dt.Rows(0).Item("Nombre")}")
 
-            .Columns(0).Visible = False
-            .Columns(1).Visible = False
-            .Columns(2).Visible = False
-            .Columns(3).Visible = False
-            .Columns(4).Visible = False
+            .Columns("IdEmpresa").Visible = False
+            .Columns("NoComp").Visible = False
+            .Columns("Mes").Visible = False
+            .Columns("Per_Id").Visible = False
+            .Columns("IdRubroGasto").Visible = False
+
             Try
                 .Columns("Rubro").Visible = False
                 .Columns("Centro").Visible = False
@@ -242,28 +379,42 @@ Public Class FrmDetalleRequisas
             GridView1.Columns("IdDetalle").Visible = False
             GridView1.Columns("IdSubCentro").Visible = False
 
-            Dim Centros As New RepositoryItemLookUpEdit
-            Dim DT2 As New DataTable
-            DT2 = ObtieneDatos("SELECT Codigo,Nombre FROM CentroDeCosto WHERE Activo = 1 AND Empresa = " & EmpresaActual)
-            Centros.DataSource = DT2
-            Centros.DisplayMember = "Nombre"
-            Centros.ValueMember = "Codigo"
-            Centros.ShowFooter = False
-            Centros.ShowHeader = False
-            'Centros.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete
-            Centros.PopulateColumns()
-            Centros.Columns(0).Visible = False
-            Centros.NullText = ""
-            .Columns(5).ColumnEdit = Centros
-            .Columns(5).Caption = "Centro de Costo"
-            .Columns(6).DisplayFormat.FormatString = "{0:#,0.00}"
-            .Columns(6).SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
-            .Columns(6).SummaryItem.FieldName = "Valor"
-            .Columns(6).SummaryItem.DisplayFormat = "Total Procesado : {0:#,0.00}"
-            .Columns(7).Visible = False
-            .Columns(8).Visible = False
+            Dim cbCentros As New RepositoryItemLookUpEdit
+            cbCentros.ShowFooter = False
+
+            RepositoryItemLookUpEdit(
+                cbCentros,
+                ObtieneDatos("sp_sel_CentroDeCosto", 0, 0, EmpresaActual),
+                "Nombre",
+                "Codigo",
+                0, 2)
+
+            'Dim DT2 As DataTable = ObtieneDatos("SELECT Codigo,Nombre FROM CentroDeCosto WHERE Activo = 1 AND Empresa = " & EmpresaActual)
+            'Centros.DataSource = DT2
+            'Centros.DisplayMember = "Nombre"
+            'Centros.ValueMember = "Codigo"
+            'Centros.ShowFooter = False
+            'Centros.ShowHeader = False
+            ''Centros.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete
+            'Centros.PopulateColumns()
+            'Centros.Columns(0).Visible = False
+            'Centros.NullText = ""
+
+            .Columns("IdCentroCosto").ColumnEdit = cbCentros
+            .Columns("IdCentroCosto").Caption = "Centro de Costo"
+            .Columns("IdCentroCosto").Width = 280
+
+            .Columns("Valor").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+            .Columns("Valor").SummaryItem.FieldName = "Valor"
+            .Columns("Valor").SummaryItem.DisplayFormat = "Total Procesado : {0:#,0.00}"
+            .Columns("Valor").AppearanceCell.BackColor = Color.FromArgb(192, 255, 192)
+            .Columns("Valor").AppearanceCell.Font = New Font("Tahoma", 9.75, FontStyle.Bold)
+            .Columns("Valor").AppearanceCell.ForeColor = Color.FromArgb(192, 0, 0)
+
+            .Columns("Tipo").Visible = False
+            .Columns("Cuenta").Visible = False
         End With
-        Label1.Text = "Total : " & Format(Monto, "#,#0.00")
+        lblTotal.Text = "Total : " & Format(Monto, "#,#0.00")
     End Sub
 
     Public Sub Mostrar(ByRef DS As DataTable)

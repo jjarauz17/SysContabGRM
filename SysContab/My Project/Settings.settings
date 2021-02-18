@@ -6,7 +6,7 @@
       <Value Profile="(Default)">https://servicios.bcn.gob.ni/Tc_Servicio/ServicioTC.asmx</Value>
     </Setting>
     <Setting Name="Servidor" Type="System.String" Scope="User">
-      <Value Profile="(Default)">prueba.ramac.com.ni\GRMSQL2014</Value>
+      <Value Profile="(Default)">192.168.0.2\GRMSQL2014</Value>
     </Setting>
     <Setting Name="BaseDatos" Type="System.String" Scope="User">
       <Value Profile="(Default)">SysContab</Value>

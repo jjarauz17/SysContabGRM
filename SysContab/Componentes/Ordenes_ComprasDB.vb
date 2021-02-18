@@ -1020,9 +1020,7 @@ Namespace VB.SysContab
                                          Seguro As Integer,
                                          IrP As Double)
 
-
             Dim cmd As SqlCommand = New SqlCommand("sp_upd_OrdenesComprasLineas", DBConnFacturas)
-
             '   Mark the Command as a SPROC
             cmd.CommandType = CommandType.StoredProcedure
 
@@ -1117,6 +1115,40 @@ Namespace VB.SysContab
 
             Return ObtieneDatos("sp_sel_OrdenesCompraReporteDinamico",
                                 Desde, Hasta, Moneda, EmpresaActual)
+
+        End Function
+
+        Public Shared Function MercaderiaTransito(Desde As Date, Hasta As Date) As DataTable
+
+            Return ObtieneDatos("sp_sel_MercaderiaTransitoReporte",
+                                Desde,
+                                Hasta,
+                                EmpresaActual)
+
+        End Function
+
+
+        Public Shared Function CuentaTransito() As String
+
+            Dim _dt As DataTable = ObtieneDatos("sp_sel_GetCuentaTransito", EmpresaActual)
+
+            If _dt.Rows.Count = 0 Then
+                Return Nothing
+            Else
+                Return _dt.Rows.Item(0)("CUENTA")
+            End If
+
+        End Function
+
+        Public Shared Function CuentaProyecto() As String
+
+            Dim _dt As DataTable = ObtieneDatos("sp_sel_GetCuentaProyecto", EmpresaActual)
+
+            If _dt.Rows.Count = 0 Then
+                Return Nothing
+            Else
+                Return _dt.Rows.Item(0)("CUENTA")
+            End If
 
         End Function
 

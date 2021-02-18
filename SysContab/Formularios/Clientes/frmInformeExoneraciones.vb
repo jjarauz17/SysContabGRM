@@ -10,7 +10,7 @@
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        ShowSplash("")
+        ShowSplash()
         Cargar()
         HideSplash()
     End Sub
@@ -26,7 +26,7 @@
     Private Sub iVista_DoubleClick(sender As Object, e As EventArgs) Handles iVista.DoubleClick
         If iVista.FocusedRowHandle < 0 Then Exit Sub
         '
-        With frmExoneraIVA
+        With New frmExoneraIVA
             .IdExonera = iVista.GetFocusedRowCellValue("IdExonera")
             .bGuardar.Enabled = False
             .ShowDialog()

@@ -16,15 +16,14 @@ Public Class db_ArregloPagoDetalle
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Insertar(ByVal ArregloPagoDetalle As ArregloPagoDetalle, Optional Tran As Boolean = False)
-        Dim ObjParameter(8) As String
+        Dim ObjParameter(7) As String
         ObjParameter(0) = ArregloPagoDetalle.IdArreglo
-        ObjParameter(1) = ArregloPagoDetalle.Empresa
+        ObjParameter(1) = EmpresaActual
         ObjParameter(2) = ArregloPagoDetalle.Numero
         ObjParameter(3) = ArregloPagoDetalle.FechaPago
         ObjParameter(4) = ArregloPagoDetalle.Vencimiento
         ObjParameter(5) = ArregloPagoDetalle.Cuota
         ObjParameter(6) = ArregloPagoDetalle.Interes
-        ObjParameter(7) = ArregloPagoDetalle.Aplicada
 
         Try
             Me.InicializarMensajeError()
@@ -53,16 +52,15 @@ Public Class db_ArregloPagoDetalle
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Actualizar(ByVal ArregloPagoDetalle As ArregloPagoDetalle, Optional Tran As Boolean = False)
-        Dim ObjParameter(9) As String
+        Dim ObjParameter(8) As String
         ObjParameter(0) = ArregloPagoDetalle.IdDetalle
         ObjParameter(1) = ArregloPagoDetalle.IdArreglo
-        ObjParameter(2) = ArregloPagoDetalle.Empresa
+        ObjParameter(2) = EmpresaActual
         ObjParameter(3) = ArregloPagoDetalle.Numero
         ObjParameter(4) = ArregloPagoDetalle.FechaPago
         ObjParameter(5) = ArregloPagoDetalle.Vencimiento
         ObjParameter(6) = ArregloPagoDetalle.Cuota
         ObjParameter(7) = ArregloPagoDetalle.Interes
-        ObjParameter(8) = ArregloPagoDetalle.Aplicada
 
         Try
             Me.InicializarMensajeError()
@@ -90,7 +88,7 @@ Public Class db_ArregloPagoDetalle
 
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Listar(ByVal Id As String) As Data.DataTable
+    Public Shared Function Listar(ByVal Id As String) As DataTable
 
         Return ObtieneDatos("sp_sel_ArregloPagoDetalle", Id, EmpresaActual)
 
@@ -98,8 +96,9 @@ Public Class db_ArregloPagoDetalle
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Borrar(ByVal ArregloPagoDetalle As ArregloPagoDetalle, Optional Tran As Boolean = False)
-        Dim ObjParameter(1) As String
-        ObjParameter(0) = ArregloPagoDetalle.IdDetalle
+        Dim ObjParameter(2) As String
+        ObjParameter(0) = ArregloPagoDetalle.IdArreglo
+        ObjParameter(1) = EmpresaActual
         Try
             Me.InicializarMensajeError()
             Me.OpenSqlBD()

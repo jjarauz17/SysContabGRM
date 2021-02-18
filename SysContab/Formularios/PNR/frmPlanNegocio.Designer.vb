@@ -38,6 +38,9 @@ Partial Class frmPlanNegocio
         Dim FormatConditionRuleValue4 As DevExpress.XtraEditors.FormatConditionRuleValue = New DevExpress.XtraEditors.FormatConditionRuleValue()
         Dim EditorButtonImageOptions2 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject7 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject8 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SuperToolTip2 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
         Dim ToolTipTitleItem2 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
         Me.bcCantidad = New DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn()
@@ -336,7 +339,7 @@ Partial Class frmPlanNegocio
         SerializableAppearanceObject4.Options.UseImage = True
         ToolTipTitleItem1.Text = "Agregar Responsable al PNR"
         SuperToolTip1.Items.Add(ToolTipTitleItem1)
-        Me.cbResponsable.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Agregar", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, SuperToolTip1)})
+        Me.cbResponsable.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Agregar", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "", Nothing, SuperToolTip1, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cbResponsable.Size = New System.Drawing.Size(734, 20)
         Me.cbResponsable.StyleController = Me.LayoutControl1
         Me.cbResponsable.TabIndex = 16
@@ -781,7 +784,7 @@ Partial Class frmPlanNegocio
         Me.cbItems.AutoHeight = False
         Me.cbItems.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbItems.Name = "cbItems"
-        Me.cbItems.View = Me.iVistaItems
+        Me.cbItems.PopupView = Me.iVistaItems
         '
         'iVistaItems
         '
@@ -903,9 +906,9 @@ Partial Class frmPlanNegocio
         Me.cbPropiedad.Properties.Appearance.Options.UseFont = True
         ToolTipTitleItem2.Text = "Agregar Propiedad al PNR"
         SuperToolTip2.Items.Add(ToolTipTitleItem2)
-        Me.cbPropiedad.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Agregar", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", Nothing, SuperToolTip2)})
+        Me.cbPropiedad.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Agregar", -1, True, True, False, EditorButtonImageOptions2, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, SerializableAppearanceObject6, SerializableAppearanceObject7, SerializableAppearanceObject8, "", Nothing, SuperToolTip2, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cbPropiedad.Properties.NullText = "[Seleccione]"
-        Me.cbPropiedad.Properties.View = Me.GridLookUpEdit2View
+        Me.cbPropiedad.Properties.PopupView = Me.GridLookUpEdit2View
         Me.cbPropiedad.Size = New System.Drawing.Size(310, 20)
         Me.cbPropiedad.StyleController = Me.LayoutControl1
         Me.cbPropiedad.TabIndex = 10
@@ -937,7 +940,7 @@ Partial Class frmPlanNegocio
         Me.cbCliente.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbCliente.Properties.Appearance.Options.UseFont = True
         Me.cbCliente.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCliente.Properties.View = Me.GridLookUpEdit1View
+        Me.cbCliente.Properties.PopupView = Me.GridLookUpEdit1View
         Me.cbCliente.Size = New System.Drawing.Size(578, 20)
         Me.cbCliente.StyleController = Me.LayoutControl1
         Me.cbCliente.TabIndex = 7
@@ -960,6 +963,7 @@ Partial Class frmPlanNegocio
         Me.Fecha.Properties.Appearance.Options.UseFont = True
         Me.Fecha.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.Fecha.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.Fecha.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret
         Me.Fecha.Size = New System.Drawing.Size(157, 20)
         Me.Fecha.StyleController = Me.LayoutControl1
         Me.Fecha.TabIndex = 6
@@ -1008,7 +1012,6 @@ Partial Class frmPlanNegocio
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.EmptySpaceItem2, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem12, Me.LayoutControlItem13, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem17, Me.LayoutControlItem18, Me.LayoutControlItem14, Me.LayoutControlItem20})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(868, 618)
         Me.LayoutControlGroup1.TextVisible = False
@@ -1055,7 +1058,7 @@ Partial Class frmPlanNegocio
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 106)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
         Me.LayoutControlItem6.Size = New System.Drawing.Size(424, 24)
-        Me.LayoutControlItem6.Text = "Propiedad:"
+        Me.LayoutControlItem6.Text = "Propiedad del Cliente:"
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(107, 13)
         '
         'LayoutControlItem7
@@ -1205,10 +1208,10 @@ Partial Class frmPlanNegocio
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(131, 591)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 589)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
@@ -1226,7 +1229,7 @@ Partial Class frmPlanNegocio
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1059, 175, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(131, 591)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 589)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
@@ -1235,7 +1238,7 @@ Partial Class frmPlanNegocio
         Me.SimpleButton2.Appearance.Options.UseTextOptions = True
         Me.SimpleButton2.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton2.ImageOptions.Image = CType(resources.GetObject("SimpleButton2.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(12, 96)
+        Me.SimpleButton2.Location = New System.Drawing.Point(12, 94)
         Me.SimpleButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(109, 38)
@@ -1248,7 +1251,7 @@ Partial Class frmPlanNegocio
         Me.SimpleButton3.Appearance.Options.UseTextOptions = True
         Me.SimpleButton3.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton3.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton3.Location = New System.Drawing.Point(12, 138)
+        Me.SimpleButton3.Location = New System.Drawing.Point(12, 136)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(108, 38)
         Me.SimpleButton3.StyleController = Me.LayoutControl2
@@ -1258,11 +1261,11 @@ Partial Class frmPlanNegocio
         'bExportar
         '
         Me.bExportar.Enabled = False
-        Me.bExportar.ImageOptions.Image = CType(resources.GetObject("bExportar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bExportar.Location = New System.Drawing.Point(12, 482)
+        Me.bExportar.ImageOptions.SvgImage = CType(resources.GetObject("bExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bExportar.Location = New System.Drawing.Point(12, 501)
         Me.bExportar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bExportar.Name = "bExportar"
-        Me.bExportar.Size = New System.Drawing.Size(109, 38)
+        Me.bExportar.Size = New System.Drawing.Size(109, 36)
         Me.bExportar.StyleController = Me.LayoutControl2
         Me.bExportar.TabIndex = 6
         Me.bExportar.Text = "E&xportar"
@@ -1270,11 +1273,11 @@ Partial Class frmPlanNegocio
         'bImprimir
         '
         Me.bImprimir.Enabled = False
-        Me.bImprimir.ImageOptions.Image = CType(resources.GetObject("bImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.bImprimir.Location = New System.Drawing.Point(12, 180)
+        Me.bImprimir.ImageOptions.SvgImage = CType(resources.GetObject("bImprimir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bImprimir.Location = New System.Drawing.Point(12, 178)
         Me.bImprimir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bImprimir.Name = "bImprimir"
-        Me.bImprimir.Size = New System.Drawing.Size(109, 38)
+        Me.bImprimir.Size = New System.Drawing.Size(109, 36)
         Me.bImprimir.StyleController = Me.LayoutControl2
         Me.bImprimir.TabIndex = 5
         Me.bImprimir.Text = "&Vista Previa"
@@ -1284,7 +1287,7 @@ Partial Class frmPlanNegocio
         Me.SimpleButton1.Appearance.Options.UseTextOptions = True
         Me.SimpleButton1.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(12, 54)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 52)
         Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(109, 38)
@@ -1294,11 +1297,11 @@ Partial Class frmPlanNegocio
         '
         'bSalir
         '
-        Me.bSalir.ImageOptions.Image = CType(resources.GetObject("bSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.bSalir.Location = New System.Drawing.Point(12, 524)
+        Me.bSalir.ImageOptions.SvgImage = CType(resources.GetObject("bSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bSalir.Location = New System.Drawing.Point(12, 541)
         Me.bSalir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bSalir.Name = "bSalir"
-        Me.bSalir.Size = New System.Drawing.Size(109, 38)
+        Me.bSalir.Size = New System.Drawing.Size(109, 36)
         Me.bSalir.StyleController = Me.LayoutControl2
         Me.bSalir.TabIndex = 5
         Me.bSalir.Text = "&Salir"
@@ -1309,7 +1312,7 @@ Partial Class frmPlanNegocio
         Me.bGuardar.Location = New System.Drawing.Point(12, 12)
         Me.bGuardar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bGuardar.Name = "bGuardar"
-        Me.bGuardar.Size = New System.Drawing.Size(109, 38)
+        Me.bGuardar.Size = New System.Drawing.Size(109, 36)
         Me.bGuardar.StyleController = Me.LayoutControl2
         Me.bGuardar.TabIndex = 4
         Me.bGuardar.Text = "&Guardar"
@@ -1320,9 +1323,8 @@ Partial Class frmPlanNegocio
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem15, Me.LayoutControlItem16, Me.LayoutControlItem5, Me.LayoutControlItem19, Me.LayoutControlItem21, Me.LayoutControlItem22, Me.EmptySpaceItem1, Me.LayoutControlItem23})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 574)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 589)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem15
@@ -1331,7 +1333,7 @@ Partial Class frmPlanNegocio
         Me.LayoutControlItem15.CustomizationFormText = "LayoutControlItem15"
         Me.LayoutControlItem15.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 42)
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem15.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem15.TextVisible = False
         '
@@ -1339,9 +1341,9 @@ Partial Class frmPlanNegocio
         '
         Me.LayoutControlItem16.Control = Me.bSalir
         Me.LayoutControlItem16.CustomizationFormText = "LayoutControlItem16"
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 512)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(0, 529)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
-        Me.LayoutControlItem16.Size = New System.Drawing.Size(113, 42)
+        Me.LayoutControlItem16.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem16.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem16.TextVisible = False
         '
@@ -1349,7 +1351,7 @@ Partial Class frmPlanNegocio
         '
         Me.LayoutControlItem5.Control = Me.SimpleButton1
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
@@ -1362,9 +1364,9 @@ Partial Class frmPlanNegocio
         '
         Me.LayoutControlItem19.Control = Me.bImprimir
         Me.LayoutControlItem19.CustomizationFormText = "LayoutControlItem19"
-        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 168)
+        Me.LayoutControlItem19.Location = New System.Drawing.Point(0, 166)
         Me.LayoutControlItem19.Name = "LayoutControlItem19"
-        Me.LayoutControlItem19.Size = New System.Drawing.Size(113, 42)
+        Me.LayoutControlItem19.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem19.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem19.TextVisible = False
         '
@@ -1372,9 +1374,9 @@ Partial Class frmPlanNegocio
         '
         Me.LayoutControlItem21.Control = Me.bExportar
         Me.LayoutControlItem21.CustomizationFormText = "LayoutControlItem21"
-        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 470)
+        Me.LayoutControlItem21.Location = New System.Drawing.Point(0, 489)
         Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(113, 42)
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem21.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem21.TextVisible = False
         '
@@ -1382,7 +1384,7 @@ Partial Class frmPlanNegocio
         '
         Me.LayoutControlItem22.Control = Me.SimpleButton3
         Me.LayoutControlItem22.CustomizationFormText = "LayoutControlItem22"
-        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 126)
+        Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 124)
         Me.LayoutControlItem22.MaxSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem22.MinSize = New System.Drawing.Size(112, 42)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
@@ -1394,15 +1396,15 @@ Partial Class frmPlanNegocio
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 210)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 206)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(113, 260)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(113, 283)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem23
         '
         Me.LayoutControlItem23.Control = Me.SimpleButton2
-        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 82)
         Me.LayoutControlItem23.MaxSize = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem23.MinSize = New System.Drawing.Size(113, 42)
         Me.LayoutControlItem23.Name = "LayoutControlItem23"

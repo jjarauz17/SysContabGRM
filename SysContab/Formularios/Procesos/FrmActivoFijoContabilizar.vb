@@ -1,4 +1,5 @@
 Imports System.Data.SqlClient
+Imports Entities
 Imports SysContab.VB.SysContab
 
 
@@ -682,26 +683,48 @@ Public Class FrmActivoFijoContabilizar
             '----------------------
             'Guarda la Distribucion
             '----------------------
-            Dim DT_F As DataTable
-            DT_F = DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Unchanged)
+            Dim dbDistribucion As New db_Distribucion,
+                objDistribucion As New Distribucion
+
+            objDistribucion.IdEmpresa = EmpresaActual
+            objDistribucion.NoComp = CompNo
+            objDistribucion.Mes = Fecha.DateTime.Month
+            objDistribucion.Per_Id = PeriodosDB.Activo(Me.Fecha.DateTime.Date)
+
+            Dim DT_F As DataTable =
+                DT_Distribucion.GetChanges(DataRowState.Added Or DataRowState.Unchanged)
+
             If Not DT_F Is Nothing Then
                 For i As Integer = 0 To DT_F.Rows.Count - 1
                     With DT_F
+
+                        objDistribucion.IdRubroGasto = .Rows(i).Item("IdRubroGasto")
+                        objDistribucion.IdCentroCosto = .Rows(i).Item("IdCentroCosto")
+                        objDistribucion.Valor = .Rows(i).Item("Valor")
+                        objDistribucion.Tipo = .Rows(i).Item("Tipo")
+                        objDistribucion.Cuenta = .Rows(i).Item("Cuenta")
+
+                        dbDistribucion.Insertar(objDistribucion)
+
                         ' If (.Rows(i).RowState = DataRowState.Added Or .Rows(i).RowState = DataRowState.Unchanged) Then
-                        GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
-                            " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & CompNo & "," & Me.Fecha.DateTime.Month & "," &
-                            VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & Math.Round(CDbl(.Rows(i).Item("Valor")), 2) & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
+                        'GuardaDatos("INSERT INTO Distribucion(IdEmpresa,NoComp,Mes,Per_Id,IdRubroGasto,IdCentroCosto,Valor,Tipo,Cuenta) " &
+                        '    " VALUES(" & .Rows(i).Item("IdEmpresa") & "," & CompNo & "," & Me.Fecha.DateTime.Month & "," &
+                        '    VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime.Date) & "," & .Rows(i).Item("IdRubroGasto") & "," & .Rows(i).Item("IdCentroCosto") & "," & Math.Round(CDbl(.Rows(i).Item("Valor")), 2) & ",'" & .Rows(i).Item("Tipo") & "','" & .Rows(i).Item("Cuenta") & "')")
                         'ElseIf .Rows(i).RowState = DataRowState.Modified Then
                         '    GuardaDatosTrans("UPDATE Distribucion SET IdEmpresa=" & .Rows(i).Item("IdEmpresa") & ",NoComp = " & NoComprob & ",Mes=" & Me.Fecha.DateTime.Month & "," &
                         '    "Per_Id = " & VB.SysContab.PeriodosDB.Activo(Me.Fecha.DateTime) & ",IdRubroGasto = " & .Rows(i).Item("IdRubroGasto") & ",IdCentroCosto =" & .Rows(i).Item("IdCentroCosto") & ",Valor = " & .Rows(i).Item("Valor") & "," &
                         '    "Tipo='" & .Rows(i).Item("Tipo") & "',Cuenta='" & .Rows(i).Item("Cuenta") & "' WHERE IdDetalle = " & .Rows(i).Item("IdDetalle"))
                         'ElseIf .Rows(i).RowState = DataRowState.Deleted Then
                         'End If
+
                     End With
                 Next
             End If
 
             Distribucion()
+            '--------------------------
+            'Fin de Guarda Distribucion
+            '--------------------------
 
             XtraMsg("Comprobante realizado Correctamente!")
 
@@ -788,7 +811,7 @@ Public Class FrmActivoFijoContabilizar
         '
         Fecha.DateTime = New DateTime(Mid(cbMeses.EditValue, 1, 4), Mid(cbMeses.EditValue, 5, 2), 1).Date
         ShowSplash()
-        cargar()
+        Cargar()
         HideSplash()
 
         'If IsNumeric(cbMes.SelectedValue) = True Then

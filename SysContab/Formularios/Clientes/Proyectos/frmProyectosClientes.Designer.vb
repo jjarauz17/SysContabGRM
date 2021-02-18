@@ -128,7 +128,7 @@ Partial Class frmProyectosClientes
         'CheckEdit2
         '
         Me.CheckEdit2.EditValue = True
-        Me.CheckEdit2.Location = New System.Drawing.Point(643, 277)
+        Me.CheckEdit2.Location = New System.Drawing.Point(643, 282)
         Me.CheckEdit2.Name = "CheckEdit2"
         Me.CheckEdit2.Properties.Caption = "Todo"
         Me.CheckEdit2.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
@@ -170,7 +170,7 @@ Partial Class frmProyectosClientes
         Me.rProyectosC.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.rProyectosC.Name = "rProyectosC"
         Me.rProyectosC.NullText = "[Mano de Obra]"
-        Me.rProyectosC.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.rProyectosC.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -185,7 +185,7 @@ Partial Class frmProyectosClientes
         Me.rProyectosN.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.rProyectosN.Name = "rProyectosN"
         Me.rProyectosN.NullText = "[Mano de Obra]"
-        Me.rProyectosN.View = Me.GridView1
+        Me.rProyectosN.PopupView = Me.GridView1
         '
         'GridView1
         '
@@ -197,12 +197,12 @@ Partial Class frmProyectosClientes
         'iGrid2
         '
         Me.iGrid2.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.iGrid2.Location = New System.Drawing.Point(12, 322)
+        Me.iGrid2.Location = New System.Drawing.Point(12, 327)
         Me.iGrid2.MainView = Me.iVista2
         Me.iGrid2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.iGrid2.Name = "iGrid2"
         Me.iGrid2.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.rMonto, Me.rChkRemision})
-        Me.iGrid2.Size = New System.Drawing.Size(692, 327)
+        Me.iGrid2.Size = New System.Drawing.Size(692, 322)
         Me.iGrid2.TabIndex = 5
         Me.iGrid2.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista2})
         '
@@ -258,7 +258,6 @@ Partial Class frmProyectosClientes
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6, Me.LayoutControlItem5, Me.EmptySpaceItem4, Me.LayoutControlItem2, Me.SplitterItem1, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.EmptySpaceItem1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(716, 703)
         '
@@ -301,9 +300,9 @@ Partial Class frmProyectosClientes
         Me.LayoutControlItem2.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem2.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem2.Control = Me.iGrid2
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 288)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 293)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(696, 353)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(696, 348)
         Me.LayoutControlItem2.Text = "Costos por Remisiones"
         Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(184, 19)
@@ -313,7 +312,7 @@ Partial Class frmProyectosClientes
         Me.SplitterItem1.AllowHotTrack = True
         Me.SplitterItem1.Location = New System.Drawing.Point(0, 260)
         Me.SplitterItem1.Name = "SplitterItem1"
-        Me.SplitterItem1.Size = New System.Drawing.Size(696, 5)
+        Me.SplitterItem1.Size = New System.Drawing.Size(696, 10)
         '
         'LayoutControlItem7
         '
@@ -332,7 +331,7 @@ Partial Class frmProyectosClientes
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.CheckEdit2
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(631, 265)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(631, 270)
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(65, 23)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(65, 23)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
@@ -344,7 +343,7 @@ Partial Class frmProyectosClientes
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 265)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 270)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Size = New System.Drawing.Size(631, 23)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -370,9 +369,9 @@ Partial Class frmProyectosClientes
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(3, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(406, 676)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(408, 674)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
@@ -385,13 +384,13 @@ Partial Class frmProyectosClientes
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(466, 501, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(406, 676)
+        Me.LayoutControl2.Size = New System.Drawing.Size(408, 674)
         Me.LayoutControl2.TabIndex = 1
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'CheckEdit1
         '
-        Me.CheckEdit1.Location = New System.Drawing.Point(271, 12)
+        Me.CheckEdit1.Location = New System.Drawing.Point(273, 12)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Caption = "Seleccionar Todo"
         Me.CheckEdit1.Properties.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1
@@ -417,7 +416,7 @@ Partial Class frmProyectosClientes
         Me.iGridProyectos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.iGridProyectos.Name = "iGridProyectos"
         Me.iGridProyectos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit3, Me.RepositoryItemTextEdit4})
-        Me.iGridProyectos.Size = New System.Drawing.Size(382, 626)
+        Me.iGridProyectos.Size = New System.Drawing.Size(384, 624)
         Me.iGridProyectos.TabIndex = 5
         Me.iGridProyectos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVistaProyectos})
         '
@@ -450,9 +449,8 @@ Partial Class frmProyectosClientes
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem3, Me.LayoutControlItem1, Me.EmptySpaceItem2, Me.LayoutControlItem4})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(406, 676)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(408, 674)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem3
@@ -460,14 +458,14 @@ Partial Class frmProyectosClientes
         Me.LayoutControlItem3.Control = Me.iGridProyectos
         Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 26)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(386, 630)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(388, 628)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.CheckEdit1
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(259, 0)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(261, 0)
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(127, 26)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(127, 26)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
@@ -481,7 +479,7 @@ Partial Class frmProyectosClientes
         Me.EmptySpaceItem2.AllowHotTrack = False
         Me.EmptySpaceItem2.Location = New System.Drawing.Point(118, 0)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(141, 26)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(143, 26)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem4

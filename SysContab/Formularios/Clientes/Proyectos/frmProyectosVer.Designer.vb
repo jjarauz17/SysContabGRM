@@ -134,7 +134,7 @@ Partial Class frmProyectosVer
         'SimpleButton5
         '
         Me.SimpleButton5.ImageOptions.Image = CType(resources.GetObject("SimpleButton5.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton5.Location = New System.Drawing.Point(879, 188)
+        Me.SimpleButton5.Location = New System.Drawing.Point(879, 193)
         Me.SimpleButton5.Name = "SimpleButton5"
         Me.SimpleButton5.Size = New System.Drawing.Size(123, 22)
         Me.SimpleButton5.StyleController = Me.LayoutControl1
@@ -187,7 +187,7 @@ Partial Class frmProyectosVer
         'SimpleButton1
         '
         Me.SimpleButton1.ImageOptions.Image = CType(resources.GetObject("SimpleButton1.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(879, 407)
+        Me.SimpleButton1.Location = New System.Drawing.Point(879, 415)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(123, 22)
         Me.SimpleButton1.StyleController = Me.LayoutControl1
@@ -197,11 +197,11 @@ Partial Class frmProyectosVer
         'iGrid2
         '
         Me.iGrid2.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.iGrid2.Location = New System.Drawing.Point(12, 459)
+        Me.iGrid2.Location = New System.Drawing.Point(12, 467)
         Me.iGrid2.MainView = Me.iVista2
         Me.iGrid2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.iGrid2.Name = "iGrid2"
-        Me.iGrid2.Size = New System.Drawing.Size(990, 213)
+        Me.iGrid2.Size = New System.Drawing.Size(990, 205)
         Me.iGrid2.TabIndex = 6
         Me.iGrid2.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista2})
         '
@@ -217,11 +217,11 @@ Partial Class frmProyectosVer
         'iGrid1
         '
         Me.iGrid1.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.iGrid1.Location = New System.Drawing.Point(12, 240)
+        Me.iGrid1.Location = New System.Drawing.Point(12, 245)
         Me.iGrid1.MainView = Me.iVista1
         Me.iGrid1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.iGrid1.Name = "iGrid1"
-        Me.iGrid1.Size = New System.Drawing.Size(990, 158)
+        Me.iGrid1.Size = New System.Drawing.Size(990, 156)
         Me.iGrid1.TabIndex = 5
         Me.iGrid1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.iVista1})
         '
@@ -239,7 +239,6 @@ Partial Class frmProyectosVer
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem5, Me.LayoutControlItem4, Me.EmptySpaceItem2, Me.EmptySpaceItem3, Me.LayoutControlItem12, Me.EmptySpaceItem4, Me.LayoutControlItem6, Me.SplitterItem1, Me.LayoutControlItem9, Me.EmptySpaceItem5, Me.SplitterItem2})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1014, 711)
         Me.LayoutControlGroup1.TextVisible = False
@@ -251,9 +250,9 @@ Partial Class frmProyectosVer
         Me.LayoutControlItem1.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem1.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem1.Control = Me.iGrid1
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 202)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 207)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(994, 188)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(994, 186)
         Me.LayoutControlItem1.Text = "Costo Directos"
         Me.LayoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(239, 23)
@@ -265,9 +264,9 @@ Partial Class frmProyectosVer
         Me.LayoutControlItem2.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem2.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem2.Control = Me.iGrid2
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 421)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 429)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(994, 243)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(994, 235)
         Me.LayoutControlItem2.Text = "Costos por Remisiones"
         Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(239, 23)
@@ -287,7 +286,7 @@ Partial Class frmProyectosVer
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.SimpleButton1
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(867, 395)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(867, 403)
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(127, 26)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(127, 26)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
@@ -299,7 +298,7 @@ Partial Class frmProyectosVer
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 395)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 403)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
         Me.EmptySpaceItem2.Size = New System.Drawing.Size(867, 26)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
@@ -346,14 +345,14 @@ Partial Class frmProyectosVer
         'SplitterItem1
         '
         Me.SplitterItem1.AllowHotTrack = True
-        Me.SplitterItem1.Location = New System.Drawing.Point(0, 390)
+        Me.SplitterItem1.Location = New System.Drawing.Point(0, 393)
         Me.SplitterItem1.Name = "SplitterItem1"
-        Me.SplitterItem1.Size = New System.Drawing.Size(994, 5)
+        Me.SplitterItem1.Size = New System.Drawing.Size(994, 10)
         '
         'LayoutControlItem9
         '
         Me.LayoutControlItem9.Control = Me.SimpleButton5
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(867, 176)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(867, 181)
         Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(127, 26)
         Me.LayoutControlItem9.MinSize = New System.Drawing.Size(127, 26)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
@@ -365,7 +364,7 @@ Partial Class frmProyectosVer
         'EmptySpaceItem5
         '
         Me.EmptySpaceItem5.AllowHotTrack = False
-        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 176)
+        Me.EmptySpaceItem5.Location = New System.Drawing.Point(0, 181)
         Me.EmptySpaceItem5.Name = "EmptySpaceItem5"
         Me.EmptySpaceItem5.Size = New System.Drawing.Size(867, 26)
         Me.EmptySpaceItem5.TextSize = New System.Drawing.Size(0, 0)
@@ -375,12 +374,12 @@ Partial Class frmProyectosVer
         Me.SplitterItem2.AllowHotTrack = True
         Me.SplitterItem2.Location = New System.Drawing.Point(0, 171)
         Me.SplitterItem2.Name = "SplitterItem2"
-        Me.SplitterItem2.Size = New System.Drawing.Size(994, 5)
+        Me.SplitterItem2.Size = New System.Drawing.Size(994, 10)
         '
         'tTotalCosto
         '
         Me.tTotalCosto.EditValue = 0R
-        Me.tTotalCosto.Location = New System.Drawing.Point(12, 174)
+        Me.tTotalCosto.Location = New System.Drawing.Point(12, 172)
         Me.tTotalCosto.Name = "tTotalCosto"
         Me.tTotalCosto.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tTotalCosto.Properties.Appearance.Options.UseFont = True
@@ -396,7 +395,7 @@ Partial Class frmProyectosVer
         Me.tTotalCosto.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tTotalCosto.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.tTotalCosto.Properties.ReadOnly = True
-        Me.tTotalCosto.Size = New System.Drawing.Size(137, 26)
+        Me.tTotalCosto.Size = New System.Drawing.Size(139, 26)
         Me.tTotalCosto.StyleController = Me.LayoutControl2
         Me.tTotalCosto.TabIndex = 15
         '
@@ -414,14 +413,14 @@ Partial Class frmProyectosVer
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(829, 415, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(161, 684)
+        Me.LayoutControl2.Size = New System.Drawing.Size(163, 682)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'tMargen
         '
         Me.tMargen.EditValue = 0R
-        Me.tMargen.Location = New System.Drawing.Point(12, 562)
+        Me.tMargen.Location = New System.Drawing.Point(12, 564)
         Me.tMargen.Name = "tMargen"
         Me.tMargen.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tMargen.Properties.Appearance.Options.UseFont = True
@@ -437,7 +436,7 @@ Partial Class frmProyectosVer
         Me.tMargen.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tMargen.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.tMargen.Properties.ReadOnly = True
-        Me.tMargen.Size = New System.Drawing.Size(137, 26)
+        Me.tMargen.Size = New System.Drawing.Size(139, 26)
         Me.tMargen.StyleController = Me.LayoutControl2
         Me.tMargen.TabIndex = 16
         '
@@ -460,16 +459,16 @@ Partial Class frmProyectosVer
         Me.tFacturacion.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tFacturacion.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.tFacturacion.Properties.ReadOnly = True
-        Me.tFacturacion.Size = New System.Drawing.Size(137, 26)
+        Me.tFacturacion.Size = New System.Drawing.Size(139, 26)
         Me.tFacturacion.StyleController = Me.LayoutControl2
         Me.tFacturacion.TabIndex = 15
         '
         'SimpleButton3
         '
         Me.SimpleButton3.ImageOptions.Image = CType(resources.GetObject("SimpleButton3.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton3.Location = New System.Drawing.Point(12, 592)
+        Me.SimpleButton3.Location = New System.Drawing.Point(12, 594)
         Me.SimpleButton3.Name = "SimpleButton3"
-        Me.SimpleButton3.Size = New System.Drawing.Size(137, 38)
+        Me.SimpleButton3.Size = New System.Drawing.Size(139, 36)
         Me.SimpleButton3.StyleController = Me.LayoutControl2
         Me.SimpleButton3.TabIndex = 17
         Me.SimpleButton3.Text = "&Imprimir"
@@ -479,7 +478,7 @@ Partial Class frmProyectosVer
         Me.SimpleButton4.ImageOptions.Image = CType(resources.GetObject("SimpleButton4.ImageOptions.Image"), System.Drawing.Image)
         Me.SimpleButton4.Location = New System.Drawing.Point(12, 634)
         Me.SimpleButton4.Name = "SimpleButton4"
-        Me.SimpleButton4.Size = New System.Drawing.Size(137, 38)
+        Me.SimpleButton4.Size = New System.Drawing.Size(139, 36)
         Me.SimpleButton4.StyleController = Me.LayoutControl2
         Me.SimpleButton4.TabIndex = 16
         Me.SimpleButton4.Text = "&Salir"
@@ -487,7 +486,7 @@ Partial Class frmProyectosVer
         'tCostoCompras
         '
         Me.tCostoCompras.EditValue = 0R
-        Me.tCostoCompras.Location = New System.Drawing.Point(12, 78)
+        Me.tCostoCompras.Location = New System.Drawing.Point(12, 77)
         Me.tCostoCompras.Name = "tCostoCompras"
         Me.tCostoCompras.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tCostoCompras.Properties.Appearance.Options.UseFont = True
@@ -503,14 +502,14 @@ Partial Class frmProyectosVer
         Me.tCostoCompras.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tCostoCompras.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.tCostoCompras.Properties.ReadOnly = True
-        Me.tCostoCompras.Size = New System.Drawing.Size(137, 26)
+        Me.tCostoCompras.Size = New System.Drawing.Size(139, 26)
         Me.tCostoCompras.StyleController = Me.LayoutControl2
         Me.tCostoCompras.TabIndex = 14
         '
         'tCostoRemisiones
         '
         Me.tCostoRemisiones.EditValue = 0R
-        Me.tCostoRemisiones.Location = New System.Drawing.Point(12, 125)
+        Me.tCostoRemisiones.Location = New System.Drawing.Point(12, 124)
         Me.tCostoRemisiones.Name = "tCostoRemisiones"
         Me.tCostoRemisiones.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tCostoRemisiones.Properties.Appearance.Options.UseFont = True
@@ -526,7 +525,7 @@ Partial Class frmProyectosVer
         Me.tCostoRemisiones.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tCostoRemisiones.Properties.Mask.UseMaskAsDisplayFormat = True
         Me.tCostoRemisiones.Properties.ReadOnly = True
-        Me.tCostoRemisiones.Size = New System.Drawing.Size(137, 26)
+        Me.tCostoRemisiones.Size = New System.Drawing.Size(139, 26)
         Me.tCostoRemisiones.StyleController = Me.LayoutControl2
         Me.tCostoRemisiones.TabIndex = 15
         '
@@ -535,9 +534,8 @@ Partial Class frmProyectosVer
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem10, Me.SimpleSeparator1, Me.LayoutControlItem11, Me.EmptySpaceItem1, Me.LayoutControlItem3, Me.LayoutControlItem13, Me.SimpleSeparator2, Me.LayoutControlItem14})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(161, 684)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(163, 682)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem7
@@ -547,9 +545,9 @@ Partial Class frmProyectosVer
         Me.LayoutControlItem7.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem7.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem7.Control = Me.tCostoCompras
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 49)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 48)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(141, 47)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(143, 47)
         Me.LayoutControlItem7.Text = "Costo Directos:"
         Me.LayoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(137, 14)
@@ -561,9 +559,9 @@ Partial Class frmProyectosVer
         Me.LayoutControlItem8.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem8.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem8.Control = Me.tCostoRemisiones
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 96)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 95)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(141, 47)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(143, 47)
         Me.LayoutControlItem8.Text = "Costo por Remisiones:"
         Me.LayoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(137, 14)
@@ -575,9 +573,9 @@ Partial Class frmProyectosVer
         Me.LayoutControlItem10.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem10.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem10.Control = Me.tTotalCosto
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 145)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(0, 143)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(141, 47)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(143, 47)
         Me.LayoutControlItem10.Text = "Total Costo"
         Me.LayoutControlItem10.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(137, 14)
@@ -587,33 +585,33 @@ Partial Class frmProyectosVer
         Me.SimpleSeparator1.AllowHotTrack = False
         Me.SimpleSeparator1.AppearanceItemCaption.ForeColor = System.Drawing.Color.Fuchsia
         Me.SimpleSeparator1.AppearanceItemCaption.Options.UseForeColor = True
-        Me.SimpleSeparator1.Location = New System.Drawing.Point(0, 143)
+        Me.SimpleSeparator1.Location = New System.Drawing.Point(0, 142)
         Me.SimpleSeparator1.Name = "SimpleSeparator1"
-        Me.SimpleSeparator1.Size = New System.Drawing.Size(141, 2)
+        Me.SimpleSeparator1.Size = New System.Drawing.Size(143, 1)
         '
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.SimpleButton4
         Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 622)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(141, 42)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(143, 40)
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem11.TextVisible = False
         '
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 192)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 190)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(141, 341)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(143, 345)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.SimpleButton3
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 580)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 582)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(141, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(143, 40)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
@@ -626,7 +624,7 @@ Partial Class frmProyectosVer
         Me.LayoutControlItem13.Control = Me.tFacturacion
         Me.LayoutControlItem13.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem13.Name = "LayoutControlItem13"
-        Me.LayoutControlItem13.Size = New System.Drawing.Size(141, 47)
+        Me.LayoutControlItem13.Size = New System.Drawing.Size(143, 47)
         Me.LayoutControlItem13.Text = "Total Facturación:"
         Me.LayoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem13.TextSize = New System.Drawing.Size(137, 14)
@@ -636,7 +634,7 @@ Partial Class frmProyectosVer
         Me.SimpleSeparator2.AllowHotTrack = False
         Me.SimpleSeparator2.Location = New System.Drawing.Point(0, 47)
         Me.SimpleSeparator2.Name = "SimpleSeparator2"
-        Me.SimpleSeparator2.Size = New System.Drawing.Size(141, 2)
+        Me.SimpleSeparator2.Size = New System.Drawing.Size(143, 1)
         '
         'LayoutControlItem14
         '
@@ -645,9 +643,9 @@ Partial Class frmProyectosVer
         Me.LayoutControlItem14.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlItem14.AppearanceItemCaption.Options.UseForeColor = True
         Me.LayoutControlItem14.Control = Me.tMargen
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 533)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(0, 535)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
-        Me.LayoutControlItem14.Size = New System.Drawing.Size(141, 47)
+        Me.LayoutControlItem14.Size = New System.Drawing.Size(143, 47)
         Me.LayoutControlItem14.Text = "Margen"
         Me.LayoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem14.TextSize = New System.Drawing.Size(137, 14)
@@ -673,9 +671,9 @@ Partial Class frmProyectosVer
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(161, 684)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(163, 682)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmProyectosVer

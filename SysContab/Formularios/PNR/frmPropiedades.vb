@@ -8,6 +8,14 @@
         Application.DoEvents()
         Combo(cbPeriodo, db_PNR_PlanNegocio.GetPeriodos())
         cbPeriodo.EditValue = VB.SysContab.Rutinas.Fecha().Year
+        '
+        iGrid.ForceInitialize()
+        iVista.PopulateColumns()
+        SimpleFormatGrid(iVista, False, DevExpress.Utils.HorzAlignment.Center, 1, 2, True, 0)
+
+        iVista.Columns("IdPlanNegocio").Visible = False
+        iVista.OptionsDetail.SmartDetailExpandButtonMode = DevExpress.XtraGrid.Views.Grid.DetailExpandButtonMode.CheckDefaultDetail
+        iVista.OptionsDetail.SmartDetailExpand = True
     End Sub
 
     Sub Cargar()
@@ -15,6 +23,7 @@
 
         Dim Maestro As DataTable = db_PNR_Propiedades.Listar(0, 0, cbPeriodo.EditValue)
         Maestro.TableName = "Maestro"
+
         Dim Detalle As DataTable = db_PNR_Propiedades_Detalle.Listar(0)
         Detalle.TableName = "Detalle"
 
@@ -23,13 +32,6 @@
         DS.Relations.Add("Propiedades Detalle", Maestro.Columns("IdPropiedad"), Detalle.Columns("IdPropiedad"), False)
 
         iGrid.DataSource = DS.Tables("Maestro")
-        iGrid.ForceInitialize()
-        iVista.PopulateColumns()
-        SimpleFormatGrid(iVista, False, DevExpress.Utils.HorzAlignment.Center, 1, 2, True, 0)
-
-        iVista.Columns("IdPlanNegocio").Visible = False
-        iVista.OptionsDetail.SmartDetailExpandButtonMode = DevExpress.XtraGrid.Views.Grid.DetailExpandButtonMode.CheckDefaultDetail
-        iVista.OptionsDetail.SmartDetailExpand = True
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
@@ -83,6 +85,16 @@
     End Sub
 
     Private Sub cbPeriodo_EditValueChanged(sender As Object, e As EventArgs) Handles cbPeriodo.EditValueChanged
+        ShowSplash()
         Cargar()
+        HideSplash()
+    End Sub
+
+    Private Sub frmPropiedades_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.F5 Then
+            ShowSplash()
+            Cargar()
+            HideSplash()
+        End If
     End Sub
 End Class

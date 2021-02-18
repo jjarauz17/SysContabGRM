@@ -34,7 +34,7 @@ Partial Class frmPresupuestoNew
         Me.DockPanel1 = New DevExpress.XtraBars.Docking.DockPanel()
         Me.DockPanel1_Container = New DevExpress.XtraBars.Docking.ControlContainer()
         Me.LayoutControl2 = New DevExpress.XtraLayout.LayoutControl()
-        Me.SimpleButton7 = New DevExpress.XtraEditors.SimpleButton()
+        Me.bVerPresupuesto = New DevExpress.XtraEditors.SimpleButton()
         Me.bDinamico = New DevExpress.XtraEditors.SimpleButton()
         Me.bImprimir = New DevExpress.XtraEditors.SimpleButton()
         Me.bSalir = New DevExpress.XtraEditors.SimpleButton()
@@ -111,7 +111,7 @@ Partial Class frmPresupuestoNew
         Me.CheckEdit1.Location = New System.Drawing.Point(12, 490)
         Me.CheckEdit1.Name = "CheckEdit1"
         Me.CheckEdit1.Properties.Caption = "Mostrar Mas Datos"
-        Me.CheckEdit1.Size = New System.Drawing.Size(112, 19)
+        Me.CheckEdit1.Size = New System.Drawing.Size(112, 20)
         Me.CheckEdit1.StyleController = Me.LayoutControl1
         Me.CheckEdit1.TabIndex = 20
         '
@@ -144,7 +144,6 @@ Partial Class frmPresupuestoNew
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem14, Me.LayoutControlItem10})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(809, 522)
         Me.LayoutControlGroup1.TextVisible = False
@@ -204,15 +203,15 @@ Partial Class frmPresupuestoNew
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(144, 495)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(146, 493)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
         '
-        Me.LayoutControl2.Controls.Add(Me.SimpleButton7)
+        Me.LayoutControl2.Controls.Add(Me.bVerPresupuesto)
         Me.LayoutControl2.Controls.Add(Me.bDinamico)
         Me.LayoutControl2.Controls.Add(Me.bImprimir)
         Me.LayoutControl2.Controls.Add(Me.bSalir)
@@ -226,29 +225,29 @@ Partial Class frmPresupuestoNew
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(823, 216, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(144, 495)
+        Me.LayoutControl2.Size = New System.Drawing.Size(146, 493)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
-        'SimpleButton7
+        'bVerPresupuesto
         '
-        Me.SimpleButton7.Appearance.Options.UseTextOptions = True
-        Me.SimpleButton7.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
-        Me.SimpleButton7.ImageOptions.Image = CType(resources.GetObject("SimpleButton7.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton7.Location = New System.Drawing.Point(12, 96)
-        Me.SimpleButton7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.SimpleButton7.Name = "SimpleButton7"
-        Me.SimpleButton7.Size = New System.Drawing.Size(121, 38)
-        Me.SimpleButton7.StyleController = Me.LayoutControl2
-        Me.SimpleButton7.TabIndex = 7
-        Me.SimpleButton7.Text = "&Ver Presupuesto"
+        Me.bVerPresupuesto.Appearance.Options.UseTextOptions = True
+        Me.bVerPresupuesto.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
+        Me.bVerPresupuesto.ImageOptions.SvgImage = CType(resources.GetObject("bVerPresupuesto.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bVerPresupuesto.Location = New System.Drawing.Point(12, 96)
+        Me.bVerPresupuesto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.bVerPresupuesto.Name = "bVerPresupuesto"
+        Me.bVerPresupuesto.Size = New System.Drawing.Size(121, 38)
+        Me.bVerPresupuesto.StyleController = Me.LayoutControl2
+        Me.bVerPresupuesto.TabIndex = 7
+        Me.bVerPresupuesto.Text = "&Ver Presupuesto"
         '
         'bDinamico
         '
         Me.bDinamico.Appearance.Options.UseTextOptions = True
         Me.bDinamico.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.bDinamico.Enabled = False
-        Me.bDinamico.ImageOptions.Image = CType(resources.GetObject("bDinamico.ImageOptions.Image"), System.Drawing.Image)
+        Me.bDinamico.ImageOptions.SvgImage = CType(resources.GetObject("bDinamico.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bDinamico.Location = New System.Drawing.Point(12, 222)
         Me.bDinamico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bDinamico.Name = "bDinamico"
@@ -260,7 +259,7 @@ Partial Class frmPresupuestoNew
         'bImprimir
         '
         Me.bImprimir.Enabled = False
-        Me.bImprimir.ImageOptions.Image = CType(resources.GetObject("bImprimir.ImageOptions.Image"), System.Drawing.Image)
+        Me.bImprimir.ImageOptions.SvgImage = CType(resources.GetObject("bImprimir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bImprimir.Location = New System.Drawing.Point(12, 180)
         Me.bImprimir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bImprimir.Name = "bImprimir"
@@ -271,11 +270,11 @@ Partial Class frmPresupuestoNew
         '
         'bSalir
         '
-        Me.bSalir.ImageOptions.Image = CType(resources.GetObject("bSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.bSalir.Location = New System.Drawing.Point(12, 428)
+        Me.bSalir.ImageOptions.SvgImage = CType(resources.GetObject("bSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bSalir.Location = New System.Drawing.Point(12, 445)
         Me.bSalir.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bSalir.Name = "bSalir"
-        Me.bSalir.Size = New System.Drawing.Size(121, 38)
+        Me.bSalir.Size = New System.Drawing.Size(122, 36)
         Me.bSalir.StyleController = Me.LayoutControl2
         Me.bSalir.TabIndex = 8
         Me.bSalir.Text = "&Salir"
@@ -283,11 +282,11 @@ Partial Class frmPresupuestoNew
         'bExportar
         '
         Me.bExportar.Enabled = False
-        Me.bExportar.ImageOptions.Image = CType(resources.GetObject("bExportar.ImageOptions.Image"), System.Drawing.Image)
-        Me.bExportar.Location = New System.Drawing.Point(12, 386)
+        Me.bExportar.ImageOptions.SvgImage = CType(resources.GetObject("bExportar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bExportar.Location = New System.Drawing.Point(12, 405)
         Me.bExportar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bExportar.Name = "bExportar"
-        Me.bExportar.Size = New System.Drawing.Size(121, 38)
+        Me.bExportar.Size = New System.Drawing.Size(122, 36)
         Me.bExportar.StyleController = Me.LayoutControl2
         Me.bExportar.TabIndex = 7
         Me.bExportar.Text = "E&xportar"
@@ -295,7 +294,7 @@ Partial Class frmPresupuestoNew
         'bBorrar
         '
         Me.bBorrar.Enabled = False
-        Me.bBorrar.ImageOptions.Image = CType(resources.GetObject("bBorrar.ImageOptions.Image"), System.Drawing.Image)
+        Me.bBorrar.ImageOptions.SvgImage = CType(resources.GetObject("bBorrar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bBorrar.Location = New System.Drawing.Point(12, 138)
         Me.bBorrar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bBorrar.Name = "bBorrar"
@@ -307,7 +306,7 @@ Partial Class frmPresupuestoNew
         'bEditar
         '
         Me.bEditar.Enabled = False
-        Me.bEditar.ImageOptions.Image = CType(resources.GetObject("bEditar.ImageOptions.Image"), System.Drawing.Image)
+        Me.bEditar.ImageOptions.SvgImage = CType(resources.GetObject("bEditar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bEditar.Location = New System.Drawing.Point(12, 54)
         Me.bEditar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bEditar.Name = "bEditar"
@@ -319,7 +318,7 @@ Partial Class frmPresupuestoNew
         'bNuevo
         '
         Me.bNuevo.Enabled = False
-        Me.bNuevo.ImageOptions.Image = CType(resources.GetObject("bNuevo.ImageOptions.Image"), System.Drawing.Image)
+        Me.bNuevo.ImageOptions.SvgImage = CType(resources.GetObject("bNuevo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bNuevo.Location = New System.Drawing.Point(12, 12)
         Me.bNuevo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.bNuevo.Name = "bNuevo"
@@ -334,9 +333,8 @@ Partial Class frmPresupuestoNew
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem1, Me.LayoutControlItem7, Me.LayoutControlItem8, Me.LayoutControlItem9})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(145, 478)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(146, 493)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -347,7 +345,7 @@ Partial Class frmPresupuestoNew
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
@@ -360,7 +358,7 @@ Partial Class frmPresupuestoNew
         Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem3.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
@@ -373,7 +371,7 @@ Partial Class frmPresupuestoNew
         Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem4.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
@@ -382,9 +380,9 @@ Partial Class frmPresupuestoNew
         '
         Me.LayoutControlItem5.Control = Me.bExportar
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 374)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 393)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(126, 40)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
@@ -392,9 +390,9 @@ Partial Class frmPresupuestoNew
         '
         Me.LayoutControlItem6.Control = Me.bSalir
         Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 416)
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 433)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(126, 40)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         '
@@ -404,7 +402,7 @@ Partial Class frmPresupuestoNew
         Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 252)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(125, 122)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(126, 141)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem7
@@ -415,7 +413,7 @@ Partial Class frmPresupuestoNew
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
@@ -428,19 +426,20 @@ Partial Class frmPresupuestoNew
         Me.LayoutControlItem8.MaxSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem8.MinSize = New System.Drawing.Size(124, 42)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem8.TextVisible = False
+        Me.LayoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
         '
         'LayoutControlItem9
         '
-        Me.LayoutControlItem9.Control = Me.SimpleButton7
+        Me.LayoutControlItem9.Control = Me.bVerPresupuesto
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 84)
         Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(125, 42)
         Me.LayoutControlItem9.MinSize = New System.Drawing.Size(125, 42)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(125, 42)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(126, 42)
         Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem9.TextVisible = False
@@ -510,7 +509,7 @@ Partial Class frmPresupuestoNew
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents CheckEdit1 As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents LayoutControlItem14 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents SimpleButton7 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents bVerPresupuesto As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem9 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents cbPeriodo As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents LayoutControlItem10 As DevExpress.XtraLayout.LayoutControlItem

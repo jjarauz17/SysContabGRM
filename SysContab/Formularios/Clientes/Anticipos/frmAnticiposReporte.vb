@@ -29,7 +29,9 @@ Public Class frmAnticiposReporte
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        ShowSplash()
         Cargar()
+        HideSplash()
     End Sub
 
     Private Sub cmdImprimir_Click(sender As Object, e As EventArgs) Handles cmdImprimir.Click

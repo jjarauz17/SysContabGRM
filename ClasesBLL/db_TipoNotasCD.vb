@@ -17,10 +17,12 @@ Public Class db_TipoNotasCD
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Insertar(ByVal TipoNotasCD As TipoNotasCD, Optional Tran As Boolean = False)
-        Dim ObjParameter(3) As String
+        Dim ObjParameter(4) As String
+
         ObjParameter(0) = EmpresaA
         ObjParameter(1) = TipoNotasCD.Nombre
         ObjParameter(2) = TipoNotasCD.Descripcion
+        ObjParameter(3) = TipoNotasCD.ListaNegra
 
         Try
             Me.InicializarMensajeError()
@@ -49,11 +51,12 @@ Public Class db_TipoNotasCD
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Actualizar(ByVal TipoNotasCD As TipoNotasCD, Optional Tran As Boolean = False)
-        Dim ObjParameter(4) As String
+        Dim ObjParameter(5) As String
         ObjParameter(0) = TipoNotasCD.IdTipo
         ObjParameter(1) = EmpresaA
         ObjParameter(2) = TipoNotasCD.Nombre
         ObjParameter(3) = TipoNotasCD.Descripcion
+        ObjParameter(4) = TipoNotasCD.ListaNegra
 
         Try
             Me.InicializarMensajeError()
@@ -81,7 +84,7 @@ Public Class db_TipoNotasCD
 
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Listar(ByVal Id As String) As Data.DataTable
+    Public Shared Function Listar(ByVal Id As Integer) As Data.DataTable
 
         Return ObtieneDatos("sp_sel_TipoNotasCD", Id, EmpresaA)
 
@@ -116,7 +119,7 @@ Public Class db_TipoNotasCD
     End Sub
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Detalles(ByVal Id As String) As TipoNotasCD
+    Public Shared Function Detalles(ByVal Id As Integer) As TipoNotasCD
         Dim dt As DataTable = ObtieneDatos("sp_sel_TipoNotasCD", Id, EmpresaA)
         Dim det As New TipoNotasCD
 
@@ -126,6 +129,7 @@ Public Class db_TipoNotasCD
                 det.Empresa = .Item("Empresa")
                 det.Nombre = .Item("Nombre")
                 det.Descripcion = .Item("Descripcion")
+                det.ListaNegra = IIf(CBool(.Item("ListaNegra")), 1, 0)
             End With
         End If
         Return det

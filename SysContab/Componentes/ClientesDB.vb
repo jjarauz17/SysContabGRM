@@ -1487,7 +1487,8 @@ Namespace VB.SysContab
 
         End Function
 
-        Public Function FacturaDetalleDevolucion(ByVal Factura As String) As DataSet
+        Public Shared Function FacturaDetalleDevolucion(ByVal Factura As String) As DataSet
+
             Dim DBConn As SqlConnection
             Dim DBCommand As SqlDataAdapter
             Dim dsFicha As New DataSet
@@ -5789,6 +5790,7 @@ Namespace VB.SysContab
                 Dim Tamano As Integer = Data.GetUpperBound(0)
                 Dim Cadena As String = Application.StartupPath & "\" & IIf(Fichero.Trim.Length = 0, "Manual.pdf", Fichero)
                 If File.Exists(Cadena) Then Kill(Cadena)
+
                 Dim Archivo As New FileStream(Cadena, FileMode.OpenOrCreate, FileAccess.Write)
                 Archivo.Write(Data, 0, Tamano)
                 Archivo.Close()

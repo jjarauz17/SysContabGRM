@@ -121,6 +121,9 @@
   <data name="pago" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\pago.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PopupControl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\graphics\PopupControl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Task" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\Task.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,20 +136,17 @@
   <data name="IE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\IE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="high" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\graphics\high.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="privacy_tweak" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\privacy_tweak.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="banner_simtesis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\banner_simtesis.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RibbonPrintPreview_CustomizeLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RibbonPrintPreview_CustomizeLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Empresa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\Empresa.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SalirFrm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SalirFrm.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RibbonPrintPreview_ZoomLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RibbonPrintPreview_ZoomLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,14 +154,14 @@
   <data name="Find" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Find.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BO_Reports_Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BO_Reports_Large.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ODBC_25x25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\graphics\ODBC_25x25.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exportar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exportar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RibbonPrintPreview_PageOrientationPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RibbonPrintPreview_PageOrientationPortrait.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RibbonUserDesigner_WindowsLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RibbonUserDesigner_WindowsLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RibbonPrintPreview_FindLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RibbonPrintPreview_FindLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -172,14 +172,17 @@
   <data name="BO_Tasks_Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BO_Tasks_Large.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RibbonUserDesigner_RedoLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RibbonUserDesigner_RedoLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RibbonUserDesigner_ZoomLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RibbonUserDesigner_ZoomLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RibbonPrintPreview_ClosePreviewLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RibbonPrintPreview_ClosePreviewLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ALiquidar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ALiquidar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="End-user-Report-Customizati" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\graphics\End-user-Report-Customizati.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ok.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +199,8 @@
   <data name="RibbonUserDesigner_HtmlForwardLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RibbonUserDesigner_HtmlForwardLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RibbonUserDesigner_WindowsLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RibbonUserDesigner_WindowsLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RibbonUserDesigner_RedoLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RibbonUserDesigner_RedoLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="4841823111863922470" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\4841823111863922470.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,14 +217,11 @@
   <data name="RibbonPrintPreview_ParametersLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RibbonPrintPreview_ParametersLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RibbonUserDesigner_HtmlHomeLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RibbonUserDesigner_HtmlHomeLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="114" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\114.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PopupControl" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\graphics\PopupControl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SalirFrm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SalirFrm.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ODBC" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ODBC.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,11 +235,14 @@
   <data name="BO_Persons_Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\BO_Persons_Large.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RibbonUserDesigner_HtmlRefreshLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RibbonUserDesigner_HtmlRefreshLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LogoSimtesis_Solo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoSimtesis_Solo1.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RibbonUserDesigner_HtmlRefreshLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RibbonUserDesigner_HtmlRefreshLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RibbonUserDesigner_HtmlHomeLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RibbonUserDesigner_HtmlHomeLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ImprimirD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ImprimirD.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,8 +250,8 @@
   <data name="BO_Organizations_Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\BO_Organizations_Large.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ODBC_25x25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\graphics\ODBC_25x25.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RibbonPrintPreview_CustomizeLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RibbonPrintPreview_CustomizeLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ramac" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\Ramac.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,8 +265,8 @@
   <data name="banner_Asistente_Gestión_Comercial_Ventas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\graphics\banner_Asistente_Gestión_Comercial_Ventas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="high" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\graphics\high.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RibbonPrintPreview_PageOrientationPortrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RibbonPrintPreview_PageOrientationPortrait.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LorryGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LorryGreen.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -271,8 +274,8 @@
   <data name="RibbonPrintPreview_DocumentMapLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RibbonPrintPreview_DocumentMapLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RibbonUserDesigner_ZoomLarge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RibbonUserDesigner_ZoomLarge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BO_Reports_Large" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BO_Reports_Large.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="115_25x25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\115_25x25.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -289,7 +292,7 @@
   <data name="banner_oficial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\graphics\banner_oficial.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="End-user-Report-Customizati" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\graphics\End-user-Report-Customizati.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="listanegra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\graphics\listanegra.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

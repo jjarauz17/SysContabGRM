@@ -122,7 +122,7 @@ Public Class frmEmpresas
         Me.cmdAyuda.Enabled = False
         Me.cmdAyuda.Location = New System.Drawing.Point(12, 181)
         Me.cmdAyuda.Name = "cmdAyuda"
-        Me.cmdAyuda.Size = New System.Drawing.Size(108, 22)
+        Me.cmdAyuda.Size = New System.Drawing.Size(109, 22)
         Me.cmdAyuda.StyleController = Me.LayoutControl2
         Me.cmdAyuda.TabIndex = 8
         Me.cmdAyuda.Text = "&Ayuda"
@@ -140,16 +140,16 @@ Public Class frmEmpresas
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(966, 185, 250, 350)
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(132, 257)
+        Me.LayoutControl2.Size = New System.Drawing.Size(133, 255)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'cmdSalir
         '
-        Me.cmdSalir.Image = CType(resources.GetObject("cmdSalir.Image"), System.Drawing.Image)
+        Me.cmdSalir.ImageOptions.SvgImage = CType(resources.GetObject("cmdSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.cmdSalir.Location = New System.Drawing.Point(12, 207)
         Me.cmdSalir.Name = "cmdSalir"
-        Me.cmdSalir.Size = New System.Drawing.Size(108, 38)
+        Me.cmdSalir.Size = New System.Drawing.Size(109, 36)
         Me.cmdSalir.StyleController = Me.LayoutControl2
         Me.cmdSalir.TabIndex = 6
         Me.cmdSalir.Text = "&Salir"
@@ -157,10 +157,10 @@ Public Class frmEmpresas
         'cmdImprimir
         '
         Me.cmdImprimir.Enabled = False
-        Me.cmdImprimir.Image = CType(resources.GetObject("cmdImprimir.Image"), System.Drawing.Image)
-        Me.cmdImprimir.Location = New System.Drawing.Point(12, 139)
+        Me.cmdImprimir.ImageOptions.SvgImage = CType(resources.GetObject("cmdImprimir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdImprimir.Location = New System.Drawing.Point(12, 141)
         Me.cmdImprimir.Name = "cmdImprimir"
-        Me.cmdImprimir.Size = New System.Drawing.Size(108, 38)
+        Me.cmdImprimir.Size = New System.Drawing.Size(109, 36)
         Me.cmdImprimir.StyleController = Me.LayoutControl2
         Me.cmdImprimir.TabIndex = 4
         Me.cmdImprimir.Text = "&Exportar"
@@ -168,9 +168,9 @@ Public Class frmEmpresas
         'cmdBorrar
         '
         Me.cmdBorrar.Enabled = False
-        Me.cmdBorrar.Location = New System.Drawing.Point(12, 96)
+        Me.cmdBorrar.Location = New System.Drawing.Point(12, 92)
         Me.cmdBorrar.Name = "cmdBorrar"
-        Me.cmdBorrar.Size = New System.Drawing.Size(108, 22)
+        Me.cmdBorrar.Size = New System.Drawing.Size(109, 22)
         Me.cmdBorrar.StyleController = Me.LayoutControl2
         Me.cmdBorrar.TabIndex = 5
         Me.cmdBorrar.Text = "&Borrar"
@@ -178,10 +178,10 @@ Public Class frmEmpresas
         'cmdModificar
         '
         Me.cmdModificar.Enabled = False
-        Me.cmdModificar.Image = CType(resources.GetObject("cmdModificar.Image"), System.Drawing.Image)
-        Me.cmdModificar.Location = New System.Drawing.Point(12, 54)
+        Me.cmdModificar.ImageOptions.SvgImage = CType(resources.GetObject("cmdModificar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.cmdModificar.Location = New System.Drawing.Point(12, 52)
         Me.cmdModificar.Name = "cmdModificar"
-        Me.cmdModificar.Size = New System.Drawing.Size(108, 38)
+        Me.cmdModificar.Size = New System.Drawing.Size(109, 36)
         Me.cmdModificar.StyleController = Me.LayoutControl2
         Me.cmdModificar.TabIndex = 2
         Me.cmdModificar.Text = "&Editar"
@@ -189,10 +189,10 @@ Public Class frmEmpresas
         'cmdNuevo
         '
         Me.cmdNuevo.Enabled = False
-        Me.cmdNuevo.Image = CType(resources.GetObject("cmdNuevo.Image"), System.Drawing.Image)
+        Me.cmdNuevo.ImageOptions.SvgImage = CType(resources.GetObject("cmdNuevo.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.cmdNuevo.Location = New System.Drawing.Point(12, 12)
         Me.cmdNuevo.Name = "cmdNuevo"
-        Me.cmdNuevo.Size = New System.Drawing.Size(108, 38)
+        Me.cmdNuevo.Size = New System.Drawing.Size(109, 36)
         Me.cmdNuevo.StyleController = Me.LayoutControl2
         Me.cmdNuevo.TabIndex = 1
         Me.cmdNuevo.Text = "&Nuevo"
@@ -202,9 +202,8 @@ Public Class frmEmpresas
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
         Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem5, Me.EmptySpaceItem1})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "Root"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(132, 257)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(133, 255)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem2
@@ -212,25 +211,25 @@ Public Class frmEmpresas
         Me.LayoutControlItem2.Control = Me.cmdNuevo
         Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem2.TextVisible = False
         '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.cmdModificar
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem3.TextVisible = False
         '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.cmdImprimir
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 127)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 129)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem4.TextVisible = False
         '
@@ -239,7 +238,7 @@ Public Class frmEmpresas
         Me.LayoutControlItem6.Control = Me.cmdAyuda
         Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 169)
         Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(112, 26)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(113, 26)
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextVisible = False
         Me.LayoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -249,16 +248,16 @@ Public Class frmEmpresas
         Me.LayoutControlItem7.Control = Me.cmdSalir
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 195)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(112, 42)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(113, 40)
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem7.TextVisible = False
         '
         'LayoutControlItem5
         '
         Me.LayoutControlItem5.Control = Me.cmdBorrar
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 80)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(112, 26)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(113, 26)
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         Me.LayoutControlItem5.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
@@ -266,9 +265,9 @@ Public Class frmEmpresas
         'EmptySpaceItem1
         '
         Me.EmptySpaceItem1.AllowHotTrack = False
-        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 110)
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 106)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(112, 17)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(113, 23)
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
         '
         'GCEmpresas
@@ -311,7 +310,6 @@ Public Class frmEmpresas
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(349, 284)
         Me.LayoutControlGroup1.TextVisible = False
@@ -346,9 +344,9 @@ Public Class frmEmpresas
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(132, 257)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(133, 255)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'frmEmpresas
@@ -400,7 +398,7 @@ Public Class frmEmpresas
 
         '''VB.SysContab.Rutinas.UsuariosAcciones(Me, Me.Name)
 
-        Me.Text = "Mantenimiento de Empresas"
+        ' Me.Text = "Mantenimiento de Empresas"
         Me.Refresh()
     End Sub
 
@@ -451,6 +449,9 @@ Public Class frmEmpresas
     End Sub
 
     Private Sub cmdModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdModificar.Click
+        Dim frm As frmAgregarEmpresa = frmAgregarEmpresa.Instance()
+        frm.Dispose()
+        '
         Dim f As frmAgregarEmpresa = frmAgregarEmpresa.Instance()
 
         'If Tabla.Rows.Count = 0 Then 'If ds.Tables("Empresas").Rows.Count = 0 Then

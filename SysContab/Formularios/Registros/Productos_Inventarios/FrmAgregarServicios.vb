@@ -12,6 +12,7 @@ Public Class FrmAgregarServicios
     Dim Cod_S_Subgrupo As String
     Private Catalogos As New VB.SysContab.CatalogoDB()
     Private Shared ChildInstance As FrmAgregarServicios = Nothing
+    Private _DT_CABYS As DataTable = New DataTable("CABYS")
 
     Public Shared Function Instance() As FrmAgregarServicios
         If ChildInstance Is Nothing OrElse ChildInstance.IsDisposed = True Then
@@ -50,7 +51,7 @@ Public Class FrmAgregarServicios
         cbLinea.ValueMember = "Codigo"
         cbLinea.DisplayMember = "Nombre"
 
-        GetCentrosCostosList(cbCentroCosto, 1)        
+        GetCentrosCostosList(cbCentroCosto, 1)
 
         'Me.cbCatalogo.DataSource = Catalogos.CatalogoList("A", 0).Tables("CATALOGO")
         'Me.cbCatalogo.ValueMember = "Cuenta"
@@ -83,7 +84,6 @@ Public Class FrmAgregarServicios
             Me.txtNombre.Text = Detalles.Nombre.ToString
             Cod_Proveedor = Detalles.Proveedor.ToString
             Me.cbProveedor.EditValue = Detalles.Proveedor.ToString
-            Me.ChkExento.Checked = Detalles.Exento
             chkKilometraje.Checked = Detalles.Kilometraje
             chkDescuento.Checked = Detalles.Descuento
 
@@ -150,12 +150,21 @@ Public Class FrmAgregarServicios
             Me.txtValorExternos.Text = (Detalles.Precio * Detalles.Gasto_Externo / 100.0).ToString(Round)
 
             Me.cbCatalogo.EditValue = Detalles.Cuenta
+
+            txtCabys.Text = Detalles.Cabys
+            txtImpuesto.EditValue = Detalles.Impuesto
+            '
+            ChkExento.Checked = Detalles.Exento
         Else
-            Me.Text = "Agregar Servicio"
+            Text = "Agregar Servicio"
         End If
-
-        Me.Refresh()
-
+        '
+        BuscarImpuesto()
+        '
+        'Cargar Catalogo CABYS para CR
+        _DT_CABYS = ObtieneDatos("sp_sel_CR_CABYS", EmpresaActual)
+        '
+        Refresh()
     End Sub
 
     Private Sub cmdCancelar_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancelar.Click
@@ -165,6 +174,7 @@ Public Class FrmAgregarServicios
 
     Private Sub cmdAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAceptar.Click
         Dim Servicios As New VB.SysContab.ServiciosDB()
+
         Dim r As New VB.SysContab.Rutinas()
 
         If Trim(Me.txtCodigo.Text) = "" Then
@@ -195,19 +205,24 @@ Public Class FrmAgregarServicios
             XtraMsg("Ese codigo ya existe", MessageBoxIcon.Error)
             Exit Sub
         End If
+        '
+        BuscarImpuesto()
 
         Try
             If Nuevo = "SI" Then
-                Servicios.AddItem(txtCodigo.Text, txtNombre.Text, Me.cbProveedor.EditValue, _
-                                  cbLinea.SelectedValue, cbGrupo.SelectedValue, cbSubGrupo.SelectedValue, _
-                                  IIf(Me.cbS_subgrupo.SelectedValue = Nothing, "", Me.cbS_subgrupo.SelectedValue), _
-                                  txtCosto.Text, txtMargen.Text, txtCostoPromedio.Text, txtCostoUltimo.Text, _
-                                  txtPrecio.Text, txtNumeroHoras.Text, txtPrecioHora.Text, txtMinimoHoras.Text, _
-                                  txtIncremento.Text, txtPrecioMinimo.Text, txtDescuentoA.Text, txtDescuentoB.Text, _
-                                  txtDescuentoC.Text, txtTransporte.Text, txtMaterial.Text, txtPersonal.Text, _
-                                  txtExternos.Text, Me.cbCatalogo.EditValue, ChkExento.Checked, PC, IIf(chkKilometraje.Checked, 1, 0), _
-                                  IIf(chkDescuento.Checked, 1, 0), IIf(Me.cbCentroCosto.EditValue Is Nothing, 0, Me.cbCentroCosto.EditValue))
-                'MsgBox("El registro ha sido guardado correctamente", MsgBoxStyle.Information)
+
+                Servicios.AddItem(txtCodigo.Text, txtNombre.Text, Me.cbProveedor.EditValue,
+                                  cbLinea.SelectedValue, cbGrupo.SelectedValue, cbSubGrupo.SelectedValue,
+                                  IIf(Me.cbS_subgrupo.SelectedValue = Nothing, "", Me.cbS_subgrupo.SelectedValue),
+                                  txtCosto.Text, txtMargen.Text, txtCostoPromedio.Text, txtCostoUltimo.Text,
+                                  txtPrecio.Text, txtNumeroHoras.Text, txtPrecioHora.Text, txtMinimoHoras.Text,
+                                  txtIncremento.Text, txtPrecioMinimo.Text, txtDescuentoA.Text, txtDescuentoB.Text,
+                                  txtDescuentoC.Text, txtTransporte.Text, txtMaterial.Text, txtPersonal.Text,
+                                  txtExternos.Text, Me.cbCatalogo.EditValue, ChkExento.Checked, PC, IIf(chkKilometraje.Checked, 1, 0),
+                                  IIf(chkDescuento.Checked, 1, 0), IIf(Me.cbCentroCosto.EditValue Is Nothing, 0, Me.cbCentroCosto.EditValue),
+                                  txtCabys.Text, txtImpuesto.EditValue)
+
+                XtraMsg("El registro ha sido guardado correctamente")
 
                 r.LimpiarControles(GroupBox1)
                 r.LimpiarControles(GroupBox4)
@@ -231,25 +246,26 @@ Public Class FrmAgregarServicios
                 cbSubGrupo.SelectedValue = -1
 
                 txtCodigo.Focus()
-                Exit Sub
-
+                BuscarImpuesto()
             Else
-                Servicios.Update(txtCodigo.Text, txtNombre.Text, Me.cbProveedor.EditValue, cbLinea.SelectedValue, _
-                                 cbGrupo.SelectedValue, cbSubGrupo.SelectedValue, _
-                                 IIf(Me.cbS_subgrupo.SelectedValue = Nothing, "", Me.cbS_subgrupo.SelectedValue), _
-                                 CDbl(txtCosto.Text).ToString(Round), CDbl(txtMargen.Text).ToString(Round), _
-                                 CDbl(txtCostoPromedio.Text).ToString(Round), CDbl(txtCostoUltimo.Text).ToString(Round), _
-                                 CDbl(txtPrecio.Text).ToString(Round), txtNumeroHoras.Text, CDbl(txtPrecioHora.Text).ToString(Round), _
-                                 txtMinimoHoras.Text, CDbl(txtIncremento.Text).ToString(Round), _
-                                 CDbl(txtPrecioMinimo.Text).ToString(Round), txtDescuentoA.Text, txtDescuentoB.Text, txtDescuentoC.Text, _
-                                 txtTransporte.Text, txtMaterial.Text, txtPersonal.Text, txtExternos.Text, Me.cbCatalogo.EditValue, _
-                                 ChkExento.Checked, PC, IIf(chkKilometraje.Checked, 1, 0), IIf(chkDescuento.Checked, 1, 0), _
-                                 IIf(Me.cbCentroCosto.EditValue Is Nothing, 0, Me.cbCentroCosto.EditValue))
+                Servicios.Update(txtCodigo.Text, txtNombre.Text, Me.cbProveedor.EditValue, cbLinea.SelectedValue,
+                                 cbGrupo.SelectedValue, cbSubGrupo.SelectedValue,
+                                 IIf(Me.cbS_subgrupo.SelectedValue = Nothing, "", Me.cbS_subgrupo.SelectedValue),
+                                 CDbl(txtCosto.Text).ToString(Round), CDbl(txtMargen.Text).ToString(Round),
+                                 CDbl(txtCostoPromedio.Text).ToString(Round), CDbl(txtCostoUltimo.Text).ToString(Round),
+                                 CDbl(txtPrecio.Text).ToString(Round), txtNumeroHoras.Text, CDbl(txtPrecioHora.Text).ToString(Round),
+                                 txtMinimoHoras.Text, CDbl(txtIncremento.Text).ToString(Round),
+                                 CDbl(txtPrecioMinimo.Text).ToString(Round), txtDescuentoA.Text, txtDescuentoB.Text, txtDescuentoC.Text,
+                                 txtTransporte.Text, txtMaterial.Text, txtPersonal.Text, txtExternos.Text, Me.cbCatalogo.EditValue,
+                                 ChkExento.Checked, PC, IIf(chkKilometraje.Checked, 1, 0), IIf(chkDescuento.Checked, 1, 0),
+                                 IIf(Me.cbCentroCosto.EditValue Is Nothing, 0, Me.cbCentroCosto.EditValue),
+                                 txtCabys.Text, txtImpuesto.EditValue)
                 'MsgBox("El registro se ha actualizado correctamente", MsgBoxStyle.Information)
                 Me.Close()
             End If
+
         Catch ex As Exception
-            MsgBox(ex.Message)
+            XtraMsg(ex.Message, MessageBoxIcon.Error)
         End Try
 
 
@@ -738,5 +754,30 @@ Public Class FrmAgregarServicios
 
     Private Sub cbLinea_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbLinea.SelectedIndexChanged
 
+    End Sub
+
+    Private Sub ChkExento_CheckedChanged(sender As Object, e As EventArgs) Handles ChkExento.CheckedChanged
+        BuscarImpuesto()
+    End Sub
+
+    Sub BuscarImpuesto()
+        If txtCabys.Text.Length = 0 Then
+            If Not ChkExento.Checked Then
+                txtImpuesto.EditValue = VB.SysContab.ConfiguracionDB.GetConfigDetails().IVA
+            Else
+                txtImpuesto.EditValue = 0.00
+            End If
+        End If
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        With New frmCatalogoCABYS
+            .Main(_DT_CABYS)
+
+            If .ok Then
+                txtCabys.Text = .Codigo
+                txtImpuesto.EditValue = .Impuesto
+            End If
+        End With
     End Sub
 End Class

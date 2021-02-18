@@ -22,6 +22,9 @@ Partial Class frmFacturasVentasEditar
         Me.components = New System.ComponentModel.Container()
         Dim EditorButtonImageOptions1 As DevExpress.XtraEditors.Controls.EditorButtonImageOptions = New DevExpress.XtraEditors.Controls.EditorButtonImageOptions()
         Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject4 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim SuperToolTip1 As DevExpress.Utils.SuperToolTip = New DevExpress.Utils.SuperToolTip()
         Dim ToolTipTitleItem1 As DevExpress.Utils.ToolTipTitleItem = New DevExpress.Utils.ToolTipTitleItem()
         Dim ToolTipItem1 As DevExpress.Utils.ToolTipItem = New DevExpress.Utils.ToolTipItem()
@@ -72,6 +75,7 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.txtPrecioC = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.rIvaP = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -91,6 +95,9 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn28 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -130,6 +137,8 @@ Partial Class frmFacturasVentasEditar
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem23 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem24 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.LayoutControlItem29 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.lbltotalU.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,6 +177,7 @@ Partial Class frmFacturasVentasEditar
         CType(Me.txtFactor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPrecioU, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPrecioC, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rIvaP, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rExento, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.rLink, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbProyecto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -209,6 +219,7 @@ Partial Class frmFacturasVentasEditar
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem23, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem24, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem29, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -640,7 +651,7 @@ Partial Class frmFacturasVentasEditar
         Me.cbCliente.Properties.Appearance.Options.UseBackColor = True
         Me.cbCliente.Properties.Appearance.Options.UseFont = True
         Me.cbCliente.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbCliente.Properties.View = Me.GridView1
+        Me.cbCliente.Properties.PopupView = Me.GridView1
         Me.cbCliente.Size = New System.Drawing.Size(551, 22)
         Me.cbCliente.StyleController = Me.LayoutControl1
         Me.cbCliente.TabIndex = 202
@@ -658,10 +669,9 @@ Partial Class frmFacturasVentasEditar
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GridDetalle.Location = New System.Drawing.Point(12, 191)
-        Me.GridDetalle.LookAndFeel.SkinName = "The Asphalt World"
         Me.GridDetalle.MainView = Me.vFact
         Me.GridDetalle.Name = "GridDetalle"
-        Me.GridDetalle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtPresentacion, Me.txtUnidad, Me.txtPrecioC, Me.txtPrecioU, Me.txtFactor, Me.rLink, Me.cbProducto, Me.rExento, Me.cbProyecto})
+        Me.GridDetalle.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.txtPresentacion, Me.txtUnidad, Me.txtPrecioC, Me.txtPrecioU, Me.txtFactor, Me.rLink, Me.cbProducto, Me.rExento, Me.cbProyecto, Me.rIvaP})
         Me.GridDetalle.Size = New System.Drawing.Size(930, 354)
         Me.GridDetalle.TabIndex = 17
         Me.GridDetalle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vFact})
@@ -670,7 +680,7 @@ Partial Class frmFacturasVentasEditar
         '
         Me.vFact.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
         Me.vFact.Appearance.EvenRow.Options.UseBackColor = True
-        Me.vFact.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn2, Me.Existencia, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn3, Me.GridColumn11, Me.GridColumn13, Me.GridColumn4, Me.GridColumn6, Me.GridColumn5, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn12, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn22, Me.GridColumn24, Me.GridColumn1, Me.GridColumn23, Me.GridColumn25})
+        Me.vFact.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn2, Me.Existencia, Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn17, Me.GridColumn3, Me.GridColumn11, Me.GridColumn13, Me.GridColumn4, Me.GridColumn6, Me.GridColumn5, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn12, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21, Me.GridColumn22, Me.GridColumn24, Me.GridColumn1, Me.GridColumn23, Me.GridColumn25, Me.GridColumn26, Me.GridColumn27, Me.GridColumn28})
         Me.vFact.GridControl = Me.GridDetalle
         Me.vFact.Name = "vFact"
         Me.vFact.OptionsNavigation.EnterMoveNextColumn = True
@@ -701,10 +711,10 @@ Partial Class frmFacturasVentasEditar
         ToolTipItem1.Text = "Agregar Comentario Adicional"
         SuperToolTip1.Items.Add(ToolTipTitleItem1)
         SuperToolTip1.Items.Add(ToolTipItem1)
-        Me.cbProducto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "Agregar Comentario Adicional", Nothing, SuperToolTip1)})
+        Me.cbProducto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo), New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, True, True, False, EditorButtonImageOptions1, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, SerializableAppearanceObject2, SerializableAppearanceObject3, SerializableAppearanceObject4, "Agregar Comentario Adicional", Nothing, SuperToolTip1, DevExpress.Utils.ToolTipAnchor.[Default])})
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.NullText = "[Agregar]"
-        Me.cbProducto.View = Me.RepositoryItemSearchLookUpEdit1View
+        Me.cbProducto.PopupView = Me.RepositoryItemSearchLookUpEdit1View
         '
         'RepositoryItemSearchLookUpEdit1View
         '
@@ -904,14 +914,29 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn6.AppearanceHeader.Options.UseFont = True
         Me.GridColumn6.AppearanceHeader.Options.UseTextOptions = True
         Me.GridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.GridColumn6.Caption = "% Descuento"
-        Me.GridColumn6.DisplayFormat.FormatString = "P2"
-        Me.GridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn6.Caption = "%Descuento"
+        Me.GridColumn6.ColumnEdit = Me.rIvaP
         Me.GridColumn6.FieldName = "Descuento"
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.Visible = True
         Me.GridColumn6.VisibleIndex = 9
         Me.GridColumn6.Width = 53
+        '
+        'rIvaP
+        '
+        Me.rIvaP.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.rIvaP.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rIvaP.Appearance.ForeColor = System.Drawing.Color.Red
+        Me.rIvaP.Appearance.Options.UseBackColor = True
+        Me.rIvaP.Appearance.Options.UseFont = True
+        Me.rIvaP.Appearance.Options.UseForeColor = True
+        Me.rIvaP.Appearance.Options.UseTextOptions = True
+        Me.rIvaP.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.rIvaP.AutoHeight = False
+        Me.rIvaP.Mask.EditMask = "P2"
+        Me.rIvaP.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.rIvaP.Mask.UseMaskAsDisplayFormat = True
+        Me.rIvaP.Name = "rIvaP"
         '
         'GridColumn5
         '
@@ -931,7 +956,7 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn5.OptionsColumn.ReadOnly = True
         Me.GridColumn5.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:n2}")})
         Me.GridColumn5.Visible = True
-        Me.GridColumn5.VisibleIndex = 10
+        Me.GridColumn5.VisibleIndex = 11
         Me.GridColumn5.Width = 47
         '
         'GridColumn7
@@ -970,7 +995,7 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn10.OptionsColumn.AllowEdit = False
         Me.GridColumn10.OptionsColumn.AllowFocus = False
         Me.GridColumn10.Visible = True
-        Me.GridColumn10.VisibleIndex = 11
+        Me.GridColumn10.VisibleIndex = 12
         Me.GridColumn10.Width = 48
         '
         'rExento
@@ -1045,7 +1070,7 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn24.FieldName = "IdProyecto"
         Me.GridColumn24.Name = "GridColumn24"
         Me.GridColumn24.Visible = True
-        Me.GridColumn24.VisibleIndex = 13
+        Me.GridColumn24.VisibleIndex = 14
         Me.GridColumn24.Width = 145
         '
         'cbProyecto
@@ -1054,7 +1079,7 @@ Partial Class frmFacturasVentasEditar
         Me.cbProyecto.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cbProyecto.Name = "cbProyecto"
         Me.cbProyecto.NullText = "[Proyecto]"
-        Me.cbProyecto.View = Me.GridView2
+        Me.cbProyecto.PopupView = Me.GridView2
         '
         'GridView2
         '
@@ -1084,7 +1109,7 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn23.FieldName = "Visible"
         Me.GridColumn23.Name = "GridColumn23"
         Me.GridColumn23.Visible = True
-        Me.GridColumn23.VisibleIndex = 12
+        Me.GridColumn23.VisibleIndex = 13
         Me.GridColumn23.Width = 52
         '
         'GridColumn25
@@ -1095,12 +1120,44 @@ Partial Class frmFacturasVentasEditar
         Me.GridColumn25.OptionsColumn.AllowEdit = False
         Me.GridColumn25.OptionsColumn.AllowFocus = False
         '
+        'GridColumn26
+        '
+        Me.GridColumn26.AppearanceCell.Options.UseTextOptions = True
+        Me.GridColumn26.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn26.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridColumn26.AppearanceHeader.Options.UseFont = True
+        Me.GridColumn26.AppearanceHeader.Options.UseTextOptions = True
+        Me.GridColumn26.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.GridColumn26.Caption = "%Impuesto"
+        Me.GridColumn26.ColumnEdit = Me.rIvaP
+        Me.GridColumn26.DisplayFormat.FormatString = "{0:P2}"
+        Me.GridColumn26.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.GridColumn26.FieldName = "IvaP"
+        Me.GridColumn26.Name = "GridColumn26"
+        Me.GridColumn26.Visible = True
+        Me.GridColumn26.VisibleIndex = 10
+        '
+        'GridColumn27
+        '
+        Me.GridColumn27.Caption = "Cabys"
+        Me.GridColumn27.FieldName = "CABYS"
+        Me.GridColumn27.Name = "GridColumn27"
+        Me.GridColumn27.OptionsColumn.AllowEdit = False
+        Me.GridColumn27.OptionsColumn.AllowFocus = False
+        '
+        'GridColumn28
+        '
+        Me.GridColumn28.Caption = "SAC"
+        Me.GridColumn28.FieldName = "SAC"
+        Me.GridColumn28.Name = "GridColumn28"
+        Me.GridColumn28.OptionsColumn.AllowEdit = False
+        Me.GridColumn28.OptionsColumn.AllowFocus = False
+        '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem11, Me.LayoutControlItem13, Me.LayoutControlItem7, Me.LayoutControlItem14, Me.LayoutControlItem15, Me.LayoutControlItem16, Me.LayoutControlItem17, Me.LayoutControlItem18, Me.LayoutControlItem19, Me.EmptySpaceItem1, Me.LayoutControlItem10, Me.LayoutControlItem21, Me.LayoutControlItem12, Me.LayoutControlItem20, Me.LayoutControlItem25, Me.LayoutControlItem26, Me.LayoutControlItem27, Me.LayoutControlItem28})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(954, 661)
         Me.LayoutControlGroup1.TextVisible = False
@@ -1398,13 +1455,14 @@ Partial Class frmFacturasVentasEditar
         'DockPanel1_Container
         '
         Me.DockPanel1_Container.Controls.Add(Me.LayoutControl2)
-        Me.DockPanel1_Container.Location = New System.Drawing.Point(5, 23)
+        Me.DockPanel1_Container.Location = New System.Drawing.Point(4, 26)
         Me.DockPanel1_Container.Name = "DockPanel1_Container"
-        Me.DockPanel1_Container.Size = New System.Drawing.Size(121, 634)
+        Me.DockPanel1_Container.Size = New System.Drawing.Size(123, 632)
         Me.DockPanel1_Container.TabIndex = 0
         '
         'LayoutControl2
         '
+        Me.LayoutControl2.Controls.Add(Me.SimpleButton1)
         Me.LayoutControl2.Controls.Add(Me.bSalir)
         Me.LayoutControl2.Controls.Add(Me.bImprimir)
         Me.LayoutControl2.Controls.Add(Me.bGuardar)
@@ -1412,36 +1470,36 @@ Partial Class frmFacturasVentasEditar
         Me.LayoutControl2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl2.Name = "LayoutControl2"
         Me.LayoutControl2.Root = Me.LayoutControlGroup2
-        Me.LayoutControl2.Size = New System.Drawing.Size(121, 634)
+        Me.LayoutControl2.Size = New System.Drawing.Size(123, 632)
         Me.LayoutControl2.TabIndex = 0
         Me.LayoutControl2.Text = "LayoutControl2"
         '
         'bSalir
         '
-        Me.bSalir.ImageOptions.Image = CType(resources.GetObject("bSalir.ImageOptions.Image"), System.Drawing.Image)
-        Me.bSalir.Location = New System.Drawing.Point(12, 96)
+        Me.bSalir.ImageOptions.SvgImage = CType(resources.GetObject("bSalir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bSalir.Location = New System.Drawing.Point(12, 584)
         Me.bSalir.Name = "bSalir"
-        Me.bSalir.Size = New System.Drawing.Size(97, 38)
+        Me.bSalir.Size = New System.Drawing.Size(99, 36)
         Me.bSalir.StyleController = Me.LayoutControl2
         Me.bSalir.TabIndex = 6
         Me.bSalir.Text = "&Salir"
         '
         'bImprimir
         '
-        Me.bImprimir.ImageOptions.Image = CType(resources.GetObject("bImprimir.ImageOptions.Image"), System.Drawing.Image)
-        Me.bImprimir.Location = New System.Drawing.Point(12, 54)
+        Me.bImprimir.ImageOptions.SvgImage = CType(resources.GetObject("bImprimir.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.bImprimir.Location = New System.Drawing.Point(12, 52)
         Me.bImprimir.Name = "bImprimir"
-        Me.bImprimir.Size = New System.Drawing.Size(97, 38)
+        Me.bImprimir.Size = New System.Drawing.Size(99, 36)
         Me.bImprimir.StyleController = Me.LayoutControl2
         Me.bImprimir.TabIndex = 5
         Me.bImprimir.Text = "&Imprimir"
         '
         'bGuardar
         '
-        Me.bGuardar.ImageOptions.Image = CType(resources.GetObject("bGuardar.ImageOptions.Image"), System.Drawing.Image)
+        Me.bGuardar.ImageOptions.SvgImage = CType(resources.GetObject("bGuardar.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
         Me.bGuardar.Location = New System.Drawing.Point(12, 12)
         Me.bGuardar.Name = "bGuardar"
-        Me.bGuardar.Size = New System.Drawing.Size(97, 38)
+        Me.bGuardar.Size = New System.Drawing.Size(99, 36)
         Me.bGuardar.StyleController = Me.LayoutControl2
         Me.bGuardar.TabIndex = 4
         Me.bGuardar.Text = "&Guardar"
@@ -1450,10 +1508,9 @@ Partial Class frmFacturasVentasEditar
         '
         Me.LayoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup2.GroupBordersVisible = False
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem22, Me.EmptySpaceItem2, Me.LayoutControlItem23, Me.LayoutControlItem24})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem22, Me.LayoutControlItem23, Me.LayoutControlItem24, Me.EmptySpaceItem2, Me.LayoutControlItem29})
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(121, 634)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(123, 632)
         Me.LayoutControlGroup2.TextVisible = False
         '
         'LayoutControlItem22
@@ -1461,35 +1518,54 @@ Partial Class frmFacturasVentasEditar
         Me.LayoutControlItem22.Control = Me.bGuardar
         Me.LayoutControlItem22.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem22.Name = "LayoutControlItem22"
-        Me.LayoutControlItem22.Size = New System.Drawing.Size(101, 42)
+        Me.LayoutControlItem22.Size = New System.Drawing.Size(103, 40)
         Me.LayoutControlItem22.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem22.TextVisible = False
         '
         'EmptySpaceItem2
         '
         Me.EmptySpaceItem2.AllowHotTrack = False
-        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 126)
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(0, 80)
         Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
-        Me.EmptySpaceItem2.Size = New System.Drawing.Size(101, 488)
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(103, 452)
         Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem23
         '
         Me.LayoutControlItem23.Control = Me.bImprimir
-        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 42)
+        Me.LayoutControlItem23.Location = New System.Drawing.Point(0, 40)
         Me.LayoutControlItem23.Name = "LayoutControlItem23"
-        Me.LayoutControlItem23.Size = New System.Drawing.Size(101, 42)
+        Me.LayoutControlItem23.Size = New System.Drawing.Size(103, 40)
         Me.LayoutControlItem23.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem23.TextVisible = False
         '
         'LayoutControlItem24
         '
         Me.LayoutControlItem24.Control = Me.bSalir
-        Me.LayoutControlItem24.Location = New System.Drawing.Point(0, 84)
+        Me.LayoutControlItem24.Location = New System.Drawing.Point(0, 572)
         Me.LayoutControlItem24.Name = "LayoutControlItem24"
-        Me.LayoutControlItem24.Size = New System.Drawing.Size(101, 42)
+        Me.LayoutControlItem24.Size = New System.Drawing.Size(103, 40)
         Me.LayoutControlItem24.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem24.TextVisible = False
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.ImageOptions.SvgImage = CType(resources.GetObject("SimpleButton1.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 544)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(99, 36)
+        Me.SimpleButton1.StyleController = Me.LayoutControl2
+        Me.SimpleButton1.TabIndex = 7
+        Me.SimpleButton1.Text = "E&xportar"
+        '
+        'LayoutControlItem29
+        '
+        Me.LayoutControlItem29.Control = Me.SimpleButton1
+        Me.LayoutControlItem29.Location = New System.Drawing.Point(0, 532)
+        Me.LayoutControlItem29.Name = "LayoutControlItem29"
+        Me.LayoutControlItem29.Size = New System.Drawing.Size(103, 40)
+        Me.LayoutControlItem29.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem29.TextVisible = False
         '
         'frmFacturasVentasEditar
         '
@@ -1539,6 +1615,7 @@ Partial Class frmFacturasVentasEditar
         CType(Me.txtFactor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPrecioU, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPrecioC, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rIvaP, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rExento, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.rLink, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbProyecto, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1580,6 +1657,7 @@ Partial Class frmFacturasVentasEditar
         CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem23, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem24, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem29, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1688,4 +1766,10 @@ Partial Class frmFacturasVentasEditar
     Friend WithEvents LayoutControlItem26 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem27 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem28 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents GridColumn26 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents rIvaP As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents GridColumn27 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn28 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem29 As DevExpress.XtraLayout.LayoutControlItem
 End Class

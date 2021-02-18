@@ -60,7 +60,6 @@ Partial Class frmXmlProveedor
         Me.LayoutControlItem13 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem17 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -70,6 +69,7 @@ Partial Class frmXmlProveedor
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem16 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem26 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem15 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem14 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.DxValidationProvider1 = New DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(Me.components)
@@ -109,7 +109,6 @@ Partial Class frmXmlProveedor
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,6 +118,7 @@ Partial Class frmXmlProveedor
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -167,13 +167,13 @@ Partial Class frmXmlProveedor
         Me.rgIva.Properties.Appearance.Options.UseFont = True
         Me.rgIva.Properties.Appearance.Options.UseForeColor = True
         Me.rgIva.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "IVA BIENES"), New DevExpress.XtraEditors.Controls.RadioGroupItem(2, "IVA SERVICIO")})
-        Me.rgIva.Size = New System.Drawing.Size(216, 25)
+        Me.rgIva.Size = New System.Drawing.Size(216, 34)
         Me.rgIva.StyleController = Me.LayoutControl1
         Me.rgIva.TabIndex = 23
         '
         'txtCorreoReceptor
         '
-        Me.txtCorreoReceptor.Location = New System.Drawing.Point(618, 261)
+        Me.txtCorreoReceptor.Location = New System.Drawing.Point(618, 270)
         Me.txtCorreoReceptor.Name = "txtCorreoReceptor"
         Me.txtCorreoReceptor.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCorreoReceptor.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
@@ -259,7 +259,7 @@ Partial Class frmXmlProveedor
         '
         'txtMensajeRechazo
         '
-        Me.txtMensajeRechazo.Location = New System.Drawing.Point(618, 335)
+        Me.txtMensajeRechazo.Location = New System.Drawing.Point(618, 344)
         Me.txtMensajeRechazo.Name = "txtMensajeRechazo"
         Me.txtMensajeRechazo.Size = New System.Drawing.Size(239, 80)
         Me.txtMensajeRechazo.StyleController = Me.LayoutControl1
@@ -282,7 +282,7 @@ Partial Class frmXmlProveedor
         'FechaEnvio
         '
         Me.FechaEnvio.EditValue = Nothing
-        Me.FechaEnvio.Location = New System.Drawing.Point(861, 351)
+        Me.FechaEnvio.Location = New System.Drawing.Point(861, 360)
         Me.FechaEnvio.Name = "FechaEnvio"
         Me.FechaEnvio.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FechaEnvio.Properties.Appearance.Options.UseFont = True
@@ -298,7 +298,7 @@ Partial Class frmXmlProveedor
         Me.SimpleButton4.Appearance.Options.UseTextOptions = True
         Me.SimpleButton4.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap
         Me.SimpleButton4.ImageOptions.Image = CType(resources.GetObject("SimpleButton4.ImageOptions.Image"), System.Drawing.Image)
-        Me.SimpleButton4.Location = New System.Drawing.Point(861, 377)
+        Me.SimpleButton4.Location = New System.Drawing.Point(861, 386)
         Me.SimpleButton4.Name = "SimpleButton4"
         Me.SimpleButton4.Size = New System.Drawing.Size(135, 38)
         Me.SimpleButton4.StyleController = Me.LayoutControl1
@@ -327,7 +327,7 @@ Partial Class frmXmlProveedor
         '
         'txtCedulaReceptor
         '
-        Me.txtCedulaReceptor.Location = New System.Drawing.Point(618, 237)
+        Me.txtCedulaReceptor.Location = New System.Drawing.Point(618, 246)
         Me.txtCedulaReceptor.Name = "txtCedulaReceptor"
         Me.txtCedulaReceptor.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCedulaReceptor.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -344,7 +344,7 @@ Partial Class frmXmlProveedor
         '
         'txtReceptor
         '
-        Me.txtReceptor.Location = New System.Drawing.Point(618, 213)
+        Me.txtReceptor.Location = New System.Drawing.Point(618, 222)
         Me.txtReceptor.Name = "txtReceptor"
         Me.txtReceptor.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtReceptor.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -362,7 +362,7 @@ Partial Class frmXmlProveedor
         'txttotalFactura
         '
         Me.txttotalFactura.EditValue = New Decimal(New Integer() {0, 0, 0, 196608})
-        Me.txttotalFactura.Location = New System.Drawing.Point(618, 187)
+        Me.txttotalFactura.Location = New System.Drawing.Point(618, 196)
         Me.txttotalFactura.Name = "txttotalFactura"
         Me.txttotalFactura.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txttotalFactura.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -411,7 +411,7 @@ Partial Class frmXmlProveedor
         '
         'cbMensaje
         '
-        Me.cbMensaje.Location = New System.Drawing.Point(618, 309)
+        Me.cbMensaje.Location = New System.Drawing.Point(618, 318)
         Me.cbMensaje.Name = "cbMensaje"
         Me.cbMensaje.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.cbMensaje.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -516,7 +516,7 @@ Partial Class frmXmlProveedor
         '
         'txtConsecutivo
         '
-        Me.txtConsecutivo.Location = New System.Drawing.Point(618, 285)
+        Me.txtConsecutivo.Location = New System.Drawing.Point(618, 294)
         Me.txtConsecutivo.Name = "txtConsecutivo"
         Me.txtConsecutivo.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtConsecutivo.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -538,7 +538,6 @@ Partial Class frmXmlProveedor
         Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.LayoutControlGroup1.GroupBordersVisible = False
         Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lyXml, Me.LayoutControlItem6, Me.EmptySpaceItem2, Me.LayoutControlItem12, Me.LayoutControlItem2, Me.LayoutControlItem4, Me.lyEmisorNumero, Me.LayoutControlItem3, Me.LayoutControlItem10, Me.LayoutControlItem11, Me.LayoutControlItem1, Me.LayoutControlItem13, Me.EmptySpaceItem3, Me.LayoutControlItem5, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem17, Me.LayoutControlItem18, Me.LayoutControlItem19, Me.LayoutControlItem20, Me.LayoutControlItem7, Me.LayoutControlItem16, Me.LayoutControlItem26, Me.LayoutControlItem15, Me.LayoutControlItem14})
-        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "Root"
         Me.LayoutControlGroup1.Size = New System.Drawing.Size(1008, 729)
         Me.LayoutControlGroup1.TextVisible = False
@@ -643,7 +642,7 @@ Partial Class frmXmlProveedor
         'LayoutControlItem10
         '
         Me.LayoutControlItem10.Control = Me.txtReceptor
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(493, 201)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(493, 210)
         Me.LayoutControlItem10.MaxSize = New System.Drawing.Size(495, 24)
         Me.LayoutControlItem10.MinSize = New System.Drawing.Size(495, 24)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
@@ -655,7 +654,7 @@ Partial Class frmXmlProveedor
         'LayoutControlItem11
         '
         Me.LayoutControlItem11.Control = Me.txtCedulaReceptor
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(493, 225)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(493, 234)
         Me.LayoutControlItem11.MaxSize = New System.Drawing.Size(495, 24)
         Me.LayoutControlItem11.MinSize = New System.Drawing.Size(495, 24)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
@@ -667,7 +666,7 @@ Partial Class frmXmlProveedor
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.txtConsecutivo
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(493, 273)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(493, 282)
         Me.LayoutControlItem1.MaxSize = New System.Drawing.Size(495, 24)
         Me.LayoutControlItem1.MinSize = New System.Drawing.Size(495, 24)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
@@ -691,9 +690,9 @@ Partial Class frmXmlProveedor
         'EmptySpaceItem3
         '
         Me.EmptySpaceItem3.AllowHotTrack = False
-        Me.EmptySpaceItem3.Location = New System.Drawing.Point(493, 407)
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(493, 416)
         Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
-        Me.EmptySpaceItem3.Size = New System.Drawing.Size(495, 260)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(495, 251)
         Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
         '
         'LayoutControlItem5
@@ -705,32 +704,19 @@ Partial Class frmXmlProveedor
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem5.TextVisible = False
         '
-        'LayoutControlItem15
-        '
-        Me.LayoutControlItem15.Control = Me.FechaEnvio
-        Me.LayoutControlItem15.Location = New System.Drawing.Point(849, 323)
-        Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(139, 42)
-        Me.LayoutControlItem15.MinSize = New System.Drawing.Size(139, 42)
-        Me.LayoutControlItem15.Name = "LayoutControlItem15"
-        Me.LayoutControlItem15.Size = New System.Drawing.Size(139, 42)
-        Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
-        Me.LayoutControlItem15.Text = "Fecha de Envio:"
-        Me.LayoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(110, 13)
-        '
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.txtTotalImpuesto
         Me.LayoutControlItem8.Location = New System.Drawing.Point(493, 146)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(275, 29)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(275, 38)
         Me.LayoutControlItem8.Text = "Total Impuesto:"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(110, 13)
         '
         'LayoutControlItem9
         '
         Me.LayoutControlItem9.Control = Me.txttotalFactura
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(493, 175)
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(493, 184)
         Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(495, 26)
         Me.LayoutControlItem9.MinSize = New System.Drawing.Size(495, 26)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
@@ -769,7 +755,7 @@ Partial Class frmXmlProveedor
         'LayoutControlItem20
         '
         Me.LayoutControlItem20.Control = Me.txtCorreoReceptor
-        Me.LayoutControlItem20.Location = New System.Drawing.Point(493, 249)
+        Me.LayoutControlItem20.Location = New System.Drawing.Point(493, 258)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
         Me.LayoutControlItem20.Size = New System.Drawing.Size(495, 24)
         Me.LayoutControlItem20.Text = "Correo:"
@@ -778,7 +764,7 @@ Partial Class frmXmlProveedor
         'LayoutControlItem7
         '
         Me.LayoutControlItem7.Control = Me.cbMensaje
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(493, 297)
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(493, 306)
         Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(495, 26)
         Me.LayoutControlItem7.MinSize = New System.Drawing.Size(495, 26)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
@@ -790,7 +776,7 @@ Partial Class frmXmlProveedor
         'LayoutControlItem16
         '
         Me.LayoutControlItem16.Control = Me.txtMensajeRechazo
-        Me.LayoutControlItem16.Location = New System.Drawing.Point(493, 323)
+        Me.LayoutControlItem16.Location = New System.Drawing.Point(493, 332)
         Me.LayoutControlItem16.MaxSize = New System.Drawing.Size(0, 84)
         Me.LayoutControlItem16.MinSize = New System.Drawing.Size(127, 84)
         Me.LayoutControlItem16.Name = "LayoutControlItem16"
@@ -804,14 +790,27 @@ Partial Class frmXmlProveedor
         Me.LayoutControlItem26.Control = Me.rgIva
         Me.LayoutControlItem26.Location = New System.Drawing.Point(768, 146)
         Me.LayoutControlItem26.Name = "LayoutControlItem26"
-        Me.LayoutControlItem26.Size = New System.Drawing.Size(220, 29)
+        Me.LayoutControlItem26.Size = New System.Drawing.Size(220, 38)
         Me.LayoutControlItem26.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem26.TextVisible = False
+        '
+        'LayoutControlItem15
+        '
+        Me.LayoutControlItem15.Control = Me.FechaEnvio
+        Me.LayoutControlItem15.Location = New System.Drawing.Point(849, 332)
+        Me.LayoutControlItem15.MaxSize = New System.Drawing.Size(139, 42)
+        Me.LayoutControlItem15.MinSize = New System.Drawing.Size(139, 42)
+        Me.LayoutControlItem15.Name = "LayoutControlItem15"
+        Me.LayoutControlItem15.Size = New System.Drawing.Size(139, 42)
+        Me.LayoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem15.Text = "Fecha de Envio:"
+        Me.LayoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(110, 13)
         '
         'LayoutControlItem14
         '
         Me.LayoutControlItem14.Control = Me.SimpleButton4
-        Me.LayoutControlItem14.Location = New System.Drawing.Point(849, 365)
+        Me.LayoutControlItem14.Location = New System.Drawing.Point(849, 374)
         Me.LayoutControlItem14.MaxSize = New System.Drawing.Size(139, 42)
         Me.LayoutControlItem14.MinSize = New System.Drawing.Size(139, 42)
         Me.LayoutControlItem14.Name = "LayoutControlItem14"
@@ -826,7 +825,7 @@ Partial Class frmXmlProveedor
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1008, 729)
         Me.Controls.Add(Me.LayoutControl1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.IconOptions.Icon = CType(resources.GetObject("frmXmlProveedor.IconOptions.Icon"), System.Drawing.Icon)
         Me.Name = "frmXmlProveedor"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Procesar Facturas Electrónicas de Proveedores"
@@ -866,7 +865,6 @@ Partial Class frmXmlProveedor
         CType(Me.LayoutControlItem13, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem17, System.ComponentModel.ISupportInitialize).EndInit()
@@ -876,6 +874,7 @@ Partial Class frmXmlProveedor
         CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem16, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem15, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem14, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DxValidationProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

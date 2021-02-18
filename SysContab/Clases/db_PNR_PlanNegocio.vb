@@ -17,7 +17,7 @@ Public Class db_PNR_PlanNegocio
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Function Insertar(ByVal PNR_PlanNegocio As PNR_PlanNegocio, Optional Tran As Boolean = False) As Integer
 
-        Dim ObjParameter(16) As String
+        Dim ObjParameter(17) As String
         ObjParameter(0) = PNR_PlanNegocio.IdPlanNegocio
         ObjParameter(1) = PNR_PlanNegocio.Codigo
         ObjParameter(2) = EmpresaActual
@@ -34,6 +34,7 @@ Public Class db_PNR_PlanNegocio
         ObjParameter(13) = PNR_PlanNegocio.Potencial_Biologico
         ObjParameter(14) = PNR_PlanNegocio.Presentacion
         ObjParameter(15) = PNR_PlanNegocio.Observaciones
+        ObjParameter(16) = PNR_PlanNegocio.Tipo
 
         Try
             Me.InicializarMensajeError()
@@ -66,7 +67,7 @@ Public Class db_PNR_PlanNegocio
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Sub Actualizar(ByVal PNR_PlanNegocio As PNR_PlanNegocio, Optional Tran As Boolean = False)
 
-        Dim ObjParameter(16) As String
+        Dim ObjParameter(17) As String
         ObjParameter(0) = PNR_PlanNegocio.IdPlanNegocio
         ObjParameter(1) = PNR_PlanNegocio.Codigo
         ObjParameter(2) = EmpresaActual
@@ -83,6 +84,7 @@ Public Class db_PNR_PlanNegocio
         ObjParameter(13) = PNR_PlanNegocio.Potencial_Biologico
         ObjParameter(14) = PNR_PlanNegocio.Presentacion
         ObjParameter(15) = PNR_PlanNegocio.Observaciones
+        ObjParameter(16) = PNR_PlanNegocio.Tipo
 
         Try
             Me.InicializarMensajeError()
@@ -110,15 +112,27 @@ Public Class db_PNR_PlanNegocio
     End Sub
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-    Public Shared Function Listar(ByVal Id As String, Periodo As Integer) As Data.DataTable
+    Public Shared Function Listar(Periodo As Integer, Presentacion As Integer) As Data.DataTable
 
-        Return ObtieneDatos("sp_sel_PNR_PlanNegocio", Id, EmpresaActual, Usuario_ID, Periodo)
+        Return ObtieneDatos("sp_sel_PNR_PlanNegocio", 0, EmpresaActual, Usuario_ID, Periodo, Presentacion)
 
     End Function
 
     Public Shared Function Listar2(Periodo As Integer) As Data.DataTable
 
         Return ObtieneDatos("sp_sel_PNR_PlanNegocio_Trasladar", EmpresaActual, Periodo)
+
+    End Function
+
+    Public Shared Function ReporteVer(IdPlanNegocio As Integer) As Data.DataTable
+
+        Return ObtieneDatos("sp_sel_PNR_PlanNegocioVer", IdPlanNegocio, EmpresaActual)
+
+    End Function
+
+    Public Shared Function ReporteVerConsolidado(Periodo As Integer) As Data.DataTable
+
+        Return ObtieneDatos("sp_sel_PNR_PlanNegocioVer_Consolidado", Periodo, EmpresaActual)
 
     End Function
 
@@ -197,14 +211,15 @@ Public Class db_PNR_PlanNegocio
 
     '-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
     Public Shared Function Detalles(ByVal Id As String) As PNR_PlanNegocio
-        Dim dt As DataTable = ObtieneDatos("sp_sel_PNR_PlanNegocio", Id, EmpresaActual, Usuario_ID)
+        Dim dt As DataTable = ObtieneDatos("sp_sel_PNR_PlanNegocio", Id, EmpresaActual, Usuario_ID, 1)
         Dim det As New PNR_PlanNegocio
 
         If dt.Rows.Count > 0 Then
             With dt.rows(0)
                 det.IdPlanNegocio = .item("IdPlanNegocio")
                 det.Codigo = .item("Codigo")
-                det.Empresa = .item("Empresa")
+                det.Empresa = .Item("Empresa")
+                det.Tipo = .Item("TipoPNR")
                 det.Peridodo = .item("Peridodo")
                 det.Fecha = .item("Fecha")
                 det.IdCliente = .item("IdCliente")

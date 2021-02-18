@@ -304,8 +304,14 @@ Public Class frmComprobantesElectonicosProveedores
         '
         Dim CorreoEmisor As String = String.Empty
         Dim CorreoReceptor As String = String.Empty
+        Dim Moneda As String = String.Empty
 
-        Dim Moneda As String = XmlO.GetElementsByTagName("ResumenFactura")(0)("CodigoMoneda").InnerText
+        Try
+            Moneda = XmlO.GetElementsByTagName("ResumenFactura")(0)("CodigoMoneda").InnerText
+        Catch ex As Exception
+            Moneda = "CRC"
+        End Try
+
         Dim ClaveEmisor As String = XmlO.GetElementsByTagName("Clave")(0).InnerText
         '
         Try
@@ -545,9 +551,9 @@ Public Class frmComprobantesElectonicosProveedores
                                                             .Item("Per_Id"),
                                                             .Item("Comp_Fecha"))
 
-                    EliminaDistribucionTrans(.Item("Comp_No"),
-                                             .Item("Per_Id"),
-                                             .Item("Comp_Fecha").Month)
+                    'EliminaDistribucionTrans(.Item("Comp_No"),
+                    '                         .Item("Per_Id"),
+                    '                         .Item("Comp_Fecha").Month)
 
                     VB.SysContab.ComprobanteDB.CancelarFactura(.Item("Factura"),
                                                                .Item("Proveedor"),
